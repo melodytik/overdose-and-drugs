@@ -1,0 +1,236 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>在量子梦中旅行</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-dalt.html'>← 4-AcO-DALT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>在量子梦中旅行</h1>
+<div class='sub-title'>4-AcO-DALT - Erowid Exp - &#x27;Travelling in a Quantic Dream&#x27;</div>
+<div class='meta'>作者：ConaDmae Citation · 日期：Oct 25, 2015 · 剂量：60 mg · <a href='https://erowid.org/experiences/exp.php?ID=102439' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>在经历时,我几乎每天服用200毫克酸盐,1000毫克肝油,B复合物 (100%的RDA rec) + 0.25毫克夜间的黑素以帮助睡眠.
+16.15- 在轻食后1小时服用60毫克,在恶心时也服用一粒药.
+气压127/70脉冲-54
+有点紧张,但还好.
+听着来自马尔代夫的音乐.
+有趣的是,暴风雨即将到来,闪电越来越近.
+想知道这会给出什么.
+雷在这里,我还没有进入旅行...哈哈哈!
+第一个迹象... 慢慢地深度场开始摇摆 墙壁开始呼吸... 好吧,现在一切都稍微波动.
+但我的头脑非常专注.
+17.30- 轻微的头,非常放松.
+我不得不说我喝的,和茶有点蜂蜜.
+我有点恶心.
+现在感觉非常有触觉性... 非常好.
+吃一些草,新鲜的,好好!
+轻微的瞳孔扩张.
+微微的 CEV,非常漂亮.
+17.35心率升高, 现在可以注意到.
+生命是一波浪,现在我只是在骑着它.
+在地震的中心, 放松的音乐是完美的.
+现在
+我脑海中同时发生的东西太多了,
+非常有趣.
+身体感觉有点, 但不太糟糕,
+感觉到我的神经传感器有点.
+一切都在波浪... 哈哈,生活就是一波浪,而这正是时光中的那一刻.
+闭着眼睛的颜色海,非常合成... 但漂亮.
+生命是一次旅程, 我的身体是一艘船... 穿过时间的网... 进入量子海洋.
+尿尿是可以的, 但感觉就像在宇宙的另一端操作机器一样... .
+这仍然是一个熟悉的函数.
+生命只是一个梦,但梦,但梦...
+有时候这感觉太真实了!
+我的身体是音乐在一个海洋的感官信息....当我闭上眼睛我几乎可以触摸我的思想,我的想法,他们的像流...他们是...我.
+现在已经平衡了.
+生命是一道火焰,它慢慢燃烧着...我非常拥抱这个火焰.
+这就是我的感觉...这是发生了什么.
+感觉很好, 只是慢慢地让我的身体听到放松的音乐.
+BP-146/71 脉冲为91.
+我们只是彼此的记忆, 慢慢的回响通过时间.
+太空中没有沉默, 因为一切都连接起来, 非常快.
+19.10-慢慢下降,就像从一个温暖的拥抱中获救一样...
+音乐和环境对于这种化学反应至关重要.
+我能感觉到它轻轻地离开我的身体... 转化为别的东西...
+19.30- 仍然感觉像一个温柔的骑在龙的背上...生活在循环,循环,循环.
+这是一个快乐的龙...哈哈.
+感觉就像抓住月亮在我的手指之间...就在这里,就在这里,但没有...不是真的...只是另一个漂亮的幻想,
+如此接近...但如此遥远!
+我看着我写的页面, 看起来所有字母背后都有一种深度...很酷;
+,这东西真是太幸福了.
+BP-141/78 - - 脉冲为75
+我感觉很好, 就像我有一个惊人的生动的梦想,
+这正是我想要的!
+我的身体并没有完全被摧毁.
+虽然我觉得这一切在整个经历过程中都是有点合成的, 但这一切都很幸福;
+我感激我的身体, 让我感受和理解这么多东西...
+这真是太明显了!
+(上帝!这个简单的认识几乎让我想哭) (滴滴滴...情绪释放)
+,这是非常治疗.
+我感到幸福.
+这是所有可以说.
+我感到非常高兴...
+我知道这只是一个瞬间, 像很多瞬间组成我的生活一样,
+(我知道这只是一种药物,只是一种药物,只是一种药物....)
+化学反应完全开始后, 我不再觉得需要再服用.
+我相信如果剂量稍高一点,
+这就是所有的人.
+已使用的证券
+4-AcO-DALT (444):一个人 (16),音乐讨论 (22),烂的经历 (4),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Travelling in a Quantic Dream
+4-AcO-DALT
+by
+ConaDmae
+Citation:   ConaDmae. &quot;Travelling in a Quantic Dream: An Experience with 4-AcO-DALT (exp102439)&quot;.
+Erowid.org
+. Oct 25, 2015. erowid.org/exp/102439
+DOSE:
+60 mg
+oral
+4-AcO-DALT
+Ginger
+(tea)
+Chamomile
+(tea)
+BODY WEIGHT:
+70 kg
+At the time of the Experience, I&#x27;m taking almost daily; 200mg magnesium citrate, 1000mg Cod liver oil, B-complex (100% RDA rec)+ 0.25 mg Melatonin at night to Help with sleep.
+16.15- took 60 mg 1 hr after a light meal, also took one sickness pill with the meal in case of nausea.
+BP- 127/70 pulse-54
+Sightly nervous but ok. Listening to chillout music with images from Maldives.
+Interestingly a storm is approaching, the lightning is closer and closer. Wonder what this is going to give. Wow thunder is here and I&#x27;m not into the trip yet...ha ha aha!
+17.15- First signs...slowly depth of field starts to wiggle walls start to breathe...ok now everything is slightly undulating. But my head is very focused.
+17.30- Slight head trippiness, very relaxed. I have to say that I&#x27;m drinking ginger, camomile and lemon tea with a bit of honey.
+Feeling a bit nausea. Feeling very tactile now...extremely nice. Eating some strawberries, freshhhhh, nice!
+slight pupil dilation. Slight CEVs, very pretty.
+17.35 Increased heart rate..noticeable now.
+17.45 Life is a wave...now I&#x27;m just riding it. Right in the epicentre...chillout music is perfect. Now there
+are so many things going on my mind at the same time, cannot describe. Pretty trippy. Body feels a bit shaky but not too bad, I guess it&#x27;s the nature of these chems.
+18.00- Everything looks amazing but in a disconnected way, like my nerves sensors are a bit captaliptic. Overloaded.....everything is waving ...ha ha life is a wave and this is the moment in time. Closed eyes sea of colours, very synthetic.. but pretty. Life is a journey, and my body the boat...through the nets of time...into a quantic ocean.
+Peeing is ok but it feels like operating a mechanism from the other side of the universe...loll. It&#x27;s still a familiar function somehow. Life is but a dream but a dream but a dream... That feels all too real sometimes!
+18.30- My body is music in an ocean of sensorial information....when I close my eyes I can almost touch my thoughts, my ideas, their like streams...they are... me.
+It levels out now. Life is a flame, that slowly burns...I soooo embrace this flame. This is how I feel...this is what&#x27;s going on.
+Feels wonderful just to slowly move my body to chillout music.
+BP-146/71 pulse 91.
+18.50-We&#x27;re just memories of each other, that slowly echo through time. I&#x27;ve just realised there&#x27;s no silence in deep space, because everything is connecting, very fast.
+19.10- Coming down slowly like being delivered from a warm embrace...
+music and environment is essential for this chem. I can feel it gently leaving my body...transforming into something else...it continues its journey.
+19.30- Still feels like a gentle ride on the back of the dragon...life goes in circles and circles and circles. It&#x27;s a happy dragon this one...ha ha. Feels like grabbing the moon right there between my fingers...right there, right there, but no...not really...just another pretty illusion, like so many of the opticals in this kaledoscopic reality!!! So close...but so far! I look at the page of what I&#x27;m writing and it looks like there&#x27;s depth of field behind all the letters...very cool; and behind it a stream of algorithms?...some data looking like shapes projecting them... imagination runs deep on this stuff... OMG this stuff is so blissful.
+BP-141/78 -pulse 75.
+20.00- Almost baseline...I feel great, just like I had this amazing vivid dream and I can recall all of it.
+Exactly what I was looking for! And my body doesn&#x27;t feel completely destroyed. Although I had the feeling that it was all a bit synthetic throughout the experience it was all very blissful; like being out of the driver&#x27;s seat for a moment and letting something else drive the car (my senses?..) -without smashing it into pieces. I feel grateful to my body that allows me to feel and comprehend so many things...I feel like have the utmost respect...it is my temple. It is so clear! (God!..this simple realisation almost makes me wanna cry) (tick tick....emotional release.)
+Wow that was very therapeutic. I feel blissful. It&#x27;s all can say. I feel deeply Happy...roafl.
+I know it&#x27;s just a moment like so many in this stream of moments that make up my life ....but flipping heck; What a FUCKING MOMENT!
+(I know its just a drug, just a drug, just a drug....)
+After the chem fully set in I didn&#x27;t feel the need to redose at any time. I believe if the dose had been a bit higher it would have been too strong, easily overwhelming.
+That&#x27;s all folks.
+Exp Year: 2014
+ExpID: 102439
+Gender: Male
+Age at time of experience: 40
+Published: Oct 25, 2015
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-DALT (444) : Alone (16), Music Discussion (22), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

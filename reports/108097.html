@@ -1,0 +1,248 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>通过一个维度环跳</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/doc.html'>← DOC</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>通过一个维度环跳</h1>
+<div class='sub-title'>DOC - Erowid Exp - &#x27;Jumping Through a Dimensional Hoop&#x27;</div>
+<div class='meta'>作者：King Citation · 日期：Jan 15, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=108097' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>美国
+在此之前,我必须做一些笔记.
+我对这种药物的大部分研究都是在经历之后完成的.
+我不建议以我这样的方式接触任何精神活性物质,
+在增加剂量之前, 您一定要对过敏性物质进行检测, 并以小剂量进行检测.
+并且总是使用旅行座椅.
+这也是我一生中最深刻的经历之一,
+我从我的经销商那里买了一些含有DOC的薄荷糖.
+我之前以同样的价格买了75毫克的LSD和5毫克的2C-I,
+我打算在海上,然后在晚上开车回家.
+但这并没有按照计划进行.
+我在海上准备下降的时候是下午早些时候.
+这是一个美丽的天气,它将是旅程的良好温度.
+我把两颗阿尔托伊德薄荷糖放进嘴里.
+我希望能够品尝到药品, 但由于薄荷的味道过于强烈,
+我开始播放我预先设置的歌单,
+- - 0:45) 我已经开始预测这次旅行即将到来.
+我开始看到一些非常微妙的漂移和颜色的变化,
+我放下我的东西走到加油站.
+我买了一支白猫头香烟,走到车上.
+我在车里转换成大麻雪茄, 开始认为我被骗了,
+我得出结论, 最好的选择是再服用一种薄荷药.
+- - 1:45) 薄荷在我的嘴里完全溶解后,我点燃了.
+(我怎么能在一个公开的海上这样做,
+我注意到它开始产生迷幻效应.
+随着吸烟的增加,
+彩虹在天空闪,沙子像水一样四处喷,我的脊椎和身体受到极大的刺激.
+试图了解我刚才给自己的身体注入了什么.
+试图了解我刚才给自己的身体注入了什么.
+两件事让我明白了, &#x27;我用了两倍三倍的剂量&#x27;,
+我试图通过躺下和听音乐来平静自己.
+很难解释我脑海中发生的一切.
+我可以同时思考一百万种事物,
+我脑海中开始形成一个物体, 这将是整个旅程中重复出现的主题,
+我无法再忍受音乐, 更不用说在我的脑海里寻找能反映出这次旅行的疯狂.
+我躺在沙上,着我的眼睛.
+波浪是我一生中听到的最响亮的声音,
+这就像一个小孩在制作软件中玩弄了一堆随机效果; 回声,反响,扭曲.
+太阳已经开始落下, 在这个时刻, 我意识到如果没有一些帮助,
+我得出结论,我父亲是可以拯救我的人.
+我走到我的车里,坐在那里, 几乎是因为刺激而昏迷,
+打电话给他, 我说&#x27;我在服用很多药物&#x27;, 很不连贯地给了他我的位置描述.
+我爸爸和我在他们的车里来了 (他知道我在哪里).
+他把我带进了车的乘客座,
+他只说&#x27;你知道我有什么话要说&#x27;,在回家的车程里保持沉默.
+我们开车到海边, 我很难过错过了大部分的日落.
+虽然回家的剩余时间, 感觉像太空船的骑行.
+太空飞船是多么的酷, 我们是如何快速穿越时空.
+一切都在自行扭转,旋转,以极高的速度行驶.
+现在下一个部分很奇怪, 但我会尽我所能来描述它.
+我脑海中一直想象的球体也变成了四维的,
+这台机器有两个巨大的杆子旋转,朝我走来.
+我觉得自己会被这台巨大的机器压, 但通过向父母寻求帮助,
+我觉得这个巨大的机器球对我来说更大,更重要,
+(我相信我认为这会影响我的饥饿,我的大麻的使用做了,但完全相反).
+开始或继续对话是非常困难的经历,
+背景音乐听起来像是汽车和钉子撞在板上.
+我起我的猫, 抱在怀里 (这很正常),
+我很担心,但我的父母没有做任何事情,所以我认为这是幻觉.
+我回到我的房间,最终离开了这个明显快乐的高维状态,
+这就是我自我死亡的时刻.
+我开始想起自己是多么的 (也许这部分是夸张的) 坏的孩子,
+我从方程中取出了自己的自我, 意识到我在一生中从他们和世界中夺走了多少.
+我终于让自己思考, 如何通过给世界提供, 以平衡我从世界所得到的.
+我想要知道如何实现这一目标.
+现在大约是2点或3点, 我不会很快就睡觉了.
+我花了晚上剩下的时间到早上在网上浏览.
+我在那几个小时里做了更多的研究, 比我在几周的强烈学习中做得更多,
+虽然大部分视觉效果在第二天已经平静下来,
+虽然大部分视觉效果在第二天已经平静下来,
+我回到自我死亡的状态,
+我觉得自己是个耻辱,
+我希望他们知道我对他们所做的一切有多感激.
+想睡觉,但没有能力.
+我觉得我的许多问题都源于吸毒,
+我甚至决定把所有的大麻都扔掉,
+我又将其余的毒品紧紧地上, 答应不再使用这种迷幻药,
+在那一刻,我生活中的很多事情都变得清晰了.
+我会说这些影响持续到 (t-24:00) 或 (t-28:00) 左右.
+我身体和脊椎仍在受到刺激, 球形物体依然存在,
+我在晚上8点左右才睡觉, 但当我醒来时,
+发布时间:2018年1月15日</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Jumping Through a Dimensional Hoop
+DOC
+by
+King
+Citation:   King. &quot;Jumping Through a Dimensional Hoop: An Experience with DOC (exp108097)&quot;.
+Erowid.org
+. Jan 15, 2018. erowid.org/exp/108097
+DOSE:
+T+ 0:00
+2 hits
+oral
+DOC
+T+ 1:45
+1 hit
+oral
+DOC
+T+ 0:00
+smoked
+Cannabis
+T+ 0:00
+smoked
+Tobacco
+BODY WEIGHT:
+155 lb
+There are a few notes I have to make before preceding. This was written a little over a year after the experience happened and is recreated from memory, and most of my research on the drug has been done after the experience. I DO NOT recommend approaching any psychoactive substance in the manner that I did, I was uneducated, foolish, and too eager in trying the substance. You should absolutely allergy test substances and test in small doses before increasing. And ALWAYS USE A TRIP SITTER. That being said this was one of the most profound experiences of my life and is very clear in memory.
+I purchased a few DOC dosed mints from my dealer. I had previously bought 75mc LSD, and 5mg 2C-I tabs before at the same price so I had assumed that these would be about the same intensity (dumb me also assumed that they would last about as long as other research chemicals previously done, at around 6-8 hours).
+My plan was to dose, trip at the beach, and then be able to drive home at the end of the night. This however did not go according to plan. It was early afternoon when I was set up at the beach and ready to drop. The day was beautiful and it would be a good temperature for the trip.
+(- 0:00) I put two of the dosed Altoids mints in my mouth. I wanted to be able to taste the actual drug for comparison, but was unable to because of the overwhelming taste of the mints. I proceeded to put on a playlist I had setup beforehand, and opened up Loren Eiseley&#x27;s &#x27;The Immense Journey&#x27;.
+(- 0:45) I was starting to anticipate the trip coming on. I started to see some very subtle drifting and change of colors, but whether this was early effects or placebo I am not sure of.
+Eager to start a good time for myself, I put my stuff down and walked to the gas station. I purchased a White Owl Cigarillo and walked to my car. I was in the car for a while converting this into a marijuana cigar and started to think I had either been ripped off or that these doses were very weak. Walking back to my stuff on the beach, I concluded that the best option for me was to take another one of the minty doses.
+(- 1:45) After the mint had completely dissolved in my mouth I lit up the blunt. (How I got away with this on a very open and public beach, I&#x27;ll never know!). After the first hit of the blunt, I noticed the psychedelic effects start to come on. As I continued to smoke it down, I continued to trip harder and harder. When half of the blunt was gone, I was in a full blown face melter; rainbows were flashing across the sky, the sand was splashing around like water, and my spine and body was supremely stimulated. I somehow finished the blunt and texted my dealer trying to find out more information about what I had just put into my body.
+I somehow finished the blunt and texted my dealer trying to find out more information about what I had just put into my body.
+Two things got through to me, &#x27;I double and triple dosed those&#x27;, and &#x27;DOC lasts 12-24 hours&#x27;.
+I tried calm myself by lying down and listening to music. It&#x27;s kind of hard to explain all the things that were going on in my head. Things were spinning at high speeds and bouncing off each other, I could think about a million things at once but nothing at the same time.  There was an object that started to form in my head that would be a recurring theme throughout the trip, it was sphere like, but made of one large flowing metal ribbon, with vertical and rotational symmetry.
+(- 3:30) I was tripping extremely hard at this point, and I could no longer handle the music, let alone trying to find music that reflected the insanity of the trip in my head. I laid on the beach face down with my eyes closed. The waves were the loudest thing I&#x27;d ever heard in my life, and they didn&#x27;t even really sound like waves. It was like a child messed with a bunch of random effects in a production software; echos, reverb, distortions. The sun was starting to set and it was at this point I had realized that I wouldn&#x27;t be able to make it through the night without some help. I concluded that my dad was the person that could save me. (WHY?) I walked to my car and sat there, pretty much just dazed with stimulation, but fortunately the auditory hallucinations had stopped. It took some mental monkey bars to get the call started, but I managed to get it going and say to him &#x27;I&#x27;m on a lot of drugs&#x27;, and pretty incoherently gave him the description of my location.
+(- 4:00) My dad arrived with my mom in their car (He knew exactly where I was). He ushered me into the passenger seat of my car and took the wheel. All he said was &#x27;You know what I have to say&#x27;, and was silent the rest of the ride home. We drove by the ocean and I was upset that I had missed a majority of the sunset. The rest of the ride home though, felt like a space ship ride. I was fascinated by how cool all of the spaceships were, and how fast we were travelling through spacetime. When we slowed down and arrived  at my house, things started to seem &#x27;4 dimensional&#x27;, everything was inverting on itself, spinning, and travelling at high speeds.
+Now this next part is very strange, but I&#x27;m going to do my best to describe it.  The sphere object that I kept picturing in my head, was also now 4 dimensional, it was now a working machine inverting and shifting in on itself. There were two huge bars of this machine spinning and coming in towards me. I felt like I was going to be crushed in this huge machine, but by going to my parents for help, and being safe in my own home, I was able to hop up and make it through a small &#x27;hoop&#x27; to safety. I felt like this big machine ball was something way bigger and more important to me, but something I had great knowledge and command over.
+(- 6:30) My parents now had dinner prepared (I believe my mom thought that this would affect my hunger how my marijuana use did, quite the opposite however). I wasn&#x27;t really able to eat and starting or continuing conversation was very difficult experience, I was too involved in my head. The music playing in the background sounded like crashing cars and nails on chalkboard. I picked up my cat and held him in my arms (very usual), but he just felt like he was flopped over dead. I was very concerned but my parents didn&#x27;t make anything of it so I assumed it was a hallucination.
+(- 8:00) I went back to my room and eventually left this overtly happy high dimensional state, but was still very much tripping. This is when my ego-death happened. I started to think about how much of a (maybe this part is exaggerated) spoiled brat I was growing up, how my parents have shown nothing but love and care for me, and all I did was push them away and neglect them. I took away my own self from the equation and realised how much I have taken from them and the world through my life.
+(- 9:30) I eventually got myself to thinking about how I could equal the balance with how much I take from the world, by providing to the world. Very colorful and positive images formed for the next few years of my life and I wanted to know how I could make that happen. It was around 2 or 3 at this point and I was not going to bed anytime soon. I spent the rest of the night to the morning surfing the internet. I probably did more research in that few hours than I could in weeks of intense studying, I mean I was BLAZING through it; science, music, and more importantly the drug I was on, and psychedelics in general.
+(- 15:00) Most of the visuals had calmed down through the next day, but I was still very much in a psychedelic head space.
+(- 15:00) Most of the visuals had calmed down through the next day, but I was still very much in a psychedelic head space.
+I had come back to the ego death state and eventually worked myself up and spent most of the day crying. I had felt like a disgrace and that my parents wouldn&#x27;t love me anymore (not true). I wanted them to know how grateful I was for everything they had done for me. I was also VERY exhausted at this pointed and wanted to sleep more than anything, but wasn&#x27;t able to.
+I felt like a lot of my problems were stemmed from my drug use, by using them to avoid my problems in the real world. I even made the decision to throw all of my marjiuana and flush it down the toilet. (Well I smoke again \_(ツ)_/¯) I then taped up the rest of my DOC really tightly and promised to not come back to psychedelics like that until I was comfortable enough to use my own home and friends as a safety net. Many things in my life were put into perspective at this point.
+I would say these effects lasted until around (t - 24:00) or even (t-28:00). My body and spine were still being stimulated, the sphere object persisted but was no longer a machine, and I was overwhelmed with emotion. I wasn&#x27;t able to sleep until around 8pm, but by the time I woke up I felt extremely rejuvenated and ready to take on the world with a clear head.
+Exp Year: 2014
+ExpID: 108097
+Gender: Male
+Age at time of experience: 18
+Published: Jan 15, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOC (357) : First Times (2), Nature / Outdoors (23), Multi-Day Experience (13), Difficult Experiences (5), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,357 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>塔达尔 - 脑膜毒液 - &#x27;它应该做什么&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tapentadol.html'>← 他喷他多</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>塔达尔 - 脑膜毒液 - &#x27;它应该做什么&#x27;</h1>
+<div class='sub-title'>Tapentadol - Erowid Exp - &#x27;Does What It&#x27;s Suppose to Do&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jan 11, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=89300' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>没有什么可做, 找到了一些尼坎塔/塔达尔,
+(对阿片类药物有经验 - - 帕科塞特,洛尔塔布,奥西康丁,维科丁.
+也包括非阿片类止痛药 (如特拉马多尔,达沃塞特).
+没有成, 也没有长时间服用.
+只是一堆时间,上下.
+在高剂量和低剂量.
+在3到4个月内没有服用任何阿片类药物.
+我在撰写这篇报告时没有服用其他药物.
+现在我们要抽烟了.
+在2小时后再给药
+这是我第一次使用努金塔.
+在我的公寓里,没有其他人.
+它们大小很小,大约是20毫克的OC大小.
+我感觉到快乐的小波, 这种好感觉从我的胃开始, 移动到我的手臂,
+我开始感觉到海浪在我的大腿,小腿,腿部下降.
+我感觉到海浪正在到达我的脚,
+没有明显的高兴感.
+下午1点55分 - - 我的视力似乎更敏感.
+我的电脑屏幕更亮了.
+下午2点 - - 开始口干.
+没有极端的,比你得到大麻.
+我会喝一杯苏打水.
+我现在有点头, 在我的外视, 我可以看到流/小径, 当从左到右看.
+下午2点15分 - - 我的腿开始摇摇欲.
+起床时,我有点失衡.
+走了
+想抽一支烟.
+下午2:30 - 吸烟增加了头和头.
+我的脸感觉更温暖.
+他们的手
+感觉更敏感,我现在正在经历昏昏欲睡.
+感觉像站起来.
+这种昏昏欲睡的感觉与服用0.5毫克的 Xanax,
+我现在感到高兴,音乐听起来很放松,
+由于氧化.
+打字变得越来越困难.
+下午2点45分 - - 感觉有些恶心,
+吃了一块面包,走了一圈,然后就消失了.
+我还能清晰地思考,运动功能有点慢,
+在那里.
+我认为它已经完全起作用.
+我有耳 (耳) 耳的声音有点大.
+在我服用努金塔之前背部有点疼痛,
+背部疼痛已经完全消失了.
+下午3点15分 - - 嘴里,手,腿,脚都感到麻木.
+这种麻木感超过了高兴的感觉.
+我躺在床上感到放松
+这种麻木感超过了高兴的感觉.
+我躺在床上感到放松
+没有
+我真的不想站起来和任何人说话.
+如果有人来我的 apt.
+虽然我不介意说话.
+仍然口腔干燥
+下午3:30 - 头/昏昏欲睡已经大大减弱.
+感觉好像我已经达到顶峰,
+这种麻木感很好.
+听一些无线电话.
+我的打字能力已经恢复.
+没有强烈的高兴感.
+情依然存在,
+没有接近我会得到40-60毫克的氧化.
+吸了第二支香烟,不再增加的如此多
+增加了那种,麻木的感觉.
+下午3点45分 - (再给药) 这一次不,服用4,50毫克Nucynta (200毫克)
+这使得总量达到450毫克.
+下午3点50分 - - 吃了一块面包,
+在我的第二个苏打水.
+现在几乎没有人注意到口腔干燥.
+现在是重复剂量,我喜欢在这个药物上第一次出现,
+这是一种从胃中开始的高兴感浪潮,
+通过你的身体, 击中你的大脑.
+下午4点半 - 整个身体感到麻木,低至轻度的高兴.
+音乐可以让人放松,
+我现在坐在椅子上玩愤怒的鸟儿游戏我很满意.
+晚上4点45分 - - 看电视一会儿,
+比平时更多.
+我不认为这将是安全的驾驶,
+虽然我觉得自己还没搞, 但我的运动能力比清醒时慢了.
+这就像喝了3-6杯酒,
+下午5点 - - 口腔干燥再次出现,
+我根本没有恶心.
+尽管性欲下降, 我只是为了科学/实验.
+我做了一个勃起测试,不是真正的硬硬,花了很长时间达到高潮.
+达到高潮的感觉比清醒时更好.
+如果没有刺激,会很快变软.
+如果您的
+期待在Nucynta期间发生性关系.
+晚上5点半 - - 同样的麻木感和轻微的高兴感.
+我还在网上听广播,
+虽然有点头,但打字还不错.
+通过不 nucynta,
+我几乎没有明显的副作用 (头,昏昏欲睡,恶心)
+时间似乎在飞逝,自从我第一次服用药物后,
+一个剂量.
+感觉好像正在下来, 麻木感正在缓慢消失, 视觉扭曲
+越来越少了.
+开始时只有轻微的高兴情绪也在减弱
+下面的人.
+我还没有背痛.
+晚上7点半 - - 有一个漂亮的后光,没有一个硬下来,回来仍然
+感觉很好.
+情已经过去了
+完全没有.
+我手里还有一点麻木的感觉
+和腿.
+我是个大个子, 我不建议你第一次拿这么多东西.
+我建议吃一些小东西来减轻恶心.
+这种东西不是氧化,我有点失望.
+这种东西不是氧化,我有点失望.
+我感觉很好, 身体没有疼痛,
+对于娱乐价值, 我更愿意有Percocet或Vicodins等.
+没有那种高兴感.
+这确实提升了我的心情.
+我觉得这是一个非常非常高剂量的特拉马多尔.
+这就像服用类固醇的特拉马多尔.
+如果我必须在50毫克的氧化和450毫克的努金塔之间做出选择,
+我不敢相信这是一个日程II.
+低至轻度最多是高兴感.
+烟草似乎加剧了我感到麻木的感觉.
+这里非常适合放松.
+时间好像飞过了, 特别是在无聊的时候.
+如果您有轻微的疼痛,它确实可以缓解疼痛.
+如果您正在寻找一个好的阿片类药物高这不是您的.
+其他:
+发布时间:2016年1月11日
+塔达尔 (495):一般的 (1),单独的 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Does What It&#x27;s Suppose to Do
+Tapentadol
+by
+Cynic
+Citation:   Cynic. &quot;Does What It&#x27;s Suppose to Do: An Experience with Tapentadol (exp89300)&quot;.
+Erowid.org
+. Jan 11, 2016. erowid.org/exp/89300
+DOSE:
+T+ 0:00
+250 mg
+oral
+Tapentadol
+(pill / tablet)
+T+ 1:00
+smoked
+Tobacco - Cigarettes
+T+ 2:15
+200 mg
+oral
+Tapentadol
+(pill / tablet)
+BODY WEIGHT:
+300 lb
+Slow day, nothing to do, found some Nycanta/Tapentadol, will test recreational value.
+(Have experience in opiates -  percocets, Lortabs, oxycontin, vicodin. Also non-opioid pain killers (such as tramadol, darvocets). Not addicted to any, nor took them for long periods of time. Just a bunch of times, on and off. In high and low dosages.
+Have not had any opioid in 3-4 months.
+I am not taking any other drugs at the time of this report.
+Will be smoking cigarettes.
+Will re-dose after 2 hours
+This is my first experience with nucynta.
+Empty Stomach, in my apartment, no one else is here.
+-1:30pm - Chewed 5,  50mg nucynta 250mg, a bit bitter, they are very small size, about the size of a 20mg OC.
+-1:40pm - Starting to come up, it feels similar to coming up on oxycodone, not as quick, I feel little waves of euphoria, the good feeling is starting in my stomach, moving to my arms, then through my hands.
+-1:45pm - I am starting to feel the waves go down in my thighs, calves, legs.
+1:48pm - Acting a bit quicker then I thought, I feel the waves reaching my feet now, the bottom of  my feet feel like they are heating up a bit. No considerable amount of euphoria.
+1:55pm - My vision seems more sensitive. My computer screen is brighter.
+2:00pm - Getting Dry mouth. Not extreme, less then you get with pot. Will sip a soda.
+2:05pm - The euphoria is starting to get stronger, equal to about 10mg of oxycodone, a bit dizzy now, in my peripheral vision, I can see streamers/trails, when looking left to right.
+2:15pm - My legs are starting to get wobbly/weak feeling. Getting up I&#x27;m slightly off balance. Going
+To smoke a cigarette.
+2:30pm - Cigarette added to the lightheaded feeling and dizziness. My face feels warmer. Hands
+Feel more sensitive, I am experiencing drowsiness now. Feel like standing up.
+The drowsiness feeling is about the same as taking a .5mg xanax,
+I feel euphoria now, music sounds relaxing, not as strong of a euphoria you get
+From oxycodone. Getting considerably harder to type.
+2:45pm - Was feeling some nausea coming up on this,
+Ate a piece of bread, walked around, and it went away.
+My thinking is still clear, motor functions a little slow, no great feeling of euphoria, but it
+Is there.
+3:00pm - I think it has fully kicked in. I have tinnitus (ringing in ears) the ringing is a tad louder.
+Had some back pain before I took the nucynta, (from my shitty bed)
+Would have rated my back pain on a scale of 1-10 about a 4, my back pain is totally gone.
+3:15pm- I have a numbness feeling in my mouth, hands, legs, feet.
+The numbness over-rides the feeling of euphoria. I feel relaxed laying on the bed
+The numbness over-rides the feeling of euphoria. I feel relaxed laying on the bed
+,
+Don&#x27;t really feel like getting up and talking to anyone.
+If someone came in my apt. To talk I would not mind it though. Dry mouth still
+3:30pm - The dizziness/drowsiness has greatly weakened. Feels like I&#x27;m peaking,
+The numbness is great. Listening to some talk radio.
+My typing abilities have came back. No strong euphoria.  Euphoria is still there, but
+No where near what I would get on 40-60mg of oxycodone.
+Smoked a second cigarette, it no longer adds to the dizziness so much
+As it adds to that tingly, numb feeling.
+3:45pm - (RE-DOSING) this time not chewing them, taking 4, 50 mg Nucynta (200mg)
+Bringing the total to 450mg Nucynta
+3:50pm - Ate one more piece of bread, it seems to help stop the nausea when coming up.
+On my second soda. Dry mouth almost unnoticeable now.
+4:10pm - Coming up now on the re-dose, I love the come up at first on this drug,
+It is waves of euphoria that start in the middle of your stomach,
+Goes through the rest of your body, hits your brain.
+4:30pm - Numbness feeling throughout body, low-mild euphoria. Music is relaxing,
+I&#x27;m in my armchair now playing angry birds game I&#x27;m very content with it.
+4:45pm - Watching T.V for a bit, I feel like the T.V is more hypnotically keeping me glued to it.
+More then usual. I do not think it would be safe to drive,
+Even though I don&#x27;t feel really fucked up, my motor skills are slower then when I was sober.
+It would be about like drinking 3-6 beers worth of motor skill slowing.
+5:00pm - Dry mouth coming back, this time with a few slices of bed on my stomach,
+I have no nausea at all.
+5:15pm - Although sex drive is down, I did this for science/experimentation.
+I did an erection test, not a real hard stiffy, took a long time to orgasm.
+Orgasm felt just a notch better then having one sober.
+Would get soft quick if not kept stimulated. Do not recommend taking this if your
+Looking  forward to having sex during duration on nucynta.
+5:30pm - Same numb feeling and slight euphoria. Back to listening to talk radio, also I&#x27;m on the net.
+Slight dizziness, but I am typing just fine. By not chewing the nucynta,
+I had almost non-noticeable side effects  (dizziness, drowsiness, nausea)
+6:00pm - Time seems to be zipping by, seems like it has been 5 minutes since I took my initial
+Dose.
+6:30pm - Feels like I&#x27;m coming down now, the numbness is slowly tapering off, Visual distortion
+Is getting less and less. The euphoria which was  only mild to start with also is dwindling
+Down. My back still is pain free.
+7:30pm - Have a nice afterglow, not a hard come down, back still
+Feels good. Euphoria has worn off
+Completely. Slight numb feeling still in my hands
+And legs.
+Please note: I&#x27;m a big guy I would not suggest taking as much as I have on a first time. I would recommend eating something small with it to reduce nausea.
+This stuff is not oxycodone, I am a bit disappointed.
+This stuff is not oxycodone, I am a bit disappointed.
+I felt good, no pain in the body, nucynta does what it says it does as far as my mild back pain was gone. For recreational value, I would much rather have percocets or vicodins ect.
+The euphoria was just not there. It did uplift my mood. I would say this felt like a VERY VERY high dose of tramadol. It is like tramadol on steroids. If I had to pick between 50mg of Oxycodone or 450mg of nucynta I would pick the oxycodone any day.
+I can not believe it is a schedule II. Low to mild at best euphoria. Cigarettes seemed to intensify the numb feeling I get. It is very nice for relaxing on.
+It was fun, time seemed to fly by on it, which was/is really nice, especially if your bored.
+If you have mild pain it does work to relieve it. If your looking for a good opioid high this is not for you.
+Exp Year: 2011
+ExpID: 89300
+Gender: Male
+Age at time of experience: 25
+Published: Jan 11, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Tapentadol (495) : General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

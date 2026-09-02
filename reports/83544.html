@@ -1,0 +1,309 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 艾洛伊德 - &quot;喝世界糖&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/zz-psychedelics-2021-jh.html'>← zz Psychedelics - 2021 JH</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 艾洛伊德 - &quot;喝世界糖&quot;</h1>
+<div class='sub-title'>LSD - Erowid Exp - &#x27;Sipping on the World Syrup&#x27;</div>
+<div class='meta'>作者：Tim K Citation · 日期：Mar 23, 2010 · 剂量：2.5 hits · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=83544' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>两次都受伤, 两次都经历了一次愉快而美丽的旅行.
+它们只有非常轻微的幻觉 (波浪般的墙壁等).
+我认为下次要尝试四五次, 进一步探索我认为LSD的和平世界.
+我第三次旅行是迄今为止我一生中最疯狂,最艰难的经历.
+我总共了17个小时.
+我和一位高中朋友决定在圣诞假期一起去我三年来在芝加哥郊区的家乡旅行.
+我带来了五个命中,并渴望把他们所有,但我的朋友是有问题为自己获得任何.
+后来我从一个朋友那里听到,
+他还建议我:&quot;不要做五次,你会死. &quot;这足以说服我和我的朋友T分享我的LSD,
+这是一个寒冷的夜晚,地面上有3-4英寸的雪,
+让我笑起来, 感觉到强烈的满足感, 就像我以前的旅行一样, 我们都非常兴奋.
+我们终于在森林中找到一个合适的空地,并坐下来.
+森林是美丽的和完全隐蔽.
+能量在我的身体中流动得越来越快, 逐渐积累, 开始在我的感官中旋转,
+然后T指着我们上面的树顶, 我抬头看.
+树木摇动动,我看了更长时间,他们变得陌生.
+它们开始转化成数十亿个精细的彩虹碎片,
+天空变成紫色,开始向我下来,
+它与树木融为一体, 罩着树木, 开始像巨大的漂亮的孔雀羽毛,
+这已经超过了我想象的, 能够被感知,
+我开始恐慌, 疯狂地着, 告诉T我非常害怕,
+我建议他打电话寻求帮助, 无论是父母还是911号, 但幸运的是, 他比我得更厉害, 告诉我坐下一下, 呼吸一下, 我不情愿地这样做 (他后来补充说,
+脑子里让我感到恐慌的可怕感觉也消失了.
+坐在那里, 我能感觉到我的思想在以前从未有过的速度爆发和发射.
+我们开始激动和基本上毫无意义的谈话关于任何事.
+整个世界开始以一种我能感觉到的内在节奏存在.
+我开始不停地说话,而且只在和节奏中说话,某些行特别吸引我 (例如,威严刚刚被魔杖击中,穿过汁,世界糖).
+我们开始完全自然地互相调, 完成对方的句子和想法, (至少我) 通过这种节奏,
+虽然在森林中某些东西,声音或运动, 有时会使我的整个身体无节制,
+虽然我感觉到节奏让我感到自由和快乐, 但令人难以置信的不愉快的感觉如和无法形容的感觉在我的头上会来来去去,
+由于某种原因,我从口袋里拿出了手机.
+我忽然忘记了为什么要拿出手机,
+我看到它的光照亮着它降落.
+我可以听到冰吟和破裂我下面 (我们已经争论一段时间,我们是否实际上坐在一条结的河或不,虽然它之前有趣得多.) 害怕,我问T取回它为我.
+他这样做,并把它给了我.
+我看到它已经完全被毁了.
+我试图打开手机时,
+我已经有了三年了.
+我写下了一些歌词,甚至一些音乐创意的粗略录音.
+失去这一切令我非常震惊,
+我对自己的鲁感到绝望和厌恶, 无意中扔掉手机, 无意中毁掉我多年拥有的东西.
+我觉得这是一种基本的行为, 无视和伤害你爱的人,
+我意识到我的手机叫奥利弗,
+虽然安慰我, 他建议我放手.
+放弃的概念不仅仅是放弃我的手机,
+我突然意识到我的整个生活就像我的手机,
+我开始放手了.
+我脑海中的奇怪变化迅速持续.
+当我对自己表达某些想法时, 我发现我可以将它们追溯到某种潜意识的记忆或教训, 我能够分析那种想法,那种恐惧的原因,
+我对很多事情心中充满怀疑,
+我本能地知道我性格的某些方面的原因, 并可以追溯到具体的记忆,
+我独自一人走去, 整理我潜意识的碎片,
+我试图解释我脑海里发生了什么, 但很快就意识到没有意义.
+我完全理解这种情况的难以理解,然而,用约翰·列的话来说:&quot;一个深刻的不管怎样.
+我突然意识到我的生活,所有的存在,只是一个深刻的不管是什么,
+我觉得所有的文学,音乐,舞蹈等等都试图捕捉那种深层次的东西.
+我突然有了奇怪的认知突破:&quot;一切都是别的. &quot;虽然听起来很荒谬,
+所有的存在不仅仅是统一的, 它只是一个非常详细的粒子.
+我们在森林里待了好久, 基本上是在拍摄这些东西,
+我觉得这次旅程最棒的部分是玩笑,
+这让我的头脑得到了释放,
+我们最终离开了森林, 模糊的计划是回到我的家.
+在这次散步中, 我们在整个路上继续进行宇宙的调.
+走路时有一种奇怪的感觉, 不是T和我在移动,
+尽管如此,保持脚部运动至关重要,
+走路时,我们会突然&quot;知道&quot;我们已经输了那一轮,
+我们的对话和行动会达到激烈的鼓舞人心的高潮, 但可能会在一秒钟内消失,
+这就像点燃烟花, 观看它们的耀斑, 有些是美丽而令人惊叹的.
+我们终于到达了我的房子,
+我们站在我的街角 (尽管我真的站不住脚),
+我开始创造我和T成为的角色和奇怪的故事情节,
+我觉得自己可以自由地做任何事情,
+我把它扔在地上,嘲笑它,然后几乎被带到眼中, 求T拿起它,
+我可以探测到围绕某些词组旋转的语言星云, 通过让我的大脑感觉到哪些词在同一星云中.
+意大利和西西里是一个星云的中心.
+在一个特别讨厌的星云的中心.
+我开始从我生命中的不同时刻飞过来, 重温那时代的情感和感觉, 回溯多年, 甚至感受到强烈的情感联系,
+我会在后座上睡着.
+我清晰地记得我骑着我的魔幻龙, 骑着它穿过大海, 在我睡觉时安全地引导我穿过水域,
+最终T厌倦了寒冷,决定回家.
+他一直暗示,但我一直在向他发射节奏,最终他离开了.
+我还在思考和节奏的细节, 但我强迫自己不要和自己说话,
+我找到了一把房子的钥匙,
+我觉得自从我第一次开始倒以来, 已经过了好几世纪了.
+旅行变得更加黑暗和可怕.
+我了一会儿, 惊水的纯度.
+终于我脑海中的疯狂变得太多了.
+我需要一个人类的出口,但我不能唤醒我的家人.
+我决定用笔记本电脑找一个可以聊天的人.
+我走进房间,启动电脑, 起初, 屏幕让我的眼睛反弹,
+我在脸书上与任何愿意回应的人交谈.
+典型的模式是我会说出完全随机的情况, 他们会有一些混乱的反应,
+朋友在网上聊天时问我情况如何, 我毫不刻意地回答说:
+我发了一些错误的电子邮件,然后把Bjork放在上面,
+音乐是如此纯粹, 尤其是Frosti的歌曲, 听到这首歌让我想象到一个微妙, 美丽的冰器.
+有时是真诚的,有时是美丽而宁静的,有时是陈词滥调而缺乏想象力的旅程.
+一切都是其他一切,歌曲是3分钟的一生.
+我开始跳舞,但最终只能看着我的手在空中旋转.
+我也仔细检查我挂在墙上的东西, 我厌恶某些我可以清楚地看到的东西只是我自我延伸,
+我在那个房间里停留了很长一段时间,
+完全没有睡眠的可能性.
+我开始一次又一次地经历同样的情绪和感受,
+爱情,疏忽,愤怒,敬畏,高兴,强烈的精神病痛,
+终于我完全体验了每一种情感,
+我躺在床上抱着我的毛龙, 听Bjork和约翰·列 (我发现他的音乐完全理解了酸性生活).
+我还在幻觉中.
+尤其是在黑暗中, 我的天花板风扇不断地变形,
+关闭眼睛更糟糕, 因为我感觉到所有感官都在爆炸,
+我花了很长一段时间在浴室里看着自己.
+我当时的自我被摧毁了,
+我试图检测自己的眼睛, 但这都是徒劳和无望.
+我觉得自己就像机器中的一个轮,
+我试着想起爱情和所有美好的事物, 但旅途中有痛苦的时刻,
+我哭了好几次, 因为精神混乱变得太大,
+尽管如此,
+他们照亮了空气中的无数尘埃颗粒,
+这些微小的粒子也是生命,
+尽管如此, 它们以美丽的形状来旋转,
+这次旅行已经稍微过时,给了我希望.
+我知道我需要告诉我. 我知道我需要告诉我,
+我真的很担心我一生再也睡不着觉,
+我已经看了太多了,
+我知道母亲的爱是拯救世界的恩赐,
+我多年来没有告诉她我爱她, 动的节奏让我意识到我必须告诉她,
+我下楼去,在那里我正在读书.
+我试着吃一些谷物, 但只能吃几口.
+我很清楚自己有问题,我需要帮助.
+她坐在我身边, 我把所有的恐惧都说出来, 我没有理由活着,
+我们都是自动机器人, 无所谓的抱怨,
+她跟我说话,分享同样的感受, 告诉我不要这样想, 给我一个大大的拥抱, 在多年没有任何形式的接触之后, 回到她的怀抱是如此舒适和美妙.
+我弟弟下楼, 我们三个人开始了我觉得非常有节奏的对话,
+我告诉她我害怕不睡觉 (虽然我有点害怕服用更多药物).
+我很难告诉她我爱她.
+我感觉到一个巨大的缓解浪潮冲过我的头脑和一种新的幸福感.
+我的大脑还在飞翔,
+我躺在床上,听给我读书, 终于在2点左右, 听着本·哈珀的&quot;欢迎来到残酷的世界&quot;, 我睡了几个小时.
+旅行是一切存在的极端.
+它帮助我恢复了我和母亲的关系, 与我的朋友T建立了独特而神秘的联系,
+尽管如此, 代价却是我一生中最陌生,超现实,令人心碎的夜晚.
+我认为我永远不会忘记它.
+给一个朋友发送, 让我知道我的想法在哪里:
+&quot;去吧&quot;
+让我告诉你关于生活的结构它不是很好糖和香料没有没有的,一切都只是搞了,像八件事只是发生在我的脑海里,我没有一个词所以我只是用&quot;搞&quot;来描述他们所有我不知道任何更多的它的我在哪里我的手指所以难以捉摸的蜘蛛在键盘上
+很抱歉. 一切都搞了. 我现在正处于其中, 糖和香料, 这不是很好, 奶油奶酪, 我有八个或九个的语看他们看看有多少语我把他们放在一个巨大的星球
+我只是在给你打字,这一切之后,我还不太清楚发生了什么事. 我的头脑变得非常擅长,它只能在屏幕上看到它想要看到的东西.
+她是很多东西和她有,好我不知道该死的那些东西是什么,只是一些很好的好,她是好的. 她是最好的.
+我认为我应该看到这个很快跑出房间. ,我想我应该叫这个东西. 这是什么?
+但是酸怎么样? 好吧,不要去问,因为你会得到一个大象的股孩子,耶稣吸了迈克尔·摩尔的子,因为他问,那个混蛋我铺在头上,对糖和香料.
+已使用的证券
+LSD (2):小组 (2-9) (17),治疗意图或结果 (49),关系 (44),家庭 (41),神秘经验 (9),困难经验 (5),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Sipping on the World Syrup
+LSD
+by
+Tim K
+Citation:   Tim K. &quot;Sipping on the World Syrup: An Experience with LSD (exp83544)&quot;.
+Erowid.org
+. Mar 23, 2010. erowid.org/exp/83544
+DOSE:
+2.5 hits
+oral
+LSD
+BODY WEIGHT:
+140 lb
+I had tripped twice before, taking 2 hits both times, and had experienced an overall pleasant and beautiful trip both times. They were only very mildly hallucinogenic (wavy walls etc). Because of this I was very enthusiastic about acid and felt cavalier about its use, thinking to myself that I wanted to try four or five hits the next time, and explore what I considered the peaceful world of LSD further. My third trip was the most insane, arduous experience of my life up to this point. I tripped for a total of seventeen hours.
+A close high school friend and I decided we should trip together during Christmas break in my hometown of 3 years, a Chicago suburb. I had brought five hits with me, and was eager to take them all, but my friend was having trouble procuring any for himself. Then I heard from a friend I had bought my acid with. He had split his five hits with a friend, and he described his experience as ‘not in reality.’ He also advised me: ‘Don’t do five hits, you will die.’ This was enough to convince me to split my LSD with my friend T, and so around 8 at night we took the hits, put on a massive amount of clothes and began walking to Thatcher Woods, our designated tripping spot.
+It was a cold night and there were 3-4 inches of snow on the ground, but it wasn’t an issue. As we were walking I began feeling the warmth of energy rising up and through me, causing me to laugh and feel intensely content, as had happened in my previous trips, and we were both very excited. Eventually we reached a suitable clearing in the woods, and sat down. The woods were beautiful and completely secluded. The energy flowing through my body felt more rapid, and then it was building and building and began whirling through my senses, which I perceived as a sort of bizarre dizziness. Then T pointed at the treetops above us, and I looked up.
+The trees were swaying animatedly, and the longer I looked the stranger they became. They began transforming into billions of detailed rainbow fragments put together masterfully, but then would revert back to some sense of normalcy in color again. The sky turned purple and began coming down towards me, overwhelming me. It melded with the trees in a glowing display, shrouding the trees which began resembling massive beautiful peacock feathers protruding from the ground.
+This already was more than I had imagined was possible to perceive, and definitely more than I was prepared to handle. I could feel shifting and a sickening peeling in my brain and I began panicking, muttering frantically and told T that I was very, very scared, and was having a panic attack. I suggested that he call for help, either parents or 911, but fortunately he had tripped harder than I ever had and told me to just sit and breathe for a second, which I did reluctantly (he added later that me telling him I was having a panic attack almost caused him to have one as well). I calmed down slightly, and the horrible sensation in my brain that had caused me to panic had ceased. Sitting there I could feel my mind blasting and firing away at a pace it had never even approached before.
+We began striking up an animated and basically nonsensical conversation about anything and everything. The entire world began existing in a rhythm which I could sense internally. I began speaking constantly and only in rhymes and rhythms, certain lines appealing to me in particular (e.g., majestic just got hit by the magic stick, moving through the groovy gravy, sipping on the world syrup). We began riffing off each other completely naturally, finishing each other’s sentences and thoughts, and (at least I) felt unified with him and the surroundings through this rhythm, this groovy gravy that the world was now immersed in. While in the forest certain things, sounds or movements, at times caused my entire body to spasm uncontrollably, as if my brain had been zapped. Though I felt liberated and overjoyed at the rhythm I could sense, incredibly unpleasant sensations such as the spasms and indescribable feelings in my head would come and go and it became very important to stave off these horrible feelings.
+For some reason I pulled out my phone from my pocket. Forgetting why I’d taken it out, I was suddenly overcome by euphoria and threw my phone as far as possible. I saw its light illuminate as it landed. As I walked over to get it I could hear ice groaning and cracking beneath me (we had been debating for some time whether we were in fact sitting on top of a frozen river or not, although it had been much funnier before.) Frightened, I asked T to retrieve it for me. He did so, and gave it to me. I saw that it was completely mangled. When I tried to open it (it was a flip phone), it came apart. I’d had that phone for three years. It had three years’ worth of friends, acquaintances, loves, ideas I had written down with text, even some rough recordings of musical ideas. Losing all this hit me extremely hard, and I was stunned. I felt intense despair and self-disgust at my recklessness, my pointless gesture of throwing the phone, pointlessly breaking what I’d had for years. In my mind it was synonymous with the very basic action of disregarding and hurting people that you loved just to test them. I realized that my phone was named Oliver and told this all to T. While consoling me, he advised that I just let go.
+At that moment the concept of letting go took on not just letting go of my phone, but of anything transient. I suddenly knew that my entire life was just like my phone and that I was a speck, a zero dimensional point floating in an abyss. I began letting go. Bizarre alterations in my mind continued rapidly. When I voiced certain thoughts to myself, I found I could trace them back to some subconscious memory or lesson that I had, and I was able to analyze the cause of that thought, that fear, whatever it was, and if I chose let it drift away. For example, I was cynical about many things at heart and was able to trace that cynicism to an event that occurred when I was 15. I innately knew the reasons for aspects of my character and could trace them back to concrete memories, but was scared to let them float away and forever alter my psychic makeup. For what seemed like a small eternity I went off alone and sorted through fragments of my subconscious, which seemed to be floating through my conscious mind like flotsams in an ocean.
+Afterwards I reconvened with T and attempted to explain what had been going on in my head, but soon realized it was pointless to try. T understood the incomprehensibility of the situation perfectly however, using a John Lennon quote: ‘A profound whatever.’ At that moment I felt a spasm in my head which seemed to be describable only as a profound whatever. Suddenly I knew that my life, all existence, was just a profound whatever, although over the course of the night more and more ways to describe that feeling popped into my head. I felt like all of literature and music and dance, etc was seeking to capture that profound whatever. I suddenly had this bizarre cognitive breakthrough that ‘everything is everything else.’ Although it sounds ridiculous, I just knew it to be true during my state. All of existence was not just unified, it was all just one very detailed particle.
+We stayed in the forest for what seemed like forever, basically shooting the shit and engaging in hilarious yet rhythmically primal banter. I found that this banter was the best part of the trip, feeling intensely adept with language and amusing ideas which T was able to reciprocate and be a part of. This gave my swirling mind an outlet and comforted me that I was with another human being who I trusted. Eventually we left the forest with the vague plan of heading back to my house.
+During this walk we continued our cosmic banter the entire way. While walking there was a strange sensation that it wasn’t T and I who were moving, but rather the entire universe was sliding by while we watched. Still, it was very important to keep our legs moving, as if on a treadmill, or the universe would just stop. It was euphoric and during the walk at certain intervals we would suddenly ‘know’ that we had lost that round, but win bang go, we would win the next. Our conversation and actions would reach intense inspiring climaxes but could be lost in a second, and when it was lost I knew that I was starting existence over again, that little unique fireball of neurons was lost forever. It was like lighting fireworks and watching them flare, some of them beautiful and overwhelming.
+We finally got to my house, but I wasn’t ready to go in. Instead we stood at my street corner (although I literally was incapable of standing still), where we continued rhyming and grooving. I began crafting characters and bizarre storylines which me and T became, such as Cheesy Steve, Friar Bobkins, Fruity Susan. I felt euphorically free to be and say anything at all. My hat became the symbol of all things good and pure in the world, and I would throw it on the ground, mock it, then be almost brought to tears and beg T to pick it up, that the world depended on it. I could detect language nebulas revolving around certain groups of words, knowing which words were in the same nebula by letting my brain feel them out. Italy and Sicily were the center of one nebula. Quiche and teeth were at the center of a particularly nasty nebula.
+I began flitting from different moments in my life and reliving the emotions and sensations of the times, going back years and years and even feeling a strong emotional connection to a period of my life in Hong Kong from 1st-2nd grade, when every Saturday morning my dad would drive me and my brother along the underwater highway connecting Hong Kong to Kowloon to play ice hockey, and I would sleep with a stuffed dragon in the backseat. Somehow I remembered vividly riding on the back of my magical dragon as it raced through the ocean, guiding me safely through the waters while I slept, and it was the most beautiful feeling to relive, regardless of whether it had happened or not.
+Eventually T grew tired of the cold and decided to go home. He had been hinting at it continually but I had just kept firing rhythm at him, and eventually he left. I was still boiling with thoughts and little segments of rhythm, but I forced myself not to talk to myself – I feared it would caused me to go spiraling into the madness at full speed. So I somehow managed to find my house key beneath all my layers of clothes, and went inside. It was 2 o&#x27;clock at night, which was incomprehensible to me –it felt like eons had passed since I first began tripping.
+By myself in my dark house the trip became much more dark and frightening. I flitted about for a little, marveling at the purity of water among other things. Finally the craziness in my head became too much. I needed a human outlet, but I couldn’t wake any of my family. I decided to use my laptop to find someone to talk to. I went into my room and booted up my computer – the screen made my eyes recoil at first, it was a writhing mass of colors and 3 dimensional activity, but I was slowly able to focus and use it despite the intense visuals. I went on Facebook and began talking to anyone who would respond. The typical pattern would be that I would spout complete randomness, they would have some confused response and then I would get bored and move on. In one online conversation a friend asked me how I was and I instantly without any premeditation replied that ‘I feel like I’m dying a million times while I laugh about how much I hate jews.’ I was scared to be alone and was trying to stave off that truth at all costs.
+I sent a few garbled emails* and then put on Bjork – it was amazing. The music was so pure, and especially the song Frosti, which hearing caused me to visualize a delicate, beautiful ice contraption. Songs were like human lives, they were so detailed and wide ranging, they were a journey, sometimes heartfelt, sometimes beautiful and serene, sometimes very clichéd and unimaginative. Everything was everything else, and songs were a lifetime in 3 minutes. The song Hidden Place (also by Bjork) made me love my room as I looked around and I began dancing but eventually settled into just watching my hands swirl through the air. I also scrutinized things I had hanging on the wall and was disgusted by certain things which I could so clearly see were just extensions of my ego, and tore them off.
+My room was where I settled down for the long haul, and tripped for another 9 tormented eternal hours. There was absolutely no possibility of sleep. I began going through the same wheel of emotions and feelings over and over and over again, until it was all like clockwork. Love, carelessness, anger, awe, euphoria, intense psychotic pain, it all came and went in a pattern that I knew was always there but hadn’t been aware of. By the end I had experienced every emotion so fully that I was just weary from them and worn out by endlessly going through their wheel. I laid in bed clutching my stuffed dragon and listened to Bjork, and John Lennon (who’s music I found was all completely in understanding of life on acid). I was still hallucinating. In particular my ceiling fan in the dark was constantly morphing, at one point becoming a powerful rainbow pharaoh glaring down at me. Closing my eyes was even worse though, as I could feel all my senses exploding and saw red fireballs and felt as if I was staring into my own mind.
+I spent a long time in the bathroom, just looking at myself. My ego was so destroyed at this time that I didn’t even know who I was looking at. I tried to detect myself in my eyes but it was all futile and hopeless. I felt like a cog in a machine who had suddenly sprouted a consciousness and was now staring at itself, helpless to be anything but that cog. I tried to think about love and all of the good things but there were painful moments in the trip where it was simply impossible. Several times during the night I cried as the psychotic turmoil became too much and I pleaded to regain my sanity.
+There was still beauty, though. As the first rays of sunlight were coming in through my window they illuminated all the countless dust particles in the air, fluttering about, moved by unseen forces. These small particles also were lives, propelled every which way and completely without control. Nevertheless I was struck by their beauty as they whirled to and fro, in wonderful patterns. By this time there had been brief moments when the trip had lapsed slightly, and given me hope. But at 11:00 AM my brain was still blazing and there were still some visuals, and I knew that I needed to tell my mom. By this time I was genuinely worried that I would never in my life be able to sleep again, that I would have to be taken away, that I would never be normal again. I had seen too much and couldn’t function any more. However, I somehow grasped that a mother’s love was a saving grace of the world, an astoundingly beautiful thing that could help me calm down my mind. I hadn’t told her I loved her in years and tripping rhythm had made me realize that I had to tell her, or I would never be at peace.
+I went downstairs, where my mom was reading. At first I acted normally and tried to eat some cereal, but could only manage a few bites. Eventually I made clear that something was wrong, that I was on acid and that I needed help. She sat with me and I poured out all my fears, that I had no reason to live, I had just lived longer than I ever wanted to in one night, that there was no point to anything. That we were all basically automatons griping about nothing and placing meaning into completely meaningless lives. She just talked with me and shared the same sentiments and told me not to think like that, and gave me a huge hug, and it felt so comforting and lovely to be back in her embrace after years of nothing more than basically formal contact.
+My younger brother came downstairs and the three of us began what I perceived as an immensely rhythmic conversation, much like the one during the height of my trip, and it filled me with a good feeling and a sense of being home in life. Finally my mom got some Nyquil for me as I had told her about my fear of not sleeping (although was a bit freaked out at the prospect of taking more drugs). For some reason it was very difficult to tell her I loved her. But once I managed it I felt a huge wave of relief wash over my mind and a new sense of wellbeing. My brain was still flying but it was winding down. I then lay in bed while my mom read to me, and finally at some point around 2 oclock, listening to Ben Harper’s Welcome to the Cruel World, I managed to drift into a few hours of sleep.
+The trip was everything that exists in its extreme. It helped me recover my relationship with my mother, gave me a unique, enigmatic bond with my friend T and gave me a glimpse of the internal mechanics of the universe (at least, it felt that way). The cost though was the most alien, surreal and heart-wrenching night of my life. I don’t think I’ll ever forget it.
+*sent to a friend while tripping, to give a sense of where my mind was at:
+&#x27;Go&#x27;
+well let me tell you bout the fabric of life it ain&#x27;t nice sugar and spice no none of that, everythings just going fucking fucked up, like eight things just happened in my mind that i don&#x27;t have a word for so i just used &#x27;fucked&#x27; to describe them all and i don&#x27;t know anything any more its where i am my fingers so elusive spidery on the keyboard splitty splat ratat hammersplat gotcha, sorry. everything&#x27;s fucked. i&#x27;m currently in the midst of it, sugar and spice, it ain&#x27;t nice, suzy cream chese, i&#x27;ve got rhymes eight or nine see them see how many rhymes i keep them in a massive planet here in the back i put it behind that loud bitch everything is just all over go catch it its gone already its just gone and so im just typing to u after it all leaves not really sure whats being hit my minds just gotten fucking good at this it just sees what it wants to see on the screen. holy shit im really fucking good at this. my thoughts are appearing before me. this is new. sugar and spice. NEW NEW NEW its new wave. everglade ocean spray ella did i tell you about ella she was a lot of everything and she had sequins, well i don&#x27;t know whatever the fuck those things are, just something that was good ok, she was good. she was the best. so now i write about it while the crest of everything climaxes up and out into the sea of me spreading out my fingers spout the words flaxen relaxin i think i should seen this soon running out of room. um i guess i should call this something. what is this? well just &#x27;random ranting and shit&#x27;. well that doesnt capture it. hmm &#x27; everything&#x27;. dont like the zing. &#x27;sugar and spice&#x27;? well thats nice, but what about acid? oh well dont go for asking because you&#x27;ll get fucked in an elephants ass kid, jesus sucked Michael Moore&#x27;s dick just since he asked, that motherfucker i spread overhead, oh right sugar and spice. i found everything. well but you know. but here i am. but you know. go we win victory bring out the band theyll play something nice. alright ill call it &#x27;go&#x27;
+Exp Year: 2008
+ExpID: 83544
+Gender: Male
+Age at time of experience: 18
+Published: Mar 23, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2) : Small Group (2-9) (17), Therapeutic Intent or Outcome (49), Relationships (44), Families (41), Mystical Experiences (9), Difficult Experiences (5), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

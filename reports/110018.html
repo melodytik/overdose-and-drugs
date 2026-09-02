@@ -1,0 +1,298 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>埃菲尼丁和MDA - 埃洛伊德的演讲 - &quot;明智的分离 - 内在的警告&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ephenidine.html'>← Ephenidine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>埃菲尼丁和MDA - 埃洛伊德的演讲 - &quot;明智的分离 - 内在的警告&quot;</h1>
+<div class='sub-title'>Ephenidine &amp; MDA - Erowid Exp - &#x27;The Lucid Dissociation - Warning Inside&#x27;</div>
+<div class='meta'>作者：Student of Life Citation · 日期：Mar 28, 2017 · 剂量：100 mg · <a href='https://erowid.org/experiences/exp.php?ID=110018' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这里是混合ephenidine的旅行报告与一种 serotonin-norepiphrene-dopamine释放和再吸收抑制剂.
+如果我不知道精神药物对神经系统有什么影响,
+每个混合这些物质的人都应该知道.
+背景:29岁男性, 我是一名经验丰富的精神探险家,
+我现在身体很好.
+我写的是在周四,
+我在经历过程中无数次失去了时间的感知,
+这一切都相当令人困惑,至少可以说,所以请耐心地跟我讲我的旅行报告.
+那天中午, 我服用了100毫克的5-HTP补充剂,
+美国
+这一切始于晚上8点.
+我在家里有一袋乙胺的底部等着我, 我以为里面有200毫克,
+我把100毫克的MDA倒在上面,
+现在是去的时候了.
+为了准备旅程, 我了一些水果, 使我的大脑有碳水化合物作为燃料,
+我还在音响系统旁边设置了一张床,
+我觉得这是一种幼稚的感觉,
+我也在这里度过了大部分时间.
+没有什么可报道的.
+我花了很多时间探索音乐,
+我很快就知道, 离散者会带来什么,
+很长一段时间以来,
+事情开始变得很奇怪.
+非常奇怪,非常有趣.
+我开始感受到一些无法解释的身体感觉, 我开始练习,
+我认为我从来没有在很长一段时间内感觉身体如此好,如果有.
+没有任何全方位的高兴感, 因为我的头脑空间开始变得混乱,
+整个事情开始给我带来非常有趣的想法关于色情主义和身体与精神之间的整个联系.
+现在很明显, 两者的福祉是非常重要的.
+移动和激活身体的每一个部位,
+我心中充满了关于什么是色情的意识, 爱情与技术之间的二元性;
+我相信这就是为什么艺术家被视为有吸引力的原因,
+科学家也有这样的潜力, 但出于某种原因, 他们往往不被视为那么浪漫 (可能是因为他们努力解释抽象而不是把它打扮成考官可以解释的东西,
+我选择技术作为色情主义的对立双胞胎, 因为技术的存在,
+技术系统的新应用是另一回事, 但仍属于科学类别而不是艺术或纯色情,
+现在我的头部空间开始变得超速.
+我不能也不想跟随时间的流动
+我的头脑空间开始变得超速.
+我不能也不想跟随时间的流动
+但我想说的是,在几分钟内,
+旅行之后, 想象和说出这句话真是令人难以置信, 但这让我大吃一惊,
+我无法用更好的语言表达, 但它涉及从性幻想到我想要的,
+生物多样性是有能力的
+假如我不是一个经验丰富的心理飞行员, 我无法想象这是可能的; 我会假设那些经验较少的人会认为他们会变得困惑和疯狂 (事实上,我在旅行后也有这种感觉),
+现在我蒸发了第一碗大麻.
+这使得旅程更有根基感,
+我觉得大麻的灵魂在对我说话,
+实际上就像我脑海里有人告诉我,
+我认为这与大麻在某些人身上引起精神病有所关联.
+一切看起来变得更加丰富多彩, 一种棕色/黄色的色调可以在所有东西上看到.
+我花了一些时间在这里吃和补水...
+然后一切重新开始了.
+情况变得更加疯狂.
+我一直在做.
+现在,做拉伸和把自己置于极端的位置让我觉得我正在拉伸时间和我的想法,
+我意识到我已经非常接近离散洞, 甚至跌入其中 (我从来没有钻过洞).
+我不知道自己在那种姿势中待了多久, 也不知道自己是如何进入的, 我只知道自己在着眼睛后面的一些精致的几何形状,
+我确实觉得这很有意思,
+我躺下放松我的思想深入思考整个宇宙的存在.
+我开始思考巨大的,复杂的替代宇宙以及它们是如何出现的,它们总是因为某种非常非常具体的,甚至荒谬的东西而失败或停止存在,而我非常密切地意识到这一点 (宇宙毕竟是我心灵的创造,所以我自然地知道它们的一切).
+我在那一刻的思想复杂性是不可理解的.
+但这还不是全部.
+这实际上很难解释.
+由于我们自己的宇宙的本质和我们对科学的理解, 我们不能知道一切,
+我开始坚信我脑海中那些极其微小的宇宙是非常微小的粒子或量子物理的基本元素,
+像一个光子或电流中的电子, 通过大脑或电路!
+而当能量转移到另一种形式时, 宇宙就不再存在, 另一个宇宙从这种交换中获得了某种利益.
+接收宇宙在量子物理学的这个背景下被称为粒子,或费米子,它阻断了光子的传输,可以被认为是&quot;能量接收器&quot;.
+其他宇宙和我们的宇宙一样复杂, 它们只是在完全不同的尺度上存在.
+这意味着我们的宇宙也可能仅仅是一个能量单元,
+这真是一个令人惊叹的想法.
+我一直着水果.
+果实的能量交换发生在光中的光子作为植物的能量容器来实现其生物生长.
+在这种交换中, 一个宇宙被消灭,
+想象量子物理元素可能是由什么构成,
+在我的假设中,果实中的每一个粒子, 和其他的一切, 都是由个别的宇宙构成的.
+这要么是疯狂,要么是精彩,
+我可以很容易地从音乐中挑选单个乐器.
+就像我之前的
+使用LSD的经验
+我可以把自己置于与演奏乐器的艺术家们同一个房间里,
+这种音乐使得听起来不愉快,也让人感到压力,
+我可以感觉到歌曲的部分在思考时反复重复重复, 仿佛我的头脑忙着处理声音以外的东西,
+我又装满了一碗蒸汽机,
+我再次感觉到有着根基的感觉, 通过弗洛伊德的心理学, 我感觉到心灵的三位一体; 有无意识试图理解我们的存在,
+我一直在无意识中漂流, 感谢离散, 而&#x27;大麻的精神&#x27; 阻了无意识,
+我眼睛的视觉效果非常疯狂, 如果我放松一下,看一看, 很多复杂的角形图案;
+闭着眼睛看到的东西就像电路不断的脉动; 我想象我看到神经元中的电流!
+现在是麻烦的时候了.
+进入洞里面的另一个机会, 现在是我对暗物质和暗能量的想法进入我的思想的时候了, 因为我已经弄清楚了关于光物质的情况.
+毕竟,没有阴,就没有阳.
+对于一个像我这样的人来说,
+我的大脑根本无法处理.
+我很快就开始感到恐惧.
+我只能忍受自己陷入恐慌.
+我开始相信一些不真实的东西, 我开始疯了.
+我公寓的天花板开始变黑, 溶解成几何图案.
+现实开始融化,我的感官完全混,
+听起来像是外星人触摸我的皮肤,
+如果我闭上眼睛, 我实际上可以看到我的神经元变得疯狂,
+幸运的是,我有足够的理性,
+我很难从床上站起来,
+我先只吃了一粒 (5毫克), 想看这能否让我恢复体验, 以至于一切都能继续愉快.
+这使得一切变得更加合理, 但我变得非常惰,
+视觉效果仍然存在, 现在它们更像是常规的化学分离视觉效果 (MXE,MXP,当然还有胺, 我喜欢这种效果): 视觉效果就像是看到沙子在表面上被吹走,
+事实上,这是非常令人惊叹的.
+我无法充分享受它, 虽然, 二胺做了沉它如此之多,
+我再喝了两杯药,然后去睡觉.
+我无法入睡,所以几个小时后又服用了一剂, 总共20毫克.
+接下来的几天, 我确实认为我对我的头部造成了不可挽回的伤害.
+我一直在夜间醒来, 我做了一些非常生动的梦.
+我在夜间醒来时, 眼睛开, 看到的景象与我在旅程高峰时的景象相似.
+我在白天都很好,所以我不太担心,
+如果我没有提前结束这次旅行, 我会更糟,
+所以请保持安全, 感谢您的阅读!
+MDA (34), 乙胺 (689):单独使用 (16), 难度较高 (5), 组合使用 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Lucid Dissociation - Warning Inside
+Ephenidine &amp; MDA
+by
+Student of Life
+Citation:   Student of Life. &quot;The Lucid Dissociation - Warning Inside: An Experience with Ephenidine &amp; MDA (exp110018)&quot;.
+Erowid.org
+. Mar 28, 2017. erowid.org/exp/110018
+DOSE:
+100 mg
+oral
+Tryptophan - 5-HTP
+oral
+Vitamins / Supplements
+250 mg
+oral
+Ephenidine
+(powder / crystals)
+100 mg
+oral
+MDA
+(powder / crystals)
+2 bowls
+vaporized
+Cannabis
+5 mg
+oral
+Pharms - Diazepam
+10 mg
+oral
+Pharms - Diazepam
+5 mg
+oral
+Pharms - Diazepam
+BODY WEIGHT:
+65 lb
+Here&#x27;s a trip report of mixing ephenidine with a serotonin-norepiphrene-dopamine releasing and reuptake inhibiting agent. What I experienced I felt to be dangerous, I imagine this could have been permanently harmful for my mental health if I weren&#x27;t aware of the neurological implications of psychoactive drugs. This reports something that everyone mixing said substances should be aware of.
+Background: 29 yo male, I&#x27;m a moderately experienced psychonaut with a lot of different substances and combinations under my belt. I&#x27;m in great health. I&#x27;m writing this on Thursday, three days after the trip (which was Monday). I lost track of time countless times during the experience so I won&#x27;t bother tagging events with timestamps. It was all pretty confusing, to say the least, so bear with me with my trip report. I took a 100 mg 5-HTP supplement at about noon that day, and a strong multivitamin and other minerals as well in the morning.
+__________________________
+It all began at 8 pm. I had the bottom of a bag of ephinidine waiting for me at home which I presumed to have 200 mg inside; it turned out to be 250 mg on the scale, and I didn&#x27;t want to keep the rest so I ended up using all of it. I poured 100 mg of MDA on the top, and licked it all straight off from the weighing cup. It was time to go.
+I prepared for the trip by peeling some fruit so my brain would have some carbohydrates for fuel, and filled the bowl of my portable vaporizer. I also set up a mattress right next to my sound system, and kind of built an &#x27;exploration vessel&#x27; around it with my laptop, water, food and cannabis around it. I kind of got a childish sensation by doing that, but hey, it ended up working pretty well. I also spent most of my time here.
+The first hour or so passed without much to report. I spent time exploring music and preparing for what to come. The thing about dissociatives, though, as I was soon to learn, that you can never expect what they bring with them.
+At about 9 pm is the last time I checked the clock for a long while. Things were starting to get weird. Very weird, and very interesting. I began to feel some unexplainable physical sensations, and I started doing some yoga to explore them better. I don&#x27;t think I&#x27;ve ever felt physically that good in a long while, if ever. It wasn&#x27;t all-encompassing euphoria since my headspace was starting to get messed up and couldn&#x27;t be in sync with my body. The whole thing started to bring very interesting ideas into my head about eroticism and the whole connection between the body and the mind. It is now apparent that the well-being of both are extremely vital.
+Moving about and activating every part of my body definitely accelerated the comeup. My mind was filled with realizations of what is erotic, and the duality between eroticism and technology; what is erotic in the extreme is essentially exploring that what is unknown. I believe that is why artists are seen as alluring as their minds are in contact with interpreting that which is abstract. Scientists have the potential for this as well, but for some reason they&#x27;re often not seen as so romantic (probably because they strive to explain the abstract instead of dressing it into something that is up for the examiner to interpret, killing the suspense).
+I picked out technology to be the opposite twin of eroticism because technology can exist only because we have deep understanding of the principles of how a technological achievement came to be; in essence it is the antithesis of &#x27;what is unknown&#x27;, and so there is nothing erotic in technology in itself. Figuring out new applications for technological systems is another thing, but still falls under the category of science instead of art or the pure erotic, although I&#x27;d like to claim that there&#x27;s still similarities and possibilities for exploration.
+About now my headspace started to go into overdrive. I couldn&#x27;t and didn&#x27;t want to follow the flow of time
+my headspace started to go into overdrive. I couldn&#x27;t and didn&#x27;t want to follow the flow of time
+, but I want to say that in the matter of minutes I went through every kind of fantasy my mind was able to produce. That is an incredible thing to say and to imagine right now after the trip, but it totally blew my mind, and the thought of it continues to do so to this day. I cannot actually put it any better into words, but it dealt with everything from erotic fantasies to what I want and am able to achieve in life and what humanity (and, actually, all plants or animals! The whole biological diversity out there, that is) is (are) capable of. It was a doozy, to say the least, and I couldn&#x27;t imagine this to be possible if I weren&#x27;t an experienced psychonaut; I&#x27;d make the assumption that those with lesser experience would think they would become confused and insane (indeed, I got this feeling as well later on in the trip), and it could have a lasting negative mental effect on those not properly prepared.
+Right about now I vaporized my first bowl of cannabis. This brought a more grounded feeling into the trip... at first. I felt like the actual spirit of cannabis was talking to me, saying that I should kick back and chill out from all of what was happening. It was literally like having someone in my head telling me that, like another consciousness or something. Very weird, and I think this has something to do with cannabis causing psychosis for some people. My first open eye visuals arrived with the vaporization, and everything started to look more colorful and a kind of a brown/yellowish tone could be seen on everything. I spent some time here to eat and rehydrate... And then everything began again. And it got even wilder than before.
+I kept doing yoga here. Now, doing stretches and putting myself into extreme positions made me feel like I was stretching time and my thoughts, and I almost unconsciously moved about. At one point I completely lost the feeling of myself, even though I was in an upright position, and realized that I was very, very close to achieving a dissociative hole, or even fell into one (I&#x27;ve never holed before). I had no idea how long I was in that particular pose or how I got into it, all I knew I was staring at some really elaborate geometry behind my eyes and was lost in another dimension for a while; it did not feel like an eternity, just a minute or two. I did think this was remarkable though, and decided to relax and see if it was possible to hole again.
+As I laid down and got into relaxing my thoughts went deeper into contemplating the existence of the whole universe. I began to think of huge, complex alternate universes and how they came to be and they always ended up failing or ceasing to exist due to some very very specific, even absurd thing which I was very closely and intimately aware of (the universes were the creations of my mind after all so I naturally knew absolutely everything about them). The complexity of my thoughts in that moment was incomprehensible.
+But that is not all... This is actually very hard to explain. Due to the nature of our own universe and our understanding of science we cannot know everything, at least not yet. I began to firmly believe that those incredibly minuscule universes in my mind were tiny, absolutely tiny particles or basic elements of quantum physics that are essentially called the basic, elementary form of energy. Like a single photon of light or an electron in an electric current surging through a brain or a circuit! For the quantum physical unit of energy to exist, the alternate universe has to exist as well, and when the energy is transferred into another form the universe ceases to exist, and there&#x27;s another universe that gains something or other from this exchange. The receiving universe in this context of quantum physics is called a particle, or a fermion, which blocks the transfer of photons and could be considered a &#x27;receiver of energy&#x27;. These other universes are just as complex as ours, they just exist on a completely different scale. This implies that our universe could also merely be an unit of energy just on its way to cause an effect in some other universe... What a mindblowing idea.
+I kept munching on fruit. It was very apparent for me now that in the case of fruit the energy exchange happens as so that photons in light serve as energy vessels for plants to accomplish their biological growth. In that exchange one universe is extinguished so another, a plant cell and its more basic quantum elements, can be born. It&#x27;s still very interesting to imagine what an element of quantum physics might be made of. And in my hypothesis each of the particles of the fruit, and everything else, are made of individual universes. This is either insane or brilliant, and I have no idea which it is.
+Time dilation is hyper extreme right now, and I can very easily pick single instruments out of music. Like with my earlier
+ephenidine experience with LSD
+I could place myself into the same room as the artists playing the instruments, like I was there. It kind of made music not enjoyable and rather stressing to listen to, but it was still quite interesting. Songs blended into each other and I could definitely sense parts of songs looping over and over while thinking of something, as if my mind was busy processing something other than sounds and then coming back later to figure out what was outside my head.
+I filled up another bowl of my vaporizer and started sucking on that. Again, I felt a sense of groundedness, and in a way of Freudian psychology I got a feeling of trinity of mind; there&#x27;s the unconscious that is trying to comprehend our existence and dress abstract feelings into thoughts for our higher consciousness, and our ego is there in between reality and higher consciousness to interpret the concrete thoughts so we can act in our daily lives. Up until now I&#x27;ve drifted in the unconscious, thanks to the dissociative, and the &#x27;spirit of cannabis&#x27; kind of blocked away the unconscious a bit and let my ego talk with my higher consciousness, with the cannabis saying &#x27;welcome back, time to relax for a bit&#x27;. My open eye visuals were pretty wild, a lot of complex angular patterns everywhere if I was to relax and look into them; moving around was no problem yet doing so pushed away the visuals. My closed eye visuals were kind of like constant pulsing of electrical circuits; I imagine I was seeing the electrical flow in my neurons!
+Well, now it was time for trouble. Once I went back into relaxing and meditation and gave going into the hole another chance it was time for thoughts about dark matter and dark energy to enter my thoughts since I kind of already figured out what&#x27;s going on regarding on &#x27;light matter&#x27;. There can&#x27;t be a yang without a yin, after all.
+And that was, and is, beyond comprehension for an individual such as myself. My brain couldn&#x27;t handle it, at all. A feeling of fear immediately started flooding my mind. It took all I had to resist going into full blown panic. Things stopped making sense, I started believing things that weren&#x27;t true, I was going insane. The ceiling of my apartment started going black and dissolving into geometrical patterns. Reality started to dissolve and my senses were jumbled in a total mess of synesthesia. Sounds felt like something alien touching my skin, what I saw through my eyes turned into unbearable sine waves in my ears. If I closed my eyes I could actually SEE my neurons go haywire and making destructive associations, killing whatever shreds of intelligence I still had, erasing my memories and making my personality a distant ghost of what it was.
+Luckily I had the sense to recognize that now was time to call it quits. I had extreme trouble rising up from my mattress to get to my diazepam. I first took only one (5 mg) to see if that would kick the experience back to a point that everything would still be enjoyable. It did make everything more sensible, but I became very lethargic and it killed the trip by a lot. The visuals were still there, and they were now a lot more like regular research chemical-like dissociative visuals (MXE, MXP, and of course ephenidine, which I love, by the way): the visuals were like seeing sand being blown on surfaces or waves of mud or water flowing over everything or leaves of grass waving in the wind. Quite spectacular in fact. I couldn&#x27;t enjoy it fully, though, as the benzodiazepine did dull it out so much that the whole thing was pretty lackluster. I took two diazepams more and headed to bed. I couldn&#x27;t get sleep though so after a couple of hours I took one more, so my total was 20 mg.
+Aftermath: the following couple days I thought I indeed did irrepeable damage to my head. I kept waking up during the night and I&#x27;ve had some extremely vivid dreams. When I&#x27;ve woken up during the night I&#x27;ve actually had similar open eye visuals as I did when I was going up to the peak of the trip! I&#x27;ve been fine during the day though so I&#x27;m not too worried, and now believe that everything&#x27;s going to pass. I am 100% certain that if I didn&#x27;t kill the trip early I would have ended up worse, maybe having HPPD, hallucinogen persisting perception disorder, perhaps for a very long time even.
+So, please stay safe, and thanks for reading!
+Exp Year: 2017
+ExpID: 110018
+Gender: Male
+Age at time of experience: 29
+Published: Mar 28, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDA (34), Ephenidine (689) : Alone (16), Difficult Experiences (5), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

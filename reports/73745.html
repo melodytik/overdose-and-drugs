@@ -1,0 +1,176 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>皮 - 形 - &quot;非常微妙&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mushrooms-g-spectabilis.html'>← 裸盖菇(- G. spectabilis)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>皮 - 形 - &quot;非常微妙&quot;</h1>
+<div class='sub-title'>Gymnopilus spectabilis - Erowid Exp - &#x27;Very Subtle&#x27;</div>
+<div class='meta'>作者：Cakes Citation · 日期：Oct 29, 2016 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=73745' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这将是一个有点无聊的报告, 但很好有记录, 因为没有大量关于食用Gymnopilus Spectabilis的文档.
+这可能是Gymnopilus Aeruginosus, 据我所知, 它基本上是相同的,
+80克新鲜的Gymnopilus Spectabilis在水中10分钟,然后通过子过.
+剩余的液体煮熟到大约8司.
+这真是太苦了!
+它的苦味与含有梅斯卡林的仙人掌非常相似.
+我用山露水把它冲下来, 喝了一口山露水, 住嘴里, 喝一口汁, 快速吞下,
+我现在正处于1.5小时的位置, 在舒尔金评分表上是+1.
+确实有活动, 但非常微妙,
+据报道, 来自该地区的Gymnopilus Spectabilis几乎没有含有psilocybin.
+然而, 据说它们含有类似于卡瓦的化物.
+我曾经尝试过卡瓦,
+我有轻微的身体高这是非常放松.
+这种的效果有点类似.
+我的思维空间/感知稍微改变,只是稍微改变.
+有点空间,还有点头部压力.
+整个身体都感到轻微的刺/振动.
+我的视力有轻微的变化.
+我在黑暗的墙上看到的静电比较明显.
+没有明显的高兴.
+我吃了它们后不久, 胸部就有那种温暖的,
+我下次要加倍剂量, 因为这些中可能含有少量psilocybin,
+希望你喜欢:微笑:
+我应该提到我服用Wellbutrin (布普罗),
+我读过一份报告, 韦尔巴特林可以减少LSD的作用,
+自从我开始服用Wellbutrin以来, 我没有尝试过任何其他胺类药物,
+时间表:
+- G. spectabilis (118):第一次 (2),未知背景 (20)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Very Subtle
+Gymnopilus spectabilis
+by
+Cakes
+Citation:   Cakes. &quot;Very Subtle: An Experience with Gymnopilus spectabilis (exp73745)&quot;.
+Erowid.org
+. Oct 29, 2016. erowid.org/exp/73745
+DOSE:
+oral
+Pharms - Bupropion
+(daily)
+80 mg
+oral
+Mushrooms - G. spectabilis
+(tea)
+BODY WEIGHT:
+140 lb
+This will be a somewhat dull report, but it will be nice to have it on record as there is not a ton of documentation on the ingestion of Gymnopilus Spectabilis. It is possible that this is Gymnopilus Aeruginosus, which as I understand it is essentially the same mushroom with the same chemical propertis, but slightly larger.
+80g fresh Gymnopilus Spectabilis simmered in water for 10 minutes then strained through a sock.
+Remaining liquid simmered down to about 8oz.
+God damn was it bitter! It is very comparable in bitterness to mescaline-containing cacti.  I managed to wash it down with Mountain Dew -- Sip of mountain dew, hold in mouth, sip of mushroom juice, quick swallow, then another quick swallow of fresh Mountain Dew before I have time to taste it.
+I am at about the 1.5 hr point right now, and at a +1 on the Shulgin Rating Scale. There is definite activity but it is very subtle, and not necessarily like psilocybin.  I have quite a bit of experience with various low doses of Cubies, and this is not very similar. I picked these in SW USA and it is reported that Gymnopilus Spectabilis from this region contain little to no psilocybin.  However, they are said to contain alkaloids similar to those in Kava.
+The one time I tried Kava I entered a relaxed mind set and was in a pretty good mood.  I had a slight body high which was very relaxing.
+The effects of this mushroom are somewhat similar to that.  My mindspace/perception is slightly altered, just ever so slightly.  A little spacey, and some head pressure. Very slight tingling/vibration through my entire body. There is a light alteration to my eyesight.  The usual static I see on dark walls is more distinct. No marked euphoria. Shortly after I ingested them I got that warm fuzzy in my chest that I get when cubies give me the first alert.
+I&#x27;m going to triple the dose next time around, as it is likely there is a small amount of psilocybin in these mushrooms and I am very interested to see if I can get a good trip goin with these.
+Hope you enjoyed :smile:
+I should mention that I take Wellbutrin (Bupropion), which is a &#x27;very&#x27; minor SSRI, and a moderate Dopamine and Norepinephrine reuptake inhibitor.  I have read a report that Wellbutrin reduces the effects of LSD, and I assume it would do the same with any other tryptamine. I have not tried any other tryptamines since I started Wellbutrin so I can&#x27;t confirm this.
+Exp Year: 2008
+ExpID: 73745
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 29, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms - G. spectabilis (118) : First Times (2), Unknown Context (20)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,221 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲基 - 埃洛伊德的 Exp - &quot;光束&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methallylescaline.html'>← Methallylescaline</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲基 - 埃洛伊德的 Exp - &quot;光束&quot;</h1>
+<div class='sub-title'>Methallylescaline - Erowid Exp - &#x27;Beams of Light&#x27;</div>
+<div class='meta'>作者：SirSlothSlayer Citation · 日期：Nov 8, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=107907' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我在大学回家的时候有过这样的经历, 当空气变冷,
+我最近从一家知名的供应商那里购买了几种不同的研究化学品, 在阅读了甲基莱斯卡林后,
+收到我的250毫克袋 (最终是260毫克,
+根据我当时对该物质的有限信息, 我从分散的旅行报告中提取出我应该预期12-16小时的旅行,
+这里是我那天的报道; 在经验期间和之后的笔记:
+&gt; 上午10:35 - 用水溶解30mg,物质几乎立即稀释.
+味道苦,但没有停留很长时间.
+不像DALT/NBOMs那么糟糕.
+我已经感觉到早期的血清激活症状; 我的大脑感到奇怪地刺激, /肌肉稍微紧张, 我感觉到我的脸/特别是我的鼻子开始出汗.
+轻微的声
+在身体的副作用方面与LSD非常相似.
+虽然目前还没有什么明显的, 我只能说有什么东西即将到来.
+这给了我一个特别独特的身体高, 这让我想起了我在吸烟的第一天曾经的高.
+现在除了大麻, 还有其他东西影响着我,
+&gt;11:35AM - 首次视觉开始缓慢地设置.
+仿佛在眼睛上留下&quot;印记&quot;,
+视线似乎变得微弱一些.
+绝对可以.
+随着视觉增强, 头部感觉受到刺激 (几乎是电流), 相反,
+&gt; 上午11点45分 - 服用剩余剂量 (35 mg) 在囊中.
+&gt;12:00PM - 非常愉快的身体高,所有物体看起来稍微亮,不成比例,以及泡/轻质地.
+我肯定在此时看到视觉效果,
+感觉好像我在一个++级别, 但再次; 不太强烈.
+现在感觉很有活力.
+我把一些&quot;感恩的死者&quot;放上,
+当我听到歌词时, 我往往会无意识地将它们与我当时的旅行联系起来,
+对于我来说这是独一无二的, 因为我上次经历这样的事情是几年前的NBOM.
+视觉方面, 眼角上的微妙光线仍在等待第二次注射.
+墙壁/窗开始轻轻地呼吸,
+现在我的身体感觉很模糊.
+/肌肉疼痛似乎已经消失了.
+我觉得我的头脑空间正在扩大, 周围的环境似乎在变得更快,
+随机出现的物体/光线突然变得更加突出,
+只是稍微令人不安,但有趣.
+我觉得有点焦虑/紧张,
+我注意到我的手臂和腿对&quot;精细调&quot;的动作显然变得过敏;它们经常抽和,如果我保持手不动,它们就会开始.
+可能会增加黑色物质中的多巴胺水平,
+我了一下,但从来没有达到+++级别.
+我注意到一个非常内省的思维过程出现.
+我开始思考生活中的许多事情,旅行,所有关于我的事情,
+在旅行结束后, 完全独自与自己的想法在这个内省状态绝对为我服务, 因为它离开了强烈的决心.
+然而,我的灵性思维过程只持续了这次旅行的时间.
+我仍然认为这很有趣, 因为我只感觉到类似的思维模式与其他一些迷幻药,
+在此期间,我仍然有稳定的,但大多是微妙的OEV; 大多只是眼角的变形,
+在这种剂量下,OEV没有什么特别的, 然而我相信甲基真的最亮的是CEV.
+我心目中似乎形成了各种虹般的图案; 有趣, 但也没有什么令人难以置信的.
+晚上5点是我开始下降的时间.
+我注意到身体的高潮正在减弱, 我的视觉也慢慢变得越来越微妙.
+尽管如此, 我仍然没有清醒, 感觉还不错,
+在晚上8点半左右,除了几个小小的CEV外, 所有的视觉效果都实现了.
+我觉得我已经接近了基线,
+我在晚上11点半左右睡着了.
+总的来说,这是一个有趣的经历; 足够有趣,
+我和我认识的许多人已经发现, 超过60毫克 (甚至是60毫克) 总会引起慢性恶心.
+没有任何视觉效果值得写回家, 然而我觉得甲基可能有很大的潜力
+其他:
+发布时间:2016年11月8日
+甲基莱斯卡林 (586):单独 (16),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Getting Rid of Your Physical Books?
+If you have books or periodicals about drugs, contribute them to Erowid!
+Your old books will find a good home in our library or for a supporter. [
+details
+]
+Beams of Light
+Methallylescaline
+by
+SirSlothSlayer
+Citation:   SirSlothSlayer. &quot;Beams of Light: An Experience with Methallylescaline (exp107907)&quot;.
+Erowid.org
+. Nov 8, 2016. erowid.org/exp/107907
+DOSE:
+T+ 0:00
+30 mg
+oral
+Methallylescaline
+(liquid)
+T+ 0:45
+smoked
+Cannabis
+BODY WEIGHT:
+165 lb
+I had this experience while at home from college, when the air gets colder and the sun sets earlier (Sometimes I feel psychedelics can set the mood for a season). Recently, I had acquired a couple various research chems from a reputable vendor, and after reading up on methallylescaline upon seeing that they had stocked up on it, I knew I had to observe its effects. So after receiving my 250 mg bag (ended up being 260 mg thanks to the generous vendor) in the mail, I loaded up 4 capsules with around 65 mg each.
+From the very limited information I had on the substance at the time, I managed to extract from scattered trip reports that I should expect a 12-16 hr trip, so I planned accordingly to dose relatively early in the morning on a nice day.
+Here is my report of that day; collection of notes taken during and after experience:
+&gt;10:35AM - Dose 30 mg in water, substance dilutes almost immediately. Tastes bitter, but doesn&#x27;t linger long. Not nearly as bad as DALT/NBOMes.
+&gt;10:48AM - Already feel early serotonergic come up signs; my brain feels strangely stimulated, jaw/muscles tightening slightly, I feel my face/particularly my nose starting to sweat. Light buzz.
+&gt;11:00AM - Come up signs are slowly becoming more evident, and feel very similar to LSD as far as physical side effects go. At this point I&#x27;m smiling wide and feeling giddy, however nothing is too apparent yet, I can only tell something&#x27;s coming.
+&gt;11:20AM - Packed one bowl outside; This gave a particularly unique body high that reminded me slightly of the highs I used to get during my first days of smoking. Something is definitely effecting me at this point other than cannabis, but still not apparent.
+&gt;11:35AM - First visuals slowly start setting in. Artificial strands of neon-ish &#x27;light&#x27; subtly begin to imprint on my retina, similar to how bright lights &#x27;imprint&#x27; on your eyes if you look at them for too long. Line of sight seems to mellow ever so slightly. Definitely coming up.
+Head feels stimulated (almost electric) as visuals increase, conversely my body is beginning to more sedated.
+&gt;11:45AM - Take rest of dose (35 mg) in capsule.
+&gt;12:00PM - Very pleasant body high, all objects appear slightly brighter, disproportionate, as well as foamy/light in texture. I was definitely having visuals at this point, however they weren’t at all overbearing for me. Felt like I was at a + + level, but again; not too intense.
+&gt;12:30PM - “Now feeling very energetic. I put on some Grateful Dead, and immediately felt in union with the rhythm and meaning of whatever song was on. When I hear lyrics, I tend to subconsciously contextualize them to my trip at that moment, as if the song was written for my trip somehow. This is unique to me, as the last time I experienced something like this was years ago with NBOMes. As far as visuals go, still just subtle light patterns in the corner of my eye, still waiting for my second dose to kick in.”
+&gt;12:45PM - “Walls/curtains start to breath ever so softly; not extremely so, but still evident. At this point my body feels fuzzy. Jaw/muscle pain seems to have faded into the background.”
+&gt;12:55PM - “Things getting more &#x27;dream-like&#x27;; I feel my head space expanding, my environment around me seems to be moving more fast paced, despite the fact that there might not be anything moving at all. Random objects/lights suddenly seem more salient; pulling in my attention for no good reason. Only slightly unsettling, yet interesting.”
+&gt;1:30PM - “My head is rushing, and I feel sort of anxious/jittery, but I don’t have a problem managing it at this point, it’s just there. I’ve noticed that my arms and legs have definitively become hypersensitive to ‘fine-tuned’ movements; they twitch and tremble (?) frequently, and if I keep my hands still they begin to shake.” This might’ve been due to the fact that methallylescaline is in the phenethylamine class; known for its affinity to agonize dopamine. Perhaps it raises dopamine levels in the substantia nigra similar to amphetamines and cocaine, effecting motor control.
+&gt;2-5PM - Up until 5PM, there were no new progressions significant enough to write about as the trip was happening, I teetered but never reached the + + + level. However around 2 PM I noticed a very introspective thought process emerge. I began to think about many things going on in my life, the trip, all the things concerning me that I usually didn’t want to think about, and began to really think about them subjectively, as well as objectively. Being completely alone with my thoughts in this introspective state definitively served me well, as it left with a strong sense of resolve, well after the trip had subsided. However, my entheogenic thought process lasted only as long as the trip did. I still think this is interesting, as I’ve only felt similar thought patterns with a few other psychedelics, such as 25-B or LSD.
+During this period, I still had steady, yet mostly subtle OEV’s; mostly just morphing in the corner of your eye, or shifts in color/light. At this dose, OEV’s were nothing incredibly special, however I believe that methallylescaline really shines most with its CEV’s. My CEV’s were composed mainly of geometric lights that seemed to form various “neon-like” designs in my minds eye; interesting, but nothing incredible either.
+5 PM was the point where I began to come down. I noticed the body high was mellowing out, and my visuals were slowly becoming more and more subtle as well. However, I was still by no means sober, I still felt pretty good, aside from jaw/muscle tension that was beginning to set in. Around 8:30 PM all visuals had come to pass, save a couple small CEV’s. From this point on, I felt close to baseline, however not completely. My body continued to have twitches throughout the night up until when I fell asleep around 11:30 PM.
+Overall, it was an interesting experience; it was fun enough, however it was a lot of commitment time and devotion-wise for a relatively mild payout. It also seems that it has a narrow dosage range, as I and many people I know have since found that any more than 60 mg, (or even all 60 mg at once with me) consistently evokes chronic nausea. No visuals were worth writing home about, yet I feel that methallylescaline could have great potential if combined properly with other psychedelic tryptamines, or even its counterpart, alleylescaline.
+Exp Year: 2016
+ExpID: 107907
+Gender: Male
+Age at time of experience: 18
+Published: Nov 8, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methallylescaline (586) : Alone (16), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

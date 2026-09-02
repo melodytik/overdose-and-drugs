@@ -1,0 +1,660 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>在西费城寻找萨马迪</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/alcohol.html'>← 酒精</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>在西费城寻找萨马迪</h1>
+<div class='sub-title'>LSD, MDMA (Ecstasy), &amp; Alcohol - Erowid Exp - &#x27;Searching for Samadhi in West Philadelphia&#x27;</div>
+<div class='meta'>作者：B-E-H · 日期：Jan 7, 2012 · <a href='https://erowid.org/experiences/exp.php?ID=79281' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>美国
+(磨碎/粉碎)
+三次射击
+在口服
+酒精 - - 强烈
+一个
+在口服
+酒精 - 酒/葡萄酒
+2009年纪念日周末
+演员:
+一个:
+26岁的男性, 5&#x27;10&quot;,125磅
+28岁的女性, 5&#x27;5&quot;, 130磅
+26岁的男性, 6&#x27;0&#x27; 140磅
+所有参与者都坚持严格的素食饮食,
+这份报告以三种方式撰写,
+计划:
+每个人都要服用2次LSD,然后大约3.5小时后服用1粒MDMA.
+设置和设置:
+现在,我已经知道了.
+我多年来一直对糖果翻转充满好奇心,
+然而,在五月的一个美好的日子里, 一系列令人愉快的偶然事件使我有机会为自己和另外两个人购买足够的LSD和MDMA.
+我向住在城外的好朋友们讲述了我的发现.
+他们表示有兴趣尝试组合,所以那个周末我离开布鲁克林西费城.
+我知道这种组合可能会导致++++类型的体验.
+值得一提的是, 我在四周前发生了一场相当严重的自行车事故,
+虽然我的伤口周围的皮肤还是粉红色的,
+现在回想起来, 我觉得我的车祸对我的心理和身体的影响对我的经历有所影响.
+我在星期五晚上抵达费城, 和H和E一起吃晚饭,
+我们详细介绍了第二天的计划,
+那天晚上我的睡眠有点不安.
+我们知道我们在乘坐.
+第二天早上我们一起吃早餐.
+我吃的很轻.
+伊的房子位于西费城.
+房间很大,很干净,很舒服.
+我们独自一人度过了这段经历, 并且为即将到来的旅程收集了一些小玩具: 录音机,吉他,绘图本,标记, 两台立体声在房子的不同部分, 以及大量的音乐.
+我们每人早上10点半就服用了两次LSD,
+我感觉到了LSD的作用.
+肌肉轻微,呼吸变得更深,
+我慢慢地走在房子里,
+我记得当时我和我的同伴们聊了一会儿,
+我总是很难提升自己的能力.
+现在,我知道你在哪里.
+如果LSD会让我焦虑, 我决定用我以前使用过的技巧来平息焦虑.
+我专注于吉他.
+这让时间过得更快,让我忘记自己.
+只有五,十分钟,我感觉到了.
+随着时间的推移, 吉他演奏 (记住和弦和/或改变和弦位置) 变得越来越困难.
+我没有提及任何事,但在我的脑海里我说:
+这种东西很快!
+我现在已经深入了两三英寸, 想得到B或E的非言语确认.
+[输入第一个特征:害怕孤独.
+而B则是安静的.
+我没有感觉到他们感觉到我的感受.
+我很紧张.
+我对E说话,对邻居开玩笑,对B的笑话地笑.
+仍然紧张.
+提醒我旅行的开始可以为整个旅程设定基调.
+通过过去的镜头体验现在的毒品.
+我希望能够更加平静, 但焦虑只能养自己.
+树木的绿色令人惊.
+我的肚子很奇怪.
+否则会发生什么?
+镜子可能只在我的眼睛内移动.
+在柜台,我看着B.
+他的瞳孔大.
+他有没有感觉到我的感受?
+可能是.
+是的
+得到一个.
+在家.
+现在
+我们回家, 快速把电池放进录音机里&#x27;在太晚之前&#x27;,
+现在我们都能感觉到.
+现在,我已经知道了.
+虽然这种影响持续,
+我们决定去附近的公园散步.
+我们走出了门口.
+我注意到我脑海中的一个声音, 暗示我最好转身回家, 躲藏.
+当我们到达时,公园里挤满了人.
+我觉得自己暴露了.
+我坐在草地上几分钟,
+我们走回, 绕在破碎的人行道上, 碎玻璃, 忙丢弃的垃圾.
+现在,我知道你在哪里.
+没有人知道.
+我决定这要么是因为香中的某种化学物质加剧了LSD的作用 (B也知道这一点),要么是因为我们要去&quot;冒险&quot;,没有&quot;补给&quot;就没有冒险了.
+如果我的胃在这个时候是结,所以必须是B的.
+[B的笔记:这是因为我们在冒险!]
+在行走中,我跌倒了一次,也许两次.
+有没有人注意到?
+我也同样担心.
+我们不是喝醉了,我们是药物!
+每天不吸毒的人都在路过我们,
+埃要求我握手.
+虽然我的焦虑让我感到特别疏远,
+我为B感到难过, 独自在前面旅行, 我们无所畏惧的, 孤独的领袖.
+[输入H号线.
+3: 觉得B可能有第三轮感觉
+现在,我已经知道了.
+每个声音都非常专注.
+我无法专注于任何特定的声音或呼叫,
+这是一种反向尾酒派对效应.
+这真是新奇!
+在这个时候, 已经接近下午1点了.
+虽然LSD的效果仍在加剧,但我觉得身体的效果正在缓和,因为我的身体已经适应了我的新化学反应.
+我们去了E的卧室, H&amp;E躺在床上,
+他拿起了吉他.
+她在E和我一起唱几首歌的时候,
+唱歌的感觉非常棒.
+我用吉他了一会儿, 着我们打算吃的六粒蓝色药.
+皮肤的变化是什么?
+我的手已经老了.
+它们看上去有静脉,纹,骨,虚弱,有关节炎.
+我担心自己会变老,
+我觉得我的头脑相当清醒, 但事情在视觉上是相当, ,令人印象深刻.
+现在,我知道你在哪里.
+我在E的房间里看到的是:我的皮肤在内外&quot;老化&quot;,
+画上船上的光,海上的令人难以置信的蓝色.
+窗的柔软波浪和白色光线,水性音乐:它充满了我一整天感觉到的海事主题.
+她的头发从头部伸出,然后又回来,
+我皮肤上出现了色彩斑的图案, 就像移动的纹身,
+白色的光变为粉红色,绿色,蓝色,不断变化,
+我的手臂上有一小小的痕, 闪亮,然后深红.
+我手臂上的头发也曲了,然后又回到了我的皮肤上 (就像水母的头发,
+有时我不确定自己是睡着了,半梦,还是清醒了.
+跌落在床上,然后站起来当,轻微惊的感觉,我开我的眼睛.
+我可能在梦中看到的门.
+两世界之间的隔被打破了吗?
+梦幻世界 - - 一个总是潜意识地运作的世界 - - 和平凡的世界,
+我相信大自然创造了一些保护性边界来保护我们人类, 但有时候,
+现在,我已经知道了.
+一个半左右,我们每个人都吃了一粒药.
+我从我的碗里吸了一两次大麻.
+现在,我们已经知道了.
+几个主题重复出现:能量,爱,社区.
+我开始使用LSD,
+我记得我只是短暂地感到焦虑.
+我已经得到了保证, 登对许多人来说是轻微不愉快的.
+我不得不同意, 并且有一段时间我发现自己被迫离开这个群体.
+我发现自己越来越倾向于孤独.
+我感到悲伤, 后院的失败, 公园的失败,
+我觉得自己是个陌生人,
+我开始注意到从物体到物体的美妙光线.
+任何主题本身都不再重要, 但构成主题的图案引人入胜和诱惑 (即卡尔文和霍布斯的墨水和颜色, 蒙特利尔的视觉 - 撒旦恐慌在楼海报, 微弱的光线通过窗口) 新奇的产生乐趣, 幸福, 迷人.
+我需要知道这会带我去哪里.
+现在,我已经知道了.
+在服用药后不久,
+我和H躺在床上聊了一会儿,
+随着时间的流逝,
+眼睛的特征变得更加清晰,更加电动.
+在天花板上漂浮着彩虹静态旋转.
+我看到了H.
+哈尔回头看.
+她的表情是明确的, 我们都知道对方的感受.
+我们下楼.
+没有人知道.
+这种药能起作用!
+艾在客厅的沙发上躺着.
+我们问候他,告诉他我们都感受到MDMA的影响,
+现在,我们已经知道了.
+这是一种微弱的冲动, 一种突然的焦虑,
+在此间的空间中,
+眼睛闭上,世界就消失了 - - 更确切地说,我从世界里溜走了,
+眼睛闭着, 我&quot;视觉&quot;中的图案已经比一个小时前更加加强,
+需要确保我的眼睛是开放的 - - 他们是.
+我看到了我的眼睛打开,因为我喜欢一个完全睡梦.
+我检查过是否有外层生物.
+我听到B从DMT经历中提及他们.
+我希望他们也能出席, 但只有我自己的声音响起,
+模式开始被替换 - - 需要多长时间?
+没有超过十或十五分钟我会猜测 - - 由爱的喜悦和快乐.
+所有粗的边缘都完全消失了,
+房间已经恢复到正常状态, 家具完好无损, 我躺在沙发上.
+我觉得与H&amp;B有很大的联系,
+我走到他们身边, 他们就下楼了.
+没有人知道.
+这种药能起作用!&quot;
+我们一起出去玩,我记得这一切有点模糊,
+我喜欢自己多几分钟.
+在某个时刻,我和H上楼去我的房间里进行身体探索,
+我们坦率地谈论我们的关系, 那些美好的事情以及我们所面临的压力.
+我们开始怀念B, 我们也怀疑 - - 我相信有点准确 - - 如果我们走在亲密的路上,
+我们在录音机上做了一些笔记.
+我记得我有多么清醒,
+酒精的开放性,但仍然完全明确的迷人组合当然非常高.
+现在,我知道你在哪里.
+我记得我看着窗外想:&#x27;我们现在不能离开,我们太醉了.
+树木的绿色看上去很有机,很吸引人 (我觉得MDMA的作用很短暂,
+我问自己,疯子是不是这么感受, 描述这种内在经历是如此奇怪,
+我举起手把窗拉到一边, 着眉头看着外面.
+我把这种感受和B联系起来.
+但突然间,强度让他变得更加激烈,
+我真的很喜欢我们在录音带上听起来多么清醒.
+我喜欢脑海清晰,不受不安全感的束,
+讲话就是诚实地解释.
+没有游戏,心灵开放,情感自由流动在友的三角形E-H-B,B-H-E.
+没有人知道.
+地面有点.
+毯子移动了.
+尽管窗户关闭,窗在微风中移动.
+我坐在地毯上, 在房子前面的里, 闭上眼睛.
+思想的清晰是惊人的;我的每一个想法响起一个声音, 而不是通常的疑虑和矛盾的声合唱团.
+如果我想要完全安静我的思想,
+这种深沉的冥想状态是强烈的,
+我很容易忘记自己曾经存在于现实世界.
+眼背后的巨大空白充满了生动的绿色和黑色.
+我开眼睛时, 一个有触角的东西穿过我的视觉,
+这一切都太过分了.
+我在餐厅里发现了H.
+我们坐在对面的房间, 完全敬畏音乐.
+,终于我们没有人通过立体声播放.
+感觉就像光线从我的胸部出来, 和她发出的光线相遇,
+我可以想象波形.
+我很惊.
+我和H拿了一台录音机, 打算录制我们的歌声,
+我感觉到我内心的幸福/同情/爱情/团结/统一的无可阻的泉源正在爆发.
+MDxx的同理心特性与LSD的自我破坏效应融合, 结果是对宇宙中一切事物的同理心和爱.
+这正是我几年前偶然遇到的++++体验.
+我再次在那里.
+我无法忍受,我完全感激自己存在,有机会体验存在的美丽,知道在任何地方,在任何地方,存在是一种我不值得的礼物,我永远无法偿还.
+我和H在录音机上按了录音.
+你能听到我有点.
+我感觉自己比清醒更清醒,一切都比以前更真实.
+我记得拿起一支笔, 看到电线跟着我的手, 文字在没有作家的情况下自行写作,
+我记得我觉得这么深厚的爱情至少是有孩子的经历总和,
+我不确定这个经历的加四部分持续了多久,
+我同意他们应该这样做.
+我对此感到满意, 并且在他们离开E的卧室时,
+我搬到了沙发上.
+我开始想起我在布鲁克林的女朋友,
+我看着自己找到我的手机,打开它, 打电话给她.
+她接了电话.
+我告诉她我爱她.
+我从来没有告诉过她.
+我确实爱她, 但这也是一个非常不合适的时间来说.
+我告诉她我服用了两次LSD和一片MDMA.
+我很快意识到我做了什么, 感到非常尬.
+在我们说再见之前, 她告诉我要放心,
+这里确实发生了一些不好的事情.
+现在,我们已经知道了.
+我们回来了.
+他第一次告诉女朋友他爱她.
+尽管事后看来这似乎无害,
+但另一方面, 已经做了的事已经做了,
+我们继续前进,
+有音乐,大多是H,有时是B,有些人唱歌.
+主要是山山羊.
+我已经忘记了哪首歌 - - 如果有人记得的话,请列出.
+这首歌的名字是&quot;琳达·布莱尔生来是无辜的&quot;.
+在某一点上,B说他明白这些药物为什么是非法的.
+越多的时间来思考这个想法, 以及我自己的情绪状态,
+实际上,我觉得,如果能使这些药物变得像香烟一样, - - 危害一生,成极度, - -
+一个美好的新世界
+没有.
+今天我在雨中走路时, 我被迫问自己:如果我能轻易地进入那个状态, 就像在一天的工作结束后拿起一包香烟一样,
+这是一个可怕的想法, 这让我担心我们所感受到的喜悦.
+也许是我的个性, 但经过几天的彻底清醒我不能否认我错过了它,
+完全可以控制, 但愿望依然存在,
+现在,我已经知道了.
+时间已经在奇怪地移动.
+我不确定已经发生了什么, 还没有发生什么, 这是一个尬的方式说时间似乎是向后和向前移动.
+我记得至少十天前我已经服用了LSD.
+我无法想象这十天发生了什么.
+我女朋友在电话里说这件事持续了很长时间, 我开始想我十天前服用了LSD,
+等待一个.
+我当时的年龄是多少?
+这种情况已经持续了多久?
+我开始担心.
+我们一起去了E的卧室.
+我在吉他上打,
+我不知道该如何解释这个问题:一段时间.
+没有.
+在目前.
+我保持沉默和移动我的头一边到另一边和肩.
+有更多的问题.
+我根本无法说出自己的意思.
+我不确定我是否通常能够说话...
+谁是E和H,我认识他们多久?
+他们为什么要问我所有这些问题?
+他们试图说服我说话吗?
+我最后一次服用LSD之后的10年里发生了什么?
+我变得偏执.
+我相信 - - 我用&quot;相信&quot;这个词的含义很宽泛, 因为这些信仰与其他信仰有很大差别 - -
+我不确定我多大了, 但我似乎认为我很年轻, 一般无法说话,
+但对于他们所有的问题,我要么没有意见,要么没有话,要么相信有&#x27;正确&#x27;的答案,我被&#x27;测试&#x27;.
+我用吉他弹奏, 试着敲打某些和弦,
+吉他作为一种非言语表达方式,
+我可以唱歌.
+我唱了一首歌.
+但实际的口头沟通太多了.
+简而言之,我感到恐惧和困惑, 不知道自己在时间和空间的位置, 不能理解前一周的事件是如何导致我在费城.
+另外,我不知道我吸了多久.
+这可能是多年.
+我没有任何参考.
+我已经迷路了.
+我在自己脑海中陷入各种妄想, 想知道E&amp;H是谁,我是谁,
+我认为自己是个片成, 因为药物已经消除了疼痛.
+我被要求阅读一本漫画,
+我觉得自己是个子.
+我认为我只喝水, 不吃食物.
+我经历了一种复杂的酒精错觉, 在这种错觉中, 我对酒精和水的概念变得可以互换,
+我看到了我身上的伤, 我很担心我故意伤害自己.
+我记得那次事故.
+我是不是故意撞了下来?
+这种想法是 (反思一下, 仍然是) 恐怖.
+我知道我身上有很严重的错误, 我们正在进行密集的精神分析,
+我觉得自己是个孩子, E和H在这里帮助我.
+终于, 效果开始减弱, 我的幻觉停止了, 恐惧消退了.
+我恢复了说话的能力.
+我不再是一个孩子.
+尽管这违背了计划, 我还是想再吃一粒蓝色药.
+现在,我们已经知道了.
+这种亲密关系是持久的,是强大的.
+虽然我们正在下降, 我仍然感觉接近和缓解触摸到如此美丽的东西.
+我们在床上躺着.
+B建议做第二次.
+我们同意.
+后来我从我的&quot;学习吉他&quot;书中吸了一片药丸 - - 这对不愉快或简单地说是脏的完美定义 - - 我意识到我不想再这样做了,
+作为一个奇怪的人,
+我正在下降,而且速度很快.
+我觉得自己被暴露了, 过于如此, 尽管一个是我的情人,
+随着它们再次升起, 变得不那么强烈, 我把它们排除在外,
+只是偶尔向他们保证我很好,这是真的.
+我对他们的情况感到嫉妒,
+我很高兴在身体上跟随他们,
+我感到尬, 但不是很糟糕.
+我越来越远, B 和 H 都对我很好.
+我不习惯这种强度, 也没有意识到我会喜欢它.
+我觉得有必要退缩, 这种感觉会持续几个小时.
+现在,我知道你在哪里.
+我和B讨论过这样的经历, 尤其是在年轻的时候,
+建立了深刻的联系.
+尽管时间过去了, 人们也越来越疏远,
+一个巨大的洞在太空中打开,一个金色大理石被意外掉进来:然后洞关闭,黄金点 (纽带) 剩下.
+我在大学时也有这样的朋友和关系.
+我不一定对它们感到遗憾, 但它们肯定不是自然而然的深刻--通过药物开放感官使它们具有预防性强度,
+现在,我们已经知道了.
+我们要去H的家, 换个环境, 和她的猫在一起.
+我保持沉默和收缩; 再一次,这不是来自敌意的地方,
+我不记得太多细节:B&amp;H离开了吸烟,我留下来,我们都走到前门口享受凉爽的夜空,最后回到我的地方.
+我们先停在码头街, 用酒装满一辆Growler.
+我和B一起出去,他提出谈话.
+我向他保证我没有问题.
+我们回家后,他们倒了一些酒,我上楼.
+我没有任何酒--我的禁欲是个非常糟糕的选择.
+我终于独自一人, 面对许多个人的恶魔,
+我点燃了一些,打开音乐, 努力克服这些突然而强烈的感受.
+它们以波来袭, 爆炸和撤退.
+两人停留在舒适的地方.
+我把他们推开了.
+我现在对她没有什么话可说.
+我失去了联系.
+她很伤心,而我却很空虚.
+我下楼喝一杯,看看我的室友.
+我喝了三杯冷伏特加和一个黑色的酒.
+十分钟后, 酒精开始进入我的体内,
+开始有热情和亲切感,
+我终于能把自己拉回来,
+酒的力量让我印象深刻, 它真的让我感觉好.
+我和H说了很多话.
+为了向他表示歉意.
+他似乎对整个情况保持冷静.
+我吸的是我一生中最美味的香烟 - - 没有过的香烟.
+没有.
+我已经退出一年多了.
+尽管如此,它是值得的.
+然后,睡觉?
+我不确定是否有任何间接事件, 最后一个我真的记得是吸烟.
+我们可能还喝了一些酒,
+六天后:
+一个:
+周日和周一是艰难的, 很大程度上是由一种不确定的焦虑,
+到了星期二,事情平稳了下来, 我留下了惊人的后光, 总体的信心感,
+我不害怕提供建议或自信地说话.
+一切都很好.
+我觉得我的人生以前就像在轨道上, 未来的巨大变化已经成为可能.
+这感觉不太舒服.
+现在我觉得自己在执行任务.
+这很好.
+我很好奇能用BK-MDMA重复, 而不是我购买的神秘街头药.
+我认为bk-MDMA的更有基础的特征将是使用LSD在这种环境中的一个很棒的补充.
+我也可能会将LSD剂量降低到1次.
+我感到非常震惊.
+我也会随时随身携带瓦, 也可能避免吸大麻,
+另外,自从这次经历以来, 我再也没有想喝酒的欲望了.
+我很想保持清醒和忙碌.
+我对我的家人和朋友感到非常温暖, 但我的梦想往往是梦,
+那些给我带来快乐的东西是特别快乐的:今天我骑自行车上班,
+然而, 我不禁感觉到我对这些生活元素的关注,
+虽然,从什么?
+这仅仅是药物的残留感恩还是真正的变化?
+某些空虚的口袋会在瞬间袭击我.
+总的来说, 我更有信心和兴趣与陌生人接触,
+我也很惊我生活中缺乏艺术,
+我应该解决这个问题,但不知道如何.
+时间表: 79281
+酒精 (61), MDMA (3), LSD (2):小组 (2-9) (17), 关系 (44), 激动人心的经历 (4), 组合 (3), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+Searching for Samadhi in West Philadelphia
+LSD, MDMA (Ecstasy), &amp; Alcohol
+by
+B-E-H, inc.
+Citation:   B-E-H, inc.. &quot;Searching for Samadhi in West Philadelphia: An Experience with LSD, MDMA (Ecstasy), &amp; Alcohol (exp79281)&quot;.
+Erowid.org
+. Jan 7, 2012. erowid.org/exp/79281
+DOSE:
+T+ 0:00
+2 hits
+sublingual
+LSD
+T+ 3:30
+1 tablet
+oral
+MDMA
+(pill / tablet)
+T+ 3:30
+2 hits
+smoked
+Cannabis
+(plant material)
+T+ 8:00
+1 tablet
+insufflated
+MDMA
+(ground / crushed)
+T+ 10:00
+3 shots
+oral
+Alcohol - Hard
+T+ 10:00
+1
+oral
+Alcohol - Beer/Wine
+MEMORIAL DAY WEEKEND 2009
+CAST OF CHARACTERS:
+B:
+26 y/o male, 5&#x27;10&#x27;, 125 lbs
+H:
+28 y/o female, 5&#x27;5&#x27;, 130 lbs
+E:
+26 y/o male, 6&#x27;0&#x27; 140 lbs
+All participants maintain a strict vegan diet and are generally in excellent health.  This report is written in three voices with some amount of overlap in events.
+PLAN:
+Each person is to take 2 hits of LSD followed by 1 pill of MDMA approximately 3.5 hrs thereafter.
+SET &amp; SETTING:
+B&#x27;S VOICE:
+I&#x27;d been curious about candy flipping for a number of years, but the opportunity to try the mythic combo had always eluded me.
+One fine day in May, however, a lovely series of rather serendipitous events afforded me the chance to procure enough LSD and MDMA for myself and two others.   I related my find to a couple of wonderful friends who live out of town.  They expressed interest in trying the combination, and so that weekend I left Brooklyn for West Philadelphia.  I was somewhat aware that this combination may have a propensity for precipitating ++++-type experiences.
+It&#x27;s worth noting that I was involved in a rather traumatic bicycle accident about four weeks prior, which resulted in a broken clavicle and some nasty scarring.  I was mostly healed, but my skin was still pink around the wounds, and my shoulder still ached, though lightly.  In retrospect, I think that the psychological and physical impact of my accident had some effect on my experience.
+I arrived in Philly on Friday evening and met H and E for dinner and a couple glasses of sangria.  We fleshed out our plans for the following day and chatted a bit about our expectations.  My sleep that night was somewhat restless.  We knew we were in for a ride.
+The next morning we shared breakfast.  I ate lightly.
+E&#x27;s house is situated in West Philadelphia.  It is large, clean, and comfortable.  We were alone for the duration of the experience, and had collected a few little toys for the impending trip:  A tape recorder, guitar, sketchbook, markers, two stereos in separate parts of the house, and a large selection of music.
+We each took two hits of LSD at 10:30 AM, about two hours after breakfast.
+Within 15-20 minutes I felt the LSD making itself known.  My muscles trembled lightly, my breathing became deeper, I felt less talkative and somewhat anxious.  I slowly paced around the house, feeling the twinges of energy move through my limbs.  I remember chatting a little bit with my companions at this point, but I was more wrapped up in the rather unpleasant effects of the drug.  Coming up is always difficult for me.
+H&#x27;S VOICE:
+If, as B suggested at the outset, the LSD would make me anxious, I decided to quell the anxiety with tricks I&#x27;ve used before.  I focused on the guitar.  It makes time pass more quickly and allows me to forget myself.
+Only five, ten minutes in, I felt it.  Some quivering in my wrist, and playing guitar (remembering chords and/or changing chord positions) became increasingly difficult as the seconds crawled forward.  I mentioned nothing at first to B and E but in my head I said: Damn.  This shit works fast!
+I am about two or three inches in at this point and looking for non-verbal confirmation from either B or E.
+[Enter Trope Number One: fear of being alone.]
+E is slightly more energetic, and B is quiet. I have no sense that they are feeling what I am.  We decide to go to the store to pick up batteries for the tape recorder.  Nervous.
+I snip a little at E, make fun of a neighbour, and laugh awkwardly at B&#x27;s jokes.  Still nervous.  Previous experience with situations involving LSD return briefly and remind me that the beginning of a trip can set the tone for the entire thing.
+[Enter Trope Number 2: Drug Experience of the Present Through the Lens of the Past.]
+I would like to be more calm but the anxiety only feeds off itself.  The green of the trees is startling.  My stomach is feeling strange.
+We walk inside the store.  I remember also how much easier it is to &#x27;see&#x27; the effects of coming-up indoors (a house, store, wherever)  Our footsteps cause a mirror on the wall to shudder slightly.  Or does it?  The mirror is likely moving only inside my eyes.  At the counter I look at B.  His pupils are dilated.  Is he feeling what I&#x27;m feeling?  Probably.  Yes.  Get.  Home.  Now.
+We get home and quickly put the batteries into the recorder &#x27;before it&#x27;s too late,&#x27; and make our first verbal entry on the tape.  We are all officially &#x27;feeling it&#x27; at this point.
+B&#x27;S VOICE:
+The effects were continuing to build, but I was feeling a bit less anxious.  We decided to take a walk to a nearby park.  H grabbed a backpack, a couple of bottles of water, and we were out the door.  As we turned the corner, I noticed a voice in the back of my head suggesting that perhaps it was in my best interest to turn around, head home, take cover.  The park was crowded when we arrived.  I felt exposed.  I sat in the grass for a few short minutes before deciding to concede to that quiet voice in my head.  We walked back, meandering over the cracked sidewalks, broken glass, hastily discarded trash.
+H&#x27;S VOICE:
+B was insistent on bringing bananas.  I decided this was either because some chemical in bananas intensified the effects of LSD (and B knew this) or because we were going &#x27;adventuring&#x27;, no adventure being complete without &#x27;provisions.&#x27;  Clearly, we weren&#x27;t going to actually eat the bananas.  If my stomach was in knots at this point, so must be B&#x27;s.
+[B&#x27;s Note: It was because we were adventuring!]
+On the walk I stumble once, maybe twice.  Did anyone notice?  I share B&#x27;s anxiety.  We are not drunk, we are on drugs!  Everyday people not on drugs are passing us, perhaps wondering why our eyes are so big.  E asks to hold my hand.  Yes; my anxiety makes me feel especially distant, but then his hand feels very grounding and warm and safe.  I feel bad for B, travelling alone up ahead, our fearless, lonesome leader.
+[Enter H Trope No. 3: Feeling Guilty that B Might Be Experiencing Third Wheel Feelings]
+B&#x27;S VOICE:
+Walking back, the birds sang a chorus with each voice perfectly focused.  I wasn&#x27;t able to concentrate on any particular sound or call, but neither was doing so a necessity -- I was able to evenly divide my attention to each song and process them all in my head simultaneously.  A sort of reverse-cocktail-party effect.  How novel!
+It was nearing 1:00 PM by this point. The effects of the LSD were still escalating, but I felt that the physical effects were smoothing out as my body adjusted my new chemistry.   We went to E&#x27;s bedroom, where H &amp; E sprawled on the bed and I sat on a chair.  H picked up the guitar.  She played while E &amp; I sang along to a few songs.  Singing felt fantastic.  I noodled around with the guitar for a while and eyed the six little blue pills that we had planned to take.
+H &amp; I commented on how our skin changes whenever we trip.  My hands age.  They appear veiny, wrinkled, boney, weak, arthritic.  I worried about what it will be like to be older, and how I&#x27;ll manage to come to terms with aging.  I feel reasonably clear-headed, but things are visually rather, uh, impressive.
+H&#x27;S VOICE:
+What I saw in E&#x27;s room: My skin &#x27;aging&#x27; in and out, or at least the dark parts of my hand (shadows in the crevices, darker parts of skin) pulsing darker, then lighter.  The glow of the painting of the boat, the incredible blue of the sea there.  The ship &#x27;coming towards&#x27; me, the soft billowing and white light of the curtains, watery music: it fed into the nautical theme I felt on and off all day.  The painting of the girl with blue hair on the wall, her hair reaching up and out of her head, then coming back down, some very pleasant Medusa hair.  Technicolor patterns on my skin, like moving tattoos or the script of a strange, Arabic-like language.  White light changing to a rose color, to a green, then blue, constantly in flux, like rainbow blood coursing through the vessels of what makes up the unseen of the world.  A small fresh scar on my arm, glowing bright, then dark red.  Also the hairs on my arm arching up and out, then back towards my skin again (like the Medusa hair, but on a smaller scale).
+There were moments when I wasn&#x27;t sure if I was asleep and half-dreaming, or awake.  Falling into the bed, then rising out when, slightly startled by the feeling, I darted my eyes open.  Touching doors that I might have seen in dreams.  Was the wall that protected the two worlds being broken down?  The dream world - the one that is always functioning subconsciously - and the world of mundanity, where we must reason and follow rules.  I believe there are protective boundaries created by nature to keep us humans safe, but a little more permeability just like this would be nice sometimes.
+B&#x27;S VOICE:
+1:30 rolls around and we each swallow one pill.  I take one or two small hits of marijuana from my bowl.
+E&#x27;S VOICE:
+Several themes occurred again and again: Energy, love, community.  As I began to climb on the LSD, I felt excited mostly, then energetic.  A minute behind B, I remember feeling anxious only briefly.  The climb, I had already been assured, is mildly unpleasant for many.  I would have to agree, and for a bit I found myself moved to separate from the group.  When my mental state changes, I have noticed an increasing propensity to being alone.  I felt sad, the failure of the back yard, the failure of the park, unable to provide my friends a good close place to rest our heads and enjoy our freedom.  I felt more alien and out of place then liberated.  But as it straightened out - and before the pill kicked in -  I began to notice the wonderful measures of light linking from object to object.  Enjoyable patterns emerged, I felt child like, immersed in colors; any subject with in itself no longer important, but the patterns that made up the subject intrigued and tantalized (i.e. the ink and colors of Calvin &amp; Hobbes, the visuals of the Of Montreal - Satanic Panic in the Attic poster, the faint light coming through the window)  Novelty breeds pleasure, happiness, fascination.  I needed to see where this would take me.
+B&#x27;S VOICE:
+Shortly after taking the pill, E moved downstairs to be by himself.  H &amp; I sprawled out on the bed and chat a bit, but we mostly stay quiet to explore this novel headspace and await the effects of the MDMA.
+As the minutes pass, I notice additional alerts.  A gentle wave of warmth and euphoria washes over me, and the visual characteristics become sharper, more electric.  Rainbow-static-vortexes wash over the ceiling.
+I look at H. H looks back.  Her expression is unmistakable and we each know what the other is feeling.
+We rush downstairs.
+&#x27;E!  The MDMA works!&#x27;
+E was laying on the sofa in the living room.  We greet him and tell him that we are both feeling the effects of the MDMA and that it is pretty fantastic.
+E&#x27;S VOICE:
+It is a faint rush, a sudden twinge of worry that too much has been downed that suddenly bursts into overwhelming joy and understanding that all is right in the world.  In the space in between there is a falling away.  The eyes close and the world drops - or more accurately, I slipped from the world, knowing full well it was there but that its rules no longer applied to me and my mind was free to explore at will.  With my eyes closed, the patterns in my &#x27;sight&#x27; had intensified far beyond a mere hour earlier and as I opened them the world was not there but simply the fractals of light flowing through beautiful dark empty air.  I double checked, needing to make sure my eyes were open - they were.  I saw what I saw with my eyes open as I would like one fully asleep in a dream.  I double checked for extra dimensional creatures.  Silly perhaps, but I called out to them having heard B mention them from DMT experiences.  I wanted them to be there, but it was only my own voice that rang back at me as I mentally announced my presence and invited others to come join.
+The patterns began to be replaced - how long did it take? Not more than ten or fifteen minutes I would guess - by the euphoria and joy of love.  All the rough edges were completely gone, smoothed out into an angelic serenity.  The room had returned to it&#x27;s normal state, furniture intact, me physically laying on the couch.  I felt very connected to H &amp; B and missed them.  As I moved to join them they came down the stairs.
+&#x27;E! The MDMA works!&#x27; said B.  We hung out; it&#x27;s all a bit blurry in my mind, though wonderful.  I enjoyed a few more minutes to myself.  At some point H and I went upstairs to my room to explore physically, but we wound up mostly just talking in between kisses.  We spoke honestly and openly about our relationships, the wonderful stuff along with the pressures we felt we faced.  We started to miss B and we also suspected - somewhat accurately I believe - that if we were to go down the path of intimacy too far we might never come back.  We made a few notes into the recorder.  I remember how amazingly lucid I felt even with the joy of the MDMA running through me.  A fascinating combination of the openness of alcohol but remaining completely articulate though certainly very high.
+H&#x27;S VOICE:
+I remember looking out the window and thinking, &#x27;We can&#x27;t leave now, we&#x27;re too effed up.&#x27;  I felt trapped.  The green of the trees looked so organic and inviting (MDMA for me had briefly kicked in, then retreated slightly, I think) but I wasn&#x27;t allowed to go outside and enjoy them.  I wondered to myself if this is what crazy people feel, an interior experience so bizarre when described, it&#x27;s best to keep it to oneself and avoid contact.  Likely a picturesque moment with my hand lifted to keep the curtain to the side, watching the outdoors with furrowed brow.  I related the sentiment to B.  But then suddenly, intensity took him and, even for me, the music grew incredible.
+I really loved how lucid we sound on the tape recording.  I love how the mind is clear and unfettered by insecurities and &#x27;ummms&#x27; and &#x27;uh, well...&#x27; and so on.  To speak was to explain honestly.  No games, minds open, sentiments flowing freely within the friendship triangle of E-H-B, B-H-E.
+B&#x27;s VOICE:
+The floor was rippling bit.  The rugs shifted.  The curtains moved in the breeze despite the closed windows.  I sat on a rug in an alcove near the front of the house and closed my eyes.  The clarity of thought was astounding; my every thought resounded in a single voice instead of the usual cacophonous choir of doubts and contradictions.  And if I wanted to quiet my mind entirely, I could do so at will.  This deep state of meditation was intense to the point that it was nearly frightening.  It was too easy to simply forget that I existed in the physical world at all.  Vibrant greens and blacks filled the vast void behind my eyelids.  I opened my eyes when a tentacled thing cut its way through my visions and pushed the fractals aside like curtains.  It was all a bit much.
+I found H in the dining area.  We sat across the room from one another, in absolute awe of the music.  Mum - Finally We Are No One was playing through the stereo.  H suggested we try to sing, so we sang along with the music and it felt like light was coming out of my chest and meeting with the light coming out of her to mingle and harmonize in the air between us.  I could visualize the waveforms.  I was amazed.
+H and I grabbed a tape recorder with the intention to record our singing, but quickly forgot about doing so.  The boundaries between self and non-self were rapidly crumbling and I felt that an uncontainable well of bliss / empathy / love / unity / oneness was erupting inside of me.  The empathogenic qualities of the MDxx merged with with the ego-destroying effects of the LSD and the result was this state of feeling empathy and love for everything in the universe.  This was the ++++ experience I&#x27;d accidentally stumbled across several years prior.  I was there again.  It was more than I could take, and I was utterly overwhelmed with gratitude for existing at all, for having the opportunity to experience the beauty of existence, to know what it was just to be here, anywhere, to exist at all was a gift that I did not deserve and could never repay.  H and I hit record on the tape recorder.
+You can hear me get a bit choked up.
+I felt more sober than sobriety, everything was more real than it ever was before.  I remember picking up a pen and seeing the electric trails follow my hand, words writing themselves without a writer, energy flowing out of me and into me, everything completely at one with everything else.  I remember feeling that love of this profound magnitude must be at least the sum total of the experience of having a child, to feel love to have made a thing that you would happily -- happily -- give your life to.
+I&#x27;m not sure for how long the plus-four part of this experience lasted, but at this point things went downhill a bit.
+E &amp; H expressed a desire to explore each other, and I agreed that they should.  This was fine with me and I felt happy for them as they departed for E&#x27;s bedroom.  I moved to the sofa.  I started thinking of my girlfriend in Brooklyn, someone I had known for a long time but had only recently become sexually involved with.  I watched myself find my cell phone, turn it on, and call her.
+She picked up.  I told her that I loved her.  I had never told her this before. The fact of the matter was that I did love her, but also that this was a profoundly inappropriate time to be saying so.  I told her I had taken two hits of LSD and one tab of MDMA.  I very quickly realized what I had done and felt extremely embarrassed.  Before we said goodbye, she told me to take it easy and told me that the last time I took LSD it seemed to last a very long time... &#x27;seemed like it never ended,&#x27; I think were her exact words.  Things really took a negative turn here.
+E&#x27;S VOICE:
+We return.  B had called his girlfriend and told her he loved her for the first time.  Though it appears this is harmless in retrospect, at the time it couldn&#x27;t help but weigh on our minds.  It was not a good decision, but on the other hand what&#x27;s done is done and there are many many worse things to say to someone.  We move on, though it is an added concept that is filled in the back of my head.
+There is music played, mostly H, sometimes B, some singing.  The Mountain Goats mainly.  I&#x27;ve already forgotten which song specifically - someone list here if remembered.
+[H&#x27;s Note: The name of the song is &#x27;Linda Blair Was Born Innocent&#x27;.]
+At one point B says he understands why these drugs are illegal.  The more time I have to reflect on that idea and on my own emotional state, I&#x27;m not so sure.  It in fact strikes me that if one could modify these drugs so that they were much like cigarettes  -- harmful over the course of a life time and intensely addictive -- a government could easily control an entire population, enslaving it in much the same way as in
+Brave New World
+.  As I walked through the rain today, I was forced to ask myself:  If I was able to access that mindstate as easily as picking up a pack of cigarettes after a day&#x27;s work, would I choose, quite voluntarily, to become a slave?  It&#x27;s a scary thought, and it makes me worry about the joy of what we have felt.  Perhaps it&#x27;s my personality, but after several days of total sobriety I can&#x27;t deny that I miss it and want to repeat it -- at times almost urgently.  It is controllable, completely, but the desire is there and I suspect will remain until time works its magic and the memories fade.
+B&#x27;S VOICE:
+Time was already moving strangely.  I wasn&#x27;t sure what had happened already and what hadn&#x27;t happened yet, which is an awkward way of saying that time seemed to be moving backwards and forwards.  I remembered that I had taken LSD at least ten days prior. I could not, however, figure out what happened in the intervening ten days.  With what my girlfriend said on the phone about it lasting a long time, I started thinking that I had taken LSD ten days ago and never come down, that I was still high... and how long had I been in Philadelphia, anyway?  Wait.  How old was I?  How long has this been going on?
+I got worried.
+E and H returned and we all went to E&#x27;s bedroom together.  I noodled with the guitar, but I didn&#x27;t really know what I was doing.  E or H asked me how long I had been playing, but I didn&#x27;t understand how I was supposed to interpret the question:  A while.  Never.  Presently.  I remained mute and shifted my head side-to-side and shrugged.  There were more questions.  Words simply escaped me.  I was not sure if I was usually able to speak...  And who were E and H and how long had I known them?  Why were they asking me all of these questions?  Were they trying to coax words out of me?  And again, what happened in the intervening ten since I last took LSD?
+I got paranoid.
+I believed -- and I use the word &#x27;believe&#x27; in a very loose sense, because these beliefs were qualitatively different from other beliefs -- that E &amp; H were sort of paternal figures for me.  I wasn&#x27;t sure how old I was, but I seemed to think that I was quite young and generally incapable of speaking, and that E &amp; H were trying to help me learn to speak.  But for all of their questions, I either had no opinion, or no words, or believed that there was a &#x27;correct&#x27; answer and that I was being &#x27;tested.&#x27;  The idea of being tested frightened me.  I noodled with the guitar and tried strumming certain chords in order to try to convey what I was feeling.  It was a relief to have the guitar as a sort of nonverbal outlet.
+And I could sing.  H played the guitar and I sang along a bit.  This felt good and was indeed very grounding, but real verbal communication was too much.  In short, I was frightened and confused, did not know where I existed in space or time, and couldn&#x27;t comprehend how the events of the previous week led up to me being in Philadelphia.  Additionally, I had no idea how long I had been high.  It could have been years.  I had no reference points.  I was lost.
+I tumbled through various delusions in my own head about who E &amp; H were, who I was, why we were together in this place, and how long we&#x27;d been here.  My broken clavicle no longer ached, and so I thought I was an opiate addict since a drug had taken away the pain.  I was asked to read a comic, and so I thought I was illiterate.  When I was coaxed into answering simple questions, I thought I was mute.  I was provided with water and so I believed that I only drank water and didn&#x27;t eat food.  I experienced a complex delusion of alcoholism, wherein my concepts of alcohol and water became interchangeable, and I believed that my perception of the liquids was incorrect, and that whatever procedure I was presently being made subject to was in order to cure my alcoholism.  I saw the scars on my body from my recent bicycle accident and worried that I had inflicted this harm on myself intentionally.  I remembered the accident.  Had I crashed on purpose?  The thought was (and upon reflection, still is) terrifying.  I knew that there was something very wrong with me, and that we were conducting an intensive psychoanalysis that forced me to delve into my subconscious mind and into this world I was inhabiting but couldn&#x27;t understand.  Most of all, I felt like I was a child and that E and H were here to try to help me.
+Eventually, the effects began to wind down, my delusions ceased, the fear subsided.  I regained the ability to speak.  I was no longer a child.  And despite it going against the plan, I kind of wanted another one of those blue pills.
+E&#x27;S VOICE:
+This intimacy with others lasts and stays powerful.  Though we are coming down, I still feel a sense of closeness and relief to have touched on something so beautiful.  Towards the end we are lying on my bed.  B suggests doing a second one.  We agree.  Later after I have snorted a part of a pill - a perfect definition of the word unpleasant or simply foul - off my &#x27;learn guitar&#x27; book I realize that I do not want more of this, that it is time to even out a bit.  It is perhaps a mistake to be the odd man out as B &amp; H both finish their other pills.  I am coming down and it is happening fast and hard.  Too quick for me to even realize until it is too late, I feel myself exposed, overly so, despite one being my lover and the other a long time friend and confidant.  As they are rising again, to a less intense degree, I am shutting them out and losing myself in my own mind.  For a while I cannot speak except to offer the occasional reassurance that I&#x27;m fine and well, which is true. I feel jealous of their state but also relieved to be in my own head again.  For a while I am happy to follow them in body while my mind begins to categorize, sort, search, and make sense of all that has happened to it.  I feel awkward but not terrible.  B and H are both very kind to me as I slip further and further out of it.  I am not use to such intensity nor did I realize how much I would like it.  I feel the need to pull back, a feeling that remains for several hours.
+H&#x27;S VOICE:
+At some point, B and I discussed how having experiences like this with other people [especially when a little younger than now] opens a door that may or may not be ready to open.  Deep connections are made.  They remain, though time passes and people grow apart.  A giant hole in space opens, a golden marble is accidentally dropped inside: then the hole closes, the point of gold (the bond) remaining.  I had friends and relationships like this in college.  I don&#x27;t necessarily regret them, but they certainly weren&#x27;t naturally deep -- the opening of the senses through drugs made them pre-emptively intense, and permitted them to exist longer than they ought to have.
+E&#x27;S VOICE:
+While I&#x27;m spacey, we head out to H&#x27;s place to change the environment and hang out with her cat.  I stay quiet and withdrawn; once again it does not come from a hostile place but the need to be emotionally alone for a bit.  I don&#x27;t remember too many details: B &amp; H left to smoke cigarettes, I stayed, we all went out to the front porch to enjoy the cool night air, and finally headed back to my place.  We stopped by Dock Street first to fill up a Growler with beer.  B and I hang out, he offers to talk.  I assure him I am fine.  After we go home, they pour some beers and I head upstairs.  I don&#x27;t have any beer -- my abstinence here turns out to be a fantastically terrible choice.
+In my room with the door locked I am finally alone and face many personal demons -- items that for now will stay private.  I light some candles and turn on music, working my way through these very sudden and very strong feelings.  They come in waves, exploding and retreating.  B &amp; H both stop in to comfort.  I push them away for a while longer.  H finally comes in, but I have no words for her at the moment.  I am disconnected and lost.  She is sad - I am empty.  I go downstairs for a drink and to see my roomies.  I down three shots of frozen vodka and a lager Black &amp; Tan.  Ten minutes later the alcohol is working its way through my system and rapidly cutting away the emptiness.  Warmth and endearment begin to set in, along with a sense of empowerment.  No longer a victim of circumstance, I&#x27;m able to finally pull myself together enough to relate to others again.  I&#x27;m impressed by the power of the booze, it really made me feel okay.  H and I talk a great deal.  Eventually I swing by B who is near asleep to offer my apology for being so far away.  Laid back, he appears calm about the whole situation.  With H I smoke the best tasting cigarette of my life -= an unfiltered.  D&#x27;oh.  I quit over a year ago.  Totally worth it though.  Then, sleep?  I&#x27;m not sure if there was any intervening events, the last one I really remember is smoking that cigarette.  Possibly we drank some more beer, but then off to bed for a much needed sleep.
+SIX DAYS LATER:
+B:
+Sunday and Monday were been rough, largely dominated by an unspecific sort of anxiety, an antsy boredom to do something/anything.  By Tuesday, things had levelled off and I was left with a fantastic after-glow, general feeling of confidence, a feeling that I had a deep understanding of myself.  I&#x27;m not afraid to offer advice or speak confidently.  Everything feels right and good.   I feel as though my life had previously been riding on rails, and that a possibility for dramatic change for my future has opened.  This doesn&#x27;t feel entirely comfortable.  I&#x27;d say that my life in the months prior to this experience were &#x27;comfortable.&#x27;  Now I feel like I&#x27;m on a mission.  It&#x27;s good.
+I would be curious to repeat this with bk-MDMA instead of the mystery street pills I&#x27;d acquired.  I think the more grounded character of bk-MDMA would be a fantastic complement for using LSD in this sort of setting.  I would also probably lower the LSD dosage to 1 hit.  I was overwhelmed.  I would also keep valium on hand, and would probably abstain from smoking marijuana, at least until things have pretty much tapered off.
+Incidentally, I have not felt the desire to drink alcohol since this experience.
+H:
+This past week I have had very little urge to drink - I have had a great urge to stay sharp and busy.  I&#x27;ve felt great warmth for my family and friends but my dreams are often nightmares, or very vivid and desperate.  Things that give me joy are particularly joyful: today my bike ride to work stimulated just like the old days.  I can&#x27;t help but sense, however, that my engagement with these elements of my life is a willful distraction.  From what, though?  And is this mere residual gratitude from the drug or a real change?  Some pockets of emptiness will strike me at moments.  Overall, however, I feel more confident &amp; interested in engaging strangers---something I don&#x27;t typically do with consistency.  I am struck also by the lack of art in my life, something B and I discussed in E&#x27;s room after our peak.  A thing I ought to remedy, but not sure how.
+Exp Year: 2009
+ExpID: 79281
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Jan 7, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Alcohol (61), MDMA (3), LSD (2) : Small Group (2-9) (17), Relationships (44), Glowing Experiences (4), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

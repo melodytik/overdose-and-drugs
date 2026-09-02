@@ -1,0 +1,699 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>经验丰富 - 值得补充</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methoxphenidine.html'>← Methoxphenidine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>经验丰富 - 值得补充</h1>
+<div class='sub-title'>(Methoxphenidine / 82mg) - Experienced - Worthwhile addition</div>
+<div class='meta'>作者：an utter sense of awe and bliss · 日期：Nov 26, 2013 · <a href='https://erowid.org/experiences/exp.php?ID=107242' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>菜单
+主要
+不和
+在家
+有什么新消息?
+最新活动
+论坛
+新的工作位
+搜索论坛
+博客
+有什么新消息?
+主要内容
+新的工作位
+最新活动
+邮件列表
+研究工作
+统计
+关于我们
+登录
+登记
+有什么新消息?
+搜索
+搜索
+在任何地方
+线程
+这个论坛
+这个线程
+仅搜索标题
+通过:
+搜索
+进行高级搜索...
+新的工作位
+搜索论坛
+菜单
+登录
+登记
+安装应用程序
+安装
+旅行报告主持人:
+现在我们要做些什么?
+论坛
+吸毒的经验
+旅行报告
+经验丰富 - 值得补充
+线程启动
+线程启动
+基督绿色
+开始日期
+开始日期
+2013年11月26日
+基督绿色
+蓝光工作人员
+加入
+2010年5月6日
+消息
+美国
+位置
+波兰
+2013年11月26日
+第一个
+背景信息:
+经验:有使用胺,MXE,DXM,Diphenidine等多种分离剂的经验
+耐受性:对分离剂没有/耐受性很低 - - 可能在我写这篇文章之前的两周内再服用几次后出现一些急性耐受性.
+药物信息:
+药物: 甲氧胺或2- MeO- 双胺 (见
+在PD的线程
+) 在
+其他:口服
+重要提示:我写这篇文章时代代谢已经混乱了 (现在仍然是) - - 因此,药物在口服时需要很长的时间才会出现,
+其他人则需要4-5小时,
+报告:
+T+0:00 - 82mg 甲氧胺口服被包裹在卷纸中.
+T+0:15 - 首次警报
+T+0:30 - 熟悉的改善的触觉和幸福感正在增长,感觉良好.
+我开始感到有点分离.
+虽然我不认为这是药物的作用 - - 但值得注意的是它并没有抑制我的食欲.
+我觉得现在是洗的好时机.
+淋浴的时间比实际的时间长, 能呆在里面几个小时,
+T+2:30 - 分离仍在增长.
+但似乎效果可能仍在增长.
+我认为我以前对新陈代谢的假设是正确的,
+感觉非常好.
+我不得不说,这种物质感觉比平面Diphenidine更倾向于娱乐方面.
+效果已经变得更强烈, 我注意到似乎有较少的感知分离和更多的&quot;思想分离/mindfuck&quot;在这个水平, 当与60毫克Diphenidine剂量.
+我注意到我无法记住我想用什么词来描述这次经历.
+我之前一直在寻找这个词,却不记得 - - 这种药物看起来非常内省.
+我觉得自己已经爬到了山顶,
+类似于110毫克的Diphenidine.
+谈论朋友的抑郁, 评估我自己生活中所克服的东西以及我已经走了多远, 深入思考自己的想法,
+我觉得我很想和一个我非常信任的人一起探索这个化合物, 看看我们在高峰期如何评估对方的生活.
+非常激发和激励, 分离感觉非常清洁,高兴,美妙.
+这是一个幸福!
+我认为现在的分离已经开始减少了.
+我花了40分钟与我之前提到的朋友进行了深入的讨论,沟通很顺利,对我来说很容易,对他来说也很有治疗作用.
+我感受到一种惊叹和幸福的感觉, 自从我第一次在阳光明的夏天外面服用胺药以来,
+打开购物包,和我的狗玩,感觉很好,很快乐,活着.
+今晚的旅行非常愉快,
+现在已经下降了很多, 但仍远离基线.
+几乎下降了,但可以说我会留下一个令人惊叹的光.
+我不觉得我的思维能力会变得更糟.
+T+7:40 - 完全基线,如预期的非常好.
+点击扩展...
+结论:
+真的很好的一些东西.
+让人深入思考,同时也让人感到温暖和娱乐.
+对于那些寻求更有娱乐性或更深层次的解离体验的人来说可能并不总是合适 - - 另一方面, 甲氧/2-MeO-是我认为任何喜欢解离体的人都很可能会喜欢的东西.
+那些喜欢刺激性解离剂的人很可能会喜欢这种药物 - - 那些喜欢胺类镇静剂的人可能不会这么喜欢.
+我认为如果你把它当作一种替代品, 你会失望,
+这种药物在重量上比二胺更强大. 80-85毫克的甲胺与110-115毫克的二胺差不多,
+最后一个编辑:
+2013年11月26日
+朱诺的梦
+蓝光飞行员
+加入
+2004年1月10日
+消息
+位置
+无限的
+2013年11月26日
+第二名
+很遗憾, 唯一能得到这个地方是不友好于我的国家地理.
+基督绿色
+蓝光工作人员
+加入
+2010年5月6日
+消息
+美国
+位置
+波兰
+2013年11月26日
+#3 其他
+朱诺的梦说:
+很遗憾, 唯一能得到这个地方是不友好于我的国家地理.
+点击扩展...
+我认为 (也许有人可以证实?) 这和Diphenidine应该在大多数国家 (如果不是全部) 合法 - - 虽然我不确定,
+假如其他国家也能这样做, 如果有足够多的人像我一样对此做出积极反应.
+没有.
+市长
+蓝光飞行员
+加入
+2014年1月2日
+消息
+位置
+狂欢节的中心
+2014年3月25日
+第四名
+我总是发现DXM的剂量是非常刺激的, 从来没有在正确的剂量我的话.
+我不想把它当作一个洞,
+你认为甲氧胺有DXM重力/头部空间吗?
+没有
+超级厨师
+绿色灯
+加入
+2015年1月22日
+消息
+位置
+北威尔士
+2015年1月25日
+第五名
+我和一个朋友今天第一次口服120毫克的MXP, 肚子满了可能会对它产生负面影响,
+接着是2个小时的轻度抑郁.
+明天空腹再试一次, 用更高剂量.
+没有
+频记录2
+绿色灯
+加入
+2015年6月8日
+消息
+一个
+2015年6月8日
+第六号
+晚上和一个朋友一起去俱乐部, 不是最好的设置.
+9:30 - 滴下每次150mgmxp口服与水混合,喝水并吞下.
+没有太多的效果, 很少浮动和手.
+只是因为一些小事情让我感到困惑, 试图弄清楚天空和道路之间的区别.
+每一条路都很有趣, 感觉就像我们曾经经历过的最长的旅行.
+在公共汽车上的小地板灯看起来像路灯, 感觉漂浮和微笑很多.
+没有记忆我怎么到达那里的脚和大脑似乎走在一起.
+站在旁边看着舞厅, 看起来像一个大客厅,
+我们觉得不舒服,在俱乐部的边缘所以决定离开然而有困难离开,因为我们认为我们是在一个鬼屋骑通过道到出口.
+电视正在播放家庭男孩, 屏幕上有不同的颜色, 蓝色, 绿色, 红色, 紫色等.
+我开始回归现实,环境开始回归我,
+头部,眼睛,就像一个微弱的气 (笑气).
+4点 - - 去吃东西了.
+现在已经清醒了.
+想知道在过去5个小时发生了什么.
+到了4:45回家.
+完全清醒.
+疲倦了,准备睡觉了.
+确实是一个很奇怪的夜晚.
+如果服用大量药物, 药物确实会产生良好的效果,
+没有
+! ! ! ! !
+绿色灯
+加入
+2010年6月11日
+消息
+没有
+位置
+英国,欧洲郡.
+2015年6月12日
+第七号
+在本周早些时候得到了一份MXP, 服用了一剂眼球 (1g分为20,
+然后在2小时后再用大约10毫克溶于水.
+只有一个以前的经验与Methoxphenidine我不知道什么我正在服用,
+这真是令人惊叹的经历.
+无论如何,混乱的,不完整的旅行报告.
+由于这是我第二次服用药物, 你会认为我应该做更多的研究,
+00.30 有点刺痛和难以完成简单的任务,
+00.50 有点高兴, 但没有像我想的那样深刻.
+00:55 需要经常尿尿, 也注意到我感到困惑,
+我一定看起来像一个猫头在每个角落寻找&quot;一些东西.
+这就是我在寻找的东西.
+我有无法控制的欲望无目的地走在家里, 我不知道为什么.
+没有明显的变化, 轰炸另一个剂量和其他一些水溶结晶.
+这是一个坏主意.
+我发现自己在流浪,不断地重复&quot;发生了什么&quot;.
+我没有背景知识, 意识到我需要冷静下来,
+步行到当地医院似乎是我唯一的选择.
+感觉就像是唯一安全的地方.
+距离大约400米,
+在路上,我相信我会死.
+每个人都看着我走过,我想是因为他们知道我的命运.
+这是我最后一次准确的时间.
+我在接下来的几个小时里时不时地昏迷, 经历了分离,时间延长,
+约在03.10预订到A&amp;E,我只知道因为我后来被告知.
+在住院期间, 我从来没有提到过药物,
+这就是我在接下来的一个小时内能记住的短时间.
+我意识到我对一个护士重复问问题,
+他们显然是为了检查我的记忆丧失是否超出了短暂的记忆丧失.
+我躺在车上, 跌落了几个小时, 通过色彩,热量,光线,
+接下来,我被一个护士责备,
+我知道这是事实, 因为精神卫生服务联络官告诉我,
+她开始跟我谈论自杀和自我救助,药物治疗,
+我说服她让我去,她做到了.
+医院的每一位员工都忽视了我,
+我确实有心理健康问题, 但药物只会偶尔被用作一种可怕的应对机制.
+MXE 绝不应用于此目的.
+06.02回家, 01.02上午, 伤造成的愚蠢的刀.
+我相信你会同意,不是一个重复.
+我会在别的时间发表我的第一经历,
+我建议,如果有任何点从一个愚蠢的刀持有者的建议,是稳定,开始小,
+如果您对心理药物/离散药物是新鲜的,
+没有人知道
+绿色灯
+加入
+2015年8月10日
+消息
+一个
+2015年8月10日
+第八号
+我可以理解.
+虽然我对迷幻药物很新鲜, 但对其它类型的药物有相当的经验,
+首次尝试50毫克是非常新和愉快的.
+几天后,在100岁的时候,
+我不是说它是以任何方式更糟糕只是完全不同.
+从50毫克的轻微高兴和乐趣到100毫克是我有史以来最奇怪的感觉.
+也就是说,世界并不是真正的矩阵.
+幸运的是,我只是休息,
+有趣的和积极的,但是我得到它.
+如果我再去一次,我会更加谨慎,在舒适的椅子上.
+这很可怕.
+我错误地认为因为我对酒精有很高的耐受性,
+没有
+没有
+寻找光线
+绿色灯
+加入
+2015年6月29日
+消息
+十九个
+2016年2月7日
+第九号
+我打算在今年试验dissos, 我很有经验的各种类型的类型和各种剂量.
+谢谢
+您必须登录或注册才能回复.
+分享:
+在Facebook上
+没有
+蓝色的
+在LinkedIn上
+在Reddit上
+在 Pinterest 上
+在 Tumblr 上
+在 WhatsApp 上
+电子邮件
+分享
+链接
+论坛
+吸毒的经验
+旅行报告
+BL轻型经典
+联系我们
+条款和规则
+隐私政策
+帮助
+在家
+美国
+由XenForo创建的社区平台
+® 在
+© 2010-2026 兴福罗有限公司
+这个网站的部分由
+从DragonByteTM的附加组件
+©2011-2026 年
+龙字节技术
+美国
+详情
+) 在
+在
+由 ThemeHouse 提供的附加功能
+在
+媒体嵌入通过s9e/MediaSites
+在 XenPorta 2 PRO
+© 杰森·阿克塞罗德
+8WAYRUN 没有
+上面的
+条款和条件
+您必须阅读并同意条款和条件
+在继续之前.
+无法加载条款和条件.
+请重新加载页面并再次尝试.
+我同意这些条款和条件.
+您必须同意条款和条件
+在继续之前.
+继续</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Menu
+Main
+Discord
+Home
+What&#x27;s new
+Latest activity
+Forums
+New posts
+Search forums
+Blogs
+What&#x27;s new
+Featured content
+New posts
+Latest activity
+Donate
+Mailing Lists
+Shop
+Research
+Stats
+About Us
+Log in
+Register
+What&#x27;s new
+Search
+Search
+Everywhere
+Threads
+This forum
+This thread
+Search titles only
+By:
+Search
+Advanced search…
+New posts
+Search forums
+Menu
+Log in
+Register
+Install the app
+Install
+Trip Reports Moderator:
+M!$ter-ED
+Forums
+Drug Experiences
+Trip Reports
+(Methoxphenidine / 82mg) - Experienced - Worthwhile addition
+Thread starter
+Thread starter
+Jesusgreen
+Start date
+Start date
+Nov 26, 2013
+Jesusgreen
+Bluelight Crew
+Joined
+May 6, 2010
+Messages
+4,597
+Location
+Poland
+Nov 26, 2013
+#1
+Background Info:
+Weight: 57kg
+Experience: Experienced with various dissociatives including Ketamine, MXE, DXM, Diphenidine
+Tolerance: No/low tolerance to dissociatives - maybe some acute tolerance present from taking this a few more times during the two weeks that were prior to when I wrote this.
+Drug Info:
+Drug: Methoxphenidine or 2-MeO-Diphenidine (See
+the thread in PD
+)
+Dose: 82mg
+ROA: Oral
+Important note: My metabolism was messed up at the time I wrote this report (and still is) - drugs as a result take a long time to come up when taken orally and have an extended duration. This should last 4-5 hours for others and take 1-2 to peak.
+Report:
+T+0:00 - 82mg Methoxphenidine consumed orally wrapped inside a rolling paper.
+T+0:15 - First alerts
+T+0:30 - Familiar improved tactile sensations and sense of wellbeing are growing, feeling good.
+T+0:40 - Starting to feel a little dissociated. Also feel a little hungry, though I don&#x27;t think this is an effect of the drug - it&#x27;s still worth noting that it hasn&#x27;t inhibited my appetite.
+T+1:20 - More dissociated but still not much, tactile sensations have continued to increase though and I feel like this would be a good time for a shower.
+T+1:45 - Shower was great as always on dissociatives, time dilation present, felt a lot longer than it actually was, could have stayed in there for hours but decided against wasting water and got out and got dry.
+T+2:30 - Dissociation still growing.
+T+2:50 - Dissociation still a step below 60mg oral Diphenidine, but it seems like the effects may still be growing. I think my previous assumption about metabolism was correct, as once again over the past few days my eating habits were a little out of whack. Feeling *very* good. I have to say that this substance feels like it leans more to the recreational side than plain Diphenidine does.
+T+3:20 - Effects have yet grown stronger, I&#x27;ve noticed there seems to be less perceptual dissociation and more &quot;thought dissociation/mindfuck&quot; at this level when compared to the 60mg Diphenidine dose. I notice that I am unable to remember some words that I would like to use to describe the experience at this point.
+T+4:30 - Dissociation still increasing, very in depth thoughts, introspection was the word I was looking for earlier and couldn&#x27;t remember - this drug seems very introspective. Even at 82mg I feel like I am climbing almost to the tip of the mountain and like the hole is not far off. Similar strength to 110mg Diphenidine.
+T+4:50 - Talking to a friend about their depression and consequently evaluating things I have overcome in my own life and how far I&#x27;ve come, going quite deep into my own thoughts and thinking about ways to improve my life further. I feel like I&#x27;d very much  like to explore this compound together with someone I trust very much and see how we evaluate each other&#x27;s lives during the peak.
+T+5:00 - Very stimulated and motivated, dissociation feels extremely clean, euphoric, wonderful. Bliss! Dissociation is already starting to reduce now I think though.
+T+5:40 - Spent the last 40 minutes having a very deep discussion with the same friend I mentioned earlier, going very well, communication is easy, very therapeutic for me, and hopefully also for him
+T+6:10 - Decide to go to the shops to pick up some food. Going outside in the sun is wonderful and I&#x27;m hit by an utter sense of awe and bliss, a feeling I&#x27;ve missed since my first time taking Ketamine outside on a sunny summer&#x27;s day.
+T+6:40 - Get back home, unpack the shopping, play with my dogs, feeling great, happy, alive. Had a very good trip tonight and am very pleased with the results. A significant way down now, but still far from baseline.
+T+7:20 - Almost down, but can tell I&#x27;m going to be left with an awesome afterglow. Feel like playing some online poker now, and don&#x27;t feel like my thinking abilities will be altered for the worse.
+T+7:40 - Fully baseline, great afterglow as expected.
+Click to expand...
+Conclusion:
+Really nice stuff. Introspective and deep, and also warm and recreational. Diphenidine is an interesting curiosity that I&#x27;d recommend to the dissociative connoisseur but that might not always hit the spot for someone looking for a more recreational or more deep and dissociating experience - Methoxphenidine/2-MeO-Diphenidine on the other hand is something I think anyone who likes dissociatives will most likely enjoy.
+People who enjoy stimulating dissociatives are likely to really like this one - those more keen on sedating ones like Ketamine might not enjoy it as much. Also don&#x27;t go in expecting an MXE or Ketamine replacement - there is some similarity in a lot of ways to MXE but the experience is unique and I think if you take it as a replacement you&#x27;ll be disappointed whereas if you take it as its own unique experience you&#x27;ll have an awesome time.
+For what it&#x27;s worth as I said in my report this stuff is more potent by weight than Diphenidine. ~80-85mg Methoxphenidine is about the same as ~110-115mg Diphenidine in terms of dissociation, though at these doses Methoxphenidine is more positive/euphoric.
+Last edited:
+Nov 26, 2013
+juno nightmare
+Bluelighter
+Joined
+Jan 10, 2004
+Messages
+222
+Location
+the infinity
+Nov 26, 2013
+#2
+i love me some dissociation so i would like to try anything new. too bad the only place to get this one is unfriendly to my national geography.
+Jesusgreen
+Bluelight Crew
+Joined
+May 6, 2010
+Messages
+4,597
+Location
+Poland
+Nov 26, 2013
+#3
+juno nightmare said:
+i love me some dissociation so i would like to try anything new. too bad the only place to get this one is unfriendly to my national geography.
+Click to expand...
+I think (maybe someone could confirm?) that this and Diphenidine should be legal in most countries (if not all) - though am unsure due to them technically containing the amphetamine backbone.
+If they are legal all over though then I&#x27;d imagine this&#x27;ll spring up in other countries given some time if enough people react as positively to it as I did.
+Mr. Mayor
+Bluelighter
+Joined
+Jan 2, 2014
+Messages
+128
+Location
+Heart of the Rave
+Mar 25, 2014
+#4
+I&#x27;ve always found doses of DXM to be very stimulating and never slurred my words at the right doses.
+After years it has lost its magic, I am not really trying to hole out but just find a replacement for a fun night out/in. Do you think Methoxphenidine has got that DXM gravity/headspace?
+S
+SuperChef
+Greenlighter
+Joined
+Jan 22, 2015
+Messages
+12
+Location
+N.Wales
+Jan 25, 2015
+#5
+Me and a friend took 120mg of MXP orally for the first time today, doing it on a full stomach might have had a negative effect on it because after 2 hours of nothing we were then just mildly confused for 5 hours. Then 2 hours of mild depression. Will try again tomorrow on empty stomach with a higher dose.
+J
+Jamdefrecord2
+Greenlighter
+Joined
+Jun 8, 2015
+Messages
+1
+Jun 8, 2015
+#6
+Did mxp the other night with a friend whilst going clubbing, not the best setting id say for a drug of this kind.
+9:30 - dropped 150mg mxp each orally mixed with water, drank water and swallowed.
+10:30 - hour passed not much in the way of effects, little floatiness and tingling in hands.
+11:00 - waiting for the bus into town, still feel the same however getting confused by little things, etc trying to work out the difference between the sky and the road.
+11:30 - halfway on bus journey into city centre, mxp had started its peak by this point, staring out the window thinking we was in a new city, and every road was interesting and felt like the longest journey we had ever been on. Little floor lights on the bus looked like street lamps and was feeling floaty and smiling a lot by this point.
+12:00 - just walked into the club, no memory of how I got there feet and brain just seemed to walk in conjunction.
+12:30 - mxp is definitely at its peak now, standing on the sidelines looking out into the dance floor, looks like one big living room, like being a baby again, all the lights are crisp and clear and the environment around me is interesting as hell.
+1:30 - tripping hard, we felt uncomfortable and on edge in the club so decided to leave however had trouble leaving as we thought we was in a haunted house ride going through the tunnels to the exit.
+By this point we decided we would rather walk the streets then stay in the nightclub, ended up staring in shop windows and examining all the back alleys.
+2:30 - hour later we stopped at some bar, sat on the sofa still feeling tripped out, TV was playing family guy and the screen was going different colours, blue,green,red,purple etc. tried to text on my phone but nothing made sense.
+3:30 - after sitting here for an hour I was starting to come back to reality, the environment was coming back to me and the feeling of dissacotiaveness was wearing down. Head was buzzing and eyes were tingling like a weak hit of nitrous (laughing gas).
+4:00 - went chippy to go get food. Sober by this point. Wondered what the fuck just happened for the last 5 hours.
+4:45 - home. Totally sober. Tired and ready to sleep. Very weird night indeed.
+Definitely a drug with good effects if taken a good amount, not reccomended for clubbing however as I was on edge in the environment I was in.
+O
+OhhAhhCantona
+Greenlighter
+Joined
+Jun 11, 2010
+Messages
+6
+Location
+England, Europeshire.
+Jun 12, 2015
+#7
+Got a delivery of MXP early in the week, took an eyeballed dose, (1g seperated into 20, equal by eye doses). Then after 2 hours another with about 10mg dissolved in water.
+Only one previous eperience with Methoxphenidine where I knew nothing about what I was taking, I just wanted to get high. It was a really amazing experience. Anyway, the chaotic, incomplete trip report.
+00.00 its 7pm, bombed 1 dose (approx 50mg) As this was my second time you would think I would have done a bit more research, but no.
+00.30 a little tingling and difficulty following simple tasks like internet browsing.
+00.50 a little euphoria but nothing as profound as I want.
+00.55 really need to pee all the time and also notice I feel confused and want to observe everything around me. I must look like an owl searching every corner for &quot;something&quot;. That&#x27;s what I was looking for, something.
+01.30 reduced euphoria, short periods of time dilation are happening, I have the uncontrollable urge to walk aimlessly around my house, I don&#x27;t know why.
+01.45 no discernible change, bomb another dose and another few crystals disolved in water. This was a bad idea.
+02.25 I find myself wandering, repeating, &quot;what&#x27;s going on&quot; incessantly. Worry is setting in and I dont have the background knowledge to realise I need to calm down and ride this shit out.
+02.55 A walk to the local hospital seems to be my only option. It feels like the only safe place to be. It is around 400m but it takes an age to get there. On the way I am convinced I am going to die. Everybody watches as I walk by, I think it&#x27;s because they know my fate.
+03.00 this is the last time I can be accurate about the time. I fell in and out of consciousness over the next couple of hours while experiencing dissociation, time dilation, acute confusion and profound fear.
+Approx 03.10 booked into A&amp;E, I only know this because I was told later. At no point during my stay in hospital I didn&#x27;t mention drugs, they knew of course.
+Approx 04.00 these are the short periods I can remember during the next hour. I became aware of repeating questions to a nurse but not being able to understand what either of us was saying.
+Found myself answering questions like name, D.O.B. etc, they were obviously checking if my amnesia went further than transient short term memory loss.
+Fell of the trolly I was lying on and fell for several hours through a kaleidoscope of colour, heat, light, pain, pleasure etc, etc, etc, that was pure delight. Once I landed I was chastised by a nurse for &quot;being silly&quot;.
+05.12 I know this for a fact because the mental health services liaison officer told me it was 12 past midnight. She started talking to me about suicide and self halm, drug therapy and asked if I felt like hurting somebody. I convinced her to ley me go, which she did.
+05.45 left the hospital (ignored by every member of staff who had internally branded me &quot;druggy&quot;. I do have mental health issues but drugs are only ever used as a bit of a crappy coping mechanisms every now and then. MXE should NEVER be used for this purpose.
+06.02 home, 01.02am, licking wounds inflicted by stupidity knife.
+I&#x27;m sure you&#x27;ll agree, not one to repeat.
+I&#x27;ll post my first experience another time, it was a much better way to approach this drug.
+My advice, if there&#x27;s any point taking advice from the wielder of a stupid knife, is go steady, start small and be extra careful with redosing, this drug can tear you to pieces like a polar bear having lunch.
+And a sitter if psychadelics/dissociates are new to you.
+B
+booradleysdad
+Greenlighter
+Joined
+Aug 10, 2015
+Messages
+1
+Aug 10, 2015
+#8
+I can understand . Being new to psychedelics but having fair experience of other rec.s I got 250 mgs mxp. The first venture at 50mg being very novel and pleasant. A few days later at 100 was a completely different experience
+Not saying it was in any way worse just totally different. From 50mg being mildly euphoric and fun to 100 mg being the strangest feeling I&#x27;ve ever had. I.e the world wasn&#x27;t real matrix kind of thing. Luckily I just laid back but at times uncertainty crept in. Interesting and positive but yeah I get it. If I go again it&#x27;ll be with more caution and a comfy chair. Quite frightening. I made the mistake of thinking that because I have a high tolerance for alcohol it would apply. Nope
+S
+SeekLight
+Greenlighter
+Joined
+Jun 29, 2015
+Messages
+19
+Feb 7, 2016
+#9
+would disso users say that experienced psychedelic users have better chances of the dealing with disso experiences? im planning on experimenting with dissos this year, am pretty experienced with a variety of psychedelics and a variety of doses. just curious.
+thanks
+You must log in or register to reply here.
+Share:
+Facebook
+X
+Bluesky
+LinkedIn
+Reddit
+Pinterest
+Tumblr
+WhatsApp
+Email
+Share
+Link
+Forums
+Drug Experiences
+Trip Reports
+BL Light Classic
+Contact us
+Terms and rules
+Privacy policy
+Help
+Home
+RSS
+Community platform by XenForo
+®
+© 2010-2026 XenForo Ltd.
+Parts of this site powered by
+add-ons from DragonByte™
+©2011-2026
+DragonByte Technologies
+(
+Details
+)
+|
+Add-ons by ThemeHouse
+|
+Media embeds via s9e/MediaSites
+XenPorta 2 PRO
+© Jason Axelrod of
+8WAYRUN
+Top
+Terms and Conditions
+You must read and agree to the terms and conditions
+                    before continuing.
+The terms and conditions could not be loaded.
+Please reload the page and try again.
+I agree to the terms and conditions.
+You must agree to the terms and conditions
+                        before continuing.
+Continue</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

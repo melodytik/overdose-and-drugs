@@ -1,0 +1,272 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>化物 - 化物 - &quot;真的很远&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-procyclidine.html'>← 丙环定（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>化物 - 化物 - &quot;真的很远&quot;</h1>
+<div class='sub-title'>Procyclidine - Erowid Exp - &#x27;Really Far Out&#x27;</div>
+<div class='meta'>作者：Cheryl Citation · 日期：Apr 16, 2018 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=20305' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>一个真正遥远的经历
+我打算提交一份报告, 关于我多年前曾吃过的情况,
+我发现作为天然药非常好, 常常想为什么制药公司不利用这种可销售的缓解.
+无论如何,在青少年时期,我尝试了各种药物.
+我很好地做了除了海洛因.
+我参加了许多L.S.D., 精华,速度,MDA, 和魔幻之旅.
+我曾经在一个晚上喝了12片酸,
+我在那天晚上照顾一个朋友,
+虽然我经常服用比需要的更多的超级高我总是似乎能够处理任何可怕的幻觉或不舒服的旅行.
+我还能将我正在呼吸的世界与现实世界区分开来, 因此从旅行中获益更多.
+现在,我知道我在哪里.
+我和我的女朋友住在一起,
+我已经喝醉了,我想我正在寻找一些更高,所以我走进我的朋友的母亲的房间,看了看她的衣柜抽.
+标签上写着&#x27;在睡觉前服用一粒药,可能会引起幻觉&#x27;.
+这就是我需要阅读的,所以我吃了药瓶.
+我开始喝了近一半的瓶子.
+接下来发生在我身上的事,以及接下来的三周,真是令人难以置信!
+我开始了一次前后没有任何药物能达到或接近这种效果的旅程.
+我相信我只有微小的机会逃离这个世界,带我在每一个方式土地的童话故事写.
+我开始有很奇怪的行为.
+朋友们担心我服用过量药物,
+我记得有人说,&#x27;你吃了太多的药,你可能会死&#x27;.
+死亡吗?
+我认为,他们怎么知道.
+我必须离开这个地方.
+在那一刻,我从窗外逃出,开始我的迷路之旅.
+我离开了我的朋友的房子,没有人看到我4整天.
+我回来后, 仍需要两个星期的时间才能恢复.
+我一直都在抽.
+在这四天中,我只记得大约2个小时.
+我还不知道自己到底在哪里, 因为我记得的大部分都很奇怪.
+我记得我在街上无目的地走着,
+她突然从树叶上下来, 拉下子去尿尿.
+一个人走下来,我责备他看着我.
+他走了,给我一个&quot;你疯了&quot;的表情,所以我相信他是真实的.
+然后我转身回到树上,看到两名警察坐在树叶上,抽着烟.
+我觉得他们有多大胆,
+我向另一位路人讲述了这件事,
+接下来我记得我看到&quot;绿色巨人&quot;坐在学校的上.
+我去跟他说话了.
+接下来的记忆是我在一个房子里.
+那里有一个男人,我认为他是真实的.
+我告诉他我家乡的两个朋友坐在咖啡桌上.
+他似乎没有受到我的异象的影响.
+接下来我记得是在洗手间.
+我坐在座位上, 墙壁上总是有头像从里面跳出来,
+这让我很生气,
+我觉得有时候我发现自己在楼上, 想逃离房子,
+楼上的窗户.
+我记得我试图找到我朋友的房子...走在街上...寻找熟悉的东西.
+我遇到的问题在于,出于某种原因,我不能&#x27;阅读&#x27;!
+我看了看路牌,但它们也许是用中文写的.
+我知道我能阅读,但当我看看这些字母时,
+我开始感到迷失.
+我知道我能阅读,但当我看看标志字母什么意思.
+我开始感到迷失.
+我会遇到我认为是正确的地方的房子,
+像是门廊的沙发或车库等等.
+我想我在街上漫步了好几天.
+我不记得睡着了.
+我可能会,但我不记得太多.
+经过四天的时间, 我终于回到了女朋友的家.
+我似乎在这里和那里,但总会陷入另一个世界的大部分时间和晚上在接下来的两周.
+我记得我们在街对面和女朋友在厨房里,
+这就是他们的记忆, 让你对我的旅行有不同的看法.
+他们说我走进卧室, 像往常一样和一个不在那里的人说话.
+然后它变得安静,所以他们检查我因为他们不得不密切关注我自从我回来.
+他们看到我在一个盒子里向毛动物低语.
+我会把一个毛动物从盒子里拿出来...敲它的股,然后低声说&#x27;好吧,你可以走了,你是自由的&#x27;.
+我做了很长一段时间.
+然后我跑进厨房,兴奋地说:&#x27;看这个小男孩跳舞吧!
+经历了许多奇怪的经历.
+如果有人告诉我 (不管我当时和谁说话), 实际上并没有在那里,
+我会责怪那些告诉我, 他们吓跑了他们.
+令人惊的是我可以... 感觉... 触摸... 闻...
+没有存在的东西.
+如果你的感官告诉你某事是真实的, 很难怀疑自己当其他人说它不是.
+我可以喝一杯我从未喝过的果汁, 品尝它, 吞下它, 感觉清爽.
+经历的大部分时间都不是很糟糕, 但在回来后的两三天,
+我着某个摇滚明星的海报,
+我很高兴这位超级明星和我说话.
+忽然他的脸变得毛,他的眼睛变红,长长的牙从嘴里出来!
+他变成了狼人.
+然后我的女朋友也这样做了.
+我从房间里跑出来, 意识到全世界都是狼人.
+后来我开始受到各种各样的冲击.
+许多物体周围都有红色的电气光环, 如果我碰到它们,
+我不记得吃了,但我猜我一定吃了一些.
+两周后,我认为我没事了, 我去找糖果厂工作.
+我被雇佣了,开始包装糖果.
+我在工作的第二天, 我在一个装配线上, 站着打包糖果, 突然一个小男人 (看起来像一个花园矮人) 大约是我的指大小, 从糖果里跳出来, 开始笑.
+我告诉他离开之前我陷入麻烦.
+接下来电话响了,我用我的下巴拿着电话说话.
+实际上没有电话,也没有小男人, 旁边工作的女人看着我很奇怪.
+很快,我的老板出现了,告诉我回家.
+我离开了,事实上需要一段时间才能恢复正常.
+我在那个世界里呆了3周.
+我在那个世界里呆了3周.
+我不知道我怎么回来了.
+我觉得我几乎没有回归,终身被关进精神病院.
+我终于直了眼睛的时候, 眼睛里都满是.
+或许是因为我从来没有睡过.
+很多年前我也曾服用过其他药物,
+没有任何接近.
+这不是我会推给任何人的事情.
+我认为我只是很幸运能回来.
+现在已经20多年没有吸毒或饮酒了, 但我觉得我必须和某人分享这件事,
+我很少告诉任何人这段经历, 因为这很难解释.
+谢谢你阅读了这篇文章,
+谢丽尔
+药物 - 普罗西克利丁 (233):单独 (16),多天经验 (13),过量服用 (29),实体/生物 (37),第一次使用 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Really Far Out
+Procyclidine
+by
+Cheryl
+Citation:   Cheryl. &quot;Really Far Out: An Experience with Procyclidine (exp20305)&quot;.
+Erowid.org
+. Apr 16, 2018. erowid.org/exp/20305
+DOSE:
+oral
+Pharms - Procyclidine
+(pill / tablet)
+BODY WEIGHT:
+125 lb
+A Really Far Out Experience
+I was going to send in a report re- when I used to take mushrooms many years ago but after reading expirences with them I can&#x27;t say my own results were much different. Except for maybe one added note that (besides the trip, which I always enjoyed without any after problems), I found that mushrooms were fantastic as a natural laxative and always wondered why drug companies didn&#x27;t take advantage of that marketable relief, so to speak.
+What I am going to tell you about in this report is my detailed expirence with a prescription drug called &#x27; Kemedrine&#x27; , not sure of the spelling or if this is even the trade name because drug names differ in this country to that of the US. Anyway, during my teens I experimented with various drugs. I pretty well did it all except for heroin. I went on many L.S.D. , Mesculine, Speed, MDA, and Magic Mushroom Trips. I once took 12 tabs of acid one evening and went to watch the movie The Godfather. That same evening I had to babysit my friend that had only taken one tab and was a mess.
+Though I often took way more than was needed to get super high I always seemed to be able to deal with any scarey halucinations or uncomfortable trips. When I was tripping I could still seperate the world I was expirencing from the real world and therefore benefited from the trip much more. That is until the time I took my friends mother&#x27;s prescription pills.
+I was staying with my girfriend having ran away from home and we were partying in the basement. I has gotten drunk and I guess I was looking for something to get higher on so I went into my friends mother&#x27;s room and looked in her dresser drawer. There  I found a bottle of pills named &#x27; Kemedrine.&#x27; The label read &#x27; Take one pill before going to bed, may cause halucinations&#x27;.  Well , that&#x27;s all I needed to read so I took the bottle of pills. I then proceeded to take close to half the bottle. What happened to me after that and for the next three weeks was unbelievable!
+I began a journey that no drug before or after has ever had the same effect or even close to it. I beleive I am only back by slight chance of escaping that world which took me in every way to the land of which fairy tales are written.
+Not long after having taken the pills I began to act quite strange. My friends having fear I overdosed phoned an ambulance to take me to the hospital. I remember someone saying, &#x27; You took too many of those pills and you might die&#x27;. Die? I thought, gee what do they know. I have to get out of this place. At that point I escaped out the window to begin my lost journey.
+I was gone away from my friends house and no one saw me for 4 whole days. When I did come back it still took me 2 more weeks to come down from the trip. I was stoned all that time. Of the 4 days I only remember about 2 hours. To this day I have no idea where I really was because most of what I remember was really bizzare.
+At first after I ran from the window, I remember walking aimlessly down the street when I came accross my girlfriend sitting on a large leaf of the tree. All of a sudden she got down from the leaf and pulled her pants down to pee. A person came down the walk and I chastized him for looking at me. He walked away giving me the &#x27; you&#x27;r nuts&#x27; look, so I belive he was real. Then as I turned back to the tree I saw 2 cops sitting on a leaf smoking a joint. &#x27;Well, what nerve&#x27; I thought, busting us kids and doing this themselves! I told this to another passerby that also gave me that look.
+The next thing I remember I saw &#x27;The Jolly Green Giant himself&#x27;, sitting on top of a school wire fence. I headed over to talk to him. My next memory was being in a house. There was a man there and I think he was real. I told him about 2 of my friends sitting on the coffee table from my home town. He seemed unaffected by my visions. Next I remember being in the washroom. As I sat on the seat, heads would keep popping out of the walls laughing at me. This made me angry that these heads were watching me in there.
+I think some time later I found myself upstairs and had the urge to escape the house so I jumped from the 2nd. Floor window. I remember trying to find my way back to my friends house...walking the streets ...looking for something familiar. The problem I was having was that for some reason I could not &#x27;READ&#x27;! I looked at the street signs but they might as well have  been written in Chinese. I was very upset...I knew I could read, but yet when I looked at the signs the letters meant nothing. I was beginning to feel very lost.
+I knew I could read, but yet when I looked at the signs the letters meant nothing. I was beginning to feel very lost.
+I would come across houses that I thought was the right place only to come to realize that something didn&#x27;t jive. Like the couch in the porch or the  garage etc.
+I think I roamed the streets for days. I don&#x27;t remember sleeping. I may have, but I don&#x27;t remember very much. Finally after 4 days I showed up back at my girlfriends house. I seemed ok here and there but would always lapse back into that other world for most of the day and night for the next 2 weeks. I remember being across the street with my girlfriend in the kitchen as we visited another friend. This is their memory to give you a different perspective on my trip. They said I went into the bedroom and was talking to someone as I often did that was not there. Then it got quiet so they checked on me since they had to keep close watch on me since I came back . They saw me whispering to stuffed animals in a box. I would take a stuffed animal out of the box ...tap its bum, and whisper &#x27; Ok , you can go now, you are free&#x27;. I did this for quite some time. Then I came running out into the kitchen saying with excitement. &#x27; Look at the little boy dancing&#x27;!
+Days came and went with my strange experiences. I could not tell my world from the real world and if someone told me that (whomever I may be talking to at the time), was not in fact there, I would get quite upset. Also that person I was talking to would poof disappear which I would blame the person telling me, that they had scared them away. What is amazing is that I could ...FEEL...TOUCH...SMELL..SEE... That which was not there. If all your senses tell you something is real, it&#x27;s very hard to doubt yourself when others say it&#x27;s not. I mean I could actually drink a glass of juice that I never had and taste it ...also swallow it and feel refreshed.
+Most of the time the experiences were not too bad but then about 2 or 3 days after getting back, I lay in bed unable to sleep, next to my girlfriend. As  I gazed at a poster of some rock star it came to life and began to talk to me. I was very happy that this super star was speaking to me. The all of a sudden his fair turned hairy and his eyes went red and long fangs came out of his mouth! He became a werewolf. Then so did my girlfriend. I ran from the room with the realization that all in the world were werewolves. Then after that I began to get shocks from things. Many objects had a red electrical aura round them and if I touched then I got a small jolt!
+I dont remember eating but I suppose I must have ate some. After 2 weeks when I thought I was ok I went to get a job at a candy factory. I was hired and began packing candies. The second day I was at work I was in an assembly line standing packing candies when all of a sudden a little man ( looked like a garden dwarf) about the size of my thumb, popped out of the candies and began giggling. I told him to go away before I got in trouble. Then the phone rang and I talked on a phone holding it to my shoulder with my chin. There really was no phone nor little man and the women working next to me gave me some very odd looks. Soon my boss appeared and told me to go home.
+I left and it actually took some time after that to finally get straight. I was in that world for 3 weeks in total.
+I was in that world for 3 weeks in total.
+I don&#x27;t know how I got back. I have a feeling I came very close to no return and ending up in a mental hospital for life. Also when I did finally straighten out my eyes each was filled with styes. It must have been the way my body cleared it out or maybe because I never slept.
+As I said in the beginning I did lots of other drugs many years ago but never ever did I have a trip like that again. Nothing even close. It was not something I would recommend to anyone. I think I was just lucky to make it back.
+No drugs or alcohol now for over 20 years but I felt I had to share this with someone who might appreciate it. I have seldom told anyone of this experience since it is so hard to explain.
+Thank you for reading this,
+Cheryl
+Exp Year: 1969
+ExpID: 20305
+Gender: Female
+Age at time of experience: Not Given
+Published: Apr 16, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Procyclidine (233) : Alone (16), Multi-Day Experience (13), Overdose (29), Entities / Beings (37), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

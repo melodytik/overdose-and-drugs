@@ -1,0 +1,276 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>长期失去的新奇性恢复</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tryptamines-substituted.html'>← 取代色胺类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>长期失去的新奇性恢复</h1>
+<div class='sub-title'>DiPT - Erowid Exp - &#x27;Long Lost Novelty Restored&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Feb 23, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=107477' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>大麻
+这是我第二次使用DiPT的经验,
+我认为这次我会把它推高一点, 虽然仍然不太高.
+鉴于DIPT在某种程度上在迷幻药中是独一无二的, 我觉得我可以使用更轻松的体验,
+我早上醒来, 出55毫克的DiPT, 放入凝囊中,
+我不想说我有任何重要的预期, 除了它可能 (可以理解) 是我上次经历的更强烈版本.
+我吃了我的DIPT囊, 然后决定立即洗.
+我决定洗是因为我等待50毫克的MiPT开始对我产生影响,
+淋浴感觉很好,但我没有感觉到任何开始的效果.
+我开始注意到一个很轻微的胃部不适, 暗示恶心,
+我把自己干掉了,回到床上躺着,只是观察我的感官感知.
+表面已经开始呼吸和轻轻地波动,
+我也听到来自外界的声音,
+我也听到来自外界的声音,
+之前的恶心感增加了, 让我知道它是什么:一种清洗,
+我在服用50毫克的MiPT时也发生了同样的事情, 我突然意识到我会产生这种恶心,
+我一直在所等待, 忽然开始清洗.
+这种情况令人不快.
+虽然吐并不是一件有趣的事, 但是在准备的时候, 吐是非常快速的,
+另一方面,DIPT让我连续地发, 之间又有恶心的感觉, 结束时我感到很恶心, 眼睛开始流, 心脏甚至开始得很快.
+我仍然感觉好些, 但感觉并没有像MiPT之后那样轻松,
+由于这个原因,之后我发现自己只是爬回床上休息.
+我开始吸一碗大麻, 我以前故意把它推迟到清洗发生后,
+虽然它确实有所帮助, 但躺着也可能有很大作用.
+吸烟后,之前存在的视觉效应稍微增加,但实际上并没有变得更强.
+这实际上是开放眼睛的视觉效果,
+在过去的十分钟里,感觉并没有真正增加,我开始担心我可能已经吐出了一些剂量,因为它是在囊中,可能比MiPT吸收慢一点 (值得注意的是,清洗发生在几乎相同的时间后任何剂量).
+我仍然感觉有点,所以我闭上眼睛试图忘记我的身体,
+尽管我注意到其中的某些线条开始摇摆, 几乎没有任何感官效应, 类似于其他胺类药物,
+我决定放上一首熟悉的歌曲来看看是否有任何差异.
+音乐总体上听起来有点陌生,
+但我试图保持乐观.
+然后,在接下来的十分钟里, 一种类似于耳的声声开始显现,
+我担心我已经得到了自己比我讨价还价的东西,我可能要处理这响亮的声整天我头的效果持续这么长时间之前.
+我决定尽量充分利用它.
+我开始冥想,希望我可以用不断的声作为一种白噪声来帮助我更轻松地进入惚状态,而不是没有它.
+当我第一次再次闭上眼睛时, 我注意到我的视野大多仍被色彩斑所覆盖,
+一个白色的光线从中发出, 起初是可见的, 但却微弱,
+经过几分钟, 这变得足够压倒性, 超过了一种离散的门,
+它们的头部在视线的顶部,脚在视线的底部, 它们似乎背后有坚实的色彩背景.
+这与我在服用其他胺类药物时所经历的情况相似,
+我会说这两种颜色之间的唯一区别是表面的, 具体来说, MiPT对我来说倾向于在背景和实体服装设计中产生颜色,
+并且还因为DIPT的图像比MiPT的图像更深入, 以至于它们的三维感觉与我对的体验相当,
+虽然 MiPT 的感觉与相似, 但我还是觉得它比更平坦.
+最重要的是,在DIPT和MiPT的图像中, 一个非常简单的旋转的几何图案, 风格和很相似,
+在MiPT上它们是红色的,在DiPT上它们是蓝色的.
+在这一点上,我会说这次与DiPT和我过去的MiPT体验之间的决定性差异在于,在这个层面上,MiPT也有许多其他颜色,几何效果,和远见的图像,
+我也发现DIPT的躁狂情绪显著减少, 相反, 在大部分体验中,
+这些东西听起来可能比较负面, 但我认为值得注意的是, 另一个不同之处是, MiPT 带来的生动图像也有许多典型的迷幻设计, 而 DiPT 让我感觉更像梦,
+我看到的实体穿着穿过头部但仍然现实的服装,
+这种差异甚至在强烈的剂量水平上也足够显著, 但仍然不像完全异乎寻常的,
+这次关于幻觉的说法不多, 因为我没有记住它们很久, 但值得注意的是, 它们似乎与我现在使用其他迷幻药所经历的类似,
+如果推进的话, 似乎会变得非常有趣, 但事实上, 这次旅行让我做这么多的工作,
+我决定换个方向.
+我在起床前做的第一件事就是测试这种化合物的性欲潜力,
+达到高潮的感觉比正常的要好,
+特别值得一提的是,我的想象力随着迷失在幻想中而大大增强,
+如果正确使用的话,
+我决定试试听更多的音乐, 因为我正试图在新方向旅行,
+打开笔记本电脑时, 我首先注意到它发出的小小的启动音和声, 显然与正常音符完全不同,
+我开始试着把不同的音乐风格放上, 只是为了试验什么会被改为最好,
+让我很着迷的是, 一首歌的复杂性似乎对曲调的扭曲程度没有太大影响,
+我也很快发现, 声音是最扭曲的东西, 没有歌声的歌曲更有可能保持完整的和流动.
+我真的没想到DiPT的音频效果会有这么多乐趣,
+我听到了我最喜欢的歌曲之一,
+听到这首歌不仅像是第一次听到这首歌, 感觉到这首歌的新性得到了增强,
+尽管如此,它仍然很好.
+这首歌的音频体验非常棒,
+我从来没有遇到过或可能会遇到的最令人惊叹的药物效应之一:能够重新体验所爱的东西,
+我希望能在很长一段时间内,
+我已经花了上个半小时的时间听音乐,
+我很快就发现, 简单地一遍又一遍地听一首歌, 似乎会让声音效果消失,
+我决定洗个热水浴, 在浴室里看一集&quot;朋友&quot;.
+开头这首首歌比我以前听过的任何音乐都更扭曲,
+这完全是不和的, 而角色的声音也没有好转.
+菲比和乔伊并不是那么糟糕, 大部分时间听起来很正常,
+雷切尔和罗斯在剧集开始时都有显著的机器人声音过器,但奇怪的是,最初只有罗斯的声音比正常的更深,而雷切尔在剧中很慢地失去了机器人声音,但音调明显下降.
+莫尼卡也经历过过一种转变, 她开始听起来像一个男性,
+最后,钱德勒是他们中最像一个正常的人, 可能甚至比菲比和乔伊,
+他每当我不看屏幕时说话时, 就会让我想到一个年纪大,
+很有趣的是,
+演出结束后, 我在水里休息了一会儿,
+我仍然感觉很好, 但不是我真正能称之为改变的,
+感觉就像我的MiPT经历中的一个时刻, 感觉完全恢复正常, 感觉除了身体高潮,
+没有观察, 没有出现这种效应.
+我决定我足够清醒, 冒着驾驶的风险 (我说风险,
+我当时的胃里没有食物,
+走到外面, 感受到了微风带来的触觉增强, 看到周围生活中的美景,
+虽然没有视觉或认知障碍,
+我最终去看了&quot;索尼克&quot;, 笑着自己听到电台里的深沉的声音和现在听起来很奇怪的熟悉的歌曲, 当我到达那里并订购食物时,
+我最终买了一块汉堡,饼和牛奶,
+之后我再也没有做任何笔记了,
+我会说,在那之后,我继续感觉良好, 但后来,我相信完全是不幸的巧合,
+我不是说我生病了,我只是说我生病了.
+到了中午, 我的喉非常疼痛, 甚至我几乎不能说话, 没有疼痛.
+我也开始经常打喷, 通过鼻子呼吸很困难,
+但至少我可以感激它是在经历之后而不是经历期间出现的.
+这让我整天都很疲, 这就是为什么我今天早上写了这份报告, 而不是昨天下午.
+幸运的是,当我今天醒来时, 喉痛几乎完全消失了,
+我认为这是我与DiPT的第一次全面经验.
+我觉得它是非常迷人的, 特别独特的在它的音频扭曲方面,
+不是说我不觉得它们很有趣, 但由于它们在风格和强度上与类似剂量的MiPT非常相似,
+然而, 我确实怀疑, 类似于对其他幻化药物如4-HO-DPT的建议,
+没有像MiPT这样的混沌背景, 让它们进入你的头脑, 感觉它们需要一点帮助才能达到完全强度.
+吸入法可能会减少恶心, 类似于吸烟与口服DMT,
+也许这会给我提供我喜欢的强度的迷幻体验, 也许也会扩大我的供应.
+我绝对认为这是一种非常独特的药物, 任何对大脑工作感兴趣的人都应该至少尝试一次,
+我从来没有经历过像DIPT这样的音频效果,
+音乐讨论 (22),实体/生物 (37),一般 (1),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Long Lost Novelty Restored
+DiPT
+by
+Kaleida
+Citation:   Kaleida. &quot;Long Lost Novelty Restored: An Experience with DiPT (exp107477)&quot;.
+Erowid.org
+. Feb 23, 2016. erowid.org/exp/107477
+DOSE:
+T+ 0:00
+55 mg
+oral
+DiPT
+(capsule)
+T+ 0:45
+smoked
+Cannabis
+This was my second experience with DiPT, after trying it first at 30 mg. That first experience produced effects which were decidedly threshold for me in most ways, so I figured I would push it a bit higher this time, though still not too high. Given that DiPT is known for being particularly unique in certain ways among psychedelics, and that I felt that I could use a lighter experience for the time being, I figured that baby steps might be the way to go.
+My previous experience with psychedelics includes Psilocybe cubensis, Ipomoea tricolor, Argyreia nervosa, bufotenin, DMT, LSD, 2C-B, 2C-I, DOC, 4-AcO-DMT, 4-HO-MET, 4-AcO-MET, 4-HO-DET, 4-AcO-DET, 4-HO-MPT, 4-HO-DPT, 4-HO-MiPT, 4-HO-DiPT, 4-AcO-DALT, MiPT, DiPT, DALT, and at least a couple of unidentified things.
+T-1:00 - I woke up in the morning, weighed out 55 mg of DiPT and put it in a gel capsule, and then spent the next hour mentally preparing myself for a good experience. I would not say I had any significant expectations going in other than that it might (understandably) be like a stronger version of what I experienced last time.
+T+0:00 - I took my capsule of DiPT, and then decided to take a shower right away. This decision came from the fact that I took a shower after waiting for 50 mg of MiPT to start hitting me somewhat and it ended up inhibiting my ability to really shower properly by the time I did, so since this molecule is similar I thought I should get it out of the way first instead.
+T+0:25 - The shower felt good, but I felt no beginning of effects during it. However, upon stepping out I first started to notice a very slight stomach discomfort, one suggestive of nausea but not really developed enough to be anything yet.
+T+0:30 - I get myself all dried off and go back to lying in bed, just sort of observing my sensory perceptions. Surfaces have begun to breath and wave very lightly, but not in any distinct way and without any color involvement. I listen to sounds coming from the outside world too, but can&#x27;t quite discern any differences yet.
+I listen to sounds coming from the outside world too, but can&#x27;t quite discern any differences yet.
+The nauseous feeling from before has increased, and it hits me in such a way that I know without question what it is: a purge, like I&#x27;d imagine getting from oral DMT. The same exact thing happened to me on 50 mg of MiPT, where suddenly I just knew I was going to be building up to it and couldn&#x27;t prevent it, which is extremely different from the nausea I&#x27;ve gotten from other substances which both feels somewhat physically distinct and almost never reaches a point of vomiting, and by almost never I mean like maybe once or twice ever.
+T+0:40 - I&#x27;ve been waiting in the bathroom over the toilet, and suddenly the purging begins. It was unpleasant, to say the least. When I had purged on MiPT of course it&#x27;s not that I had fun throwing up, but it was a very quick action free of most discomfort when building up to it and I felt much better immediately afterward. DiPT, on the other hand, caused me to heave continuously with bad feelings of nausea lingering in between, and by the end it I felt very gross and sweaty, my eyes were beginning to tear up, and my heart was even starting to pump pretty hard. I still felt better after the fact though, but I was not as relieved as I was after MiPT, and I even felt that the stomach discomfort had not completely resolved still. For this reason, afterward I found myself just crawling back into bed to rest.
+T+0:45 - I started smoking a bowl of cannabis at this point, which I had purposefully put off before until after the purge happened, but now I really wanted to get rid of the lingering nausea. It did definitely seem to help in that way, but just lying still may have done a lot of that too. Quickly after smoking, visual effects that had been present before increased slightly, but did not really become any more developed. This was actually about as strong as the open eye visuals ever got for the duration of the experience.
+T+0:55 - Feelings have not really increased over the last ten minutes, and I began to get a bit worried that I might have puked up some of the dose, since it was in a capsule and probably absorbing a little slower than the MiPT had (notable since the purge happened at pretty much the exact same time after either dose). I still felt a little urpy as well, so I closed my eyes to try to lose track of my body and find a little more comfort. It was still mostly just static behind closed eyes, although I noticed that certain lines among it were starting to sway just barely in a sensual way reminiscent of other tryptamines, though actually somewhat more similar to, but significantly weaker than, what I experienced on the onset of DOC.
+T+1:00 - Since I wanted some kind of evidence that this dose was still going to end up being stronger than my previous dose had been, I decided to put on a familiar song to see if there was any difference. The music sounded a little stranger overall, but not in a way that I could really put my finger on. At this point it was only slightly stronger than my experience on 30 mg, but I tried to remain optimistic. Then, over the next ten minutes, a tinnitus-like ringing made itself known and slowly increased to the point of starting to be a little intolerable. I was worried at this point that I had gotten myself into something more than I bargained for, that I might have to deal with this loud ringing for the entire day as I&#x27;ve head of the effects lasting that long before. However, given that there was nothing that could be done about it now, I decided to try to make the most of it.
+T+1:20 - At this time I had been meditating in bed in the dark for about ten minutes, which I started in the hopes that I could use the constant ringing as a form of white noise to help push myself into a trance state more easily than I might have been able to without it. When I first closed my eyes again at that point, I noticed that my field of vision was still mostly just covered in colorful dots as it normally would be, but there was a sudden extremely vast feeling of distance contained without that dark space, more so than I would say I have ever gotten from any psychedelic before truthfully, and just emanating from the center of it all was a white light that started off visible but dim, but then grew in intensity until it covered the entire void and began to engulf me along with the loud noise that was blocking out my remaining connections to the outside world. After a few minutes this became overwhelming enough to cross a sort of dissociative threshold, and that&#x27;s when the height of the psychedelic visual effects came.
+It began with the perception of human female entities, fit perfectly into my frame of vision with the their heads at the top of my sight and their feet at the bottom, and they appeared to have solid color backgrounds behind them. This is not unlike what I have experienced on other tryptamines, but most notably was actually nearly identical in general style to the 50 mg of MiPT. I would say that the only difference between the two in this way is superficial, specifically in that MiPT for me had a tendency to produce colors, in both the backgrounds and the entity clothing designs, that were more focused on reds, oranges, and yellows, whereas DiPT produced primarily purples, blues, and greens, and then also in the fact that DiPT&#x27;s images seemed to have more depth to them than MiPT&#x27;s, to the point that they felt highly three-dimensional on a level comparable to but perhaps even greater than my experiences with mushrooms. MiPT did have depth too, along with feeling very similar to mushrooms in this way as well, but I would still say that it was flatter for me so far than they are. And to top it all off, blended into this imagery on both DiPT and MiPT was one very simple spinning geometric design, one also very similar to mushrooms in style but not shape, being something like a spiral composed of feminine legs all curved towards a center where their corresponding feet were tucked inward in something resembling ballet shoes, but with a more pointed and sensual design, and again, on MiPT they were red and on this DiPT they were blue.
+At this point, I would say that the defining difference between this experience with DiPT and my past one on MiPT was that at this level MiPT also had a lot of other colors, geometric effects, and visionary imagery reminiscent of DMT that was distinctly lacking from DiPT, and as a result I felt DiPT to be less traditionally psychedelic or colorful overall than MiPT. Corresponding to the lack of that overt psychedelia, I also found DiPT to have significantly less manic euphoria, instead for me never really getting above a pleasant but mild buzzing for most of the experience. These things might sound like negatives by comparison, but I think it&#x27;s worth noting as well that another difference resulting from this was that the vivid imagery caused by MiPT also had a lot of typically psychedelic designs mixed into it as well, whereas DiPT for me was allowed to feel much more dream-like by not being drowned out in sensory overload madness. For instance, the entities I saw were wearing over the top but still realistic clothing, as opposed to all kinds of flowing abstract outfits that you&#x27;d practically never encounter in the real world. The fact that this difference is significant enough even at these dosage levels that are strong but still not like completely otherworldly leads me to believe that at such a strong peak as that they would still end up producing fantasy scenarios that have markedly different emotional or psychological consequences.
+So, there&#x27;s not too much to say about the visions this time because I didn&#x27;t hold on to them for that long, but it&#x27;s noteworthy that they seemed to be building up to what I have experienced on other psychedelics now, particularly LSD, 4-HO-DET, 4-HO-MPT, and DOC, where they start to push into full delirium and I begin to lose myself and mistake myself for the people I&#x27;m seeing instead. It seemed like it could get very interesting if pushed further, but the fact that this trip was making me do this level of work just to get there and sustain it in the first place led me to feel that this particular trip might be better spent doing something else. So with that in mind, I decided to switch gears.
+T+1:35 - The first thing I did before getting out of bed was test the erotic potential of this compound, which was present but not huge. Orgasm felt better than normal, but nothing like I have experienced from some psychedelics before. Notably though, my imagination was dramatically enhanced as I was getting lost in fantasy, to the point that it was becoming interactive, like I could almost see the imagined scenario happening around me and to some degree it and its inhabitants took on a life of their own. That would definitely seem to suggest some significant potential to me if it&#x27;s used right.
+T+1:40 - Since I was trying to take the trip in a new direction and I was, after all, on a unique audio distorter, I decided to try listening to some more music. The first thing I noticed when opening up my laptop was that the little startup beeps and boops it makes were clearly completely different notes from what they normally are, so I got excited. I began trying to put different styles of music on, just to experiment with what would be changed to most, and I tried to pick songs that I thought might &#x27;challenge&#x27; my perception the most. Fascinatingly to me, the complexity of a song seemed to make little difference in how much it was distorted, as some very high intensity and detailed electronic songs came out sounding practically unaltered, whereas others were like hearing something completely different than expected. I also quickly noted that voices were by far the most distorted of anything, and a song lacking vocals made it much more likely to still have a complete harmonious flow. I really hadn&#x27;t expected the audio effects of DiPT to be quite as fun as they were proving to be for me, but I have to say that this really was one of the coolest things about the trip even just because it was completely different to any sort of sensory distortion I have ever experienced before, which is something that hasn&#x27;t happened in a long time otherwise.
+T+2:00 - I listened to one of my favorite songs that has stood the test of time, Savant&#x27;s &#x27;Starfish&#x27;, and I was nearly moved to tears by what I heard. By now I had not only distortion but also some music enhancement from the typical psychedelic effects of the DiPT, and hearing this song again was not only like hearing it again for the first time in the sense that the novelty of everything was enhanced, but also in the sense that my brain was literally registering it as something new because of how different it sounded from what I am used to, and despite that it was still that good. The audio experience of the song was fantastic, but, and don&#x27;t get me wrong, it wasn&#x27;t what made me so emotional. That came from experiencing what I consider to be one of the most amazing drug effects I have ever encountered or probably ever will encounter: the ability to re-experience something beloved as completely new again while remaining totally lucid for it and receiving the full cognitive impact of that. It is something I expect to remember vividly for a very, very long time.
+T+3:25 - I have spent the last hour and a half simply listening to music and posting a little bit on the forum, and I have enjoyed myself but it&#x27;s getting a little old. I noticed very quickly that simply listening to songs over and over again actually seemed to make the audio effects sort of disappear, by giving my brain an extended time to adjust and start trying to make things sound correct again. So, wanting to keep things going, I decided to take a warm bath and watch an episode of Friends during it. This turned out to be a hilariously weird experience, and even from the beginning the intro song was already far more distorted than any music I had been listening to previously, for reasons I can&#x27;t possibly imagine. It was utterly disharmonious, and the character&#x27;s voices were no better. Phoebe and Joey were not so bad, and sounded mostly normal for most of the time, but they were really the only ones (even including random extras). Rachel and Ross both had a significant robot voice filter at the beginning of the episode, but oddly only Ross&#x27;s was deeper than normal at first, whereas Rachel very slowly over the course of the show lost the robot sound but dropped in pitch pretty significantly. Monica went through a transition as well, she started out sounding like a male doing a stereotypical effeminate voice, but by the end she actually sounded more female but like she was trying to come off as very butch. And lastly, Chandler was the one of them who sounded the most like a normal person, possibly even more than Phoebe and Joey, but bizarrely he sounded literally nothing like his normal self. Whenever he would talk when I wasn&#x27;t looking at the screen it would make me think of someone older but also a little more stereotypically manly. Interestingly though, the laughter all sounded normal for the whole episode.
+T+4:20 - After the show ended I just relaxed for a little while longer in the water, and finally got out at this time. I was still feeling good, but not what I would really call altered in the sense that I still felt like I was tripping. It felt a lot to me like this point in my MiPT experience, where I felt totally functional again and like I had come down except for the body high, but if I really looked for it I could still see the mildest of visual distortions or enhancements to things. Without looking though, no such effects appeared.
+T+4:40 - I decided that I was sober enough to risk driving (and I say risk, but I honestly almost never even stopped feeling okay to drive this whole time), so I went out to get myself some lunch. I had no food in my stomach up to this point, so I was pretty hungry. Stepping outside produced a wonderful feeling of tactile enhancement with the breeze and seeing the visual beauty in life all around me like most other tryptamines, so that was a nice surprise. Still no visual or cognitive distortions though, so I still feel good to get on the road. I ended up going to Sonic, laughing to myself at the deep voices and now weird-sounding familiar songs that played on the radio, and when I got there and ordered my food I also noticed that my own voice sounded deeper than it had when I had tested it by just talking to myself at home. I ended up getting myself a burger and tater tots and a milkshake, then returned home and had my delicious feast.
+After that point I took no more notes, so that&#x27;s where my timestamps will end. What I will say is that I continued to feel good for a little while after that, but then, I believe completely by an unfortunate coincidence, I started very rapidly feeling sicker as the day went by. And I don&#x27;t mean sick as in feeling poisoned by a drug, I just mean regular sick. By mid afternoon my throat was so sore that I could barely even talk without feeling pain. I also began sneezing quite a lot and having trouble breathing through my nose, and after a little while of that I started feeling more nauseous again too. Definitely not the best way to end a day of good tripping, but I can at least be thankful that it came after the experience and not during it. It pretty much wiped me out for the rest of the day though, which is why I ended up writing this report this morning and not yesterday afternoon. Thankfully, when I woke up today my throat soreness was almost completely gone, though I still have the other symptoms.
+So, that concludes what I would consider to be my first full experience with DiPT. For now, my final thoughts on it would have to be that I find it to be very fascinating and particularly unique in terms of its audio distortions which are an experience of their own, but I found that it&#x27;s psychedelic effects at this dose and with this method of administration were lacking for me. It&#x27;s not that I did not find them intriguing, but with the fact that they are so similar in style and intensity to a similar dose of MiPT while lacking a lot of other traditional psychedelia and producing less euphoria and more nausea, I just wasn&#x27;t really left with a strong desire to explore it in this way again. However, I did have the suspicion that, similar to what has been suggested to me for other psychedelics like 4-HO-DPT, this one may be better suited for producing powerful effects via a more rapid administration, like insufflation or vaporization. It just seemed to me to be like those other drugs in the sense that it has a strong focus on hedonism and visions, and without the chaotic background that something like MiPT retains to carry them into the forefront of your mind, it feels like they could use a little help reaching full intensity. Combine this with the thought that at inhalational method will likely provide significantly less nausea similarly to smoking vs oral DMT, and I am now thinking that the next time I use DiPT will likely be by smoking it in a bowl of cannabis. Perhaps this will provide me with a psychedelic experience of my preferred intensity, and maybe also extend my supply as well.
+But, until then I will simply say that this is a very unique drug in general, and I definitely think that it&#x27;s the kind of thing that someone interested in the workings of the brain should try at least once, even if they don&#x27;t find it comfortable or fun enough to return to. I have never in my life experienced something like the audio effects I got from DiPT, and I think that is something really worth holding on to.
+Exp Year: 2015
+ExpID: 107477
+Gender: Female
+Age at time of experience: 24
+Published: Feb 23, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DiPT (110) : Music Discussion (22), Entities / Beings (37), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

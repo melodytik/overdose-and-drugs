@@ -1,0 +1,192 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>青毒 - 青毒 - 青毒</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/animals.html'>← 动物类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>青毒 - 青毒 - 青毒</h1>
+<div class='sub-title'>Toad Venom - Erowid Exp - &#x27;SmOkin&#x27; ToAdZ&#x27;</div>
+<div class='meta'>作者：Spiney Norman Citation · 日期：Jun 26, 2000 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=2172' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我发现Bufo Alvarus (索诺兰沙漠或科罗拉多河) 的腺中含有6~16%的5-MeO DMT.
+我之前曾经使用过这种药物 (或类似的药物), 很高兴有机会获得这种药物.
+在咨询当地虫学家, 并检查几家生物供应商后,
+是很常见的, 但今年这个时候不见.
+这就是B的价格.
+阿尔瓦鲁斯通常在10美元左右加上25美元 (美国) 的运费.
+幸运的是,当地的物店有三只.
+由于它们的价格相当高昂, 我决定把它们从毒中出来.
+我用一个故事说我是生化学生, 对Bufo Alvarus的毒液中存在的某些醇有兴趣.
+基本上,我告诉他们真相.
+经过与管理层的检查, 他们给了我继续.
+毒液的提取是有点问题. 毒性动物及其毒液提供了一种程序,其中被用一只手牢牢地压下来,并用另一只手牢牢地挤压状腺 (&quot;耳朵&quot;后面).
+在上方悬挂着一块玻璃,
+我发现这种方法很尬.
+我发现最好的方法 (经过短暂的实验) 是用一只手握住青,用另一只手挤压腺体,
+在休息了20分钟左右后, 应重复一次.
+必须施加相当大的压力才能释放出任何毒药; 我犹不决, 因为我担心会伤害青 (尤其是经理站在我旁边).
+由于我没有按应有的压力, 我只从三只中获得了80-100毫克的毒液.
+根据&quot;有毒动物及其毒物&quot;的说法,
+我把它从玻璃上下来, 得到一个微妙的晶体物质.
+我为自己的实验吃了1克哈马拉种子 (我的体重为160磅), 一个朋友 (体重为260磅) 也吃了1.
+我们还抽了一支MJ香烟.
+我们把它和一些MJ混合在一起,
+味道是不寻常的,但不是强烈的不愉快.
+我们在吸烟的中途停了下来.
+我注意到一个奇怪的感觉和微小的声从MJ,freind没有注意到什么.
+我们继续吸烟, 吸完之后,
+让人们看起来像小丑一样.
+距离的感知是极其扭曲的; 触手可及的物体似乎在几英里之外.
+我对身高的看法也被扭曲了, 一分钟我看起来像一个巨人,
+它们似乎被动态的,镜般的颜色所包围.
+这条人行道让我想起了华盛顿州著名的电影&quot;的格蒂桥&quot;.
+我觉得自己像在冲浪而不是走路.
+通过者表情的观察似乎表明我的行走方式与那天晚上其他行人没有什么不同.
+我的朋友 (谁是,为了记录,而不是外形) 声称经历心跳,但我没有这种困难.
+经过大约15分钟的步行, 经历的强度减轻了, 我们觉得可以像我们打算的那样去酒吧.
+接下来的一个小时, 我们都喝了几杯酒.
+在服用该物质后,偏执感和一些轻微的视觉/ 听觉幻觉持续了大约2小时.
+结论:B的毒药
+艾尔瓦鲁斯似乎含有各种出版物中宣称的5-MeO-DMT数量.
+它与哈马林的使用似乎强烈增加了已经存在的大麻中毒 (与LSD不同,它通常与THC具有对抗作用),以及引起独特的强大的视觉幻觉.
+毒素中的类固醇毒素可能会有毒心脏作用, 当毒素被吸烟时, 或 (更可能的IMHO,
+这可能是一个非常糟糕的想法口服这种物质与harmaline一起作为一种动物的亚华斯卡;当口服活性剂量被服用时,类固醇毒素无疑更有害,由于所需的数量更大,以及口服剂量缺乏类固醇热解.
+时间表: 2172
+青毒 (46):小组 (2-9) (17),制备/食谱 (30),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+SmOkin&#x27; ToAdZ
+Toad Venom
+by
+Spiney Norman
+Citation:   Spiney Norman. &quot;SmOkin&#x27; ToAdZ: An Experience with Toad Venom (exp2172)&quot;.
+Erowid.org
+. Jun 26, 2000. erowid.org/exp/2172
+DOSE:
+smoked
+Toad Venom
+(dried)
+BODY WEIGHT:
+160 lb
+Doing a bit of research in various alt.drugs files, and some textbooks I discovered that Bufo Alvarus (Sonoran Desert or Colorodo River Toad) has a venom in its paratoidal gland that contains from 6-16% of 5-MeO DMT. Having experienced this (or a related) drugs once before, I was exited at the chance of obtaining a readily available supply of it.
+After consulting with the local herpetologist, and checking with several biological supply houses, I discovered that B. Alvarus is a common enough toad, but not available this time of the year. The price for a B. Alvarus is generally around $10 plus $25 (US) for shipping.
+Luckily for me, the local pet-shop had three specimins. Since they were rather exorbitantly priced, I decided to have a go at conning them out of some venom. I used the story that I was a biochemistry student interested in certain indole alkaloids present in the venom of Bufo Alvarus. Basically, I told them the truth. After checking with the management, they gave me the go ahead.
+Extracting the venom was somewhat problematic. _Venomous Animals and their Venoms_ gives a procedure where the toad is pressed firmly down with one hand and the paratoidal gland (behind the &#x27;ear&#x27;) is sqeezed firmly with the other. A piece of glass is suspended above the toad to catch the viscous venom as it squirts from the toad. I found this method awkward. The best way (after brief experimentation) I was able to discover was to hold the toad in one hand, squeeze the gland with the other, and have an assistant hold some glass in the firing line of the paratoidal gland. This should be repeated once after the toad is allowed to rest for 20 minutes or so. You must apply a considerable amount of pressure to release any poison; I was hesitant in this as I was afraid I would injure the toads (especially with the manager standing next to me). Because I didn&#x27;t apply as much pressure as I should have, I only obtained 80-100 mg of venom from the three toads. According to _Venomous Animals and their Venoms_ I should have obtained something more like 400mg per toad.
+In any case, after letting the poison dry, I scraped it off the glass, obtaining a fine crystaline substance. I took 1 gram of Harmala seeds for my experiment (I weigh 160 lbs) and a friend (who weighs 260) took 1.7 grams of the same substance. We also smoked one MJ cigarette. Instead of freebasing the 5-MeO-DMT (as would have been most efficient) we mixed it with some MJ and smoked it in a pipe. The taste was unusual, but not intensely unpleasant. Halfway through smoking the quantity, we stopped. I noticed an odd feeling and slight buzz from the MJ, the freind noticed nothing. We continued smoking, and after finishing both noticed some rather extreme effects.
+Objects appeared extremely distorted, colors were intensified and facial quirks were magnified, giving people a clown-like appearance. Perception of distance was extremely disorted; objects within arms reach seemed miles away. Height perceptions were also distorted, one minute I seemed like a giant compared to those around me, the next minute I seemed a dwarf in comparison. Light sources provoked an unusual reaction; they seemed surrounded by moving, prismatic colors. Walking was problematic; the sidewalk reminded me of the famous films of the &#x27;galloping gertie&#x27; bridge in washington state. I felt as if I was surfing rather than walking. Observations of the facial expressions of the passerbys seemed to indicate that my manner of walking was no different than that of any of the other pedestrians that night. My freind (who was, for the record, rather out of shape) claimed to experience racing heart, but I had no such difficulties.
+After walking for approximately 15 minutes, the intensity of the experience subsided, and we felt able to go to the bar as we had intended. We were both rather strongly intoxicated for the next hour, drinking several beers in that time. Paranoiac feelings, and some mild visual/auditory hallucinations persisted for approximately 2 hours after taking the substance.
+Conclusion: the venom of B. Alvarus seems to contain the quantities of 5-MeO-DMT that are claimed for it in the various publications. Its use with harmaline seemed to powerfully increase the already present marijuana intoxication (unlike LSD, which often has an antagonistic effect with THC), as well as provoking uniquely powerful visual hallucinations. The steroidal poisons in the venom _may_ have a toxic cardiac effect when the venom is smoked, or (more likely IMHO, due to my lack of similar reaction) the heart-racing may have been due to the effects of the THC intoxication, or the effects of the 5-MeO-DMT itself. It would probobly be a very bad idea to ingest this substance orally in conjunction with harmaline as a kind of animal ayahuasca; the steroidal poisons are doubtless much more harmful when an orally active dose is taken, due both to the greater quantity that would be required, and to the lack of steroid pyrolysis in an oral dose.
+Exp Year: 1993
+ExpID: 2172
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 26, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Toad Venom (46) : Small Group (2-9) (17), Preparation / Recipes (30), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

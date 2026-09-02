@@ -1,0 +1,279 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 艾洛伊德 - 我的善良</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/breathing.html'>← 呼吸法</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 艾洛伊德 - 我的善良</h1>
+<div class='sub-title'>Mushrooms - Erowid Exp - &#x27;My Goodness&#x27;</div>
+<div class='meta'>作者：SantoS Citation · 日期：Sep 27, 2022 · 剂量：7 g · <a href='https://erowid.org/experiences/exp.php?ID=116169' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这次我决定要吃一剂大剂量, 七克强效的,
+我还添加了一个相当大的黄金老师标本.
+这总计为七克.
+这一次,我有了所有合适的工具,
+我总是选择晚上开始, 我喜欢在日落时刻,
+在睡觉之前, 我可以平静地吸收经验.
+我把它们慢慢地了一遍, 确保把它们压得很好,
+我总是空腹的, 只有他们可以消化,
+半个小时后, 我感觉到效果即将到来, 随着我能听到的通常声,
+我把我的两个最喜欢的专辑放在播放列表上,
+我没有设置循环模式, 所以音乐会在第二张专辑结束时停止播放.
+为了区分有音乐和没有音乐.
+我再次想起麦肯纳说, 设置应该在黑暗和沉默中完成.
+毫无疑问,这种效应带来了强烈的感觉.
+我再次目睹了那些微弱的幻象,
+我专注于视觉内容, 像我之前所说的那样.
+观看建筑的壮丽,复杂,奇特,对比和色彩的世界,
+但在一段时间之后,音乐停止了,我突然躺在我的房间的寂静,美丽和所有以前的特征的视觉突然消失了,和视觉变得更黑暗,
+我经历了更多的听觉幻觉, 这是第一次发生在我难以描述,
+一个深沉的声音,会被重复地听到, 但它慢慢地在响度和间隔的规律性中消失,
+接下来听到了一些声,
+最后,一个几乎难以忍受的沉默.
+我当时的感觉是,音乐在某种程度上,
+感受到了前所未有的强度.
+我感觉有点压倒,还没有恐慌,但几乎. 我试图重新集中注意力,试图记住我是谁,我在哪里.
+而不是躺在我的床上, 在我现实中的卧室,
+换句话说,我开始观察我的意识!
+现在,我知道自己是什么.
+我可能会感到幽闭恐惧症, 比如如果我活着被放在棺材里.
+我感觉到那些黑暗的幻象也是一样, 它们开始压迫我, 在视觉空间内, 我一会儿觉得自己无法移动, 无法集中注意力,
+我专注于我的意识, 有了这种新方法, 我可以处理这段经历的新部分,
+黑暗正在消失,色彩和空间正在回归, 我再次能够在视觉中自由移动.
+目标是能够通过视觉中移动, 找到我称之为&quot;消失点&quot;的东西.
+这让我能够通过视觉, 这就是我专注的, 在整个过程中, 这不再是关于思考视觉, 因为通常是美丽和惊奇,
+我不记得接下来发生的事情, 那些被呈现给我的东西, 因为我不再关注视觉美丽和吸引力.
+这次我还了解到呼吸的另一点, 我意识到过去, 在其他经历中, 比如用DMT, 我呼吸越少, 视觉会变得越强烈,
+直到我的身体,好像它有一个安全模式,会重新控制我,
+这种突然发生的深呼吸使得经历变得微弱,
+这种突然发生的深呼吸使得经历变得微弱,
+一旦空气吸入完成,它最终会回到视觉中, 但可能需要一些时间才能回到同一点, 如果可能的话,
+为了减轻这种情况, 我练习呼吸, 我发现通过鼻子呼吸更合适,
+我相信这就是冥想的过程,
+通过这些绝对美丽的空间, 我能够在寻找消失点的同时, 见那些非常奇怪和奇怪的地方, 那些由鲜的颜色和非常规的几何形状制成的巨大的物体, 慢慢地漂浮, 就像在零重力空间一样.
+但现在我唯一的目标是找到消失点.
+我会离开这些地方.
+经过一段时间,我来到碎形世界, 我可以注意到碎形生物,
+我能感觉到他们对再次见面的热情, 但这次我们没有任何互动,
+经过一段时间的无限视觉之旅, 我被迫停下来, 短暂的时刻, 问了一个问题:你真的希望超越这个点吗? 你真的希望看到超越的东西吗?
+让我们继续走在正确的道路上.
+我经过了很多地方, 没有任何记忆, 速度越来越快, 直到我到达一个地方,
+如果我可以, 我会把它描述为意识的开始.
+我在太空中静止着, 观望着宇宙, 在我面前, 千亿颗星星系,
+在身体上,奇怪的感觉是宇宙的广, 就在我的身体的外部边界,
+佛陀在达到觉悟后说:&quot;我看到事物是真实的&quot;, 换句话说,
+这次我并没有像往常那样试图抵制这些想法, 不想被打扰,
+让我有了清晰的思维,
+也许是某些人将其定义为, 根据印度教的说法, 冥想意识的状态.
+我又想到了佛陀, 他也可能是人,
+我突然发现自己坐在一棵树的脚下, 在一个豪华的热带林里, 我正在冥想, 就像佛陀所做的,
+我在看着它时感到有点担心, 认为我可能会被它吃掉, 虎慢慢地走着, 静静地走着,
+随着他越来越近,我越来越焦虑,我决定开眼睛, (在树旁,不是在我的床上) 我决定这样做,让他明白我意识到他的存在,尽管他努力偷偷地走,而开眼睛看着他,我试图保持冷静,不让任何恐惧出现,当我这样做,他继续走向我
+他没有表现出任何惊的迹象,因为我已经发现了他,他不再在外观,但继续接近,固定我坚持,他的透的目光.
+当他离我大约一码远的时候,那一刻感觉很紧张,就好像我犯了不试图逃跑的错误,他很大,令人印象深刻,可怕和美丽,恐惧在我里面,我可以想象他的嘴巴抓住我的喉,但我没有让任何东西出现在我的身体表情,我一直看着他直视他的眼睛,在那里他,他的脸就在我面前
+我们深深地看着对方的眼睛.
+我小心翼翼地,用一种和平的方式, 举起我的一只手,
+他没有动,我的手起,经过他的嘴和鼻子,然后他闻到了我的气味,然后我把手放在他的额头上,他终于接受了那个触摸.
+我一这样做, 他,我和整个林就消失了, 我又回到了无限的空间,
+在我的脑海中,我通过一种思想收到了某种信息,它说:&quot;你可以创造任何你想要的东西,但我感到困惑...很长一段时间,我只是呆在空间里,沉默,我没有试图说出或回答任何东西,
+我不敢这样做.
+但我感到幸福, 在那一刻, 我感到如此平静,
+我可以在床上死去,我觉得这并不重要,我在那里,这才是最重要的,我的身体不再重要,在这种情况下.
+经过一段时间,我又想到另一个想法,这次是关于地球,我可视化了地球,更具体地说是我们的&quot;现实&quot;,
+我明白了我们的现实应该是什么样子的概念, 我被教导的概念是, 在我们的物理形式中,
+在植物世界, 动物世界和我们人类一起.
+我还了解到物理世界的重要性, &quot;我们的现实&quot;, 它的目的是让生命复制自己,
+但它觉得,现实已经被操纵了很多年,几千年,一些力量不愿意,也不会允许人类和其他类型的生命达到意识,
+很遗憾看到这些物质被妖魔化和禁用了这么多年, 过去宗教和现在的政府把这些物质视为非法,
+通过将其归类为非法, 他们使大众认为它是一种不良做法, 危险物质, 有害效果的药物,
+而相反, 它们的使用会彻底改变社会.
+眼睛闭着, 幻象消失了, 我在笑声和眼之间摇摆,
+我慢慢地回到了自己身边.
+问题比答案还多, 问题是,
+动物世界怎么样?
+再生是什么?
+如果我愿意,我能创造什么?
+我希望在下一次旅程中能够探讨这些话题.
+这让我觉得是人类与自然之间真正的共生关系的纽带.
+我很高兴知道这种意识状态存在, 也很高兴知道每个人都可以达到它.
+我记得当时我在我的房间里, 只有我能说&quot;天哪&quot;, 住我的头,
+我很震惊,我想把这件事告诉全世界,告诉每个人,
+随着效果的减弱, 我终于回到我自己, 或者我应该说回到我的身体,
+眼睛开了, 环顾四周, 就好像我的视野被一片透明膜所覆盖,
+唯一的副作用是轻微的头痛,
+我觉得这是因为我必须过度集中精力去看这些幻象.
+但对于我经历过的经历来说,
+尽管我尽力描述这些经历,
+思想在表达时更有效, 词语需要很长的时间来表达, 听到或写下,
+遗憾的是,我还不能把思想投射出来.
+时间表: 116169
+发布时间:2022年9月27日
+(39), 呼吸 (470): 单独 (16), 实体/生物 (37), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>My Goodness
+Mushrooms
+by
+SantoS
+Citation:   SantoS. &quot;My Goodness: An Experience with Mushrooms (exp116169)&quot;.
+Erowid.org
+. Sep 27, 2022. erowid.org/exp/116169
+DOSE:
+7 g
+oral
+Mushrooms
+(dried)
+BODY WEIGHT:
+90 kg
+January 2022
+Having waited six months, I decided to reiterate with a mushroom journey.
+This time I decided to go for a substantial dose, seven grams of potent mushrooms, a mix of Amazonian from two different batches, some had a strong blue colour over their stalks, a sign of consequential presence of Psilocybin. I also added a rather large specimen of Golden Teacher. That amounted in total to seven grams.
+So this time, I had all the right tools set to surely take me back to those realms of perception.
+It was around 6pm, I always choose to start in the evening, I like that time around Sunset, aiming at the transition between Day and Night. And so, after that, I can calmly take the time to assimilate the experience, just before falling asleep.
+I chew them consciously, one at a time, and slowly, making sure to squash them properly, so they would release their substance swiftly. I always proceed on an empty stomach, to have nothing else than them to digest, assuming that my stomach would absorb Psilocybin more efficiently.
+Half an hour later, I could sense the effects coming up, with the usual buzz that I can hear, taking place over the sounds of my surrounding, that is the usual sign, for me, that everything will start shortly.
+I set the playlist with my two favourite albums, as always, except this time... I had not set the loop mode, so the music would stop playing at the end of the second album. That was to make the distinction between, with and without music. As I remembered McKenna once again, saying, that the setting should be done in darkness and in silence.
+The effects came undoubtedly, in a strong sensation. There I was again witnessing those faint visions, to start with. I concentrated, and I zoomed-in, on the content of the visuals, as I was told on the previous experience. It was becoming incredible as always, observing the architectural magnificence, the complexity, the oddness, the contrasts and colours of that world, there was a sense of solemnity.
+But then after some time, the music stopped, and I was abruptly left lying in the silence of my room, the prettiness and all the previous characteristics of the visuals had worn off suddenly, and visions became darker, one of the first thing that came was the buzzing, the one that I usually get at the beginning of a trip, it started again, and for the first time, I experienced some more auditive hallucinations, that is the first time it happened to me on mushrooms It is hard to describe, but it was something that would sound like, if a big engine was shut down, and was coming to a stop. A deep sound, that would be heard repetitively, but it was slowly loosing in loudness, and in interval regularity, until it eventually ceased. After that came some sorts of bubbling sounds, such as bubbles popping off. And finally an almost unbearable Silence. From the moment the music had stopped, it changed everything, the feeling I had back then, is that the music was in some way, tethering me, like a link to the reality. And that gone, it took a totally unexpected new turn, intensity was felt like never before. As if the real power of the substance was unleashed at once, and then I was violently catapulted within a deeper experience altogether, I felt a bit overwhelmed, not panicking yet, but almost. and tried to focus again, trying to remember who I was, and where I was. Not lying in my bed in the bedroom of my reality, but rather who I really was, behind those closed eyes. In other words I was getting to observe my consciousness !
+That is what helped me not losing myself to the sense of fear that was gradually rising in me.
+Something that usually could really make me nervous, are tight confined spaces, I could get claustrophobic, such as the feeling, if I would be put alive in a coffin. And that&#x27;s a bit what it felt with those dark visions that I was experiencing, they were starting to be oppressing, and for a moment I felt blocked from any movement, within the visual space, there were no more ways of focusing, or zooming-in. So I focused on my consciousness, and with this new approach I could handle this new part of the experience, it was a difficult moment, but I managed to overcome it.
+Darkness was fading away, colours, and space were coming back, and I was able once again to move freely within the visuals.
+At this time I realised something, that it is not really about concentration and zooming-in, but the goal is rather to be able to move through the visions, by finding what I would call, “The Vanishing Point”. Such as in a drawing, represented as the point where the perspective comes from, and that would allow me to pass through the visions, that is what I focused on, all the way, it wasn&#x27;t any more about contemplating the visions, as it is usually the prettiness and the amazement, that procure those incredible sights, that are distracting me, and preventing me, from reaching a further level. So due to the focus on the vanishing point, I don&#x27;t really remember much of what followed, of what was presented to me, as I would not pay any more attention to the beauty, and the attractiveness of the visuals.
+I also understood something else about the breathing this time, I realised that in the past, during other experiences, such as with DMT, the less I breathe, the more intense the visuals would become, so I often reach a point of apnoea that allows me to increase the intensity of the experience, where it is almost like if I had forgotten to breathe. Until my body, as if it had a security mode, would take back control over me, and suddenly inhaled, as to keep me alive. That happening, the sudden deep breathing, makes the experience go weak, creating an interruption of the journey
+That happening, the sudden deep breathing, makes the experience go weak, creating an interruption of the journey
+, and once the air intake is done, it eventually comes back again to the visions, but it can take some time to return to the same point, if possible, if not it carries on into a totally different place, where I have to start again to reach the same momentum, as if taking me backward in the journey. So in order to palliate to this, I worked on my breathing, I found it more appropriate when breathing through the nose, at a very slow but constant pace. Which is the process of meditation I believe, but I didn&#x27;t realised that until this experience.
+Doing this, I carried on more efficiently, through those spaces of utterly beauty, I was able, while searching for the vanishing point, to get a glimpse of those really odd and curious places, where huge objects made of vivid colours, and of unconventional geometrical shapes, were floating in slow motion, such as they would in a zero gravity room. But my only goal now was, to locate the vanishing point. As soon as I could find it, I would leave those places.
+After some time, I arrived to the fractal world, I could notice the Fractal beings, everywhere around me, I was happy to see them again, they were all looking at me, some depicting smiling faces. I could sense their enthusiasm about meeting again, but we were not to have any interactions this time, as it felt they they were encouraging me to go further, I passed through it, I did not stop, and kept on going.
+After some more time travelling through limitless visions at such an incredible speed, I was forced to a stop, for a short moment, and was asked a question : “Do you really wish to go beyond this point, do you really wish to see what lies beyond ?” the sort of Matrix question implying the red pill, it felt like the space was dividing in two different ways, I answered “Yes” and that allowed to carry on, on the right path. For a long time, I passed through many more places, that I have no memory of, as speed had increased, until I reached a place that somehow felt like the end of the journey.
+And if I could, I would describe it as, the beginning of consciousness. There I was in space, motionless, contemplating the Universe, with billions of Stars and Galaxies spreading in front of me, there I had the feeling of oneness with the Universe, it was me, and I was it.
+Physically, it strangely felt as if the vastness of the Universe, was just there at the external frontier of my body, just lying upon my skin, at that very point in between my eyes. At that moment, it would trigger a memory I had about what Gautama Buddha said after reaching his state of enlightenment : “I saw things as they are” in other words, the moment at which he saw everything. Thoughts were coming to me, this time, I wasn&#x27;t trying to repel them, as I usually would, not to be disturbed, but in that state of consciousness thoughts were not disturbing me any more in the contrary, they were complementary to the experience. And brought me to a clarity of mind, which allowed me to have compelling reflections.
+It felt that I could have reached the closest state possible from enlightenment, maybe it was what some would define as, according to the Hinduism, the “Samadhi” a state of meditative consciousness.
+I then had another thought about Buddha, thinking that Him too, as a human being, might have ingested some mushrooms to reach such a state of consciousness. Having that thought, I suddenly found myself sitting at the foot of a Tree, in a luxurious tropical jungle, I was meditating, such as Buddha had done, and while meditating with my eyes closed, I could sense a presence, coming out of that deep jungle, at a certain distance in front of me, and whatever it was, it was coming towards me, and through the leaves of that thick jungle, it suddenly appeared, it was a Tiger, I was a bit apprehensive about it at his sight, and thought that while remaining there sitting, I could be in danger of getting eaten, the Tiger was walking slowly, and quietly, as He would, if He was to see a potential pray, He was trying not to make any sounds, not to be spotted, to get the closest as possible from me, to eventually jump and devour me.
+As he was coming closer, I was getting more anxious, and I decided to open my eyes, (there by the Tree, not in my bed) I decided to do so, to make him understand that I was aware of his presence, despite his efforts to walk stealthily, and while opening my eyes to look at him, I tried to remain unemotional, not to let any fear appear, as I did so, He kept on walking towards me, He did not show any signs of surprise as I had spotted him, He wasn&#x27;t on the look out any more, but kept approaching, fixing me persistently, with his piercing gaze.
+When he was about a yard away from me, the moment felt really tense, as if I had made the mistake of not trying to escape, He was massive, impressive, scary and beautiful, fear was in me, and I could imagine his mouth grabbing my throat at once, but I didn&#x27;t let anything appear on my body expression, I kept on looking at him straight in his eyes, and there He was, his face just in front of mine, few centimetres away, we looked deeply in each other eyes for a moment. Until I carefully, and in a peaceful manner, lifted one of my hand, and brought it higher to his forehead to stroke him. He did not move as my hand rose, passing his mouth and nose He then smelled me, I then put my hand on his forehead, and he finally accepted that touch. As soon as I did so, Him, Me, and the whole Jungle faded away, and I was back at the sight of the infinite space, with these billions of stars, stretching in front of me. There, in my mind, I received a sort of message through the mean of a thought, which was saying, “you can create anything you want” But I felt bewildered by this… for quite some time, I simply remained there in space, silent, I did not try to say or to answer anything, I was seized by the crucial importance of what that could imply, if I was to intent on creating anything, and I did not dare doing so.
+But I felt blissed, at that moment, I felt in such peace, I felt full mindedness. I could have died there in my bed, it wouldn&#x27;t have felt important, there I was, and that is everything that mattered, my body was not relevant any more, in the light of that situation.
+After sometime, another thought came to me, it was regarding Earth this time, I visualised Earth, but more specifically our “Reality”, again a sort of depiction a bit similar in appearance to that Painting, “The Garden of Earthly Delight”.
+And I grasped the sense, of what our reality, should have really been like, the concept that I was showed, was that in our physical forms, Earth was meant to be our playground, our field of experimentation, where we could overtake all of ours limits. For us, Human beings, alongside the Animal realm, in the Vegetal kingdom.
+Also what I understood regarding the importance of the physical world, “Our Reality”, is that, it is meant to allow Life to replicate itself, thus creating a constant flow of living beings, through Humans but also, Animals, and Plants, and the goal for them all, is to reach the State of Consciousness, death from materiality being the ultimate barrier.
+But it felt that, the Reality had been manipulated for many years, thousands of years, by some forces that did not want, and would not allow Humans and Other type of life to reach that Consciousness, their intent being to keep us all in a cycle, in a loop, held only in the material reality, as it is the only place upon which they could act.
+It is sad to see that those substances, have been demonised and banned for so many years, it is not surprising that in the past, religions, and nowadays our governments, have rendered those substances illegitimate, because I now believe, that they really know what it implies, regarding our state of existence, but all that matter to them, is their control over us. And by classifying them as illegal, they lead the masses into perceiving it as bad practices, dangerous substances, drug with harmful effects, with an inappropriate use for “the society” So that no one would feel the appeal to it, and they somehow succeeded as to see now, how most of the people keep their distance from it.
+While on the contrary its very use would have totally changed the society.
+Back in my bed, with my eyes closed, visions had disappeared, and I was oscillating between laughters and tears, from happiness, amazement, and sadness, regarding this concept that had just been exposed to me.
+I was slowly coming back to myself. I was left with even more questions than answers, as to, Who are the fractal people, and what role do they play in all this ? What about the Animal realm ? What about reincarnation ? What could have I been able to create if I had wished to ?
+Those I guess are topics, that I hope, I might be able to explore on a next journey...
+That experience really made me feel that Mushrooms are a link, to a real symbiosis between Humans and Nature.
+I&#x27;m pleased to know that such state of consciousness exist, and so happy to know that everyone can reach it too.
+I remember myself in my room at that moment, only being able to say “My Goodness”, holding my head between my hands, repeating again and again, “My goodness” with abundant tears running down my cheeks. I was in shock, and I wanted to tell it to the whole World, to everyone, but I wouldn&#x27;t and couldn&#x27;t find the words to express it. And as the effects were wearing off, I was finally back to myself, or should I rather say back to my body, it felt that, if I was to tell it to anyone, they would simply end up thinking that I am insane, to use and to give so much importance to a &#x27;&#x27; drug&#x27;&#x27;.
+In my room I tried to stood up from my bed, but I felt dizziness, my eyes opened, while looking around me, it was like if my whole field of vision was, as covered by a transparent film, made of many small circles, or I could describe it as, looking through a thin layer of transparent bubbles.
+The only side effect that I could notice, was a mild headache, that came after the experience, and lasted the whole following day. I feel that it was due to the excessive concentration I had to exert to go through the visions. But that wasn&#x27;t much to endure regarding the experience I had.
+Despite me trying my best to describe those experiences, it feels like a weak tale compared to the actual intensity of that Journey. Thoughts feel so much more efficient when it comes to expression, words need so much time to formulate, to hear, or to write, while the instantness and explicitness of thoughts seems without equals.
+Unfortunately, thoughts are not something that I am yet able to cast.
+Exp Year: 2022
+ExpID: 116169
+Gender: Male
+Age at time of experience: 41
+Published: Sep 27, 2022
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms (39), Breathing (470) : Alone (16), Entities / Beings (37), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

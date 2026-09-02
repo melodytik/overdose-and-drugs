@@ -1,0 +1,371 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - - - - - - - - - - - - - -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/anadenanthera-peregrina.html'>← Anadenanthera peregrina</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - - - - - - - - - - - - - -</h1>
+<div class='sub-title'>Anadenanthera peregrina - Erowid Exp - &#x27;Heavy Experience, Blissful With Subtle Elation&#x27;</div>
+<div class='meta'>作者：Space Djedi Citation · 日期：Apr 3, 2026 · 剂量：7 seeds · <a href='https://erowid.org/experiences/exp.php?ID=119660' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>目前时间下午3点53分
+剂量时间:下午1: 05
+经历持续到下午2点15分左右.
+大约在此之后的几个小时里,
+他们的方法是.
+我感到吐的冲动,但吐0次.
+这并不容易.
+这是我第一次在Yopo种子旅程和经验.
+我使用语音编写应用程序,
+有些标点可能是错误的或听起来很有趣.
+我会尽可能多地阅读.
+我在浴室里闭着眼睛躺着做这次会议.
+准备工作
+我们拿了大约30种种子,
+然后我们剥离了外的内核.
+部分种子的内核被烧毁.
+我们把它们移除了,只使用那些没有被烧毁的种子.
+在那之后我们获得了一些石灰.
+这是一根.
+我们生活在泰国, 他们使用石灰,
+我们将种子与石灰混合成5:1的比例.
+整体而言,收益率相当高.
+我们发现每种种子 (包括适当的5:1比例) 的重量约为175毫克.
+我认为我的总剂量是1.11g.
+我可能错了,但结果大约是七种.
+我的朋友和我决定把它放进去.
+我们把种子和混合在一起, 放入水中, 找到一个注射器,
+作为参考,我们有两种不同的注射器,
+的原因在于,看起来有相当多的植物物质.
+但它有很多植物材料, 我相信这对鼻来说不健康.
+根据我们的经验,
+旅行:
+在注射后,剂量很快就开始.
+我开始感觉到热和温暖的脸.
+这几乎是立即的.
+这次旅程分为五个不同的章节,
+第一章
+他们的回应是相当严厉的.
+我记得它很早就达到顶峰,可能在5到10分钟后.
+身体负荷极大.
+我觉得吐的冲动, 但从我的技能与Ayahuasca工作我学会了冥想和变得开放和空虚.
+在其中你不使用你的大脑;你不想任何概念.
+如果您有任何思维过程, 吐的冲动是巨大的,
+只要你保持这种开放的空间, 你就不会有吐的冲动,
+如果我有任何想法,我会开始想吐所以我只能保持开放.
+我记得我看到这个形状.
+它像一个方形,但它有圆的角.
+我闭上了眼睛,所以接下来所有的视觉都是闭眼的,
+这种形状周围有各种各样的曲线, 也许在它里面.
+这些线条是曲的,我记得它们是不同的颜色.
+它们是紫色,红色,红色和深蓝色.
+它们是黑色的.
+这些颜色不是虹灯的颜色, 不像吸食DMT或使用NNDMT时会得到的颜色.
+它们是沉默的,没有色彩的, 它们只是在移动, 扭动, 旋转.
+我记得我会看得更深入, 我会看到白光闪.
+在那个区域,假设你看到我描述的图像,然后在图像的中间或中心附近有某种蛋图案.
+蛋的图案是这种明亮的白色光.
+我记得我看到这个形状.
+它像一个方形,但它有圆的角.
+我闭上了眼睛,所以接下来所有的视觉都是闭眼的,
+这种形状周围有各种各样的曲线, 也许在它里面.
+这些线条是曲的,我记得它们是不同的颜色.
+它们是紫色,红色,红色和深蓝色.
+它们是黑色的.
+这些颜色不是虹灯的颜色, 不像吸食DMT或使用NNDMT时会得到的颜色.
+它们是沉默的,没有色彩的, 它们只是在移动, 扭动, 旋转.
+我记得我会看得更深入, 我会看到白光闪.
+在那个区域,假设你看到我描述的图像,然后在图像的中间或中心附近有某种蛋图案.
+蛋的图案是这种明亮的白色光.
+我觉得高峰期已经过去了. 现在,
+第二章 (大约30-45分钟)
+我对峰值的看法是错误的,
+让我质疑为什么我会被吸引去吃种子.
+我想要戒掉迷幻药.
+我当时不能向任何人推这种药物.
+身体的负荷是巨大的.
+这非常强烈.
+身体的负荷是巨大的.
+这非常强烈.
+我不能低估这一点.
+我开始看到我在第一章所说的模式, 但现在它们已经改变了,
+我看到这些小方形物体, 它们会形成方形图案,
+他们是明亮的黄色,白色,绿色,紫色和天蓝色.
+它们不是虹彩的.
+它们的颜色并不色,而且很亮.
+我看到它源自两个中心点.
+图案是中间的, 但是两个中心点.
+这让我想起了印第安人那件两边都有爪子的文物.
+如果把它放在视野中, 有两个中心点, 方形图像似乎从中出现.
+我不能低估这个身体负载在这个阶段是多么重.
+我有一些恐惧的暗示.
+这很不舒服.
+我不得不保持开放,
+我甚至不能说话, 专注于释放任何概念或想法,
+如果我有任何想法, 我会觉得清洗; 我觉得如果我吐然后我不会停止吐很长时间,
+身体的负荷是巨大的.
+我记得自己在水下有这样的感觉.
+我感觉到水在我周围跳动, 就像水在流动,闪和跳动一样.
+我觉得我的身体被拉向一个方向或另一个方向.
+它并没有真正振动; 它更像在海浪池中的水下, 这是我最好的描述方式
+我没有打开眼睛.
+如果我开眼睛, 我觉得我会吐.
+我希望强调一章,第二章,以及第三章的部分部分都非常不舒服.
+我觉得我的身体会移动,我会调整自己,我只是感到非常不舒服.
+身体的负荷是巨大的.
+由于我的身体和能量正在被侵蚀 (解体),
+第三章
+在这个阶段我开始打哈欠.
+像我喝阿雅华斯卡时感觉的那样, DMT 如何在大脑中激活,
+在这个阶段, 我相信DMT正在激活.
+我大概打了六七次大打哈欠.
+我记得当时的身体负荷还很高, 我还记得当时的身体负荷是多么强大,
+我仍然完全控制着我的自我,我的自我还存在,我的思维能力也还存在,
+感觉就好像它已经超越了我的身体,
+我只是感觉到一个开的,振动的空间.
+空间不如阿亚瓦斯卡那样清晰.
+它有着一些有形的物质.
+没有异象,只是黑暗,更像我在这个广的空中感觉到的.
+如果我有任何思维过程我会吐.
+我记得我的身体刺和震动.
+我还记得我的身体正在消失,
+这感觉就像一个死亡体验的开始,
+这感觉像是极大的快乐.
+我感觉到幸福,快乐和幸福.
+我闭上眼睛时, 依然是黑暗, 只是一个开的空间,
+我觉得笑起来, 有微妙的兴奋的暗示.
+这不是一种高兴的感觉; 这不是一种狂喜的感觉.
+这只是一种幸福.
+我觉得如果我足够放松, 足够开放, 在这个阶段,
+我希望在第一,第二和第三章中增加一些恐惧的暗示.
+我只需要放松, 开放.
+第四章 (大约一个小时)
+在这个阶段,它并不像第三章那样强大, 但它仍然很强大,
+我还记得我的身体正在腐蚀,
+如果我足够放松, 我肯定会想象,
+我在这个开放的空间里, 却觉得白色的颜色遍及一切,
+这就像是白色的底色.
+这很难解释.
+这里感觉像是一个可以探索的空间, 与第一章和第二章相比,
+这让我想再也不要服用迷幻药了.
+第一章和第二章非常激烈.
+第三和第四章是幸福的.
+这就是人们所说的&quot;黄金时刻&quot;发生的地方, 你可以探索这个空间.
+我相信你可以通过放松来探索它.
+在第四章中恶心仍然很强烈.
+我觉得我可以放松,没有任何思维过程,
+某个比我更擅长开放的人可能会消失, 在第三章或第四章阶段进行死亡模拟.
+我只是记得在第三章,第四章的阶段感到幸福, 感到如此快乐.
+我现在记得经历了大约1小时15分钟, 我刚刚获得说话的能力,
+这是一次非常美好,令人惊叹的经历.
+第五章
+现在我终于能够从躺着的位置站起来,
+经历过两小时后, 我甚至无法开车.
+如果我看着人们, 我会看到他们身上的模糊膜,
+我唯一能描述的就是人们看起来像我看到他们的活力.
+他们看起来很明亮,活.
+明亮的灯光会伤害.
+我仍然有一点头,好像我在某种影响下.
+现在是下午四点半.
+我在下午1点30分服用了我的剂量.
+这就是我的感受.
+没有人会说话
+这种饮料与阿亚瓦斯卡相似, 但同时又不同.
+尤其是在第一章和第二章, 吐的冲动是多么的强烈.
+对于那些想要探索意识和不同类型的DMT的人, 我会推它.
+这种药物让你在工作和生存的身体负载阶段, 在它给你幸福的消失在下一个阶段.
+试用低剂量的harmala可能会很有趣, 但也可能是危险的
+我不确定.
+需要更多的探索.
+时间表: 119660
+长 (285):制备/食谱 (30),一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Support Erowid Center with a
+$50 Donation
+And get a blacklight-inked &quot;Erologo&quot; tee
+Heavy Experience, Blissful With Subtle Elation
+Anadenanthera peregrina
+by
+Space Djedi
+Citation:   Space Djedi. &quot;Heavy Experience, Blissful With Subtle Elation: An Experience with Anadenanthera peregrina (exp119660)&quot;.
+Erowid.org
+. Apr 3, 2026. erowid.org/exp/119660
+DOSE:
+7 seeds
+rectal
+Anadenanthera peregrina
+(ground / crushed)
+BODY WEIGHT:
+175 lb
+Current time 3:53 pm
+Dose time: 1:05 pm
+The experience lasted until about 2:15 p.m. Approximately, the after glow was for hours after that.
+The method was boofing.
+I felt the urge to vomit, but vomited 0 times. It wasn&#x27;t easy.
+This is my first Yopo seed journey and experience. I want to preface this by saying I have about 40 experiences of NN DMT with harmala under my belt and this is my first experience with a different type of DMT.
+I am using a voice dictation app but everything is my words and my own voice.  Some of the punctuation might be incorrect or sound funny due to this. I&#x27;ll try to proof read it as much as I can.
+I did this session laying down with my eyes closed in the bathroom.
+Preparation
+We got about 30 seeds and toasted them until they bulged. Then we peeled and removed the seed inner core from the outer husk. Some of the seeds, the inner core was burnt. You can see it; it&#x27;s like a darker color and we removed those and only used the seeds that did not appear burnt
+After that we acquired some lime. It&#x27;s  slaked lime. We are living in Thailand and they use this lime, a calcium material with betel nut, so we acquired some of that lime material. We mixed a 5:1 ratio, seed to lime.
+Overall the yield was quite a lot. We discovered that each seed (including the appropriate 5:1 ratio) weighed about 175 mg. My total dose was, I believe, 1.11 g. I might be mistaken but it worked out to approximately seven seeds.
+My friend and I decided to boof it in. We got our dose of the seeds mixed with the calcium and we put it in water and we found a syringe to insert into our butts. For reference we got two different syringes, one for each person.
+The reason for boofing it is when you look at it, it&#x27;s quite a lot of plant material. We both use Hapé and are not afraid of that; however it&#x27;s quite a lot of plant material and I&#x27;m sure it is not healthy for the sinuses.
+Boofing from our experience was a very good choice and superior method.
+The journey:
+The dose came on quite fast after the injection. I began to feel hot flashes and warm in the face. It was nearly immediate.
+In retrospect this journey lasted in five distinct chapters so I&#x27;m going to talk about each individual chapter
+Chapter 1
+The come up was quite harsh. I remember it peaked very early on, maybe after 5 or 10 minutes. The body load was extreme. I felt the urge to vomit but from my skill with working with Ayahuasca I learned to meditate and become open and empty. In which you do not use your brain; you do not think of any concepts. You just relax into it and if you have any thought process whatsoever, the urge to vomit is immense and you&#x27;ll probably vomit and purge. As long as you maintain that space of openness you will have no urge to vomit and you can just rest as awareness like that.
+If I had any thought whatsoever, I would begin to want to vomit so I just had to stay open.
+I remember I saw this shape. It was like a square but it had rounded corners. My eyes were closed so all of the following would be closed-eye visuals throughout the entire experience. This shape had all of these different squiggly lines around it and maybe in it. These lines were squiggly and I remember that they were different colors. They were the colors purple, magenta, red, and deep blue. The overtone colors were dark. These colors were not neon colors, not like what you would get when smoking DMT or working with NN DMT. They were muted; they were not pastel colors and they would just move and squiggle and go around.
+I remember I would look deeper into it and I would see flashes of white light. Just in that area imagine you see this image that I have described and then there is some sort of eggshell pattern in the middle or near the center of the image. The eggshell pattern was this bright white light. I remember I saw this shape. It was like a square but it had rounded corners. My eyes were closed so all of the following would be closed-eye visuals throughout the entire experience. This shape had all of these different squiggly lines around it and maybe in it. These lines were squiggly and I remember that they were different colors. They were the colors purple, magenta, red, and deep blue. The overtone colors were dark. These colors were not neon colors, not like what you would get when smoking DMT or working with NN DMT. They were muted; they were not pastel colors and they would just move and squiggle and go around.
+I remember I would look deeper into it and I would see flashes of white light. Just in that area imagine you see this image that I have described and then there is some sort of eggshell pattern in the middle or near the center of the image. The eggshell pattern was this bright white light.
+The white light would flicker and then at this point the nausea was pretty strong and it began to subside and I thought the peak was over.
+Chapter 2 (about 30-45 minuntes into it)
+I was wrong about the peak; it began to peak again and I cannot understate the level of body load that this has had on me. It had me questioning why I was ever drawn to take Yopo seeds for a moment. I wanted to quit psychedelics. I couldn&#x27;t recommend this substance to anyone in that moment. The body load was immense. It was very strong.
+The body load was immense. It was very strong.
+I cannot understate that .
+I began to see, at this point, the patterns that I said before in Chapter 1 but now they have changed with this new peak of intensity. Now I saw these tiny square-shaped objects and they would form square patterns such as L shapes or plus signs or even crosses. They were bright yellow, white, green, and purple and sky blue. They were not neon colored. They were not pastel colored and they were bright.
+I saw that it originated from two center points. The patterns were in the middle but it was two center points. It reminded me of that Indian artifact that has claws on either side. I forget what it&#x27;s called but if you put that horizontal in your vision, there are two center points and the square shape images seem to emerge from that.
+I cannot understate how heavy this body load was at this stage. I had some undertones of fear. It was very uncomfortable. I had to remain open, think of no concepts. I couldn&#x27;t even talk and just focus on liberating any sort of concept or thought that passed into my mind with pure openness. If I had any thought, I would feel like purging;  I felt like if I would vomit then I wouldn&#x27;t stop vomiting for a long time because it was so strong. The body load was immense.
+I remember feeling this feeling of being underwater. It was as if my light body, for lack of a better word, was underwater and I can feel this water all around me pulsate, just like water would flow and flicker and pulse. It also would change and have a current and I would feel like my body was being pulled in one direction or another. It was not really vibrating; it was more like being underwater in a wave pool, which is the best way I can describe it
+I couldn&#x27;t open my eyes. If I opened my eyes, I felt like I would puke.
+I want to emphasize that in this chapter one, chapter two, and parts of chapter three it was very uncomfortable. I felt my body would move and I would have adjust myself, I just felt very uncomfortable. The body load was immense.  Some elements of fear were present as my body and energy was eroding (disintegrating).
+Chapter 3
+At this stage I started to yawn. It was yawning like what I feel like when I drink ayahuasca, how the DMT activates in the brain and you begin to yawn. So at this stage I believed that the DMT was activating. I yawned probably six or seven strong yawns.
+At this point the body load was still quite high and I remember thinking how it was so strong and at this stage the negative space began to be tangible. This I still had full control of my ego; my ego was present and my thinking faculties were still present but I was in this tangible space, different from NN DMT. It felt like it was over my body; it was not in my consciousness as what you experienced with NN DMT. I just felt this open buzzing and vibrating space
+The space was not as clear as with Ayahuasca. It had some tangible matter in it. There were no visions; it was just darkness and it was more like what I felt, just being in this vast open space. Again if I had any thought process I would puke.
+I recall feeling my body tingling and vibrating. I recall feeling that my body was disappearing or rather eroding slowly. It felt like the beginning of a death experience that you would experience on Ayahuasca
+It felt like utter joy. I felt happiness, joy, and bliss. If I closed my eyes there was still darkness and it was just that open space but I couldn&#x27;t help but smile and laugh at its strength and intensity. I felt like laughing and there were subtle undertones of elation. This was not a feeling of euphoria; this was not a feeling of ecstasy. It was just bliss.
+I felt like if I relaxed enough and became open enough that at this stage I would disappear and go through a death simulation.
+I want to add that in chapters one, two, and three there were undertones of fear. The deeper I got it was scary, and I just had to relax and open up into it.
+Chapter 4 (about 1 hour into it)
+At this stage it wasn&#x27;t as overtly strong as Chapter 3 but it was still quite strong, like level 7.5 or level 8. I remember feeling my body eroding away and feeling as if I was disappearing. If I relaxed enough I definitely imagined that I would just have a death-like pure light experience. Everything was still black from what I saw and I was in this open space but somehow I felt like the color white was everywhere while I was seeing black. It was like white undertones. It&#x27;s difficult to explain.
+This space felt like a space that you can explore and it was nice compared to chapter one and chapter two in which I was questioning any reason why I took this substance. It made me want to never take psychedelics again. Chapter one and two were quite intense. Chapter three and four were blissful. This is where, like, the golden hour, as people say, took place and you can explore this space. I believe you can explore it by relaxing into it.
+The nausea was still pretty strong in chapter four.
+It was just blissful at this state and I just felt like I can relax and have no thought process and just be in this open space of awareness. Someone more skilled than me at being open might disappear and have a death simulation at the chapter 3 or chapter 4 stage.
+I just remember in this chapter three, chapter four stage just feeling blissful, feeling so happy.
+I remember now it&#x27;s been about one hour and fifteen minutes into the experience and I had just gained the ability to talk and maybe open up my eyes a little.
+The experience was quite blissful and amazing.
+Chapter 5
+Now I finally got the ability to sit up from my lying down position and walk around a little. I feel dizzy like I can&#x27;t drive a car even two hours after the experience.
+If I look at people, I see this blurry film around their body as if I can see their auras. The only way I can describe it is people look like I see their vitality. They look bright and alive.
+Bright lights hurt.
+I still feel a little bit dizzy as if I&#x27;m under the influence of something.
+Now it is 4:30 p.m. And I took my dose at 1:30 p.m. And this is what I feel.
+~|~|~|~
+It&#x27;s quite interesting how it&#x27;s similar to Ayahuasca but very different at the same time. I cannot overstate how strong the body load is, especially during chapters one and two, and how the urge to puke is quite so much.
+The body load is so strong, so I can&#x27;t recommend this to the average psychedelic user, but for someone who wants to explore consciousness and different varieties of DMT, I would recommend it for them.
+This medicine makes you put in work and survive the body load stage before it gives you the blissful disappearance in the following stages.
+It would be interesting to try with low doses of harmala, but also maybe dangerous due to the presence of 5-meo-dmt. Not sure. More exploration is needed.
+Exp Year: 2026
+ExpID: 119660
+Gender: Male
+Age at time of experience: 35
+Published: Apr 3, 2026
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Anadenanthera peregrina (285) : Preparation / Recipes (30), General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

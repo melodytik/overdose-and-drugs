@@ -1,0 +1,291 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>毒药和西巴姆 - 埃洛伊德 - 妄</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-diazepam.html'>← 地西泮(安定)（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>毒药和西巴姆 - 埃洛伊德 - 妄</h1>
+<div class='sub-title'>LSD &amp; Diazepam - Erowid Exp - &#x27;Delirium&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Jan 19, 2007 · 剂量：1 hit · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=58840' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>一个警告故事
+也许有点历史是有序.
+我已经服用了20次的酸,有几次艰难的旅行 (事实上,我的旅行都不是完全愉快,
+没有遗憾!
+我通常不会写经验报告, 但我发现我没有读过很多报告,
+我曾经在一个大型音乐节的第三天和最后一天参加了这个活动,
+我每天吸食大约半克强大麻,
+我决定这是一个很好的时机去旅行, 寻找音乐灵感, 也许发现一些我可能需要处理的问题.
+当被问及我想要的是全剂量还是半剂量时, 我吟着, 不确定哪种选择更好.
+这位新朋友微笑着替我做出决定,
+我知道这是一个大一个, 作为第一个警报是在十分钟内注意到和所的门微妙地挥舞在15分钟.
+我觉得有点紧张, 我认为一些音乐会有所帮助.
+我戴上一顶帽子,拿起一把天文斧头, 沿着100米的山坡走到舞蹈场,
+一个杂迷住了我,用他的银棒讲故事,讲述杂的辛苦工作,乞的信念在太阳中无休止的努力.
+我很难记录我逐渐偏离现实, 但一切始于一个人坐在我的旁边,
+我可以解释说这是一个玩具, 但当我站起来演示我几乎立刻得到一个结在它和不得不坐下来.
+我认为已经有大量的药物注射, 周围的人也刚刚开始.
+我看着一位女士从阳光中步到阴影中,
+我大声喊出&quot;FAN-FUCKIN-TASTIC!!&quot;, 听到音乐的声音,
+我觉得自己有点愚蠢,
+我的注意力被吸引回坐在我旁边的家伙.
+他是个秘密警察, LSD被用作控制思想的装置,
+随着一辆卡车进来, 在把水桶空的时候散发了一股臭气,
+随着卡车再次出发, 忽然发生了变化,
+&quot;不,不,不,他们几乎抓住了我,
+我不敢相信, 想知道他刚刚了多少钱.
+他们要告诉我, 我收到了我的伴侣发短信说她怀孕了.
+我看到一个女孩小心翼翼地拿着一个塑料袋走向我,
+我凝视着圆顶舞台上的山丘, 看到白光的太阳升起,
+在某种程度上, 我知道这不是真的, 但情绪仍在流动, 我感受到新生活的快乐, 附近快乐的父母的同情, 我感受到失去机会的痛苦和遗憾.
+我沉默地流了一两滴眼.
+通过我周围的人们的动作和谈话, 我听到一个故事,
+我们在繁殖,对环境施加巨大的税收,
+我觉得人类生活在否定自己,生活和死亡,
+随着新歌的出现, 答案变得更加清楚,
+音乐是灵感的来源和产物.
+然后阴谋达到了顶峰.
+警方已经准备好带我走了,
+现在是我生命中最棒的表演的时候了.
+我完全受到美丽人群的启发,
+他把我带到这里,给我注射了药物, 现在是回报的时机了.
+我站了起来,小心翼翼地向后跨过, 惊地看到这条牛道的理想障碍赛道,
+我转过身面向人群,
+我忘记了这个结!
+我试图继续,但这是不可能的.
+我向所有人宣称我会穿棘,爬上, 穿过的山坡来支持我的怀孕伴侣.
+现在我也许已经在说话了.
+我在几个小时内不记得真实世界, 但显然我不得不被带到后台,
+我不愿安静下来, 变得越来越紧张,
+我被束并强迫吃四种瓦利,
+我遇到了很多人, 经历了很多历史.
+我记得的主要主题包括我必须死去以免所有人受苦,我有着我从未见过的家人,
+很长一段时间我感觉自己被困在其中,被孤立,
+那些人也是警察试图逮捕我, 他们也是我的朋友等待我从路边站起来告诉他们我没事 (这是我七年前第一次自我死亡经历的结果).
+我终于放弃了,不再说不,不,不,而是说是.
+一个强大的手握住我的手, 举起我, 他的纹身移动到我的手臂上, 地测圆顶的三角形向内增多, 折叠, 让水和白光进入.
+的水流向我的喉,
+我开眼睛, 欢呼, 只是因为我在那里,
+我记得我大喊大叫说我创造了生命,我创造了音乐,这是LSD-25!
+我认为我已经成功地在自己的大脑中合成了这种药物, 使所有人都上了, 我正在产生反循环,
+我宣称&#x27;我是第一代&#x27;,
+我是原始人类之一, 在第一次代中被困, 直到我再次呼吸出来, 与我的伴侣建立联系,
+我从朋友那里听到我的声音有疯狂的热情,我知道为什么.
+这些都是深刻的思想.
+我知道他们不是我失踪的兄弟或女朋友, 也不是&quot;与我存在相反的和&quot;,
+我开始疯狂地跳舞, 着头发, 旋转在地毯上 (就像荷马·辛普森的步行,
+我坐在一个柔软的椅子上, 挥舞着手臂跳起来跳下去,
+由于跳舞, 我脚,右和肘部受到了地毯烧伤.
+我还在大腿,膝盖,腰部,左臂,脚跟和额头上受伤.
+我不知道这些来自哪里, 但显然有些发生在我被食瓦之前.
+我直到第二天才感受到地毯烧伤的痛苦, 但在某种程度上,
+我觉得非常在一起,并站起来看看.
+气氛充满了光和跳舞的尘埃.
+我找到了一块在跳舞时被拔掉的锁, 我把它放在阳光下,
+我看到DJ (现在已经是另一个DJ了) 穿过顶前后半部分的间隙,
+我看着下面,看到一张桌子上有各种各样的食物,
+我对他说:&#x27;我是彼得潘!&#x27;, 拿起一片绿胡, 着吃.
+的
+我坐在地板上, 发现我的子让我无法正确坐成莲花,
+朋友注意到了这点,
+我意识到这是一个好主意, 很快就说, 也许不会把他们无论如何.
+我在顶后面的空隙上抓住了几个毛发.
+想着要继续拉,直到我的头发都掉了, 但这种想法让我很快就离开了,
+我从圆顶的后面倒下来, 爬下一座小山,
+我眼中充满了水, 什么也看不见,
+另一个错误的认识在我身上,我说&#x27;ayahuasca&#x27;.
+他不知道我在说什么, 但似乎意识到我只是用词试图再次理解世界.
+我被带到我的朋友帐,当他说服我安静地躺在地板上.
+我不知道为什么我没有得很强,
+我期待在夜幕降临之后,
+他告诉我他还在 (他的液体酸量不到我一半) 并且想继续自己的旅行,
+我在短暂的时间内又失去了意识,当天黑的时候醒来.
+我迫切需要去所, 却很难走路, 不知道能不能到达,
+几个小时后, 我又以几乎完全相同的方式,
+我意识到我的子上有点吐,然后爬进自己的帐,换了衣服.
+我又一次昏倒了,当我醒来时,天亮了,我听到一些声音在谈论我.
+&quot;那个带着恐惧的家伙,是的,有些人有艰难的一天,但这是一个非常艰难的一天.
+我感到困惑,因为我认为事情并没有那么糟糕.
+我站起来在营地里散步, 遇见各种DJ和他们的合作伙伴,
+后来我得知,除了两个人外, 他们都曾经有过类似的经历,
+我还不知道我被束并食了瓦利, 我还不清楚为什么脚痛.
+我希望我能留下一段时间, 和一些善良的人谈谈这件事,
+我觉得自己很满意,放松,开放,只是有点愚蠢.
+颜色变得更加鲜, 我清晰地回忆起许多OBE的记忆,
+我很快就认识了一些人, 结交了一些朋友, 这通常需要我更长时间,
+旅行后的第三天, 我感到有点丧, 有点疲, 有点不舒服,
+旅行后的第五和第六个晚上, 我发现自己在半清醒的状态, 躺在床上,
+我花了一分钟的时间把证据拼起来, 才知道我实际上是在家的卧室里.
+两个夜晚中的第一天, 我唤醒了我的伴侣, 兴奋地告诉她天花板周围的灯光表演,
+在第六个晚上, 我做了一个非常深刻的梦, 我在一个平坦的田野里,
+我在梦中意识到每个人都被&quot;大规模注射&quot;, 处于和我相同的状态,
+我们共享同一个永恒的时刻.
+我不会服用强烈的迷幻药, 除非我已经休息好了,
+另一种认识是音乐的价值, 我相信音乐是如此不同文化之间真正有灵魂联系的极少数方法之一.
+和平
+约瑟夫
+其他:
+LSD (2), 药物 - 西巴姆 (115), 睡眠不足 (140):组合 (3), 一般 (1), 困难的经历 (5), 音乐讨论 (22), 导游/保姆 (39),  Hangover/ Days After (46), 关系 (44), 神秘的经历 (9), 节日/ Lg.
+人群 (24)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Delirium
+LSD &amp; Diazepam
+by
+Joebro
+Citation:   Joebro. &quot;Delirium: An Experience with LSD &amp; Diazepam (exp58840)&quot;.
+Erowid.org
+. Jan 19, 2007. erowid.org/exp/58840
+DOSE:
+1 hit
+oral
+LSD
+(liquid)
+4 tablets
+oral
+Pharms - Diazepam
+(pill / tablet)
+BODY WEIGHT:
+65 kg
+LSD Delirium - A cautionary tale
+Perhaps a little history is in order. I&#x27;ve taken acid twenty times, had a few hard trips (in fact none of my trips have been completely pleasant, but that&#x27;s the nature of the beast) but always been better off, learned something valuable from the experience. No regrets there!
+I don&#x27;t usually write experience reports, but it struck me that I haven&#x27;t read many reports that take into account the amount of sleep a person has had beforehand. This experience is set on the third and last day of a large music festival at which I had been both helping out and partying, and as a result I had been left with four to five hours sleep each day. I had been smoking about half a gram of strong cannabis each day for the last week or so, while at the previous festival and on the road in between, which is about five times as much as usual. On this beautiful Sunday afternoon with the vibes of thousands of happy dancing people I had decided it was a good time to trip, to seek musical inspiration and perhaps uncover some issues I might need to work on.
+By chance I was given a dose of liquid LSD, and when asked whether I wanted a full dose or a half I hummed and ha&#x27;ed, unsure as to what would be the better option. This new friend grinned and made the decision for me, giving me what he considered a full dose. It would be silly to guess the dose but I know it was a big one, as first alerts were noticed within ten minutes and the toilet cubicle door was waving subtly at fifteen minutes.
+Once back at the campsite I felt unsettled and a bit nervous, and I thought some music would help. I put on a hat and picked up an astrojax, and made my way 100 metres down the hill to the dance area, and found a nice spot to sit under a shade marquee. A juggler had me mesmerised, telling stories with his silver clubs, relating the hard work in juggling, beggaring belief at his unending efforts in the sun. It&#x27;s hard for me to document my gradual drift from reality, but it started as a guy sat down next to me and asked about the astrojax I was holding. I was able to explain that it was a toy, but when I got up to demonstrate I got a knot in it almost immediately and had to sit down again.
+Around this time paranoid fantasies began to proliferate, and I thought there had been a mass dosing, that everyone around me was also just beginning to trip hard. As I watched a lady stagger into the shade from the sun I pondered the implications of this mass dosing situation. After a few seconds of contemplation I yelled &#x27;FAN-FUCKIN-TASTIC!!&#x27; really loud and startled a few people even over the loud music.
+This sort of jarred me back to reality for a few seconds, I felt a bit silly and decided to watch the juggling again. However the juggler had left, and my attention was drawn back to the guy sitting next to me. It struck me that he was an undercover cop, and the LSD was being used as a mind control device to keep outspoken people isolated and sterile. The music seemed bland and a little ominous, and as a truck rolled in and spread a stinkhaze while emptying the portapotty, my thoughts of government chemical control seemed confirmed.
+There was a sudden shift as the truck moved out again, someone put up an umbrella that said &#x27;peace festival&#x27;, and the dj changed the music to something a little more upbeat. &#x27;No no no, they nearly got me but I&#x27;m not falling for that&#x27; I thought, that was a pretty clever trick but I knew I was being manipulated. The dj swigged from a clearly labelled bottle and I chortled in disbeleif as I wondered how much he&#x27;d just earned for this blatant endorsement.
+About this time I &#x27;realised&#x27; that someone had found the cellphone I left to charge backstage, and that they were about to break the news to me that I had received a text message from my partner saying she was pregnant. I saw a girl coming towards me gingerly holding a plastic bag, I could see the cable for the charger in the bag, I heard someone say &#x27;two months&#x27; and it was all the proof I needed. I stared at the hills over the dome stage and saw a sun of white light rise, one of the only real hallucinations I had with open eyes.
+At some level I knew it wasn&#x27;t true, but emotions flowed nonetheless, I felt the joy of new life and the empathy from happy parents nearby, and I felt the pain and regret of lost opportunity. I shed a tear or two, silently. A story was being told to me in the motions and conversations of all the people around me, of the dual nature of life, of both being sacred and hurtful. We multiply and tax the environment hugely, and yet we bring so much joy to each other. I felt like human life was negating itself, living and dying but what happens inbetween? Then the answer became clear as a new song appeared, effortlessly uniting all our energy into one colourful thread. Music is the source and product of inspiration.
+Then the conspiracies came to a head. The cops were ready to lead me away, and I was ready to go. Somehow that simultaneously didn&#x27;t exist at all, and it was actually time for me to put on the show of my life. I had the astrojax, I was totally inspired by the crowds of beautiful people and my supposed creation of new life. The creator of astrojax had hypnotised me over the years of watching those strobing lights in the dark, he had set up the festival, brought me here and dosed me, and now was the time to reciprocate.
+I stood up, stepped carefully backwards over the fence, and marvelled at this ideal obstacle course of cow tracks on which I could prove my balance. I turned to face the crowd and started an orbit. WOOPS forgot about that knot! I tried to continue but it was impossible. This was still an opportunity to prove myself, so I stated to all and sundry that I would pick my way through the thistles, climb that fence, and navigate the steep hills to support my pregnant partner. Of course by this stage I was probably babbling.
+I can&#x27;t remember much of the real world for a few hours, but apparently I had to be led backstage as I was beginning to freak some people out, and was getting a bit clumsy. Once backstage I wouldn&#x27;t calm down and was getting more wound up, so my friend was consulted and he thought it would be a good idea to intervene. I was restrained and force-fed four valium, and held in place until I passed out.
+During this time of total delirium I had an out-of-body experience, I met people and was subjected to a lot of history. Major themes I recall involve the realisation that I had to die to avoid everyone suffering, that I had family I never knew about, and that I was the Creator. For a long time I felt stuck, isolated, like people were trying to get through to me, and I could hear their feeble voices inploring me to breathe out and let go, but I was still afraid. The concurrent fantasies were still continuing, those people were also the police trying to arrest me, they were also my friends waiting for me to get up off the curb and tell them I was ok (this follows on from my first ego death experience seven years ago).
+Finally I surrendered, stopped saying no, no, no, and said yes. At this moment I saw a vertical line curve into a series of horizontal lines, a strong hand clasps mine and lifts me up, his tattoos moving onto my arm, the triangles of the geodesic dome multiply inwards and fold away, letting in water and white light. The water flows down my throat and the crippling dehydrated feeling melts away. I open my eyes and cry out for joy at simply being there, at experiencing the awesome curling koru spirals of the earth&#x27;s spirit. I remember yelling out that I made life, I&#x27;m making music, it&#x27;s LSD-25!
+I had the idea that I had successfully synthesised this drug within my own brain and got everyone high, and that I was causing a feedback loop, giving massive power to the sound system just by willing the music into being. &#x27;I&#x27;m the first generation&#x27; I proclaimed, although I&#x27;m not sure how to explain what I mean by that now. Something to do with not letting myself die, I was one of the original humans and was stuck in my first iteration until I managed to breathe out again and connect with my mate, and when I did it caused an exponential growth in awareness and connection. I hear from my friend that my voice had an insane zeal, and I know why. These were profound ideas.
+As I looked around the backstage area I saw vaguely familiar people, I knew they weren&#x27;t my long lost brother or my girlfriend or &#x27;the opposite harmonic to my existence&#x27;, but they were still significant to me. I saw they were happy and this cheered me immensely, and I began dancing madly, throwing my dreadlocks around, spinning on the carpet (just like Homer Simpson&#x27;s chicken walk, so I was later told) and clapping with the music. I sat on a soft chair and waved my arms in order to bounce up and down, like a child who had just discovered the joy of dancing. Unfortunately I got carpet burn on my ankles (I was barefoot), right hip, and elbows, from the breakdancing. I also picked up bruises on my thigh, knee, lower back, left arm, heel, and forehead. I don&#x27;t know where these came from but apparently some happened before I&#x27;d been fed the valium. I didn&#x27;t feel the pain of the carpet burn until the next day, but on some level I knew it was best to stop dancing on this carpet.
+I felt remarkably together, and stood up to have a look around. The air was suffused with light and dancing dust motes. I found a bit of dreadlock that had been pulled off while dancing, and held it in a beam of sunlight to see the chaotic curls of hair lit up. I saw the dj (a different one by now) through a gap between the front and backstage halves of the dome, and clapped him on as he played my music back to me. I look down and see a table with various plates of food on it, and congratulate myself for making this food appear, seemingly just by thinking about it. The soundguy is peering at me and I shout to him, &#x27;I&#x27;m Peter Pan!&#x27;, and pick up a slice of green pepper and munch on it. Yum.
+I sit back on the floor and notice that my pants are stopping me from sitting in the lotus position properly, and begin to undo them. A friend notices this and tells me to &#x27;keep those on, mate&#x27;. I realise it&#x27;s a good idea as soon as he says it, and probably wouldn&#x27;t have taken them off anyway. My stomach sends me an alert, and I make for the gap at the back of the dome, catching a few strands of hair on the velcro. I ponder those strands for a few seconds and think it might be good to keep pulling until all my hair is gone, but this thought leaves me just as quickly as the thought of taking my pants off. I stumble out the back of the dome, down a little hill, and spew hugely. My eyes are filled with tears and I can&#x27;t see a thing, I&#x27;m confused and wonder why this is happening so I look up at a friend. Another false realisation dawns on me and I say &#x27;ayahuasca&#x27;. He doesn&#x27;t know what I&#x27;m talking about, but seems to realise that I&#x27;m just using words to try and make sense of the world again.
+I was led to my friends tent, and as he persuaded me to lie quietly on the floor. I wondered why I wasn&#x27;t tripping very hard, even though it was still light outside. I was expecting to be tripping until well after night fell, and had been looking forward to watching the lightshows. He tells me he&#x27;s still tripping (he had just under half the amount of liquid acid I&#x27;d had) and wants to stay with his own trip, so I keep quiet even though I&#x27;m bursting with profound ideas. I drifted out of consciousness again after a short while, and woke when it was dark.
+I desperately needed to find the toilet but was having trouble walking, I didn&#x27;t know if I&#x27;d make it to the portapotty and was wracked by indecision until I decided to just piss on the hill before it was too late. This happened again almost exactly the same way a few hours later, I was stumbling around and nearly fell a few times. I realised I had a bit of spew on my pants and crawled into my own tent and got changed. I passed out once again and when I awoke it was light, and I heard voices talking about me.
+&#x27;That guy with the dreads, yeah, some people have a hard day but that was a real hard one&#x27;. I was confused as I thought things hadn&#x27;t been that bad. I got up and walked about the campsite a bit, catching up with the various djs and their partners, they were friendly to the point of further confusing me, giving me warm hugs and asking how I was even though I had met most of them only a few days before. Their expressions were mixed between slight concern, bemusement and empathy, I later learned that all but two of them have had similar experiences before, with LSD or mushrooms. At that point I still didn&#x27;t know that I&#x27;d been restrained and fed valium, and I vaguely wondered why I had sore feet. As my friend and I left the site he related what he knew, and I wished I could have stayed a bit longer and talked about it with some of the kind people who had looked out for me.
+For the rest of the day and most of the next I felt vey content, relaxed and open and just a little dopey. Colours appeared brighter, I recalled many of the OBE memories vividly and could retell many of them, and my wounds were barely noticed. I met some people that night and made friends quickly, something that usually takes me a lot longer, and when we played a game of Cranium I found my faculties intact, answering obscure questions and reading clearly.
+On the third day after the trip I felt a bit down, somewhat tired and a bit out of sorts, but nothing worse than a usual tired day for me and nothing approaching the darkness of my teenage depression. On nights five and six after the trip I found myself in a half wakeful state while lying in bed, and I thought I was back in my tent on the top of that hill. It took a minute of piecing together evidence to work out that I was, in fact, in my bedroom at home.
+On the first of those two nights I woke my partner to excitedly tell her about the lightshow around the ceiling, and realised it was just moonlight seeping in! On that sixth night I had a very profound dream, that I was in a flat field with a lot of people in the same semi-lucid superconscious state that I had been, during my OBE backstage. I realised during that dream that everybody had in fact been &#x27;mass dosed&#x27; and was in the same state as me, although they had gotten there by entirely different routes to mine. We shared the same timeless moment.
+That day has left me with an increased appreciation of sleep as a resource for the mind, and I won&#x27;t take a strong psychedelic unless I&#x27;m well rested and sure it&#x27;s the option I want to take. Another realisation was of the value of music, I beleive it is one of the very few methods of true soulful connection between such divergent cultures.
+Peace
+Joseph
+Exp Year: 2007
+ExpID: 58840
+Gender: Male
+Age at time of experience: Not Given
+Published: Jan 19, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2), Pharms - Diazepam (115), Sleep Deprivation (140) : Combinations (3), General (1), Difficult Experiences (5), Music Discussion (22), Guides / Sitters (39), Hangover / Days After (46), Relationships (44), Mystical Experiences (9), Festival / Lg. Crowd (24)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

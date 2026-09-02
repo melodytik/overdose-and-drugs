@@ -1,0 +1,256 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;维度旅行 - 设置是一切&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/s-ketamine.html'>← S-氯胺酮</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;维度旅行 - 设置是一切&quot;</h1>
+<div class='sub-title'>S-Ketamine - Erowid Exp - &#x27;Dimensional Travel - Setting Is Everything&#x27;</div>
+<div class='meta'>作者：TS Citation · 日期：Aug 18, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=112236' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>其他:
+写这篇文章时, 我正从一个没有名字,时间或地点的地方返回.
+它只是存在.
+我在租车上回到酒店, 在6点之前完成所需的任务, 和我可爱的妻子聊天, 然后开车去吃一顿大寿司晚餐,
+晚上10点,我已经完成了当天的任务,
+远离家人和亲人, 虽然我总是把他们放在心里.
+我和妻子在那天最后一次交谈.
+我关掉我的工作笔记本电脑.
+我关掉了房间里所有的灯光,
+我在酒店房间的纸上散布200毫克.
+接下来我洗,刷牙,冥想几分钟才能平静心.
+我很担心, 因为我从来没有在受控环境中故意消耗过这么多.
+我准备床,然后打开一些好音乐从李伯里奇.
+我吸入100毫克,然后躺下10分钟, 听到智能手机扬声器的音乐.
+我开始注意到一些影响,
+现在我仍然可以在房间里移动.
+我将音乐改为最美丽的电子音乐与4的地板节奏的混合.
+我躺在床上,在毯子下,温暖舒适.
+我的身体.
+1050我消耗的其余部分.
+200毫克完成.
+我把耳机插进去, 把音乐改成本·博默的混音,
+旋律的节奏让我保持稳定.
+十分钟后, 房间的光线消失了,
+房间的色彩逐渐消失,
+我心跳起初很快, 然后专注于呼吸,
+我可以感觉到风在我的脸上.
+我知道K不会影响呼吸率,所以我深呼吸并继续下降.
+沙子呈现出绿色光束,
+我在一个黑暗的房间里停了下来.
+我觉得自己就像在医院的床上, 有人在推着我,
+我认为我不再在我的酒店房间,但只是...
+没有.
+我可以轻松地通过电梯和虫洞穿过星系.
+我看到我生命中的重要人物,
+他们也笑了.
+我反思我对每一个认识的人所给予的爱.
+我开始在每一个方向上方向上,
+现在我在上帝的意愿下漂浮.
+我在许多检查站停下来, 有些检查站有绿色的网状结构,
+我认为这是多么疯狂,
+保持正念
+我在一个红色和绿色的空间中漂浮,
+我站在一个星系里, 就像卡尔文曾经在卡尔文和霍布斯漫画中所做的.
+我对生活中的许多美好事物表示感谢.
+我正在发射一束爱的光.
+我骑着那条光束进入一个新的维度, 到另一个电梯,
+这段时间里, 旋律深沉的房子是一个美丽的,
+我不确定我会知道的.
+我走出电梯,再次躺下, 某种东西将我推向下一个目的地,
+随着每一个新曲目的加入, 探索新的领域, 思考朋友和家人,
+那些给我带来快乐的人和事物.
+我看到我的狗.
+音乐的声音是如此清晰,
+音乐的声音是如此清晰,
+我打开眼睛, 看到屏幕上的可视化器.
+混音即将结束, 这次旅程也即将结束.
+我看着我的意识开始重组,
+部分就像是一些互锁的Tetris游戏.
+越来越多的意识连接我开始感觉到冷空气在我的手.
+我感觉到我的四肢, 他们感觉到电流通过他们, 愉快的方式.
+我停止飞行,现在形状和碎形正以完美的自然模式旋转.
+红色,绿色和黄色.
+音乐停止了
+虽然我无法理解时间,但我的身体已经过了一个小时.
+我开眼睛,看到我所在的房间.
+关闭他们,让设置结束.
+我开眼睛.
+我曾经经经历过的时空, 让我回到酒店的床上.
+这是一个美丽的旅程.
+我认为这一次的骑行对我来说已经足够了.
+我有很多值得感激的事情.
+保持安全,做正确的事情.
+一个人.
+舒适的
+这真是太好了.
+现在是1245 AM.
+我服用了类阿片,以便能够入睡, 我计划明天有个大日子.
+虽然他们永远不会知道我做了这次额外的旅程, 我会这样做,
+在反思之后的一天
+我在旅行的第二天下午写下这封信.
+为了保持这种物质造成的写作障碍,
+我今天在这里 (在工作方面又是个非常激烈的精神日),
+精神上我很敏,除了疲劳.
+我曾经有过很多经验,
+这次是不同的.
+需要正确的设置和心态才能真正理解.
+一个k洞需要适当的设置,和心态.
+我会等到这些事情在现实世界得到解决才开始.
+我相信这种物质最好少量使用,
+没有.
+我个人不觉得有必要再这样做, 但这只是我的观点,
+我接近一个清醒的心灵和心灵的Khole,并得到了奖励.
+已使用的证券
+S-胺 (797):音乐讨论 (22),一般 (1),个人准备 (45),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Dimensional Travel - Setting Is Everything
+S-Ketamine
+by
+TS
+Citation:   TS. &quot;Dimensional Travel - Setting Is Everything: An Experience with S-Ketamine (exp112236)&quot;.
+Erowid.org
+. Aug 18, 2018. erowid.org/exp/112236
+DOSE:
+T+ 0:00
+100 mg
+insufflated
+S-Ketamine
+(powder / crystals)
+T+ 0:10
+50 mg
+insufflated
+S-Ketamine
+(powder / crystals)
+T+ 0:30
+50 mg
+insufflated
+S-Ketamine
+(powder / crystals)
+BODY WEIGHT:
+210 lb
+As I write this, I am returning from a place that has no name, time, or location. It just exists. Prior, having spent the whole day very mentally engaged with various  work tasks and education, I drove back to my hotel in my rental car and worked on required tasks until 6, spoke with my lovely wife, then drove to eat a big sushi dinner, followed by more work.  It is 10 pm by the time I have finished the required tasks for the day in my life here on earth. I am in a hotel room in a city that is not my home, away from family and loved ones, though I always keep them closeby in my heart. My wife and I speak again, for the last time that day. I turn off my work laptop.
+I shut off all lights in the room besides the table lamp and my netbook which I set to a visualizer. I have 200 mg  in a capsule which I disperse on a sheet of paper in my hotel room. I then shower and brush my teeth, and meditate for a few minutes to calm my mind. I am anxious as I have never intentionally consumed this amount in a controlled environment. I ready the bed, then turn on some nice music from Lee Burridge. I insufflate 100 mg and then lay down for 10 minutes, music coming from a smartphone speaker. I begin to notice some effects, but I have a mission. 1030 and I hit 50 mg more, at this time I am still able to move about the room physically. I change the music to the most beautiful mix of relaxing electronica with a 4 on the floor beat. I lay in the bed under the covers, warm and cozy. My body tingles. 1050 I consume the rest. 200 mg done. I pop my earbuds in and change the music to a mix by Ben Bohmer, which was the best choice I made that night. Melodic beats keep me anchored.
+10 minutes later, the room fades as it feels I am in a pit of quicksand.
+the room fades as it feels I am in a pit of quicksand.
+My heart beats quickly at first, then I focus on breathing and the falling becomes faster. I can feel the wind on my face. I know K does not affect respiratory rate, so I breath deep and continue falling. The sand takes the image of green light beams, and I no longer can tell if my eyes are open or closed. The falling begins to slow, and I&#x27;m gently stopped in a black room. I feel as I am in a hospital bed with someone pushing me around except I am moving at light speed out of the planet, and it is pleasant. I contemplate that I am no longer in my hotel room but just... Am. I am moving through the galaxy with ease via elevators and worm hole like tubes. I see important people in my life and smile at them. They smile back. I reflect on all the love I have to give to everyone I know.
+I begin going UP sideways every direction bringing me to new points in the universe. At this time I am floating at the whim of God. I stop at many checkpoints, some have a green net matrix like netting, which bends as I walk on it. I am thinking how insane this is but then I just resume observation and let the thought pass. Mindfulness. I am floating through dimensions of red and green netting before stopping. I am standing IN a galaxy, like calvin once did from calvin and hobbes in a comic strip. I express gratitude for the many positive things in my life. I am literally emitting a beam of love light. I ride that beam to a new dimension to another elevator which takes me in a downward direction. All this time the melodic deep house is a beautiful anchor that reminds me that I am alive. I am not sure I would know otherwise. I exit the elevator and am laying prone again, with something pushing me to my next destination, gently yet faster than anything I&#x27;ve ever done. I continue reflecting on the positive things in my life, and as each new track is mixed in, visit a new area to explore and reflect on friends and family, those that share common values. People and things that bring me joy. I see my dog.
+The music sounds so clear and is the soundtrack to this journey.
+The music sounds so clear and is the soundtrack to this journey.
+I am being gently pushed with red and green light waves passing by as I open my eyes and see the visualizer on the screen. The mix is coming to an end and so is this journey. My conciousness begins to reassemble itself as I watch, very jaggedly. Parts just interlocking like some kind of tetris game. The more my conciousness connects I start to feel cool air on my hands. I being to feel my limbs and they feel as an electric current is passing through them, in a pleasant way. I stop flying and now shapes and fractals are spinning in perfectly natural patterns with grace. Reds, greens  and yellows. The music stops... One hour has passed in my body, though I could not comprehend time. I open my eyes and see the room I am in. Close them and let the set end. I open my eyes. The space time fabric I had been in has dropped me back in my hotel bed. What a beautiful journey.
+I think one time on this ride was enough for me. I have plenty to be thankful for. Be safe and do it right. Solo. Comfortable. Gracious. It is now 1245 AM. I take a benzodiazepine so that I may sleep, I plan to have a big day tomorrow. I can&#x27;t wait to get home to my wife and dog in a couple days, though they wont ever know about the extra trip I took, I will and am better for it :) This is definitely not a substance to be abused, take out of it what you need to and return to what matters to you.
+DAY AFTER REFLECTION
+I write this the following afternoon of the trip. I leave the above unedited, as I wrote it while still under mild comedown effects late at night to preserve the writing impairment caused by the substance.  I am here today (another very intense mental day workwise), with no hangover, other than being tired as falling asleep was difficult after that experience. I feel mentally sharp, aside from the tiredness.
+I have had many experiences with this compound in smaller doses, often mixed with others while at music events. This was much different. The hole dose needs the proper setting and state of mind to truly comprehend.  A k hole requires proper setting, and state of mind. If one has stressful events and happenings in their life, that they would bring on the trip, I would wait until those are sorted in the real world before embarking. Additionally, I beleive that this substance is best left used in hole amounts sparingly
+.
+I personally do not feel the need to do so again, but again that is only my opinion as I got out of it what I beleive was intended. I approached a khole clear of mind and heart, and was rewarded.
+Exp Year: 2018
+ExpID: 112236
+Gender: Not Specified
+Age at time of experience: 34
+Published: Aug 18, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+S-Ketamine (797) : Music Discussion (22), General (1), Personal Preparation (45), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

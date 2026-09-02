@@ -1,0 +1,273 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cacti-t-pachanoi.html'>← 圣佩德罗仙人掌(秘鲁仙人掌)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- -</h1>
+<div class='sub-title'>Cacti - T. pachanoi - Erowid Exp - &#x27;Metamorphosis&#x27;</div>
+<div class='meta'>作者：Anopseudonym Citation · 日期：Apr 7, 2010 · <a href='https://erowid.org/experiences/exp.php?ID=78714' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>首先,我想提供一些背景信息.
+你可能想知道的是, 在我大部分生活中,
+如果您自己患有精神疾病或不太严重的精神困难,您可能会从这份报告中特别受益.
+我认为迷幻药是最好的治疗精神疾病的药物,
+确实,抗抑郁药对身体有很多副作用, 部分原因是通常每天服用抗抑郁药, 而不是每月一次或每年几次服用.
+但与其精神副作用相比, 这些药物一无是处:抗抑郁药通过杀意识而起作用, 迷幻药通过扩大意识而起作用
+我在13岁时出现反复复的抑郁和焦虑, 尤其成为问题, 从那时起, 随着时间的推移, 情况越来越严重.
+我尝试过心理治疗,食补充剂,药物,冥想,认知行为疗法,双耳跳,清醒梦,太极拳,舞蹈,催眠和自杀,
+我不仅突然从抑郁症中恢复过来,而且在我的生命中第一次感到快乐几个月,
+虽然在使用毒药的那天晚上我很快乐, 但一周前我的情况很严重,
+现在,我已经成为一个人, 字面上说, 一夜之间!
+我觉得好像来到另一个世界, 抑郁症的麻烦突然变得无限遥远.
+我抓住了这一天, 很快就难以相信有什么不同.
+尽管经历了这一切, 我觉得这几乎是我应得的.
+我每月服用另一剂psilocybe以保持健康, 开始了我生命中最富有的一段时间 - - 直到荷兰禁止psilocybe, 我再次陷入抑郁.
+如此痛苦, 即使我仍然可以使用psilocybe,
+这次的抑郁比以往任何时候都更严重,2009年1月,
+我决定放弃自杀的想法,
+过量服用并没有起作用, 其他许多方法也不安全.
+唯一真正安全的方法是非常痛苦的,
+但与此同时, 另一个解决方案出现了:圣佩德罗.
+我只信任几种迷幻药物: ,LSD和梅斯卡林, 因为这些药物已被广泛研究.
+我不知道在哪里可以找到LSD或梅斯卡林.
+那些含有梅斯卡林作为主要精神药物的迷幻仙人掌,
+准备工作
+我知道这将是艰难的.
+我刚刚经历了几个月的严重抑郁症,
+所有我应对的感觉都会重新浮出水面.
+我知道有解决办法,
+只是为了让自己感觉有点好些, 足以让我能处理纯洁的火焰.
+一天的缓解就足够了.
+相信仙人掌可以改变我, 并且有远见地使用它们, 我可以找到我无法找到的力量.
+至少我这样认为, 直到那天我和我最好的朋友安排了.
+我在脑海中一遍又一遍地听着金属乐队的&quot;我的启示录&quot;
+我明智地把这次经历推迟到另一个星期.
+为了保证安全, 我向医生求助, 因为我试图自杀时已经使用了所有药物,
+我告诉他我以前有过一次恐慌发作,而且觉得很快可能会再次出现.
+我医生同意,幸运的是没有进一步讨论我需要它们的原因.
+实际上我几乎肯定不会使用它们, 即使我确实有恐慌发作, 因为这会限制仙人掌的功效;
+恐慌发作往往会让人误以为自己处于死亡危险之中,可能心脏病发作,停止呼吸,或者发疯.
+接下来的一周, 在我使用仙人掌的前一天, 我冥想了四个小时,
+我已经准备好了.
+准备好作为一个在地中海度假的飞机上的游客:准备好作为一个在野蛮战斗的黎明时刻的战士.
+这变得很残酷.
+尽管我有意这样做, 果然我不敢离开房间,
+我心跳非常快, 身体非常紧张.
+幸运的是,我很熟悉这些影响,
+我仍然拒绝使用镇静剂,
+我最好的朋友在那里,她愿意给我一个拥抱,
+圣佩德罗茶的剂量实际上比我预期的要温和,
+视觉效果是可怕的,血的,暴力的
+我有怪物的幻象, 在铁路上被切成碎片的人, 我最好的朋友被砍掉头部的一部分.
+但当战斗结束时, 内部的敌人遭受了巨大的失败.
+经验,然而,是一个失望,因为它只持续了6小时,而不是12通常是;但我没有准备一个更高的剂量,而现在,在经验中变得更强,我是.
+经验
+我不得不再推迟一周, 因为我的朋友, 我称之为萨曼莎,
+但我知道这是不理想的延迟.
+两个月前我最后一次经历, 我的心理健康再次恶化.
+这似乎是一种依赖的迹象,
+任何可靠的消息来源都会告诉你.
+经过一周的延迟, 抑郁症的症状开始强烈地复发,
+实际上,这是我第一次在另一个人的存在下出现白内障.
+在抑郁症中, 性意味着感觉如此冷漠以至于很难移动或说话; 患者最终会陷入完全惰性的状态, 像雕像一样,
+桑塔娜成功地把我从这种状态中拯救出来,
+虽然这本身并不是一个好兆头,
+我还想再推迟一周,
+我还考虑切割动脉,
+不,已经很久了, 足够久了.
+我从2008年7月开始就一直在推迟,
+现在还是永远.
+我记得电影&quot;毁灭&quot;中的一句话:&quot;你总是要面对你的恶魔&quot;.我摆脱了绝望的感觉,炼了自己,拿出了一棵20厘米长的仙人掌.
+我们开始把一半切成片子,
+萨曼莎比我快得多, 甚至比我能吞下那种极其苦味的仙人掌更快.
+首次影响是预期性的,心理性的.
+通过准备自己, 寻找任何改变我的感知, 我的感知确实改变了.
+几分钟后, 颜色变得更加鲜, 图案更美观,
+这是在18:00左右.
+我开始了这段经历, 进行了一小时的最深沉的冥想,
+我意识到每一个想到的想法,
+很快就开始出现紧张局势.
+心脏跳.
+肌肉硬.
+有点.
+开始冥想是明智的选择, 因为这让我有机会在紧张情绪升级之前消除它们.
+萨曼莎在此期间睡着了, 那天晚上睡觉很少,
+在圣佩德罗开始发挥作用时,
+我给自己一个建议, 呼吸出我可能感受到的负能量,
+经过一个小时, 我唤醒了萨曼莎, 问我们是否可以去附近的自然保护区.
+我知道散步会让我平静下来.
+我看着天空, 感觉到了它的广.
+我记得我的一个朋友曾经用过这个词来表达他对宇宙广的敬畏.
+我希望能加快自己的步伐.
+闻到一棵开花的树,吹到一朵花.
+但她经常停下来, 有时会让我感到烦, 因为我知道散步有助于缓解烦.
+我终于平静下来, 到了一个长,
+旋的鸟, 交织成森林的交响曲; 叶子, 旋转一圈, 每个分支, 平滑的灰色和白色调的宁静的云滚动一个在另一个,
+我身体的呼吸,仍然惊恐的敬畏,最安静的幽灵触摸的空气在最温和的温暖.
+听觉,视觉,触觉,情感,嗅觉,思维都融为一个意识的海洋.
+似乎环境不断扩大, 直到每一步都成为一个独立的宇宙.
+我闭上眼睛时,景观依然存在,但在变形,
+树枝绕在叶子上, 长大, 芽, 曲,
+我对情绪的意识是最强烈的.
+但在某个时候, 我意识到, 我越想我的感受,
+我突然意识到我所有的空虚感都源于我感到空虚的想法,我立刻对萨曼莎说:&#x27;我的空虚实际上是自我意识.&#x27;我强迫自己尽可能地留在我的经历中,我知道我必须找到力量去做这件事,即使经历结束了.
+我们走进河边的小树林.
+我躺在床上,双臂开.
+我感觉到与地球和宇宙的联系越来越深,
+我第一次来到自然保护区时, 由于我天生的社会恐惧症, 每当我走近路人时,
+我对社会深深的仇恨; 现在, 我似乎至少在一定程度上治愈了这种仇恨.
+我几乎与萨曼莎以外的人隔绝了自己, 但现在我觉得我可能会冒险走出这种孤立.
+由于仙人掌的作用, 我经历的大部分变化都发生在接下来的几天里,
+结果,我仍然可以感受到某种程度上的影响.
+经过这么长时间的消化, 我终于恢复了感情.
+我希望很快使用更高的剂量,
+剂量越高,效果就越深入,更持久.
+我会建议圣佩德罗对任何一个愿意接受的人,
+我感觉到恐惧,但也感觉到如此多的快乐.
+时间表: 78714
+2010年4月7日发布
+- T. pachanoi (64):小组 (2-9) (17),治疗意图或结果 (49),抑郁症 (15),健康益处 (32)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Metamorphosis
+Cacti - T. pachanoi
+by
+Anopseudonym
+Citation:   Anopseudonym. &quot;Metamorphosis: An Experience with Cacti - T. pachanoi (exp78714)&quot;.
+Erowid.org
+. Apr 7, 2010. erowid.org/exp/78714
+DOSE:
+4 in
+oral
+Cacti - T. pachanoi
+(dried)
+BODY WEIGHT:
+65 kg
+Foreword
+First of all, I&#x27;d like to offer some background information. What you might want to know that for most of my life I have suffered from mental illness. In case you are yourself suffering from mental illness or less severe mental difficulties, you may benefit particularly from this report. In my opinion, psychedelics are the best medicines against mental illness, psychosis excluded: when used properly, they&#x27;re not only the most effective, but also the least adverse. It is true that antidepressants have many physical side effects, partly because they are usually used daily, rather than, for instance, once every month or a few times per year. But these are nothing compared to their mental side effects: antidepressants work by blunting consciousness, psychedelics by expanding consciousness
+My recurrent depressions and anxieties became particularly problematic at the age of 13, and ever since have become worse and worse over the years. As the symptoms varied, I have tried psychotherapy, dietary supplements, medication, meditation, cognitive-behavioral therapy, binaural beats, lucid dreaming, tai chi, dancing, hypnosis, and suicide, in that order; nothing really worked. So it remained, until March 2008, when I tried psilocybe and was not only suddenly healed from my depression, but actually felt happy for the first time in my life for several months, and blissful for the first weeks — all this simply by being shocked into the sudden awareness of the wonders of life. Yet, though on the night I used the psilocybe I was in a rare mood of contentment, my state had been severe just a week ago, so severe that I actually got my psychotherapist a headache by the end of the session. Now, I had become another person literally overnight!
+I felt as though I had come into another world, and the troubles of my depression suddenly seemed infinitely far away. I seized the day, and soon it became hard to believe it had ever been otherwise. I enjoyed life with such a passion that even after all I had gone through, it felt almost more than I deserved. Thus began the richest period of my life as I monthly used another dosage of psilocybe to remain healthy — until psilocybe became banned in the Netherlands, and I relapsed once more into depression. It was my most painful episode ever, so painful that even if I still had access to psilocybe, there would not be a single moment I could use it without going through hell. This time, the depression was worse than ever, and in January 2009 I combined an overdose of benzodiazepine with a high dose of alcohol, and slit my left wrist.
+When I failed, I decided to give up on suicide, no longer trusting it. Overdose hadn&#x27;t worked, many other methods were also unsafe. The only methods that are really safe are very painful, and I didn&#x27;t dare to try those. Meanwhile, however, another solution had presented itself: San Pedro. There were only a few psychedelics I trusted: psilocybe, LSD, and mescaline, because these have been most extensively researched. However, I had no idea where to find either LSD or mescaline. Then it occurred to me that psychedelic cacti, which contain mescaline as their primary psychoactive, might be available on Azarius — and so they were!
+Preparation
+I knew that it would be tough. I had just gone through months of severe depression, which had caused me to become detached from myself; using an entheogen would confront me with myself more than ever. All the feelings I had coped with would reemerge to the surface. When I knew there was a solution, I was very brave. When the first batch of cacti arrived, I moved mountains just to get myself to feel just somewhat better, just enough so that I could deal with the purification of the cacti&#x27;s purgatory. Just a day&#x27;s remission would be enough. Trusting the cacti and knowing they could change me, with the foresight of using them, I could find that strength that I could otherwise not have found. Or so I thought, until the day broke that I had arranged with my best friend. Or rather, when I woke up in the middle of the night with Metallica&#x27;s &#x27;My Apocalypse&#x27; playing over and over in my head. I wisely delayed the experience for another week.
+In the meantime, to play it safe, I asked my doctor for some benzodiazepine, as I had used everything in my attempt to kill myself — something I wisely omitted to say. I said I would need it for a &#x27;demanding experience.&#x27; I told him I had had panic attacks in the past, and felt I might have one again soon. My doctor concurred, luckily not going further into the question of what I&#x27;d need them for. I was actually almost sure I would not use them, even if I did have a panic attack, as that would limit the efficacy of the cacti; it was more a talisman than anything else, to silence the inane thoughts of &#x27;what-if&#x27; that tend to come with severe anxieties. Panic attacks tend to make one deluded that one is in mortal danger, that one might get a heart attack, stop breathing, or go mad. The next week, the day before I would use the cacti, I meditated for four hours, and practiced tai chi in the park for another hour. I was ready. Not ready as a tourist on a plane for a mediterranean holiday: ready as a warrior at the dawn of a brutal battle.
+Brutal it became. So brutal, that despite my intentions I did not dare to leave my room when the cacti started working. I was shaking, and my heart beat very quickly, and my body felt very tense. I was, fortunately, familiar with these effects, and let them be. I still refused to use the calmative, but it was calming just to know I always could. It was a good thing my best friend was there, and that she was willing to give me a hug now and then when I needed it. The dosage of the San Pedro tea was actually milder than I had expected, but my state of mind was not. When the visuals finally came, they were lurid, gory, violent. I had visions of monsters, of people being sliced to pieces on railway tracks, of my best friend having part of her head cut off. But when the battle was over, the enemy within had suffered a great defeat. The experience had, nonetheless, been a disappointment, as it had lasted for only 6 hours, rather than 12 as it normally does; but I wasn&#x27;t ready for a higher dosage, whereas now, having become stronger during the experience, I was.
+The Experience
+Once again, I had to put off the experience for a week, this time because my friend, which I&#x27;ll call Samantha, felt uncertain herself. But I knew it was not desirable to delay. It had been two months since my last experience, and once again my mental health was deteriorating. This might seem like a sign of dependence, but I&#x27;m dependent on it only as a diabetic is to insulin. Psychedelics are not addictive, as any dependable source will tell you. After a week delay, symptoms of depression were starting to recur in full force, and the day I&#x27;d arranged to use the cacti (this time a high dosage), I actually had an attack of catatonia. This was my first attack of catatonia in the presence of another person, actually. In depression, catatonia means feeling so apathetic as to have trouble moving or speaking; the subject eventually freezes into a state of total inertia, like a statue, and becomes dissociated, depersonalized. Just as I was sinking into this state, however, Samantha managed to save me from it by giving me a hug. I contemplated that, while it was not in itself a good sign, perhaps the catatonia had come just at the right moment, as it allowed me to let go of my thoughts.
+I considered delaying yet another week, but not for long. I also considered cutting my carotids, fearing that I&#x27;d never get better again, but not for long. No, it had been long, long enough. I&#x27;d been delaying this on and on since July 2008, ten months ago at the time, and it had only gotten worse and worse. It was now or never.
+I remembered words from the motion picture Doom: &#x27;You got to face your demons sometime.&#x27; I shook off the feeling of despair, steeled myself, and took out one of the 20-centimeter-long cactus. We started cutting one half of it in slices and peeled them. As expected, Samantha turned out to be much faster than I, and eventually even faster than I could swallow the cactus, which tasted extremely bitter. The first effects were anticipatory, of psychological nature. By preparing myself by looking for any changes in my perception, my perception did change. Within a few minutes, colors became more vivid, patterns more esthetic, but I knew this was not because of the drug. That was at about 18:00.
+I began the experience with an hour of the deepest meditation I&#x27;d had in a long time, using binaural beats. I was aware of every thought that occurred to me, and of almost every breath I took. Soon tensions started to occur. Heart palpitations. Muscular rigidity. Slight trembling. It was a wise choice to begin with meditation, as this gave me the chance to remove these tensions before they escalated. Samantha slept in the meantime, having had little sleep that night, and having little to do as I meditated. Meanwhile, I struggled with my demons as the San Pedro started to have its effect. I gave myself the suggestion that I breathed out any negative energy I might feel, while breathing in positive energy. After an hour, I woke Samantha, and asked if we could go to the nearby nature&#x27;s reserve. I knew walking would calm me down. When we went out, the effects now became quite evident as I looked up to the sky, the immensity of which I now became deeply aware. Tremendous, I thought, remembering the word a friend of mine had used for the feeling of awe he would at times feel for the vastness of the universe.
+Anxiety, however, got a firmer grip on me, and I wished to quicken my pace. Samantha, however, in her childlike inquisitiveness often stopped to inspect something that had caught her attention — to smell at a flowering tree, to blow into a dandelion. It would have encouraged me to do the same and take in all the beauty around me as much as possible, but I was agitated, and her frequent stops sometimes annoyed me, as I knew walking helped against the agitation. I eventually calmed down, and felt the need to sit down as we came to a bench. It was then that all the elements of nature came to one within me; the whirling of birdsong which interlaced into a symphony of the woods; of the leaves that winded round and round each branch, the smooth grey and white tones of serene clouds rolling one above the other, the glorious fire of the sun that flowed into different forms every second as it blazed through the epic cloudscape; and the breathing of my body, still terrified with awe, the stillest ghostly touch of air in its gentlest warmth. Hearing, sight, touch, emotion, smell thought were joined to one ocean of awareness.
+As we walked on, it seemed that the environment kept on growing until every step through it became a universe of its own. When I closed my eyes, the landscapes were still there, but morphing, and, the longer I kept my eyes closed, morphing further and further into more and more abstract forms as the memories of the surroundings faded. Branches wreathed in leaves grew and budded and curled until they turned into spiraling fractals. My awareness of emotions was most intense. But at some point, I became aware of how, the more I thought about what I felt, the less I felt. I became suddenly aware of how all my feelings of emptiness stemmed from the mere thought that I felt empty, and I said at once to Samantha, &#x27;My emptiness was actually self-consciousness.&#x27; I forced myself to stay as much as possible in my experience, and knew that I had to find the strength to do this even when this experience would be over.
+At some point, we found a path, and followed it into a tiny grove by the riverside. There, I lay down with my arms wide apart. At this point, I felt an ever deepening sense of unity with the earth and the universe, and reflected on the connectedness of all things. When I first came in the nature&#x27;s reserve, because of my natural social phobia I kept feeling paranoid whenever I came close to a passerby; by the time I left the reserve, I felt friendship towards them, and actually greeted someone. During my depression, I had cultivated a deep hatred for society; it seemed that now, I was at least in part cured of that. I had isolated myself from almost everyone but Samantha, but now feel I might perhaps venture to come out of that isolation to some extent.
+Much of the transformation I underwent owing to the cacti happened only the next days, and is still happening as I am training myself to become as present of mind as possible. As a result, I can still feel the effects to some extent. After all the depersonalization, I finally have my feelings back. I am hoping to use a higher dosage soon, one which will have an effect on longer term. The higher the dosage, the deeper and more permanent the effect. I would advise San Pedro to any who are open to it, but it must not be taken too lightly, of course. I felt fear — but also so much joy in return.
+Exp Year: 2008
+ExpID: 78714
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 7, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cacti - T. pachanoi (64) : Small Group (2-9) (17), Therapeutic Intent or Outcome (49), Depression (15), Health Benefits (32)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

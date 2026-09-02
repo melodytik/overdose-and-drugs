@@ -1,0 +1,360 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>3-Me-PCPy-Erowid Exp - &quot;火灾&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-me-pcpy.html'>← 3-Me-PCPy</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>3-Me-PCPy-Erowid Exp - &quot;火灾&quot;</h1>
+<div class='sub-title'>3-Me-PCPy - Erowid Exp - &#x27;Revelers Fire&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Jul 30, 2021 · 剂量：20 mg · <a href='https://erowid.org/experiences/exp.php?ID=115645' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>序言:3-Me-PCPy是阿里环烯胺世界的一个令人兴奋的发展!
+如果这对您不感兴趣,请跳到报告的正文.
+作为通常, 有一个综合的综合结论在最后.
+PCPy是PCP的近亲 - - PCP中的第二个P表示piperidine组,其中化合物中的必需是六角六原子环结构的一部分.
+PCPy非常接近,在五角形的5个成员环中,形成称为pyrrolidine组.
+PCP和PCPy及其大多数类似物具有类似的特质,如高强度和刺激作用.
+PCPy最初被认为是一种街头毒品,
+关于PCPy本身的主观影响的信息很少.
+在MXE的盛时期, 3-MeO-PCPy在市场上出现了很短时间,
+这是一种具有巨大潜力的基础化合物!
+我和博士的个人信件
+杰森·沃拉奇 (Jason Wallach) 通过他的一些出版物, 给出了一些暗示, 这种化合物可能会产生什么影响 - - 它被证明是三重重吸收抑制剂, 这意味着它会导致神经递质胺,多巴胺和上腺素的积累 (也许最着名的三重重吸收抑制剂是可卡因).
+这通常可以显示刺激作用,但它也具有关于抗抑郁作用的有趣含义.
+需要在这个领域进行更多的正式研究!
+其他一些散落的报道表明高强度和主观刺激作用.
+我设法得到一个样本, 必须亲眼看到.
+简而言之,这是一种刺激性的强烈解离性药物,
+头部空间很浅, 但它是高兴和社交,
+虽然这是一次独特而美妙的旅程,
+在报告的最后,还有一个更详细的概述这种化合物及其不同剂量/整体特征的影响,以及其他与分批相关的属性.
+我独自一人在家乡的火车站等待,
+我刚刚把我的车交给一个家庭机械师进行国家检查,
+这是一个美丽的夏日下午, 太阳在天空中越来越低,
+树木在我们头上,
+我的火车还没有半个小时.
+我把预先测量的囊倒在我的手上,
+这让我眼中流满了.
+有一种典型的苦的石油味道.
+这几乎是无法忍受的一两分钟, 但疼痛减缓到一个沉的麻木.
+我已经有点分离了, 头有点小, 肢体有点.
+在远处起,起,响, 弱地被日落的火点亮.
+我身处的地方很温和,好像我的脚在地上漂浮.
+似乎我以前的胃口已经完全消散了.
+我把剩下的晚餐包起来,
+牙无力动, 仿佛能感觉到它们在牙间的空隙中无形地振动.
+这种解离感深入我的骨, 高频振动让我震动, 让我半沉默半麻醉.
+我现在头,我的头像我喝了太多的酒.
+我对这种药物的速度和强度感到惊,
+我只能坐在长上, 望着远方的铁路,
+像那个遥远的雷暴一样.
+我觉得麻醉剂的波浪在我身边脉冲, 我感到兴奋和喘不过气,
+这就像极端道视觉, 这些幻觉玻璃道的墙壁被低调的光脉冲所照亮.
+遥远的建筑物和树木望远镜的视线.
+我很高兴我现在独自一人在这里, 在临的黄昏.
+我起身走了一步, 只是为了了解这种分离是如何表现的.
+身体分离程度令人惊, 肢体感觉很重,
+我自己的感知有点错误.
+身体的每一个部位都比应该更容易地移动, 比我习惯的要多.
+我感到拙,头,缺乏协调,
+对于一个外来观察者来说, 我的姿势可能很奇怪,
+我的四肢是和麻木.
+这类似于任何一种躁狂,清醒的分离剂,如PCP或3-MeO-PCP或3-Me-PCP或3-MeO-PCE,
+精神分离是最重要的, 像一个沉重的重量落在了我的头骨里,
+在视觉上, 一切都是闪和模糊的.
+我心中有一种刺激, 激发着我的心跳, 波动着我的肌肉,
+尽管我只能坐着不动, 但我觉得有义务站起来行动.
+事实上,搬家是一种很棒的感觉.
+这种药物非常适合跳舞或其他体力苛刻的社交活动.
+滴水是打击,这是不愉快的.
+喉的后面会有刺痛和刺激.
+无论我还有什么食欲,
+除了闪和深度感知之外, 没有太多的视觉效果,
+我坐着闭上眼睛, 观看那个空间,
+它们几乎无法感知, 没有任何生动的意义, 但它们转换与一个普遍的感觉永恒的旋转运动,
+我整个视野都在轻轻地振动.
+热的电流到我的手指,脚和四肢.
+现在大多是黑暗, 视觉开始在天空中跳舞,
+远处有一道闪闪发光的光线, 一个巨大的机器的声和尖叫声,
+我站起来,在登上飞机并沉浸在活人世界之前,
+这感觉像一个精心设计的幻想或半形成的记忆从一些滞后的梦.
+我戴上面具,向司机点头,登上车,
+我找到了一个偏的座位, 窗户面向城市的天际线,
+虽然它是清晰而功能性的,
+我注意到我前面坐着一个人,
+我们很久没有见面,他正在从工作回家.
+我们短暂地聊天,世界从我的关注的单一焦点.
+我不太清楚如何在一个充满陌生人的公共场所表现,
+在之前的经历中, 我在参加好朋友和熟人聚会之前服用了这种药物,
+这种感觉似乎很有背景.
+他在郊区的站下车, 我又独自坐在火车上.
+我插上耳机, 听一点不见的&quot;删除花园&quot;.
+我不喜欢我必须坐在这整个火车的旅程,
+我感觉自己就像一个闪光的球,
+我只想跑步,跳跃,炼肌肉,
+我比周围的世界更快, 甚至在这列火车上,
+我到达我的站,然后下火车.
+站起来又能动起来真好.
+让我走得很尬和硬, 但我的步伐有弹,
+我走进一个主要的商业走廊,
+巨大的屏幕将广告中的无菌白光照射到街上,
+视觉的集中式喷泉从灯光中透,
+我突然觉得自己很小, 被虹的火焰击退,
+我躲在一根柱子后面, 拿出我的一把球, 吸几口大麻,
+随着事情愉快地平滑和烟雾的光环在我周围和我的工作衣服的污秽我设置和步骤在阴影中的污垢,从闪闪发光的头顶神隐藏.
+星期五晚上天气很温暖, 人们在外面享受天气.
+我对停下来闻一闻的兴趣不大,
+尽管如此,我偶尔不得不停下来等待交通,绑鞋,回复电话等等.
+我停下来时, 感觉这场经历就像一股巨大的静电潮流.
+建筑物和天空上有漂浮的视觉效果,
+整个世界似乎在慢慢地漂移, 逐渐崩, 我的身体感觉正在入混凝土,
+通过我, 燃烧到大气中, 在光白光中的电冠.
+我在,漂流,头和迷失方向, 但有一种稳定的能量在我的四肢中涌现,
+我回到家, 由于环境的变化,
+从温暖的旋转夜晚充满活力,到安静的暗淡的房子与安静,凉爽,空调.
+在洗之前, 我和我的伴侣短暂交谈,
+感觉是天堂般的刺激, 就像电流在我的静脉中一样.
+浴上的水响起并反响成一种声,
+我的身体感觉,我与这个世界的定, 流下了排水道, 融入了我的长发,
+我通常会洗热水, 但我已经感到温暖, 在温的夜晚走回家,
+让我回到了现实, 让我回到自己的身体.
+我走出门,干净身,穿上衣服时, 感觉相当清醒, 最明显的效果是,
+我和我的伙伴聊了一会儿,
+我有点迷.
+之前服用的较低剂量使我无法停止口.
+这似乎是社交的最佳场所.
+我下楼去,那里更冷, 躺在沙发上.
+我感觉自己已经完全解散了,
+在网上与人交谈,
+感觉不像是3-MeO-PCP或3-MeO-PCE等物质所带来的认知增强, 我只是空虚,快速和分离.
+我会把这种药物的整体头脑空间描述为&quot;浅&quot;的, 真的没有对好奇心,思维流,处理,内省,或模式形成的倾向.
+它是安静和中立的, 但它燃烧明亮和热.
+我对自己的状态感到舒适和满意,
+我已经超越了顶峰, 但墙壁的白色仍有视觉漂流,
+我闭上眼睛, 便是类似的缓慢,稳定的, 辐射运动.
+刺激的感觉已经超过了分离的感觉.
+只有浮动和无重力的感觉, 感觉是的,
+我现在清醒和说话,比以前更有口才和连贯性.
+我只是喜欢躺在这里, 感觉.
+我正在地玩&quot;Minecraft&quot;和听音乐,
+我已经超越了昏迷,超越了愚蠢,现在我被一种刺激的光所吸引,一种中立的高兴感.
+我真的很想再服用, 似乎太快了,
+现在正在玩古老的骑士中世纪战争,
+我的同事下来交流了一会儿.
+身体上的刺激正在消退, 而精神上的刺激和清晰感依然存在.
+现在几乎完全恢复到原来的状态, 除了我的手指尖有些残留的麻木.
+T4:30- 完全下降.
+如果要把3-Me-PCPy描述为什么,
+而这不仅仅是因为它与可卡因共享部分药理.
+短暂,快速,有趣,刺激,高兴,充满快乐,强化,没有承诺.
+它与大多数其他离散词不同, 缺乏深度或内省能力 - - 离散存在, 但没有任何有意义的方式让人思考它们在存在中的作用.
+它似乎很方便地掩盖了这些想法,
+它是完美的工艺为休低承诺使用.
+这并不是说这是一件坏事,
+我认为这是一种很好的派对药物.
+像我混合了可卡因和酒精一样 (尽管3-Me-PCPy没有有毒代谢物可可乙烯的额外好处).
+对于那些容易过度饮食或过度使用的人来说,
+这种短暂的持续时间和令人愉快的冲动使人&quot;追求高潮&quot;, 一次又一次地重新服用.
+尽管我只打算给药一次,
+为了写这篇报告, 我想要捕捉到一次剂量的体验,
+我几乎从来没有使用过这种方法.
+但人们应该小心过度使用, 因为随着重复服用而形成的分离性躁狂很容易转化为刺激性精神病.
+虽然我每天都不使用分离词, 但相对功能性和短暂的使用时间,
+药物的一般特性如下:
+我对分离物有轻微的耐受性, 我倾向于选择更激烈的体验.
+我认为20毫克是剂量上限.
+经验在顶部逐渐平衡. 现在,
+除了更强烈的身体分离感之外,在20和30毫克之间几乎没有明显的差异.
+20毫克感觉像这个化合物的完全体现的效果.
+服用10毫克的剂量令人愉快的社交和温暖和低躁狂, 再次服用5-10毫克的剂量使人与他人共度愉快的夜晚.
+它很有腐蚀性, 燃烧很快, 似乎会造成某种组织损伤,
+虽然这也留下了粘膜上的痛点.
+通过口服的剂量效果稍微微弱,
+目前还没有尝试其他药物注射途径.
+随着注射方式的不同,药物反应很快 - - 鼻内注射剂量在5分钟内开始,随后15-30分钟的时间,大约一个小时的高峰期,以及2 - 4小时的稳定下降期.
+持续时间似乎不会随着剂量增加而增加.
+视觉效果是轻微的,通常由微妙的漂移或辐射形式组成.
+感觉到不断的动作, 不论是像古老的溪流一样不断流动的地形,
+听觉效果带来了良好的共感,
+虽然我确实感觉到离基地很远,
+像电弧一样, 在我的神经上裂.
+这种物质显然具有刺激性,
+这种刺激比其他药物如3-MeO-PCP或3-MeO-PCE的效果更大,
+这种刺激会给体验增加很多动作和动力 - - 它与跳舞或散步等体力活动很好地结合在一起.
+对于那些寻求与熟悉的物质进行比较的人来说,它与3-Me-PCP和PCP具有最大的相似性,
+它们具有浅薄的,享乐的,刺激性的分离的特质.
+虽然这种物质持续时间较长, 刺激程度较低, 身体分离程度较低,
+虽然它们看上去是不同的世界, 但与胺这种更具镇静性的分离剂相比,
+对于三重重吸收抑制剂的活性?
+我不能说这种感觉是我能从药物中分辨出来的, 尽管可能这种自我强化剂量行为和强迫重新服用这种药物是因为这种特性.
+总体而言, 这是一种轻松,有趣的分离剂, 最适合随便使用,
+我可以想象,在如此强大,看似宽恕的东西上, 很容易犯错.
+已使用的资产:
+发布时间:2021年7月30日
+3-Me-PCPy (951):多种 (28),第一次使用 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Revelers Fire
+3-Me-PCPy
+by
+nervewing
+Citation:   nervewing. &quot;Revelers Fire: An Experience with 3-Me-PCPy (exp115645)&quot;.
+Erowid.org
+. Jul 30, 2021. erowid.org/exp/115645
+DOSE:
+20 mg
+insufflated
+3-Me-PCPy
+(powder / crystals)
+BODY WEIGHT:
+130 lb
+Preface: 3-Me-PCPy is an exciting development in the world of Arylcyclohexylamines! Once again I’ll give a brief chemistry/pharmacology primer to contextualize this drug, if that’s not of interest, just skip to the body of the report. And per usual, there is an overall summary of the compound at the end.
+PCPy is a close cousin to PCP- the second “P” in “PCP” denotes a piperidine group, where the essential nitrogen in the compound is part of a hexagonal 6-atom ring structure. PCPy is very close to that, with the nitrogen in a pentagonal 5 member ring, forming what’s called a pyrrolidine group. Both PCP and PCPy and most of their analogues have similar qualities like high potency and stimulating effects.
+PCPy was first onseen as a street drug, made by enterprising basement chemists to try and circumvent laws around manufacturing PCP. Very little information exists on the subjective effects of PCPy itself. 3-MeO-PCPy cropped up on the market briefly around MXE’s heyday, but even then it was an obscurity and very little data trickled out before it too faded into oblivion. 3-Me-PCPy represents an exciting return to a base compound with a lot of potential!
+Personal correspondence with Dr. Jason Wallach and poring through some of his publications brought about some hints as to what effects this compound may have- It was shown to be a triple reuptake inhibitor, meaning it leads to a buildup of the neurotransmitters serotonin, dopamine, and norepinephrine (perhaps the most famous triple reuptake inhibitor is cocaine). This generally can display stimulating effects but it also has interesting implications with regards to antidepressant effects. Much more formal research is needed in this area with this particular compound! A few other scattered reports suggested high potency and subjective stimulating effects. I managed to obtain a sample of this and had to see for myself.
+The short of it is that this is a stimulating potent dissociative with a short duration. The headspace is shallow but it is euphoric and social and prone to redosing. It is not so much a trip as it is a casual high, though a unique and wonderful one at that. Again, at the end of the report is a more detailed summary of this compound and its effects at different doses/overall character, along with other properties pertinent to the batch going around.
+T0:00- I am waiting alone at a train station in my home town, eating some dinner. I had just dropped my car off to a family mechanic for state inspection so I had to take the train back home to the city. It’s a lovely summer afternoon, the sun is getting low in the sky casting everything in a peach-golden light. The trees arc overhead and shimmer in a pastel suburban breeze. My train isn’t coming for another half hour.
+I pour out a pre-measured capsule onto my hand and snort it down in one go.  It burns a lot, bringing tears to my eyes. There is a bitter stinging petroleum flavor typical of ACH’s. This is near unbearable for a minute or two but the pain subsides to a dull numbness.
+T0:05- Already feeling a bit dissociated, just a tad lightheaded and spacy, my extremities feel just a little number. Great dark thunderheads tower and loom and rumble in the distance, timidly lit by the fire of setting sun. Where I am it is balmy and nice, it feels like my feet are floating off the ground. With the onset it seems what appetite I had before has completely dissipated. I wrap up the rest of my dinner and pack it away.
+T0:10- My teeth are numb and buzzy, like I can feel them invisibly vibrating in the gaps in my gums. This is a dissociation that sets into my bones, a high frequency vibration that shakes me into a dull half-anesthesia. I am dizzy now, my head is spinning like I’ve had too much alcohol. I am taken aback by the speed and intensity with which this drug comes crashing in, it has an exhilarating rush. All I can do is sit on my bench and gaze down the tracks into the distance, my dazed attention lapsing into my own skull.
+T0:15- Bearing down harder and harder like that thunderstorm in the distance. My field of vision is flashing, I feel waves of anesthesia pulse through me, I am stimulated and short of breath, there is a sense or rising and inflating in my skull and everything looks blurry except for what’s right before me. It is like extreme tunnel vision, the walls of these hallucinated vitreous tunnels illuminated by flowing pulses of understated light. My sense of depth perspective has all but collapsed, distant buildings and trees telescoping to the forefront of my vision. I am glad I am alone here right now, in the looming dusk.
+T0:25- I get up and pace around a bit just to get a measure of how exactly this dissociation is manifesting. There is a surprising degree of physical dissociation, my limbs feel heavy, well lubricated with excess momentum. My proprioception is led slightly astray. It is like every part of my body is moving easier and more than it should, more than I am used to. I feel clumsy, dizzy, uncoordinated, but I can still walk straight and be steady on my feet. Perhaps to an outside observer my posture is weird and my walk a tad off-kilter but I feel like I could outwardly project relative sobriety. My extremities are buzzing and numb. This is similar to any of the manic, lucid dissociatives out there, PCP or 3-MeO-PCP or 3-Me-PCP or 3-MeO-PCE, though a bit heavier and less precise.
+The mental dissociation rules first and foremost, it is like a big weight has landed in my skull, a pile of bricks that leaves me dazed and listless, confused and baffled by the mere presence of my surroundings. Visually, everything is flashing and blurry. There is a stimulation coursing through my core, conflagrating out from my pounding heart, rippling down my muscles, flashing my anesthetized phantom limbs with vibrating electricity. As content as I am to just sit still I feel obligated to be up and in motion. Moving feels fantastic in fact. This drug would be excellent for dancing or some other physically demanding social activity.
+The drip is hitting and it is unpleasant. It stings and irritates on the way down the back of my throat. Whatever appetite I had left is certainly gone now.
+Beyond the flashing and depth perception there isn’t much in the way of open eyed visuals- not much patterning or color, just strange alterations to perspective, blurring and tunnel vision. I sit and close my eyes to take stock of that space- I am greeted with great pulsing radial images, great turning floral wheels, mostly black but adorned in auras of maroon and yellow ochre. They are hardly perceptible, not vivid by any means, but they turn in tune with a general sense of perpetual rotational motion that carries the dissociation of this experience like the turbulence of an undulating sea.
+T0:30- Everything wobbles and waves, my entire field of vision is gently vibrating. Warm electricity crackles into my fingers and toes and extremities. It is mostly dark now, visuals begin to dance in the sky, radiant and rotational with neon fringes. There is a blast of light glinting off the tracks in the distance, a rumble and a shriek of a great machine, the train is approaching. I stand up and take a second to collect myself before boarding and being immersed in the world of the living. This feels like an elaborate fantasy or a half-formed memory from some lagging dream. I don a mask, give a nod to the conductor and climb aboard, the world taken by vibrations from this rumbling machine of light and the odor of brake fluids. I find a secluded seat towards the back, windows eventually facing the city skyline, and settle in, content to be totally unnoticed. It is lucid and functional, but at the same time quite heavy and off-base.
+I then notice someone sitting right in front of me, another old friend from elementary school who I have previously lived with and shared a number of psychedelic experiences with. We haven’t seen each other in a good long time, he is commuting home from his job. We chat briefly, the world falling away from this singular focus of my attention. Talking and interacting flows smoothly but it also disjointed and uncomfortable- I am not quite sure how to conduct myself in a public space full of strangers, I feel like I would be very content to talk to a person in relative privacy. In a previous experience, I had dosed this drug prior to attending a party of good friends and acquaintances, and it proved delightfully social, making me articulate, commanding attention and brimming with confidence. That sensation seems to be quite contextual. He gets off at his stop in the suburbs and I am again alone on the train. I plug in my headphones and listen to Oneohtrix Point Never’s “Garden of Delete”.
+T0:45- I don’t like that I have to sit still for this entire train ride, that I can’t get up and pace around. My whole body is getting creeping crawling pulses of numbness, I feel like ball lighting, bouncing off the walls with pent up energy. I just want to run and jump and exercise my muscles, but I have to settle for fidgeting in place to not make a scene. I am explosive and tense and existing faster than the world around me, even on this train as it barrels down into the night city, glints of light drifting past.
+T1:00- I arrive at my stop and make my way off the train. It feels so nice to stand up and move again. I am tense and my gait feels awkward and stiff, but there’s a spring in my step, extra energy and extra momentum propelling me forward with a steely determination.
+I have stepped out onto a major commercial corridor, a recent development in this city’s downtown to try and mimic Time’s Square. Massive screens blast sterile white light from advertisements onto the street, reflecting in blue on the asphalt and black granite and filth that coats everything. Concentric fountains of visuals seep from the lights, cascading down in steady ripples, ghostly and subtle but certain. It is dizzying and disorienting and I suddenly feel very small, beaten back by the fires of neon until I am left cowering like a roach in the gutter, small and inconspicuous. I duck behind a pillar and pull out my one hitter, taking a few puffs of cannabis to lighten up the walk home. With things pleasantly smoothed out and an aura of smoke around me and the filth of my work clothes I set out and pace between the shadows in the grime, obscured from the glistening gods overhead.
+T1:10- I walked hurriedly home through the night city, it’s a warm Friday night and of course people are out and about enjoying the weather. I have little interest in stopping and smelling the roses, I would like to just be back in my house. Nevertheless I do occasionally have to stop and wait for traffic, tie my shoe, respond to a message, etc. When I stop it feels like the experience bears down on me like a big gooey tidal wave of static. There are drifting visuals on the buildings and on the sky, like there is shadowy black water flowing down every surface. The whole world feels like its slowly drifting and cascading, and my sense of body is trickling into the concrete and flowing into the gutter. In contrast to this, a glowing energy is rising through me, flaring into the atmosphere in an electric corona crackle in fluorescent white light. I am buzzing, drifting, dizzy and disoriented, but there is a stable energy springing through my limbs, ensuring I remain locked into my path.
+T1:20- I get home and am again thrown for a disorienting loop by the change of setting. From the warm swirling night rippling with energy, to the quiet dim light of the house with still, cool, conditioned air. I interact briefly with my partner and do a few chores before taking a shower. The space is warm and meditative, the sensation of hot water cascading off my body is heavenly stimulation, steaming off of me as electricity courses through my veins. The clatter of water on the tub echoes and reverberates into a cacophony that pummels its way through my skull, pulling me into a trance. My sense of body, my anchoring to our world swirled down the drain to mingle with my languid long hairs, I am left in a daze where I am replaced by a simulacrum of solidified light, a Theseus’ ship that felt naturally at my command, a body rinsed away from the buzzing of electric nerves.
+I usually take scalding hot showers, but I already felt warm, walking all the way home in the balmy night, and the drug felt like it had me warmer too. I turned the water down and savored a gentle cold deluge, the chills shocking me back into reality a bit and pulling me back into my body. I feel fairly lucid when I step out and dry off and dress myself, the most noticeable effect being excess momentum in my movements and a numbness across my skin.
+T1:50- I talk to my partner a bit but can’t really find much to say. I am in a bit of a daze. A lower dose taken previously had me unable to stop running my mouth. It seems there is a sweet spot for socializing. I go downstairs where its colder and plop down nice and clean on the couch. I am buzzing with dissociation and stimulation, but my body feels comfy and not overwrought. It feels nice to stretch out, listen to music, talk to some people online. There is a daze and a dumbness that washes over me, it doesn’t feel like the cognitive enhancement imbued by substances like 3-MeO-PCP or 3-MeO-PCE, I am just empty and fast and dissociated. I would describe the overall headspace of this drug as “shallow”, there really was no tendency towards curiosity, flow of thought, processing, introspection, or pattern formation. It is quiet and neutral, but it burns bright and hot. I am comfortable and satisfied with the state I’m in, if a little restless.
+I am past the peak but there is still a visual drifting on the white of the walls, a messy wash of colors blending together to form a contrasting visual mud. With my eyes closed it is a similar slow, steady, radial motion.
+T2:00- The sensation of stimulation has overtaken the sensation of dissociation. All that remains is a sensation of floatiness and weightlessness, a sensation of being ethereal, of defying gravity from the energy in my veins. I am alert and talkative now, more articulate and coherent than before. I am enjoying just lying here, taking in sensations. I am idly playing Minecraft and listening to music, it seems like a perfectly mindless way to wile away a delightfully mindless experience. I am beyond a daze, beyond dumbness, now I am taken by a stimmy afterglow, a neutral sense of euphoria. I really want to redose, it seems gone too soon, but for the sake of this report I restrain myself.
+T3:00- Playing good ol’ Chivalry Medieval Warfare now, definitely on the downward slope. My partner comes down and interacts for a bit. I feel a bit dazed and the physical stimulation is dying down, while a distinct mental stimulation and clarity remains.
+T4:00- Back to baseline almost entirely now save for some residual numbness in my fingertips.
+T4:30- Entirely down.
+Conclusion: If I had to describe 3-Me-PCPy as anything I would call it dissociative cocaine. And this isn’t just because it supposedly shares a portion of its pharmacology with cocaine. It is short, fast, fun, stimulating, euphoric, hedonistic, reinforcing, and low-commitment. It stands apart from most of the other dissociatives for lacking in depth or introspective ability- the dissociation is there but not in any meaningful way that has one pondering their role in existence. It seems to conveniently obscure such thoughts, or not allow room for them in the first place, just smacking a user up with the physical and mental sensation of dissociation. It is perfectly crafted for casual low-commitment use.
+This isn’t to say this is a bad thing, there are different drugs for different purposes. I see this one as serving the purpose of an excellent party drug. A lower dose in a social setting was delightful, I was articulate, disinhibited and confident, as though I had mixed cocaine and alcohol (though 3-Me-PCPy has the added benefit of not having the toxic metabolite, Cocaethylene).
+One quality I would like to emphasize about this drug is that it could prove quite troublesome to people prone to binging or compulsive use. The short duration and the pleasant rush of the comeup lend to &quot;chasing the high&quot;, redosing again and again. Even in many situations where I only planned on dosing once I found myself reneging on that and redosing anyway. For this report I wanted to capture the experience of a single dose but I really had to hold myself back from dosing again when I got home. In previous weeks I found myself using it multiple days in a row, something I almost never do with dissociatives. It feels light and purely recreational but people should be wary of overuse, as the dissociative mania that builds with repeated doses could easily devolve into the territory of stimulated psychosis. While I don&#x27;t use dissociatives daily, the relative functionality and short duration of this seem dangerous in being a slippery slope into that territory.
+The general qualities of the drug are such:
+Dosage information carries the caveat that I have a slight tolerance to dissociatives and that I tend to opt for more intense experiences. I would consider 20 mg to be an upper cap on dosage. I ventured beyond that but there seems to be diminishing returns, with the experience asymptotically leveling out at the top. There was little discernible difference between 20 and 30 mg beyond a greater sense of physical dissociation. 20 mg felt like the fully fleshed effects of this compound. A 10 mg dose was delightfully social and warm and hypomanic, and redosing 5-10 mg bumps spaced hours after an initial dose made for a fun night spent with others.
+It is quite caustic to snort, burning intensely for a short time and seeming to cause some sort of tissue damage that can lead to nosebleeds the next day. Sublingual dosing was the same potency, though this too left a sore spot on the mucus membrane. Oral dosage was a bit less potent, but with a much longer comeup and less of a rush. No other routes of administration have been attempted yet.
+It hits fast depending on route of administration- Onset for an intranasal dose is within 5 minutes, followed by a 15–30-minute comeup, about an hour peak, and a steady comedown for 2-4 hours. Duration did not seem to increase with a higher dose.
+Visual effects are light, often consisting of subtle drifting or radial forms. There is a sense of constant motion, whether it be textures perpetually flowing like an ancient creek or the dizzying steady rotation that took hold when I closed my eyes. Auditory effects had a nice synesthesia with tingling physical sensations. It was mildly physically dissociating, not impairing movement enough to interfere with walking around in public, though I definitely felt a good distance off-base. There were sensations of creeping dissociation, crackling down my nerves like arcs of electricity. This substance is distinctly stimulating, though not overwhelmingly so. The stimulation exists in greater proportion to the other effects relative to drugs like 3-MeO-PCP or 3-MeO-PCE though I would still distinctly classify this as a stimulating dissociative rather than vice versa. The stimulation adds a lot of motion and momentum to the experience-it pairs well with physical activity like dancing or just going for a walk.
+For those seeking a comparison to familiar substances, it bears the most similarity to 3-Me-PCP and PCP, a moot comparison because those drugs are fairly uncommon. It shares a quality of shallow, hedonistic, stimulating dissociation. Perhaps the next closest thing would be 3-MeO-PCP, though that substance is longer lasting, less stimulating, less physically dissociating, more introspective, more visual, and more psychedelic. They seem worlds apart, though when compared to a more sedating dissociative like ketamine, they can clearly be classified together. As for the triple reuptake inhibitor activity? I cannot say this is a sensation I can discretely pick out from a drug, though perhaps the self-reinforcing dosage behavior and compulsion to redose this drug is because of that property.
+Overall, this is a light, fun dissociative that is best for casual use, a fantastic and low-commitment party drug that shines in social settings. Nevertheless, it should be approached with caution and the utmost responsibility, I can imagine it would be very easy to make mistakes with something so potent and seemingly forgiving.
+Exp Year: 2021
+ExpID: 115645
+Gender: Not Specified
+Age at time of experience: 26
+Published: Jul 30, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3-Me-PCPy (951) : Various (28), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

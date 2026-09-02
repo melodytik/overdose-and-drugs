@@ -1,0 +1,321 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>和 - 埃罗维德探险 - &quot;感受森林&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dom.html'>← DOM</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>和 - 埃罗维德探险 - &quot;感受森林&quot;</h1>
+<div class='sub-title'>DOM &amp; Hash - Erowid Exp - &#x27;To Feel the Forest&#x27;</div>
+<div class='meta'>作者：lama Citation · 日期：Mar 25, 2020 · <a href='https://erowid.org/experiences/exp.php?ID=105358' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我将讲述我第一次真正的DOM (又称STP) 之旅的故事,
+我说这是我第一次真正的旅行,
+不幸的是, 多姆仍然是一个研究化学物质,
+这很好!
+给了我很长一段时间的精力和一些迷幻思维.
+给了我很长一段时间的精力和一些迷幻思维.
+我觉得跳舞是很好的, 我已经在那里感觉到了和平与能量,
+我在跳舞和在周围之间做了很多改变,
+我觉得自己已经准备好接受五毫克药.
+我称之为我的第一次DOM之旅, 因为5毫克与2.5毫克有很大不同,
+我19岁,没有太多经验, 刚刚开始深入我的脑海,
+在未来为我而来.
+我真的很喜欢吸大麻, 我有很多的MDMA,2C-B和几个好的旅行在 (不超过2g) 举个最重要的.
+除此之外,还有阿曼尼塔 (也出现在报告中),沙尔维亚和安非他命.
+我已经学会了一些关于迷幻精神状态以及如何享受它的东西,
+故事:
+我在九月中旬的周末在我的旧公寓里度过, 我有一个朋友仍然住在那里,
+我携带了一些非法物品, 包括5毫克的DOM-tabs,
+周六上午11点20分, 乔西醒来后,
+11.20 = +0 时间
+我喜欢躺在阳光下, 不喜欢DOM的苦味,
+我把它放在舌头下面, 直到它失去它最苦的味道.
+摄入后 20 分钟.
+像在火车到达前听到火车在轨道上, 带你去旅行;) 从此我感觉到能量会慢慢增加.
+由于我们在丹麦的一个海边小镇, 沿着海岸有一片受欢迎的森林, 我们决定在这片森林中度过一天.
+我对此持怀疑态度, 因为要到达那里, 我们必须经过公共空间,
+森林是旅行的完美背景!
+我完全没有恶心或胃部问题,
+很多人写的恶心与DOM和一般的,所以我没有吃早餐和我的最后一顿饭是ca.
+十个小时前
+虽然我的食道感觉不舒服, 像2C-B一样紧张.
+感觉好像我的思维和感觉中心从我的大脑中移出,现在在我头上几厘米.
+这似乎也提升了我的身体,这就是为什么我漂浮.
+随着时间的推移,DOM变得越来越强烈,
++2.30:我们终于进入了森林, 我也开始了我的旅程,
+它们似乎从自身中发出光,
+眼睛有点开放, 但没有明显的表现.
+我们在树下休息一会儿,
+现在我真的把注意力集中在内心, 我在行动上有些困惑,
+我觉得我的头脑很清晰,我的想法是自由,清晰和透明的.
+这也许是人们说它更像是梅斯卡林而不是LSD的原因 (虽然我不能说,
+我在一段时间后进入强烈的惚状态, 在这种状态中,
+能量自由地流出我的身体, 环绕我的头部, 不像人们想象的那样,
+呼吸速度如此缓慢而安静, 几乎没有人能感觉到,
+实际上,我对周围的环境非常有意识, 我的感官都增强了.
+乔西突然打断了我的惚, 我又坐在森林里,
+我是个冷静的人, 但我从来没有经历过如此美妙和强烈的平静,
+在这种惚之后, 乔西告诉我她现在已经有了很好的接触!
+接触性高是迷幻药物使用的一个有趣的方面, 时不时出现在文献中, 但对此不太了解.
+但现在它是真实的!
+这绝对证明了人类之间存在更高层次的联系,
+她感觉到身体的负荷,高和其他特征性事,
+她告诉我这感觉就像在一个子轮上 (就像一个循环,
+她的旅行从现在开始, 持续到明天,
+卡特里亚+3:在这一点上, 我们吸了第一支现在是我们共同旅行的烟.
+这使得初始的峰值升空, 哈希加剧了内心的平静感以及颜色和光敏感性.
+视觉效果也更明显, 但它们从来没有占据过体验的首要位置.
+我可以随心所欲地让它们出现和消失,
+如果没有这种能力, 我可能根本就没有OEV.
+尽管天空中总是有一种光线,透明的&quot;迷幻图案&quot;,
+这里的小碎片大多是六角形的,
+但这次旅程绝对致力于更高层次的思想和感受,
+这次旅程绝对致力于更高的思想和感觉, 由于清晰和纯洁的强烈感觉
+没有.
+我再次陷入了惚, 在所有方面都类似于上面描述的, 但更深.
+这两种惚状态始于一次深呼吸,
+过了一会儿, 我开始慢慢地呼吸,
+我没有任何帮助 (例如
+这使得它变得有趣的是,它像冥想那样专注于呼吸.
+后来我会有更多的状态,
+我们继续穿过森林到一个小海, 森林变得越来越神奇美丽.
+阳光透树枝, 给它带来令人振奋的新鲜, 但也梦幻的外观.
+森林已经是非常特别的我们, 乔西甚至玩很多当她年轻的时候, 成为一个迷人的森林或者它是迷人的所有的时间,
+我觉得与森林的光明,光明和开放的一面以及黑暗和神秘的一面,
+在这些阴暗的空间生长的各种类型的只会增加神秘感.
+我们到达海后再抽一支烟.
+我觉得这是一片平原, 我享受在沙上躺下欣赏风景的小休息.
+沙上还有大约10个人 (这个人数很小),
+我可以很容易地处理这种情况, 虽然我通常是焦虑和不舒服与清醒的外国人周围, 而在迷幻药.
+但在DOM上这似乎是可以的,甚至有趣.
+之前提到的透明的&quot;迷幻模式&quot;不再固定在天空上, 而是随着云流移动.
+它是三维移动在许多层, 漂浮在各个方向和伸展时不时.
+这真的是令人愉快的, 这是我第一次在3D中看到OEV.
+我需要很长一段时间才意识到, 实际上有两股巨大的风流正面撞到对方,
+云层似乎正在爆炸!
+乔西必须证实我看到的几次.
+这场戏比之前的视觉更令人惊叹.
+接下来是另一个奇怪的戏剧:乔西和我刚刚谈论结婚,
+他们在距离我们30米的地方进行专业拍摄,
+这太好笑了!
+整个风景都很美丽, 但在DOM中, 这场景变得不真实,
+我们回到森林中, 到了森林中间的一个大草地,
+我们希望在这里收集众所周知的Amanita Muscaria.
+情况很好 (白和狗的狗) 但我们没有找到去年那么多.
+乔西赤脚,不能在草地上散步, 所以她了一根烟草, 我正在寻找一些,
+我们抽了大便,但我们都感到很高兴.
+我们享受着令人难以置信的无时无刻的宁静,
+我们沿着海岸线走小路.
+我与魔幻森林的内在联系正大大增强, 无处不在有大量不同种类的,
+这一定是高迪所感受到的,
+这是一个令人难以置信的美景,
+我们决定停留在一个特别坚固的树上,
+现在的效果正在消失,
+我们在一段时间后回家,面对日落.
++9:当我们终于到达共享公寓时, 我们都很累,
+我躺在阳台上,听一些Shpongle和奥特.
+现在, 迷幻的效果正在迅速消失, 而的,不舒服的, 类似于安非他命的效果依然存在,
++12:乔西又醒来了,我们抽了一根烟,然后试着睡觉.
+失眠也没有帮助我.
+失眠也没有帮助我.
+这让我对这次&quot;充实&quot;的旅行有了苦味.
+我可以继续前进, 带着所有美好的回忆.
+最终睡了一会儿,
+我不知道在早上如何处理内在的能量,
+身体完全疲且有点过热.
+这种感觉持续到+36.
++36:这是最后一次睡觉.
+虽然我的身体还需要一天的再生时间 (因为今天是星期一,
+后果:
+这是一个真正的精神体验.
+我觉得&quot;灵性&quot;这个词的含义更大,
+这些想法对我来说并不新鲜, 但在思考和感受之间有很大的区别.
+我感觉到无处不在的精神和生命!
+旅行中有一些特别有趣的方面, 首先是接触,
+其次是深度惚状态,
+冥想时的这种完全平静和惚感,
+这些被DOM驱动的惚感觉就像一个佛教禅师在深度冥想时所感受到的感觉,
+这让我重新对佛教和冥想产生兴趣, 从那时起, 我开始比以往更多地冥想 (几乎每天),
+但这不仅仅是关于灵魂的 - - 也是娱乐的.
+感觉很好, 再次回到那种迷幻的思维模式,
+我也很喜欢它是如此持久.
+我从来没有在上超过四到五个小时,而这次是两倍的时间.
+经过8个小时的, 我很疲,
+这就是为什么我不会去超过5毫克.
+对于我来说, 无聊的安非他命效果, 付出了一点小代价,
+宁静与和平是真实的!
+我只会加上清晰度, 你必须看着设置和设置, 因为我认为DOM/STP(+L) 也可以很容易变得有点邪恶,
+这次旅行发生在一个对我来说变化的时代, 这是一个美丽而永恒的假期,
+无论未来我经历什么, 我永远都会知道这样的完美真的存在.
+谢谢你乔西
+和平与爱
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>To Feel the Forest
+DOM &amp; Hash
+by
+lama
+Citation:   lama. &quot;To Feel the Forest: An Experience with DOM &amp; Hash (exp105358)&quot;.
+Erowid.org
+. Mar 25, 2020. erowid.org/exp/105358
+DOSE:
+repeated
+smoked
+Cannabis - Hash
+5 mg
+sublingual
+DOM
+(blotter / tab)
+BODY WEIGHT:
+68 kg
+Here I will tell the story of my first real DOM (aka STP) - trip, which was a peaceful and spiritual journey through a magical forest, a timeless vacation with a good friend of mine.
+I say my first &#x27;real&#x27; trip because I already tried 2,5 mg to test the water. Unfortunately DOM still is a research chemical after all the years – there&#x27;s not much reliable information to find on the net except of the reports, so I figured it would be a good idea to start low. And that was fine! 2,5 mg gave me a good level of energy for a long time and a bit of the psychedelic mindset.
+2,5 mg gave me a good level of energy for a long time and a bit of the psychedelic mindset.
+That was at Waldfrieden, a psytrance festival and I figured that it was good to dance and I already there felt the peace with the energy on top of it, that DOM gives. I changed a lot between dancing and just hanging around and it was a nice day, but definitely low dose.
+So after realizing that the things people wrote in their reports also apply to me (which is not always sure with psychs) I felt much more safe and ready for the 5mg. Nevertheless I call it my first DOM-trip because the 5mg was so different from the 2.5mg and maybe it is not the strongest intoxication, but for sure the strongest change of consciousness for me to date. A bit about me: I&#x27;m 19, not that experienced and just beginning to dive deeper in my mind than ever, slowly beginning to see all the mysteries to
+come in the future for me. I really enjoy smoking pot and I had a lot of MDMA, 2C-B and a few good trips on Shrooms (not over 2g) to name the most important. Other than that there was the Amanita Muscaria (also to appear in the report ;) ), Salvia and amphetamine. I already learned a few things about the psychedelic state of mind and how to enjoy it, so it feels like coming back to a beautiful hidden garden in my mind, I call home with joy every time I am there.
+The Story:
+I spend the weekend in mid September at my old flat share with a friend of mine still living there and Josi, who will be my tripsitter and who I haven&#x27;t seen all summer long, because she just came back from Indonesia. I carried some illegal things along including 5mg DOM-tabs and there it is - the rare chance to do a 7-hour trip with a good friend on a sunny day with the last warmth of the summer. I take the chance and the DOM on Saturday morning at 11.20 after waking Josi with a morning-joint.
+11.20 = +0
++0: I enjoy lying in the sun outside, while not enjoying the bitter taste of the DOM but – I knew that before. I leave the tab under my tongue until it looses its taste of the most bitter thing I&#x27;ve ever tasted – that is ca. 20 min after ingestion.
++1: Josi leaves for meditation and I begin to feel the little nervousness of something big to come, like when you hear a train on the tracks long before it arrives and takes you on a trip ;) From here on I feel the energy increasing very slowly and constantly.
++2: As we are in a small Danish town by the sea and there is a beloved forest along the coast, we decide to spend the day and trip in this forest. At first I am sceptical about that because we have to go through public space to get there and I&#x27;m already in the psychedelic mindset - the peak is about to come, but after getting there I am really grateful that Josi convinced me of going. The forest is the perfect setting for the trip!
+I don&#x27;t have any nausea or stomach problems at all, which surprises me in a positive manner. A lot of people write about nausea with DOM and with tripping in general so I didn&#x27;t eat for breakfast and my last meal was ca. 10 hours ago. That payed off I would say :) The hunger faded with the increase of the energy but from now on and all through the trip I can eat a little in between and it&#x27;s tasty although my gullet feels uncomfortably tightened like with 2C-B. As we go to the forest I&#x27;m not going I am rather floating – it feels like my centre of thinking and feeling moved out of my brain and is now a few centimetres over my head. This seems to lift my body too and that&#x27;s why I&#x27;m floating. The DOM gets more and more intense as we go, there are short rushes of energy in between.
++2.30 : As we finally enter the forest, I also enter my trip and the forest welcomes me with some nice colours. They seem to shine out of themselves so that for example a bunch of red berries becomes a swirling red cloud of light and colour. So yes there are the enhanced colours and a bit open eye visuals, but it&#x27;s not pronounced.
++2.40 : We rest under the trees for a while and I&#x27;m still in the coming up. I&#x27;m really focused inwards by now and I&#x27;m a bit confused in my actions, but don&#x27;t feel confused. I feel very &#x27;clear headed&#x27; or high – my thoughts are free, lucid and transparent. This probably is what lets the people say it&#x27;s more like mescaline than LSD (though I can&#x27;t tell because I haven&#x27;t tried either of these).  I get into a strong state of trance after a while in which the energy, that got enormous yet not overwhelming, focuses. The energy is flowing freely out of my body and around my head, focusing not as one might think on one spot, but in a long vertical gap right before me. Meanwhile my eyes are closed and my breathing is so slow and quiet that it is almost not perceptible, yet I am more than fully conscious of it. In fact I&#x27;m very conscious of all of my surroundings and all my senses are increased.  Josi interrupts the trance sudden and I&#x27;m sitting in the forest again, surprised about this deep experience. I am more of a chill guy, but I&#x27;ve never been in such wonderful and strong peace like that and when I meditate I&#x27;m far away from such a feeling.
+After this trance Josi tells me she has a good contact-high by now! The contact-high is an interesting aspect of psychedelic drug use and appears from time to time in the literature but not much is known about it. But now it is real! This is a definite proof of a higher connection between human beings that no one can refuse. She feels the body load, the high and other characteristic tripping things like a changed perception of time. For example later as we go she tells me it feels like going on a hamster wheel (like a loop it&#x27;s always the same and we don&#x27;t get forward). Her trip lasts from now on throughout my trip until tomorrow and probably benefits from all the hash we smoke on the way and from Josi&#x27;s previous drug experiences (she&#x27;s a bit more experienced than me).
+Ca. +3: At this point we smoke the first joint of what now is our mutual trip. This lets the beginning peak lift off into space, the hash intensifies the feeling of inner peace as well as the colour- and primarily the light sensitivity. The visuals are more pronounced too, but they&#x27;re at no point in the foreground of the experience. I can let them appear and disappear as I wish, something I learned from previous trips. Without this ability I probably wouldn&#x27;t have any OEV&#x27;s at all. Though there constantly is a light, transparent &#x27;psychedelic pattern&#x27; covering the sky, like with shrooms, 2c-b and even very pure MDMA sometimes. Here the tiny pieces it&#x27;s made of are mostly hexagonal and surprisingly more profane (less details and ornaments) than with other drugs.  There also is the typical tunnel vision and getting lost in details, but the trip is definitely devoted to the higher thoughts and feelings, due to the strong feeling of clarity and purity
+the trip is definitely devoted to the higher thoughts and feelings, due to the strong feeling of clarity and purity
+.
+Again I enter into a trance, in all aspects similar to the one described above, but even deeper. Both states of trance began with a single deep breath, followed by a long silence and breathing pause. After a while I begin breathing very slow and and constantly. I reached these states without any help (e.g. In form of actually trying to meditate) what makes it interesting that it&#x27;s focused so much on the breathing like in meditation. Later I will have more of these states patterned after the first two, but not as strong and shorter.
+Ca. +4: We continue our walk through the forest to a small beach and as we go the forest becomes more and more magic and beautiful. The sunlight shines bright through the branches of the trees, giving an uplifting, fresh but also dreamy look to where it comes through. The forest that was already very special to us, Josi even played a lot in it when she was young, becomes an enchanted forest – or it rather was enchanted all the time and now I realize it&#x27;s full beauty. I feel a connection to the light, shining and open side of the forest as well as to the dark and mystical side, that always coexists with the light side. The various types of mushrooms growing in these shady spaces only add to the mystic feeling.
+Ca. +5: As we arrive at the beach we smoke another joint. I feel this is kind of a plateau now and I&#x27;m enjoying the little breather just lying in the sand and watching the scenery. There are about 10 other people on the beach (that is pretty small), just a few families and ramblers. I can handle that situation pretty easily although I&#x27;m usually anxious and uncomfortable with sober foreigners around while on psychedelics. But on DOM that seems ok and is even amusing.
+I entertain myself a bit with the clouds, which are always good for some nice visuals ;) The previous mentioned transparent &#x27;psychedelic pattern&#x27; isn&#x27;t fixed to the sky anymore, but is moving with the clouds. It is moving in three dimensions in many layers, floating in all directions and stretching from time to time. It is truly enjoyable and the first time I see OEV&#x27;s like that in 3D.
+It takes quite a bit of time for me to realize that there in reality are crashing two enormous wind-streams frontal into each other with their clouds whirling and giving me the 3D-effect. The clouds seem to explode! Josi has to confirm what I see several times. This spectacle is even more tremendous as the visuals before – well sometimes reality is the most fascinating... This is followed by the next spectacle, which was rather a curious play: Josi and me just talked about marriage, when suddenly a bridal couple (in real life) in full attire appears. They make a professional photo-shooting about 30 meters away from us, two tripping hippies. It&#x27;s hilarious! It&#x27;s understandable, the weather is nice and the huge roots, on which they sit, and the whole scenery is beautiful but with DOM this scene becomes unreal and of course really funny.
+Ca. +6.30: We go back in the forest and on to a big meadow in the middle of the forest, with lonesome birches, some yaks and the sea glittering through the trees. It is here we want to collect the well known Amanita Muscaria. The circumstances are good (birches and the yak&#x27;s shit) but we don&#x27;t find as many as last year. Josi is barefoot and can&#x27;t go on the meadow with all it&#x27;s prickles, so she rolls a joint and I&#x27;m looking for some mushrooms - starting an epic journey through all kinds of different landscapes like I was a giant. We smoke the joint and both still feel pretty trippy. We enjoy this incredible timeless peace all around, it is the best vacation we can think of.
+Ca. +7.30: We go back on smaller paths along the coastline. At this point my inner connection to the enchanted forest is increasing enormously, there are tons of different mushrooms everywhere – some are even glowing – and the strong trees, reaching up to the ceiling, filled with bright light. That must have been the feeling that Gaudi felt, and that he expressed in the Sagrada Familia. It was an incredibly beautiful sight and an even more beautiful feeling.
+Ca. +8: We decide to stay at a particularly strong tree and smoke one more joint. The effects are now fading, but really really slow. We go &#x27;home&#x27; after a while, facing the sunset.
++9: When we finally arrive at the flat-share we&#x27;re both pretty worn out and Josi falls asleep easily, but I&#x27;m still far too much into it. I lie on the balcony, listening to some Shpongle and Ott. The psychedelic aspect is now fading faster, while the shaking, uncomfortable amphetamine-like aspect stays the same, but gets more pronounced as it isn&#x27;t &#x27;hidden&#x27; anymore.
++12: Josi wakes up again, we smoke a joint and then try to sleep. I can&#x27;t sleep though and the night is filled with tears and inner emotional conflicts – the insomnia doesn&#x27;t help.
+I can&#x27;t sleep though and the night is filled with tears and inner emotional conflicts – the insomnia doesn&#x27;t help.
+This adds a bitter aftertaste to the &#x27;fulfilled&#x27; trip I had. But the next day things get clear up again, I get free from these worries and can move on, taking all the good memories with me.
+Ca. +16: Finally a bit of sleep, but only 3-4 hours. I don&#x27;t know what do do with the inner energy in the morning and it really irritates me. Later that day my head is still spinning and my body is totally worn out and a little overheated. This feeling lasts until +36.
++36: This is the final sleep. The next day I&#x27;m fine and all effects are gone although my body needs one more day for regeneration (that&#x27;s just in time as it is Monday and I&#x27;m sitting in architecture school again).
+The Aftermath:
+This experience was a really spiritual one. I think I understood the word &#x27;spiritual&#x27; a bit more in terms of actually experiencing the divine within and in nature. These thoughts are not new to me but there&#x27;s a huge difference between thinking something and feeling something. And I felt the spirit and life that was everywhere!
+There were some aspects in this trip that were especially interesting, firstly the contact-high which revealed the connection between us on a higher level, which I do not fully understand, only know of its existence. And secondly the deep states of trance that really were meditation-alike. These feelings of total peace and trance while meditating are subject to many Buddhist teachings (I&#x27;m particularly interested in Tibetan Buddhism). These trances fuelled by DOM felt like what I would think a Buddhist master of meditation feels when he&#x27;s in deep meditation fuelled just by his mind. This got me interested in Buddhism and meditation again and from then on I&#x27;m meditating more than ever (more or less daily), so that&#x27;s a really good long-lasting side-effect in a way :)
+But it was not only about the spirits - it was recreational, too. It felt so good to be in that psychedelic mindset again, where nothing really matters, yet everything is more important than ever. I also enjoyed the fact that it&#x27;s so long lasting. I never tripped longer than four or five hours on shrooms and this was double as long. But it shouldn&#x27;t be longer I think – after 8 hours of tripping, I was pretty worn out and glad to come down a bit. That&#x27;s why I wouldn&#x27;t go for more than 5 mg. And there is a small price to pay with the (for me) uncomfortable amphetamine-effect, but it&#x27;s absolutely worth it! The Serenity, Tranquillity and Peace are real! I can agree to what the hippies once stated about this drug – I would only add Lucidity to it and you have to watch set and setting, because I think DOM/STP(+L) can also turn a bit evil pretty easily, as history already taught us (especially of course at higher doses that bring about a much longer duration).
+The trip took place in a time of change for me and it came just right as a beautiful and timeless vacation but I had some problems integrating the spiritual experience at first, it kind of added onto the already existing confusion about a lot of things, but also gave me a key to solve some of the confusion after a while.
+After all the trip was perfect and whatever I will go through in the future – I will always know that perfection like this really exists.
+Thank you josi
+Peace and love
+Exp Year: 2014
+ExpID: 105358
+Gender: Male
+Age at time of experience: 19
+Published: Mar 25, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOM (20) : First Times (2), Combinations (3), Nature / Outdoors (23), Glowing Experiences (4), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

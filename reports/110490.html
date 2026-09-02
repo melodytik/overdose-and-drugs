@@ -1,0 +1,285 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>电脑游戏&quot;跳舞的电子木军队&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-meo-pce.html'>← 3-MEO-PCE</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>电脑游戏&quot;跳舞的电子木军队&quot;</h1>
+<div class='sub-title'>3-MeO-PCE - Erowid Exp - &#x27;The Dancing Electronic Terracotta Army&#x27;</div>
+<div class='meta'>作者：W From Reddit Collection Citation · 日期：Sep 29, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=110490' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>舞蹈的电子土耳其人军队
+经过几次与3-MeO-PCE的愉快经历,
+我和一些朋友决定去.
+我想要在一个新的环境中体验这种物质,
+根据之前的经验和阅读其他报告, 我选择每剂10 - 15毫克, 每隔2小时重新注射一次.
+我用50毫克分成两半, 每剂量约为12.5毫克,
+由于我读到这种化学物质可以再用几乎无限期, 我重复了三次, 结局为我和我的朋友共用了12剂,
+我迫不及待地想去, 很遗憾他还有8个小时,
+我最后一次摄入的阿里环胺是2-Oxo-PCE,大约1个月前与其他分离剂的定期旅行,与1-2周之间的旅行几乎3个月之前.
+这意味着我的宽容应该是微不足道的.
+我离开家去另一个朋友家, 在去场地之前, 我们都会在那儿见面.
+现在还没有太多人, 我们坐在一起.
+在我把两封微妙的纸包中的强化学物质排到手机屏幕上之前,
+我以前也曾用口服和直肠吸食过,
+在触及粘膜后, 开始燃烧, 慢慢地在喉下流,
+接下来的几分钟里, 鼻子的一半会稍微麻木,
+我之前好奇的朋友在吸入粉末后立即发,
+幸运的是我带来了液鼻喷剂,
+现在我们等待.
+经过15分钟, 我注意到3-MeO-PCE的第一个示意图,
+我朋友在这剂量之前喝了一杯酒,
+在接下来的半小时内,效应进一步增加,SRI成分仍然存在,NDMAr对抗开始发挥作用.
+视野是扭曲的熟悉,但难以描述的方式轻柔的焦点.
+所有的运动都感觉像空气是粘性液体.
+这是一种愉快的感觉.
+其他人在外面抽烟, 其他人在公寓里散步,
+我觉得吸气的生物可用性不如直肠道那么高, 这剂量并没有像我想要的那样深入.
+虽然回想起来, 我相信这主要是由于环境的分心,
+经过一些说服我的朋友, 约2小时前我已经传教从来没有重新注射早于2小时, 我们深入到第二个从下一个两个纸容器在约1:45小时后初始剂量.
+效果越来越严重,第一剂仍然有效,而且缓慢地消失.
+这种药物使用时需要注意分阶剂量.
+随着这个剂量我变得更安静和分离克服我.
+偶尔我发现自己着墙壁在几分钟的不确定的和不可取消的想法.
+我仍然和身边的朋友们交谈, 但与他们交谈并不一定很舒服,
+你为什么要和别人说话,
+音乐的风格通常是我完全不喜欢的.
+现在,坐在沙发上, 闭上眼睛, 我能够理解这些艺术家们几乎用魔法的方式通过他们的歌词和节奏来传达的烦.
+我们作为一个人并不孤单,
+我们有彼此.
+我在晚上经历的多层次自我解体的开始, 美丽和快乐的时刻.
+我们等待一个时间窗口走到俱乐部的短距离.
+最后它停止了,我们决定去, 但是在我和朋友慢慢地用另一张纸盘的内容覆盖我们的鼻腔粘膜之前,
+我意识到自己是多么醉酒,
+我并不是完全失能, 但每走几步,
+我们赶紧走过10分钟的路程, 在最后一剂药物影响包裹我们之前到达场地,
+终于到了俱乐部,
+我们购买一些非酒精饮料,
+我对接下来的几个小时的记忆很模糊, 但我记得一件事:
+在舞台上,闭上眼睛, 我进入另一个世界.
+我从来没有亲眼看到这种物质, 我现在看到微弱的碎形图案,
+我完全失去了自己跳舞.
+我不觉得我在任何地方,只要我闭上眼睛.
+我不觉得我在任何地方,只要我闭上眼睛.
+现在我们可以看到中国的土壤军队, 但不是石头的士兵,
+每个人都在孤独地跳舞,但却在一起.
+我不知道自己是谁, 但为什么我会想知道, 在这个令人难以置信的互联状态.
+我只要闭上眼睛,即使只是一秒钟, 不被舞场上的其他人撞到,
+我完全离开了这个地方, 只是被单调而又普遍的电子音乐所包围.
+我现在感到羞愧, 因为我无法找到正确的表达.
+我常常去所, 在拥挤的俱乐部里,
+现在我几乎是反社会, 为什么要和我的几个朋友打交道,
+3-MeO-PCE的分离特性使其既适合又危险,
+我注意到这种效果慢慢消失, 促使我吃下今晚的最后一剂.
+这并不容易, 身体的醉酒和对正常过程的困惑似乎随着剂量而变得摇摇欲,
+或许我只是想更深入.
+我很快就说再见了, 却迫切地想重复地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地地.
+每次我在良心的短暂游览后开眼睛, 我发现自己在舞场上大大移动,
+我总是很困惑, 在我打开眼睛之后,
+晚上最后一剂药后大约两小时,
+我们聊了一会儿,
+我确实觉得跟他说话很奇怪, 我不能自然地与他交谈,
+我不能自然地与他交谈,而是很尬地强迫他问我问题.
+尤其是在我分离状态下.
+尽管如此,我很高兴在很长一段时间后偶然遇见他.
+我遇到了另一个朋友, 我们跳了一段时间.
+现在我仍然有相当大的刺激,
+我闭上眼睛, 就看不到电压和跳舞的军队了.
+科技俱乐部的音乐确实会变得黑暗,激烈和不必要的响亮.
+我决定去.
+我向朋友们说再见,然后走去拿克回家.
+在最后一剂后大约2:30到3小时,效果明显减弱.
+虽然身体上的分离依然很明显, 但混却消失了,
+我慢慢地回家, 几乎花了我平时的两倍时间.
+吃香, 喝牛奶, 一直在发短信给那个和我分享这种药物的朋友,
+我在最后一剂药后大约3点20分就上床睡觉, 一瞬间就入睡了, 直到9个小时后才醒来, 完全休息, 感觉非常好,
+这是一个令人难以置信的夜晚.
+我在朋友家度过的时光, 我对这种物质没有太多的乐趣,
+但如果与胺相提并论, 这种物质在这种情况下似乎几乎是完美的.
+我心率和血压没有像经典兴奋剂和它们的上腺素作用那样不必要而不舒服地增加,
+尽管如此, 我肯定会等待至少一个月,
+我不想破坏这种魔力.
+其他:
+3-MEO-PCE (536):俱乐部/酒吧 (25),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Dancing Electronic Terracotta Army
+3-MeO-PCE
+by
+W
+From
+Reddit Collection
+Citation:   W. &quot;The Dancing Electronic Terracotta Army: An Experience with 3-MeO-PCE (exp110490)&quot;.
+Erowid.org
+. Sep 29, 2017. erowid.org/exp/110490
+DOSE:
+T+ 0:00
+12.5 mg
+insufflated
+3-MEO-PCE
+(powder / crystals)
+T+ 1:45
+12.5 mg
+insufflated
+3-MEO-PCE
+(powder / crystals)
+T+ 3:35
+12.5 mg
+insufflated
+3-MEO-PCE
+(powder / crystals)
+T+ 5:45
+12.5 mg
+insufflated
+3-MEO-PCE
+(powder / crystals)
+BODY WEIGHT:
+70 kg
+The dancing electronic Terracotta Army
+After a few lovely past experiences with 3-MeO-PCE by myself in quiet settings I decided to go dance to some techno music on it.
+A somewhat well known DJ was playing a venue in my hometown and some friends and I decided to go. I wanted to experience the substance in a new setting and a friend of mine was too intrigued to forego this chance to try it for the first time.
+From previous experiences and reading other reports I opted for 10-15mg per dose, with redosing about every 2 hours. I measured 50mg and split it in half twice to end up with around 12.5mg per dose which I carefully packed into little paper envelopes I fastidiously cut up and folded. Since I had read that this chemical may be redosed almost indefinitely, I repeated the weighing and folding process thrice to end up with 12 doses total for my friend and me, all while tracks of the DJ playing later tonight hummed quietly from my speakers in the background. I couldn’t wait to go, too bad there were still around 8 hours until he’d finally take control of the turntables that were to guide my conscience.
+The last Arylcyclohexylamine I ingested was 2’-Oxo-PCE, around 1 month prior with regular trips on other dissociatives with 1-2 weeks between trips for almost 3 months before that. This is to say that my tolerance should be negligible.
+Fast-forward — some waiting in excitement, reading, and eating — I leave the house to go to another friend’s, where we’re all meeting up before going to the venue. Not many people are there yet and we sit down together. I again recite what we can expect from the 3-MeO-PCE from my previous experiences, before I empty the potent chemical contents of two of the delicate paper envelopes onto my phone’s screen. This is to be first time for me to insufflate this chemical too, previously I ingested it orally and rectally, with the rectal still my preferred — yet in public somewhat awkward — ROA.
+The 3-MeO-PCE smells weird and begins to burn some seconds after hitting the mucous membranes, slowly travelling down the throat into a slightly burning and disgustingly chemical but bearable drip. I feel it ever so slightly numbing half of my nose over the next minutes, but this is hardly noticeable. My earlier intrigued friend falls into a sneezing fit immediately after insufflating the powder, a most likely allergic reaction he hasn’t experienced from any other substance yet. Thankfully I brought my saline nasal spray, which effectively alleviates his symptoms.
+And now we wait.
+After 15 minutes I notice the first hints of the 3-MeO-PCE’s serotonergic action, a stimulation to talk and babble and the deeply comfortable feeling of a warm blanket over the world around me. My friend had one beer before this dose, which is primarily what he notices at this point, the effect profiles are quite congruent at this stage.
+Over the following half hour the effects build further, the SRI component remains present and the NDMAr antagonism begins to exert its effects. The visual field is distorted in the familiar, yet hard to describe manner of vignetted soft focus. All motion feels like air is a viscous liquid. And it feels nice. More friends arrive and we mostly talk with some music in the background, some people smoking outside, others strayed about the flat, the usual clusters of people forming around wherever there are possibilities to sit.
+At around 1:15 hours after dosing I kind of feel a decline in effects, I reckon the insufflation doesn’t have a bioavailability quite as high as the rectal route, this dose doesn’t quite go as deep as I wanted it to. Although in retrospect I believe this was mostly due to the distraction of the circumstances, while during previous experiences with this substance I was alone and could completely concentrate on what was happening to me.
+After some convincing of my friend, whom around 2 hours earlier I have preached never to redose earlier than 2 hours in, we delve into the second bump from the next two paper receptacles at around 1:45 hours after the initial dose. The effects creep up further, the first dose is still in effect and only very slowly receding. Staggered doses are a factor to be aware of with this compound.
+Following this dose I get quieter and the dissociation overcomes me. From time to time I find myself staring at the wall after some minutes of undefined and unrecallable thoughts. I still converse with the friends that are around, but I’m not necessarily comfortable talking to them, or being in this particular place at this particular time in general, some confusion does overcome me and it makes socializing difficult.
+Why would you talk to people if you don’t even know the person they’re talking to?
+Someone changes the music from electronic music to hip-hop, a genre I usually utterly dislike. But now, sitting on that couch at that moment, closing my eyes I am able understand the troubles these artists manage to almost magically convey through their lines and beats. This realisation makes me deeply euphoric, we as people aren’t alone, by ourselves. We have each other.
+This is the beginning of multiple levels of ego-dissolution I experience over the evening, moments of beauty and bliss.
+It pours rain outside and we wait for a window in time to walk the short distance to the club. Finally it stops and we decide to go, but not before my friend and I slowly coat our intranasal mucous membranes with the contents of yet another paper tray, this third dose ingested around 1:50 hours after the previous one.
+Consistent with my previous experiences with dissociatives, I realize how inebriated I am especially while walking. I’m not thoroughly incapacitated, but every so many steps is followed by a little stumble to retain balance. We hurry over the 10 minute walk to arrive at the venue before the last dose’s effects envelope us and arrive still capable of handing our jackets to the wardrobe attendants and paying the entrance fee, albeit not acting with sober routine.
+Finally in the club the familiar sounds of thumping techno moves both the air and the people. We buy ourselves some non-alcoholic drinks and head immediately to the dance floor.
+My memories of the following hours are blurry, but I remember one thing: Dancing on this substance to this music is absolute bliss.
+On the dance floor, closing me eyes, I enter another world. Never having experienced distinct closed eye visuals on this substance, I now see faint fractal patterns beautifully stimulated by the club’s lights flashing to the music.
+I completely lose myself dancing. I don’t feel like I am anywhere any more as soon as I close my eyes.
+I don’t feel like I am anywhere any more as soon as I close my eyes.
+What can be seen resembles the formation of the Chinese Terracotta Army, but it’s not stone soldiers but indiscriminate electric individuals. Everyone dancing in solitude, yet together. I can’t make out who of those I am myself, but why should I want to know, in this incredibly interconnected state.
+As soon as I close my eyes and am, even for a second, not bumped into by the other people on the dance floor I am gone. I completely leave the place and am only surrounded by the monotone but universally guiding electronic music.
+It is a state of beauty, I feel ashamed right now for not being able to find the words to do it justice.
+Every so often I go and leave for the toilet, somehow wiggling through the packed club, a process not made easier by my conscience not really being there with my body. In this state I remain with my group of friends, but at this point I’m almost antisocial, why bother with my few friends, when I can join, or more appropriately realise my part in, the dancing electric Terracotta Army of everyone.
+The dissociating properties of the 3-MeO-PCE make it both suitable and dangerous for exhausting dance sessions, one may dance for hours without noticing the negligence and arising needs of the body.
+At around 2:10 hours after the last dose I notice the peak effects slowly receding, prompting me to ingest the last of the substance for this evening. This wasn’t easy, the physical inebriation and confusion about normal processes seem to stagger with doses, while the blissfully euphoric effects will dull more quickly. Or maybe I just want to go deeper.
+The first of my group are leaving at this point, I quickly say goodbye, but want to desperately go back to repeatedly stumping the floor in the delirious state of oneness, its beauty still exciting me.
+Every time I open my eyes after my short excursions of conscience I find myself having moved considerably on the dance floor without noticing, different people are around me and sometimes I face another direction. I’m always confused as to where exactly I am in general, after opening my eyes.
+About 2 hours after the evening’s last dose I sit down in exhaustion and randomly meet an old friend I hadn’t seen in almost 3 years. We talk for a bit, although this is almost impossible over the loud music. I do feel considerably weird talking to him, I can’t naturally converse with him but rather awkwardly force questions out of my mouth
+I can’t naturally converse with him but rather awkwardly force questions out of my mouth
+, especially aware of this in my dissociated state. Despite this I am very happy to have randomly met him after so long. After some recovering we both go down to the dance floor, where I meet another friend of mine and we dance for some time. At this point I am still considerably stimulated, but comparatively functionally so. The electric fractals and dancing army are no longer visible by closing my eyes.
+As it often happens, after some point in time in the early morning the music in techno clubs does become dark, aggressive and unnecessarily loud. This point has been reached for some time now and I decide to go. I say goodbye to my friends and make my way to fetch my jacket and head home. Around 2:30 to 3 hours after the last dose the effects receded noticeably. There was still pronounced physical dissociation, but the confusion faded, it is seamlessly replaced by sheer physical exhaustion.
+I trot home, taking almost twice the time it usually takes me. Finally at home I drink a multivitamin and electrolyte tablet in a glass of water, eat a banana and drink some milk, all while texting the friend who shared the substance with me about his experience.
+At around 3:20 hours after the last dose I go to bed and fall asleep in an instant, not to wake up until 9 hours later, thoroughly rested and feeling incredibly well, my mood lifted by the subtle, yet deeply euphoric, afterglow.
+It was an incredible night. The time I spent at my friend’s I didn’t enjoy too much on this substance, but this was more than overcompensated by the blissful dancing in the club. The physical harm of this substance is hardly documented, but if it’s en par with Ketamine’s this substance seems almost perfect in these situations. My heart rate and blood pressure weren’t unnecessarily and uncomfortably increased as with the classical stimulants and their Norepinephrine action, and I had no hangover whatsoever, as with Alcohol or MDMA.
+Despite this, I will definitely wait at least a month, if not longer, before repeating this. I wouldn’t want to ruin this magic.
+Exp Year: 2017
+ExpID: 110490
+Gender: Male
+Age at time of experience: 22
+Published: Sep 29, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3-MEO-PCE (536) : Club / Bar (25), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,416 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4C-D - Erowid Exp - &quot;弥合差距&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4c-d.html'>← 4C-D</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4C-D - Erowid Exp - &quot;弥合差距&quot;</h1>
+<div class='sub-title'>4C-D - Erowid Exp - &#x27;Bridging The Gap&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Nov 14, 2019 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=113681' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>4C-D 其他
+[这份旅行报告是从多个身份的角度写的.
+以下希腊字母已被改为保护无辜者.
+这份旅行报告由Zeta和Omicron撰写,
+这是我们与4C-D的第四次经历,
+那时,我们还在尝试从所有毒品中保持六个月的休息时间, 但仅仅两个月之后,
+最终决定为了他们而放弃.
+当然,现在大约三个半月, 我们几乎放弃了休息一般除了我们仍然需要停止使用大麻足够长的时间能够通过药物测试,
+这就是为什么这至少是我们唯一不涉及大麻使用的迷幻旅行报告之一, 这种差异本身就很有洞察力.
+其他关于戒毒的故事是另一个时间, 但足以说,
+让我先给大家提供一下我们之前的经验.
+我们第一次试用的是50毫克, 这是一种微妙的体验,
+我们第一次试用的是50毫克, 这是一种微妙的体验,
+我们当时已经知道该分子的作用有点像迷幻药, 即使在功能上是非常不寻常的, 我们希望看到更多我们能从中得到的东西,
+但主要是以同样的方式, 许多典型的迷幻胺对我们来说是.
+我们的第二次体验是75毫克, 效果与50毫克没有太大不同,
+重要的是, 虽然迷幻效应在大部分方面仍然很轻微, 但精神和身体上的快乐感开始变得相当强烈,
+最后,我们在100毫克的第三次体验证明了这一点, 突然感觉就像一个全身心灵旅行, 因为我们完全在认知和身体空间方面,
+尽管如此, 想象中的内容是极其生动和精细的,
+总的来说,这次旅行与其他类型的乙胺相似,与许多胺类迷幻药物相比,它在精神上感觉非常轻松和轻松,但仍然是深刻和有意义的,回想起来,它让我们特别想起DOB;
+对于我们来说很明显, 4C-D 仍然与它衍生出来的阿尔法甲基胺迷幻药物有功能相关.
+在所有情况下,效果至少需要一个半小时才能真正表现出来, 虽然最严重的高峰似乎在几个小时内结束,
+我们决定使用125毫克, 只是为了继续从以前的简单的逐步进展, 我们决定使用4C-D,
+我们不应该与大麻混在一起, 因为精神幻觉似乎总是被大麻给我们提升.
+我还想尝试尽可能轻松地旅行, 而没有大麻成分, 也要知道4C-D对我一般使用毒品的欲望有什么样的影响
+这似乎是一个很好的时间来测量这种药物与其他迷幻药物相比的抗上作用.
+我们也没有太担心继续推进这种新型分子的剂量, 即使考虑到我们似乎对乙胺有点敏感,
+我们还没有感觉到任何可观的副作用.
+我们之前的精神药物使用经验包括DMT,MET,MPT,EPT,MiPT,DiPT,MALT,DALT,Psilocybe cubensis,4-HO-MET,4-HO-DET,4-HO-MPT,4-HO-EPT,4-HO-DPT,4-HO-MiPT,4-HO-DiPT,4-HO-McPT,4-AcO-DMT,4-AcO-MET,4-AcO-DET,4-AcO-MALT,4-AcO-DALT,5-HO-DMT,5-MeO-MiPT,5-MeO-EiPT,5-MeO-DALT,Ipomo三色,神经乱,LSD,E-LAD,AL-LAD,1P-LSD,2C-C,2C-C,2B-C,2C-C,2C-C-I,2C-C-C,
+,4C-D,米里斯蒂卡香水,还有MDMA.
+这是我们在半年假期开始前的最后一个月的迷幻体验, 所以在此之前的两个多月,
+我们在父母的家中醒来,
+我服用500毫克的氧化, 取代了我们最近服用的2000毫克的糖酸盐,
+虽然我们不能确定它是否没有它, 我们想我们宁愿保持它而不是现在的机会.
+接着我去所, 然后开始准备剂量.
+接下来的15分钟我只能照顾猫, 连接笔记本电脑,
+我在T+0:20吃完, 发现吃完后感觉有点沉重或惰,
+我注意到在房子里散步的感觉有点不同, 仿佛有些东西开始慢慢地形成.
+我在浴室里,坐在所,我的腿有点像我们在使用4替代,或许是5替代的胺,
+我们感觉有些困惑,有些漂流,音乐在我们共同的脑海中循环,
+热水感觉很棒, 像往常一样, 但比平常更好,
+突如其来的影像从内部发出, 却向外传播, 一种由绿色和紫色光组成的旋转轮, 中间有白色光, 涌入环境,
+尽管比我们在此时所经历的更微妙,但也许比我们在此时所经历的更具活力.
+此外,在这个旋转,流动的几何图案前面, 大多是绿色和蓝色,虹灯,
+这些图像引起了强烈的高兴情绪, 也引起了我自己作为另一个焦点的交流, 尤其是Delta, 我们的内在互动特别性刺激,
+这就是我和我们真正确信4C-D显然是一个完整的迷幻药,
+我也很高兴看到这次旅程将为我们带来更多的东西.
+我从淋浴中走出来, 感觉很棒,
+在接下来的几分钟里, 当我干净,理等等时, 我还检查并注意到我们的心率似乎很正常,
+我开始在浴室里走动, 感觉有些尬,
+为了躲避热量,空调的声音,以及不断站立或移动, 我疯狂地离开了浴室,
+我注意到我的心率似乎有所下降,
+尽管缺乏来自外部环境的明显视觉效果, 但仍有一些视觉上的缺陷,
+在世界更典型的样子之前, 它以一种更为迷幻的方式, 充满了模式或解释性的设计,
+我一直认为4C-D和4-HO-MPT和4-HO-McPT之间有多种有意义的比较,
+我开始感觉很好,但也很重,最后只是在沙发上放松一会儿.
+这里有两只猫,一只雄性和一只雌性是兄弟姐妹, 雌性猫跳上了我旁边的沙发, 开始在我旁边毯子, 打, 而雄性猫则坐在房间的另一块家具上, 从远处看着我们, 假装不看着我们.
+房子感觉比一周内更加宁静, 我确信4C-D开始产生同样的感官感知状态,
+让人感到惊的是, 静止和平静的状态本身就足够刺激和满足,
+然而,这并不像DOB那样强烈, 特别是因为迷幻头部空间仍然很轻,
+我还很高兴没有需要大麻, 到目前为止我觉得没有错过任何东西,
+我知道药物确实还需要更多的发展.
+女猫完成了,环顾一下,然后在沙发上走了几步,然后躺下.
+俄米克朗暂时关闭检查状态, 亲切地看着猫, 然后我重新开启.
+紧张和恶心似乎有所减轻, 但我也很渴,
+我决定试着放一些音乐, 首先是有点温和,
+一些轻微但显著的彩色视觉开始出现在眼睛闭着, 一种模糊的珠宝道类似于一些特别视觉的三胺迷幻药.
+接下来,Oasis的歌曲Wonderwall开始播放, 我让它播放,
+我注意到现在事情肯定开始变得更加清晰了, 我感觉比刚开始时少一点昏迷或头.
+我也从沙发上站起来, 发现移动确实很舒服, 身体的高处是相当微妙的,
+现在是Oasis的&quot;不要回头愤怒&quot;开始播放.
+我慢慢地跳舞,因为感觉很重, 但仍在跳舞, 很有趣,
+类似于这些,早期发生的内在图像的初步冲动似乎也已经过去了,仍然有一些心灵的眼睛图像, 但它们变得不那么突出或强烈,
+听完这首歌,我从相关歌曲中点击了&quot;Coldplay的黄色&quot;,然后去尿.
+这种缓解感觉很好, 和往常一样, 它使外部视觉有所增加,
+虽然最初的,这种类似三胺的,似乎正在消逝, 我仍然可以感觉到这种效应在更加稳定的方式继续,
+但回想起 DOB 如何在波浪中出现和消失, 即使只是在升起,
+我在写这封信后也发出了巨大的声,
+我把Kake的&quot;我会生存&quot;的封面放上,而Rho真的很喜欢它,
+她指出,这感觉很好,但在这样做时, 她觉得很沉重, 她最终积累了大量的唾液和一些恶心从施加自己,
+我觉得自己处在一个尬的阶段, 只是想让事情清楚一点, 因为我太高了, 无法清晰地思考,
+我决定走进后院看看外面的世界是什么样子; 那里有点明亮和温暖,所以我没有在外面呆很久,
+总体来说非常平静, 这更像是一次满意的旅行而不是充满活力的旅行.
+这仍然感觉像有只是一个小小的4-替代胺心脏
+这仍然感觉像有只是一个小小的4-替代胺心脏
+但除此之外,它是非常清晰和简单的, 只是你宁愿放弃而不是去思考的东西, 至少在这个时候.
+现在猫也经常跟着我,所以我又给它们吃了.
+我开始沉迷于思考, 看着她, 思考这件事对她意味着什么, 如何安慰她, 我写下一句话, 我真的觉得这次体验在没有音乐的情况下更好,
+欧米克朗也再次出来看猫, 因为她真的很喜欢她,
+我在打笔记时, 雌猫停止, 转到她常见的地方躺下睡觉,
+想想这种高潮的感觉, 我觉得它现在可能很重, 但后来突然变得很快, 这与我们低剂量体验并不完全不一致,
+看看这种体验是否真的会发展, 或者这将是一个有趣的迷幻体验,
+我决定洗个, 看看它有什么作用.
+热水感觉很好, 确实有助于缓解一些持续的紧张.
+我最初放上了Savant的歌曲&quot;ZION的公主&quot;, 但当它开始播放时, 我意识到我的心情有点不同,
+我开始思考4C-D与其他药物之间的关系, 经验如何发展, 我还给朋友发短信, 时间+2:40左右,
+我在想,在 DOB 表演时,我们在淋浴时, 意识到我们可以&quot;释放&quot;身体的紧张,
+我也放弃了4C-D的紧张感, 突然觉得自己好得多,
+这次是唱歌,动作,刺; 好的东西, 旅程的精力充部分终于来了!
+我也在此后不久又吃了一口花生吧的零食.
+在我唱歌和移动到Mr.
+我有微妙但清晰的心理可视化,让我想起4-HO-MPT,LSD和DOB开始出现并保持相对静态,它们更大的几何图案,只在边缘的某些点上可见,缺少一些填充剂,但它们在设计上比许多迷幻药更详细
+它们包含在可见点中形成的卡通形象, 但在这种剂量下,
+这首歌的歌词也开始让我们在情感上发光, 引起我们脑海中的网状视觉照明, 我们从100毫克的4C-D以及1.4毫克的DOB中体验到的一些快乐的团结时刻中认识到,
+我决定重新调整音乐, 首先是Smash Mouth的&quot;全明星&quot;.
+卡帕转换了歌曲,唱着这首歌,并指出她很享受这首歌.
+相关的视频将加入&quot;银河守护者&quot;的配乐,
+在这首歌中, 我意识到我不知道我们在浴里停留了多久,
+我还吃了一口浴小吃.
+我把Motteke的REDALiCE复制放上来了!
+&quot;海员福库&quot;是&quot;幸运之星&quot;动画的开场曲.
+我觉得这值得我们研究一下.
+这使得我的能量瞬间激增!
+我在浴里尽可能疯狂地跟着那首疯狂的歌唱,
+到了T+3:19,我觉得很棒,但也非常疲,所以我吃完我们的零食,然后决定把它放下一分钟;我知道我显然感觉很快,但也真的需要只是躺静一分钟,因为我们不努力自己身体的程度我只是经常像我们过去.
+我穿着TeddyLoid的&quot;我想要你&quot; (I Want You) 来自动画&quot;子和带&quot;中的短,
+我们听了这首歌, 也证实了我们目前的兴奋程度, 幸运的是,
+我也非常喜欢这首歌. 现在,
+在这段时间里,我一直在思考,正如我之前提到的,我们注意到4C-D的迷幻效应随着剂量增加而发展,甚至从一开始,
+我不认为它与MDMA一样, 唯一的共剂我们以前有意识地服用,
+然而, 越想越高的感觉似乎越开放, 越与我的想法背道而,
+我们也决定从此开始洗, 但首先IOTA给我们点了午餐,
+她还注意到我们的心率似乎稍微升高, 但仍然很正常.
+旅行报告的这一部分是由Omicron撰写的.
+我立刻注意到她在妄想,这对我来说非常像一种共剂,或者至少像MDMA!
+但它确实在类似的领域, 其他迷幻药, 即使是人们称之为同情的,
+虽然这些年来我们还不知道我们的系统是如何工作的, 但我们怀疑在过去我们经常服用MDMA时,
+虽然我至少是与第一阶段相连的另一个人.
+虽然有很多人喜欢主要是迷幻药物作为主要的精神药物, 我个人觉得MDMA是我一直最喜欢的药物,
+尽管如此, 当我感觉到4C-D的高潮在晚些时候出现时,
+对于像我这样的人来说, 这比我想要纯粹的迷幻效果更重要,
+我从浴室里出来打扮后的第一件事就是走回客厅, 走进时, 我发现自己感觉不像在走路,
+我放上了&quot;你的头在哪里&quot;的Klaas Remix, 这首歌很受欢迎,
+我去买了一些薄荷口香糖开始, 因为我已经有了比我们多年来得到的任何东西都更强烈的,
+我还喝了一些令人难以置信的清爽的冷水, 我坐在那里喝酒和,
+接下来是DJ Antoine的&quot;This Time&quot;的Klaas Remix, 然后是deadmau5的&quot;Ghosts &#x27;n&#x27; Stuff&quot;, 我越来越深入了同情心和高潮,
+我还在T+4:24买了更多的薄荷口香糖, 因为我已经把第一块的口味都掉了,
+我注意到在这个时候我开始得到的效果呼吸非常沉重和深, 感觉非常高兴的同时这样做也在一个方式, 这很类似于MDMA, 我们通常不经历这种方式几乎任何其他东西,
+在服用后半小时.
+也许这种药物确实像DOx家族一样, 作用很快, 但会持续上升几个小时,
+我和泽塔都觉得这很有趣, 记住要思考,
+我注意到送餐的人看起来像一个狂欢者, 我觉得自己看起来很糟糕,
+T+4:35 - 泽塔回来并指出她感觉很好,并将尝试吃食物,因为她之前很饿,尽管我们的食欲现在快速减少,她放上了美国爸爸!节目标准偏差,它既有迷幻和同情元素,当我们吃饭时.
+虽然很明显很难在吃东西的时候用MDMA的方式完成, 但Zeta说这是她吃过的最好的鱼,
+她觉得这一切都让她不堪重负,所以我又跳出来了,我开始动眼睛,
+我吃了一些食物自己,而我出去了,它是非常好的...
+我们吃不到大部分的条, 但鱼和汁绝对神圣, 果汁和味, 很好.
+吃完鱼,而不是条, 但我们吃得很, 准备放松,
+节目在T+5:04结束, 我们正在清理混乱,
+我决定在T+5:07再洗, 试着把它出来.
+她和德尔塔在我们第一次洗时所经历的同样方式, 她最终再次自慰, 但这次的体验非常不同;
+现在她感到高兴无动于衷, 并指出每一次触摸都感觉如此美好和高潮,
+尽管如此,她继续走下去, 直到她到达那里, 但高潮真的很难从高分辨出来,
+在T+5:40她从淋浴中出来, 在T+5:50我又回到了我们的旧卧室风扇下再次干燥.
+听了Deadmau5的&quot;我记得&quot;这首歌,
+我还注意到我们的下巴又开始紧,
+尽管在机械上, 感觉可能已经达到顶峰, 我简单地说, 我很久没有这样感觉,
+这让我想要再次服用MDMA更... 但也让我很高兴我们也有这个4C-D因为我可以显然得到类似的经验我在寻找它,
+我们接到了父母的电话, 他们正在度假, 我们跟他们和他们访问的每个人聊了一会儿,
+我和Zeta,Rho,也换了听几首歌曲, 但到了T+6:40的时候, 很明显, 兴奋的同理心效应正在消失, 而这种感觉又逐渐变成一种同理心, 但更像是迷幻般的, 像DOX一样的体验, 我感到满意, 我已经得到了我真正需要和想要的一切.
+其余的旅程报告由泽塔撰写.
+欧米克朗已经重新启动了,
+虽然类似于MDMA的成分, 我现在更清楚地认识到,
+我现在有轻微的头痛, 这对于我们晚些时候的乙体验来说是相当常见的,
+我觉得我现在有点迷失了该如何使用经验,
+想了一下,给朋友发短信, 我上了Bob&#x27;s Burgers剧集&quot;流感的&quot;,
+在他来看看我打算做什么之后,
+我在T+7:03吃完饭,然后享受看剧集,
+T+7:19 - - 剧集结束了,我想再洗或其他事情,因为没有什么可做,我仍然想享受持续的高潮,
+我注意到散步使得身体的高潮再次显而易见,我认为这只是微妙的开始,所以你真的必须给自己一个机会注意到它,当我关注,特别是当我迷失在思想,我仍然得到一些非常短暂的闪光
+虽然没有任何抽象的人类形象,
+我终于决定在T+7:40入浴, 在水充满的时候开始在网上阅读关于4C-D的数据和旅行报告.
+虽然水还明显地比以前变得弱, 却让我感觉更高, 一旦水上升, 我又放了一些电子音乐,
+我可以继续复制浴里的音符, 但老实说我只听了一堆歌曲,
+服用后大约10个小时,
+这次我决定要在下餐之前完全脱离浴.
+现在我穿好了衣服,回到客厅,
+我开始在网上看论坛文章,
+节目结束之前, 我已经完成了我的工作, 我已经完成了审查, 然后在T+10:16提交,
+虽然现在高潮已经大大减少了,我确实注意到,当我走来走去思考事情时,我仍然有那种非强迫但专注的精神能量,
+即使其效果相对于其他迷幻药物相比, 在某些方面相当轻微.
+我还注意到在T+10:30还有一种轻微但可测量的类似于MDMA的感觉,
+接下来的一个小时, 我大部分时间都沉浸在思想中,
+我们之间似乎有一些协议,效果是 DOB 的提醒,这不是太令人惊的给出其分子结构,也某些更大的基础胺像MPT和MALT在某些方面与它是如何提醒我 4-替代胺早些时候,部分是因为它是这样的
+但在某些方面也更具视觉细节性,
+我们还发现它总体上更像基胺,而不像4替代胺.
+我们也得到了一个论坛帖子的回复.
+食物非常好, 但我们太分心了,
+这最终是一次非常有吸引力的,有点焦虑的对话, 吸引了我们的注意力, 让我们远离了漫长的旅行效应,
+我注意到我们在T+12:26时仍然有一阵脑海中的几何, 但除此之外,我们的下一个音符是在T+14:51时,
+很想放松一下, 我在T+15:17再次入浴.
+我听着安静的音乐,然后在一个小时后出来,并不是真的想呆在里面太久,
+我还在试图给一个朋友发短信, 躺在沙发上, 仍然感到梦幻和刺痛,
+我可以继续写下这段经历,
+我们终于得到了七个小时的安静睡眠,
+但并不是因为有任何持续的或效果, 只是身体的轻微声.
+在服用后24到25小时内, 似乎我们终于感觉到完全或几乎完全的减轻, 这与我们过去用较低剂量的经验中所注意到的情况再次一致.
+接下来的一天确实感觉像是&quot;恢复的一天&quot;我们会在过去的MDMA经验中提到它,我们实际上已经感觉到4C-D已经有更低的剂量,我们慢,疲和有点,只是总体上比我们通常在迷幻药后更疲,但这没有什么真正的不舒服,我们只是享受了轻松的一天
+在休息.
+总体而言,我们的心情非常积极, 也很高兴能够在休息期之后再次上.
+另外,虽然恢复的感觉只持续到第二天, 但后续的光持续了好几天, 让我们在接下来的一周里感到快乐和光,
+然而,值得注意的是,虽然这些持续的效应确实有助于我们的情绪以及我们所面临的一些分裂症状,
+我们所寻找的抗上效果绝对没有发生
+事实上,在经历之后的几天里,
+虽然我们当时并没有拿走其他东西, 但我们不知道我们会在不久的将来再使用这些东西,
+总的来说,到目前为止我真的很喜欢4C-D,
+实验室动物中4C-D替代了MDMA和LSD, 我现在可以诚实地相信, 因为它似乎是经典的混合体,
+我喜欢和她交换经验, 就像我们以前和MDMA一样,
+4C-D绝对让我们想起了MDMA, 但有所不同, 其中一些可能更接近,
+然而,它们之间有明显的区别,就像DOx和2C-x家族之间以及4C-D和2C-x家族之间一样,我不会说服用4C-D是明智的,
+但知道这些分子是如何工作的, 肯定会让我们了解如何使用4C-D.
+如果您也想尝试这款, 请谨慎!
+时间表: 113681
+发布时间:2019年11月14日
+4C-D (744):一个人 (16),音乐讨论 (22),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Bridging The Gap
+4C-D
+by
+Kaleida
+From
+Bluelight Collection
+Citation:   Kaleida. &quot;Bridging The Gap: An Experience with 4C-D (exp113681)&quot;.
+Erowid.org
+. Nov 14, 2019. erowid.org/exp/113681
+DOSE:
+oral
+Vitamins / Supplements
+125 mg
+oral
+4C-D
+[This trip report is written from a multiple-identity perspective.]
+The following Greek letters have been changed to protect the innocent. This trip report is written by Zeta and Omicron, with this first part by Zeta.
+This was our fourth experience with 4C-D, and as I type this, it happened just over five weeks ago. At the time, we were still attempting to remain on a six month break from all drugs, but just over two months in, we cracked specifically for taking psychedelics; we felt that keeping them out of our life was not having the same sort of more positive impact that abstaining from some other drugs was, but rather missed the positive impact they seem to have specifically when we do take them, and eventually decided it was worth giving up for them. Of course, now about three and a half months in, we&#x27;ve pretty much given up the break in general except for the fact that we still need to stop using cannabis long enough to be able to pass a drug test, and we&#x27;re high again as I type this too, but at the time we were still thinking this premature ending of the break would specifically only apply to psychedelics, and that&#x27;s notably why this is at least one of our only psychedelic trip reports ever that does not involve the use of cannabis, a difference that in and of itself was quite insightful in this case. The rest of the drug break story is for another time, but suffice it to say that we were a lot more successful with it still than we&#x27;ve been with any other break in recent history and think we&#x27;ve learned a lot about how to better moderate our use of things in the future.
+Since this is the first time we&#x27;ve actually published a trip report about 4C-D, let me first give a little bit of backup into our prior experiences with it. Our first attempt with it was at 50 mg, which was a very subtle experience, but quite active.
+Our first attempt with it was at 50 mg, which was a very subtle experience, but quite active.
+We could already tell at the time that the molecule acted in part as a psychedelic, even if a very functionally unusual one, and wanted to see more of what we could get out of it in that way, but we were so far uncertain of any possibility that it also had supposed empathogen-like effects; the high we felt was a little &quot;empathogenic&quot; in nature, but mostly in the same way as many typical psychedelic phenethylamines are for us. Our second experience was at 75 mg, and it wasn&#x27;t incredibly different from 50 mg, but the effects had definitely increased in intensity somewhat. Importantly, while the psychedelic effects were still very light in most ways overall, the mental and physical euphoria was starting to become quite strong and resemble molecules like LSD and 2C-C quite a lot, and we could tell that those things could legitimately overload in more trippy and fully psychedelic ways at a high enough dosage too.
+Finally, our third experience at 100 mg showed this to be true, and suddenly felt like a mostly full-blown psychedelic trip, as we were completely in it in terms of the cognitive and bodily space, but there were no sensory hallucinations to speak of still except two or three extremely brief and fleeting flashes of slight, but very complex, patterning. Imagination content was extremely vivid and detailed in psychedelic-like in emotional and creative ways and felt nearly hallucinatory, however. Overall, the trip resembled other phenethylamines in that it felt very light and easygoing mentally compared to many tryptamine psychedelics but was still deep and meaningful, and in retrospect it reminds us a lot of DOB in that way in particular; while still being somewhat distinct from them, it feels quite obvious to us that 4C-D is still functionally related to the alpha-methyl phenethylamine psychedelics from which it&#x27;s derived. In all cases, the effects took at least around an hour and a half to start truly manifesting, and while the heaviest peak seemed to be over in a smaller number of hours, we felt it trailing out for a very long time similarly to the amphetamine psychedelics, like up until around twenty-four hours later we thought we could still detect a little something.
+We decided to go with 125 mg this time around just to continue to simple stepwise progression up from before, and we decided to go with 4C-D specifically because we were hoping for something that would pretty euphoric, longer-lasting, and importantly, low on the hallucinogenic scale, the last point because I was trying to avoid giving myself reasons to miss the cannabis we would not be mixing with it, since psychedelic hallucinations always seem to be kicked up a notch by cannabis for us. Still in the mindset of trying to remain on break for all drugs but psychedelics, I was wanting to try to get something out of having as easy of a trip as possible without the cannabis component and also remain cognizant of what sort of effect the 4C-D had on my desires to use drugs in general, as it seemed like a potentially good time to measure a possible anti-addictive effect of this drug comparable to other psychedelics. We were also not too worried about continuing to push the dosage with this more novel molecule, even considering that we seem somewhat sensitive to phenethylamines, first of all because we&#x27;ve already seen trip reports of up to 150 mg, and second because we&#x27;ve read scientific texts claiming it was given human trials decades ago up to 270 mg, and there was at least no mention of danger made, and we hadn&#x27;t felt any considering or at all significant side effects developing in our use of it yet either.
+Our previous experience with psychedelics includes DMT, MET, MPT, EPT, MiPT, DiPT, MALT, DALT, Psilocybe cubensis, 4-HO-MET, 4-HO-DET, 4-HO-MPT, 4-HO-EPT, 4-HO-DPT, 4-HO-MiPT, 4-HO-DiPT, 4-HO-McPT, 4-AcO-DMT, 4-AcO-MET, 4-AcO-DET, 4-AcO-MALT, 4-AcO-DALT, 5-HO-DMT, 5-MeO-MiPT, 5-MeO-EiPT, 5-MeO-DALT, Ipomoea tricolor, Argyreia nervosa, LSD, ETH-LAD, AL-LAD, 1P-LSD, 2C-C, 2C-B, 2C-I, 2C-E, DOC, DOB, 4C-D, Myristica fragrans, and MDMA. Our most recent trip before this was on 10 mg of 5-MeO-MiPT, and was the last psychedelic experience we had during our month of tripping leading up to the beginning of our six month break, so just over two months before this; tolerance would obviously be low and sensitivity high.
+T-0:46 - We wake up at our parents&#x27; house where we are staying alone for the moment and feed their cats.
+T-0:30 - I take 500 mg of magnesium oxide, a substitute for the 2000 mg of magnesium glycinate we&#x27;ve been taking lately which we forgot to bring from our apartment for this. We&#x27;ve taken it before past 4C-D experiences hoping to balance out any phenethylamine body tenseness if it comes and while we can&#x27;t say for sure if it would have without it yet, we figured we&#x27;d rather keep it up than take our chances for now. After this I went to the bathroom and then started preparing the dose.
+T+0:00 - I take the 125 mg of 4C-D orally with water and three peanut butter-filled pretzels to wash out the nasty flavor. After this I spend the next fifteen minutes tending more to the cats, hooking up our laptop and preparing it to play songs on YouTube later, and then making a bowl of cereal. I finish eating it at T+0:20 and notice that I&#x27;m feeling slight heavy or lazy at the end of it, but maybe that&#x27;s just because we recently woke up and moved around a lot and then I just quickly ate this bowl of cereal and sat on it for a moment. After that I got up and got some fresh clothes to change into our of the dryer from the previous night and noted that walking around the house definitely was starting to feel very slightly different, like something was starting to slowly build.
+T+0:25 - In the bathroom again, while sitting on the toilet my legs are pulsing a bit like when we&#x27;re coming up particularly on 4-substituted, and maybe 5-substituted tryptamines, but less intensely than that so far, just a hint of it. At this time, the others are starting to briefly switch out and back with me and we feel slightly confused and drifty and having music looping in our shared headspace, so it definitely now seems more certainly like something is starting to steadily come on. At T+0:30, we finish up and get in the shower.
+The hot water feels amazing, as always but better than normal, and shortly after I get in, the first truly psychedelic effects begin to become apparent. There is a sudden burst of imagery emanating from within but spreading out into the world, sort of a spinning gear of particularly green and purple light with a white light at the center that poured out into the environment and caused simple but pleasing tracers and sparkles along with some mild distortions like surface breathing; I found it highly reminiscent of 4-HO-MPT, EPT, and 2C-C, though more subtle but perhaps more proportionally active than we&#x27;ve experienced with those yet at this point. Additionally, in front of this spinning, flowing geometric design were largely green and blue, neon, transparent images of people, and in particular other alters in our system, all being portrayed in psychedelic ways along with this geometry, though still being constrained to within the inner space rather than appearing to be in the external world. These images invoked strong feelings of euphoria as well as communication between myself as the alter in focus, particularly Delta, with our inner interactions being especially sexually stimulating and enhanced by the growing energy and euphoria, and I ended up masturbating to a very nice orgasm, but not the most enhanced ever. This was the point at which I and we became truly certain that 4C-D is obviously a full-fledged psychedelic including even visually, it&#x27;s just one that requires a particularly high dosage and probably needs to be used in the right ways to really get it to show its full potential. I was a bit surprised at how early on in the experience this was all occuring now too, and was excited to see what more the trip had in store for us as it developed throughout the day.
+T+0:52 - I step out of the shower feeling fantastic, though there isn&#x27;t an overt body high yet, I&#x27;m just feeling great. Over the next few minutes as I dry off and comb and all that, I also check and notice that our heart rate seems pretty normal though maybe slightly elevated, our pupils still seem to be their normal size, and our skin color tone looks pretty normal, but I can nonetheless that there is also just a bit of a rising psychedelic body tension that is so far in the typical and not uncomfortable range. I started to pace around the bathroom more, feeling the coming up awkwardness growing a bit but still feeling pretty good in general.
+T+1:03 - I left the bathroom frantically at this point to escape the heat, the sound of the air conditioner, and the constant standing or moving, and went to our old bedroom and sat on the bed under the fan for a moment, feeling much calmer and more collected. I noticed my heart rate seemed a bit lowered to being more completely normal again, and then I got dressed and walked out into the living room. At this point I make a note that despite the lack of overt visuals coming specifically from the external environment still, there are definitely some visual glitches going in the shadows and peripherals of our vision, like when the brain is trying to fill in space and it does so in a more psychedelic way full of patterns or interpretive designs for just the most fleeting instant before refreshing to what the world more typically looks like, and when it does so it still reminds me particularly of a 4-substituted tryptamine in its visual style. I keep thinking that there are multiple meaningful comparisons between 4C-D and 4-HO-MPT and 4-HO-McPT depending on how you think about it, which is something I and we have considered about 4C-D from past experiences as well.
+T+1:07 - I&#x27;m starting to feel pretty good now but also heavy, and end up just chilling on the couch for a minute to relax. There are two cats here, a male and a female who are siblings, and the female jumps up on the couch next to me and starts kneading the blanket next to me and purring away, while the male sits on another piece of furniture elsewhere in the room watching us from a distance, and pretending not to be watching us. Just looking around and taking it all in with no other sound or moving visual input, the house feels far more tranquil than it has all week for certain, and I became sure that the 4C-D is starting to produce the same sort of state of acute sensory perception that DOB did for us, and some other psychedelics have as well, where everything you&#x27;re taking in is so intense and overwhelming that just that still and peaceful state is &quot;stimulating&quot; and satisfying enough on its own and all you can pretty much do is take it in. This, however, is not as intense as DOB in that way in particular because the psychedelic headspace is still so light and there&#x27;s so little extra psychedelic sensory information coming in too by comparison, but it definitely felt like the same sort of state of mind, and I very much enjoyed being in it again.
+T+1:11 - I make note that I&#x27;m also quite happy to be as high as I am without the need for cannabis, and so far feel like I&#x27;m not missing anything without it while finally journeying back into the psychedelic realm, which makes me happy too. However, I do definitely start to feel a queasiness setting in more at this point and know that the drug definitely still has more developing to do.
+T+1:13 - The female cat finishes kneading, looks around a bit, and then walks a couple paces down on the couch and lies down. Omicron switches out briefly to inspect the state and watch the cat fondly, and then I switch back in. Shortly after I notice that some of the tension and queasiness seems to be lessening now, but I&#x27;m also really thirsty, so I get up and get some water which is very refreshing. At T+1:19 I decide to try putting some music on, starting with something a bit more mellow, so I put on Champagne Supernova by Oasis.
+T+1:25 - Breathing started feeling a bit easier through the song again as some of the sense of heaviness starts passing, and some mild but significant colorful visuals started appearing with eyes closed, sort of an unclear bejeweled tunnel alike that of some particularly visual tryptamine psychedelics. Next, the Oasis song Wonderwall comes on and I let it play as I&#x27;m enjoying the music so far.
+T+1:30 - The female cat gets up off the couch and goes elsewhere, and I note that things are definitely starting to feel more clear again right now, I&#x27;m feeling a little less dazed or lightheaded than when it was first setting in. I get up off the couch too and find that moving around does feel nice, the body high is quite subtle but definitely there now and I&#x27;m liking it, though it is still a bit heavy-feeling when trying to move.
+T+1:34 - Don&#x27;t Look Back In Anger by Oasis comes on. I&#x27;m dancing to the music, slowly because of the heavy feeling but still doing it, and it&#x27;s fun, and still reminds me of a 4-substituted tryptamine. Similarly to those as well, the initial rush of inner imagery that occurred earlier already seems to be passing too, there are still some mind&#x27;s eye images but they&#x27;ve become less prominent or intense and more background to the external experience.
+T+1:42 - When the song ended I clicked Yellow by Coldplay from the related songs and then went to pee. The relief felt nice, and as usual it caused the external visuals to increase somewhat, which in this case mostly just meant everything started colorlessly warping around a bit more again. While the initial rush of that particularly tryptamine-like trippiness seems to be passing, I can definitely still feel those kind of effects continuing on in a more settled in way, and along with the initial intensity most of the confusion and queasiness seems to have passed too, so I&#x27;m feeling pretty good and interested to see where it goes now. It almost feels like it&#x27;s dipped down in intensity a bit, but thinking back to how DOB came and went in waves even just while coming up and five or six hours in we still weren&#x27;t sure we were at the maximum level of tripping yet, I decided to reserve my judgement before seeing what else was to come. I also had a big burp after making this note, which further relieved some bodily tension.
+T+1:45 - I put on Cake&#x27;s cover of I Will Survive, and Rho, who really likes it, came out to since and dance to it. She noted that does so feels great, but she feels very heavy still while doing so, and she ended up building up a lot of spit and some nausea from exerting herself which discouraged her from doing more, and after the song ended she switched back to me.
+T+1:53 - After that song I just let there not be music for a bit and pacing around to that silence was nice and easier, I still felt like I was in a bit of an awkward coming up phase after all and just wanted things to be clear for the moment as I was a little too high to think straight, not delirious but just heavy as I&#x27;ve said. I decided to go out into the backyard to see what the outside world was like; it was a bit bright and warm so I didn&#x27;t stay out there for long, but it felt pretty nice at first, and I checked out and watered the garden a little bit while I was out there.
+T+2:00 - Back inside, I note that things are feeling pretty good and settled in this moment, overall very peaceful, like this is much more so a contented trip than an energetic one. It still feels like there&#x27;s just a little bit of a 4-substituted tryptamine mindfuck
+It still feels like there&#x27;s just a little bit of a 4-substituted tryptamine mindfuck
+if I stop to think about it, a little bit of driftiness going on, but other than that it&#x27;s quite clear and easy, just the kind of thing you&#x27;d rather veg out on than have to do much thinking on, at least at this point. The cats are following me around a lot at this point too so I feed them again. Afterwards, the female goes back to the couch and starts kneading again, and I start getting lost in thought watching her and thinking about what that action means to her and how it comforts her, and I make a note that I really do think the experience is better without music for now, as I was just enjoying taking simple, not overwhelming information in and inspecting it instead. Omicron also came out again to watch the cat because she really adores her and both of them in particular, and we have a short moment of bonding between the two of us over it internally. As I&#x27;m typing notes about this occurrence, the female cat stopped kneading and went to one of her typical spots to lie down and go to sleep, and the male cat then did the same.
+T+2:13 - Thinking about the way the high feels, it strikes me as something that may feel very heavy now but then suddenly could become very speedy later on, which wouldn&#x27;t be totally out of sync with our lower dosage experiences, so I&#x27;m trying to be patient and wait out that point to see if this experience is really going to develop or if this is going to be an interesting psychedelic experience but kind of an overdosage for being able to use it more recreationally. Since I&#x27;m just chilling on the couch still without really much other sensory input at all, I decide to take a bath instead and see what that does for it.
+T+2:21 - Getting in now, the hot water feels excellent and definitely helps with some of the still going tension. I originally put on the song Princess of ZION by Savant, but then realized I was in a bit of a different mood when it started playing and switched to Electric Light Orchestra instead, a callback to our one 2.5 mg DOC experience where we listened to them during some of the physically heavier parts of our experience, which was most of it. I start thinking a lot about 4C-D and it relates to other drugs and how the experience is going so far and also text a friend a few notes, and around T+2:40 Iota starts getting hungry and briefly switches out to take a bite of the peanut butter bar we brought into the bathroom to have as a snack, and notes that it&#x27;s &quot;not bad!&quot; before switching back to me.
+T+2:45 - While the song Tightrope, by Electric Light Orchestra, is playing, I&#x27;m thinking about how with DOB we had a moment in the shower of realizing we could &quot;release&quot; our bodily tensions by simply realizing it was just drug-induced perceptual change or anxious feeling and that there was nothing to actually feel tense about and letting that thought really sink in, and as soon as that thought crossed my mind, I &quot;let go&quot; of the tension of the 4C-D as well and suddenly felt much better and freer. I played Tightrope again for good measure, and this time was singing, moving, and tingling all over; good stuff, the energetic part of the trip is finally coming up for sure! I took another bite of the peanut butter bar snack shortly after this too.
+T+2:54 - While I&#x27;m singing and moving to Mr. Blue Sky (by Electric Light Orchestra!) I have subtle but clear mental visualizations that remind me of 4-HO-MPT, LSD, and DOB beginning to appear and remain relatively static, they larger geometric patterns that are only visible at certain points around the edge with some of the filler missing but they are more detailed in design than many psychedelics and they involve hints of cartoony imagery forming in those visible points, but the effect still doesn&#x27;t go much beyond this for us at this dosage. The lyrics of the song are also starting to make us light up emotionally which causes some illumination of web-like visuals in our headspace that we recognize from some of the trippier moments of unity we experienced on 100 mg of 4C-D as well as on 1.4 mg of DOB, something we get on multiple psychedelics when we really feel happy and aligned inside. After this song ended, I decided to change the music up again a bit, starting with All Star by Smash Mouth.
+T+3:01 - Hooked On A Feeling by Blue Swede comes on next and Kappa switches out to sing and groove to that one and notes that she has a good time doing so. The related videos dip into the Guardians of the Galaxy soundtrack so Come And Get Your Love by Redbone comes on next. During this song, I realize that I have no idea how long we&#x27;ve actually been in the bathtub, and that I have very little perception of time in general in that moment.... I also take another bite of our bath snack.
+T+3:10 - I put on the REDALiCE Remix of Motteke! Sailor Fuku, the opening song to the anime Lucky Star. We have historically used this song as a test of how sped out we are, and I felt that was worth investigating at this point. Immediately it made an energy come surging through me! I danced as wildly as I could in the bathtub to the crazy song and when it was over, I hit replay and danced to it again. At T+3:19, I felt fantastic but also extremely worn out from all that movement, so I finished off our snack bar and then decided to take it down for a minute; I knew I was obviously feeling very speedy now but also really needed to just lie still for a minute as we don&#x27;t exert ourselves physically to the degree I just had as often as we used to anymore. I put on I Want You by TeddyLoid from the anime Panty &amp; Stocking with Garterbelt and relaxed in it for a minute, just letting the newly developing high really sink in.
+T+3:25 - Our friend texted back the song RAVE, OK! by nanobii which we gave a listen, and it also verified how very stimulated we were currently feeling, though luckily we could still enjoy it while just lying there in euphoria. Still feeling more like relaxing rather than moving more at this point, Omicron came back out and put on the song Catharsis by Savant, which I also very much enjoy. During this time period, I was giving a lot of thought to the fact that, as I mentioned before, we had noticed the psychedelic effects of 4C-D developing with the dosage increases and even from the beginning but were unsure of whether or not we believed 4C-D actually was an empathogen or had any fully empathogen-like effects, and at first I was telling myself that while I could see SOME comparison, I just didn&#x27;t really think it was on the same level as something like MDMA, the only empathogen we&#x27;ve knowingly taken before, and I just didn&#x27;t want to categorize it the same way.... However, the more I thought about it, the more the high seemed to open itself up and contradict what I was thinking, and by T+3:45 I was saying it was &quot;maaaaaaaybe&quot; empathogenic, though I still wasn&#x27;t totally confident.... We also decided to start getting out of the bath at this point, but first Iota ordered us some lunch so that part of the wait time would be taken up with us getting out and dried off and everything. She also noted that our heart rate seemed slightly elevated again at this point, but still pretty normal.
+This part of the trip report is written by Omicron.
+T+4:09 - We&#x27;re out of the bath now and I&#x27;ve taken over from Zeta for the moment, and I immediately note that she is delusional and that this feels very much like an empathogen, or at least like MDMA, to me! At this point it hasn&#x27;t gotten quite that strong and nice yet but it&#x27;s definitely in a similar area that other psychedelics, even the ones people call empathogenic, are not for us, and I would know. While we were unaware of the way our system works all these years ago, we have come to suspect that back when we used to take MDMA regularly and would first enjoy the roll and then afterwards smoke lots of cannabis and enjoy its more psychedelic effects that come in the later hours, Zeta was at least one of the alters connected to the second phase, while I was at least one of the alters connected to the first phase. We all have a lot of different drug preferences in here, and while there are many that prefer drugs that are primarily psychedelics as their main psychoactive of choice, I personally feel that MDMA is the one I always loved the most, and even though we haven&#x27;t taken it in a long time now for many reasons, I still feel like I miss it and sometimes want to return to the empathogen world in general. That being said, when I felt this high of 4C-D now developing in the later hours, I was (hehe) ecstatic! It was highly recognizable in that way that nothing else has been as of late, and for someone like me who wants that more than I want the pure psychedelic effects, it was especially obvious.
+The very first thing that I did after getting out of the bath and getting dressed was walk back out into the living room, and when doing so I noticed that I felt as if I wasn&#x27;t walking but simply floating from one room to the next, and instantly flashed back to our old rave days when MDMA always made us feel that way. I put on the Klaas Remix of Where&#x27;s Your Head At? by Basement Jaxx which was a popular song when we first got into that scene and holds a lot of nostalgia for us and me, and the feelings of euphoria increased further. At T+4:13 I went and got myself some mint gum to start chewing on because I was getting bruxism much stronger than we had gotten from anything in years, and probably ever aside from MDMA! I also got some cold water which was incredibly refreshing, and I sat there drinking and chewing and unfocusing my eyes surely looking increasingly intoxicated as the high continued to set in. Next the Klaas Remix of This Time by Dj Antoine came on, then Ghosts &#x27;n&#x27; Stuff by deadmau5, and I just got further and further into the empathogenic mindset and high, enjoying the feelings I hadn&#x27;t felt in so long along with the music I used to enjoy along with them back in the day. I also got more mint gum at T+4:24 because I had chewed all the flavor out of the first piece, though it occurred to me at this time that we actually had food on the way too, but I really wasn&#x27;t feeling hungry anymore and figured we&#x27;d just have to see how it goes.
+T+4:30 - I note at this point that I&#x27;m starting to get the effect of breathing very heavily and deeply and feeling highly euphoric while doing so also in a way that is highly similar to MDMA and that we generally don&#x27;t experience this way on almost anything else, and it&#x27;s obvious to me that the effect is still increasing somewhat, but I do find that surprising given that we&#x27;re already four and a half hours after dosing. Maybe this drug really is just like the DOx family also in the way that it comes on fast enough but then just keeps rising and rising and rising for several hours, and in this case, at least for us, first has to go through some layers of psychedelic effects before finally peaking more like an empathogen at a high enough dosage? Zeta and I both find it very interesting and keep it in mind to think about, but the food Iota ordered earlier finally arrived right at this moment as well. When I answered the door I noticed that the guy who delivered the food looked kind of like a raver, and I felt like I looked very fucked up and was trying very hard to keep a straight face and not start laughing while taking the food from him, but the interaction was over quickly.
+T+4:35 - Zeta comes back out and notes that she&#x27;s feeling good and is going to try eating the food because she was pretty hungry before even though our appetite is quickly diminishing now, and she puts on the American Dad! episode Standard Deviation, which has both psychedelic and empathogenic elements, while we&#x27;re eating. Iota ordered us fish and chips with tartar sauce, and while it&#x27;s immediately obvious that it&#x27;s going to be hard to finish in a way like on MDMA when starting to eat, Zeta says this is the best fish and chips she&#x27;s ever had and starts practically inhaling the meal whole because it&#x27;s so delicious to her. At T+4:44 she was feeling overwhelmed by it all so I popped back out, and as I did I started getting some eye wiggles that also reminded me of a good, strong roll. I ate some of the food myself while I was out and it was damn good.... We weren&#x27;t eating most of the chips but the fish and tartar sauce were absolutely divine, juicy and savory, so good. After I had my fill Zeta switched back out and finished up the fish, not the chips but we were so full and ready to relax by then it didn&#x27;t matter, we were satisfied. The episode finished at T+5:04 while we were cleaning up our mess and I switched back out to continue the high where we left off before the food arrived. The food really was incredibly good, but it didn&#x27;t take long to see that it did bring down the high just a little bit, so I decided to take another shower at T+5:07 to try to milk it back out.
+In the shower, Zeta switched back and she and I had some intimate interactions internally in the same sort of way that she and Delta had during our first shower of this experience, and she ended up masturbating again, but the experience was very different this time; whereas at first it was very psychedelic and sexually stimulating in a way that reminded us of DOC and DOB, now she felt euphorically apathetic and noted that every touch felt so good and orgasmic that it didn&#x27;t seem necessary to go all the way with it anyway, it was just blissful in general again like on MDMA. Nonetheless, she kept going until she got there, but the orgasm was honestly difficult to even distinguish from the high, it was just one long euphoric blur, though the whole experience did actually act as a good reactivator of the more potent effects of the high as I had been hoping it would. At T+5:40 she got out of the shower and at T+5:50 I was back under our old bedroom fan drying off again. Afterwards I got dressed and went back out into the living room and put on I Remember by deadmau5, another very nostalgic song for me and us. I also noticed our jaw was really clenching again and got myself another piece of mint gum.
+T+6:04 - The high has continued to fully develop experientially even though it feels like mechanically it&#x27;s probably peaked by now, and I make a simple note that I haven&#x27;t felt this way in a long time, and it&#x27;s good to remember this feeling. It makes me want to take MDMA again even more... but also makes me very happy that we have this 4C-D too because I can obviously get a similar type of experience I&#x27;m looking for out of it, even if it&#x27;s compacted within a stranger and longer psychedelic experience!
+T+6:15 - We got a call from our parents who were on vacation and caught up a bit with them and everyone they were visiting, then went back to listening to music. Zeta, Rho, and I switched out listening to a handful of songs, but by the time T+6:40 rolled around, it was clear that the more empathogenic effects of the high were passing, and it was dropping back down to being somewhat more like a kind of empathogenic but kind of more psychedelic trailing DOx-like experience, and I felt satisfied that I had gotten what I really needed and wanted out of it all.
+The remainder of the trip report is written by Zeta.
+Omicron has switched back in, and now I&#x27;m back at the wheel. As she said, while the MDMA-like component, which I now more clearly recognize, does still seem to be around, it&#x27;s definitely starting to fade compared to before. I have a slight headache at the moment, which is pretty standard for phenethylamine experiences getting on in the later hours for us, but I also think it may just be related to how we&#x27;ve been switching a lot and being triggered more easily by different thoughts, feelings, and perceptions, as headaches are one of our symptoms for needing to switch. I feel like I&#x27;m slightly at a loss of where to go with the experience now, and think about how to use it next....
+T+6:52 - After thinking a bit and texting a friend, I put on the Bob&#x27;s Burgers episode Flu-Ouise and eat the key lime pie Iota ordered for dessert along with the fish and chips that we hadn&#x27;t touched before now. It is damn good, and the male cat has a few licks of his own chunk of it too after he comes over to see what I&#x27;m up to. I finish eating at T+7:03 and then just enjoy watching the episode, and also thinking about the pharmacology and effects of MDMA.
+T+7:19 - The episode finishes, and I&#x27;m thinking about taking another bath or something as there&#x27;s not much else to do and I still want to enjoy the lingering high, which is still perceptibly going but seemingly weak, but probably not so much it can&#x27;t be milked back out. I notice that walking around makes the body high more obvious again, I think it&#x27;s just subtle to begin with so you really have to give yourself a chance to notice it, and when I&#x27;m paying attention and especially when I&#x27;m lost in thought, I&#x27;m still getting some very brief flashes of that colorful spinning gear imagery emanating from within, though none of the abstract human imagery that was accompanying it before. Finally I decided to get in the bath at T+7:40, and while the water&#x27;s filling up start reading some data and trip reports about 4C-D online. The water feels good as it rises around me, making the subtle high much more obvious even if it is still clearly getting weaker than before, and once it&#x27;s all the way up I put on some more electronic music again as a backdrop to the reading I&#x27;m still doing.
+I could continue copying the notes from the bath, but honestly all I really did was listen to a bunch of songs and read more for most of it, so I&#x27;ll skip ahead to T+9:15. I had recently finished reading and then started reviewing the notes from the day&#x27;s experience so that I and we could form better lasting memories of it all, and as I was doing so I started thinking about how much time had really passed for the first time in all of this experience, which, at just over nine hours after dosing, is just barely faster than we first had that thought on DOB, about ten hours after dosing, which is considerably longer than it is with most indole psychedelics. I was getting hungry again at this point and thinking about ordering some dinner, but this time decided to fully get out of the bath before doing so.
+T+9:28 - I&#x27;m dressed and back out in the living room now, and Omicron comes back out to feed the cats again. Afterwards I end up looking at forum posts online and start working on some while also putting on the American Dad! episode Rabbit Ears in the background. The episode finished before I was done working on my post, which I finished reviewing and then submitted at T+10:16, and afterwards Iota came out and we decided to order dinner together.
+T+10:24 - Even though the high has considerably lessened now, I do note that while pacing around thinking to myself about things, I still have that non-pushy but focused sense of psychedelic energy some of the incomplete but large and detailed geometric imagery occasionally flashing by in the mind&#x27;s eye, both in a way that remind me especially of DOB, so I know I&#x27;m clearly still on something and even still tripping specifically even if the effects are quite light in some ways compared to other psychedelics. At T+10:30 I also note that there is still a slight but measurable MDMA-like feeling going that the DOx drugs don&#x27;t have for me that I can recall for the record.
+For the next hour, I am mostly just lost in thought or conversing internally with the others while TV episodes play in the background and we wait for dinner. There seems to be some agreement among us that the effects are reminiscent of DOB, which isn&#x27;t too surprising given its molecular structure, and also certain bulkier base tryptamines like MPT and MALT in some ways related to how it was reminding me of 4-substituted tryptamines earlier, in part because of how it was like that but also more visually detailed in some ways like their base tryptamine counterparts. We also found it more grounded overall like the base tryptamines, and less like the 4-substituted tryptamines.
+T+11:20 - Our taco dinner arrives at this point, and we also get a response to a forum post. The food is damn good from what I can recall, but we&#x27;re too distracted to really focus much on it as we&#x27;re busy responding to the post and getting a bit emotional about it. This ended up being a very engaging and somewhat anxious conversation that sucked our attention in for a bit and pulled focus away from the lingering trip effects and also mixed with the trailing dissociation to make me and us feel kind of cloudy and fatigued, and it took a long time to finish. I did note we still had a flash of mental geometry at T+12:26, but aside from that our next note was at T+14:51 when that conversation finally finished up, and I was feeling dazed and still high but less so. Very much wanting to relax, I got in the bath again at T+15:17.
+T+16:17 - I listening to calming music and then got out exactly an hour later, not really wanting to stay in there too long but just having wanted to calm down a bit, and then ate another bowl of cereal at T+16:30 to bring things full circle after getting back out in the rest of the house.
+T+16:45 - I can tell the high is still going because I was trying to message a friend and still felt dreamy and tingly while lying on the couch, and I just wasn&#x27;t able to keep a thought together, so I eventually gave up on the message and went to bed at T+17:15.
+I could continue writing a bit more about this experience, but that&#x27;s really where the important notes end. We ended up getting about seven hours of peaceful sleep with good dreams, which was actually a very nice improvement as we had been having a lot of nightmares leading up to this. When we woke up we still did feel just barely high, but not like there were really still any lingering trippy or rolly effects going, just a still very slightly trailing body buzz. It seems like we finally felt a complete or near complete drop off between twenty-four and twenty-five hours after dosing, which is again consistent with what we noticed in our past experiences with lower dosages. This following day definitely felt like something of a &quot;recovery day&quot; as we would have referred to it in past MDMA experiences and that we&#x27;ve actually felt a bit with 4C-D already with lower dosages, we were slow and tired and a little snotty and just generally more worn out than we usually are after psychedelics, but it was nothing truly uncomfortable and we enjoyed just taking the day easy and resting up.
+On top of the recovery day feeling, we did also have a nice psychedelic afterglow too which really helped to balance things out, we were in a very positive mood in general and also very glad to have gotten to trip and get high again specifically after that break period we had been on. Additionally, while the recovery day feeling really only lasted that next day, the afterglow lasted many days and really kept us feeling happy and glowy all throughout the next week, which is something we had been wondering about with 4C-D and were happy to see materialize. However, it&#x27;s worth noting that while these lingering effects did help quite a lot with our mood as well as some dissociative symptoms we had been dealing with, the anti-addictive effect we were looking for definitely did not occur
+the anti-addictive effect we were looking for definitely did not occur
+, and in fact we were fiending for highs of all types over the next few days after this experience! Though we didn&#x27;t actually take anything else at the time, little did we know how much we would be back to be using things not that much later, but it was an interesting experiment at the time.
+Overall, I really like 4C-D so far, but it&#x27;s a very unique drug from the others we&#x27;ve taken so far, while at the same time being quite recognizable. We have seen scientific papers from decades ago saying that in lab animals 4C-D substitutes for both MDMA and LSD, and I can honestly believe it now because it does seem to be sort of a hybrid of a classical, though phenethylamine-style psychedelic experience and an empathogen experience, though not quite exactly either but very familiar in the ways it&#x27;s like both. The empathogenic effect does feel particularly like MDMA to us and of course Omicron in particularly really enjoyed that, and I enjoyed trading the experience out with her like we feel we did with MDMA back in the day as well, but given that we have not taken any other empathogens knowingly such as the benzofurans or anything like that, I would caution against taking our word too much that it&#x27;s THAT much like MDMA compared to other empathogens, 4C-D definitely reminds us of MDMA but there are differences and some of those are probably closer, but this is definitely in the same area for us. As for its psychedelic effects, I was glad to be able to see them develop somewhat more completely this time around after getting so many good hints and signs from past experiences, and would say that overall I find them most similar to the DOx family from which 4C-D is directly derived. However, there are clear differences between them just as there are between the DOx and 2C-x families and between 4C-D and the 2C-x family, and I wouldn&#x27;t say it would be wise to take 4C-D expecting an experience alike one of the more powerfully psychedelic DOx drugs like DOC or DOB, but knowing how those molecules work will definitely provide some insight in understanding how to work with 4C-D as well.
+That&#x27;s all we&#x27;ve got to say for now though so we hope you found it educational or entertaining and be safe if you choose to experiment with this one as well!
+Exp Year: 2019
+ExpID: 113681
+Gender: Female
+Age at time of experience: 28
+Published: Nov 14, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4C-D (744) : Alone (16), Music Discussion (22), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

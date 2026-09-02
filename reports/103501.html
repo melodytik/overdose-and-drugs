@@ -1,0 +1,209 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;TMA-6&quot; - 埃洛伊德的&quot;TMA-6&quot; - 蒸发的效果很好.</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tma-6.html'>← TMA-6</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;TMA-6&quot; - 埃洛伊德的&quot;TMA-6&quot; - 蒸发的效果很好.</h1>
+<div class='sub-title'>TMA-6 - Erowid Exp - &#x27;TMA-6 Vaped to Good Effect&#x27;</div>
+<div class='meta'>作者：Borax Citation · 日期：Nov 14, 2014 · 剂量：26 mg · <a href='https://erowid.org/experiences/exp.php?ID=103501' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>在2毫升伏特加中溶解26毫克.
+它的溶解性很差.
+在加热后溶解, 随着酒精的流失,
+13:13 - 估计有5毫克的不溶性垃圾
+13:21 - - 水很难取出, 但很快就消失了.
+蒸汽并不是特别不愉快的
+我把所有东西都蒸发, 达到4/10, 比我想象的要低.
+音乐听起来更好, 但没有提升情绪.
+13:47 - ~7毫克更多
+13:53 - 我决定我不喜欢它,
+我的视力几乎是&quot;阴云&quot;很难描述.
+13:54 - 仍然只有最小的视觉扭曲.
+14:07 - - 我把自己的肠子空了.
+我的胃似乎没有印象
+我读了舒尔金的报告,
+他似乎喜欢它,我也会.
+14:31 - 我感觉很冷,有点恶心,但我喜欢听音乐
+14:42 - 仍然有点恶心,
+14:56 - 我偶尔会感觉到我的身体.
+非常愉快.
+15:08 - - 我吃完了.
+这并没有帮助,但也没有使事情变得更糟.
+15:39 - 移动似乎有所帮助.
+音乐的欣赏度很高, 我当然希望我能咬一口子弹,
+我认为我已经下降了一点, 可能只有4分,
+时间17点12分 - - 我出去收集一辆废弃的自行车,
+我进入并意识到我仍在,
+18:15 - - 仍然很强.
+也许有些尾巴,但很难说.
+没有多少,如果有.
+19:38 - 我去骑自行车.
+现在我还能感觉到同样的水平.
+20:42 - 可能是3/10.
+不过它仍然会阻碍睡眠.
+我很容易把电视台等安装起来,
+我很快就要睡觉了,
+22:27 - 知道如果没有帮助我就无法入睡,
+22:45 - - 现在已经很醉了.
+我有轻微但丰富多彩的视觉
+字幕后:
+显然这种药物使用途径是有效的,即使没有基化; 给出一个更容易管理的持续时间可能接近11小时.
+我通常不会受到身体负荷和恶心的影响, 但在两次TMA-6 (另一次口服) 时,
+这和其他非凡的效果和长时间意味着我会选择任何其他幻化药物而不是TMA-6.
+其他:
+TMA-6 (270):一个人 (16),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+TMA-6 Vaped to Good Effect
+TMA-6
+by
+Borax
+Citation:   Borax. &quot;TMA-6 Vaped to Good Effect: An Experience with TMA-6 (exp103501)&quot;.
+Erowid.org
+. Nov 14, 2014. erowid.org/exp/103501
+DOSE:
+26 mg
+vaporized
+TMA-6
+(powder / crystals)
+BODY WEIGHT:
+74 kg
+This report was written at the exact times noted, during the trip. I have edited it minimally.
+13:12 - 26mg dissolved in 2ml vodka measured into bulb vape. It is poorly soluble. Upon heating it dissolves, and something precipitates as the alcohol is lost.
+13:13 - There is an estimated 5mg of insoluble crap
+13:21 - the water is challenging to remove, but soon goes. The vapour is not particularly unpleasant
+13:45 - Larger hits are a bit harder. I vape everything and reach about 4/10, lower than I thought. Music sounds better but there is no mood lift.
+13:47 - ~7mg more
+13:53 - I decide I don&#x27;t really like it and find myself wishing I hadn&#x27;t bothered. My vision is almost &#x27;cloudy&#x27; it is hard to describe.
+13:54 - There is still only minimal visual distortion.
+14:07 - I empty my bowels. My stomach seems unimpressed
+14:11 - I read Shulgin&#x27;s report and enter a much more positive frame of mind. He seemed to enjoy it and so will I.
+14:31 - I feel quite cold and a little nauseous but am enjoying music
+14:42 - Still a little nausea, pleasant energy and happiness though.
+14:48 - I decide to eat something.
+14:56 - I occasionally get tingles travelling down my body. Very pleasant.
+15:08 - I finish eating. It hasn&#x27;t helped but hasn&#x27;t made things worse.
+15:39 - Moving around seems to have helped. Music appreciation is high and I certainly wish I&#x27;d bitten the bullet and had some more.
+15:48 - I take stock of how I feel and decide I&#x27;ve come down quite a bit, probably only a 4 where before I was actually at a 5 or 6, which was masked by a lack of visuals.
+17:12 - I go out to collect a discarded bike, thoroughly enjoying myself with my mp3 player and likely looking quite suspicious. I get in and realise I am still tripping only a little less than when I left.
+18:15 - Still going strong. Maybe some tail off but it&#x27;s hard to tell. Not much if any.
+19:38 - I go for a bike ride. Upon returning, I still feel about the same level.
+20:42 - Down to a 3/10 perhaps. No more than a + but it would still prevent sleep. I put up a TV stand etc with little difficulty and have no problem hiding my tripping.
+22:07 - I have to sleep soon and I am still a solid 2/10
+22:27 - Knowing I will be unable to sleep without assistance, I have some weed.
+22:45 - Quite stoned now. I have mild but colourful visuals
+Postscript:
+Clearly this route of administration is effective, even without basifying; giving a more manageable duration probably approaching 11 hours. I am not usually affected by body load and nausea much but on the two occasions I have done TMA-6 (the other orally) it has been one of my worst substances for it. This and the otherwise un-extraordinary effects and long duration mean that I would pick any number of other psychedelics over TMA-6.
+Exp Year: 2012
+ExpID: 103501
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 14, 2014
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+TMA-6 (270) : Alone (16), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

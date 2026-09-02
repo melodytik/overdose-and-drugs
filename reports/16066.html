@@ -1,0 +1,465 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - &quot;两种&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/calamus.html'>← Calamus</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - &quot;两种&quot;</h1>
+<div class='sub-title'>Calamus - Erowid Exp - &#x27;Two Kinds&#x27;</div>
+<div class='meta'>作者：R Givens Citation · 日期：Aug 10, 2002 · <a href='https://erowid.org/experiences/exp.php?ID=16066' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>树
+没有根.
+我吃了大约一英尺的干燥 (刚剥皮) 根茎我从附近的沼泽收集.
+经历了一次令人愉快的轻度迷幻之旅, 持续数小时.
+我吃了它, 却没有恶心或吐,
+没有任何消化障碍.
+虽然没有像LSD那样强烈的迷幻,
+艾科鲁斯有自己的迷幻&quot;味道&quot;.
+我已经试过了.
+树
+因为我在各种草药书中读到的报道.
+我还有机会使用
+树
+对于严重的牙痛.
+我有一个受感染的关神经,
+我不得不等到星期一下午才去看牙医.
+我开始用止痛剂治疗牙痛.
+这种药物效果好了大约四个小时, 然后继续应用失去了效果.
+没有别的,和在相当的痛苦我决定尝试
+树
+医生建议使用这种药来治疗牙痛.
+我切出一块两英寸长的根茎, 剥去皮,
+疼痛缓解是快速和有效的.
+这
+树
+但这根非常苦的根, 让它接触到坏的牙,
+虽然我没有胃病, 但味道不太好.
+树
+缓解了牙痛的痛苦,而不会产生与其他止痛药相关的麻木感.
+实际上,热感和冷感没有变化, 牙仍然对压力和触摸敏感.
+同时疼痛也消失了.
+我成功地使用了
+树
+这种药物可以缓解超过48小时的严重神经疼痛.
+我甚至可以睡觉.
+这是一种非常不寻常的牙痛疗法,
+一旦化学家们得到合适的混合物, 这种东西可能会取代诺可因!
+这绝对值得一试.
+我吃了果果, 吃下去很痛苦,
+我与北美野生动物相遇
+树
+基本上是愉快的,
+我没有恶心,没有吐,也没有腹.
+一个错误的合唱团
+对于北美阿科鲁斯的分类学地位存在一定程度的混乱.
+是本地或引入, 是一个或多个物种, 是问题之一.
+最近对形态学,精油化学,细胞学,同酶和民族植物学的研究表明北美存在两种物种--
+树
+这种植物是欧亚种,也是美国种.
+综合分类信息系统 (ITIS) 列出了北美甜蜜旗的公认名称,即美国 (Acorus americanus) (TSN182561).
+因为北美所有的甜蜜旗长期以来都被归类为
+树
+预计这种混乱会持续下去.
+鱼的世界 鱼的世界
+几个月前我开始重复我的经验与一些纯土地
+树
+根茎的精油
+我吃了两个茶匙的精油.
+我在一分钟内就开始恶心吐, 持续了八个令人难忘的痛苦小时.
+我从来没有经历过这么长时间的恶心和吐.
+我还患有严重的腹, 每隔15分钟左右都要去所.
+恶心和腹的波是无情的和极端的.
+它们持续到我被的疲.
+我吐了一种红色的液体.
+艾科鲁斯精油的味道非常不愉快.
+(我还能精确地记住那种恶心的味道!)
+经过大约八个小时的吐减缓了,
+我在第二天几乎要吐.
+我没有睡觉.
+经历了这场艰难的考验,
+为了恢复液体平衡, 我不得不住院五天.
+我很难吃得足够多,
+我在这个考验中减掉了十五磅!
+但我不推它作为一种减肥辅助.
+应该指出的是, 我已经60岁了,
+树
+经验也变得更加强烈.
+我需要一个多月的时间才能恢复.
+我没有经历任何我想要的迷幻效应.
+如果有人想尝试进口的纯土地
+树
+我建议你不要使用它, 除非你想做一个丑,不愉快,无益的旅行.
+在想了想之后, 很明显北美和印度和其他地方的东西有很大的区别.
+关于这个问题的文献支持这一观点.
+十九世纪一位白人科学家曾经写道, &quot;甜蜜的根具有营养和增强力&quot;, &quot;味道并不令人不快&quot;.
+美国印第安人草药的宝藏, 弗吉尼亚·斯卡利,1970年172-173页.
+&quot;追踪野生&quot;的摘录 欧尔·吉本斯
+在几代人之前, 糖果根是很受欢迎的糖果.
+早期的Shaker社区将这种产品作为一种特色.
+现在我们已经忘记了如何制作它,甚至忘记了如何吃它.
+但对于大多数食谱口味来说, 味道有点过多, 除非你四五次换水.
+这种糖果太,味道太强,
+除了辛之外,它还有一种强烈的味道, 有些人不喜欢,
+我发现,如果一个人随处可见,偶尔吃一口,那么学习喜欢的任务很快就会被保持足够的任务所取代.
+&quot;对于医疗目的,最常用的部分是黄色的,横向的根茎,直径为1英寸或更多, 地下只有几英寸.
+一个尖的或刀是收集它们的最佳工具.
+一只手抓住根茎, 把工具的尖端滑到根茎下面,
+没有剥皮的根茎应该洗,并在阳光下彻底干燥.
+在干燥它失去部分咬的尖性.
+它可以用多种方式获取, 最简单的方法就是简单地砍掉半英寸长的干根, 它, 吞下果汁.
+这使得我相信我们谈论的是两种不同的品种.
+树
+没有.
+必须是我在沼泽多年前发现的,因为没有绝对远程愉快的味道
+树
+根茎的精油
+吉本斯指出,人们认为豆&quot;很好喝茶&quot;,并将其用作糖果,
+树
+为了这些目的.
+即使在稀释的状态下
+树
+根茎精油是不可能用于糖果无论多少味道是稀释.
+外国品种是彻底恶心.
+1970年重新出版.
+弗吉尔· 沃格尔说:&quot;甜蜜的旗&quot;
+树
+草原地区的&quot;各个部落都非常重视&quot;草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原草原.
+梅诺米尼派使用小剂量从根制成的药物治疗胃和身体.
+除了这些用途外,掠夺者Ojibwas还使用草治疗&#x27;喉感冒&#x27;. 波塔瓦托米斯嗅着粉状根鼻子上治疗白内障,并将其作为止血药的成分.
+梅斯克瓦基印第安人用煮熟的根做类似的用途,
+1081 年
+卡拉姆斯或甜蜜的旗在USP,1820年至1916年,在NF,1936年至50年是官方的.
+它被认为是有效的,刺激和芳香苦,除了作为调味剂.
+1082 年
+从:美国印第安人医学, 维吉尔J.
+1970年,由俄克拉荷马大学出版社.
+原生植物的药用前景
+罗宾·J.
+马尔斯博士,副教授
+布兰登大学植物学系
+曼尼托巴省的布兰登
+1996 年 3 月 3 日至 5 日在阿尔伯塔省奥尔兹市举行的草原药用和芳香植物会议上发表
+其中一种最广泛使用的,并有可能销售的本地药用植物是甜旗或鼠根 (
+树
+由于其含有和其它成分, 已被证明是治疗胃肠道问题和咳的安全有效的抗药 - - 这是其两种主要的传统用途.
+农业农业农业农业农业农业农业
+印度人和早期定居者所使用的&quot;鼠根&quot;并不是有毒的欧亚品种.
+北美印第安人使用
+树
+作为一种兴奋剂,迷幻药和药物.
+印度人打电话
+树
+吃一英尺新鲜的根茎就等于服用LSD.
+这与我在野外发现的鱼的经验相符.
+一个账户将卡斯特将军在小大角的失败归因于
+树
+没有.
+据说有些部落曾经经经过数百英里,
+印第安人前往加拿大, 他们每天被迫游行超过110英里,
+美国骑兵队的可敬的夫们无法一天又一天地进行这么长的游行, 印第安人远远领先于追逐者,
+他们在小大角等待第七骑兵, 给卡斯特和美军应得的毁灭.
+根据这篇报道, 10英寸的&#x27;鼠根&#x27;足以进行一百英里的强制行军!
+印度人今天报告说, &#x27;鼠根&#x27;是一种治疗酒的方法,
+选择合适的植物
+我个人经验和其他人的报道清楚地表明,
+树
+是植物的不同物种或品种, 具有不同的化学成分.
+只有北美野生才应用于迷幻目的.
+由于我与
+树
+我不能向任何人推这种植物.
+然而, 既然有些人会尝试这些东西,
+一个.
+仅使用北美
+树
+您可以自行选择或从100%可靠的来源获取!
+不要使用任何进口的
+树
+通过互联网销售的材料
+2. 在
+确保你买的是正确的植物.
+树
+很容易识别,因为它有愉快的气味.
+因为没有其他类似的植物有这样的气味.
+这种植物的生长时间是
+树
+没有.
+(我不能说欧亚种类的鱼是否有相同的香味.
+表面上与相似的尾有较窄的叶子,颜色为蓝绿色,而北美尾的叶子则是蓝绿色.
+树
+有一个黄色绿叶.
+一看就看起来是相同的, 但一旦你仔细观察了子旁边的子 (它几乎总是发现) 你应该能够区分子和子百英尺远.
+尾叶是蓝绿色的,黄是黄色绿色的,叶子比尾叶宽一些.
+3. 没有.
+这里是Euell Gibbons的指导方针来识别野生
+树
+&quot;从远处看, 一片可能会被误认为是野生虹彩或年轻的,
+长达三英尺或更长的叶子, 都从植物的根部发出.
+花是一种干燥的,类似手指的尖,从花中以角度生长,类似于稍微改变的叶子,通常在地面上方一到两英尺处.
+像图中所看到的那样, 树干在表面的下方转向, 底部有很多根.
+香草植物的每一个部分, 叶子,茎,根和根茎, 都有辛的, 芳香的香气, 这种愉快的香气可以用来区分这种草药和表面上类似的其他草药.
+1970 年 11 月再印, p50
+4. 没有
+先试一下非常小的剂量,看看您对药物的反应如何.
+树
+如果吃错了植物, 就算吃一小块, 也会让你生病,
+五个
+我不推这种植物用于迷幻的目的, 因为我与外国品种的不良经验, 但如果你决心尝试,
+树
+其他:
+(106): 不适用 (38), 追溯 / 总结 (11)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Two Kinds
+Calamus
+by
+R Givens
+Citation:   R Givens. &quot;Two Kinds: An Experience with Calamus (exp16066)&quot;.
+Erowid.org
+. Aug 10, 2002. erowid.org/exp/16066
+DOSE:
+2 tsp
+oral
+Calamus
+BODY WEIGHT:
+160 lb
+TWO KINDS OF
+Acorus calamus
+About 30 years ago I did some experimenting with North American
+Acorus calamus
+root.
+I ate about a foot of the dried (just peeled) rootstock I collected from a nearby swamp. Within about 90 minutes I experienced a pleasant mild psychedelic trip that lasted several hours.
+The rootstock tasted extremely bitter, but there was no nausea or vomiting or even a gag reflex when I ate it. Once I managed to get the bitter root down there were no digestive upsets whatsoever. The experience was pleasant although not as intensely psychedelic as LSD. Acorus has its own psychedelic &#x27;flavor.&#x27;
+I tried
+Acorus calamus
+because of reports I had read in various herbal books.
+I also had occasion to use
+Acorus calamus
+for severe toothache. I had an infected nerve in a molar that required a root canal. Unfortunately the tooth blew up on a Saturday and I had to wait until Monday afternoon to see a dentist.
+I started off taking pain-relieving gels for toothache. This stuff worked OK for about four hours and then the continued applications lost their effect. Having nothing else, and being in considerable pain I decided to try the
+Acorus calamus
+which an herbal had recommended for toothache pain.
+I cut a two-inch piece of rootstock, peeled it and put it in contact with the gums and the affected tooth. The pain relief was rapid and effective.
+The
+Acorus calamus
+worked extremely well so far as relieving the severe pain, but chewing the extremely bitter root and keeping it in contact with the bad tooth was not pleasant because of the bitter taste. I did not get any stomach upset, but the taste was not to my liking.
+Acorus calamus
+relieved the toothache agony without producing the numbness associated with other painkillers. In fact, there was no change in sensation of hot and cold and the gums were still sensitive to pressure and touch. At the same time the pain was gone.
+I successfully used
+Acorus calamus
+to relieve severe nerve pain for over 48 hours. I was even able to sleep.
+This is a very unusual toothache remedy that should be studied because of the unique characteristic of relieving pain without subduing other sensations. Once the chemists get the mixture right this stuff might replace novocaine! It is certainly worth testing.
+When I ate calamus for psychedelic purposes it was very bitter going down, but there wasn&#x27;t even a burp afterward.
+My encounter with wild North American
+Acorus calamus
+was basically pleasant and with no pain added. I experienced no nausea, no vomiting and no diarrhea.
+THE WRONG KIND OF ACORUS
+Some measure of confusion exists over the taxonomic the status of Acorus in North America. Whether native or introduced, whether one or more species, have been among the questions. Recent studies of morphology, essential oil chemistry, cytology, isozymes, and ethnobotany suggest the existence of two species in North America --
+Acorus calamus
+, an introduced Eurasian species and Acorus americanus, the native Sweet Flag. The Integrated Taxonomic Information System (ITIS) lists the accepted name of North American Sweet Flag as Acorus americanus (TSN182561).  Because all Sweet Flag in North American has long been lumped together as
+Acorus calamus
+, especially in the popular, non-professional realm, expect the confusion to continue.
+http://www.rook.org/earl/bwca/nature/aquatics/acorus.html
+A few months ago I set out to repeat my experience with some PURE LAND
+Acorus calamus
+essential oil from rhizome. I took two teaspoons of the essential oil.
+Within a matter of a minute or so I was overcome with severe nausea and vomiting that lasted for eight straight unforgettable agonizing hours. I have never experienced such prolonged extreme nausea and vomiting in my life. I also had severe diarrhea that sent me to the bathroom every 15 minutes or so.
+The waves of nausea and diarrhea were unrelenting and extreme. They lasted until I was exhausted from heaving.
+I vomited a reddish liquid for hours. The taste of the Acorus essential oil was extremely unpleasant. (I can still remember that nauseous flavor with precision!)
+After about eight hours the vomiting abated, but I felt extremely nauseated for another whole day. I was on the verge of throwing up all the next day. I was unable to sleep.
+The impact of this ordeal left me totally dehydrated and unable to ingest sufficient food and drink for over a week. My health deteriorated to the point where I had to be hospitalized for five days to restore my fluid balances etc.
+The effects of this ordeal suppressed my appetite severely and I was unable to eat enough. I lost over 15 pounds during this ordeal! But I do not recommend it as a diet aid.
+It should be noted that I am 60 years old and have existing health problems that the
+Acorus calamus
+experience intensified. It took well over a month to recover.
+I did not experience any of the psychedelic effects I was looking for.
+If anybody is thinking about trying the imported PURE LAND
+Acorus calamus
+essential oil from rhizome or imported calamus rhizomes, my advice is to forget it unless you want an ugly, unpleasant, unrewarding &#x27;trip.&#x27; This stuff will make you sick!
+After some thought it became clear that there is a big difference between the North American calamus and the stuff from India and elsewhere. The literature on the subject supports this view.
+&#x27;The calamus (flag) was widely regarded as a stirring physic for the entire system, this being approved by a nineteenth-century white scientist who wrote that &#x27;sweet flag roots possess carminative and tonic properties&#x27; with &#x27;a taste which is not unpleasant.&#x27;
+A TREASURY OF AMERICAN INDIAN HERBS, by Virginia Scully, 1970 p172-173.
+Exerpts from Stalking The Wild Asparagus by Euell Gibbons
+Candied Calamus Root was a popular confection a few generations ago. It was sold in shops and on street corners and was often made at home. The early Shaker communities made a specialty of this product. Now we have forgotten how to make it, and even how to eat it.
+Gibbons says &#x27;The spicy pungency of the calamus is a good flavor but there is a bit too much of it for most recipe tastes, unless one changes the cooking water four or five times.&#x27;
+&#x27;This confection is too pungent and strong-flavored to be consumed in quantity, but it does make a tempting nibble. Besides its spiciness it has a strong flavor that some people dislike, describing it as a soapy taste. However, I have found that if one keeps some around and takes an occasional nibble, the job of learning to like it is soon replaced with the task of keeping enough on hand.&#x27;
+&#x27;For medicinal purposes the yellowish, horizontal rhizomes, an inch or more in diameter and found only a few inches underground, are the part most often used. A sharp trowel or an asparagus knife is the best tool for collecting them. Just grasp the rhizome with one hand and slide the cutting edge of your instrument along under it to sever the numerous roots that hold it down.&#x27;
+&#x27;The unpeeled rhizome should be washed and thoroughly dried in the sun. On drying it loses part of its biting pungency. It can be taken in several ways, the simplest of which is to merely cut off a half-inch length of the dried rhizome and chew on it, swallowing the juice.&#x27;
+According to Gibbons eating Calamus rhizomes was not an unpleasant experience which convinces me that we are talking about two different varieties of
+Acorus calamus
+. Gibbon&#x27;s native American calamus must have been what I found in that swamp years ago because there was absolutely nothing remotely enjoyable about the flavor of
+Acorus calamus
+essential oil from rhizome.
+Gibbons remarks that people found calamus as &#x27;pleasant to take as a tea&#x27; and used it for a candy which definitely removes the Euro-asian variety of
+Acorus calamus
+from consideration for these purposes.
+Even in a diluted down state the
+Acorus calamus
+essential oil from rhizome would be impossible to use for a candy no matter how much the taste is diluted. The foreign variety is thoroughly nauseating .
+From: STALKING THE WILD ASPARAGUS, COPYRIGHT 1962 BY Euell Gibbons.  Reprinted 1970.
+Virgil Vogel says that Sweet flag (
+Acorus calamus
+) was &#x27;held in high esteem by all tribes&#x27; of the Plains region as a carminative; a decoction was drunk for fever, and the rootstock was chewed to relieve toothache and stop coughing.
+The Menominees used small doses of medicine made from the root for stomach cramps and as a physic. Besides these uses, the Pillager Ojibwas employed calamus for &#x27;cold in the throat.&#x27; Potawatomis sniffed the powdered root up the nose for catarrh and used it as an ingredient of a remedy to stop hemorrhage. Meskwaki Indians used the boiled root for similar purposes as well as for burn treatment. 1081
+Calamus or sweet flag was official in the USP, 1820-1916, and in the NF, 1936-50. It was considered effective as a carminative, stimulant, and aromatic bitter tonic, besides being used as a flavoring agent. 1082
+From: American Indian Medicine, by Virgil J. Vogel Copyright 1970, by the University of Oklahoma Press.
+Perspectives on Medicinal uses of Native Plants
+Robin J. Marles, Ph.D., Associate Professor
+Botany Department, Brandon University
+Brandon, Manitoba
+Presented at the Prairie Medicinal and Aromatic Plants Conference - Olds, Alberta - March 3-5, 1996
+One of the most widely used and potentially marketable native medicinal plants is sweet flag or ratroot (
+Acorus calamus
+, Araceae), which due to its content of phenylpropanoids and other constituents has been proven to be a safe and effective antispasmodic for gastrointestinal problems and coughs--two of its principal traditional uses.
+http://www.agric.gov.ab.ca/crops/special/medconf/marles.html
+Accounts like these make it clear that the &#x27;ratroot&#x27; used by the Indians and early settlers was not the toxic Euro-asian variety.
+The north American Indians used
+Acorus calamus
+as a stimulant, a psychedelic and a medicine. The Indians call
+Acorus calamus
+&#x27;ratroot..&#x27; They say eating about one foot of fresh rootstock equals an LSD trip. This more or less conforms to my experience with the calamus I found in the wild.
+One account attributes General Custer&#x27;s defeat at the Little Big Horn to
+Acorus calamus
+. Supposedly some tribes traveled hundreds of miles with pursuing US Calvary trying to overtake and murder them. The Indians were headed for Canada and they were making forced marches of over 110 miles a day with their women and children in the party. The venerable cowards of the US Calvary couldn&#x27;t make such long marches day after day and the Indians were far ahead of their pursuers when they whacked out General Custer and his bloodthirsty band of Indian Murderers. They were waiting for the 7th Calvary at the Little Big Horn and gave Custer what he and the US Army so richly deserved— annihilation.
+According to this account 10 inches of &#x27;ratroot&#x27; was good for a 100-mile forced march!
+Indians today report that &#x27;ratroot&#x27; is a cure for alcoholism — an effect common to many psychedelics.
+GETTING THE RIGHT PLANT
+It is clear from my personal experience and the reports of others that the imported
+Acorus calamus
+is a different specie or variety of the plant with a different chemistry. It also seems clear that ONLY the wild North American calamus should be used for psychedelic purposes.
+Because of my distressing ordeal with the
+Acorus calamus
+essential oil from rhizome I cannot recommend this plant to anyone. However, since some people are going to try the stuff anyway here&#x27;s my best advice.
+1. Only use North American
+Acorus calamus
+that you pick yourself or get from a 100% reliable source! Do NOT use any of the imported
+Acorus calamus
+material being sold over the Internet
+2. Be sure that you get the right plant.
+Acorus calamus
+is easy to identify because of its pleasant aroma. Once you smell the genuine article there will be no mistakes because no other plant that resembles calamus has such an odor. Just crush a leaf and you will know right away whether the plant is
+Acorus calamus
+. (I cannot say whether the Euro-asian variety calamus has the same aroma.)
+The cattail which calamus superficially resembles has a narrower leaf that is blue–green in color while the North American
+Acorus calamus
+has a yellow–green leaf.
+At first glance cattails and Acorus look the same, but once you take a really good look at the Acorus next to the cattails (where it is almost always found) you should be able to distinguish calamus from cattails a hundred feet away. Cattails are blue–green and calamus is yellow–green and the leaf is somewhat broader than a cattail leaf.
+3. Here are Euell Gibbons guidelines for identifying wild
+Acorus calamus
+&#x27;A patch of calamus, from a distance might be mistaken for either wild iris or young cattails, although it has yellow-green leaves rather than the blue-green of those two plants. Calamus leaves are shaped like very narrow, flimsy, two-edged swords, measure up to three feet or more in length, and all spring from the base of the plant. Where they join the stem, usually just under the surface of the ground, they are of a reddish-purple color and tightly clasp one another, The calamus flower is a dry, finger-like spike which grows off at an angle from a flower stall, that resembles a slightly altered leaf, and is usually found from one to two feet above the ground. As you can see by the illustration, the stem turns at an angle, just under the surface, and there are numerous roots on the bottom of it. Every part of the calamus plant, the leaves, stem, roots and rhizome, has a spicy, aromatic aroma, and this pleasant fragrance can be used to distinguish this herb from others that resemble it superficially.&#x27;
+STALKING THE WILD ASPARAGUS, by Euell Gibbons, copyright 1970. Reprinted November, 1970. p50
+4. Try a very small dose first to see how you react to the
+Acorus calamus
+If you take the wrong plant even a tiny piece will make you very sick and you&#x27;ll be very glad you didn&#x27;t take more.
+5. I do not recommend this plant for psychedelic purposes because of the bad experience I had with the foreign variety, but if you are determined to try calamus, use the North American variety of
+Acorus calamus
+Exp Year: 2001
+ExpID: 16066
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 10, 2002
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Calamus (106) : Not Applicable (38), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

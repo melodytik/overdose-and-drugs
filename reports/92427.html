@@ -1,0 +1,280 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>MMDA - Erowid Exp - &quot;微型高&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mmda.html'>← MMDA</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>MMDA - Erowid Exp - &quot;微型高&quot;</h1>
+<div class='sub-title'>MMDA - Erowid Exp - &#x27;Miniature High&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：May 3, 2014 · 剂量：2.3 mg · <a href='https://erowid.org/experiences/exp.php?ID=92427' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我用&quot;微型&quot;这个词来形容爵士钢琴家巴德·威尔的作品.
+比较贝多芬的钢琴奏曲和威尔演奏的&quot;纽约的秋天&quot;,
+一切都在那里,但数量和持续时间较少.
+时间停滞的奥林匹亚宇宙, 有机和无机的光.
+这种高潮的持续时间大约是两个半小时.
+在高潮的第一个小时里, 有一种无时的感觉.
+这种感觉比大多数高潮更令人震惊.
+在一辆车上爬上伯克利山,
+恐慌只持续了几分钟, 但在无时无刻的状态下,
+我看着一片枯的银色棕色草.
+在广的田野里, 我可以看到每一个单独的草叶闪闪发光,
+远远的下面是雾的伯克利和奥克兰以及海湾的全景.
+这一切开始呈现出无时无刻的美.
+我以为我会进入奥林匹亚的宇宙.
+我没有为奥林匹克世界做好准备!
+我预计大麻会让我高兴, 我意识到如果我参加奥运会,
+我感觉到我的生殖器已经膨胀了,
+我感到非常害怕.
+我想请其他人回去,
+我不能说话.
+让我另一个视角的银色棕色草毛皮和广大的不必要的亲爱的观点.
+我突然与&quot;零号船长&quot;作斗争, 我的意思是整个无序的,寻求永恒的意识,
+我决定只能让Zero接管,但我确信我不会回来.
+我试图保持高, 但意识到我会这样伤害自己.
+总的来说,我尝试了大概15到20种无法挽回或几乎无法描述的方法来控制或逃避高潮.
+在这段时间里, 我相信自己将会崩,
+意识似乎是唯一能让我保持一致的力量.
+我问他们如何计算剂量.
+通过比较剂量与梅斯卡林剂量,
+我一会儿意识到我可以忍受三小时的恐惧.
+然后我的内心和思想变得更加疯狂.
+我再也不能参加奥林匹亚了!
+在汽车停下来时, 我已经掌控了一切,
+我试过的出口和动物力量让我有了控制权.
+我认为突然获得的确定性与幻觉药物有关.
+我不认为我尝试过的任何方法都能起作用,
+我告诉其他人发生了什么事,
+一会儿,我感到一种轻松的快乐.
+我看到了鸟儿的脚印,网球鞋和赤脚.
+我开始对这些可怕的痕迹和文物感到震惊.
+我走着,试图让自己远离这个景象.
+我右边是梦幻般的景色, 拥有数百平方英里的迷幻城市,
+我不感兴趣,我只关心自己保持整合,
+短暂的,永恒的,上山步行使我们疲不堪,
+我仍然想让这段经历结束,
+我已经做了足够的调整,
+我朋友们闭上眼睛,
+现在我开眼睛, 不想看脑部电影或幻觉.
+我闭上眼睛试验时, 我看到只有光荣和令人愉快的黑色.
+我意识到我能够透过我的同伴的眼睛看到.
+他们看到了严酷的现实,
+我想和弗雷多谈谈, 找出他是谁.
+我发现说话太困难了.
+我的眼睛开始再次关闭的疲和快乐.
+我在烟的时候, 无法找到我的嘴唇,
+没有足够强大的风吹出火柴.
+我们走路时摇摇欲.
+我们住在树木的小站.
+我坐了一会儿,然后站起来,坐在另一个地方.
+然后我又起身了.
+除了视觉感觉, 视觉的清晰度接近梅斯卡林或青, 我似乎被封闭了,
+我躺着闭上眼睛, 练习从底部的中心点, 通过我的身体, 提升女神昆达里尼 (蛇的力量).
+我第一次成功地把力量从肩膀提升到脑袋.
+我意识到,当我这样做, 我不是真正提高蛇的力量而是清理神经管.
+我已经完成了这些神经中心的灰色清晰图像.
+这是一种很好的感觉.
+清的空气给了永绿的鲜的绿色.
+看到树叶或植物就像轻微的梅斯卡林.
+树变成了活生生的,绿色的,现代的雕塑,
+这种感觉开始消失,
+我走到一个红木尸体,
+我被人们,树木,空气以及便携式无线电播放的音乐的绝对和卓越的美丽和清晰所震撼.
+我觉得亲近这些孩子,欣赏他们的美丽.
+现在我意识到我只是坐着享受一个周日的午餐.
+通常我会感到无聊,
+接下来的几个小时变成了一个愉快的野餐.
+这种下降是突然的, 但不是不愉快的.
+我已经准备好了.
+在那一天的剩余时间里,时间飞快地过去了.
+两个小时的时间会闪过.
+那天晚上,脑部电影让我半小时没有睡觉 - - 小鱼在黑暗中穿过尘土飞扬的道路,
+一个模糊的脚注
+我在半夜醒来时, 觉得没有现实,
+我惊恐,把自己螺栓直立在床上,立即打开我的眼睛.
+谢利说:
+那些活着的人
+虽然不真实的形状被描绘在那里,
+这只是模仿我们想相信的一切
+随着颜色散落,在后面,潜伏着恐惧
+希望,双胞胎的命运;谁曾经编织
+他们的影子,在深,盲目和淡的...
+我觉醒的确是对MMDA的反应.
+我昨天和一个喝了太多LSD的人谈话.
+我试图避免谈论幻觉剂, 但他坚持.
+我描述了一些幻觉后的极度焦虑状态, 关于现实的本质,
+我曾经经历过这种情况.
+他指出这种情况不仅与幻觉药物有关,
+拉认为这种状态导致无意识物质浮出水面.
+对于正在发生的事情,
+没有明确我的直觉,
+我意识到两种感觉:&quot;物质&quot;是弗洛伊德 - 雷希主义意义上的压抑心理性质,
+另一个层次是分子层面的意识.
+我指的是与海刺和海绵的哲学意识更相关的部分--它们只是它们的欲望和饥饿的拖,以及它们的动作和撤退的意识,
+如果我们所谓的&quot;无意识&quot;实际上是我们存在的两个或更多分离的部分,
+我并不是说我在MMDA上面对分子意识,
+两周后我回想起当时的情况,
+我有直觉地相信我们正遇到两个未知的领域,
+我有强烈的感觉, 其中的第二个应该不被精神病学和快乐的一天调查所触及.
+实验者必须意识到风险, 或是缓慢地进行调查.
+其他:
+MMDA (593):各种 (28),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Miniature High
+MMDA
+by
+James Woodward
+Citation:   James Woodward. &quot;Miniature High: An Experience with MMDA (exp92427)&quot;.
+Erowid.org
+. May 3, 2014. erowid.org/exp/92427
+DOSE:
+2.3 mg/kg
+MMDA
+I use the word miniature in the sense that I would describe a piece by the jazz pianist Bud Powell as a miniature.
+Comparing a Beethoven piano sonata with &#x27;Autumn in New York&#x27; as played by Powell would be analogous to comparing mescaline and MMDA. MMDA domes through as a miniature high -- everything is there but in lesser quantity and duration.
+MMDA stops barely short of the Olympian Universe of time-ceasing and the appearance of organic and inorganic radiance. The immediate part of the high is about two and one half hours in duration. Rather than a cessation of Time, as there is with mescaline or psilocybin, there is a kind of timelessness during the first malaise-like hour of the high. There is more a feeling of stupefaction than there is with most highs.
+In a car climbing the Berkeley foothills I went into a terrible fear. It only lasted a few minutes but it did not matter in the timelessness how long the panic lasted - it was eternal. I looked out onto the grassy hillside at the dead silver-brown grass. In the expanse of field I could see each separate blade of grass gleaming and the trillions of brown-silver blades blended together into a vast wavering fur. Far below was the panorama of foggy Berkeley and Oakland and the bay. It all began to loom in timelessness and beauty. I thought I was going to enter the Olympian Universe. I WAS NOT PREPARED FOR THE OLYMPIAN UNIVERSE! I had been expecting something like a marijuana high I realized that if I entered the Olympian that I Hadn&#x27;t yet recovered sufficiently from my last high to hold myself together.
+Heat swelled in my genitals and rose to my stomach. I felt agonizing fear. I wanted to ask the others to go back so I could take Thorazine. I couldn&#x27;t talk. The car swerved around a hairpin bend in the road giving me another view of the silver-brown grass-fur and the vast unwanted dearness of the view.
+Suddenly I was fighting with &#x27;Captain Zero&#x27; I mean the whole disordered and eternity-seeking consciousness that is no longer mammalian in nature but belongs to the order of molecules and inert matter! I decided that all I could do was to go with it, to let Zero take over, But then I was sure that I would not come back. I tried to hold back the high but realized I would do myself damage that way. Then I tried to get on top of the whole high and control it. all in all, I tried perhaps fifteen or twenty either unrecallable or almost indescribable means to control or escape the high.
+During this time I believed that I was going to pieces and I would possibly never be with the human-world again. My insides were going wild and my conscious mind seemed to be the only force holding me together. At one point I managed to ask how the dosage had been figured. I was reassured by comparing the dosage to mescaline dosage. For a moment I grasped the fact that I could go through three hours of the fear. Then my insides and mind went wilder. Jesus, I could not enter Olympia again!!
+When the car stopped I was in control and the aroused molecular consciousness had dissipated. The number of exits and ordinary animal powers that I tried had given me control. I account the sudden gaining of sureness to experience with hallucinogens. I don&#x27;t think any of the methods that I tried worked -- but the number of possibilities gave me an assurance that I could control me even in Olympia.
+I told the others what had happened and felt I could enjoy some of the day. For a moment I felt the joy of relief
+As we walked up the footpath over golden brown dust I saw footprints of birds, tennis shoes, and bare feet. The frightening nature of tracks and artifacts began to overwhelm me. As I walked I tried to insulate myself from the sight. To my right was the dream panorama of hundreds of square miles of enchanted cities and dream reality fog pouring upon them from the bay. I was not interested and only cared about keeping myself together and not slipping back to meet Captain Zero.
+The short, eternal, uphill walk exhausted us and we fell on the ground in a tiny stand of trees. I still wanted the experience to end and to return to the meanings of daily loves and realities. I had adjusted enough to make it through the high. My companions closed their eyes and began having brain movies. (Earlier my eyes had been forced shut many times by the euphoric hallucinogen pleasure.) Now I held my eyes open not wanting brain movies or visions. When I closed my eyes experimentally I saw only glorious and pleasing blackness.
+We talked desultorily and and dozefully and I realized that I was able to see through the eyes of my companions. They were seeing stark reality exactly as I saw it. I wanted to talk to Fredo and find out who he was. I found talking too difficult. My eyes were beginning to close again with exhaustion and pleasure.
+When I lit cigarettes I could not find my lips well and they were numbed. Matches kept blowing out in a wind that was not strong enough to blow them out. We wobbled when we walked.
+We stayed in the little stand of trees. I sat for a while then got up and sat in another place. Then I got up again &amp; etc.
+Except for visual sensation, which was just on the verge of mescaline or psilocybin vision in clarity, I seemed to be sealed from sensation and living in a kind of hyper-lucidity of sense -- a pleasant paradox.
+I lay back and closed my eyes and practiced raising the goddess Kundalini (The Serpent Power) from the base chakra and through my body. I succeeded in raising the power, for the first time, past my shoulders and into my head. I realized, as I did it, that I was not truly raising the Serpent Power but rather cleaning the nerve tubes. However, I achieved grayish-clear affective pictures of the chakra nerve centers. It was a good feeling.
+The crystal clear air gave bright green sharpness to the evergreens. Looking at trees of leaves or plants was like a mild mescaline high. Fir trees became living, green, modern sculptures of strange Indian rococo beasts -- as if the sculptor Lipschitz worked at their trimming.
+The malaise-like feeling began to end and the dozeful feeling left with it.
+I walked to a redwood corpse where other members of the party were sitting. I was struck by the absolute and superb beauty and clarity of the people and the trees and air and the music that played over the portable radio. I felt close to the children and admired their beauty. At this point I realized that I was simply sitting and enjoying a Sunday noon in its full pleasantness. Ordinarily I would have been bored with out more to do. The next couple of hours became a pleasant and beautiful picnic. The come-down was abrupt but not unpleasant. I was ready. Time passed with swift rapidity for the rest of the day. Two hour periods would flash by. Late that night I was kept from sleep for half an hour by brain movies -- little crocodiles running across dusty roads through spotlights in the darkness, magic evergreen trees fading into and out of reality, and anecdotal sequences of brain visions.
+AN OBSCURE FOOTNOTE
+A week after taking MMDA I woke in the middle of the night and as I awakened I felt that there would be no reality but only nothingness. I was horrified and threw myself bolt upright in bed and opened my eyes instantaneously.
+Shelley says:
+Lift not the painted veil which those who live
+Call Life; though unreal shapes be pictured there,
+And it but mimic all we would believe
+With colors idly spread, behind, lurk Fear
+And hope, twin Destinies; who ever weave
+Their shadows, o&#x27;er the chasm, sightless and drear...
+The awakening I had was definitely a reaction to the MMDA. Yesterday I talked with a man who has taken too much LSD. I tried to avoid speaking of hallucinogens but he was insistent. As I described some post-hallucinogen states of extreme anxiety regarding the nature of reality, the man began to writhe in his chair, wring his hands, and temporarily lost the ability to speak. I have been in that state. While speaking with Ra he identified it as an anxiety state and pointed out that it is not only related to hallucinogens but is a not uncommon anxiety state for those who have not had drugs.
+Ra accounts the state to an arising of unconscious material to the surface.
+That seems fine and true enough -- as good a name for what is happening as any other. What it does not clear up is the intuitions that I have that strengthen and contradict each other. I am aware of two feelings: that the &#x27;material&#x27; is of a repressed psychological nature in the Freudian-Reichian sense, and that there is also another order of &#x27;material&#x27; confronted. The other order is that of the molecular level of consciousness. I mean a part of ourselves more related to the philosophical consciousness of sea urchins and sponges -- who are no more than the tugs of their desires and the hungers and the consciousnesses of their motions and withdrawals, who are an actual conscious part of the physical universe and the actual being of their protoplasm in the &#x27;Surge of Life.&#x27; It would be interesting if what we so surely call the &#x27;Unconscious&#x27; were in reality two or more vastly divided parts of our being that are both commonly inaccessible.
+I am not saying this to strengthen my argument that I confronted the molecular consciousness on MMDA. I was in too much of a fear state to be definite of anything when I think of it now two weeks later.
+But I am intuitively sure that we are meeting two unknown areas, both repressions and a molecular-philosophical-Universeconciousness. I have a strong feeling that the second of these should be left untouched by both psychiatry and happy-day investigations. We mess with some structure that should remain unknown because is it known by being, unless the experimenter is aware of the risk, or go slowly in an investigatory manner with caution.
+Exp Year: 1962
+ExpID: 92427
+Gender: Male
+Age at time of experience: Not Given
+Published: May 3, 2014
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MMDA (593) : Various (28), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

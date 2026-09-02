@@ -1,0 +1,232 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>普洛斯卡林 - 脑 - 脑</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/proscaline.html'>← Proscaline</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>普洛斯卡林 - 脑 - 脑</h1>
+<div class='sub-title'>Proscaline - Erowid Exp - &#x27;Mind Candy&#x27;</div>
+<div class='meta'>作者：MrMoran Citation · 日期：Aug 19, 2016 · 剂量：50 mg · <a href='https://erowid.org/experiences/exp.php?ID=108898' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>普洛斯卡林旅行报告:50mg,囊,口服
+我觉得列出的内容是最相关的.
+背景:在车里呆了6个小时左右, 车间还有一些工作要做.
+我和朋友在早上9点左右服用了各自的剂量.
+囊的外面有粉末的残留物,
+在四肢上有微妙的变化.
+感觉很好,但惰.
+[t +1:00] 轻微的焦点和思维变化;微小的视觉效果开始出现,特别是在雨在玻璃上的运动中注意到. +
+[t +1:30] 效果开始提升,与恶心.
+视觉敏 (物体看起来更清晰),颜色增强,痕迹和轻微的图案开始出现.
+音乐获得了更高的定义度,低音感觉更加彻底, 音乐也提醒了一些内在的图像. ++ 我与乙胺相关联的身体声在此时获得了全力以赴.
+这时,我认为高峰期开始了,因为恶心在此时消失了 (但在整个旅行中偶尔会回来).
+东西在视觉上已经完全发展, 东西看起来更闪亮,更亮,有更多的颜色,深度,
+一些增强的颜色是紫色,粉红色,绿色,以及黄色.
+雨天反射在路面上, 让它像镜子一样反射, 使路面变得非常色彩纷.
+我觉得我的身体有温度调节问题 (我会在微小的风吹时感到寒冷), 我对普罗斯卡林没有准备好 - - 我出汗了...
+许多.
+我几乎觉得无法停止出汗, 这种状态持续了几个小时.
+我不能戴帽子, 因为太热会让我的头开始出汗.
+这也让我尿得比我喝过的任何东西都要多, 包括咖啡.
+保持水分水平可能很困难.
+让我们回顾一下身体的感觉.
+感觉非常柔软, 类似于MDMA,
+我猜测埃斯卡林或梅斯卡林也会对我产生同样的影响.
+它的身体声最接近2C-I或2C-B, 但总体而言,
+这种能量是恒定的,就像阿利斯卡林.
+[t +3:45] 仍在高峰期保持强.
+我注意到在混凝土圆柱体上移动使我的行程比我之前的行程稍微慢了一些.
+短期记忆几乎完全失效.
+放开所有压缩的能量, 但此刻我也意识到我必须在车里坐下来,
+我和朋友一起抽烟会加剧这种效果,
+我看着树木, 看到的图案与我在2C看到的图案相近,
+返回的车程很困难, 主要是因为我无法控制自己的精力,
+听音乐时, 我会沉浸在内心的形象中, 只是因为周围的汽车变动而突然被震惊出来.
+我会发现自己完全沉浸在歌曲的动作中,
+卡车的空间不允许我这样做.
+至少它有一个好的音响系统,舒适的座位.
+这段旅程的最后一段时间, 我觉得自己已经接近了基线.
+这是一个漫长的,平静的一天整体上, 通过普罗斯卡林的帮助,
+身体的声会减弱, 视觉会保持清晰度, 但也会慢慢恢复正常,
+身体也没有那么难以保持冷静,
+[t+16:00] 在这个时候,我终于能够睡觉了.
+--- 没有
+总体评论:
+但在今年晚些时候, 当天气凉爽或我的头发短或两者兼而有之时,
+我从来没有经历过一种化合物让我像这东西一样出汗
+我从来没有经历过一种化合物让我像这东西一样出汗
+我从来没有经历过一种使我尿得这么多和频繁的化合物.
+保持水分是关键, 监测你的电解质水平也是!
+如果我不了解它, 我几乎会认为它是.
+它有很多2C-I的聚焦清洁能量, 但有很多MDMA/2C-B的内毒性.
+我几乎可以说这比MDMA更有毒, 也可能与5-MeO-MiPT相当.
+身体的声在整个旅行中非常持久, 但一切都很柔软.
+这种音乐增强绝对是同类化合物中的一层.
+它与2C-I,2C-B或MDMA的音乐影响方式相似,
+我认为这很准确.
+我相信这种东西会以同样的方式触及许多相同的受体, 就像2C-I,2C-B,MDA和MDMA,
+普罗斯卡林与艾利斯卡林非常相似,
+这种相似之处几乎不可思议.
+试试这种方法也让我更了解梅斯卡林是什么.
+我觉得我想要尝试Escaline之前虽然,所以我有一个更清晰的想法之前了解这整个家庭的祖父和他是什么.
+梅斯卡林会让我像普罗斯卡林和艾利斯卡林一样想躺下吗?
+只有时间才能证明.
+这种化合物基本上就是我所说的&quot;心灵糖果&quot;.
+旅行本身并没有太多实质, 因为它没有提供太多有价值的洞察力或深度.
+它使音乐变得更好, 视觉上也变得有点有趣, 我的身体感觉很,
+我觉得它最好与某种化合物一起使用, 而不是单独使用,
+对于一个简单的夜晚来说, 它的持续时间太长了,
+美国
+发布时间:2016年8月19日
+普洛斯卡林 (758):小组 (2-9) (17),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+Mind Candy
+Proscaline
+by
+MrMoran
+Citation:   MrMoran. &quot;Mind Candy: An Experience with Proscaline (exp108898)&quot;.
+Erowid.org
+. Aug 19, 2016. erowid.org/exp/108898
+DOSE:
+50 mg
+oral
+Proscaline
+(capsule)
+BODY WEIGHT:
+160 lb
+Proscaline Trip Report: 50mg, capsule, orally
+I have had a bit of experience with mescaline analogs in my day, starting with 2C-E, 2C-T-2, and 2C-I, as well as Allylescaline, and 2C-B later on. To this particular experience, I felt what&#x27;s been listed is the most relevant.
+Setting: Hanging out in a car for 6 hours or so, with a little bit of work to be done in between car trips.
+[t +0:00] At approximately 9:00AM, my friend and I took our respective doses. Capsule had residue of the powder inside on its outside, leaving a slightly bitter taste in my mouth.
+[t +0:38] Notice a subtle, gentle soft change in extremities. Feel nice, but lethargic. +
+[t +1:00] Mild change in focus and thoughts; minor visual effects begin to emerge, noticed especially in the rain&#x27;s movement across the glass. +
+[t +1:30] Effects begin to pickup, with nausea. Visual acuity (where things appear sharper), color enhancement, tracers, and mild patterning began to emerge. Music gains a greater degree of definition, with bass felt more thoroughly, and some internal imagery suggested by music. ++ The body buzz I&#x27;ve associated with phenethylamines gains full-swing around this point.
+[t +2:00] This is when I suppose the peak starts, as nausea faded away around this time (but came back occasionally throughout the trip). Things have developed fully visually, with things appearing shiner, brighter, with more color, depth, and a bit sharper. Some colors enhanced were purples, pinks, and greens, as well as yellows. The sky reflecting off the rainy surface of the road gave it a mirror-like reflection, making the road incredibly colorful.
+However, unlike the 2C&#x27;s where I felt like my body had issues regulating temperature (where I&#x27;d get cold at the tiniest gust of wind), I wasn&#x27;t quite prepared for Proscaline - I sweated... A LOT. It felt almost as though I couldn&#x27;t stop sweating, and this state continued for a few hours. I couldn&#x27;t wear a hat because the heat would build and cause my head to start sweating. This also made me pee more than anything else I&#x27;ve ever taken, including coffee. Maintaining hydration levels can be difficult with this.
+Back onto how it felt in the body. Everything felt very soft akin to MDMA, but like Allylescaline in terms of how I felt like I wanted to recline constantly.  I speculate that Escaline or Mescaline would affect me similarly. It had a constant body buzz most akin to 2C-I or 2C-B, but overall, this compound is more similar to 2C-I. The energy feels constant, like Allylescaline.
+[t +3:45] Still going strong at the peak. I noticed that moving around concrete cylinders brought down my trip a little bit from where I was at earlier during the car ride on the way. Logistics is difficult, and short-term memory is almost completely shot. It felt nice to focus and release all of this pent-up energy, but at this moment I also realize that I must sit in a car on the way back for another 3-4 hours. Smoking a joint with my friend helps intensify the effects, while also calming down my nerves and the phenethylamine body buzz. I look at trees, and see patterns close to those I&#x27;ve seen on 2C&#x27;s, but a bit more organic - but all that said, the patterns were not particularly pronounced.
+[t +~4:15-7:00] The car ride back was difficult mainly because I couldn&#x27;t control my energy or sit still for any extended period of time. As I would listen to music, I would trail off into internal imagery, only to be jolted out suddenly by any change in movement by the cars around me. I would find myself fully immersed in songs&#x27; movements, and could feel a degree of synesthesia between colors, sounds, and textures. As much as I wanted to put my legs up, or situate them in any number of ways, the truck&#x27;s space wouldn&#x27;t allow me to do it. At least it had a nice sound system, and comfortable seats. +++ to ++
+[t +8:00-12:00] These last little bits of the trip are when I feel as though I am getting close to baseline. It&#x27;s been a long, uneventful day overall, made more enjoyable with the help of proscaline. The body buzz dies down, and the visuals retain their sharpness, but slowly return to normal as well, probably right alongside the body buzz in terms of intensity. Appetite returns with a vengeance during this time, as well as my body doesn&#x27;t have as hard of a time staying cool, as evidenced by me sweating less.
+[t +16:00] Around this time, I&#x27;m finally able to sleep.
+---
+Overall commentary:
+This one is definitely a keeper, but it&#x27;s going to have to be explored again later this year when the weather is cooler or my hair is shorter or both. I have never experienced a compound that has made me sweat as much as this stuff does
+I have never experienced a compound that has made me sweat as much as this stuff does
+, it made me sweat more than MDMA ever had; nor have I ever experienced a compound that made me pee so heavily and frequently. Hydration is key with this stuff, and monitor your electrolyte levels too!
+It had a lot of similarities with the 2C series, and if I didn&#x27;t know better, I&#x27;d almost thing it was. It had a lot of the focused clean energy of 2C-I, but held a lot of MDMA/2C-B&#x27;s entactogenic properties. I&#x27;d almost say that this is more entactogenic than MDMA, and probably on par with 5-MeO-MiPT. The body buzz is very persistent through the trip, but everything feels soft.
+Music enhancement on this was definitely a tier above other compounds in this class. It is most comparable with 2C-I, 2C-B, or MDMA in the way it affects music, with quite a few LSD-like notes of depth as well, but it never feels deep. My friend noted it as &#x27;if acid and molly had a baby,&#x27; which I feel is pretty accurate. I&#x27;m sure this stuff hits a lot of the same receptors the same ways as 2C-I, 2C-B, MDA, and MDMA hit, along with some of LSD&#x27;s receptors; it bares a lot of similarities to those.
+Proscaline is SO close to Allylescaline in terms of how it makes me want to lay down ALL THE TIME. The likeness is almost uncanny in that way. Trying this gives me a bit more insight as to what mescaline is like, too. I feel like I want to try escaline before it though, so I have a clearer idea before getting to know the granddaddy of this whole family and what he&#x27;s about. Would Mescaline make me want to lay down as Proscaline and Allylescaline do? Only time will tell.
+This compound is basically what I&#x27;d describe as &#x27;mind candy&#x27;. It doesn&#x27;t really hold much substance on its own in terms of a trip, because it doesn&#x27;t offer much valuable insight or depth. It makes music MUCH better, and it makes things moderately more interesting visually, and my body feels quite buzzy, but that&#x27;s about as far as it goes. I feel like it would go best alongside a compound than be taken alone, and I feel like LSD would probably be the best candidate for a combination. It lasts too long for a simple night out, making it more ideal for something like a festival, a day at the park, a hike, a museum, or something along those lines.
+Exp Year: 2016
+ExpID: 108898
+Gender: Male
+Age at time of experience: 24
+Published: Aug 19, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Proscaline (758) : Small Group (2-9) (17), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

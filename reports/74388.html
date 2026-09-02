@@ -1,0 +1,178 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>双代 - 艾洛伊德 - &quot;片梦&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-dihydrocodeine.html'>← 双氢可待因（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>双代 - 艾洛伊德 - &quot;片梦&quot;</h1>
+<div class='sub-title'>Dihydrocodeine - Erowid Exp - &#x27;Opiate Dreams&#x27;</div>
+<div class='meta'>作者：Mr Dizzle Citation · 日期：Nov 11, 2011 · 剂量：180 mg · <a href='https://erowid.org/experiences/exp.php?ID=74388' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>背景:我十六岁,英国人,生活在英格兰南部.
+我从十四岁开始经常吸食大麻,
+我在几个月前接触了DHC,
+我在此之前曾经喝过一次 (6粒药), 迫不及待地等待着下一次.
+当机会出现时,我很高兴抓住它...
+故事: 晚上7点左右, 我服用了四粒药, 放松和抽烟,
+我很高兴能回到那个幸福的状态.
+我放松了大约一个小时,听音乐.
+我开始觉得自己不那么顺从,
+我开始做一些炼; 按摩,缩和坐.
+我走了出去球了一会儿.
+这种上腺素和喘不过气的感觉比平时更令人愉快.
+我回到里面时, 听到DHC峰值的冷静声, 我在电脑前听着音乐.
+我被打断, 因为她为我和爸爸带来了中餐.
+我喜欢和他们在一起, 但我意识到自己经常要擦脸,
+我又回去看了&quot;时代精神附录&quot; (在之前的DHC会议上我看过&quot;时代精神&quot;的原版,
+我很难保持清醒 (现在时间大约是十点半),所以我去睡觉了.
+我没有睡觉, 只是睡了一小时, 听到妹妹从生日派对回来.
+我下楼和她聊了一会儿,
+我和爸爸一起出去抽烟.
+晚上的天空看起来很大,很美丽; 我无法停止看着它.
+爸爸谈论他的工作但我没有真正倾听,只是区外看着天空.
+我回到了我的房间,又吃了两粒药,
+我半睡半醒地感受到最重的峰值.
+我发现自己在梦和意识之间很快就消失了, 没有什么可担心的,
+我不想搬家,
+图案和彩色的云旋转得非常快,很有吸引力,
+经过几个小时的冥想, 我入睡了.
+今天早上我醒来时头痛轻微,身体也很疼.
+我觉得自己很好.
+我期待着更多的片梦想.
+时间表: 74388
+2011年11月11日发布
+药品 - 代二 (392): 单独 (16), 音乐讨论 (22), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Opiate Dreams
+Dihydrocodeine
+by
+Mr Dizzle
+Citation:   Mr Dizzle. &quot;Opiate Dreams: An Experience with Dihydrocodeine (exp74388)&quot;.
+Erowid.org
+. Nov 11, 2011. erowid.org/exp/74388
+DOSE:
+180 mg
+oral
+Pharms - Dihydrocodeine
+(pill / tablet)
+60 mg
+oral
+Pharms - Dihydrocodeine
+(pill / tablet)
+Background: I am sixteen, British and live in Southern England. I have frequently smoked cannabis since I was fourteen and have also occasionally done coke. I had come into contact with DHC a few months ago, due to my Dad taking it for back pains. I have had one binge (6 pills) previous to this experience and had been eagerly awaiting my next one. When the opportunity came, I was happy to grab it...
+Story: It started around 7 PM when I took four pills; I relaxed and smoked for a while and soon began to feel the first relaxing wave of warmth and comfort. It was this that I had been anticipating and it gave me great pleasure to be sinking back into that blissful state.
+I chilled out for about an hour, listening to music. Then, as I began to feel a little less docile I decided to be a little more active. I began by doing some exercises; press-ups, crunches and sit-ups. I then went outside and kicked a ball around for a while. The adrenaline and out-of-breath feeling was much more enjoyable than usual. When I went back inside, the chilled buzz of the DHC peak hit me; I slumped in front of the computer and listened to some music.
+I was interrupted by my Mum who had brought back Chinese food for myself and my Dad. I enjoyed their company but I was conscious of how frequently I was having to scratch my face and I wasn&#x27;t able to eat very much.
+I went back onto the computer and watched Zeitgeist Addendum (on my previous DHC session I had watched the original Zeitgeist so it felt right to watch the sequel now); the documentary&#x27;s chilled-out atmosphere and interesting view on society was both fun and relaxing to watch and I felt like the information was entering my head better. By the end of it, I could barely stay awake (the time was now about 10:30) so I went to bed. I didn&#x27;t sleep as such but I snoozed for about an hour until I heard the sound of my sister getting back from a birthday party she had been to. I went downstairs to talk to her for a while and had a cup of tea. Conversation was very enjoyable; I went outside with my Dad for a smoke. The night sky looked very big and very beautiful; I couldn&#x27;t stop looking at it. Dad was talking about his job but I wasn&#x27;t really listening, just zoning out looking at the sky.
+I went back to my room and did two more pills and was soon back in bed. The heaviest peak yet hit me as I lay half-asleep. I found myself slipping quickly between dream and consciousness; there was nothing worrying about this and I found I could pretty much control it. However, I was very spaced out and didn&#x27;t want to move. At this point I got some CEVs; patterns and coloured clouds swirled very quickly and attractively and soon began to merge with the confused dreams I was falling in and out of.
+After what seemed like many hours of something close to meditation, I fell asleep. I awoke this morning with a slight headache and rather aching body. However, a shower and some exercises woke me up and I felt rather good. Since then I have done four more pills with many left to go; I&#x27;m looking forward to some more opiate dreams.
+Exp Year: 2008
+ExpID: 74388
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 11, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Dihydrocodeine (392) : Alone (16), Music Discussion (22), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

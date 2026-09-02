@@ -1,0 +1,182 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甘 - 一种舒缓的饮料</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/galangal.html'>← Galangal</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甘 - 一种舒缓的饮料</h1>
+<div class='sub-title'>Galangal - Erowid Exp - &#x27;A Relaxing and Sedating Beverage&#x27;</div>
+<div class='meta'>作者：volatile oil Citation · 日期：Dec 15, 2015 · <a href='https://erowid.org/experiences/exp.php?ID=96087' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>干燥的粉末根,来自厨房香料专卖店.
+加入几滴唾液和12-16司的热水从Bunn咖啡分配器.
+液体通过3层的电网茶过.
+肚子很饿
+我使用时计来计算时间线
+我打算喝茶,但神圣的辛没有办法做到这一点.
+味道有热的火力, 但新鲜的生的味道.
+这种酒的辛度是玻璃瓶中的戈亚酒的两倍.
+味道稍微苦, 在下面的路上温暖喉和胃.
+我喝完一半的饮料,我注意到一些肌肉紧张,和头部轻微浮动的感觉,难以描述,几乎没有注意到.
+我的身体变得放松了, 我的头脑也没有那么敏, 但阅读仍然很容易.
+过去几分钟里, 脑海底有一种无聊的动,
+我感觉有点镇静, 唾液的质地变得更厚,
+23m我喝完我的饮料.
+阅读不再吸引我的兴趣,或者我无法专注于阅读,
+血液在头部抽的感觉已经转移到头部和大脑的顶部.
+镇静是我感受到的主要感觉.
+吸烟可能会让人愉快,
+喝冷水会缓解我胃炎的感觉,
+38米可能会下降, 清晰的时刻.
+52m仍然感到镇静, 胃不再感到温暖
+每次我起床和移动我觉得更清醒, 但坐下大约十分钟后我开始觉得更麻醉.
+没有任何可见的效果.
+发生了一些发的情况, 以及一些有点灼热和有硫味的喷.
+我患有易怒碗综合症, 并且经常发,
+所有可能不愉快的副作用都很轻微,
+我怀疑它除了可以替代夜间的强化剂之外,
+我很快就会尝试使用卡瓦,
+我认为这些物质会很好地协同作用.
+我还打算用莱西片试用, 我唯一的感觉是卡瓦用莱西片,
+其他:
+加兰加尔 (24):一般 (1),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Relaxing and Sedating Beverage
+Galangal
+by
+volatile oil
+Citation:   volatile oil. &quot;A Relaxing and Sedating Beverage: An Experience with Galangal (exp96087)&quot;.
+Erowid.org
+. Dec 15, 2015. erowid.org/exp/96087
+DOSE:
+2 Tbsp
+oral
+Galangal
+(tea)
+BODY WEIGHT:
+170 lb
+Galangal, dried powdered root obtained from a kitchen spice specialty store.
+2  heaping soup spoons added to a few gleeks of saliva and 12-16oz of hot water from a Bunn coffee pot dispenser.  Once it cooled about 30min it was microwaved to boiling 1m 45sec.  liquid was filtered through 3 layered wire mesh tea strainers.
+Stomach is hungry
+I use a stopwatch for the timeline
+0m  I intend to chug the tea but holy spicy no way to do that.  The taste has all the fire power of hot sauce, but the flavor of fresh ginger.  It’s about twice as spicy as the Goya ginger beer that comes in glass bottles.  It has a slightly bitter after taste and warms the throat and stomach on the way down.
+7m  I finish half the beverage, I’m noticing some tmj tension, and a slightly floaty feeling in the head, hard to describe and barely noticeable.
+11m I notice a my limbs feel lighter, my body is becoming relaxed and my mind is not as sharp as it was a moment ago, but reading is still easy.
+15m a dull throbbing in the base of my head has been coming and going for the past few minutes, but its not intrusive.  I’m feeling a bit sedated, my saliva is a thicker texture, my soft pallet is inflamed in the same way it would be after eating super spicy food.
+23m I finish my beverage.  I’m feeling more spaced out than before, reading is either no longer holding my interest or I’m not able to focus on it enough to integrate new information.
+33m sensation of blood pumping in head has moved to the top part of the head and brain.  Sedation is the main feeling that I’m experiencing.  A cigarette may be pleasurable in the same way its pleasurable to smoke when drunk, but I don’t have any because I only smoke when I drink.  Drinking cool water settles the burning in my stomach when it gets to intense
+38m might be coming down, moment of clarity.
+52m  still feeling sedated, stomach no longer feels warm
+64m every time I get up and move I feel more awake, but after sitting down for about ten minutes I begin to feel more sedated.
+117m no effects still noticeable.
+some galangal burps occurred, and some farts that burn a little and smell sulfurous.  I have irritable bowl syndrome and am constantly farting so your mileage may vary.  Overall a pleasant experience, all side effects that could be unpleasant were so mild that they were easily ignored.  Don’t expect a strong reaction, and I doubt that it would serve as a replacement for anything but a night tonic.   I want to try this with kava soon as well as nutmeg tobacco and cannabis.   I think those substances would synergize nicely.  I also plan on trying it with a lecithin tablet, the only way I feel kava is with a lecithin tablet so I want to see if it hold true for galangal.
+Exp Year: 2012
+ExpID: 96087
+Gender: Male
+Age at time of experience: 23
+Published: Dec 15, 2015
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Galangal (24) : General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

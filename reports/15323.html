@@ -1,0 +1,280 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲基 - 艾洛伊德的&quot;第二次机会&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methamphetamine.html'>← 甲基苯丙胺(冰毒)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲基 - 艾洛伊德的&quot;第二次机会&quot;</h1>
+<div class='sub-title'>Methamphetamine - Erowid Exp - &#x27;Second Chance&#x27;</div>
+<div class='meta'>作者：Healed Citation · 日期：Apr 11, 2005 · <a href='https://erowid.org/experiences/exp.php?ID=15323' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>在短短4年之内,
+我与速度的浪漫开始时我十六岁.
+我曾经是个吸毒者,
+祖母去世给我一个完美的机会, 让我开始沉迷于速度.
+我感到悲伤和内,
+她带我去一公寓,让我在车里等.
+我坐在那里等待了好久, 突然她出现了,
+她在回家的路上不停地谈论我不关心的各种事情.
+她拿出一小袋半透明的水晶.
+她把我挂在杆上, 我开始了充满自信和快乐的高兴之旅.
+我感觉到自己有强大力量,
+我感觉到存在的意义,以及善与恶.
+我谈到祖母的死亡和不真实的东西的影响,但我仍然设法把他们都绑在一个谈话中,
+这是我生命中最美好的时刻.
+我和她有着一种我从未想过的情感联系.
+鼻孔上升的感觉也没有打扰我.
+我甚至没有感觉到喉中的苦味.
+我喜欢每一秒.
+这就是说,直到太阳升起.
+接下来发生的是一场地狱, 我的生活变成了一个无意义的空虚,
+我第一次经历是可以忍受的,下降是糟糕的,
+我和那个女孩的关系恶化了, 断了我的速度连接.
+但不是很长时间.
+我遇到了另一位女朋友.
+尤其是在我们对甲基胺的兴趣相交时.
+她告诉我她的前男友是一个连接, 和一个可靠的一个好东西.
+我问她什么时候可以打电话给他.
+她说现在.
+他来了,他带着他的玻璃管.
+吸烟的速度使我在吸毒方面有了新的发展.
+我在吸了一碗烟后跳起来时, 感觉自己有足够的精力走遍整个城市.
+我走了一步,我的脚几乎感觉轻.
+但最令我注意的是巨大的,起的烟雾.
+它们如何在空中落,厚重.
+现在大麻对我来说已经只是一个模糊的记忆.
+我找到了自己的位置.
+通过一个玻璃子吸烟速度.
+从此以后, 我不再对那些沉浸在毒品上的深层对话感兴趣.
+没有,我发现科学在吹速度管子出玻璃管子含有小装饰花 (在任何酒店).
+我使用了我爸爸在工具中的.
+我还发现了快速 (夏威夷拳头,阳光快乐,或用咳滴的水是我最喜欢的液体) 增加了新的品种.
+我也被介绍给了&quot;热轨道&quot;,即加热玻璃管子,然后上一条肥线,
+通过这两种方法同时进入你的系统.
+我开始慢慢地把社交生活转化为毒品.
+我成为朋友的隐居者,
+许多亲密的朋友都支持我.
+那些玩者都批评我的习惯,
+没有人能抗拒.
+我和父亲的关系摇摇欲.
+我一直避开他, 晚上在他的房间里露面, 从他的钱包里偷20元.
+他是一个破碎的人后的事情与我的母亲和所有我做的是增加他的悲伤.
+但由于感情疏远, 他通过孤立自己来处理这件事,
+由于我的新爱好如此突出, 我发现没有用我的青春的物质.
+我开始把所有珍贵的财产都卖掉.
+漫画书收藏, 这些年来已经积累成一大堆老版漫画.
+我从小就学过和弦乐), 甚至从我的房间里拿到电视和录像机.
+我不需要这些东西,就像我没有使用任何东西.
+后来,我发现了一个&#x27;缺陷&#x27;,决定把硬盘拆开,看看有什么问题.
+到了第二天早上我已经下来了,我没有耐心把它放在一起.
+所以我把剩下的一半给一个十几岁的孩子.
+很快,我爸爸决定离开,
+于是我决定去深度研究.
+我完全放弃了上学,把所有的时间都花在吸烟速度和我的众多&quot;项目&quot;上. 晚上,房子里挤满了毒,
+他们了我父亲的东西, 抢走了我家族过去不可替代的情感物品.
+警方也开始频繁出现在这个地区 (这也没有帮助我的猜测).
+我还在家里工作,
+她开始注意到我行为上的变化.
+我对她来访的偏执情绪也越来越大.
+我对她说谎学校, 和我的深夜活动.
+我以为我可以逃脱,但我错了.
+有一天晚上, 渴望更多的毒品, 我入我的毒品朋友的房间,
+我终于找到了一个有树脂的, 我决定喝出它的水.
+我几乎穿过我的肠道.
+我开始像从来没有画过的样子.
+我早些时候吸了很多坏东西, 如果这还不够糟糕,
+我开始幻觉, 在玻璃表面甚至在镜子里看到恶魔的影像.
+我看到像影子般的幽灵在房子里移动, 和一个12英寸高的矮人着我在沙发的脚下.
+我试图说话,但我的嘴里只能说出胡说八道.
+我开始感到恐慌.
+我祖母患有流感, 她的呼吸机还在客厅里.
+我把它打开,把水管塞进我的鼻孔.
+清洁的空气慢慢地涌入我的鼻子.
+我很快就开始放松了,
+我对毒品的不良体验增加了,
+我陷入了自我厌恶和消化症的中.
+我爸爸回来时发现他所有的电动工具都不见了.
+他抓住我的项圈,给我一个打击我的头.
+我跌倒在地板上,他告诉我离开,否则他会打电话给警察.
+十分钟之内, 我拿起我的背包,
+我不关心,这是最糟糕的.
+我被自由的新概念所吸引.
+我现在的家是从家里到家里.
+沙发城市.
+在我走到哪里都烧桥.
+我和一个朋友住在一起, 在他吸毒之后,
+我的人生是个废话.
+我在皮肤上有自我伤害的伤口,
+我已经减肥了很多.
+我在人群中变得更加不舒服,
+夜晚成为我的安慰者,像吸血鬼一样,我视白天,因为它代表了我讨厌的一切.
+我和一个我喜欢的女孩一起在街上漫步,
+我们甚至在一家屋外入一艘船,
+我对聚会的想法已经从地下聚会和杂的家庭歌曲转变为在加油站的浴室里从破碎的快速管茎中吸毒.
+我只有一个女孩,阿丽西亚,作为我的伴侣在这个黑暗的时刻.
+她的公司变得比其他任何事情都更令人烦.
+我鼓励她回家, 最终把她留在保龄球场的停车场,
+那天晚上我发现自己无目的地游荡.
+失败了,失去了.
+在那一刻,启蒙就会发生.
+由于某种原因, 我被迫去看看我母亲,
+我穿过城里走到她的家, 到了凌晨1点.
+我没有任何期望,我的思想是空白的,
+我只是知道我需要帮助.
+她的情感流水的拥抱, 关心灌了她的灵魂.
+她和我的继父是海洛因成者,
+他们让我留在一个与教会有关的康复项目中,
+我本是一个现实主义者, 对于宗教信仰, 我自然是愤世嫉俗的,
+我通过各种项目和康复所遇到许多不同阶层的人.
+所有这些人都处于极低的状态,
+我没有时间深入, 但它改变了我吸毒的整个过程.
+我已经清醒了5个月了, 自从被介绍到这个项目后, 我已经有过几次的复婚,
+现在我和父亲和父亲的家人已经和解了.
+看到自己造成的伤害是最困难的事情之一.
+我已经夺走了我父亲生命的岁月, 摧毁了他的生计,
+许多我上速度的成年人都是吸毒成, 更不用说我现在的情感包了.
+麻醉药改变了我的生活,
+但主要是最糟糕的情况.
+没有麻醉, 我也不可能参与到今天的工作中来.
+现在不要误解我, 我知道会议和计划不适合所有人,
+我相信,如果没有第二次机会,
+时间表: 15323
+甲 (37):各种 (28),成和习惯性 (10)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+Second Chance
+Methamphetamine
+by
+Healed
+Citation:   Healed. &quot;Second Chance: An Experience with Methamphetamine (exp15323)&quot;.
+Erowid.org
+. Apr 11, 2005. erowid.org/exp/15323
+DOSE:
+Methamphetamine
+(powder / crystals)
+Speed has sent my life on a tangent that has both been horrific, and tantalizing. I&#x27;ve come in contact with people I never would of dreamed of hanging out with in my right mind. From former business&#x27; owners turned speedfreaks, to the lowly dope fiend who thrives on &#x27;chasing the high.&#x27; The foreground and setting of my abuse has been as equally diverse; ranging from houses along the beach to macabre street alleys.  I&#x27;ve been to heaven.. And hell, within a short span of 4 years.
+My romance with speed began when I was sixteen. I was a pothead, but I always was open to new things.  The death of my grandmother provided the perfect opportunity for the onset of a speed addiction. I was overwhelmed with grief and guilt, and a girl I was seeing at the time offered me a quick solution to pain.  She took me to an apartment complex and had me wait in the car.  I sat waiting there for what seemed an eternity when suddenly she emerged, energetic and enthuthiastic.  She talked relentlessly on the way back to her place,about all types of shit I didn&#x27;t care about.  When we got into her place she pulled a small baggie of semi-transparent crystals.  She hooked me up with a rail and I was on my way into a euphoric journey of assurance and pleasure.  I felt this tremendous sense of power, that I could do almost anything.  Energy surged through my body and I felt great insight in meaning of existance, and of good and evil.  I talked of the impact of grandmother&#x27;s death and of unrealting things, yet I still managed to tie them all into one conversation, pausing only for a hit of a cigarette, or another rail.
+It was the greatest moment of my life.  I bonded with her emotionally in ways I never could have thought.  The way it felt going up my nostril didn&#x27;t bother me either.  Not even the burning or the horribly bitter taste of the drip going down my throat.  I loved every second of it.  That is, until the sun came up. What proceeded to happen was a living hell, my life was transformed into a meaningless void, fueled by an unholy passion for the instrument of my self-destruction.  My first experiences were endurable,the comedowns were bad, but not as horrid to those to come. My relationship with the girl went sour, severing my speed connection.  But not for long.
+I met another girl from a mutual friend.  We hit-off, especially when we shared our interest in methamphetamine.  She told me her ex was a connect, and a reliable one with good shit.  I asked when she could call him.. She said right now. He came over and he brought his glass pipe with him.  Smoking speed elevated me to new dimension in meth use.  When I jumped to my feet after smoking a bowl I felt like I had enough energy to walk across the whole city.  When I took steps my feet felt light almost.  But what captured my attention the most were the immense, billowing, clouds of smoke. How they toppled through the air, thick, and heavy.  Marijuana was all but a vague memory to me by now.  I had found my niche.  Smoking speed through a glass dick.
+From this point on I was no longer interested in the deep conversations which was engrossed my time on the drug. No, I found a science in blowing speed pipes out of glass tubes containing small decorative flowers(found at any liqour store).  I used a tourch which my dad had in his tools.  I also discovered speed bongs (Hawaian punch, sunny delight, or water with a cough drop were my favorite liquids used) which added new variety. I was also introduced to the &#x27;hot rail.&#x27;  The act of heating a glass tube and then railing a fat line, smoking whatever speed had melted on the sides the way up.  Thus the meth hits your systems through both methods simultaneously.
+Slowly my social life began to revolve around the drug. I became a recluse to my friends, isolating myself in my room( which was actually a guest room converted into my kick-back spot).  Many of close friends remained by me.  All tokers, they criticized my habit, but after a few months I had them doing it too.  How could one resist?
+My relationship with my dad faltered.  I avoided him at all times, making cameo apperances in his room late at night to steal 20&#x27;s from his wallet. He was a broken man after things with my mom and all I did was add to his grief.  But being emotionally distant he dealt with it by isolating himself thus furthering the decay of our relationship.  With my new hobbie so prominent, I found no use for the material things of my youth.  I began clucking(trading) all of my valued possesions.  My comic book collection, which had accumlated into skyskrapers of vintage issues over the years.  My old accordion(I took lessons as a child), even the TV and VCR from my room.  I didn&#x27;t need that shit anyway, its not like I used any of it.
+I kept my computer though, I needed it while I stayed up all night to &#x27;research.&#x27;  In time I detected a &#x27;flaw&#x27; and decided to take the hard-drive apart to see what was wrong.  By the next morning I was already coming down and I didn&#x27;t have the patience to put it back together.  So I clucked what was left for half of a teener.
+Soon, my dad decided to get away, and went on vacation.  And I decided to go off the deep end.  I quit going to school completely, and dedicated all my time to smoking speed and my numerous &#x27;projects.&#x27;  At night the house was packed with tweakers, and Ilet my connect crash at my place for a few nights.  While I was consumed with hitting the dope pipe, they went through my dads things, looting irreplacable sentimental items of my family&#x27;s past.  My next door neighbors became concerned with the late night traffic, and the police began to frequent the area(which didn&#x27;t help my skecthing any).  My aunt, who was assigned check-up on me, was concerned as well.  Between work she would come by, and she began to notice my behavioral changes.  And my ever increasing paranoia at her visits.  I lied to her about school, and my late night activities.  I thought I was getting away, but was I wrong.
+One night, in a craving for more dope, I broke into my dope-friends room in search of more shit. Coming across only empty baggies, I finally found a resinated speed bong, and I decided to drink the water out of it.  I nearly through up my intestines.  Stumbling home I began to sketch like never before.  I had smoked bunk(bad) shit earlier and if that was bad enough, I had been without sleep about a week.  I began halucinating, seeing demonic images reflected on glass surfaces, even in the mirror.  I saw phantom like shadows moving about the house, and a 12-inch tall dwarf staring at me at the foot of the couch. I tried speaking to it but my mouth could only verbalize jibberish.  I began to panic.  My grandmother had influzema, and her breathing machine was still in the living room.  I turned it on and put the hoses in my nostrils.  Slowly clean air poured into my nose. Soon I began to ease off, and slowly I passed out.
+My bad experiences with meth increased, but I didn&#x27;t care. I was in a whirl-pool of self-loathing and digust. When my dad returned he found all of his power tools missing.  Finding me passed out on the couch he grabbed me by the collar and gave a blow to the side of my head.  I fell to the floor and he told me to get the fuck out or he was calling the cops.  Within 10 minutes, I had my back-pack, and a few pairs of clothes and I was gone.  What was worse is I didn&#x27;t care.  I was actually enticed with the new idea of freedom.  Home for me now was bumping from house to house.  Sofa-city.  Burning bridges everywhere I went.  I stayed with one friend, and after turning him on to dope, I decided, as a going away present; to steal his ninentdo and a few other things.  My life was shit.  I had self-inflicted wounds on my skin from trying to dig imaginary bugs out with razor blades.  I had lost lots of weight.  I became more uncomfortable around people, and surfaced only at night.  Night became my comforter, like a vampire I scorned the day because it represented all that I hated.  I roamed the streets with a girl I turned on to speed, and we would shelter wherever we could.
+One night we even broke into a boat out side a house and stayed in there, smoking speed and peeking out the window in paranoia.  My idea of partying had gone from underground parties with blarring house anthems to smoking meth in gas station bathrooms out of a broken speed pipe stem.  I had only the girl, Alicia, as my companion at this dark time.
+Alicia grew tired of the shit, and her company became more of a drag then anything else.  I encouraged her to go home, and eventually left her in the parking lot of a bowling alley for what I thought was her own good.  I found myself wandering aimslessly that night.  Spun out, and lost.  At that moment enlightment happen.  For some reason I got a compulsion to go to my mother&#x27;s, whom I hadn&#x27;t spoken to for a few years.  I walked clear across town to her house, and arrived at 1:00 AM.  I had no expectations, my mind was blank and I was empty of all feeling.  I just knew I needed help.  She welcomed me in a emotionally tear-jerking embrace, concern pouring out her very soul.  Her and my stepfather were recovering heroin addicts (I had always carried resentment towards her because of her addiction, now look at me). They had me stay in a recovery program connected with a church which changed my life.  I was a realist, and naturally cynical towards faith oriented religion, but here it was different.  I met tons of people through programs and rehab, from all walks of life.  All who had hit rock bottom, all in a wonderful process of transformation.  I dont have time to get into if but it changed the whole course of my drug use.
+Now, I&#x27;m sober for 5 months, I&#x27;ve relasped a couple of times since being introduced to programs but now I have the support base and the accountability to pull myself out when I do fall in the hole. I am now reconciled with my father and his side of the family as well.  One of the hardest things though is to see the damage I have done now that I am in the aftermath.  I have taken years off my dad life, and destroyed much of his livlihood, if not all.  Many of those I turned on to speed are full blown dopefiends, and not to mention all the emotional baggage I have now.  Meth changed my life, for good or for worst.  But mostly for worst.  However if not for Meth, I wouldnt have been able to become involved in what I am doing today. Now dont get me wrong, I know meetings and programs dont work for everyone but they sure as hell helped me.  I&#x27;m sure Id be dead right now had it not been for this &#x27;second chance.&#x27;
+Exp Year: 1998
+ExpID: 15323
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 11, 2005
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methamphetamine (37) : Various (28), Addiction &amp; Habituation (10)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

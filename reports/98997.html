@@ -1,0 +1,290 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4-AcO-DMT - 埃罗伊德的 扩散 - &#x27;打破进入一个新的生活&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mindfulness.html'>← 正念</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4-AcO-DMT - 埃罗伊德的 扩散 - &#x27;打破进入一个新的生活&#x27;</h1>
+<div class='sub-title'>4-AcO-DMT - Erowid Exp - &#x27;Breaking Into A New Life&#x27;</div>
+<div class='meta'>作者：Morninggloryseed Citation · 日期：Jan 18, 2013 · <a href='https://erowid.org/experiences/exp.php?ID=98997' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>2010年9月4日
+12mg的4- 乙基- N,N- 甲基三胺 (psilacetin) 通过IM注射
+介绍:
+现在的生活对我来说很奇怪和不同.
+自从我17岁起, 我就有过某种形式的严关系, 自从我19岁起,
+这是七年来我第一次独自一人.
+让我们说, 独自生活, 并且对此感到高兴,
+我自然倾向于极度无聊,抑郁,
+为了避免回到我不想再回到的坏习惯, 我做其他事情来补偿.
+我几乎每天晚上都走三英里, 我又开始了炼.
+我已经感觉到了效果, 显然看起来比以前更有活力.
+胃部和其他部位看起来很好!
+我已经开始使用&quot;电子烟&quot;, 减少了每天的吸烟量,
+这真的让我很高兴.
+为了保持忙碌, 我还会强迫自己做家务.
+我照顾鱼,清洁柜,衣柜,衣柜...简而言之,我尽我所能保持忙碌.
+房子从来没有看起来更好!
+但这一切只是一个转移.
+我怀念她.
+我确实会遇到新朋友,所以每天晚上我并不总是孤单.
+但有些晚上是如此, 它们是美妙的, 新的经历,
+知道生活会继续下去,
+序言:
+我有三天的周末劳动节, 我决定我需要再次旅行,
+我为我的车选择了精神药剂, 并且没有其他药物混合到高峰之后...
+在我开始之前有很多事情要做.
+时间因素影响了我, 我做了一个无菌的溶液,
+我知道这将使旅程的时间缩短一半.
+我花了一点时间去寻找报告和剂量建议,
+于是我问了一些在线的心理探险家, 他们说我应该尝试2/3的正常口服剂量.
+这似乎是有道理的,所以我只需要弄清楚正常的口服剂量是什么!
+我之前曾两次服用过精神药剂, 一次是用MDMA, 一次是没有其他药物.
+我对这种特异性胺药物不是专家.
+我不记得前两次旅行的用量.
+但看着原始药物素的数据, 我估计大约在10到15毫克之间.
+所以我问我的魔幻辛普森球怎么做... 它说试试12毫克.
+在那个时候,这似乎是合理的.
+经验:
+我把房间整理好,铺床,把所有的用品放在床周围 (水,,水果,氧化和胺注射器,
+我躺在床上,在凌晨3点27分注入溶液到我的左大腿, 戴上耳机和&quot;野蛮人柯南&quot;的配乐 (音乐来自詹姆斯·厄尔·斯变成蛇的场景,
+两分钟后,药物开始起作用,
+在闭上眼睛时,音乐开始形成视觉,
+我听了&quot;柯南&quot;电影的全部歌曲 (大约9分钟), 然后选择了亨德里克斯的&quot;轴心:大胆的爱&quot;作为我的下一次旅行的音乐.
+刚刚戴上耳机, 我注意到我不是一个人.
+我房间里所有周围的物体实际上都是幻觉.
+他们一直在隐真正存在的东西... 许多人称之为&quot;DMT实体&quot;.
+房间里有这么多的运动,我担心它会摇.
+我一直看到&quot;人&quot; (或实体) 低头看着我,
+在整个经历中, 实际上, 一系列无穷无尽的生物在进出我所在的空间,
+有时会有&quot;恐惧&quot;的声音,
+这使得我处于的空间重新变成了我的房间.
+实体已经消失了, 但我有了所有&quot;经典&quot;的迷幻效果,
+这太无聊了!
+我会把灯关掉, 实体会按计划重新出现.
+灯光灭,我迷失在音乐中.
+似乎我不再听到它了.
+而是每首歌都变成了一个不同的房间,
+每个空间都充满了不同的实体,
+这些实体是护士和专家,
+我是否在某种精神医院接受修复?
+我能感觉到它们在我的大脑上运作, 移除需要移除的东西, 修复没有正面目的的坏部分,
+听到&quot;轴心&quot;的最后一首歌,
+我看了看时钟...凌晨4点50分.
+这些实体仍然存在, 但似乎正在收拾.
+感觉就像我们只是在地铁站里路过的陌生人.
+他们在那里,我在这里,我们没有注意对方.
+这难道是我应该学到的教训吗?
+无论如何, 我觉得像一个淋浴,
+我站了起来,我的腿摇摇欲,
+我把所有的灯光都关掉了,点了,然后开始淋浴.
+这真是太棒了!
+尽管强度下降, 落水的视觉效果还是惊人的.
+一切都被绿色,蓝色和色的光所浴.
+我动手时, 路径就会自行形成路径.
+像三重彩虹一样, 我有三重或四重的路径.
+我不想离开, 但我感觉到一个快速下降, 想k-洞这次旅行,
+我吃了一份香和果的零食,
+我回到卧室,为自己祈祷,
+,它开始很快.
+我很快选择了一张唱片, 听一下Pink Floyd的&quot;Meddle&quot;,
+每首歌都不是一首歌.
+我没有听到歌唱或吉他.
+音乐变成了一个不同的空间/场所, 在那里我的意识和潜意识发生了不同的过程和程序.
+在个人层面上,
+我可以听到音乐和看到房间,
+这真像是第一次看到和听到.
+我脑子里没有&quot;吉他&quot;和&quot;歌唱&quot;的概念, 无法将&quot;无畏&quot;认作是我以前经历过的Pink Floyd的美丽歌曲.
+我没有意识到身边的物品只是我们人类用来储存衣服和睡觉的木制存储设备.
+我只能躺在那里体验它.
+那些未知力量继续在我的头脑和大脑上执行他们的程序,
+我突然回到自己的身体,
+我起身,摇摇欲地走到浴室里水,
+我知道我会睡着,所以我只吃了一半的阿提凡,
+我睡着了,第二天醒来时, 感觉很好,
+我没有任何麻烦, 像往常一样,
+总结:
+精神素再次证明自己是A-1类迷幻药.
+它似乎比我之前注意到的更像DMT,
+另一方面,我只服用过两次精神药... 其中一次是用MDMA.
+我不像其他人那样熟悉这些材料,
+这一次它再次表现出让人放松的特质, 使其易于忍受,
+只有几次, 任何不合理的恐惧会涌, 但通过简单的承认和感受恐惧,
+这次旅行似乎在潜意识层面上发挥了作用, 因为我感觉非常不同,
+我写下这篇文章的时间恰好是一周,
+我继续减少使用安眠药和少喝酒.
+现在我甚至不再喜欢真正的烟草.
+我也不再紧张或强迫如果我知道我要独自一个人一个晚上.
+我不需要找人陪伴.
+我可以享受&quot;我自己的时光&quot;.
+对于我来说,
+我花了很长时间才明白这并不是一件坏事.
+我会学会如何处理我的情绪, 而不会走上诱惑的道路.
+只有这样, 我才能学会快乐,
+我将学习如何生存, 并且向下一个阶段的生命迈进,
+文章脚本:
+我对此的道歉更像是一篇自传的旅行报告,
+事实上,这次旅行本身的内容是如此的私人, 没有办法解释任何它没有给你一些背景的发生在我身上.
+我希望读者能够理解整个故事的背景.
+除此之外,写旅行报告一般都是自我放纵.
+所以你能做什么!
+其他:
+注意力 (405),4-AcO-DMT (387):单独 (16),治疗意图或结果 (49),个人准备 (45),关系 (44),抑郁症 (15),烂的经历 (4),组合 (3),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Breaking Into A New Life
+4-AcO-DMT
+by
+Morninggloryseed
+Citation:   Morninggloryseed. &quot;Breaking Into A New Life: An Experience with 4-AcO-DMT (exp98997)&quot;.
+Erowid.org
+. Jan 18, 2013. erowid.org/exp/98997
+DOSE:
+T+ 0:00
+12 mg
+IM
+4-AcO-DMT
+(liquid)
+T+ 1:00
+120 mg
+IM
+Ketamine
+(liquid)
+BODY WEIGHT:
+150 lb
+September 4th, 2010
+12mg of 4-acetoxy-N,N-dimethyltryptamine (psilacetin) via IM injection
+Introduction:
+Life is strange and different for me these days. I have been in a serious relationship of one form or another since I was 17, and living with a woman since I was 19. Except for a couple off year breaks in 2000-01 and 2003...this is the first time in seven years that I am alone. And let’s just say that living alone, and being happy about it, is a big challenge for me to say the least! My natural inclination is to go towards being extremely bored, depressed, and somewhat self-destructive.
+To avoid going back to old bad habits that I never wish to visit again, I compensate by doing other things. I take a three-mile long walks nearly every night, I’ve started my exercise regimen again. I am taking it slow but I already feel the effects and clearly look more toned than before. I certainly get many compliments that stomach and other areas are looking good! I’ve started using the “E-Cigarette” and have reduced my smoking down to three or four cigarettes a day, instead of the usual chain smoking. This really has made me pleased. Other things I do to keep busy are to work compulsively on around-the-house chores. I tend the fish tanks, clean cabinets, the dresser, and closets…in short I do anything I can to keep busy. The house has never looked better! But all of this is just a diversion. I miss her.
+I do meet new people so I am not always alone every night. Most of these encounters do not involve physical contact, but some nights have and they were wonderful, new experiences that I needed. So it is good to know that life goes on, even if I wish I were on a different path.
+Prologue:
+I had a three-day weekend for Labor Day and I decided I needed to trip again, and was determined to take it a bit more seriously than with the mescaline I had a week before. I selected psilacetin for my vehicle and there were no other drugs mixed in until well after the peak…beyond maybe a hit of pot here and there. I was expecting company in the afternoon of the next day, and had a ton of chores to do before I could begin. Already being late in the day, the time factor influenced me to make a sterile solution of the psilacetin for intramuscular injection. I knew this would cut down the length down of the trip by at least half. I spent a little time looking for reports and dosage recommendations, but I just could not find what I was looking for.
+Instead, I asked a few on-line fellow psychonauts I speak with, and they said I should try 2/3rd of the normal oral dosage. That seemed to make sense so I just had to figure out what a normal oral dosage was! I had taken psilacetin twice before…once with MDMA and once without anything else. So I really am not an expert on this particular tryptamine. And naturally, I did not remember the dosages for either of those prior excursions. But looking at the data for the parent drug psilocin, I figured somewhere between 10 and 15mg. So I asked my Magic Simpsons Ball what to do…and it said to try 12mg. It seemed reasonable at the time.
+The Experience:
+I picked up my room, made the bed, put all of my supplies around my bed (water, pot, fruit, nitrous oxide, and a syringe of ketamine for after the peak.) I burned some sage and walked around the house putting out good vibes and I asked for any lessons that I needed to to be shown to me. I then lay down on my bed and at 3:27AM injected the solution into my left thigh, put on my headphones with the soundtrack to ‘Conan the Barbarian’ (music from the scene where James Earl Jones turns into the snake, they have the orgy and eat the soup with bodyparts, then Conan and Co Kills &#x27;em all but the snake escaped), and waited.
+Within two minutes the effect of the drug began and I was tripping like that. With eyes closed, the music began to form visions which would then take on a life of their own, morphing into new objects right before my eyes. I listened to the entire song from the Conan soundtrack (about nine minutes long) and then selected Hendrix’s &#x27;Axis: Bold As Love&#x27; for the next soundtrack to my trip. Just as I was putting on my headphones, I noted that I was not alone. All of the surrounding objects in my room were actually an illusion. They were hiding what really was there all along…what many would call ‘DMT entities.’
+By ten-minutes in there was so much motion in the room, I feared it would all shake apart. And I kept seeing “people” (or entities) looking down at me, or walking past the bed. All throughout the experience in fact, there was a never ending array of beings moving in and out of the space I was in…as though I were in a hallway where beings past from one place to another.
+At times there was ‘The Fear’ and a couple times I would turn on the lights. This made the space I was in transform back into my room. The entities were gone, but I had all of the ‘classic’ psychedelic effects you would expect...trails, breathing, intense colors, etc. Boring! I would turn the light off and the entities would reappear on schedule.
+With the lights off, I became lost in the music. It was as if I were not hearing it anymore. Rather each song became a different room, a different experience I traveled to. Each space was filled with different entities that surrounded me and tended to me. The entities were nurses and specialists working on my soul. Was I was in some kind spiritual hospital being repaired? I could feel them working on my brain telepathically, removing things that needed to be removed, and repairing bad parts that served no positive purpose, replacing those by putting in new, healthy parts.
+As the last song on Axis played, I felt myself coming down a bit. I looked at the clock…4:50AM. The entities were still present, but seemed to be packing up. It felt like we were just strangers passing in the subway station. They were there and I was here and we did not pay attention to each other. Was this a lesson I was supposed to be learning? Either way, I felt like a shower so I would have to ponder that later. I stood up and my legs were wobbly, but I soon gained my ground and made my way for the bathroom. I tuned all the lights off and lit a candle, then started the shower.
+What a delight! Even with the drop in intensity, the visual effects of the water falling down were striking. Everything was bathed in a colored sheen of greens, blues, and orange. When I moved my hands, the trails made trails of their own. Like a triple rainbow, I had triple or quadruple trails. The water felt great and I did not want to leave, but I felt a rapid decline and wanted to k-hole this trip, so I rinsed and got out.
+I had a snack of a banana and an apple, then lit some incense and walked around the house thanking the universe for such a wonderful experience, and asking any bad vibes to leave so as not to cloud the next part. I went back to my bedroom, said a prayer for myself, and injected the ketamine into my right buttock. Whoosh, it came on fast. I quickly selected a disc to listen to….Pink Floyd’s “Meddle” and lay down to wait for what was coming.
+Once again, each song was not a song. I heard no singing or guitars. The music became a different space/place where different processes and procedures occurred to my conscious mind and subconscious mind. At a personal level, it seemed as though I were a baby. I could hear the music and see the room, but I had no frame of reference to understand what any of it was. It really was like seeing and hearing for the first time. There was no concept in my brain for ‘guitar’ and ‘singing’ to recognize ‘Fearless” as that beautiful Pink Floyd song I have had some many experiences with before. I had no understanding that the objects surrounding me were just the wooden storage devices we humans use to store our clothes in, and sleep on. All I could do was lay there and experience it. It all seemed a diversion while those unknown forces continued to perform their procedures on my mind and brain so I could function again as I deserve to function.
+As the last few notes of Echoes rang out, I was suddenly back in my body as if on schedule. I got up, and wobbled over to the bathroom to make water, and full my cup to take some. I could tell I was going to fall asleep as I hit the pillow, so I took only half of my usual Ativan and skipped my usual cup of wine. I fell asleep as soon as I laid down, and awoke the next day feel great and very thankful to the Universe for such a forgiving experience. My company came over later in the day as expected, and I had no problem pulling of the usual expected social graces.
+Epilogue:
+Once again, psilacetin has shown itself to be an class A-1 psychedelic. IMing it did change the nature of the experience…it seemed much more DMT-like than I noted it before, and it cut the time of the actual experience in half. On the other hand, I have only taken psilacetin two other times...and one of those times was with MDMA. So I do not know this material as well as some of the other,
+Regardless, this time with it again showed relaxing properties that make it easy to tolerate, and an easily accessible spiritual/mystical side that seems to set apart from the rest of the mushroom analogues in my brain, save for maybe iprocin. Only a couple of times did any irrational fear creep up, but by simply acknowledging and feeling the fear, I was able to make it go back from where it came. This is one of those trips that really seemed to work on a more subconscious level because I feel so different, while I don&#x27;t exactly have a lot to report on.
+It is exactly one week later since having the experience that I write this, and many of the initial improvements have remained with me. I continue to use less sleeping medication and less wine. I continue to stay on my E-Cigarette, and it is now to the point that I don’t even enjoy real tobacco anymore. I also no longer get nervous or compulsive if I know I am going to be alone for a night. I do not have to seek out someone to make company with. I am able to enjoy the “Me Time.”
+“Me Time” is something new to me. It has taken me quite a bit of time to learn that it isn’t a bad thing. Learning to enjoy the &#x27;Me Time&#x27; is how I will learn to deal with my emotions without going down the road of temptation. This is how I will learn to be happy just for the sake of being alive and being me. This is how I am going to learn to survive, and move on to the next stage of my life, happy and healthy and ready for whatever comes next.
+Post Script:
+My apology for this is more of an autobiographical trip report, with not as much ‘trip’ content as some of the others I have written. The truth is, the content of the actual trip itself was so personal, and there would be no way to explain any of it without giving you some background of what has been going on with me. Forgive me if it seems self-indulging but wanted the reader to understand the context of the entire story. Besides, writing trip reports in general is self-indulging. So what can ya do anyway!
+Exp Year: 2010
+ExpID: 98997
+Gender: Male
+Age at time of experience: 34
+Published: Jan 18, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mindfulness (405), 4-AcO-DMT (387) : Alone (16), Therapeutic Intent or Outcome (49), Personal Preparation (45), Relationships (44), Depression (15), Glowing Experiences (4), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

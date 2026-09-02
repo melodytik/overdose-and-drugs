@@ -1,0 +1,223 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>感觉&quot;一切都是正确的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/eth-lad.html'>← ETH-LAD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>感觉&quot;一切都是正确的&quot;</h1>
+<div class='sub-title'>ETH-LAD - Erowid Exp - &#x27;The Sensation of Things Being &#x27;Just Right&#x27;&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jan 23, 2017 · 剂量：200 mg · <a href='https://erowid.org/experiences/exp.php?ID=109895' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>摘要:300毫克ETH-LAD - - 开始时不愉快的体力负荷,
+视觉效果具有独特的特点,主要由深度扭曲和尾随组成.
+对于精神状态而言是一种物质,
+这份旅行报告是在旅行后几个月写的.
+大部分是从记忆中写的, 时间是近似的.
+之前使用ETH-LAD的经验:100微克和200微克.
+我决定写这份报告是因为这个研究化学物质值得更多的关注 (尽管似乎不是每个人都喜欢它).
+我在20分钟前给他注入了200毫克的布洛芬.
+0:00 吞下了3个ETH-LAD片 (300微克).
+我提前做了一个音乐播放列表.
+我很乐观,也很渴望体验未来.
+0:45 观察到第一种视觉效应, 墙上有微弱的虹色线条.
+很快,我开始感到非常寒冷.
+衣物和毯子的层次没有提供缓解.
+另外,我也感到恶心,
+另一个不愉快的副作用是震,使得执行任务变得更加困难.
+我决定在室内停留一段时间, 开一些音乐.
+我对音乐的欣赏并没有增强.
+视觉效果并不特别令人愉快,比如与AL-LAD相比,主要的视觉效果是视角的扭曲,使事物看起来像是放大和缩小.
+我也经历了视野的&quot;撕裂&quot;,
+精神上,我比用同等剂量的LSD时更少醉.
+我完全意识到我在哪里,我是谁,发生了什么.
+没有,恶心或震.
+我把背包里装满了一些水,
+午后的阳光立即提升了我的情绪; 我现在笑得很开朗, 感觉很棒.
+颜色稍微增强, 类似于色彩的色彩,
+走路是非常愉快的; 感觉就像我站着,世界在我周围移动.
+身体上的感觉也很愉快,
+虽然我的思维很快, 时间的延伸很明显,
+虽然我的思维很快, 时间的延伸很明显,
+我走在一条长而直的路上, 深度扭曲让我觉得自己正处于一款古老的赛车游戏中,
+另一种比喻是,我感觉就像&quot;星球大战&quot;中的一艘飞船进入超空间,
+另一种视觉效应是强烈的尾随,
+在这么多清醒的人中间,
+我发现自己在思想上非常快速,也很有协作性,
+我在这个时候达到高峰.
+时间的延伸是强大的;等待交通信号灯会感觉像一个永恒, 虽然一个愉快的.
+太阳在天空很低,云是色的.
+我希望说这是我见过的最美丽的事物之一,
+太阳和天空被绿色和紫色的线条所扭曲, 这与日落的颜色完全不符.
+我到达了一座桥, 俯着河水; 河水也以同样的丑方式扭曲.
+我对此感到有点失望,
+我决定回家.
+我之前提到的同样的视觉和心理效应仍然存在,
+虽然身体有点发烧,
+走路是轻松而愉快的.
+我走了几米到厨房, 吟着贝多芬第三交响曲的第四乐章; 我感到高兴和胜利,
+几毫秒后, 我很高兴地注意到我是如何建立这种联系的.
+很有趣的是, 音乐的声音并不比正常的好 - - 不像AL-LAD.
+我决定躺在我的床上,在同一瞬间,
+我觉得自己的位置是&quot;正确的&quot;.
+我闭上眼睛, 欣赏过去的许多影像.
+闭眼视觉主要由具体物体和人的图像组成,
+晚些时候, 我有感觉事情是&quot;正确的&quot;很多次.
+我觉得我的思维清晰度大大提高到我能够做出完美的决定.
+我仍然很刺激,因此有点不安, 但下降一般非常愉快.
+接下来的几天,我感受到一种愉快的后光;我需要更少的睡眠来感觉清爽,而且总体上心情更好.
+总的来说,我更喜欢这种物质比LSD,
+其他:
+ETH-LAD (688):一般 (1),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+The Sensation of Things Being &#x27;Just Right&#x27;
+ETH-LAD
+by
+Psychodelic
+Citation:   Psychodelic. &quot;The Sensation of Things Being &#x27;Just Right&#x27;: An Experience with ETH-LAD (exp109895)&quot;.
+Erowid.org
+. Jan 23, 2017. erowid.org/exp/109895
+DOSE:
+200 mg
+oral
+Pharms - Ibuprofen
+3 hits
+oral
+ETH-LAD
+BODY WEIGHT:
+80 kg
+Summary: 300 mcg ETH-LAD - unpleasant body load on the come-up, but very lucid and pleasant mental state on the peak. Visuals have a distinct character and mostly consist of depth distortion and trailing.
+A substance for the mental state, not as much for visuals.
+This trip report was written a few months after the trip. Most of it was written from memory and the times are approximate. Previous experience with ETH-LAD: 100 mcg and 200 mcg. I decided to write this report because this research chemical deserves more attention (although not everybody seems to enjoy it).
+I preloaded with 200 mg ibuprofen 20 minutes before.
+0:00 Swallowed 3 tabs (300 mcg) of ETH-LAD. I had made a playlist of music beforehand. I was in a positive mood and was eager to experience what was in store for me.
+0:45 First visual effects noted, consisting of faint neon-colored lines on the wall. Soon after, I began to feel very cold. Layers of clothes and blankets did not give relief. In addition, I was nauseous, but not bad enough to cause me to throw up. A further unpleasant side effect was tremors which made it slightly more difficult to perform tasks.
+Since I didn&#x27;t feel well and had never taken such a large dose of this substance before, I decided to stay inside for a while, and put on some music. My music appreciation was not enhanced in any way.
+The visuals were not particularly enjoyable, compared to for example AL-LAD; the main visual effect was a distortion of perspective that made things seem to zoom in and out. I also experienced a &#x27;tearing&#x27; of my visual field which was disturbing at first. Mentally, I was much less intoxicated than I would be on a comparable dose of LSD. I was fully aware of where I was, who I was, and what was going on.
+3:00 The rough come-up seemed to have passed; no more shivers, nausea, or tremors. I packed my backpack with some water and went outside.
+The late-afternoon sunlight immediately lifted my mood; I was now smiling broadly and feeling fantastic. Colors were slightly enhanced in a pastel-like way but not as much as LSD tends to do.
+Walking was extremely enjoyable; it felt like I was standing still and the world was moving around me. The physical sensation in my legs was also pleasant, somewhat MDMA-like. My thoughts were racing, with strong time dilation noted, but my mental state was lucid.
+My thoughts were racing, with strong time dilation noted, but my mental state was lucid.
+3:15 As I walked on a long, straight road, the depth distortion caused me to feel like I was in an old-school racing game, with my 2-dimensional surroundings scrolling past me while my character stays stationary on the screen. Another analogy to describe the effect would be that I felt like a ship in Star Wars entering hyperspace; the stars are drawn out into lines and appear to fly past me with great speed. A secondary visual effect was strong trailing, which was especially visible on the many people walking past me on the street. It was very enjoyable to trip with a broad smile on my face among so many sober people. Mentally, I found myself thinking very quickly and associatively, but I was also easily able to &#x27;zone out&#x27; and just enjoy walking.
+3:45 I peaked around this time. Time dilation was strong; waiting for the traffic light would feel like an eternity, albeit a pleasant one. The sun was low on the sky and the clouds were orange. I would like to say that this was one of the most beautiful things I have seen, but unfortunately the opposite was true. At the time I literally thought ETH-LAD visuals were &#x27;ugly&#x27;; the sky and sun were distorted by green and purple lines which did not mesh well at all with the colors of the sunset.
+I reached a bridge over a river and looked down at the water; the water was distorted in the same ugly way. I was slightly disappointed by this, but my mood remained good.
+I decided to head back home. The same visual and mental effects that I mentioned earlier were still present, but the visuals were decreasing in intensity. My body felt somewhat feverish, but it was not noticable enough to bother me. Walking was effortless and enjoyable.
+4:30 I got home; I walked the few metres to the kitchen humming the 4th movement of Beethoven&#x27;s 3rd symphony; I felt euphoric and victorious, like a conquerer, like Napoleon - my mind made this connection to the music in an instant. A millisecond later, I was elated to note how I had made this connection. Interestingly, the music did not sound any better than normal - unlike with AL-LAD.
+I decided to lie down on my bed and the same instant, I felt myself melting together with the mattress. It felt as if the way I was positioned was &#x27;just right&#x27;. I closed my eyes, and I enjoyed the many images floating past. The closed-eye visuals mostly consisted of images of concrete objects and people, as opposed to abstract fractals and such.
+Later that night, I had the sensation of things being &#x27;just right&#x27; many more times. I felt as if my mental clarity was greatly enhanced to the point where I was able to make perfect decisions.
+I was still quite stimulated and was somewhat restless as a result, but the comedown was generally very pleasant.
+The following days, I experienced a pleasant afterglow; I needed less sleep to feel refreshed and generally was in a better mood. Overall, I prefer this substance to LSD for its mental clarity, although it is inferior visually and has a worse body load at high doses.
+Exp Year: 2016
+ExpID: 109895
+Gender: Male
+Age at time of experience: Not Given
+Published: Jan 23, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+ETH-LAD (688) : General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,242 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>埃洛伊德病例 - &quot;一些轻微的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/eth-lad.html'>← ETH-LAD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>埃洛伊德病例 - &quot;一些轻微的&quot;</h1>
+<div class='sub-title'>ETH-LAD - Erowid Exp - &#x27;Some Mild Paralysis&#x27;</div>
+<div class='meta'>作者：Spicy-LAD Citation · 日期：Aug 21, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=112221' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>背景情况
+我曾多次使用过LSD,1P,Shrooms和MDMA. 这是我第一次使用ETH-LAD,
+在阅读了几份可用的报告后,
+我决定拿几片ETH-LAD来看看它们是否能为另一种不太可视的物质提供更多的视觉效果.
+我和我的室友决定先试一下ETH-LAD.
+我们知道一张100ug的标签是个好主意, 但当时间到了,
+因为为什么不.
+如果我对这种物质有任何建议,
+在此之前, 最新的药物使用是3天前2克的茶.
+没有THC使用超过一周.
+由于当时我们的空调坏了,
+她开始感觉到身体负荷, 在我之前就能看到视觉效果的开始.
+我们走到卧室, 关掉所有的灯光, 除了床边灯,
+她只能躺在床上评论那些慢慢占据她的视野的视觉效果.
+我开始认真, 感觉四肢硬, 脊椎开始疼痛.
+视觉效果也开始了,
+时间1点到2点
+我的视觉增加, 我的身体变得越来越不舒服.
+我对这两个标签的强度感到困惑.
+毯开始写字,并转变为由棕色的毛触角组成的图案.
+我们把水杯留在黑暗的客厅里, 我被选中去取回,
+玻璃似乎从椅子的腿变形,坐在我们离开的地方.
+好吧,我没有.
+我们在等待时看了一些YouTube视频.
+我室友评论说, 视觉效果如今看起来像某种会给你带来发作的东西,
+我以为我知道她的意思.
+我还没有.
+时间2点到2点30分
+我们的身体开始变热.
+我再次冒险进入黑暗的公寓, 拿一些冷藏袋, 把它们放在我们的头和背上.
+很难做到这一点, 因为厨房里没有任何东西能保持相同的尺寸超过几秒.
+柜子和家电都在不断地跳动和移动, 最终我打开了冰箱,
+我回到卧室, 躺在我的室友身边.
+在此时,视觉已经占据了我的视野,
+身体负荷仍然相当不舒服,而且越来越严重.
+这只是一个开始.
+我们的房间里风扇的声音开始漫游.
+风扇实际上很安静,所以我认为电机的声音被扭曲并延伸到整个房间.
+声音比风扇的转速慢得多, 听起来不像我以前在公寓里听到过的声音.
+我会环顾四周看它来自哪里但从来没有看到任何东西.
+我会环顾四周看它来自哪里但从来没有看到任何东西.
+视觉上升到11点, 我再也看不出天花板在哪里.
+我几乎无法移动我的头, 环顾我的室友看看她是如何做的.
+她回头看,但她的脸上没有表情.
+我们开始了.
+我开始感觉自己进入自我死亡, 感觉自己在床上漂浮几英尺,
+我几乎没有注意到这种感觉, 我看着视觉变成了一个包罗万象的暴风雪,
+我室友的声音, 她还能说话,
+我很难理解他们的话,
+我不知道自己有口才可以回应, 对话是一种陌生的概念,
+经过一段看似无限的时间,
+我对的转变没有任何记忆, 视觉的虚空带回我的身体,
+半天的时间里, 我只能动脑袋,
+我可以告诉自己,我在循环中,然后等待时间.
+风扇的声音不再被那么严重地操纵了, 已经分离到一个不断的,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+沉默也许会更好, 但房间会太热,
+我的思想慢慢地聚集在风扇的不断的节奏中, 循环变得不那么激烈,
+我又一次失去了时间和记忆,
+忽然,我坐起来,看了看时间,看到了凌晨2点左右.
+我可以移动和走动.
+视觉效果已经有所减弱.
+只有爆米花的天花板仍在移动,
+我重新装满了水, 想起过去的几个小时,
+我在所前挂着一张红色的毛巾,
+我和我的室友看了一些视频,
+她戴上我的VR设备观看视频, 我开启我的PC玩一些命运2.
+游戏非常精彩, 我大部分时间都在步行,
+视觉效果有所回归, 增加了对象边缘的动作和图案.
+经过一两个小时,
+我们准备睡觉了.
+降落后的总时间是9个小时多一点, 但我至少再睡不到1到2个小时, 因为太阳在这一点上升,
+我打算下次只使用单一的标签, 也许只使用0.5-1标签与另一个心理混合,
+这种东西是我迄今为止尝试过的最可视化化合物,
+虽然身体负荷,男孩迪迪.
+已使用的证券
+发布时间:2018年8月21日
+小组 (2-9) (17),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Some Mild Paralysis
+ETH-LAD
+by
+Spicy-LAD
+Citation:   Spicy-LAD. &quot;Some Mild Paralysis: An Experience with ETH-LAD (exp112221)&quot;.
+Erowid.org
+. Aug 21, 2018. erowid.org/exp/112221
+DOSE:
+T+ 0:00
+400 ug
+oral
+ETH-LAD
+(blotter / tab)
+T+ 6:00
+vaporized
+Cannabis
+(extract)
+BODY WEIGHT:
+165 lb
+Background.
+I have had several experiences with psychedelics and many with THC before this. I have used LSD, 1P, Shrooms, and MDMA all several times.This was my first foray with ETH-LAD and it exceeded expectations to say the least.
+After reading the few reports available
+I decided to pick up a few tabs of ETH-LAD to see if they could lend more visuals to another less visual substance. After getting the tabs me and my roommate decided to try the ETH-LAD on its own first. We knew one 100ug tab was a good idea to start with, but when the time came we ended up going with 2. Because why not. If I have any recommendation to make for this substance it would be to start with 100ug and work up from there.
+The most recent drug use before this was 2 grams of shroom tea 3 days prior. No thc had been used for over a week.
+T: 0-0:20
+After dropping both tabs we hung out for a bit and turned on some fans because our AC was broken at the time. My roommate has always had much faster comeups than I, or anyone I know, she began to feel the body load and see the beginnings of the visuals well before me. We made our way to the bedroom and turned off all the lights except for the bedside lamp after lighting candles around the apartment.
+T0:20-1:00
+My roommate’s body load was getting increasingly uncomfortable and she was not able to do much other than lay on the bed and comment on the visuals that were slowly taking over her field of view. My body began in earnest, I could feel my limbs stiffen and my spine started to ache. The visuals also began but they were very slight at this point.
+T1:00- 2:00
+My visuals increase and my body became more and more uncomfortable. The come up was still rising and I was somewhat disconcerted by how intense these 2 tabs already were. The carpet began writing and shifting into patterns sections made up of brown fuzzy tentacles. We had left our water cup out in the dark living room, I was elected to retrieve it as my roommate was in no state to leave the bed. I looked all around where the cup had been but was unable to find it, as I was about to get a new one the glass seemed to morph out of a chair leg and sat where we had left it. Okay. I returned and we watched some YouTube videos while we waited. My roommate commented that the visuals now looked like something that would give you an epileptic seizure if you were prone to them. I thought I knew what she meant. I did not yet.
+T2:00-2:30
+Now that we were deep in the peak our bodies began to heat up. Once again I ventured into the dark apartment to grab some cold packs to put on our heads and backs. This proved difficult as nothing in the kitchen was bothering with staying the same size for more than a few seconds. Cabinets and appliances were pulsing and shifting constantly, eventually I got the freezer open and retrieved the cold packs. I was reaching the end of my ability to walk around safely and returned to the bedroom to lay down by my roommate. At this point the visuals had taken hold of my vision and everything was covered in patterns and shifting iridescent  shapes. The body load was still quite uncomfortable and getting worse. This was only the beginning.
+T2:30-5~6
+After several minutes of laying down the sound of the fan in our room began to roam around. The fan was pretty quiet actually so I think the sound of the motor was being warped and stretched around the room. The sound was much slower than the rpm of the fan, it did not sound like anything I&#x27;ve hear in our apartment before. Every now and then the sound would come right up next to my head and I would look around to see where it was coming from but never saw anything.
+Every now and then the sound would come right up next to my head and I would look around to see where it was coming from but never saw anything.
+As we lay there the visuals got cranked up to 11 and I could no longer tell where the ceiling was. I was barely able to move my head and look around at my roommate to see how she was doing. She looked back but there was no expression on her face. Here we go.
+I began to feel myself entering ego death and felt like I was floating several feet above the bed, I could not longer feel my body or that body load thank god. As my mind reached into nothingness I was not afraid at all and barely took notice of the sensation as I watched the visuals become an all encompassing snow storm clustershit of shapes and colors swirling around and through me. My roommate’s voice, somehow she could still talk, sounded echoey and drifted away as she spoke. I could barely understand the words and was totally unable to respond. I didn&#x27;t know that I had a mouth to respond with, conversation was a foreign concept that I no longer had the biological parts to participate in. After what seemed like a small infinity I was back in my body. I remember nothing of the transition from the epilepsy inducing void of visuals back to my body but that good old body load helped to remind me that I had a physical form. For what seemed like half a day I lay unable to move anything but my head, stuck in thought loop after thought loop. I was able to tell myself that I was in a loop every now and then and bide my time. The sound of the fan was no longer being manipulated as heavily and had seceded to a constant wuh wuh wuh wuh wuh that permeated our soundscape. Silence might have been better but the room would have been too warm, and I still couldn&#x27;t move. My thoughts slowly collected to the constant beat of the fan and the loops grew less intense and less insane. Again I lost time and memory of the transition back into mostly normal thought.
+Suddenly, I sat up and checked the time to see it was about 2am. I was able to move and walk around. The visuals had died down a merciful amount. I could see the room and only the popcorn ceiling still shifted and pulsed with anything near the same intensity as a few hours ago. I refilled our water and reflected on the last few hours I had spent trapped in my own mind. I took a piss and laughed at a red towel hanging in front of the toilet, it was a soft one with fairly long fiber strands that were all swaying like blood stained grass in a field.
+T6:00-9
+My roommate and I watched some videos and talked about what had happened. She put on my gear VR to watch videos and I fired up my PC to play some Destiny 2. The game was beautiful and I spent most of the time looking around on foot and speeding through the different planets. I had some sativa from our wax pen and the visuals returned a bit to add the movement and patterns into the edges of objects. After an hour or 2 they were mostly gone and we were both quite tired. We got ready for bed and slept. Total time after dropping was a little over 9 hours but I wasn&#x27;t able to sleep for at least another 1-2 hours since the sun was coming up at this point and I still felt an electric body energy, lucky the discomfort was gone by then.
+I plan on just taking a single tab next time and possibly only using .5-1 tab mixed with another psych is the future to boost the visuals. This stuff is the most visual compound I&#x27;ve tried so far, granted my limited experience. The body load though, boy diddy.
+Exp Year: 2018
+ExpID: 112221
+Gender: Male
+Age at time of experience: 20
+Published: Aug 21, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+ETH-LAD (688) : Small Group (2-9) (17), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

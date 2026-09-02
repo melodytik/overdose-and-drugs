@@ -1,0 +1,281 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>三利丁和伪 - 毒剂 - &quot;很有趣&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/triprolidine.html'>← Triprolidine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>三利丁和伪 - 毒剂 - &quot;很有趣&quot;</h1>
+<div class='sub-title'>Triprolidine &amp; Pseudoephedrine - Erowid Exp - &#x27;A Lot of Fun&#x27;</div>
+<div class='meta'>作者：Malagai Citation · 日期：Dec 13, 2013 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=28647' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>[Erowid注:虽然作者报道了用作编解的物质,但读者应该知道Actifed与编解 (&quot;Actifed C&quot;) 仅以糖的形式提供,而不是药丸.
+这种药物更有可能是含有伪和三利丁的组合,后者是一种抗胆固醇抗胺剂,这里报告的剂量特别高.
+此外,报告中描述的效应更像是抗胆药物,而不是阿片类药物.
+因此我们将其归类为三利丁/伪德林报告.
+我曾听说过有些人过量服用各种非处方药,
+吃了24粒药后, 我把一个草椅子放在后院里,
+我预计会发生一些很酷的事情,
+我决定需要更多,所以我又去Save-ons买了另一包Actifed.
+我走进洗后面的储存, 和剩下的,使总共384毫克消耗.
+我开始感到有点紧张, 因为在服用它们时,
+在此期间我意识到我以为我在家里吃了12粒药, 但实际上是24粒!
+我开始沿着自行车道走,大约15分钟后, 感觉好像有人抓住我的头发, 开始拉它!
+尽管如此,
+任何触摸我的头皮都会带来一种非常舒适的感觉.
+我走过这个街区, 开始爬上山去拜访朋友家.
+我已经多年没见过他,所以我想也许今天我应该去见他.
+我一直在摸摸头部, 敲打头部,
+这就好像我戴着一个隐形帽子.
+我觉得如果有人看到我这么做, 他们可能会笑,
+这也是可代因对我造成的另一个影响.
+这给了我一种幸福感,
+到了山顶, 我试图想起我的朋友住在哪里,
+我敲了几家门,问他们是否知道他.
+通常我不会这么做, 但由于某种原因,
+在这种心态下, 尬并不是问题.
+我找不到他的房子,所以我走回山下,开始走下街.
+每次我经过一个公共汽车站,
+很有趣,因为当我试图说话时,
+我记得每次我要求一美元,我都会说&#x27;我可以省钱,你省钱我省钱一美元?&#x27;这很可能是他们拒绝的原因.
+到了另一站,我对自己说&#x27;说得正常,这次不要搞.&#x27;但刺的是,结果是&#x27;我可以省钱,你省钱我省一美元?&#x27;这实际上很有趣.
+我终于找到了一个我短暂认识的人,
+他是那个坐公共汽车的残疾人,
+我问他是否可以一美元, 他说他只有24美分, 我接受了.
+现在想起来, 我真的很难过, 因为我刚刚向一个贫困的残疾人索钱,
+无论如何,公交车来了,我上了.
+我把四分钱放进机器, 希望它能起作用.
+我手的背面面对着司机, 让他看不见,
+每个人都在看着我坐下来,
+通常我会因为社交焦虑而, 但可代因完全减轻了它.
+我在巴士下车时,跌倒了,脚受伤了.
+实际上感觉很好,就像我的头皮,然后我有一个想法.
+我开始在身体的各个部位 (手臂,腿,胸部,头部) 敲打,
+我走进这个街区去拜访我的一个朋友, 同时着我的手臂,
+我遇到了他的一个朋友, 他说:&#x27;你是罗伯特吗?
+这里是泰勒.
+你还记得我吗?
+布莱恩在家吗?&#x27; 他看着我很有趣,告诉我布莱恩在工作,所以我回答说&#x27;,谢谢,很高兴再次见到你.&#x27; 他回答说,接受它不是那么有趣.
+我跳过了一道, 落入了洗所,
+这感觉很酷.
+我突然觉得自己有必要自责, 我做到了.
+我不仅打了自己,还打了自己全身.
+我在脸上打了好几次, 这可能会让任何人摔倒在地上.
+我脸上闪闪发光的快乐.
+这很棒.
+我会在第二天开始出现明显的伤后后悔.
+我离开洗衣机,开始走回家.
+我只是想帮助人们.
+在什么?
+我只是想帮助他们.
+我看到一个男人和他的妻子在前院挖洞, 我正要问他们是否可以帮忙,
+我回家,躺下,玩得很开心,什么都不做.
+坐在那里感觉太好了!
+那天晚上,当我试图睡觉时,
+我不知道代因会对某人造成这种影响,
+我闭上了眼睛, 第一个幻觉是外面闪的明亮光.
+打开它们时, 我看到一个奇怪的生物在天花板上跑.
+它看起来像一个微观的怪物 篮球大小或某种东西.
+两分钟后它消失了.
+房间被雾罩在里面.
+然后这两个黑色的圆圈,一个是另一个大小的两倍,从天花板的一边滑到另一边的角落,
+我不知道他们到底是为什么来这里, 也不知道他们到底是什么,
+我们最终看了&quot;我的敌人&quot;,
+我试图睡觉,但由于某种原因我无法睡觉.
+代没有让我.
+我很舒服,但我也很不安.
+两个圆圈依然存在, 但我看到的下一个幻觉我完全没有准备.
+我在走廊里看着, 已经累了, 忽然, 这巨大的黑色恶魔,
+他用类似于烤面包从烤面包机中弹出的方式做了这件事,我一看他,他就消失了.
+我只是坐在床上试图睡觉,
+第二天我觉得我可能是个宿醉了.
+我只是很累,很饿.
+由于旅途中食物似乎不必要,
+那天早上我只目睹了一次幻觉, 那是一只奇怪的骨手从浴室里出来敲门.
+这看起来很不现实, 但很有趣.
+那天我感觉很糟糕, 我真的很愚蠢.
+我试图做我的工作, 但所产生的只是一堆划掉的杂乱的东西, 沿着两边画了几条螺旋.
+我花了一段时间来回答这些问题,
+到了当天的最后一堂课, 我一直在睡,
+我看着老师在讲课, 接下来我正在向我的小组讲述我们必须在本周末完成的项目.
+这就像他们突然出现了, 时间增加了20分钟在一个单一的第二个左右.
+这就是我完全失去了意识的时候.
+整天我几乎只是生病和有点高.
+现在我完全搞了,一切似乎绝对很有趣.
+我的手是令人厌恶的和静脉.
+房间被雾覆盖.
+我的团队知道我有问题,
+我甚至问他们为什么房间被雾覆盖,
+我又回到了古怪的可代因世界.
+我觉得好像我不是真的在那里...好像这是一个梦.
+听到钟声响起,我离开了, 似乎每个人都在漂浮,
+我感觉很好,很自信.
+我喜欢它.
+我和我的朋友安德鲁 (我叫他) 和他的兄弟诺亚一起回家,
+他们所说的一切都很有趣, 我太忙于看着美丽的周围环境与他们交谈.
+他们提出的问题很难理解,
+我经过我的街道和继续走与他们出于某种原因.
+我一直走着,我不知道为什么,我只是觉得它,我猜.
+我从来没有见过最有趣的事情.
+我相信这可能是整个二天旅程中最棒的部分.
+正在说话,然后突然诺亚对他大喊&#x27;该死的,得到我的前面安德鲁!
+你一直在给我胎!&quot;喊回来一些像&quot;不!
+你走得太慢了!&quot;这真是太好笑了!
+他们是非常认真的, 实际上是因为如此拙的原因而互相尖叫,
+他们的长头发让我觉得他们是两只狼在互相叫, 我开始无情地笑,
+我跟走了一段路,还在笑,然后意识到我很久以前就经过了我的房子,转过身来.
+那天下午我从来没有睡得更好.
+科代因真的很有趣.
+为了放松,我开始服用较小的剂量 (大约90-125毫克).
+我在上学前吃过, 整天都感到快乐和满足.
+这也帮助我与人交往.
+太多的社交方面几乎过时了, 因为我会像个瓜一样说话.
+现在我意识到如果我过敏, 我很可能会受伤.
+另外,如果你像我一样过量服用,
+时间表: 28647
+三利丁 (620), 伪二 (215): 不同的 (28), 宿醉 / 几天后 (46), 第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Lot of Fun
+Triprolidine &amp; Pseudoephedrine
+by
+Malagai
+Citation:   Malagai. &quot;A Lot of Fun: An Experience with Triprolidine &amp; Pseudoephedrine (exp28647)&quot;.
+Erowid.org
+. Dec 13, 2013. erowid.org/exp/28647
+DOSE:
+oral
+Triprolidine
+(pill / tablet)
+oral
+Pseudoephedrine
+(pill / tablet)
+BODY WEIGHT:
+200 lb
+[Erowid Note: While the author reported the substance used as codeine, readers should be aware that Actifed with codeine (&#x27;Actifed C&#x27;) was only available as a syrup, not as a pill. It is more likely that the pills contained a combination of pseudoephedrine and triprolidine, the latter of which is an anticholinergic antihistamine and that the dose reported here would be particularly high. Additionally, the effects described in the report closely reflect an anticholinergic drug rather than an opiate drug. Therefore we have categorized this as a triprolidine/pseudoephedrine report.]
+I had heard of people overdosing on various OTC drugs such as Sudafed and Actifed for a nice high with codeine. This interested me, so I went down to the local Save-ons and pocketed a pack of Actifed containing 24 pills of 8 mg each. When I got home, I set a lawn chair out in my backyard and just sort of sat there for a while after consuming the 24 pills (192 mg). I expected something cool to happen, but nothing did.
+I decided I needed more, so I went down to Save-ons again and pocketed another pack of Actifed. I walked into the wash behind the Save-ons, and took the rest, making the total 384 mgs consumed. I then started to feel a little bit nervous due to the fact that while taking em I could not count for shit, and I was really confused. It took me a couple of tries to count the pills before eating &#x27;em, and during this time I realized that I thought I had took 12 back at the house, but it was, in fact, 24!
+I started walking along the bike path, and about 15 minutes later it felt as if somebody had grabbed my hair and started pulling it! It was extremely pleasant, however. It was as if somebody was giving me a message, and any contact with my scalp had a weird sensation that was very comfortable. I walked through this neighborhood and started up a hill to visit a friend&#x27;s house. I hadn&#x27;t seen him in years, so I figured maybe today I should go see him. The whole time I was walking up the hill, I was touching my head and knocking on it to get the weird sensations going. It&#x27;s as if I was wearing an invisible hat. It was rather amusing, and I figured if anybody saw me doing it they would probably get a laugh, but I really didn&#x27;t care. That&#x27;s another thing codeine did to me. It gave me a sort of sense of well-being and diminishes a lot of problems with low self-esteem.
+Upon reaching the top of the hill, I tried to remember where my friend lived, but I just couldn&#x27;t. I knocked on several people&#x27;s doors and asked if they knew of him. Normally I would never do this, but for some reason I just didn&#x27;t give a shit. Embarassment was not an issue in this state of mind.
+Well, I failed in finding his house, so I walked back down the hill and started down the street. Every bus stop I passed by I would ask people if they could spare a dollar, but every single one declined. It was funny because when I attempted to speak, it would come out very fragmented and contradictory. I remember every time I requested a dollar, I would say something like &#x27;Could I spare, you spare me I spare a dollar?&#x27; This most likely may be why they declined. And upon reaching another bus stop, I said to myself &#x27;Speak normal, don&#x27;t mess up this time.&#x27; But, ironically, out came &#x27;Could I spare, you spare me I spare a dollar?&#x27; It was actually pretty funny.
+I finally found somebody I briefly knew about 2 miles from where I started off of Shangri-La (the hill). He was this retarded man that took the bus named Tig. I asked if he could spare a dollar, and he said he only had 24 cents, which I accepted. Now that I think about it, I feel really bad because I just asked a poor handicap for money, and that was probably his bubblegum money or something. :( If I ever see him again, I&#x27;ll be sure to pay him back a full dollar. Anyway, the bus arrived and I got on. Instead of the standard four quarters needed to place in the machine, I drop four pennies in and hoped it worked. The back of my hand faced the driver so he wouldn&#x27;t see, but I think he knew what was up and just ignored it and let me on. Everybody was looking at me as I sat down, but I didn&#x27;t care. Normally I shit a brick when people look at me, due to my social anxiety, but codeine completely diminishes it.
+Upon getting off the bus, I tripped and &#x27;hurt&#x27; my ankle. It actually felt damn good, sort of like my scalp, and then I got an idea. I started hitting various spots of my body (arms, legs, chest, head) and then everything went numb and felt very orgasmic, to say the least. I walked into this neighborhood to visit one of my friends, at the same time hitting my arms in a sort of Nazi-esque salute or something, which I assume somebody would question. I ran into one of his friends, and out came &#x27;Hey, you are Robert? Hi again, this is Tyler. Do you remember me? Well, I am wondering is Brian - is he home?&#x27; He was looking at me funny and told me Brian was working, so I responded with &#x27;Oh, hey thanks, and nice to meet you again.&#x27; And he responded with much the same, accept it wasn&#x27;t so funny.
+I hopped a fence that went into the wash, and upon hitting the ground, my body went berserk and completely flushed over with numbness. It felt so cool. I suddenly felt the urge to beat myself up, and that I did. I didn&#x27;t just hit myself, but I HIT myself all over. I totally slugged myself in the face several times that would probably make anybody fall to the floor. My face rushed with pleasure. It was awesome. I would regret this the next day when visible bruises started appearing. :)
+I left the wash and started walking home. For some reason I just wanted to help people. With what? Well, it doesn&#x27;t matter, I just wanted to help them. I saw a man and his wife digging holes in their front yard, and I was about to ask if I could give them a hand, but I stopped myself and said &#x27;These are the drugs talking.&#x27;
+I got home, and just layed down and had a fun time doing nothing. It felt so good just sitting there!
+That night, as I tried to sleep, I actually started to hallucinate. I didn&#x27;t know codeine did such a thing to someone, but I swear it happened. I shut my eyes, and the first hallucination was bright lights flashing from the outside. Upon opening them, I saw a weird creature of some sort running on the cieling. It looked sort of like a microscopic monster the size of a basketball or something. It scared the shit out of me, and it dissapeared about two minutes later. The room became shrouded in mist. Then these two black circles, one double the size of the other, slid from one side of the cieling to a corner on the other side, and just sat there for the majority of the night. I don&#x27;t know what they were there for or what they actually were, but I found them amusing, and actually spoke to them asking which movie they would prefer we watch. We ended up watching Enemy Mine, but then I turned it off due to bordom and being so tired. I tried to sleep, but for some reason I just couldn&#x27;t. The codeine wouldn&#x27;t let me. I was very comfortable and all, but I was very restless. The &#x27;micro&#x27; monster appeared every once in a while and ran along the cieling, and the two circles were still there, but the next hallucination I saw I was completely unprepared to witness. I was looking out in the hallway after tiring of speaking to the circles, and suddenly this huge black demon about three feet wide and 5 feet tall popped out from the ground in front of my bookshelf! He did this in a manner similar to that of toast popping out of a toaster, and as soon as I looked at him, he dissapeared. By this time, I just sat in bed trying to sleep, but never managed to the whole night.
+The next day I believe I may have had a hangover. That or I was just really tired and really hungry. I hadn&#x27;t eaten in over 24 hours, due to the fact that during the trip food didn&#x27;t seem necessary. I witnessed only one hallucination that morning, being a weird skeletal hand coming out of the bathroom and sort of tapping on the door. It looked very unrealistic, but it was amusing. I pretty much felt very shitty that day and I was really stupid. I tried to do my work, but all that was produced was a bunch of scratched out messy shit, and a couple of spirals drawn along the sides. :) When I spoke I sounded really stupid and fragmented, more so than yesterday. It took me a while to respond to questions and such because I had to figure out what they meant.
+By the time I was in my last class of the day, I kept dozing off, until eventually I think I fell asleep while still sitting up. I was looking at the teacher giving a lecture one minute, and the next I am speaking to my assigned group about our project we must complete by the end of the week. Its like they just suddenly appeared and the time increased by twenty minutes in a single second or so. This is when I was completely out of it. The whole day I was pretty much just sick and a little bit high. Now I was completely fucked up and everything seemed absolutely hilarious. My hands were repulsive and veiny. The room was covered in mist. My group knew something was wrong with me, but I didn&#x27;t care. I even asked them why the room was covered in mist, and this completely gave it away. I was back in that strange codeine world.
+I felt as if I wasn&#x27;t really there... as if it was a dream. When the bell rang, I left and it was like everybody was sort of floating, and they were looking at me and smiling. I felt very good and confident. I loved it.
+I walk home with my friend Andrew (I call him Ant) and his brother Noah, and they knew something was up with me. Everything they said was hilarious, and I was way too busy looking at the beautiful surroundings to speak with them. Their questions were hard to understand, but I attempted to respond to them. I passed my street and kept on walking with them for some reason. I kept walking and I had no clue as to why, I just felt like it I suppose.
+Suddenly I saw the funniest thing I have ever witnessed in my entire life. I believe this is probably the greatest part of the whole two-day trip off of codeine. Ant was talking, and then suddenly Noah yelled at him &#x27;Dammit, get in front of me Andrew! You keep fucking giving me flat tires!&#x27; And Ant yelled back something like &#x27;No! You fucking walk too slow!&#x27; It was so hilarious! They were very serious and were practically screaming at each other for such a lame reason and for quite a long time and my perception may have exaggerated it. Their long hair gave me the impression that they were two wolves snarling at each other, and I started laughing uncontrollably, and then Noah got pissed off at me and walked ahead of us in his rage. Ant responded with something like &#x27;Way to go, Tyler.&#x27; I walked with Ant a little further, still laughing, and then realized I had passed my house a long time ago and turned around.
+That afternoon I never slept better.
+Codeine was really fun. Since then I have taken smaller doses (about 90-125 mg) to relax. I&#x27;ve taken it before school and felt happy and content the whole day. It also helps me socialize. Too much made the socializing aspect nearly obsolete as I&#x27;d be talking like a moron. I was dumb for starting off with 384 mg as now I realize that if I were allergic, I could have very well been hurt. Also, don&#x27;t plan on really doing anything for a couple of days if you OD so bad like I did.
+Exp Year: 2003
+ExpID: 28647
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 13, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Triprolidine (620), Pseudoephedrine (215) : Various (28), Hangover / Days After (46), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

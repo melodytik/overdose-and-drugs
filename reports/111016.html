@@ -1,0 +1,536 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>AL-LAD,ETH-LAD,1P-LSD,ALD-52和LSD - 埃洛伊德的使用 - &quot;利瑟加米德盲测试&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/eth-lad.html'>← ETH-LAD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>AL-LAD,ETH-LAD,1P-LSD,ALD-52和LSD - 埃洛伊德的使用 - &quot;利瑟加米德盲测试&quot;</h1>
+<div class='sub-title'>AL-LAD, ETH-LAD, 1P-LSD, ALD-52 &amp; LSD - Erowid Exp - &#x27;Lysergamide Blind Test&#x27;</div>
+<div class='meta'>作者：Psychastevic From Bluelight Collection Ci · 日期：Sep 18, 2017 · 途径：舌下 · <a href='https://erowid.org/experiences/exp.php?ID=111016' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>莱塞尔加米德盲测试
+AL-LAD,ETH-LAD,1P-LSD,ALD-52和LSD
+精神问题
+在
+蓝光系列
+引用来自:
+&quot;利瑟加米德盲测试:使用AL-LAD,ETH-LAD,1P-LSD,ALD-52和LSD的经验 (exp111016)&quot;.
+期待已久的盲目莱塞尔加米德测试!
+如果我不得不猜测, 我会说我至少服用了这些物质的一半到两张纸.
+我总是说我觉得我可以在盲目测试中区分它们,
+我设定了一个目标:购买两片100微克的每一种最常见的莱瑟加米德,1P-LSD,1A-LSD (ALD-52),AL-LAD,ETH-LAD,
+使用方式
+我对这些物质的身体化学反应可能不同于大多数人,
+对于200ug, 我需要大约7-8天才能完全恢复耐受性.
+为了保证, 我给每次测试12天的时间.
+她把它们放在单独的标签上, 放在Mylar袋里, 留给自己.
+她要把每一根放在我的舌头上, 我要把每一根放在嘴里准确45分钟,
+除了1号外, 所有测试都是在下午5点进行的,
+在每次旅行之前我都禁食6小时,
+需要注意的是,我经常服用大剂量
+需要注意的是,我经常服用大剂量
+因此对我来说200ug的效果, 虽然仍然明显,
+所有的药物除了LSD (测试结果100%阳性) 都来自同一个来源.
+以下是我5次测试的回顾,有些是记忆中的回忆,有些是经历期间快速记下来的笔记:
+第一个试验:
+我很高兴这次测试已经开始了!
+我终于有机会亲眼看到这些物质的真实性!
+我刚刚在十个小时的工作后提前45分钟回家, 七个小时是加班时间,
+准备一些新鲜切片的水果等待我的账单.
+我女朋友来了,向外伸出, 把它放在我的舌头上, 我们开始了!
+5:25分钟身体高/刺痛的感觉?
+这可能是安慰剂.
+5:39 - - 没有,头部有所变化,身体有点重,但没有什么戏剧性的
+我走进了所,站在所上方, 大理石地板开始轻轻地膨胀和收缩.
+身体高度没有变化.
+6:20- 这种物质确实让我有了头脑的空间, 使我在实际做之前就开始质疑自己做的事情, 也让我反思过去的决定, 想知道事情会有什么不同,
+视觉效果仍然是最低限度, 我真的必须把它们排除在外或寻找并让它们发生,
+7: 00 身体负荷已经完全解除, 仍然困在一个奇怪的头脑空间之间 不完全倒但几乎在那里, 质疑事情,
+7:35 视觉有点好转
+我家的草已经几个星期没被砍了, 所以有很多小动物在飞来爬去,
+我认为我在这个峰值,没有更多的事情会发生
+八点半到九点半, 我是对的, 微弱的视觉效果已经持续了一个小时, 天空呈红色,
+闭眼的视觉效果比开眼更明显,
+10:45 - - 我看了&quot;宇宙&quot;一小时, 尼尔·德格拉斯·泰森真的很精彩, 我仍然有抽象的想法, 也就是说, 摄像机在纽约市转动,
+坚持下去.
+在看&quot;恐惧与厌恶&quot;时,
+在电影结束时, 让我感到昏昏欲睡.
+没有问题在2点半睡着了.
+我猜测:由于视觉效果很微不足道, 但我确实得到了内省的头脑空间,
+第二个试验:
+我自己, 我去当地保护区, 徒步6英里.
+我把我的三瓶智能水,一个甘,泰迪格雷厄姆,和2个子和跳在我的吉普车.
+这是一条25分钟的车程.
+5:27走到路上,确保一切顺序, 电子烟,零食,补水,
+景色十分美丽, 微微的云层遮住了太阳,
+5:42 - 首先可以注意到的迹象.
+眼睛闭着, 开始看到蓝色和绿色,
+我注意到恶心和胃/通常伴随着LADs.
+在散步时吃了一些泰迪格雷厄姆.
+没有食欲丧失.
+我向前看10到20英尺, 地面似乎呈现出水的样子,
+树木的树皮突然变得活, 云层正在移动.
+颜色变得越来越鲜.
+没有明显的变化.
+现在坐下来享受一个子和水, 以及风景.
+云层自行开放,树木生长或缩小.
+视觉图像往往以面孔/眼球的形式呈现.
+现在感觉很好.
+我在云层中迷失, 视力完全被电流所淹没, 持续了10到15分钟.
+整个身体都充满了幸福感.
+8:30-忘了记下过去一个小时的一些笔记,因为我已经加快了步伐,并且一直在享受自己整个步行,大约一英里半的路程,太阳已经落下,晴朗的天空和星星出现在外面,看着变得轻微的压倒,好吧,不一定压倒,
+我在路上发现一棵葡萄树横跨路面, 直到我用棍子摸到它,
+让我们感觉到下降已经开始,
+我已经完成了步道, 回到了停车场/鱼区.
+在过去的45分钟里, 除了对象的典型呼吸之外, 我几乎失去了视觉.
+我还要等待15到30分钟才开车回家,
+我和一个在码头鱼的老人聊了很多年.
+视觉是最低限度的, 除非我真正专注并让它们发生,
+吃了一顿牛肉Stroganoff在回家后, 非常微小的明显的迹象物质仍然在我的系统,
+总而言之,这是一个很棒的体验.
+我猜测:AL-LAD, 毫无疑问我感觉100%安全, 保持我的食欲整个时间, 很多视觉活动, 没有变化在头部空间/内省的想法,
+毫无疑问,但我们将在这个实验结束时看到.
+第三个试验:
+半小时前从工作回家, 洗了,
+今天的旅程是要在我最好的朋友的家里进行的,
+她住在15分钟的路程,所以我去她的房子之前, 这种化学脚.
+我到达C的房子发现她也丢下了125麦克标签自己的LSD和会享受夜晚在同一个头空间和我.
+她刚刚从科罗拉多州 (我们在东海岸) 旅行回来,
+我们花了前25分钟看着科罗拉多州的照片, 阅读她带回来的医用大麻容器上的实验室检测标签, 回忆我们的旧旅行; C是我最信任的朋友,
+我几乎忘记了舌头上的标签.
+5:52 - - 药物出现的第一个迹象, 我们在她的客厅里, 观看Netflix节目&quot;F是家庭&quot;, 节目中的每一个笑话都会让我们中的一个爆发笑声, 导致另一个爆发笑声, 因为另一个笑得太厉害了,
+6:13 - 首次出现视觉迹象; C的客厅非常嬉皮派风格, 各种曼德拉和明亮的色挂毯在每一面墙上.
+每个人都开始以自己的方式跳舞和旋转.
+皮肤开始变得漫画般的.
+她开始模糊地看起来像视频游戏中的角色,
+完全没有食欲,直到明天才会吃东西.
+我们在沙发上坐着, 黑灯亮着, 听电子音乐.
+视觉效果似乎跟着歌曲的节奏跳动.
+我们去年制作的DJ Marshmello面具, 是用我们雕刻的5加的白色薄桶制成的; 我们在面具下放了一多色的闪光灯, 看着它发光.
+越是看着这头, 他那快乐的笑容变得越是不祥,
+我很难坐着,所以我决定如果C对不起,
+这就是这次旅程转向南方的地点.
+这部分将会更长, 因为我无法追踪时间,
+我们在外面散步, 视觉效果与之前的旅行完全不同.
+他们不仅在玩弄我的视力,还在欺骗我的思想,
+我和C住在一个很好的城市, 大致上是一个有钱人或老年人退休生活的城市,
+每一辆过路的汽车似乎都以白色的冠状车形状, 顶部有灯光, 我会着漫长的街道,
+我确信他知道我们在, 肯定会让警察知道.
+我觉得一切都变得逼人, 但继续走,
+几分钟的时间过去了, 皇冠维克,道奇查吉尔,尤肯,
+然后,C转向我说&#x27;如果警察停下来跟我们说话, 这不是疯狂吗?
+他从车里下来, 我感到结, 恐惧的感觉, 我在和最好的朋友说话时, 连不起强烈的句子,
+下面是一段很详细的对话:
+我:请和他说话
+警官走近, 直接照着我的脸, 让我看到各种闪的色彩图案,
+警官:晚上,你们今晚要去哪里?
+C:只是一个步行警官,有什么问题?
+警官:不,我只是想查一下,你们有什么身份证吗?
+我住在附近,我们只是在散步.
+我们要回家了,除非你需要我们留下来,否则我们就走了.
+警官:不,一切都准备好了,你们晚上好好过.
+我对C处理情况的态度感到敬畏, 也对这位警察的样子感到震惊,
+到了我们回来走路的时候, 晚上已经开始下降了, 在警察遇到我之后, 我的心还在,
+我心脏在警察遭遇后还在跳动, 我觉得自己正处于一场下行螺旋的边缘
+现在我认为每一辆车都在偷偷跟着我们回家.
+我们决定尽快回到家里, 在安全的环境中清理坏的振动,
+这可能是酸玩技巧, 但它听起来大于任何动物在我们的地区,
+我和C都互相看着眼睛,没有说一句话,
+我们在创纪录的时间完成我们的冲刺,进入她的房子,锁上门,
+现在我确实处于下降的状态, 紧张的情绪让我感到无奈, 脑子还在玩弄我,
+我可以在她的家窗外听到声音,
+我一定看起来像我调节,每一个窗口我通过我把我的头只是为了确保.
+我心里充满了活力, 紧张的同时,
+9:00-我已经得到了很多的能量和震动我,但我仍然感觉到压倒性的感觉在恐慌发作的边缘,我仍然没有说很多关于它,因为我确信她是感觉同样的方式之后发生了什么,我终于坐在她旁边,并把生命的精神由黑,这是我的去在一个糟糕的情况.
+音乐达到顶峰时, 我闭上眼睛, 几乎立即从恐慌中解脱出来, 美丽的闭眼视觉带我穿过虹绿色碎片和图像的场景,
+我们在安静中度过了接下来的一个小时, 再一次, 在C的沙发上听音乐,
+她的脸开始逆时针方向移动.
+很奇怪,但有趣的同时,我告诉她,我们笑了.
+我感觉已经开始衰退, 我开始失去对视觉的兴趣,
+我决定开车回家, 因为我觉得我有能力,
+我几乎可以发誓当时所有车辆都开着灯,
+我只是从冰箱里拿起水, 打开&quot;国家漫画&quot;的圣诞假期; 我还在药物的影响下.
+我相信如果我的S/O能听到我在楼下她会认为我是一个疯子因为我有相当多的爆笑在电影中.
+电视上的人物也在成长和缩小, 这使得它更有趣.
+12:30- 电影已经结束了,视觉效果已经降到最低,
+没有.
+接下来的三小时我在床上翻转, 一半专注于闭眼的视觉, 一半决定睡眠是失败的,
+我最后一次看时钟是3点23分, 睡了9个小时.
+我猜,由于这种物质的强度, 我不得不选择唯一的LSD 25.
+第四个试验:
+由于我在过去的4个月里工作了多个加班星期, 我在工作中积累了大量的假期时间,
+谢尔金如果我会让这阻碍我的实验!
+我打算带她去奥杜邦动物园,城市公园,
+我早上9点起床,洗喝咖啡,
+我们开车前往动物园, 开车45分钟.
+我对新奥尔良城市的快速变化感到惊, 新建筑正在建成, 旧的街区和曾经是贫民区的房屋正在翻新.
+这里又变得美丽了.
+我们到达动物园, 让我惊的是,
+但通常有长长的排队充满游客,当地人,
+停车后,我一下车就注意到我的头脑空间有所变化,
+我注意到这种物质已经开始迅速起作用.
+我们排在排队的第二位,在一个四口之家后面等待了十分钟,直到服务员们打开门柜,支付了我们的门票,然后进去.
+预计随着时间的推移, 气温将会升高.
+我慢慢把它放进我带来的空水瓶里, 放进我的运动包里,
+虽然我意识到周围的环境,
+我注意到我周围发生了很多事情, 人们订购汉堡和热狗, 我注意到这在早上10点很奇怪,
+走进动物园的第一个展品是前面的20-30只火, 我看了几会儿, 不仅注意到火彼此的互动,
+巨大的鸟是非常明亮的粉红色的, 我注意到每一只鸟都有它自己的光环.
+非常有趣.
+10:40-我们在每一个展览都放慢了时间,离开暗的两动物屋后, 我意识到视觉效果已经得到了多少,
+我们决定走向灵长类的路径, 我总觉得这些动物很有魅力,
+我们首先经过的是猩猩,
+我坐在附近的长上, 惊叹地看着他们展示我们每天使用的不同情感, 一个拿到西瓜, 快乐地尖叫着, 另一个冲过来试图获得一点西瓜的动作,
+接下来我们走上灵长类的路径,
+我们走过灵长类动物和草原的展览, 长鹿是绝对愉快的, 它们的图案旋转和跳舞在整个地方,
+我决定我们应该去动物园里我最喜欢的地方,爬行动物散步.
+我一直很喜欢爬行动物, 尤其是在倒的时候,
+爬行动物走在一个黑暗的建筑物里,
+我心灵和眼睛开始在黑暗中创造色彩,
+我们冒险穿过, 在每一个展览中都着蛇和,
+爬行动物之后我们决定吃点东西,我的姐姐拿了一个的软篮子,我看着她看着蛇的样子,
+展览的每一个展览都持续了两个小时, 视觉效果没有变化,
+我们决定避开炎热,前往城市公园.
+在动物园里,我喝了三杯酒和三杯水.
+在高速公路上, 感觉就像在超级飞船上,
+我们到达城市公园, 我们的第一站是植物园, 这令人难以置信,
+云彩和风在那时已经升起,
+我有一些尬的时刻, 不知道自己该怎么办, 当别人经过我,
+我们走到艺术和雕塑博物馆, 另一个步道展示了新奥尔良风景中的惊人的雕塑.
+看到现代艺术,许多用奇怪的材料制作的动物, 我记得这件像巨大的蜘蛛的雕塑,
+我们继续在这里走了一小时半, 再次停在长上,
+我们前往著名的,或臭名昭著的法国区.
+虽然视觉效果仍然存在, 但已经开始迅速下降.
+我对周围的环境十分警, 注意到我通常不会注意到的东西.
+我戴上了沙法里的帽子和眼镜, 躲避周围人的诱惑.
+我决定去一个叫热带岛的酒吧, 喝那个著名的手榴弹饮料,
+我们走了两个小时, 欣赏着许多醉酒者,街头艺术家和表演者, 以及新奥尔良以法国风格的建筑而闻名.
+这种神秘物质对音乐的欣赏非常好,
+我没有视觉效果, 精力耗尽, 我们准备回家.
+一个小时后我们到达,坐在火旁,聊了好30分钟,然后就睡了.
+我猜:由于奇怪的超级意识但超级头的头空间和所有周围的旅行的柔和性我不得不说这是ALD 52.
+第五个试验:
+我心里想说我今天要去ETH LAD考试,
+今天的旅程的设置是我的一个朋友, 他将是这次旅行的A, 在保护区,
+我们要走的路线是大约一英里深的森林, 开通到一个公园/坐区,
+我们决定让我的女朋友在5点把我们送到家,
+我们每个人吃了CamelBak&#x27;stellar冰水, 我有两包水果糖零食吃,
+我们开始了旅程, 到达目的地坐区大约需要45分钟,
+已经在草地上看到波动的图案, 对于我来说还没有什么.
+我们将立即夺取两个公园的长椅.
+我坐着双莲花, 闭上眼睛, 开始沉思自然的声音,
+6:02-我的宁静沉默被A打破,现在他说他很漂亮,可以说这对他来说将是一个过山车,我带他放任何他喜欢的音乐,他演奏罗伯特德朗.
+我开始认为我感觉到一种高兴感, 但还不太确定, 可能是安慰剂,
+我不得不等待它更多的告诉如果我的感觉是真实的还是不是
+我绝对对感受到这种物质的高兴.
+我现在的声乐能力已经改变了, 像是, 我认识A已经很久了, 但到目前为止,
+他似乎在自己的世界无论如何在这个时候.
+没有人知道我会在哪里工作.
+我一直在看着A,并试图保持友好的态度.
+他连续抽了3到4支烟, 我看着他在附近的树林里抽烟,
+他意识到这一点一分钟后, 他本能地拿出打火机, 试图点燃它,
+这是一个你必须在场的时刻.
+6:47-所有这些积累到这个点, 6:47.
+视觉效果就像一块一样下降了.
+我闭上眼睛一分钟左右, 忽然走开了, 打开眼睛, 我发现附近的,
+我很高兴加入A在这个旅程现在,和躺在我的背上看着云,因为他再次.
+天空是如此强烈的蓝色和太阳击落在我们.
+当我看它已经移动到它会摇回原来的位置.
+我完全没有感觉到任何刺激, 如果说有什么,
+7:10-自从我收到这些视频以来, 我一直迷失在这些视频中.
+天空真是太美了.
+树木是令人惊叹的.
+一切都令人惊叹.
+音乐的欣赏已经升,
+偶尔有一只蝶会飞过我的头,
+他试图解释为什么我们上面的几只龙为他创造了这么多的痕迹,
+虽然听起来并非如此, 但我能理解他的意思, 如果您想知道,
+我在冥想模式下, 有时闭着眼睛, 享受电流的流入,
+没有更多的说我们在公园区的时间, 我没有改变头部空间和是相当清晰的思想,
+我们决定回到停车场,
+路途中途我们遇到了一条王蛇, 还有一个小鱼正穿过路径进入另一边的沼泽.
+这种遭遇一定是多么罕见?
+鱼在发现蛇时, 走过我们不到20码的地方,
+只有在东南地区才会看到很酷的景象.
+我打电话给我的女朋友接我们, 她说她会在15分钟内到达.
+我们决定在附近的码头等待, 谈论我们过去的旅行和这次旅行的画面,
+这一定是6或7英尺长.
+他不动地躺下, 他的整个上半身从水里出来,
+我们惊叹地看着, 直到看到女朋友的车灯停了下来,
+我和那个女孩现在已经回家了,
+我仍然很好地在这个时候.
+视觉仍然覆盖着我们的桌面和墙壁,
+我喝了一杯冰水,
+我感觉到整个杯子的水从我的喉流下, 穿过我的身体,
+我冲到浴室干了15分钟, 因为那天早些时候我没吃什么.
+9:46 - 摆动所碗好像一个小时后, 我的胃终于恢复正常.
+我决定躺在沙发上看一部电影,
+我心里想,在酸中看什么是好看的?
+恐惧和厌恶?
+不,我已经看了太多次了.
+里克和莫蒂?
+我不会低头的.
+在网上搜索之后, 我选择了一部电影,
+这部电影是我现在必须看的, 预算很低,
+我被这个2个半小时的影片吸引了, 时间过得如此之快,
+我不相信时间正确.
+现在的物质正在下降.
+我觉得自己已经消耗尽了.
+我只能说这个物质正在消失.
+视觉的清晰度和视觉流动性一起开始下降.
+我决定去洗, 温暖的水感觉太棒了,
+这种情绪更令人丧, 不一定是悲伤的感觉,
+我干净了自己,走到床上睡觉,
+经过一小时半的时间, 我被所有事情所迷惑,
+视觉系统已经失灵,
+没有什么我可以做,所以我称之为平衡.
+我的猜测:
+毫无疑问, 在整个旅程中保持清醒的头脑, 埃特拉德的视觉效果非常独特,
+这种化学物质有其魔力.
+第五次审判后的第二天早上9点.
+让我知道我有一个半小时工作,所以我在我的半睡昏沉默的几个诅咒和滑出床.
+我为我和我的女朋友准备了早餐,
+第1试验:1P-LSD
+试验2:AL-LAD
+第三试验:ALD-52
+第4次试验:LSD
+第5次试验:ETH LAD
+为了科学,孩子!
+我非常喜欢做这个盲目测试, 虽然它们看起来很简单,
+虽然我仍然能得到200ug以下的效果,
+(英语)
+盲目服用了每一种lysergamide: LSD,ETH LAD,AL LAD,1P LSD和1A LSD.
+我能够辨别除了1A和原始的LSD,与我认为是彼此每一次旅行后的两个.
+已使用的证券
+发布时间:2017年9月18日
+AL-LAD (603),ETH-LAD (688),1P-LSD (682),LSD (2),ALD-52 (748):一般 (1),公共空间 (博物馆,公园等) (53)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Lysergamide Blind Test
+AL-LAD, ETH-LAD, 1P-LSD, ALD-52 &amp; LSD
+by
+Psychastevic
+From
+Bluelight Collection
+Citation:   Psychastevic. &quot;Lysergamide Blind Test: An Experience with AL-LAD, ETH-LAD, 1P-LSD, ALD-52 &amp; LSD (exp111016)&quot;.
+Erowid.org
+. Sep 18, 2017. erowid.org/exp/111016
+DOSE:
+sublingual
+Various
+BODY WEIGHT:
+170 lb
+The long awaited blind Lysergamide test!
+I&#x27;ll start by telling you I&#x27;ve done an extensive amount of self research in the Lysergamide family of drugs; if I had to take a guess I&#x27;d say I&#x27;ve taken at least a sheet and a half to two sheets worth of these substances. I&#x27;ve always stated that I feel I could tell these apart in a blind test, and others have said most are indistinguishable. I made it my goal to acquire two, 100 microgram tablets of each of the most common Lysergamides, 1P-LSD, 1A-LSD (ALD-52), AL-LAD, ETH-LAD, and, of course, LSD-25.
+Route Of Administration
+My body chemistry with these substances might be different then most, and remember ymmv when taking these substances. As for 200ug it takes me about 7-8 days for my tolerance to be completely baseline again. Due to this, I gave each test 12 days in between just to be sure.
+To take the substances without knowledge​ of which one I&#x27;d taken I had my s/o mark down the order in which I&#x27;d be taking the tabs, she then placed them in separate label Mylar foil bags and kept them to herself. She was to place the tab on my tongue, and I was to keep each one in my mouth for exactly 45 minutes then swallow. All tests other than 1 were done at exactly 5 p.m. to test part of the trip during the sunlight hours and part at night as it gets dark around 7:45 where I&#x27;m from. I also fast for 6 hours before each trip, and am on no other medications or substances at the time of the trials. Note that I take what most would consider heavy doses quite often
+Note that I take what most would consider heavy doses quite often
+so the effects of 200ug to me, while still noticeable, feel rather lackluster than to your typical person. All of my tabs except for the LSD (which was tested to be 100% positive) came from the same source. The following is a recount of my 5 tests, some by recollection of memory and some were quick notes jotted down during the experience:
+Trial 1:
+I&#x27;m excited to get this test underway! After long back and forths on BL as to whether or not these substances could be distinguished I&#x27;ve finally got the chance to truly see for myself! The mood for the day was uplifted and happy, I&#x27;d just gotten home 45 minutes earlier after working a ten hour shift with 7 hours being overtime, cha ching! I took a quick shower and tidied my place, prepared some fresh sliced fruit and awaited my tabs.
+5:00- My girlfriend came, extended the tab outward and placed it on my tongue, off we go!
+5:25- Minute body high/tingly feeling? Could be placebo at this point.
+5:39- Nope definitely a head change, body feels slightly heavy but nothing dramatic
+5:56- First sign of visuals, I went to the restroom and while standing over the toilet my marble floor started to expand and contract ever so lightly. No change in body high.
+6:20- The substance definitely has that trippy headspace, makes me question the little things I do before actually doing it, also making me reflect on past decisions and wondering how things would be different, really got deep in my mind thinking about the butterfly effect and how the smallest changes in detail could&#x27;ve shaped humanity a different way. Visuals are still at a minimum, really have to zone out or look for them and make them happen, but the mental aspect of this one wants to make me rule out AL LAD or ETH LAD, still too early on.
+7:00- Body load has completely lifted, still stuck in a weird in between headspace of not fully tripping but almost there, questioning things, answering things, expecting the substance to hit me full force but feeling something&#x27;s missing.
+7:35- Visuals picking up slightly. My grass hasn&#x27;t been cut in a couple weeks so there&#x27;s plenty of little creatures flying and crawling around, I&#x27;m sitting outside and every now and then one flies past my head and there seems to be 5 or 6 that follows in a blur. I would assume I&#x27;m at the peak of this one and not much more is going to happen
+8:30-9:30- I was correct, slight visuals have stayed consistent for an hour, sky&#x27;s taken on a red hue, red seems to be the dominant color in this trip. Closed eye visuals are more pronounced than open but still not spectacular, I decide to go watch TV.
+10:45- I&#x27;ve been watching Cosmos for the past hour, Neil Degrasse Tyson is truly spectacular, I&#x27;m still getting abstract thoughts, i.e. camera pans through New York City, I think about how there&#x27;s millions of people going about their lives at the same time as me, all their lives are just as important to them as mine is to myself, I wonder if they all do similar things when alone, struggle, love, endure.
+11-2:30- Ate my fruit with the GF while watching Fear &amp; Loathing. Comedown came fast and actually left me sleepy at the end of the movie. Had no problem falling asleep at 2:30.
+My Guess: Due to the fact that the visuals we&#x27;re minimal, but I did get the introspective headspace, and it lasted about 9 and a half hours, I guessed this substance to be 1P-LSD.
+Trial 2:
+5:00- Tabs placed under the tongue, me, myself, and I was off to the local conservation area, for a 6 mile hike. I pack up my 3 bottles of smartwater, one Gatorade, teddy grahams, and 2 oranges and hop in my Jeep. It was a 25 minute drive to the trail.
+5:27- Get to the trail, make sure everything&#x27;s in order, vape, snacks, hydration, and hit the dirt path. The view is beautiful as there&#x27;s wispy clouds covering the sun and the trail wraps around the edges of a local lake.
+5:42- First noticeable signs. Colors getting very sharp and pronounced, starting to see blues and greens with my eyes closed, slight queasiness in my lower stomach. I note that the queasiness and stomach gurgling/burping usually comes with the LADs. Snacked on a few Teddy grahams while walking. No loss of appetite.
+6:15- OEVs becoming pronounced. The sea of grass is slowly becoming a sea, I look forward 10-20 feet and the ground seems to take on a water like texture, liquid looking and flowing. Trees bark suddenly becomes alive and the clouds are shifting. Colors are getting more and more bright. No noticeable change in headspace yet.
+6:52- Been walking for awhile now and sit down to enjoy an orange and a water, as well as the scenery. I laid out a small blanket I&#x27;d brought along and everything came alive, the clouds opened up on themselves, trees growing/shrinking. The visuals tend to take on the form of faces/eyeballs. Feeling great at this point.
+7:30- Decide to get back on the trail, while laying down and getting lost in the clouds, my vision was completely engulfed in electric-like visuals for a good 10-15 minutes. Blissful feeling throughout my body.
+8:30- Forgot to jot down some notes over the past hour as I&#x27;ve picked up the pace and have just been enjoying myself throughout this walk, about a mile and a half to go and the sun&#x27;s gone down, clear sky and the stars are out, looking at the gets mildly overwhelming, well, not necessarily overwhelming but they are shifting and dancing around so much that it&#x27;s giving me a seasick feeling. Earlier in the path I noticed a vine laying across the path and for the life of me my brain couldn&#x27;t decide whether it was a vine or a snake until I touched it with a stick. Have the feeling that the comedown has begun and will keep the pace up to not be out so late.
+9:10- I&#x27;ve finished the trail and am back at the parking lot/fishing area. The comedown was quite rapid as over the past 45 minutes I&#x27;ve lost most of my visuals other than the typical &#x27;breathing’ of objects. Still going to wait around for another 15-30 before driving home just to be safe.
+10:00- Had a great conversation about how the land her has changed over the years with and older man who was out fishing on the pier. I feel as if I&#x27;ve returned to baseline now, visuals are bare minimum unless I really focus and make them happen, time to drive home.
+10:28- Ate a light meal of beef stroganoff upon returning home, very minute noticeable sign of the substance still in my system but had no problem going right to sleep. All in all a great experience.
+My Guess: AL-LAD, hands down I feel 100% sure, kept my appetite the whole time, plenty of visual activity, no change in headspace/introspective thoughts, and the minimal come up/peak/comedown time. No doubt in my mind but we&#x27;ll see at the end of this experiment​.
+Trial 3:
+5:00- Got home from work about 30 minutes ago, showered, and had my s/o place the tabs on my tongue. Today&#x27;s trip was to take place at my best friends house, we&#x27;ll call her C for this story. She lives about 15 minutes away, so I head to her house before this chemical kicks in.
+5:18- I arrive at C’s house to find that she had also dropped a 125 mic tab of her own LSD and would be enjoying the night in the same headspace as I. We say our Hello’s, shoot the bull for a second as she&#x27;d just gotten back from her trip to Colorado (we&#x27;re on the east coast) and she proceeds to roll up a blunt for herself.
+5:40- We spent the first 25 minutes looking over pictures of Colorado, reading the lab tested labels on the medical marijuana containers she&#x27;d brought back, and reminiscing about our old trips; C is my most trusted friend and has been my psychonaut-in-crime since my early tripping days. By this time I&#x27;d almost forgot about the tabs on my tongue.
+5:52- The first signs of the substance come on, we&#x27;re in her living room, watching the Netflix show F is for Family, and every joke said on the show ends up in one of us erupting in laughter, causing the other to burst into laughter because the other is laughing so hard, and so on and so forth.
+6:13- First visual signs appear; C’s living room is very hippie-esque, all sorts of Mandela and bright trippy colored tapestry line every wall. Each is starting to dance and spin in its own way. C’s skin is starting to look cartoonish to me. I can&#x27;t really explain it other than she started to look vaguely like a character in a video game would, where you can tell they&#x27;re human but they have that digital look to them. Appetites completely lost, won&#x27;t be eating until well into tomorrow.
+6:25- We&#x27;ve spent the last 30 minutes sitting on the couch, blacklight on, listening to electronic music. It seems the visuals are pulsating to the beat of the songs. C has a mask we had made last year of the DJ Marshmello, it&#x27;s made of a thin cheap white 5 gallon bucket we carved into; we put a multi-colored strobe light under the mask and watched it illuminate. The more I looked into this Marshmello head, the more his happy go lucky smile started to seem ominous and sinister, to the point to where I felt uncomfortable. I had trouble sitting still so I decided if C was okay with it, it&#x27;s time to go for a walk and enjoy being outside. Here&#x27;s where this trip turned south.
+6:35- this section will be longer due to the fact that I could no longer keep track of time and had to focus on my surroundings so it&#x27;s all recollection of memory.
+We&#x27;re outside walking at this point, the visuals are completely different from the previous trips. Not only are they toying with my vision, but they&#x27;re tricking my mind causing some anxiety. C and I live in a nice city, more or less a city where rich people or older folks who are retired stay, there&#x27;s quite a few cops that patrol at night, you&#x27;re guaranteed to see them if you walk at least a block. An example of the mind tricks the substance was playing was every car that passed seemed to take on the shape of a white crown Vic with lights on the top, and I&#x27;d stare down the long street to see it stretch endlessly and at the end it’d spin clockwise extremely fast, throwing off my equilibrium. At one point a we passed a man sitting on his porch enjoying a cigarette and I was sure he knew we were tripping and was for sure going to let the police know. I felt everything getting overbearing but kept walking and kept it to myself to keep from worrying C. A few more minutes of this goes by, Crown Vic, Dodge Charger, Yukon, too many police cars that aren&#x27;t police cars, too much anxiety. Then, C turns to me and says &#x27;wouldn’t it be crazy if a cop stopped to talk to us&#x27;, and at that very moment a REAL crown Vic pulls up from a street adjacent to us and pulls onto the grass right beside the walkway. He gets out of his car, and by this time I&#x27;m frozen, have the feeling of pure terror, I couldn&#x27;t string strong worded sentences together when talking to my best friend, how in the world am I going to do it while being put on the spot?
+Below is a close dialogue of what was said:
+Me: C please talk to him
+&#x27;officer walks up, shines flashlight directly in my face causing all sorts of flashing color patterns to go throughout my vision, I try my best not to turn away to act as normal as possible’
+Officer: Evening, where are y&#x27;all headed to tonight?
+C: Just taking a walk officer, anything wrong?
+Officer: Nope just checking up, you guys have any ID on you?
+C: No sir unless there&#x27;s something wrong we don&#x27;t have to present ID, I live in the area and we&#x27;re simply taking a walk. We&#x27;re actually headed home so unless you need us to stay we&#x27;ll be on our way.
+Officer: Nope all set here, you guys have a good night.
+The whole time this was going on I was in awe of how well C handled the situation, as well as shocked how stereotypical the cop looked, big guy, super trooper moustache, all he was missing was a coffee and donuts.
+By the time we got back to walking night was starting to set, my heart was still pounding after the police encounter and I felt I was on the verge of a downward spiral in trip
+my heart was still pounding after the police encounter and I felt I was on the verge of a downward spiral in trip
+, every noise I heard I thought was police and I now thought every car was trying to secretly tail us home. We decided to get back to the house as soon as possible to clear up the bad vibes in a safe environment, we got about 100 yards from her house, we heard a huge rustling sound in the woods right next to us. It might&#x27;ve been the acid playing tricks, but it sounded WAY bigger than any animal in our area, definitely not a cat or dog. C and I both looked each other in the eye and without a word spoken, both took off full sprint at the exact same time to her house.
+8:10- We finish our sprints in record time and enter her house, lock the doors, and start listening to some Shpongle. I&#x27;m definitely on the downward spiral now with my nerves getting the best of me, my mind was still playing tricks on me making me think the police were coming through the door any minute. Audio hallucinations were present as well, I could hear voices outside the windows of her home even though there wasn&#x27;t anyone there. I must&#x27;ve looked like I was tweaking, every window I passed I poked my head out just to make sure. I had so much energy in me, as well as being so nervous that I paced for a good 45 minutes before taking a seat.
+9:00- I&#x27;ve gotten a lot of the energy and shakes out of me, but I&#x27;m still feeling the overwhelming sensation of being on the verge of a panic attack, I still haven&#x27;t said much about it to C as I was sure she was feeling the same way after what had happened, I finally sat down beside her and put on spirit of life by blackmill, which is my go-to in a bad situation. When the song peaked I closed my eyes and was almost instantaneously brought out of my state of panic, beautiful closed eye visuals brushed me through a field of neon green fractals and imagery, it was almost as if I could picture an image in my head, for instance on a mountain top, and instantly be transported there.
+10:00- We spent the next hour in silence, once again, listening to music on C’s couch, enjoy the tapestry melting away around us. At one point C asked if I wanted water and, when I looked at her, her face started shift counter clockwise. Quite weird but humorous at the same time, I told her and we laughed it off.
+10:44- I feel that the comedown has started, I&#x27;m started to lose interest in the visuals and while my mind is restless, my body is physically exhausted. I decided then to drive home as I felt I was able to, being only minutes from home and the roads aren&#x27;t busy in our neighborhood. The drive was mellow, a few cars passed and I could almost swear then that all had their brights on, I know now it was just the color intensity.
+11:02- Just got to the house, my s/o is already asleep so I just grab a water from the fridge and turn on National Lampoon&#x27;s Christmas Vacation; I&#x27;m still under the effects of the drug. I&#x27;m sure if my s/o could have heard me downstairs she would have thought I was a lunatic as I had quite a few outbursts of laughter during the movie. The characters were also growing and shrinking on the television which made it even funnier.
+12:30- The movies over now, visuals have gone down to a minimum, but I still have a restless mind, even though I don&#x27;t have an appetite I grab a pecan spinwheel and a glass of milk, scarf it down, and decide I&#x27;m going to make myself sleep. Not. I spent the next three hours tossing and turning in my bed, half focused on the closed eye visuals, half deciding sleep is a lost cause and surfing through Bluelight. The last time I looked over at my clock it was 3:23 and I drifted off to sleep for 9 hours.
+My Guess: Due to the sheer mindfuck and intensity of the substance at hand, I had to go with the one, the only, LSD 25.
+Trial 4:
+Due to me working multiple overtime weeks in the past 4 months I accrued plenty of vacation time at my job, and on a last minute whim me and my s/o decided to take a 4 day mini vacation to New Orleans to visit some family of mine and enjoy the city. Shulgin be damned if I was going to let that keep me from my experiments! The day after the grueling 10 hour drive we planned a day to ourselves in the city, I was going to take her to the Audubon zoo, City Park, and then we&#x27;d walk the French Quarter later on.
+9:00- I woke about an hour ago, had my shower and morning coffee, and received my tabs at 9. Once the tabs were on my tongue we set off for the 45 minute drive to the zoo. It had been a year and a half since the last time I&#x27;d been in the area and I was amazed at how rapid the city of New Orleans was changing, new building being put in, old neighborhoods and homes that were once ghettos were renovated. It&#x27;s becoming beautiful again.
+9:47- We arrived at the zoo, to my amazement, not many people were here. The Audubon doesn&#x27;t open till 10 but usually there are long lines full of tourists, locals, and school kids on field trips building up an hour or so before the kiosks open. We parked and as soon as I stepped out of the car, I noticed a change in my headspace, the ground was already starting to ungulate back and forth ever so slightly. I noted how fast this substance has already begun to take effect. We waited, second in line, behind a family of four for ten minutes until the attendants opened their kiosks for entrance, paid for our tickets, and entered.
+10:05- It was gearing up to be a hot, humid New Orleans day, already in the low 80’s and was forecasted to climb as the day progressed. Before we started our adventure I decided to get a tall lemonade to carry along and slowly transferred it into an empty smart water bottle I&#x27;d brought along to put it in my sports bag and not have to tote it around. My visuals we&#x27;re already prominent, and although aware of my surroundings, my head was definitely in a different place. My girlfriend would say something to me and it&#x27;d take quite a few seconds for me to process it, I noticed a lot of what was happening around me, people ordering hamburgers and hot dogs, which I noted was odd at 10 in the morning, teachers telling school kids to stay in groups in front of them. The first exhibit you see when walking into this zoo is the display of 20-30 flamingos right in the front, I watched them for awhile, noticing not only how the flamingos interacted with one another but how there was an abundance of other species in this display, frogs and tadpoles in the water hole, many different types of bugs in the small patches of grass and smaller birds of a different species that seemed to follow these flamingos around, the giant birds were exceptionally bright pink, and I noted how each had its own aura around it. Very interesting.
+10:40- We take our time at each exhibit, and after leaving the dimly lit amphibian house, I realize how much the visuals have actually picked up, everything seemed very cartoon like and animated, swirls and tracers appear with every passing person, and the sun&#x27;s brightness forces me to put on my lennon style sunglasses.
+10:53- We decide to head to the primate path, I always find these animals fascinating due to how intelligent and close to humans they act. He first we pass are the orangutans, my favorite primate of them all. I sit in the nearby bench and watch in awe as they display different signs of emotions we use everyday, one gets a watermelon and screeches in happiness, and the other rushes over to try and get a piece of the watermelon action, causing the first to pick the melon up and run, ensuing an action packed monkey chase that could have made it into a Jason Bourne film. After this we follow the primate path enjoying the many types of monkeys.
+11:22- We walked the primate and Savannah exhibits, the giraffes were absolutely enjoyable, their patterns swirled and danced all over the place as they stood mere feet from us eating vegetation. I decided we should go to my favorite part in the zoo, the reptile walk. I&#x27;ve always loved reptiles, especially whilst tripping, their scales feel so unique and the way they move and act is absolutely incredible. The reptile walk is in a dark building lit only by the lights behind the glass in each exhibit. Being so dark, my mind and eyes started to create color in the darkness, colorful swirls and patterns lined the ground in amazing impossible shapes. We ventured through as a gawked at all the snakes and lizards in every display, while my s/o stood behind me in disgust at them.
+11:55- After the reptiles we decided to get something to eat, my s/o got a chicken tender basket that I looked at in a similar way she looked at the snakes, I just settled for vanilla ice cream. We continued throughout each exhibit over the next two hours without my visuals inclining or declining, I stayed pretty plateau&#x27;d with long tracers and crazy shapes forming.
+1:57- At this time we decide to beat the heat and head to city park. Being in the air conditioning is an unrivaled feeling to any other at this point, I&#x27;d gone through 3 lemonades and 3 waters throughout the zoo experience. While on the interstate I feel as if I&#x27;m on a spaceship in hyperdrive, the tracers got even better on the ride with each passing car.
+2:40- We arrive at city park, our first stop was the botanical gardens, which was incredible, the flowers and wildlife were so vibrant on this mystery substance and the leaves/vines undulated with every slight breeze. The clouds and wind had picked up then and it felt amazing to be out in the open, a truly beautiful day. I had a few awkward moments of not knowing what to do with myself when others would pass by or stop right beside me, putting my sunglasses on stopped this and put me in my own little world.
+3:27- A nice walk in the gardens, a few stops at benches to admire the scenery and we were off to the museum of art and sculptures, another path to walk showing of amazing sculptures in the New Orleans landscape. It was very enjoyable to see the modern art, many animals made out of oddly fascinating materials, I recall this one sculpture resembling a giant spider, a bit unnerving but amazing nonetheless. We continued our walk here for an hour and a half, once again stopping at benches to occasionally get hydrated and enjoy the scenery.
+5:35- After seeing the sculptures we made our way to the famous, or infamous depending on how you look at it, French Quarter. By the time we got here the visuals, although still present, were beginning to decline rapidly. My psychedelic headspace was still very much present, I was still very aware and cautious of my surroundings, noticing things I wouldn&#x27;t normally notice. The massive amount of people was almost overwhelming, as before I put on my safari-style hat and shades to escape the alluring gaze of those around me. Since my trip was definitely on the comedown, we decided to go to a bar in the quarter called Tropical Isle to get the ever famous Hand Grenade drink, great frozen beverage, comes in a nifty hand grenade plastic cup. This tasted amazing, and the fact that it&#x27;s a slushie texture made it all the better, we walked around the quarter for the next two hours enjoying the sight of many drunk people, street artist and preformers, and the French style architecture New Orleans is so famous for. Music appreciation was great on this mystery substance, probably the best so far at 200ug.
+8:10- My comedown was complete, I was lacking visuals, energy drained, and we were ready to head back to my family&#x27;s house. Upon arriving an hour later we sat around a fire and had good reminiscent conversations for about thirty minutes then went to sleep shortly after.
+My Guess: Due to the weird super aware yet super giddy headspace and all around mellow-ness of the trip I&#x27;d have to say this one was ALD 52.
+Trial 5:
+My mind wanted to say I was in for the ETH LAD trip today, yet something told me it might take me by surprise and I would completely flunk my experiments. The setting for today&#x27;s trip is with a friend of mine, he&#x27;ll be A for this trip, at the conservation area that my supposed AL LAD trip had taken place. This time we wouldn&#x27;t be taking the long trek around the lake, but we were taking another route about a mile into the woods that opens up into a park/sitting area with a great views of the water, hills, and open fields. A was planning on taking 250ug of AL LAD, and because of this dose, we decided to have my girlfriend drop us off at 5 and pick us up at 9 to avoid being left in the dark.
+5:00-We arrived at the trail moments ago, 2 tabs under my tongue of a mystery chemical and 2.5 of AL LAD under A’s; we each had CamelBak&#x27;stellar with iced water and I had two packs of fruit gummy snacks to munch on if I felt inclined. We headed out on our journey, it was about 45 minutes to the sitting area where the destination is, so the plan is to get there around the time it starts to kick in. 40 minutes in A mentions how he has a major, almost awkward, change in his headspace and is already seeing wavey patterns over the grass, still nothing for me.
+5:47- We get to the picnic/sitting area and claim the two park benches immediately. A lays flat on his back looking up into the clouds, while I sit double lotus with my eyes closed and begin to meditate to the sounds of nature, the occasional airboat flying past in the near waters startles me.
+6:02- My serene silence is disrupted by A, now saying he&#x27;s tripping quite nicely and can tell it&#x27;s going to be a rollercoaster for him, I usher him to put on any music of his liking, and he plays Robert DeLong. I start to think I&#x27;m feeling a euphoric high but am not quite sure yet, could be a placebo or just getting out of a trance-like state of meditation. Ill have to wait it out more to tell if what I&#x27;m feelings real or not
+6:13- I&#x27;ve definitely got some euphoria from the substance. My vocal abilities have changed now, as in, I&#x27;ve known A for awhile but we&#x27;ve been more of acquaintances than anything up to this point, and I find it hard to keep steady conversation and find the silence even more awkward, so I oddly just bob my head to the music and forget about it. He seems to be in a world of his own anyways at this point.
+6:35- My high has increased, not necessarily a headspace but just a body load feeling. I&#x27;ve been watching A and trying to keep a friendly manner about myself. He had chain smoked 3 or 4 cigarettes in a row, I watched him zone off in the woods nearby while his cigarette, still in his mouth and burnt to the filter, went out. He realizes this a minute or so later and instinctively pulls out his lighter and tries to torch it, realizes that there&#x27;s no cigarette left, looks at me and realizes I saw what just went on and we had a good laugh about it. It was one of those you had to be there moments.
+6:47- All this buildup to this point, 6:47. It was like the extended by high and load we&#x27;re all building up to this point, and the visuals dropped like a brick. I closed my eyes for a good minute or so and kind of drifted away and when I opened them I noticed long tracers coming off nearby dragonflies, intense flowy patterns on a stump next to my bench, and an overall crisp, HD like filter in my vision. Everything was so bright and clear, I was glad to join A in this journey now, and laid on my back looking into the clouds as he was again. The sky was so intensely blue and the sun was beating down on us. The clouds seemed to jolt to one side of my vision, and when I&#x27;d look at where it had moved to it&#x27;d jolt back to its original position. Very unique and stunning visuals for 200 mics, and I don&#x27;t feel much stimulation at all, it&#x27;s rather sedating if anything.
+7:10- I&#x27;ve been lost in these visuals since I&#x27;ve gotten them. The sky is just amazing. Trees are amazing. Everything&#x27;s just amazing. Music appreciation has gone through the roof, I feel absolutely blissful on this substance. The occasional butterfly would flutter right past my head and leave an imprint of 5 more that seemed to follow it. Tracers are great, I ask A how everything&#x27;s going for him, and he tries to explain how the few dragonflies above us we&#x27;re creating so many tracers for him that he thought there was a swarm. It didn&#x27;t quite come out that way but I could tell what he was trying to say, oh, and in case you were wondering, there was only 3 dragonflies.
+7:41- I&#x27;d been in meditation mode for the past half hour, sometimes eyes closed enjoying the incoming patterns of electricity like visuals rushing past my eyelids, sometimes enjoy the nature around us. There&#x27;s not much more to say about our time in the park area, I had no change in headspace and was rather clear minded, but felt amazing and the visuals we&#x27;re stunning. We decided to head back to the parking area so we&#x27;d be there when my girlfriend arrived to pick us up. Halfway down the path we encountered a kingsnake, as well as a baby alligator that was crossing the trail to enter the marsh on the other side. How rare that encounter must have been? While spotting a snake an alligator 2 or 3 feet walks past not 20 yards from us, unfazed by the fact that we were there. Pretty cool sight, only in the southeast.
+8:40- After a stop or two we made it back to the parking area, and I called my girlfriend to pick us up, who said she&#x27;d be there in 15 minutes. We decided to wait on the nearby pier and spoke about trips we&#x27;d had way back and the visuals on this trip, while looking over the water, I shit you not, we spotted another alligator. This one had to have been 6 or 7 feet long. He laid motionless, his whole upper half of his body out of the water he was in, revealing to us how massive he truly was. We watched in awe until we saw the lights of my girl&#x27;s car pulling up, and we got in for the rides home and told her our nature encounter stories.
+9:26- Me and the girl are now back home after dropping A off at his house. I&#x27;m still tripping nicely at this point. Visuals still overlaying our countertop and wall textures, causing everything to morph around me. I gulped down a glass full of ice water, and that couldn&#x27;t have been a worse decision. For some strange reason it was as if I felt the entire glass of water go down my throat and all the way through my body, the weirdest feeling I&#x27;d ever had. It landed like a rock in the pit of my stomach and immediately made me sick, I rushed to the bathroom only to dry heave for a good 15 minutes as I hadn&#x27;t had anything to eat earlier that day.
+9:46- After hovering the toilet bowl for what seemed like an hour, my stomach finally returned to normal. I decided to lay down on the couch and turn on a movie since my girlfriend had gone upstairs to read a book during my episode. I think to myself, what&#x27;s something good to watch while on acid? Fear and Loathing? No, I&#x27;ve seen it too many times. Rick and Morty? Hell no, I&#x27;m not stooping that low. After looking online I decided on a movie called enter the void. I won&#x27;t go in depth into the movie but it&#x27;s on my must watch whilst tripping list now, low budget, but good storyline and great visuals. I was sucked into this 2 and a half hour film, and it passed by so fast that when I actually looked at my phone post-video. I didn&#x27;t believe the time was correct.
+11:21- The substance was now on a decline. It was different than the others whereas with them I felt drained once the chem started to wear away. I could just tell this substance was fading. I still never got a change in headspace or any introspection, the crispness in my vision just started to decline along with the fluid visuals. I decide to get in the shower, the warm water felt so amazing I actually sit down under the stream, enjoy what was left of the CEVs and really meditating, wishing I could bring them back at that point. This one has a more depressing comedown to it, not necessarily a sad feeling, but you just simply don&#x27;t want the beauty in everything to fade. I dry off and head to the bed to join my girlfriend in sleep.
+12:56- After an hour and a half of getting sidetracked by everything BUT sleeping I manage to force myself to bed. The visuals had gone to sleep and so had everyone on bluelight. Nothing more for me to do so I call it quits.
+My Guess:
+ETH-LAD, no doubt in my mind, along with keeping a clear head throughout the whole trip, ETH LAD&#x27;s visuals are very unique and as I defined it, &#x27;crisp’. There&#x27;s something about this chemical that&#x27;s truly magical.
+9:00- The morning after the 5th trial. I awoke to my alarm, letting me know I had an hour and a half till work, so I muttered a few curses in my half asleep stupor and slipped out of bed. I started breakfast for me and my girlfriend who had followed me downstairs with a piece of paper, which read:
+Trial 1: 1P-LSD
+Trial 2: AL-LAD
+Trial 3: ALD-52(1a)
+Trial 4: LSD
+Trial 5: ETH LAD
+For science, babe!
+I thoroughly enjoyed doing this blind test, and while they may seem drawn out and very basic trips, do remember that my regular dose of any Lysergamide is in the 4-600 mic area. While I do still get the effects under 200ug, I feel there&#x27;s not really any &#x27;magic’ left there for me.
+(tl;dr)
+Blindly took one of each Lysergamide: LSD, ETH LAD, AL LAD, 1P LSD, and 1A LSD. I was able to discern all but the 1A &amp; original LSD, with I thought were one another after each trip with the two.
+Exp Year: 2017
+ExpID: 111016
+Gender: Male
+Age at time of experience: 21
+Published: Sep 18, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+AL-LAD (603), ETH-LAD (688), 1P-LSD (682), LSD (2), ALD-52 (748) : General (1), Public Space (Museum, Park, etc) (53)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,428 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾米特和其他 - 埃罗伊德 Exp - &#x27;精神和情感电池&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-dmt.html'>← 4-AcO-DMT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾米特和其他 - 埃罗伊德 Exp - &#x27;精神和情感电池&#x27;</h1>
+<div class='sub-title'>AMT &amp; Various - Erowid Exp - &#x27;Spiritual and Emotional Battery&#x27;</div>
+<div class='meta'>作者：Xorkoth Citation · 日期：Jul 30, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=64003' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>过去的一年里, 我真的很喜欢AMT (或更准确地说,aMT),
+它携带胺骨架,但它也与安非他胺 (即α-甲基乙胺) 共享α-甲基化.
+像预期的那样,但肯定不是假设的,AMT似乎与胺和安非他命具有相同的效果.
+然而,它确实是一种独特的物质, 不同于两者的组合, 具有独特的特性.
+资金管理的形式
+似乎最常见的是自由基的形式,它是硬的,白色到白色的晶体 (不透明).
+在自由基的形式,像所有自由基一样,它不溶于水,但它在酒精和粘膜中溶解.
+这些晶体非常硬, 它们的气味非常糟糕, 非常非常强烈.
+臭味有时被比作便, 但我个人认为它的气味不太像它们,
+如果我闻到一口气,
+我发现它会通过袋子闻到, 留下它的气味在周围的一切,
+AMT也可以以各种盐,通常是盐水.
+这将是AMT HCl.
+我个人并没有发现这种情况,
+我已经将自由基转化为HCl多次,所以我可以说,这种方法的快速和脏的HCl晶体不那么臭,
+HCl晶体在水中溶解,但不能很强.
+我通过以下方法将自由基转化为晶体:
+拿一个小杯子和蒸水, 和一些稀释的盐酸 (像硬件店的酸, 在30%的HCl度).
+把一个剂量权衡出来,放入一杯蒸水中,大约5mL (小剂量可能更少.
+这对大约100mg的剂量有效.
+起来, 基体就会留在水中, 但不会溶解.
+接下来,一个接一个地将2滴30% HCl 溶液放入玻璃中.
+一段时间.
+开始沉入水底, 慢慢地溶解.
+它们需要一段时间才能完全溶解.
+现在可以用这种方式对液化进行剂量定量, 或干燥以除晶体.
+剂量和使用方法
+我已经试验了三种不同的AMT施用方法.
+首先,我尝试了口服.
+这种方法的剂量范围从20mg到任何东西,真的 (在合理范围内).
+我使用的最高剂量是100mg (分两次,80次,然后20次).
+这种曲线很宽容, 增加剂量是效果的线性增长.
+一个好的起始剂量是20毫克, 然后你校准了你的敏感性, 从20-50毫克是一个很好的, 没有耐受性完整的剂量,
+口服需要一段时间才能起作用,并且在起作用期间经常会引起恶心.
+虽然它持续时间最长 (12-20小时甚至更长),
+接下来我尝试的方法是鼻腔,
+我不推这种方法!
+它们很快就会发作, 但自由基 (我试过的) 却会严重烧伤鼻腔.
+另外,AMT的可怕味道和气味会留在你身上和你的呼吸.
+用这种方式使得上来速度快, 15到30分钟的时间大多是上来.
+让你的眼睛流水,让你觉得鼻子正在溶解,
+这种体验往往更有娱乐性和&quot;空虚&quot; (就像吸入大多数迷幻药一样).
+这种方法也减少了恶心.
+这需要稍微降低剂量,但实际上不是很多.
+AMT有趣的是,口服剂量与任何其他方法的剂量大致相同.
+虽然在我们的社会是个禁忌, 但它是我最喜欢的方法, 因为它带来了口服的好处,
+通过将AMT转化为HCl盐,
+这导致第一个警报在10分钟内出现,而最多一个小时后就能完成.
+我发现它比口服剂量会引起的焦虑要少得多, 而且比鼻腔剂量还要少.
+持续时间与口服时间差不多,但消耗速度更快 (这往往是件好事),之后&quot;体内残留物&quot;更少.
+另外,恶心完全消除了,因为自由基晶体不必坐在你的胃里,而是通过直肠的透气壁吸收.
+影响的特征和阶段
+根据我的计算, AMT 有三个主要阶段.
+第一个是上升阶段,如果用口服服用,则持续2到21⁄2小时,如果用直肠服用,则持续约1小时.
+这一阶段的特点是令人不安的焦虑和刺激.
+在口服时,也经常出现恶心,有时很严重,以及胃肠道疾病.
+幸运的是,直肠注射消除了这一现象,
+但就像所有的迷幻药一样, 只要坚持下去, 如果你不屈服于消极,
+我认为这值得痛苦, 但与AMT的主要效果相比,
+第二个阶段是高峰和早期高原.
+我感受到一种快乐和体力快乐的浪潮,
+我和看似大多数其他人发现这个阶段相当类似于MDMA,
+状态对我来说从来没有完全迷幻, 但它总是让我的思想非常流动和快速和灵感,
+而不是清醒, 很少有幻化药对我有这种影响.
+我发现自己在AMT上说话,说话,说话,
+我觉得讨论,分享积极性和爱心是我能做的最重要和最令人满意的事情.
+通过适当的使用, AMT 状态可以产生一种非常深刻而持久的高兴情绪,
+这种感觉很神圣.
+视觉可能包括对物体的色彩,视力&quot;模糊&quot;,特别是远视,光环周围的灯光,一般类型的模糊视力.
+它微妙地改变了世界, 使它看起来和感觉都非常美好.
+在较高剂量时, 一个人可能会爬行和大规模的移动/呼吸,
+颜色会稍微改变,主要是为了让它们更亮,更色调.
+这种状态不像MDMA那样忙, 这给它带来一种放松,真正的和平氛围,
+在身体上,感觉非常温暖,充满活力,愉快,高兴.
+增加大麻会使身体高很多.
+增加克拉使得整件事情有了更多的娱乐感,
+最后一个阶段是延续期, 从效应开始的6到7个小时后开始.
+在这个阶段, 身体上的高潮大致保持不变,
+世界似乎不那么神奇, 但仍然很愉快.
+情绪仍然很好,但主要是说话性似乎回到了正常水平.
+这一阶段基本上是旅程的较弱版本,持续到整个旅程结束.
+这一阶段的高剂量可能会持续很长时间,甚至可能长达2天.
+个人而言,我喜欢这样做.
+治疗后的后果可能持续一周, 后果包括平静的感觉和积极的情绪.
+我每周使用一次或两次AMT, 以保持自己在一个美丽的宇宙幸福状态,
+在接下来的一两天内,患者可能会感到身体疲劳和惰,尤其是在高剂量或连续多次治疗后.
+但正如上文所述,在情感和心理上, 后果实际上是积极的.
+组合方式
+艾米特与许多药物相结合.
+对于这一点有不同的看法, 但有些人认为AMT具有较弱的MAO抑制特性,
+虽然我不想排除这种可能性,但我个人发现它似乎没有任何MAOI活动,
+它与其他迷幻药物结合得非常出色.
+一般来说,与AMT一起服用或不久之后服用的胺会非常美妙地结合两者的效果,
+只要这种物质不过于刺激,
+例如,2C-E和2C-B的结合也很好.
+我已经尝试过一些具体的方法:
+4-AcO-DMT - 这与AMT结合得非常好.
+这会产生强烈的精神和身体的高兴情绪, 包括高频的声,
+这是一种极度迷幻的,同时也是对自我有着强烈的影响,
+我发现它能直接接触到宇宙心灵, 让我完全了解自我与它之间的关系.
+我觉得我已经完全意识到我作为宇宙的延伸和工具的属灵角色.
+这是我的第三次+4体验.
+2C-E - AMT为2C-E空间增加了情感和快乐, 并放大了2C-E的强烈迷幻体验.
+2C-B - - 没有什么特别的,
+个人与AMT的历史和对AMT的想法
+我第一次尝试AMT几乎是一年前.
+我发现它有点紧张但很好.
+然而,我当时只尝试了10毫克.
+几个月后, 我尝试了40毫克的剂量,
+我每月至少使用一次, 但通常是每周一次,
+我曾经经历过一到两个月不使用它的时期,
+我通常会说,我每周使用两次.
+我发现它能帮助我保持极端积极,平衡和精神健康.
+这使得生活在当下变得容易, 欣赏我拥有的东西,
+我已经开始把它减少到一个月两次.
+这足以产生长期的治疗效果,
+一天在AMT上 (相信我, 一天的持续时间是好事) 是一个伟大的,充实,美丽,愉快的一天.
+实际上,也许是我最喜欢的.
+对于治疗效益来说, 尤其是在与我亲密的人交往时,
+我发现AMT似乎让我很容易通过爱与宇宙联系起来,
+现在,
+它可以将其与其他迷幻药物结合使用,
+尽管如此, 这也是我使用过的唯一一种似乎真正具有心理上性质的迷幻药.
+我从来没有注意到任何形式的身体上, 但它的心理潜力可能很大,
+矛盾的是 - - 或许并非如此 - - 它可以有助于摆脱其他成,
+一个示例之旅 - - 我最近的AMT经验
+晚上6点30分 - 给我65毫克的AMT, 通过将其转化为HCl,
+原因是什么?
+我和我的未婚夫要去一些朋友的公寓, 我们曾与他们发生过争,
+这就是我的未婚夫和他们的毕业典礼, 他们都从他们的士学位,
+我使用AMT是因为我觉得它是极其治疗性和情感开放,
+另外,我发现AMT很容易转移到其他人身上 - - 接触高.
+七点半 - - 它正在猛烈地摇摆.
+我服用了小剂量的Kratom来缓解, 因为今天是聚会的日子,
+8:15 - - 我开始和我的未婚夫说话.
+我们还在家,直到9点才会去朋友家.
+随着我们蒸发大麻, 快速地让她感觉高兴, 很快我们就开始进行美妙的对话, 分析我们童年时代的影响,
+我觉得我们已经讨论了几乎所有的事情, 但我们仍在不断地发现更多可以进行长时间讨论的事情.
+这就是为什么我要嫁给她.
+我迫不及待地期待着未来...
+我没有任何忙, 因为我们都只有24岁,
+但我意识到我真的迫不及待地想成为一个父母.
+我现在是两个小猫的父母, 他们给我带来了很多爱和积极的感觉,
+我无法想象, 能与人类儿童相处会有多么美好.
+我们开车去朋友家, 我的未婚夫开车.
+9:20 - 我们到达.
+我走进去,开双臂,问候他们.
+我拿出我的蒸汽化剂和一袋克拉, 问每个人是否想尝试他们从未听说过的东西.
+我解释说克拉是一种泰国植物, 效果类似于阿片类药物,
+他们热情地同意了.
+我给下面的朋友做了下面的剂量:M,一个好朋友,有点像弟弟,我做了2.5克.
+我给了她1.5克 (因为她很小, 一般不耐药), 和她的男朋友Z, 我给了3克.
+我的未婚妻不想要任何因为她早些时候和我在一起.
+我开始制作, 我们开始谈论发生了什么.
+我感觉非常兴奋和愚蠢和完全没有抑制.
+我经常说一些让人们笑话,让他们保持警,
+我有一个绝对伟大的时间!
+我似乎比去年有所不同, 更加开放,
+我觉得自己在过去一年里取得了很大的进步,
+我意识到我很安静, 也不太表达自己的想法.
+虽然我现在感受到的开放程度是因为AMT, 我绝对学会了如何让自己拥有每个人都需要的言论自由,
+9:45 - - 克拉已经准备好了, 我们喝了.
+很快, 卡拉就进入了我们所有人的精神状态,
+我总是发现与人们一起第一次使用克拉会让我回忆起早期的兴奋感,
+我和朋友们开始说话, 无休止地说话, 没有沉默的时间, 每个人都在等待合适的时机,
+我可以说他们开始感觉到它因为兴奋, 但他们还没有意识到, 因为他们期待效果感觉像一个&quot;药物&quot;,
+他们意识到它已经击中了他们, 他们开始宣称他们对效果的永恒爱.
+我希望我没有创造一个怪物!
+我把它倒在嘴里, 让甜味酸的化学物质 (不像大多数胺) 溶入我的粘膜.
+我开始感觉到温暖,的三胺善良的浪潮冲过我, 结合AMT以特殊的方式.
+马上就平整了AMT的最后粗边缘.
+精神上的快乐几乎翻了一番.
+我有如此多的能量, 感觉如此流动, 我开始在不停的循环中行走,
+我感觉非常美好,我的信心得到了巨大的提升,
+我感觉自己很有权力, 但在我的脑海里, 几乎像超级清醒.
+随着夜晚的发展, 谈话开始不可避免地向哲学转移.
+激发了我对三胺的激情, 激发了我对每一个人的渴望.
+完全崇高的快乐是我的伴侣和我的实体朋友.
+我的言语和思想自然流动, 毫不费力, 清晰.
+我的头脑感到惊人清晰,比它在几个月.
+我觉得我能够切割到任何问题的核心, 并理解任何我认为.
+我和Z讨论了我们的精神路径, 我发现他也使用迷幻药来帮助他开始,
+他的主要经历是他的一个朋友被雷击, 从那时起就有了强大的精神能力.
+这个人也做了很多迷幻药, 他基本上是一个极其古怪的家伙,
+他能够将自己的想法传递给其他人, 并在他们身上唤起超自然的经历,
+他给我的朋友Z做了这件事, 给他一个强烈的, 吞他自己过去的愿景,
+这时Z也清醒, 只是通过他的朋友带领他进入梦境,
+这次经历对Z来说是如此有力,
+我们继续讨论这个闪电人一段时间... 惊人的东西.
+我很想见这个人.
+12:35 - 大约在这个时候,我们都刚刚蒸发了一点大麻,然后休息到洗手间等等.
+虽然我的旅程规模稍微小,
+我们的朋友J和我开始聊天, 像往常一样, 是关于精神的.
+现在,Z和J在一起,Z一直在告诉我,J基本上是精神落后的,
+但在和她交谈时, 我发现这根本不是真的.
+我感觉到这对他们来说是一个很大的问题,
+我发现,她只是不那么早,
+她还没有通过教堂, 但她即将.
+我开始和她讨论我的过去和经历,
+我告诉她我对宇宙和意识的看法.
+她深深地感动和惊.
+在我眼前, 由于我的指导, 我看着她向可能性开, 我看到她的世界展开,
+虽然她还没能离开, 但她开始了旅程.
+她想尝试一种迷幻药来获得这种体验.
+我告诉她,如果她愿意,她会想到, 我给了她一些技巧和建议,
+我们还在抚摸她的猫 (猫!),
+我发现大多数人,即使是很多敏感和有观察力的人, 都不了解猫,
+这实际上是这只猫发生的主要原因.
+他们对猫的行为有着极高的期望, 当他不服从时,
+他们想知道为什么他会突然或咬他们当他们抚摸他.
+因为他们开始用手抓住他, 像你推着狗一样!
+但她把自己的不愉快情绪吐在了猫身上.
+我是唯一一个他们知道猫爱,永远不会的人.
+这是因为我了解动物.
+无论如何, 我通过与猫的互动, 尽可能多地向猫传递冷静和爱,
+我感觉到他的肌肉放松, 变得软弱, 他躺在我身上,
+这对我来说是个疗法,
+我地跟她讨论了猫是如何受到伤害的, 尤其是她的室友和其他朋友,
+开始对待他更温柔,更像一个人.
+我觉得很好, 因为我爱动物, 尤其是猫,
+时间越来越长,我的未婚妻L说她早上要上班,
+我们都说再见, 承诺很快回来,
+我把我们送回家,我们了大约一个小时,抽了一碗,聊了聊.
+我睡得很好, 沉入了深沉而平静的睡眠.
+我很高兴, 准备迎接新的一天.
+精神和情感的电池.
+这样就结束了另一次阿尔法甲基化胺的旅程.
+其他:
+AMT (7),4-AcO-DMT (387):小组 (2-9) (17),烂的经验 (4),回顾 / 总结 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Spiritual and Emotional Battery
+AMT &amp; Various
+by
+Xorkoth
+Citation:   Xorkoth. &quot;Spiritual and Emotional Battery: An Experience with AMT &amp; Various (exp64003)&quot;.
+Erowid.org
+. Jul 30, 2007. erowid.org/exp/64003
+DOSE:
+T+ 0:00
+65 mg
+oral
+AMT
+(liquid)
+T+ 1:30
+Kratom
+T+ 2:30
+smoked
+Cannabis
+T+ 3:30
+10 mg
+oral
+4-AcO-DMT
+(powder / crystals)
+T+ 7:30
+smoked
+Cannabis
+BODY WEIGHT:
+145 lb
+Over the past year I have come to really love AMT (or more accurately, aMT), which is short for alpha-methyltryptamine. It carries the tryptamine skeleton, but it also shares alpha-methylation with amphetamine (which is alpha-methylphenethylamine). As might be expected, but certainly not assumed, AMT seems to share its profile of effects with both the tryptamines and amphetamine. However, it is truly a unique substance which is different from a combination of both and has unique properties of its own.
+Forms of AMT
+AMT seems to most often be found in freebase form, where it is hard, white to off-white crystals (not clear). In freebase form, like all freebases, it is not water-soluble, but it is soluble in alcohol and through the mucous membranes. The crystals are very hard, and they smell really bad and very, very strongly. The smell is sometimes compared to feces, but personally I think it smells not much like them, but very much like a horrible chemical fertilizer of some sort. The smell is strong enough to make me react in uncontrollable disgust and shock if I get a big whiff. I have found that it will smell right through a bag and leave its scent all over everything it&#x27;s around, so keep it in an airtight jar or something.
+AMT can also come in various salts, most often hydrochloric. This would be AMT HCl. I have not personally found it this way, but people have. I have turned the freebase into the HCl many times, so I can say that the quick and dirty HCl crystals with that method are less smelly, but still have a different and sharp scent of some sort. The HCl crystals are soluble in water, but not heavily so. I have transformed the freebase into the crystal by using the following method:
+Get a small shot glass and distilled water, and a bit of dilute hydrochloric acid (like muriatic acid from the hardware store, at 30% HCl conentration).
+Weigh out a dose and put it in the shot glass with distilled water, about 5mL (maybe less with a small dose. This works for up to about 100mg amounts). Stir it up, and the freebase will sit in the water but not be dissolved.
+Next, drop 2 drops of 30% HCl solution into the glass, one by one. Stir the mixture for a while. The freebase crystals will clump and turn clear, and begin to sink to the bottom and slowly dissolve. It takes them a while to fully dissolve.
+Now one can dose the HCl that way, or dry it to scrape up the crystals.
+Dose and Methods of Administration
+I have experimented with 3 different methods of administration with AMT. First, of course, I tried it orally. With this route, the dose ranges from 20mg to anything, really (within reason). My highest dose has been 100mg (in two increments, 80 and then 20 later). The curve is pretty forgiving, in that raising the dose is quite a linear progression of effects increase. A good starting dose would be 20mg, and then after you&#x27;ve calibrated your sensitivity, from 20-50mg makes a good, no-tolerance full dose, depending on individual pharmacology. Oral administration takes a while to come on and can often cause nausea during the come-up. It lasts the longest, though (12-20 hours or even more), and tends to be the most psychedelic in my experience.
+The next method I tried was nasal, or insufflation. Let me say right off the bat that I do not recommend this method! It comes on quickly in this way, but the freebase (all I have tried) burns the nasal passages in a really bad way. Plus, the horrible smell and taste of AMT will cling to you and your breath.
+Using it in this way makes the come-up fast, 15 to 30 minutes to be mostly up. But it burns for that entire time, a horrible, sharp burn that makes your eyes water and makes you feel like your nose is dissolving, which it may in fact be. The experience tends to be a bit more recreational and &#x27;empty&#x27; this way (as is the case with snorting most psychedelics). This method also produces less nausea. This requires a slightly lower dose but really not by much. AMT is interesting in that oral doses are about the same as any other method&#x27;s doses.
+Finally, I have used rectal administration, which, although it&#x27;s taboo in our society, is my favorite method because it produces all the benefits of oral without the downsides. By converting AMT to the HCl salt as I described above, you can proceed to squirt it with an oral (rectal!) syringe. This causes the first alerts to be within 10 minutes, and the come-up to be complete by an hour at most. Although the anxiety of the come-up is still there, I find it to be much reduced from the anxiety that oral dosing can cause, and less than nasal dosing as well. The duration is about the same as oral except it trails off quicker (which tends to be a good thing) and leaves less &#x27;bodily residue&#x27; afterwards. Additionally, the nausea is totally eliminated, as freebase crystals do not have to sit in your stomach but are absorbed through the rectum&#x27;s permeable walls.
+Profile and Stages of Effects
+AMT comes in three main stages, by my reckoning. The first is the come-up stage, which lasts about 2 to 2½, hours if taken orally, or about an hour if taken rectally. This stage is characterized by an uncomfortable period of anxiety and uncomfortable stimulation. With oral dosing, there is also often nausea, sometimes pretty bad, and GI distress. Fortunately, rectal dosing eliminates this aspect and makes the anxiety less. The come-up can feel overwhelming, but like with all psychedelics, just tough it out and if you don&#x27;t succumb to negativity, it will all dissipate as soon as the come-up is complete. I find it&#x27;s worth the suffering, which is minor compared to the joyful bliss of AMT&#x27;s main effects.
+The second stage is the peak and early plateau. As soon as the come-up is over, I am hit with a wave of happiness and physical pleasure, most similar to MDMA out of all the possible comparisons to well-known drugs. Myself and seemingly most others find this stage quite MDMA-like, except with a distinct psychedelic twinge, or at higher doses, more than a tinge. The state has never been fully psychedelic for me, but it always makes my mind very fluid and quick and inspired, like the other tryptamines do. AMT makes me feel more social than I feel sober, which is very rare for a psychedelic to do to me. I find myself talking and talking and talking, as philisophically as company allows, on AMT. To me, it feels like discussion and sharing positivity and love are the most important and satisfying things I could be doing. Used properly, the AMT state can produce a very profound and lasting euphoria, which is clear-headed and intellectual, as opposed to MDMA&#x27;s almost crude euphoria. The state feels very holy. Visuals may include coloring to objects, &#x27;fuzzying&#x27; of sight, especially distant sight, halos around lights, and generally kind of blurry vision. It subtly changes the world and makes it wonderfully beautiful-looking and feeling.
+At higher doses one can get some crawling and large-scale shifting/breathing, but I have not had it happen. Colors will be altered in slight ways, mostly to make them more glowing and more pastel. The state is not rushed like MDMA, which gives it a laid-back, truly peaceful vibe, whereas with MDMA one can feel rushed sometimes due to the short duration. Physically, it feels very warm, pulsating, good, euphoric. Adding in marijuana increases the body high a lot. Adding kratom makes the whole thing a bit more recreational-feeling but does not seem to impact the mental high.
+The last stage is the trailing-off, which starts at maybe 6 or 7 hours in from the start of the effects. In this stage, the physical high remains pretty much the same but at less magnitude, and the mental effects start to drop off. The world seems a little less magical but still very pleasant. Mood is still much increased, but primarily talkativeness seems to go down back towards normal. This stage is basically a weaker version of the trip which lasts until the end of the total duration. This stage can linger with high doses for a long time, even possibly up to 2 days. Personally, I enjoy this. The aftereffects of AMT can linger on for up to a week, and the aftereffects consist of an increased sense of calm and a generally positive, glowing mood. I have gone through periods of using AMT once or perhaps twice a week in order to keep myself in a beautiful state of cosmic bliss for months at a time, although it began to tire me down too much after a while and I had to take a break.
+For a day or two afterwards, one may feel physically tired and sluggish, particularly after high doses or multiple consecutive sessions. As mentioned above, though, emotionally and mentally the aftereffects are actually positive.
+Combinations
+AMT combines with many drugs quite well. There are differing opinions on this, but some people think that AMT has weak MAO inhibiting properties, so it&#x27;s not safe to take many drugs with it. Although I do not want to discount this possibility, I have personally found it to not seem to have any sort of MAOI activity aside from the small amount tied up from any substance while it is broken down.
+It combines most spectacularly with other psychedelics. Generally, a tryptamine taken with or shortly after AMT will combine the effects of the two very beautifully, amplifying both the tryptamine and the AMT while perhaps adding some unique effects. With phenethylamines, it is okay to combine as long as the substance is not too stimulating. 2C-E, for example, combines well, as does 2C-B.
+Specific ones I have tried:
+4-AcO-DMT - This combines exceptionally well with AMT. It creates a state of powerful mental and physical euphoria, including a high-frequency buzz which feels amazing and powerful. It is extremely psychedelic while simultaneously grounding to the ego, a curious and highly useful state to be in. I found that it gives very direct access to the universal mind, while allowing me to be fully in and aware of my ego&#x27;s relation to it. On this combination, I felt like I had fully woken to my spiritual role as an extension, a tool, of the universe. My third +4 experience.
+2C-E - The AMT adds emotion and joy to the 2C-E space and amplifies the intense psychedelic experience that is 2C-E.
+2C-B - Nothing too special, but definitely a nice addition to the AMT state.
+Personal History With and Thoughts on AMT
+I first tried AMT almost a year ago. I found it kind of jittery but nice. However, I tried only 10mg then. A couple of months after that, I tried a 40mg dose, and I discovered what AMT was all about. Since then, I&#x27;ve used it at least once a month, but usually more like once a week if you average it out. I have gone through periods of not using it for one to two months, and I&#x27;ve spent some time doing it daily for a week or more. Most commonly, I&#x27;d say, I&#x27;ve used it twice a week. I have found it to help me stay extremely positive and balanced and mentally healthy. It makes it easy to live in the now, appreciate what I have, be connected to the universal mind and flow of love. However, with too-frequent use, it becomes less special, so I have started to keep it down to more like twice a month. That is still enough to reap the long-term therapeutic benefits, but not so much that it gets old. A day on AMT (and trust me, the day-long duration is a good thing with this one) is a great, fulfilling, beautiful, enjoyable day.
+AMT has come to be one of my favorite substances, in fact, perhaps my favorite. It&#x27;s highly recreational as well as being useful for therapeutic benefits, especially inter-personal issues with people close to me. I&#x27;ve found that AMT seems to make it easy to connect to the universal by way of love, whereas a lot of psychedelics connect me more mentally or spiritually to the dark and the light. AMT is very &#x27;light&#x27; and friendly. When used in combination with other psychedelics, it can channel them in a very positive direction while simultaneously potentiating them in unique ways.
+That being said, it&#x27;s also the one psychedelic I&#x27;ve used that seems to truly have a psychologically addictive nature. I&#x27;ve never noticed physical addiction of any kind, but its psychological potential can be great, because it&#x27;s an exceedingly pleasant state to be in. Paradoxically - or perhaps not - it can be useful for coming away from other addictions such as opiates, by helping in a similar way as an antidepressant would.
+An Example Trip - My Most Recent AMT Experience
+6:30pm - Dosed 65mg of AMT, by converting it to HCl in a shot glass with two drops of 30% hydrochloric acid (muriatic acid from the hardware store), and squirting it into my rectum. The reason? My fiance and I are going to go over to the apartment of some friends we had a falling out with and haven&#x27;t seen in over a year. It&#x27;s my fiance&#x27;s and their graduation, both from their master&#x27;s degrees, so the mood is that of a party. I am using AMT because I find it to be extremely therapeutic and emotionally opening and there will undoubtedly be some healing to do between our friendships. Plus, I find AMT to be easy to transfer some of over to others - a contact high.
+7:30 - It&#x27;s swinging in strongly.
+8:00 - It&#x27;s stabilizing, and I take a small dose of kratom to help smooth it out a bit and, well, because it&#x27;s a party day and I feel like being recreational with my drug use today.
+8:15 - I begin to get very, very talkative with my fiance. We&#x27;re still home and will not be leaving for our friends&#x27; until 9:00. The high rubs off on her pretty quickly as we vaporize some cannabis, and soon we&#x27;re having wonderful conversations, analyzing our childhood influences and discussing how we can use these realizations to help us raise children as well as possible someday. She and I have really reached new levels of openness in the past year and I feel as if we have discussed almost everything about everything, and yet we still keep finding more things to have hours-long discussions about. This is why I am marrying her. I can&#x27;t wait for the future... I am in no hurry whatsoever, as we&#x27;re both only 24 and we don&#x27;t want kids until at least 32. But I realize that I really can&#x27;t wait to be a parent. I am a parent now, to our two kitties, and they provide me with so much love and positivity in my life that it boggles my mind. I can&#x27;t imagine how amazing it will be to have that with human children.
+9:00 - We leave to drive to our friends&#x27; house, with my fiance driving.
+9:20 - We arrive. I walk in with confidence, throw my arms wide, and greet them. Immediately they perk up and without missing a beat, I took out my vaporizer and a bag of kratom and asked anyone if they&#x27;d like to try something they&#x27;d not heard of before. I explained that kratom is a Thai plant which has effects similar to opiates, but with some definite differences such as feeling natural and being much less sedating. They enthusiastically agreed. So I made the following friends the following doses: M, a good friend a bit like a younger brother, I made 2.5 grams. J, the friend we had the main falling out with, I gave 1.5 grams (as she is very small and not tolerant to drugs in general, at all), and Z, her boyfriend, I gave 3 grams. My fiance did not want any because she had had it with me earlier. I began the process of making it and we all started talking about what had been going on.
+I&#x27;m feeling very excited and silly and totally uninhibited. I&#x27;m continually saying things to make people laugh and keep them on their toes and shock them a bit occasionally. I&#x27;m having an absolutely great time! After a little while, they mention to me that I seem so different since last year, so much more open and less inhibited. This makes me realize that I have made a lot of progress personally in the past year, especially in terms of social skills. Last year I was never fully comfortable with them, and I realize that I was really quiet and didn&#x27;t express myself much. Although the sheer level of openness I was feeling now was because of the AMT, I have most definitely learned how to allow myself the freedom of expression that everyone needs, while simultaneously making things better for others as well.
+9:45 - Kratom is ready, and we drink it. Before long, the kratom enters and further euphoricizes (new word alert!) the state of mind for all of us. I always find that doing kratom with people for their first time really brings back the excitement of the early days of it to me, as well, through sharing their state of mind. As it began to hit, my friends and I started talking more and more and more, endlessly talking, no silence for any length of time, everyone trying to wait for the appropriate time to get a word in edgewise. I could tell they were starting to feel it because of the excitement, but they were unaware as of yet, because they were expecting the effects to feel like a &#x27;drug&#x27;, but kratom feels so amazingly comfortable and natural. Then when there was a short break in talking for someone to use the bathroom, they realized that it had hit them, and they began to proclaim their undying love of the effects. I hope I haven&#x27;t created a monster!
+10:00 - I remember that I had brought a gel cap with 10mg of 4-AcO-DMT in it, and I took it by dumping it out in my mouth and letting the sweetly tart chemical (not bitter like most tryptamines are) dissolve into my mucous membranes.
+10:15 - I begin to feel the wave of warm, buzzing tryptamine goodness wash over me, combining with the AMT in that special way that it does. The last rough edges of the AMT (what little there were that is) immediately smoothed out. The tryptamine free-association and spiritual euphoria roughly doubled. I had so much energy, and felt so fluid, that I began walking in non-stop circles and moving my body in amusing contortions to release my energy. I felt absolutely wonderful, and my confidence was heavily boosted while my soul was washed in so much euphoria and feelings of benevolence that my eyes began wiggling as MDMA can cause. Pratically moaning with pleasure, my eyes rolled up in my head and I felt powerful, but yet very much in my head, almost like a super-sobriety.
+As the night progressed, the conversation began to move inevitably towards the philosophical. Tryptamine-fueled inspiration built and built until I felt bursting with desire to express it to everyone. Utter sublime joy was my companion along with my physical friends. My words and thoughts flowed naturally, effortlessly, cleanly. My head felt amazingly clear, moreso than it has in months. I felt as if I was able to cut right down to the core of any issue, and understand anything I thought about. Z and I discussed our spiritual paths, whereupon I discovered that he had also used psychedelics to help him start, although for him they led to too much anxiety. His main experience was a friend of his who had been struck by lightning and ever since had strong mental powers. This guy also did a lot of psychedelics and was basically an extremely eccentric guy who most people did not understand. He was able to transfer his thoughts to others and invoke paranormal experiences in them which he shared. He did this to my friend Z, gave him a strong, engulfing vision of himself in the past, as well as himself in different lives (according to Z). This was while Z was sober, as well, just through his friend leading him into a reverie with a chant and laying hands. The experience was so powerful for Z that it changed his life. We continued to discuss this lightning-man for some time... amazing stuff. I would like to meet this guy.
+12:35 - At about this time, we had all just finished vaporizing a bit of marijuana and had taken a bathroom break and so forth. My trip was slightly lower in magnitude but just past the peak, still going strong. Our friend J and I began talking, which, as usual, was about spirituality. Now, Z and J are together, and Z had been telling me about how J was basically spiritually retarded, and never thought about anything herself and was a blind sheep. But in talking with her, I found this to not be true at all. I sensed that this is quite a problem with them, Z giving J subliminal scorn for his perception of her as an &#x27;unenlightened&#x27; person. I found, however, that she was just not as far along but was very curious and inquisitive. She hadn&#x27;t quite made the move past the church yet, but she was about to. So I began discussing it with her, discussing my past and my experiences, psychedelic and otherwise. I told her about my conception of the universe and consciousness. She was deeply affected and amazed. Before my eyes, and because of my guidance, I watched her open up to the possibility, I saw her world unfold and the infinity complexity of reality peeked in at her. She wasn&#x27;t able to get out yet, but she began the journey. She would like to try a psychedelic to have that experience. I told her if she should, it will come to her, and I gave her some tips and advice on how to have an effective trip and avoid panic.
+Also, we were petting her kitty (cat!), who has a reputation among our friends as being mean and evil and bitchy. But I find that most people, even a lot of sensitive and observant people, just don&#x27;t understand cats, and try to treat them like dogs, and jump at them and make noise to make them run because they think it&#x27;s funny. That is in fact the main thing that happened to this cat. They get some outrageous expectation of behavior about the cat, and when he doesn&#x27;t comply, they tell him he&#x27;s stupid and a bitch. And they wonder why he&#x27;ll suddenly scratch or nip at them when they&#x27;re petting him. It&#x27;s because they start grabbing him with their hand and shoving him around like you would a dog! J isn&#x27;t bad with this, but she takes out her bad moods on this kitty. I am the only person they know who the cat loves and will never scratch. This is because I do understand animals.
+Anyway, I channeled as much calmness and love into the cat as I could through my interactions with him, and he began to relax tremendously. I could feel his muscles relaxing and going limp, and he laid down on me with his face buried in the crook of my arm and just purred and purred. It was therapeutic for me and especially the cat, and for J. I subtly discussed with her how the cat has been damaged, especially by her roommate and some other friends, and how, just like a human baby, he is confused and hurt when she treats him badly for no reason. I could see that she got it pretty well and felt bad, and began treating him more gently and more like a person. I felt great about that, because I love animals, especially cats, and this one is so sweet... he has a very bad rap, tragically unearned.
+2:15am - As time wore on, L, my fiance, mentioned that she had to work in the morning, so we had to go. J and I wrapped up the conversation, and we all said our goodbyes and promised we&#x27;d be back soon, and we headed out. L drove us home, and we stayed up for about an hour, smoked a bowl, and talked. I was able to go to sleep just fine, and fell into a deep and peaceful slumber.
+The next morning I woke up at 8:30am, bright-eyed and happy, ready to face the day. Ahh, AMT... the spiritual and emotional battery. And so ends another trip on the alpha-methylated tryptamine.
+Exp Year: 2007
+ExpID: 64003
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 30, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+AMT (7), 4-AcO-DMT (387) : Small Group (2-9) (17), Glowing Experiences (4), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

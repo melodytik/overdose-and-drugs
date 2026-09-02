@@ -1,0 +1,246 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>德米特 - 埃罗维德的故事 - &quot;一个警示故事&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dmt.html'>← 二甲基色胺</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>德米特 - 埃罗维德的故事 - &quot;一个警示故事&quot;</h1>
+<div class='sub-title'>DMT - Erowid Exp - &#x27;A Cautionary Tale&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Sep 14, 2004 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=36721' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这是经历后三天.
+我在&quot;我的朋友迪米特里&quot;上经历了一件让我感到非常伤心的事情.
+这可能会让我终生不去研究大脑科学.
+我在一个朋友的房子上星期五与大约8人.
+我们正在投射的东西和低光.
+有人拿出了一些DMT.
+我从来没有尝试过,
+管道 (之前曾经使用过的管道 - - 也许还有一些留在管道里?) 放在我的嘴唇上, 直接加热,
+经历本身就好像有人把我的五种感官连接起来,
+想象一下你被听到的声音.
+没有精灵.
+没有暗物质.
+没有房间,没有人,没有椅子,也没有任何东西,
+顺便说一句,这不是一个情感隐喻.
+这就是我的身体动感现实被残忍地从我身上撕裂.
+我有一个概念 (没有任何想法) 这5分钟会融化我的大脑,
+我意识到死亡不会拯救我,但我会这样直到宇宙的尽头.
+这是我经历过或想象过的最可怕的经历.
+我也来了, 听说我已经大喊大叫了三分钟.
+我咬了我的手, 皮肤破裂了10个点,
+我给自己一个黑眼睛, 了我的脸, 一个眼球, 和我的双眼.
+我左脚和右肋骨都很疼.
+我的喉很疼.
+我在第二天就感冒了.
+(好吧,也许最后一个是我自己的错).
+我在经历之后就忘记了, 我的大脑花了几天才填补空白.
+(虽然我仍然不记得伤害自己或尖叫).
+我做完之后有人直接问我是否做得很糟糕, 我说不.
+这显然是错误的,
+让我感到恐惧,,醒来后看到一些东西.
+这些梦想让人感觉像在使用DMT.
+他们真的感觉一样.
+由于上午4点的上腺素激增,
+星期六是个洗.
+我真的站了起来, 向高中生讲述了互动艺术.
+我在那天的剩余时间里忘记了自己在讲话.
+我终于觉得好像我整天都在做梦.
+星期天的情况更好,
+我认为这与梦有关.
+每一天,我花了半天的时间,
+我喜欢现实.
+我已经参观了另一个选择,
+我觉得我的大脑很粗,
+我一直在对自己说,&#x27;这只是一个梦&#x27;直到我相信它.
+我一直很轻松.
+这个周末我没有工作.
+我去海,一个温泉, 和佛教冥想.
+这已经有所帮助.
+我们可以从中吸取教训:
+- 在正确的环境下做这件事.
+想一想吧.
+我应该坐在地板上.
+想想自己有多紧张,有什么感觉.
+-*总是指定你想要的数量.
+总是问对方想要多少钱.
+我认为这很大程度上是由于数量.
+我也是一个初学者, 有些事情应该努力做到.
+- 干预他们.
+如果您不认为上述情况正在发生,
+- 干预他们.
+没有人知道我在咬自己, 但有人应该检查.
+我被束了,但我可能应该早些时候.
+我很幸运自己没有受伤.
+我知道人们会经历一些事情, 这可能是自然的,
+真的没有.
+- - 想一想
+这不是玩具.
+你愿意冒这个风险吗?
+对于我来说,没有什么&quot;开门&quot;了.虽然我学到了一些东西,但它们并不是人们所说的&quot;了解自己&quot;的意思.
+这就是它.
+现在已经过了三天了,
+我认为我做了最糟糕的梦, 虽然我知道它们会持续一段时间,
+谢谢您的阅读.
+我写这封信希望别人不会经历这种情况.
+我男朋友问我这段经历是虐待还是治疗,
+-=-=-=-附录 (提交3周后)
+两个星期后, 我决定吸大麻.
+这绝对是一个错误.
+我心开始跳动, 我非常害怕.
+身体地图变得扭曲,
+我开始慢慢地呼吸,
+我告诉我的朋友发生了什么, 他们帮助我分心,
+不幸的是, 这也带来了梦和半夜幻觉
+我以前从来没有麻烦过, 这是我以前吸过很多次的草.
+我不知道这是回忆,还是我的血清激素系统在说&#x27;你该死!&#x27;
+其他:
+经过旅行后遇到的问题 (8),不好的旅行 (6),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+A Cautionary Tale
+DMT
+by
+sasha
+Citation:   sasha. &quot;A Cautionary Tale: An Experience with DMT (exp36721)&quot;.
+Erowid.org
+. Sep 14, 2004. erowid.org/exp/36721
+DOSE:
+smoked
+DMT
+(powder / crystals)
+BODY WEIGHT:
+120 lb
+This was written three days after this experience.
+I had an experience with &#x27;my friend DiMiTri&#x27; on that burned me horribly.  It may have put me off of brain science for the rest of my life.
+I was at a friends house on a Friday with about 8 people.  We were projecting trippy stuff and the light was low.  Someone pulled out some DMT.  I had never tried it and thought, why not?  The pipe (which had been used before - maybe some left in the pipe?) was held to my lips, directly heated, and I was told to &#x27;Breath in, Breath in, Breath in, Breath in...&#x27;  And then my brain started screaming.
+The experience itself was as if someone crosswired my 5 senses and put my brain into an infinite feedback loop. Imagine audio feedback applied to your crossed senses. There were no elves.  There was no darkmatter. There was no room, people, chair, or anything but my mind looking at itself looking at itself looking at itself.  This was not an emotional metaphor, by the way.  This was my physical kinesthetic reality being brutally ripped from me.  I had a concept (there were no thoughts) that 5 minutes of this would melt my brain and I would die.  And I realized that death would no save me but I would be like this til THE END OF THE UNIVERSE.  It was the most terrifying horrifying experience I have had or could imagine having.
+When I came too, I was told that I had screamed at the top of my lungs for three minutes.  I had bitten my hand so hard that I had broken through the skin in 10 points, damaged a nerve in my pinky, and my tooth was loose. I had given myself a black eye, scratched my face, one eyeball, and both my eyelids.  My left ankle and right ribs hurt.  My throat was sore.  And I promptly got a cold the next day. (Okay, maybe the last one was my own fault).
+I forgot the experience directly afterwards, and it took my brain a couple of days to fill in the gaps.  (Though I still do not remember hurting myself or screaming).  Someone asked me directly after I did it if it was bad, and I said no.  This was patently false, but it took me another day to realize it. Unfortunately, this has come in form of reliving the experience in horrific dreams that leave me terrified, shivering, and seeing things after I wake up.  Just as you being drunk feels like being drunk, these dreams feel like being on DMT. They really feel the same. Because of the 4 am adrenalin rushes, I wake up in the morning weak and exhausted with low blood sugar. (the cold hasn&#x27;t helped)
+Saturday was a wash.  I actually got up and gave a talk to high school students about interactive art.  I then forgot that I gave the talk for the rest of the day.  I ended up feeling as if I&#x27;d dreamt the whole day.  Sunday was better, but still very difficult.  I have developed (hopefully temporarily) a fear of the dark, which I think is related to the resulting nightmares.  Each day, it has taken me half the day to shed the anxiety of the night.
+I love reality.  I have visited the alternative, and for the time being, I am staying right here.  My brain feels raw, and the aftertaste of the terror and horror that I felt has made it difficult to function even when awake.  I just keep saying to myself, &#x27;It was only a dream&#x27; until I believe it.  I&#x27;ve been taking it easy.  I didn&#x27;t work this weekend.  I went to the sea shore, a spa, and buddhist meditation.  It has helped.
+The lessons:
+-Do this shit in the right setting.  Really think about it.  Among other things, I should have been sitting on the floor.  Think about how stressed you are and how you feel.
+-*ALWAYS* specify how much you want.  Always ask how much the other person wants.  I think a lot of this was due to the amount. I was a first timer, as well, and some things one should work up to.
+-Intervene.  If you don&#x27;t see the above things happening, stop the proceedings.
+-Intervene. No one could know I was biting myself, but someone should have checked.  I was restrained, but I probably should have been earlier.  I was lucky that I didn&#x27;t damage myself worse.  I know that people work through things and that might be natural, but better safe than sorry.  Seriously.
+-Think.  This is not a toy.  Do you want to take this risk? For me, there were no &#x27;doors opening.&#x27;  And while I learned a few things, they were not quite what people mean about when they talk about &#x27;learning about yourself.&#x27;
+That&#x27;s about it.  It is now three days later and I am getting better.  I think I&#x27;ve had the worst of the dreams, and while I know they&#x27;ll continue for a while, I&#x27;m hoping they will decrease in severity.
+Thanks for reading.  I am writing this in the hopes that no one else goes through this.  My boyfriend asked me if the experience was abusive or therapeutic, and I can without a doubt answer &#x27;abusive.&#x27;
+-=-=-=- Addendum (submitted 3 weeks later) -=-=-=-
+Two weeks later, I decided that maybe I would smoke some marijuana. It was definitely a mistake. It started to go bad very quickly, and my heart started pounding and I got extremely scared. My body map became distorted and I got very disoriented. I got up, started breathing slowly and walked around. I told my friends what was happening and they helped distract me and eventually it got more bearable.
+Unfortunately, it also brought back the nightmares and middle-of-the-night hallucinations for the next three days.
+I have never had a problem with pot in the past, and this was my weed that I have smoked many times before. I don&#x27;t know if this was a flashback of sorts, or just my serotonin system saying, &#x27;Fuck you!&#x27; But it looks like I am going to have to lay off of anything but beer (1 beer) for a while.
+Exp Year: 2004
+ExpID: 36721
+Gender: Female
+Age at time of experience: Not Given
+Published: Sep 14, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DMT (18) : Small Group (2-9) (17), Post Trip Problems (8), Bad Trips (6), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

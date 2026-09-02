@@ -1,0 +1,315 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - &quot;恐怖,恐怖&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/zz-psychedelics-2021-jh.html'>← zz Psychedelics - 2021 JH</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - &quot;恐怖,恐怖&quot;</h1>
+<div class='sub-title'>Mushrooms - Erowid Exp - &#x27;The Horror, The Horror&#x27;</div>
+<div class='meta'>作者：Jamshyd Citation · 日期：Dec 1, 2004 · <a href='https://erowid.org/experiences/exp.php?ID=37992' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我起床时想在那一天服用一种迷幻药.
+其他日子我醒来这样结束了壮观的旅行.
+为了庆祝7周精神工作的成功结束,
+我已经戒除所有毒品一个多月了,
+这一天开始时,天气非常阴郁,雨.
+我喜欢下雨, 但今天天气又黑又冷,
+我的计划是把迷幻药带到户外,
+我从来没有尝试过这两种食物.
+晚上天空晴朗, 但仍然太冷, 不能在户外旅行.
+我选择了,因为它们的持续时间较短,而且如果这次旅行不好,我可以很容易地获取更多,
+因此,我决定为一个完美的场合保留T-7.
+问题在于我低估了的价值,
+我认为3.5克的对我没有什么好处,
+背景:我和父母住在一起,父母不喜欢儿子吸毒.
+我总是能够在没有或有他们的存在的情况下服用迷幻药,
+这种情况发生在精神迷幻药是短效的 (如DPT),或长效但不会造成太大的损害或混乱 (如2C-E),或两者的组合 (如2C-D).
+几乎两年前的经历, 我曾一次吃了500粒晨光种子, 严重的吐使我害怕,
+我很幸运地得到了父母的理解, 当我解释说这是我精神成长的一部分时 (事实上是如此).
+这里要讲的道理是:不要低估保姆的重要性!
+我发现父母不太适合这样的角色.
+在我的MGS经验, 我设法说服他们我没有被毒害.
+我觉得我做出了非常自私的决定.
+继续阅读
+3.5克的药物由4根茎,1个帽子和1个未开封的帽子组成,
+它们都有蓝色的斑点.
+它们都是下午5点到5点10分之间吃掉的.
+它们的气味一点也不恶,
+味道不太令人鼓舞,但可以忍受.
+我在吃完最后一根树干时, 感觉到了警报.
+我开始注意到运动变得更加流动.
+接着我吃了一顿饭, 旅行花了45分钟.
+我现在感觉绝对是离基线.
+我开始感到焦虑.
+随着时间的推移, 我变得有些失控, 焦虑也越来越大.
+我真的不知道为什么我有这么多的焦虑.
+心理效应对我来说并不是什么新鲜事.
+然而我真的很害怕.
+由于缺乏协调能力, 我认为我无法与她清晰地互动.
+我决定服用0.5毫克的阿尔普拉佐兰, 因为我现在确信我一定会有不好的旅行 (我不在乎它是否减少了迷幻效应,
+然后我去躺下.
+我了一下.
+我不知道是感冒还是焦虑.
+虽然我躺在床上,
+问题在于, 我并没有被强烈的诱惑我只是很困惑,
+我不喜欢它.
+我也感觉到身体的不舒服,
+尽管服用阿尔普拉佐拉姆, 焦虑也越来越大.
+并且成长了.
+并且成长了.
+我认为我现在在2小时的标志.
+我没有经历过什么除了纯粹的恐怖.
+我真的害怕一切,包括我自己.
+实际上最让我害怕的是恐惧本身.
+我没有真正的理由害怕,
+我在DPT中使我的自我融化在神圣的牛奶海洋中,
+因此我知道我的恐惧并非出于某种身份危机.
+我也害怕阿尔普拉佐拉姆没有任何作用 (后来我知道0.5毫克可能不够,
+我决定向朋友寻求帮助.
+我上了MSN.
+我看着窗户, 看到一个多彩的点阵.
+这是一个有趣的视觉, 持续了很长一段时间, 所有的点在数学的尺寸和排列上都是完美的.
+我也很难打字, 因为屏幕上的字母都是红色的,
+我只在网上找到两个朋友,
+现在, 我知道最常用的安全治疗药物是二, 但此刻, 因为我对一切都很害怕, 我相信他的话.
+这种恐惧的经历让我想起了自己是多么可怜.
+我告诉第二个朋友.
+他简单地告诉我他是多么好的人,
+我觉得他的评论非常好,
+我躺下了,哭了很多.
+这是一个非常糟糕的一年.
+我在过去的几个月里表现更好,
+虽然我很容易压抑负面情绪 (但我不能压抑).
+我猜想这次旅行的结果就是释放这些压抑,
+我经历了一年的焦虑和绝望在6小时内.
+我躺在床上,偶尔哭泣.
+在三点到五点之间的时间似乎很模糊.
+我不记得发生了什么事,
+我不听音乐,因为我害怕听音乐.
+我没有起床,因为我害怕起床.
+我记得我经常哭泣,
+这次旅程形成了明显的正弦波形态.
+接着是前面提到的恐惧, 随之而来的和紧张.
+虽然积极的点比负面的要少,但非常重要.
+我记得第一次登顶时, 我躺着, 身体扭曲, 眼睛和嘴巴开,
+顶层不再是顶层了, 我不知道它是什么,
+我记得着灯光.
+许多绿眼壁画 (比如亚历克斯·格雷的作品) 飞出光线并绕着它旋转,
+由于我害怕闭上眼睛,
+之后又有一次恐慌, 接着是&quot;这就是它&quot;的感觉... 我的身体感觉就像它正在死亡,
+实际上,我认为这是一个大问题.
+我的自我并没有死,
+我保持着自我, 在混乱和焦虑中失去了控制,
+也许我不想放手, 因为我知道我还有很长的路要走,
+我也需要有人陪伴我.
+但是我没有人可以联系.
+我唯一在附近的朋友在那天很忙.
+另外,当我想到我认识的人时, 我开始害怕他们,
+我觉得我不能信任任何人.
+由于我的自我仍然存在,
+我开始哭泣和自慰, 由于某种原因 (当然, 自慰并没有太大作用,
+我确实知道, 在那个时候, 我对每个人充满了爱 (与恐惧相反).
+我觉得没有什么重要, 但与我在自我消灭后的DPT中得到的同样的感觉的呼气形式不同,
+这是我第一次在迷幻药上... 我真的忘了我服用了药物!
+实际上我没有忘记,只是不知何故不再相关.
+我相信自己将永远疯狂.
+这种&quot;疯狂&quot;在两个&quot;低点&quot;的恐惧和一个&quot;高峰&quot;的高兴之间延伸.
+在此期间, 我感觉神之醉如同我对DPT所感觉的那样.
+我觉得自己有超能力.
+我有很多扭曲的想法, 包括在公共场合赤身裸体走出去的想法 (现在又下雨了, 几乎是暴风雨)
+告诉我保持尽可能安静, 这将是最好的出路.
+恐惧依然存在, 而不是上帝, 我现在被偏执所占据.
+我倒在浴室里,因为我需要尿.
+我的视力很模糊,
+我在浴室里感觉到了我在整个旅行中感受到的痛苦恐怖.
+我正在考虑是否去告诉我的母亲.
+我认为, 焦虑的原始源头是我害怕母亲看到我处于这种状态,
+我跌倒楼梯,进入客厅 (她坐在那里) 我几乎没有到达沙发上,
+我完全了.
+我记得我听到我的母亲疯狂叫我的名字和问有什么问题.
+我记得没有看到任何东西.
+没有黑人,也没有白人,什么都没有.
+我看到了虚无.
+我被困在一个神圣的时刻和我是一个人.
+我什么也没看到,什么也没听到,什么也没感觉到.
+接着我出现了白色的情况.
+这件事已经发生过两次.
+无论我的眼睛是打开的还是关闭的,
+最终我回来了
+我看到母亲抱着我的身体哭着.
+我告诉她我没事.
+她说她认为我已经死了.
+眼睛的壁画覆盖了一切, 但很快就消失了.
+我只需要几分钟才能从那个状态恢复到接近基线的水平,
+大多数迷幻药,你会爬上,达到顶峰,然后慢慢恢复起点.
+在这里,我花了5个小时登,在第6个峰值, 快速回归基线近半小时.
+我怀疑这不是因为药物作用, 而是因为精神反应.
+我只是告诉我母亲我在早晨的光种子,
+我对自己的心情很开放.
+在过去的几年里,
+我爱他们, 但无法表达, 感到非常内.
+我现在可以很公开地和母亲 (后来我父亲回家时) 交谈, 我也能与他们谈论许多严重的问题.
+为了我的未来, 父母希望我做两件事,
+我很高兴我终于能做一些我知道会让父母高兴的事情,
+我从来没有像那次旅行那样害怕过.
+我真的不喜欢它.
+尽管如此, 最后还是值得的.
+我唯一感到遗憾的是把我母亲置于如此紧张的境地.
+但即使是这样, 我也知道她真的很关心我.
+我以前有过自杀的想法,
+我根本无法应对这种内.
+虽然我说我在旅行中再也不会吃,
+但他们确实值得比街上得到的更多的尊重.
+其他:
+(39):第一次 (2),家庭 (41),糟糕的旅行 (6),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Horror, The Horror
+Mushrooms
+by
+Jamshyd
+Citation:   Jamshyd. &quot;The Horror, The Horror: An Experience with Mushrooms (exp37992)&quot;.
+Erowid.org
+. Dec 1, 2004. erowid.org/exp/37992
+DOSE:
+T+ 0:00
+3.5 g
+oral
+Mushrooms
+(dried)
+T+ 0:45
+0.5 mg
+oral
+Pharms - Alprazolam
+(pill / tablet)
+BODY WEIGHT:
+125 lb
+I initially woke up with the thought of taking a psychedelic on that day. All other days which I woke up like this ended up with a spectacular trip. I was planning on taking a psychedelic to celebrate the successful completion of a 7-week spiritual working (for those who know, I was working with the Olympic spirits from The Arbatel). I had abstained from all drugs for more than a month, save for a couple of bowls and a beer spread out across the period.
+The day started out as very gloomy and rainy. Don’t get me wrong, I love rain, but this day was dark and cold, and the rain did not help much. My plan was to take the psychedelic outdoors, in some park away from people. I was originally torn between 2C-T-7 and Mushrooms, both of which I never tried before. In the evening the sky cleared but it remained too cold to allow for an outdoors trip. So I chose the mushrooms, for their shorter duration, and for the fact that I can easily procure more if this trip was bad, whereas the dose of 2C-T-7 that I had could very well be the last 25mg of 2C-T-7 that I will ever see. Therefore, I decided to save the T-7 for a perfect occasion.
+The problem is that I underestimated the mushrooms, for two reasons. The first being that I imagined, due to my spiritual background and my experiences (all beautiful) with the sacred DPT, that it would be hard for me to have a bad trip, since DPT is a mammoth of a psychedelic which I handle very well and the people I know who took mushrooms seemed to imply that it was a rather easy trip. The second reason was that I didn’t think that 3.5 grams of mushrooms would do much to me, since I have had a high natural tolerance to all Tryptamines I tried.
+Some background: I live with my parents, who would not appreciate their son “doing drugs.” They are aware of my spiritual practices and are tolerant of them, so I had that on my side. I had always been able to take psychedelics with or without their presence, and get away with it without them suspecting that I am under the influence. This happened in that the psychedelic is either short acting (like DPT), or long acting but does not cause much impairment or confusion (like 2C-E), or a combination of both (like 2C-D). Almost two years before this experience, I took 500 morning glory seeds on one occasion and went into a severe vomiting fit that scared me and turned my trip very bad. I eventually had to turn to my parents for emotional help, and I was lucky they were understanding when I explained that it was a part of my spiritual progress (and it was). The moral: Do not underestimate the importance of a trip sitter! I&#x27;ve found parents are not very good with this role. In my MGS experience, I managed to somehow convince them that I was not poisoned. As you will see in this report, I put my parents in a very stressful situation, and I feel it was very selfish of me to do so. Read on.
+The 3.5 grams were made up of 4 stems, 1 cap, and 1 unopened cap attached to one of the stems (a terminal, which I have been told contains more Psiloc(yb)than opened ones). They all had blue stains on them. They were all eaten between 5:00pm and 5:10pm. They didn’t smell bad at all, somewhat exotic. The taste wasn’t very encouraging, but bearable. I actually felt an alert as I was finishing eating the last stem.  I walked around… I was beginning to notice that movement was becoming typically more “fluid”. I then had a meal, which took me 45 minutes into the trip. I was now feeling definitely off baseline. From then, I began developing some anxiety. As time progressed, I became a little uncoordinated, and the anxiety grew. I really did not know why I was having so much anxiety. The psychedelic effects were not new to me at all. Yet I was actually scared. A big thing my mind fixed on was that my mother would be able to tell that I am on drugs because of my  lack of coordination and, as my thoughts were beginning to get jumbled, I imagined I won’t be able to interact clearly with her.
+I decided to take 0.5mg Alprazolam because I was now sure that I was bound for a bad trip (I didn’t care if it diminishes the psychedelic effects, I was just desperate to get out of this discomfort). I then went to lie down. I was shivering. I didn’t know if it was the cold or my anxiety. I went under the covers, but I still shivered severely. The problem is that I was not exactly intensely tripping – I was simply very confused and had irrational anxiety. And I didn’t like it. I was also feeling an uncomfortable body load that reminded me a lot of 5-MeO-DMT, and I didn’t like it. With that, and despite the Alprazolam, the anxiety grew. And grew.
+And grew.
+I figure I was now at the 2 hour mark. I was experiencing nothing but pure terror. I was literally afraid of everything, including myself. Actually the one thing that frightened me most was fear itself. I had no real reason to be afraid, and yet I was. It certainly was not ego death that scared me – I had my ego dissolved in the divine ocean of milk on DPT while the world shattered many times before, and I have taken on other, alien personalities on Ketamine at one point. Therefore I knew my fear was not out of some kind of identity crisis. Yet I was afraid of being afraid, and also afraid of the fact that the Alprazolam did absolutely nothing (later I learned that 0.5mg might not be enough, even though I don’t have much tolerance to the drug).
+I decided to seek help by talking to friends. I went on MSN. As I waited for it to sign on, I looked at the window and I saw a matrix of multicoloured dots. It was an interesting visual that persisted for a while – all the dots where mathematically perfect in size and arrangement. I also had a hard time typing because letters on the screen all had red “electricity” buzzing around them, and I had very bad coordination. I found only two of my friends online, and both were geographically far away. One of them told me not to self-medicate with Alprazolam, since “it could be a potentially dangerous combination.” Now, I know that the most commonly used as a safe cure for bad trips is benzodiazepines, but at this moment, since I was so afraid of everything, I took his word for it.
+This experience of fear reminded me how pathetic I was. I told this to the second friend. He simply told me what a good person he thought I was, and that I didn’t deserve all the crap that I went through this year. I found his comment extremely nice, and started crying. I then went to lie down, and cried a lot. It was a catharsis for a very bad year. Mind you, I had been doing better for the last couple of months compared to the rest of the year, which was a very difficult one. However, I have a tendency to suppress (but not repress) negative emotions. I am guessing that what this trip did was simply release these suppressions and breaking the dam. I experienced the year’s worth of anxiety and despair in 6 hours.
+Now that it was about the 4th hour, I was lying down, occasionally crying. The time between hour 3 and hour 5 seems to be a blur. I lost track of it and I do not remember all that happened, but much of it was spent lying down. I did not listen to music, since I was afraid to listen to music. I didn’t get up, since I was afraid of getting up. I remember crying a lot, and feeling sorry for myself (something I don’t normally do). The trip took a distinct sine-wave form. I got periods of extreme euphoria and an opiate-like body feeling, followed by the aforementioned fear with a lot of shivering and tension.
+The positive points, though fewer than the negative ones, were very significant. I remember the first peak I was lying down, my body twisted, my eyes and mouth wide open, staring at the ceiling with a feeling of immense wonder. The ceiling was no longer a ceiling, I don’t know what it was, perhaps a white sky with multicoloured stars and streams that kept moving? I remember staring at the light. A lot of green eye-murals (think Alex Grey’s artwork) flew out of the light and swirled around it, all in geometrically perfection. Since I was afraid of closing my eyes, the few closed-eye visuals that I saw were faint and chaotic.
+After that euphoric peak came another fit of terror, and that was followed by a sense of “this is it”… my body felt like it was dying, and I truly believed that I was somehow dying.
+In fact, I think this is what the big problem was. My ego did not die, for some reason. I maintained my ego as I lost control amongst a lot of confusion and anxiety, and I don’t know why. Perhaps I did not want to let go because I knew I still had a long trip ahead of me and did not want my mother to see me in that state and freak out. I also needed someone to be with me. But I had no one to contact. My only friend nearby was busy that day.  Plus, as I thought of all the people I know, I became afraid of all of them and found I had no one to trust. I felt like I could trust no one. And because my ego remained, I went into a rather psychotic state. I started crying and masturbating at the same time for some reason (of course, the masturbation didn’t do much due to the state I was in). I know for a fact that at this point I was just overflowing with love towards everyone (which is paradoxical with the fear). I felt like nothing mattered, but unlike the exhaled form of the same feeling I get with DPT after ego annihilation, here my ego was there and knew that I was going insane.
+And for the first time ever on a psychedelic… I actually forgot that I took a drug! Actually I didn’t forget, it just somehow ceased to be relevant. I was convinced that I was going to be eternally insane.
+This “insanity” extended between two “lows” of terror and one “peak” of euphoria. During this one peak, I felt God-intoxicated like I do with DPT. I felt like I had super-human powers. I had many twisted thoughts, including the idea of walking outside naked in public (now it was back to raining – almost a storm) BECAUSE NOTHING MATTERED AND NOW I HAVE BECOME GOD AND WILL DIE SOON!!!! Hover, in spite this insanity, I had a grain of reason left in my, and that told me to stay as still and as silent as possible, and that that would be the best way out.
+As these thoughts persisted, the terror remained, and instead of God, I was now possessed by paranoia. I stumbled into the bathroom because I needed to pee. My vision was blurry and I seem to have had some nystagmus. As I was in the bathroom I felt the same PAINFUL terror I felt throughout the trip. I was debating whether or not to go tell my mother. I figured since the original source of anxiety was my fear of my mother seeing me in that state, perhaps confronting her about it will resolve the anxiety.
+And so I stumbled down the stairs and into the living room (where she was sitting) I barely made it to the couch where I fell on it. I was completely paralyzed. I remember hearing my mother freaking out and calling my name and asking whats wrong. I then remember seeing nothing. Not black, nore white, nothing. I saw nothingness. I was stuck in a moment where the divine and I were one. I saw nothing, heard nothing, and felt nothing. I then had a whiteout. This happened to me before on two previous occasions. I saw whiteness everywhere, whether my eyes are open or closed. Eventually I “came back”.. I saw my mother holding my limp body and crying. I told her I was alright. She said she thought I had died. The whiteness dissipated into many hues of different colours and again the eye murals that covered everything but quickly disappeared. It took me only a few minutes to recover from that state and reach a level very close to baseline and I still do not know how this is possible. With most psychedelics you climb, peak, then slowly recover baseline. Here, I spend 5 hours climbing, peaked at the 6th, and quickly returned to baseline in almost half an hour. I suspect it was less from the drug action and more from the psychospiritual reaction.
+As I came to I simply told my mother that I was on morning glory seeds, and it was not hard to explain. I was then able to open up emotionally with my mother. I had had problems connecting emotionally to my parents for the past few years. I loved them, but could not express it, and felt very guilty about that. I was now able to very openly talk to my mother (and later my father when he came home), and I managed to talk to them about many serious outstanding issues. There were two things my parents wanted me to do for my future that I was very afraid of and previously could not do. The day after the trip, I found myself easily starting with them without fear, and happy at the fact that I am finally doing something that I know will make my parents happy after all they did for me.
+I would say that I have never felt so much fear in my life as I had during that trip. I really did not enjoy it. And yet, at the end it was worth it. The only thing I regret is putting my mother in such a stressful position. But even that has shown me that she really cares for me. I had suicidal ideas before and now I would never kill myself and put her in that situation for real. I simply cannot cope with the guilt. Although I said I will never touch mushrooms again during the trip, I now think I might consider taking them in a few years time. However, they definitely deserve much more respect than they are given on the street.
+Exp Year: 2004
+ExpID: 37992
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 1, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms (39) : First Times (2), Families (41), Bad Trips (6), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

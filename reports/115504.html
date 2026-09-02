@@ -1,0 +1,276 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>三我PCPy - 埃罗伊德Exp - &quot;为团队取两个&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-me-pcpy.html'>← 3-Me-PCPy</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>三我PCPy - 埃罗伊德Exp - &quot;为团队取两个&quot;</h1>
+<div class='sub-title'>3-Me-PCPy - Erowid Exp - &#x27;Taking Two for the Team&#x27;</div>
+<div class='meta'>作者：Asante From Bluelight Collection Citation · 日期：Sep 8, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115504' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>1克托利西克利丁HCl (3-甲基罗利西克利丁,3-Me-PCPy) 找到自己的方式.
+我已经戒药了 (2019年最后一剂),
+我可能会用剩余的东西来更准确地确定水溶性.
+标签上写着3-Me-PCPy并且显示了这种结构,但IUPAC给出的名称是4-甲基乙基 (3-Me-PCE).
+然而,正如这里所报道的那样,最终的标识是3-甲基罗利西基丁.
+这是一种淡淡的白色粉末, 有点, 颜色和度有点像咖啡奶油,
+答案是苦的,正如预期的那样.
+我将其进一步稀释为5毫升, 其中1毫升=5毫克将通过直肠注射,
+在一个小时内,5毫克的直肠迅速出现,在3分钟内警觉,在10分钟内显著发展,
+开始对我来说很焦虑,但3-MeO-PCP也是如此.
+很快它就变成了一个充满梦想的状态,
+解离和刺激的高兴感很好地结合在一起.
+梦幻般的分离比刺激成分更重要.
+我在身体上&quot;不得不做点什么&quot;, 但我也很有梦想,
+低剂量可能会让人感觉性感,
+它的强度大概和一般的PCP类药物一样强大,
+我已经足够醉了,5毫克直肠对我来说是一个强大的++尽管我有相当大的分离剂耐受性2年前.
+这些水域比3-MeO-PCP的宁静还要荒凉.
+这些水域比3-MeO-PCP的宁静还要荒凉.
+这就像一种带有MDMA味道的乱, 欣喜感是反应性的,
+尽管我感觉很好, 毒品不再是我选择的道路.
+我倒掉了剩下的4毫升=20毫克.
+通常使用PCP作为自由基.
+我想知道这种托利西基林酸盐是否适合使用.
+不是说我吸烟, 但人们会想这样做.
+我用茶匙,葡萄酒杯和注射器把它溶解在3毫升的甘醇中.
+你能说&quot;为了科学&quot;吗? 当你在5毫克的药物中享受美好时光,
+为了科学家们!
+我预计糖/糖醇 (另一种蒸汽载体) 将会溶解更多的,
+让我们去找出.
+不,事情并没有那样发展.
+100mg的托利西克利丁液不能充分溶解到10ml的甘油中,因此在实际使用中很少使用.
+然而,500毫克完全溶解在2.5毫升水中,温度为26.5摄氏度 (这里是热的),使其具有显著的水性.
+剩下的药物被丢弃了, 除了第二个5毫克, 这次用2毫升水, 用于直肠,
+在这个实验中使用的3Me-PCPy的99%都被丢弃了.
+工作结束后,奖励!
+这里是5毫克更多!
+我必须首先说, 两剂药物都引起肠壁局部刺激, 轻微的,
+品尝溶液没有刺激作用,但这可能会影响打算使用电子烟或注射静脉注射的人.
+由于托利西基丁是一种三级氨基,因此,比HCl更少的基本性是酸性,也许它的某种酸性盐有助于这种效果.
+第二剂没有任何焦虑感, 眼睛闭着的梦幻的浪潮吞没了我, 我平静地漂浮,
+随着剂量增加,梦幻/麻醉效应会超过警觉/刺激效应.
+如果一个人采取更大胆的剂量和更多的重复,
+我相信今晚我会像一样睡觉, 除非刺激会在尾部占据主导地位.
+在我试过的非基因环胺中,
+这种感觉比3-MeO-PCP,3-MeO-PCE,4-MeO-PCP和3-MeO-PCMo更好.
+托利西基丁具有一种令人惊叹的麻醉效果,
+对于我来说,这无疑是最容易暴饮暴食的.
+它的 *和平*,然而
+我已经准备好了.
+这意味着越走越远
+我走了,越诱人和丰富的梦幻般的状态成为.
+我还能完全敏捷, 但绝对不会参与交通,
+如果我必须对其进行校准, 我会把5毫克托利西克利丁放在30毫克甲基胺和7.5毫克3-MeO-PCP的水平上.
+首先要消散焦虑,然后再深入, 避免刺激的效果将这些焦虑变成不愉快的东西.
+像MXE一样, 我书中的优点在于重复增量,
+我写了一封电子邮件给供应商, 告诉他们产品的标签错误, 缩写和结构是3-Me-PCPy,
+这种感觉与N-单基有所不同, 感觉就像一种循环氨基.
+我对兴奋剂不耐受, 一杯咖啡太多了,
+这是一种迪索的刺激, 而不是一种胺/胺/咖啡因.
+连我都觉得很好.
+头 + 刺激打字的冲动
+药物已经离开我的房子, 进入我的身体.
+我喜欢这种感觉,但我不喜欢&quot;被&quot;,所以这很棒,
+但我不会重复.
+我不会重复,因为如果我这样做了,
+我不会重复,因为如果我这样做了,
+黑洞是为了把你推到光速, 而不是旋转进去.
+尊重实质:我可以完全感觉到这将是坏如果
+一个剂量太高或太频繁.
+这是一件好事.
+我觉得我正在愉快地下降, 但这可能是一个相当愉快的长时间下降.
+这种激发性离散性至今还没有出现.
+我曾经有过甲胺问题, 正是因为这新的一种感觉很好, 我不想再服用,
+让我更加渴望不再使用分离剂.
+我再次感受到旋风中心的诱惑力.
+认为这是一个社会服务的前迪索奉献者.
+现在是第二剂后六小时.
+它大多结束了,但如果它停留愉快
+我想要屈服于它,如果令人讨厌
+我想做其他事情.
+让我们说它是1/5的,但我不会感到惊如果第五延迟到午夜,
+其他:
+发布时间:2021年9月8日
+3-Me-PCPy (951):一般情况 (1),制备/食谱 (30),第一次使用 (2),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Taking Two for the Team
+3-Me-PCPy
+by
+Asante
+From
+Bluelight Collection
+Citation:   Asante. &quot;Taking Two for the Team: An Experience with 3-Me-PCPy (exp115504)&quot;.
+Erowid.org
+. Sep 8, 2021. erowid.org/exp/115504
+DOSE:
+T+ 0:00
+5 mg
+rectal
+3-Me-PCPy
+(liquid)
+T+ 2:15
+5 mg
+rectal
+3-Me-PCPy
+(liquid)
+BODY WEIGHT:
+380 lb
+1 gram of Tolicyclidine HCl (3-methylrolicyclidine, 3-Me-PCPy) found its way my way.
+I&#x27;ve quit drugs (last dose 2019) so the plan is, one session, discard the rest. I may use the leftovers to more precisely establish water solubility.
+Whats immediately apparent is that the label says 3-Me-PCPy and shows this structure, but the IUPAC name given is that of 4-methyl-eticyclidine (3-Me-PCE). The definitive identity however, is 3-methylrolicyclidine, as reported here.
+Its an off white powder with a very slight odor, somewhat phenolic, color and consistency kinda like coffee creamer, 25mg dissolved readily, completely and clearly into 1ml lukewarm water. Solution is bitter, as expected.
+I diluted it further to 5ml, of this, 1ml=5mg will be rectally administered, the way I was used to take my dissociatives.
+One hour in, the 5mg rectal came up fast, alert within 3 minutes, significantly developed in 10,min, mostly there at 30 min after the plunge. It started out anxious for me, but so does 3-MeO-PCP. It soon gave way to a dreamy state with a stimmy, slightly restless undertone. The euphoria of the dissociation and stimulation go well together. The dreamy dissociation outweighs the stimulant component. I physically &quot;had to do something&quot; but I&#x27;m also way dreamy so, whoa, not too much :) My palms are warm and sweaty, ,especially in the beginning.
+A low dose of this could potentially be sexy - this might be just the ticket for sensual exploration. It&#x27;s about as potent, I think, as typical PCP type drugs, so probably 3-15!mg, like PCP and 3-MeO-PCP.
+I am sufficiently intoxicated, 5mg rectal is a strong ++ for me, despite that I had a considerable dissociatives tolerance 2 years back. Dreamy yet alert, disinhibited but euphoric, a tad restless, these are wilder waters than the 3-MeO-PCP lotus pond of tranquility.
+Dreamy yet alert, disinhibited but euphoric, a tad restless, these are wilder waters than the 3-MeO-PCP lotus pond of tranquility.
+Its like a disso with a hint of MDMA, the euphoria is reactive and genuine.
+I&#x27;m confident, good as I feel, drugs are no longer The Way for me. I poured the remaining 4ml = 20mg away.
+PCP is usually smoked as the freebase. Smoking is sooo 20th century, so I was wondering whether this Tolicyclidine HCl as such was suitable for vaping. Not that I vape, but, people will want to do that.
+1 weighed out 100mg 3-Me-PCPy and with teaspoon, wineglass and graduated syringe I managed toi dissolve it into 3ml of propylene glycol.
+Can you credibly say &quot;For Science&quot; when you have a great time on 5mg and pour 100mg down the sink? For science guys!
+I anticipate that glycerin/glycerol (another vaping carrier) will dissolve more of it, being more polar. Let&#x27;s go find that out.
+..And nope, it did not work out that way.
+100mg Tolicyclidine HCl did not satisfactorily dissolve into 10ml glycerin, so it is of little practical vaping use.
+500mg did however dissolve completely in 2.5ml water at 26.5&#x27;C (its&#x27; hot here) making it remarkably aq sol.
+The leftovers were discarded, except for a second 5mg, this time in 2ml water, for rectal use, now 2:15 hour after the first dose when I&#x27;m still comfortably on the plateau.
+99% of the 3-Me-PCPy used in this experiment went down the drain.
+After the work, the reward! Here&#x27;s to 5mg more!
+2h after the second dose and about 4:30h after the first dose, I must say first of all that both doses caused a bit of localized irritation of the bowel wall, a slight itch, and this at 0.25-0.5% concentration. Tasting the solution did not have irritant effects, but this may affect people intending to vape or inject IM. Since Tolicyclidine is a tertiary amine so, less basic than HCl is acidic, maybe the fact that its a somewhat acidic salt contributed to that effect.
+The second dose had NOTHING of the anxiety, it was this wave of eyes-closed dreaminess engulfing me, I peacefully floated, a lotus upon the tranquil pond, an effect shared with 8mg 3-MeO-PCP but, more pronounced. As the dose increases, the dreamy/anesthetic effects overcome the alert/stimulant ones. I take back my previous assumption, if one were to take bolder doses and more repetitions one could probably hole out fantastically on this one. At 5+5mg, I do believe I&#x27;ll sleep like a rose tonight unless stimulation takes over on the tail end.
+In terms of non-keto arylcyclohexylamines I tried, this one takes the cake.
+It feels better to me than 3-MeO-PCP, 3-MeO-PCE, 4-MeO-PCP and 3-MeO-PCMo. Tolicyclidine has that wonderful -anesthetic- feeling I appreciate so much in the Keto drugs like Methoxetamine. Of these, for me this one would no doubt be the most binge-able.
+Its *peaceful*, and yet
+I am alert. This promises that the further down the path
+I go, the more seductive and rich the dreamlike state becomes.
+At 5+5mg I an still fully agile, but definitely wouldn&#x27;t take part in traffic, not even on a bicycle. If I had to calibrate it, I would place 5mg Tolicyclidine on the level of 30mg Methoxetamine and 7.5mg 3-MeO-PCP.
+One would probably do good taking a small dose first to dissippate anxieties before going deeper, to prevent perhaps the stimulant effect whipping those up to something unpleasant.
+Like MXE, the virtue in my book is in repeat increments, where I equate 5mg Tolicyclidine with 30mg Methoxetamine.
+I wrote an email to the vendor to tell them about the mislabelling of their product, how the abbreviation and structure read 3-Me-PCPy, while the IUPAC chemical name given on the baggie is of 3-Me-PCE.
+I&#x27;d be surprised if this turned out to be the Eticyclidine analog, it has a different feel from the N-monoalkyls, it really feels like a cyclic amine.
+I&#x27;m stimulant intolerant, 1 cup of coffee is too much, but this 5+5mg is just sweet to me. Its the Disso kind of stimmy, not the phenethylamine/cathinone/caffeine kind. It vibes well even with me.
+Disso head + Stimmy typing urge
+I&#x27;ll see what develops more, the drug is out of my house and in the plateau in my body.
+I love the feeling but I&#x27;ve come to dislike &quot;being high&quot;, so it&#x27;s great stuff,
+but I won&#x27;t be repeating. I won&#x27;t repeat, because I&#x27;d slip right into the disso habit again if I did.
+I won&#x27;t repeat, because I&#x27;d slip right into the disso habit again if I did.
+Black holes are to slingshot you to lightspeed, not to spiral into.
+Respect the substance: I can totally feel this one WILL be bad if
+one doses too high or too often.
+It&#x27;s good stuff.
+3:30h after the booster, I feel I&#x27;m pleasantly descending, but that it might be quite a pleasant long descent ahead. Stims almost invariably have a comedown, this stimulating dissociative doesn&#x27;t have that so far.
+I used to have Methoxetamine issues, precisely because this new one feels so good, do I not want to take it again, because repeat use would lead me to ruin. So, using it and enjoying it strengthened my desire never to use dissociatives again. I felt the seductive pull of the center of the cyclone again. Consider this a community service by a former disso devotee.
+Its now six hours after the second dose. Its mostly over, but it lingers pleasantly if
+I want to surrender to it and annoyingly if
+I want to do something else. It&#x27;s let&#x27;s say 1/5 of what it was, but I wouldn&#x27;t be surprised if that fifth lingered till midnight, 4 hours more.
+Exp Year: 2021
+ExpID: 115504
+Gender: Male
+Age at time of experience: 48
+Published: Sep 8, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3-Me-PCPy (951) : General (1), Preparation / Recipes (30), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

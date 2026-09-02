@@ -1,0 +1,479 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>标志性地产 - 埃罗维德 - 迷宫</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dopr.html'>← DOPR</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>标志性地产 - 埃罗维德 - 迷宫</h1>
+<div class='sub-title'>DOPR - Erowid Exp - &#x27;Labyrinthine&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Jul 28, 2021 · 剂量：5 mg · <a href='https://erowid.org/experiences/exp.php?ID=115555' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>背景:我长大的房子,附近的各个地方.
+序言:这是另一个罕见的DOx化合物,
+这种新型病毒在历史上从未真正起飞,而且一直是罕见的.
+DOx化合物是2C-x家族的安非他胺版本,这意味着甲基被放置在乙烯链的α-碳上,给出了 (a) lpha-m) 甲基-phe-ne-t) 甲基-胺的名称.
+在2C-x化合物中,所有最基本的变异,即基本的碳链和变量4位的素,在某个时候进入市场并得到广泛使用.
+然而,在DOx变种中,某些变种从未被广泛销售或使用.
+例如,2C-E曾经是一个广泛可用的和受人尊敬的迷幻药,但它的DOx类似物,DOET,几乎从来没有遇到过舒尔金的个人领域之外.
+它是2C-P的安非他命版本, 虽然还不清楚,
+我从来没有发现, 除了我遇到的这批.
+这为什么呢?
+首先,2C-P本身就是一种超标药物, 持续时间极长,
+一般来说,DOx化合物被认为是它们各自的2C-x类似物更极端的版本,相对于它们的姐妹化合物,它们的效力和持续时间大大增加.
+因此,DOPr的效果比2C-P更为极端, 持续时间更长, 效果更强烈.
+这也许有助于制造和消费一些犹.
+我一直想尝试它, 既是为了补充我的DOx体验, 也是因为它本身的新奇性.
+我很感激我有这个机会!
+所以是DOPr一个更极端的版本的2C-P?
+我个人认为,在我消费的剂量,不是特别.
+虽然整体效果较少 (相对于我认为2C-P的中等剂量,大约8毫克).
+虽然它确实更强大,
+虽然经验的尖性大多是温和和稀释被拉出了这么长时间.
+接下来是一份详细的报告.
+在溶液中注射.
+我预料到DOx化合物会带来极度苦味, 但它没有出现,
+我用水填满了空试管, 喝下了残留物.
+刺在我的脊椎上升.
+在给药前 (晚上10点), 我早上7点起床, 一整天开车和在农场工作.
+这是一个艰苦的一天, 但休息不会很快.
+我感觉到第一音, 只是在我的肌肉和骨深处的一点刺激, 一种轻微的电在我的脊椎上传到我的大脑.
+它正在逐渐,慢慢,微妙地,但肯定地建立起来.
+我很难看出这种强度,
+恶心和典型的迷幻不适现在变得突出.
+目前还没有视觉效果.
+肌肉紧张和头痛开始.
+开始把视觉视为表面上微妙的浮雕, 模糊而抽象,
+感觉就像一场风暴正在稳步地向我倾斜,
+我一直坐在客厅里看骑士中世纪战争.
+我试着看&quot;午夜福音&quot;节目,
+我不喜欢采访式播客, 这让我想起某个大学派对,
+我决定上楼在黑暗中躺在床上.
+虽然现在是深夜,
+我现在想和别人交往, 我有一种社会冲动, 这种冲动在迷幻药中常常缺失.
+我觉得自己更有口才,更有说服力, 我觉得我的大脑更流,更有效地运行,
+或许这只是一种错觉.
+我想要写作和谈论, 写作和谈论, 但除了我摄入的罕见研究化学物质,
+这种刺激感觉很温暖,好像烤箱的热量把我的骨的能量烧掉了,
+恶心的疼痛变得更加明显.
+它承受着越来越多的, 仍然是一个稳定的渐进的进展, 一个不断增长的压力与柔和的电流的扭曲裂.
+我呼吸有点苦, 感到恶心, 几乎要吐.
+我感到非常.
+身体变得弱, 皮肤有点麻木,
+虽然我的动作很艰苦,但却充满活力, 仿佛我刚从一个不安的睡眠中醒来,
+视觉是微妙而难以捉摸的, 同心重叠的虹浮雕形式从笔记本电脑屏幕上的空白点向我的眼睛道.
+我一直在无目的地阅读看起来有趣的东西, 并且在社交媒体上分享,
+我觉得我不能花费精力去处理这些信息,
+我只是不太在乎参与任何事情.
+我感觉像一个孩子在学校卡在一个美丽的一天.
+我只是不太在乎参与任何事情.
+我感觉像一个孩子在学校卡在一个美丽的一天.
+我吸了一点大麻来减轻压力.
+我感觉越来越恶心, 得很大, 视觉增强,
+这是一种有机的复杂, 奇怪地没有任何活力.
+没有忙或沉沦的感觉, 也没有达到顶峰的感觉, 我只是慢慢地爬上一座浅山,
+我抽了更多的烟,走遍了房子,然后坐在门廊上.
+走路时, 感觉有些摇摇欲, 不平衡,
+我发出能量, 感觉就好像它在我周围的空气中结晶.
+尽管我慢慢爬上, 我觉得我终于达到了某个顶峰,
+视觉表现出全力以赴, 一个迷宫般的线条, 跳动, 扭曲, 波动, 穿过我的视野,
+它们的图案让人想起脑珊瑚,
+我脑海中充满能量, 像火焰一样闪, 闪, 闪, 在黑暗中闪闪发光.
+每一个都像电一样在我的脊椎上流,
+世界仍在我的周围, 一个稳定的冷雨鼓在黑暗的夜晚窗户.
+我用眼罩着脸, 躺下看看会有什么世界让我沉浸在里面,
+无限的重复和自我复制, 几乎是像素化的质量, 仿佛这些令人难以置信的复杂和详细的信息只能通过微小的方块传递,
+它们在不断的变化中, 不像我在飞过它们,
+我只是在经历它, 就像从门廊上观看雷暴一样.
+我只是在经历它, 就像从门廊上观看雷暴一样.
+我开眼睛,看到有色光线飞在我的视线上.
+在黑暗和空白的地方, 分裂的图案持续,
+它们也表现出并以阶段性模式存在, 逐渐形成,
+巨大的,紧密的,扭曲的迷宫充满了这些开花的碎形花园.
+我还没有兴趣将我的想法投射到屏幕上的信息和外界,
+我内心的声音很大,很清楚,很清楚.
+我内心的声音很大,很清楚,很清楚.
+我开始思考我的工作--我不想太详细,
+我最终只是一个很小的组成部分, 涵盖农场工作的广范围, 但我还是个组成部分,
+作为这个宏伟的生态系统的一部分, 充满了各种人, 充满了各种利基, 都是为了共同的目标,
+电工,工,建筑工人,水管工,喷农药工,行政人员,机械工,
+想到这一点时, 我心中充满温暖和快乐,
+我决定在网上做一些快速的搜索, 了解一些我访问的种植者,了解他们如何经营农场,
+让人感兴趣,启发人心,并增强了在这个宏伟的计划中扮演一个角色的喜悦,
+整体而言,
+尽管我很恶心,但我很饿,我加热了一些剩余的意大利面,并没有问题地吃掉它.
+我对食物的看法没有明显的变化,
+似乎已经在一个长期稳定的平原.
+没有更多的勃发展的强度.
+我感觉到一个令人愉快的声,
+虽然这两种情况都在可控范围内, 并没有太大影响体验.
+感官效应是存在的, 但不是特别侵入性的.
+我刚刚在网上跳舞,
+我主要阅读美国的骚乱历史, 20世纪城市起义,民权运动,
+许多迷幻药使我陷入对知识的贪追求中, 陷入阅读洞中,
+而不是由某种沸的化学动力驱动.
+如果我愿意,我可以把自己拉开,从事其他任务.
+我躲开黑暗的房间, 只有屏幕照亮,
+卡尼·韦斯特的&quot;我的美丽黑暗扭曲幻想&quot;从我的卧室入黑暗,
+我的猫在另一个房间的床上睡觉 - - 一个巨大的,非常的灰色猫.
+我着他,看着他昏昏欲睡地承认我,
+我对这个温柔的生物和他温柔的呼吸充满了爱和感情.
+他正在享受他的夜晚, 在一个大的柔软的床上,
+在黑暗中和我可爱的猫一起, 听着遥远的音乐,
+感官可以从黑暗中获取他们想要的东西.
+这些效应像地震一样崩, 我周围的世界越来越快地振动,
+暗色物体的纹理形成了深层的镜浮雕,每一面都像指纹那样有条纹迷宫图案,
+它们以鲜的红色,黄色色和烈焰红色为饰.
+我看着走廊的蓝色光,
+墙壁上形成了巨大的玻璃绿色多边形, 黄色和生的红色线条的格子把它们整齐地分成部分.
+它们在墙壁上波动,脉动, 呈现出走廊在呼吸,脉动,延伸和收缩的感觉.
+它们的频率以稳定的速度上升和下降, 一种精心计算的感觉强度正弦波.
+我仍然很恶心.
+这种经验同时有很多形式, 有些甚至看起来矛盾.
+尽管它们非常强烈, 它们在被允许入的环境中会产生很大的影响, 但即便如此,
+我不觉得有什么动力或冲动去做或知道任何事情,
+没有任何活动或刺激感觉特别吸引人,
+我对此并不生气,
+我所有的感知和感觉都具有短暂的质量, 我确信它们会过去,
+在窗户上的雨.
+这是一个伟大的状态,
+雨已经停了一会儿,
+我决定吸点大麻,然后出去散步.
+我在一个充满绿色的郊区,
+我很担心这么晚出门.
+很多我同龄的朋友都曾经被当地警方拦截, 只是因为晚上出门,
+我往往会被怀疑,所以我特别谨慎.
+任何人都不想在迷幻药下与警察交谈.
+我也倾向于焦虑和偏执.
+我在走路时偷偷地走, 我试图对周围环境保持敏的意识,
+雨水的花朵从茂密的春晚叶片, 这将在玻璃灯闪闪发光的房子和花园在我周围.
+我在脑海中练习了如果被拦住的话会说些什么 - - 假设变得如此生动,我陷入了一种狂热的偏执幻想中 - - 我会说我要出去散步,因为我睡不着 - - 我睡不着,因为我最近停止了处方的焦虑药物,
+我试着想到所有的事情,
+我停在溪边的一座桥上, 我和哥哥小时候常在那儿玩,
+我在这里学会了爱动物, 最终学会了整个生物学,
+十多年后, 我在那里经历了第一次强烈的迷幻体验,
+这也将决定我一生的轨迹,
+河流在我下面, 捕捉月亮的光和远方房子的灯光, 所有居住者都安静地睡着了.
+波纹和反射本身也波动, 呈现出彩虹色和呼吸三维图案.
+天空发出淡的紫色, 光污染散布在雾和云层中,
+这些轮会重复,碎片化,在边缘反射,变成复杂分支的雪花形状,
+这让我回想起我第一次接触时的树木, 它们的形象非常强烈,令人难以置信, 它们的行为也类似,
+我感官处于高度警状态, 不断等待一些不可避免的前灯的光,
+我期待会产生感觉 - - 我周围的灯光似乎闪,变得越来越强烈,
+遥远的地方听到无休止的声,
+甚至这些模糊而静止的感觉似乎在这种药物的电中被放大.
+我走在城里,太阳开始照亮天空,
+人们开始走出藏身之地,
+我完全避免了他们.
+我从来没有在这样一个时刻到过这座城市的中心,
+我回忆起我在童年和青春期在这里荡的时光, 然后以我一直保持着的紧张和紧张的步伐回家.
+我在家里休息了一会儿, 吃了一点小吃,
+毒品仍然存在, 依然强烈, 依然存在,
+在水的声和淋浴的阴暗中, 它继续在温和的声中伸展肌肉,
+我真的不知道该怎么办, 这就像一个客人留得太久,
+唯一的问题是它没有特定的目的地, 没有去处, 没有去处.
+唯一的问题是它没有特定的目的地, 没有去处, 没有去处.
+我只想安顿下来,尽我所能让自己舒服, 继续我的生活.
+我已经饿了.
+我现在吃完整的饭,早上7点.
+我觉得过度刺激,我很紧张,我已经累了,
+这是一个令人疲的矛盾.
+我很想在这里结束这一切, 睡一会儿,
+躺在舒适的床上, 在黎明的黑暗中,
+我又一次陷入了听和阅读互联网上的利基主题,
+我不太清楚为什么, 但它似乎特别有趣.
+想想他们来自哪里,
+共和国之战歌中的&quot;他为人类而死,让我们为人类而死&quot;这句话在我的脑海中.
+我很无聊,决定看一部我已经在看片名单上的一部电影, 一部叫做&quot;天使的蛋&quot;的OVA.
+在电影之前, 我发现自己极度性兴奋,
+坦率地说,性对我来说是个奇怪的东西, 过度分析,
+这一次虽然它偷偷地进入, 但它是存在的和中立的,
+随着时间的推移,这种感觉消失了,
+如果我保持一个特别舒适的姿势,
+这种药物只能和我在一起, 轻轻地引导我进入不同的快乐和感觉状态.
+这部电影已经结束了 - - 这是一部奇怪的作品,
+视觉效果在背景中发挥作用,
+这真是一个美好的体验.
+我确实发现自己有时会沉睡, 不是睡觉, 而只是处于一种触觉状态,
+这部电影充满了突然响起的声音, 在我的头骨中产生回声,
+我觉得我正在下降, 经历正在退缩到一个更深的中立.
+或许是因为这个峰值已经拖了这么久, 我已经习惯了,
+我试图躺下, 但当然我不能感到休息, 因为我的神经作响,
+在日出之前, 视觉效果有所减弱.
+我不知道该怎么办我的身体-所有迹象都告诉我睡觉,但我不能.
+我觉得我睡了一会儿,
+我只知道我躺下闭上眼睛,
+强烈的刺激已经消退, 现在剩下的只是四肢的和震, 心脏仍然快速跳动, 疼痛和疲劳,
+我离开家去火车站, 拜访住在郊区的朋友.
+他是我最亲密最亲爱的朋友之一,
+他是一名同志的精神探险家,
+由于疫情, 去年夏天的几次短暂见面之后,
+我非常兴奋去他的房子吸很多大麻和玩旧的游戏立方体游戏,
+我觉得有点不舒服, 模糊而模糊的视觉现象现在在表面上微弱地跳舞, 迷宫般的形状膨胀成模糊而无形,
+我试图避免其他人直到我必须登上火车.
+我感到困惑, 列车在轨道上的声音响起,
+在外面仍然很冷, 阴云和小雨.
+司机显然没有注意到我上车,
+总是很好.
+到了我的朋友家.
+虽然我的互动中仍然有一些迷幻的东西, 就像我自己的声音在我的脑海里大声而清晰地演奏一样,
+但在这里是有趣和舒适的, 有一个如此熟悉的人谁反过来是如此熟悉与我互动,
+我们抽了几碗大麻,玩&quot;超级战斗兄弟&quot;.
+混战的
+他的女朋友为我们做冰披萨,
+我发现自己现在特别擅长近战, 仿佛我的灵巧和精细运动技巧有了很大的提高 - -
+我们吸烟更多,转向&quot;马里奥派对6&quot;,
+我不擅长这个, 但它是多彩的, 轻松和有趣的.
+我有太多的能量去出去, 只是和一个亲爱的朋友聊天,
+我大脑中有一种激烈的刺激,
+我大脑中有一种激烈的刺激,
+我接受它带我走过的道路,说出那些似乎恰到好处的词语,
+一切都是真正的理想.
+它们在我出发前向我展示了它们在Minecraft服务器上所构建的东西, 因为它们必须早早上床.
+我很高兴与他们交流,
+药物仍然存在于我的体内, 作为一种深度刺激,
+我走到唐金甜甜圈去吃点东西.
+道路很宽,人人都在走得很快, 没有人行道,
+我思考郊区如何发展, 如何在主要道路和火车线路上出现如此多的大型企业,
+我很想知道发展的速度会有多快, 如果这个地方能发展到可以被认为是真正的&quot;城市&quot;的区域, 如果这只是人类生活空间生命周期中的一个阶段.
+走路很可怕 - - 没有人行道意味着我必须时刻注意车辆以每小时50英里的速度行驶,
+很遗憾这个地方不是为人们和他们可怜的两条腿而设计的.
+我觉得自己有点昏迷,有点失控,
+我拿起我的甜甜圈和饼走回车站, 再次躲避汽车.
+我必须等待一个小时的下一列火车.
+我仍然感到兴奋, 强烈警觉.
+我觉得我的大脑已经厌倦了处理信息的时间.
+我已经醒了近40个小时了.
+我回家吃了更多的晚餐, 仍然觉得这只是刺激.
+视觉已经消失了, 大多数迷幻思维已经消失了,
+我认为我们应该回到基线.
+我很快就入睡了, 虽然时间不够长,
+我地开车回到城市的房子, 再睡一会.
+我觉得完全正常当我再次醒来.
+结论:DOPr是一个药物马拉松.
+经历的最容易被注意到的方面是持续时间.
+这是一段漫长的,惊人的漫长.
+其他使用者可以期待他们的体验比我的体验更长.
+很长一段时间以后,人们就习惯了,适应了,几乎没有注意到它存在.
+几乎可以说它是停滞不前和被遗忘的.
+但很难在如此长的时间内保持新的体验.
+经历的总体特点如下:
+身体效应,适度刺激 - - 持续的精神声与可控程度的身体刺激,
+这种温和的刺激或许是4链DOxs的特性 - - DOM在我内心引起了宁静的幸福感,
+如果我能遇到它,
+在整个体验中持续存在的恶心感中有一些身体负荷,
+在吐过程中,
+认知效应是相当标准的, 思想流动很好彼此, 形成很容易形成的结论-
+事实上,大多数思想流动似乎是有机的,自然的步伐,
+在认知上,DOPr是非常中性的药物,
+虽然我不会把整个经历描述为特别高兴或启发性的,
+感官效应是显著的,有趣的, 但最终也很中性的性质和强度, 至少在这种剂量.
+图像主要是紧紧绕的和曲的螺旋形状,最终似乎产生了迷宫般的图案 - - 这些图案会作为其他中性质的图案的纹理填充,有时是简单的二维覆盖,有时是望远镜和深度阴影的浮雕.
+不同的螺旋和重复的形也存在,其中大部分具有高频振动的同心重复的质量.
+它们都充满了闪闪发光的色彩, 带有条纹和斑点, 主要是鲜的石灰和橄绿色, 亮亮的红绿色, 黄色, 深深的海蓝色, 有时是淡淡的色.
+这些颜色不是生动的或淡的,
+我发现DOPR是一个有趣的新奇事物,
+这会有什么感觉?
+我已经服用了其他可谓马拉松持续时间的迷幻药物,
+我有最长的迷幻体验.
+我觉得它不是特别令人兴奋,
+我认为经验中立性是最好的情况, 在那段时间里,
+这不是强迫我去任何地方,
+也许这种强力可以在更高的剂量中找到.
+视觉效果同样是事实上的, 存在但没有强烈或侵入性,
+我不认为这是我计划再来一次的经历,
+时间表: 115555
+发布时间:2021年7月28日
+DOPR (691):一般性 (1),第一次 (2),性讨论 (14),宿醉 / 几天后 (46),各种 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+Labyrinthine
+DOPR
+by
+nervewing
+Citation:   nervewing. &quot;Labyrinthine: An Experience with DOPR (exp115555)&quot;.
+Erowid.org
+. Jul 28, 2021. erowid.org/exp/115555
+DOSE:
+5 mg
+oral
+DOPR
+(liquid)
+repeated
+smoked
+Cannabis
+(plant material)
+BODY WEIGHT:
+130 lb
+Age: 25
+Weight: 130 lbs
+Dosage: 5 mg oral in solution
+Setting: The house where I grew up, various places around the neighborhood.
+Preface: This is another rare DOx compound that I have been blessed to encounter. Originally reported in PiHKAL by Alexander Shulgin, unlike its compatriots such as DOM or DOC, it never really took off and has remained a rarity throughout history. DOx compounds are the amphetamine versions of the 2C-x family, meaning a methyl group is placed on the alpha-carbon of the ethylamine chain, giving the name, (a)lpha-(m)ethyl-(phe)ne(t)hyl(amine). With 2C-x compounds, all of the most basic variations, meaning basic carbon chains and halogens on the variable 4-position, hit the market at some point and saw widespread use. With the DOx variants however, certain variations never saw widespread sale or use. For example, 2C-E was once a widely available and well regarded psychedelic, but its DOx analogue, DOET, has almost never been encountered beyond Shulgin’s personal sphere. DOPr is among those too- it is the amphetamine version of 2C-P, which, while still obscure, saw widespread availability once upon a time. DOPr meanwhile, never caught on, save for this batch that I have encountered. Why is this? For one, 2C-P itself is a hyperbolic drug, with an extremely long duration, high potency, vicious bodyload, and extremely intense effects. In general, DOx compounds are considered more extreme versions of their respective 2C-x analogues, seeing a massive increase in potency and duration relative to their sister compounds. So it should follow that DOPr is even more extreme in its effects than 2C-P, somehow having an even longer duration and more intensive effects. This perhaps has contributed to some hesitancy in producing and consuming it. Still, I was intrigued greatly by the existence of this compound and have always wanted to try it, both to round out my palate of DOx experiences and because of the inherent novelty. I am grateful that I got the opportunity!
+So is DOPr a more extreme version of 2C-P? In my personal opinion, at the dose which I consumed it, not particularly. It has a similarly long duration, though the overall effects are less intensive (relative to what I would consider a mid-range dose of 2C-P, about 8 mg). It is certainly more potent, but that’s about it. I found it to be a very neutral and gentle trip, with an intensive edge at points, though the acuteness of the experience was mostly tempered and diluted by being drawn out over such a long time. A detailed report follows.
+T0:00- Dosed in a solution. I brace for the extreme bitter flavor carried by DOx compounds but it wasn’t there, probably on account of being pretty dilute. I fill the empty test tube with water and drink down the residue. A tingle runs up my spine. Prior to dosing (at 10:00 PM) I had already been awake since 7:00 AM, driving and working on farms all day. It has been an exhausting day but rest is not coming any time soon.
+T0:30- I feel the first notes, just a bit of stimulation deep in my muscles and bones, a slight electric buzz traveling up my spine to my brain.
+T1:30- It is building gradually, slowly, subtly, but surely. It is hard for me to discern the intensity, it grows at such an elusive pace. Nausea and typical psychedelic discomfort become prominent now. There are no visual effects to note yet.
+T2:00- Muscle tension and a headache setting in. Begin to notice visuals as a subtle relief on surfaces, indistinct and abstract but certain and definite. It feels like a storm is steadily bearing down on me, kissing me with a cold gentle downdraft. I have been sitting in the living room watching Chivalry Medieval Warfare. I try to watch the show Midnight Gospel- I love the animation and worlds weaved in it, I love the concept, the dialogue is irritating. I am not a big fan of interview style podcasts and this just reminds me of some college party where I watch spun hippies on research chemicals blow each other’s minds. As the irritation and discomfort grow I decide to go upstairs to splay out on my bed in the dark.
+T2:15- Though it is late at night I find people to talk to online. I want to be around people right now, I have a glowing social push that is often absent in psychedelics. I feel more articulate and eloquent, my brain seems to me moving more fluidly and effectively, analyzing each bit of text it encounters, efficiently processing them and transforming them into my own well-crafted response. Or so it seems, perhaps this is just a delusion. I want to write and talk and write and talk, but I have little interesting to write or talk about beyond the rare research chemical I have ingested. The stimulation feels warm and baked in, like the great heat of an oven has cooked the energy out of my bones and their radiant steam soaks into my muscles. Pangs of nausea become more noticeable.
+T2:46- It bears down more and more, still a steady gradual progression, a constant growing pressure crackling with writhing tendrils of gentle electricity. There is a bitterness in my breath, I feel so nauseous I almost throw up. I feel very burpy.
+My body feels fainter, my skin a bit numb to the touch as a stimulating heat glows within me. My movements feel labored yet energetic, it is a sluggishness like I have just woken from a restless sleep, but shocked with an electric stimulation that imbues it with a seemingly impossible drive and energy.
+The visuals are subtle and elusive, concentric overlapping ç forms in neon relief whispering their way into my eyes from the blank spots on my laptop screen. I have been aimlessly reading stuff that looks interesting that is shared to social media, a favorite pastime of mine, but it grows dull and the words and stories begin to grow more confusing and incomprehensible. I feel like I cannot bother to expend the energy to process this information, there is no point, it will likely bring me no pleasure or purpose, it just doesn’t feel worth it.  I simply don’t care enough to engage in anything. I feel like a kid stuck in school on a beautiful day.
+I simply don’t care enough to engage in anything. I feel like a kid stuck in school on a beautiful day.
+I smoke a bit of cannabis to take the edge off.
+T3:00- Everything slowly but surely increases in intensity, feeling more and more nauseous, shaking a lot, visuals build in intensity, though they are still confined to my periphery. Deepening textures branching and wriggling and folding back upon themselves, an organic recursion oddly devoid of any liveliness.
+There is no rush or sense of plunging, and no discernible sense of achieving a peak, I am just slowly cresting a shallow hill, yet one that is impossibly vast, built of a constant tense entwining motion beneath its surface. I smoke a bit more and walk around the house and go to sit on the porch. Walking feels wobbly and off-balance, especially with all of my muscles so tight and wound up. I am radiating energy and it feels as though it crystallizes in the air around me.
+T3:33- Everything is fully forming and realizing myself- despite the slow ascent I feel like I have finally crested something, that I have peaked over a shallow horizon to view the sudden glory of the sun (figuratively of course, it is currently 1:30 in the morning).
+Visuals manifest full force, a labyrinthine tangle of lines pulsing and writhing and rippling their way across my field of vision, densely occupying every empty space, their borders flashing and pulsing with vibrant green and pink. It is a pattern reminiscent of a brain coral, but denser, sharper. There are buzzes and rushes of energy that explode into tracers in my head, projecting into my vision, like fizzling and crackling fireworks, flashes of color that sputter and cascade and sparkle in the dark. Each runs up my spine like an electric chill and releases before eyes.
+The world is still around me, a steady chilly rain drums on the windows in the dark night. I wrap my face with a blindfold and lie back to see what world that would immerse me in- I am greeted by a dazzling array of stepped fractal fields, colors flashing through them in methodical patterns. Infinite recursions and self replications, all with an almost pixelated quality, as though this incredibly complex and detailed information can only be transmitted via tiny squares, pulsing with gold and bright green. They zoom and swirl and remain in perpetual motion, not as though I am flying through them but like they are flying into me. Little of this trip seems forceful, it does not feel like the drug is taking me anywhere, I am simply experiencing it as it passes like watching a thunderstorm from a porch.
+Little of this trip seems forceful, it does not feel like the drug is taking me anywhere, I am simply experiencing it as it passes like watching a thunderstorm from a porch.
+I open my eyes and tendrils of colored light dash across my vision. Fractalized patterns continue in the dark and blank places, subtle but present, and at no point overwhelming or intrusive. They too manifest and exist in stepped patterns, forming bit by bit, turning corners and angles bit by bit, the same pixelated quality. The great, tight, writhing labyrinths act as infill between these blossoming fractal gardens.
+I have still lost all interest in projecting my thoughts onto the information contained in my screen and onto the outside world, I turn into myself, lying in the dark and just thinking and ruminating. My internal voice is loud, clear and enunciated.
+My internal voice is loud, clear and enunciated.
+I begin thinking about my job- without getting into too much detail, I work with agriculture, identifying pests in crop fields. I am ultimately a very minor component of the vast swath of operations that encompass farm work, but I am a component nonetheless- poking into each farm in my civilian vehicle, occasionally raising scrutiny from farm workers who weren’t expecting me, briefly doing my bit and then moving on to the next, like a pollinating insect dancing from flower to flower. There is such a sense of fulfillment and satisfaction from being a part of this grand ecosystem of various people filling various niches all towards the common goal of producing food that all of us can enjoy. From electricians, pump technicians, construction workers, plumbers, pesticide sprayers, administrative staff, mechanics, and of course the armies of migrant workers who shoulder the immense burden of harvesting and packing, I am just one more little being interacting and playing my role. It fills me with warmth and happiness to think about this, it feels nice to have a job where I am directly tangibly contributing to something that serves human life.
+I decide to so some cursory searching online to learn more about some of the growers I visit, learn about how they operate their farms, the family history and lineage in each location, the myriad processes involved in the incredibly complex world of high-yield modern industrial farming. It is fascinating, enlightening, and reinforces the joy of playing a role, no matter how small, in this grand machination. There is a certain warm euphoria in this experience overall.
+T4:20- Despite being nauseous I am very hungry, I heat up some leftover pasta and eat it with no problem. There is no noticeable change to my perception of the food, though I tend to rarely eat when I am on psychedelics.
+T4:40- Things seem to have leveled out at a long steady plateau. There is no more burgeoning intensity. There is a pleasant buzz through my body, with warm shocks traveling up my spine. This is still coupled with the expected body load of tightly wound muscle tension and nausea, though both are within manageable limits and don’t interfere with the experience too much. The sensory effects are present but not particularly intrusive.
+T5:30- I have just been dancing around on the internet reading various holes about various topics as they cross my path. I am reading largely about a history of unrest in America, about urban uprisings in the 20th century, about the Civil Rights movement, and later I read a lot about the LA riots specifically. With many psychedelics I find myself engaged in ravenous quests for knowledge, falling into reading holes with eyes that could pierce concrete and a razor-sharp acumen and drive, devouring all knowledge put before me like a starved dog, no matter how trivial. This is not the case with DOPr, where the interest feels purely self-driven, rather than being fueled by some seething chemical dynamo. I can pull myself away and engage in some other task if I so desire.
+I duck away from my dark room lit only by my screens to go cuddle with my cat in another room, this one completely dark. Kanye West’s “My Beautiful Dark Twisted Fantasy” blares into the darkness from my bedroom, rippling soothing vocal samples down the walls. My cat is sleeping on the bed in another room- an enormous and very vocal grey tabby. I snuggle up with him, I watch him drowsily acknowledge me before drifting back off to sleep. I am filled with so much love and affection for this sweet soft creature and his gentle breaths. He is enjoying his night to the fullest, on a big soft bed all to himself, dreaming of cat memories in the pre-dawn darkness.
+Here in the dark with my sweet cat, serenaded by distant music as a faint glow from another room, the effects really come out to their fullest. It is an environment ripe for the senses to take hold and deliver what they will from the murky dark.
+These effects come crashing down like an earthquake, the world around me vibrating more and more rapidly until it doubles, blurs on itself, collapses and reforms, its steadily climbing pulse tears through me. The textures of objects in the dark form into deep prismatic reliefs with stepped faces, each face traced with candystripe labyrinthine patterns like fingerprints, themselves growing and receding into stepped relief. Predominantly olive green and cyan pulse through these textures, adorned with bright spots of crimson, yellow ochre, and fiery magenta. I look down the hallway, illuminated by the blue-glow of my laptop screen in the other room. Great glassy green polygons form on the walls, a latticework of yellow and rusty red lines dividing them neatly into sections. They ripple and pulse and travel down the walls, giving the impression that the hallway is breathing, pulsing, extending and receding in peristaltic motion. Everything comes in ripples and waves of vibration, their frequency rising and falling at a steady rate, a perfectly calculated sine wave of sensory intensity. I am still pretty nauseous.
+T6:00- The experience takes so many forms at once- some even seeming contradictory. It is remarkably gentle despite also being quite intense, the effects becoming heavy in environments where they are allowed to creep in, but even then I have to coax them to blossom, kindly invite them into my space. I don’t feel much drive or push to do or know anything, I am content merely existing here and now with this rare chemical pulsing through my veins. There is also almost an anhedonia in how no activity or stimulus feels particularly appealing, I just simply don’t care. I am not upset about it, it’s neutral and matter of fact. All of my perceptions and feelings have an ephemeral quality, where I am assured they will pass, and then a new feeling will drift in, and it too will pass into the nighttime wind. Rain hammers on the window. It is a great state in which to simply think.
+T6:40- The rain has paused for a bit, it is right before sunrise. I decide to smoke a bit more cannabis and set out for a walk. I am in the neighborhood where I grew up, an idyllic suburb with plentiful greenery. Being an idyllic suburb, I am extremely wary of being out that late. Plenty of my friends my age had stories of being stopped by local police with nothing to do, just for being out late at night, as though there was an unofficial curfew for anyone who looked too young or suspicious. I tend to come across as suspicious so I was particularly wary. Talking to police is not an activity anyone wants to do while tripping on psychedelics. I also tend towards anxiety and paranoia. I was furtive while I walked, I tried to be acutely aware of my surroundings, I was consumed by nervous energy. It was beautiful outside however, great gusts blew through the treetops, sending blossoms of rainwater off the lush late-spring foliage which would glisten in the glassy lights of houses and gardens around me. I rehearsed lines in my head for what I would say if was stopped- the hypotheticals became so vivid, I became enraptured in a fevered paranoid imagination- I would say I was going for a walk because I couldn’t sleep- I Couldn’t sleep because I had recently stopped prescribed anxiety medications, to explain why I may come across as jumpy and nervous. I tried to think of everything, it was almost fun at a point.
+I stopped on a bridge by the creek where my brother and I would play when we were kids, where we would turn over rocks for crayfish and insect nymphs, where we would catch minnows in our little nets and chase frogs and snakes. It was where I learned to love animals and ultimately biology as a whole, it would set the trajectory for my whole life. Over a decade later it would be where I had my first intense psychedelic experience, on psilocybin mushrooms while I was still in high school. This too would set the trajectory for my life, in a similar manner to the time I spent here as a child.
+The riffles of the creek babbled below me, catching the light of the moon and the lights keeping watch over distant houses, all of their occupants peacefully asleep. The ripples and reflections themselves rippled, catching a iridescence and breathing 3-dimensional patterns. The sky glowed a dull purple with light pollution distributed throughout mist and stratus clouds, the trees cast grand silhouettes against it. These silhouettes would repeat, fractalize, mirror themselves at the edges turning to intricately branched snowflake-like forms with perpetually shimmering and undulating forms at their edges. It hearkened me back to watching these same trees during my first experience with mushrooms, intensely visual and incredibly overwhelming, where the trees behaved similarly, though this time it was more frenetic, more bound to a deep high-frequency vibration in the core of their being, and this time the world of psychedelics had been well traveled.
+My senses are on high alert, perpetually expecting some inevitable glare of headlights, the hum of a car engine, someone to break the peace. My anticipation generates sensations- the lights in my periphery appear to flash and grow in intensity as if in motion, though they stop when I fix my attention. There is a perpetual rumble in the distance, seemingly growing in volume like an approaching object, though this appears to just be built from the ambient sounds of the wind and the water. Even these dim and still sensations seem to amplify in the electric hum of this drug.
+I walk around town, the sun begins to light the sky a pale somnolescent blue, a color whose vibrancy surrenders to the lingering clouds and cold wind. People are beginning to come out of hiding to go for early morning jogs or to walk their dogs. I acutely avoid them. I have never been in the heart of the town at a time like this, when it is completely quiet and still. I take in this unique scene in such a familiar place, reminisce of all the time spent loitering here in my childhood and teenage years, then set out for home with the same hurried and nervous gait I had maintained this whole time.
+T8:00- After relaxing back at home for a bit and eating a light snack I shower off. The drug is still here, still intense, still present, it just lingers and looms. In the cacophony of the falling water and the confined dimness of the shower it continues to flex its muscles in a gentle buzz, steadily and perpetually. I don&#x27;t really know what to do with it, it’s like a guest overstaying their welcome, the one who is still at the party at sunrise when I&#x27;m just trying to sleep. I am physically quite tired but mentally my mind is running and buzzing- the only issue is it has no particular destination to run to, nowhere to go and nowhere to be.
+I am physically quite tired but mentally my mind is running and buzzing- the only issue is it has no particular destination to run to, nowhere to go and nowhere to be.
+I&#x27;m just going to settle in and get comfortable to the best of my ability and just go about my life. I am pretty hungry.
+T9:03- I eat a full meal now, here at 7 am. I feel overly stimulated, I am tense, I am tired from being awake for about 25 hours straight now but I am still quite mentally alert. It’s an exhausting contradiction. I would love to just call it quits here and take a nice long nap, but I am invested in riding this experience out to the bitter end. Lying very still on my comfortable bed brings some respite, in the darkness of the early dawn.
+T10:00- I yet again fall into a hole of listening to and reading about niche topics on the internet. various patriotic war anthems and such. Not really sure why, but it seems particularly interesting. It’s fun to think about where they came from, what inspired them, the emotions and pride stirred into each one. The line “As he died to make men holy let us die to make men free!” from the Battle Hymn of the Republic rattles around in my head.
+T10:17- I am bored and decide to watch a movie that had been on my list for a while, an OVA called Angel’s Egg. Before the movie however I find myself remarkably sexually aroused, a feeling that almost never manifests when I’m on psychedelics. Frankly, sex becomes an odd thing for me to overanalyze, usually meandering to thoughts of inadequacy and discomfort, so I tend to just reject it entirely. This time though it sneaks in, it is present and neutral, something for me to just regard as a psychosomatic system. With time, the feeling passes, I lie down to watch the movie in the dim early light. It is hard to stay in one position for long and I notice I begin to fall into a dazed trance if I maintain a particularly comfortable position. This is a drug that just hangs out with me and gently guides me into different states of pleasure and sensation.
+T11:51- The movie has ended- it is a curious piece, visually stunning, vibrantly imaginative, and elusive in meaning. Visuals played in the backgrounds and certainly enhanced the already intricate textures with even more greebling. What a lovely experience. I did find myself dozing off at times- not asleep but simply in a catatonic state where it seems like thought and processing paused, left adrift in a sea of labyrinthine ripples that glimmer with cyan and lime on their peaks. The movie is replete with loud sudden noises that reverberate and echo in my skull, bouncing through my neurons and shattering my thoughts, it felt lovely and cleansing. In general though, I feel like I’m coming down, the experience is receding into a deeper neutrality. Or perhaps because this peak has dragged on so long, I have simply become used to it and recognize it as a new baseline, totally within my comfort.
+T12:54- My heart feels tired, my body feels tired, I try to lie down but of course I cannot feel rested at all because my nerves are buzzing and trickling with electricity. The visuals have died down a bit, retreating before the rising sun. I don’t know what to do with my body- all signs are telling me to sleep but I can’t.
+T16:00- I seem to have dozed off or something for a bit, something like a stim nap. All I know is that I laid down and closed my eyes and then suddenly a good bit of time had passed. The forceful stimulation has receded, now all that remains is a residual tingling and tremor in my extremities, a still racing heart that is sore and tired, twinges of nausea, and a general sense of wired electric spaciness.
+T17:30- I leave my house to go to a train station to visit my friend who lives deeper in the suburbs. He is one of my closest and dearest friends who I have known since I was a child. He is a fellow psychonaut who has featured in many of my previous reports as a partner in crime. I haven’t seen him beyond a few brief encounters last summer due to the pandemic. I am super excited to go to his house and smoke a lot of weed and play old gamecube games like we always do. Being out in public in broad daylight is a bit uncomfortable, I feel on edge, dull and indistinct visuals now dance faintly on surfaces, the labyrinthine forms inflated to be blobby and amorphous, still adorned with color though it is faint and transparent. I try to avoid other people until I have to board the train. I am in a daze, the sound of the train rumbling down the tracks echoes and reverberates the air around me, I hide down in my seat and try to pick out whatever visuals remain. It is still chilly outside, overcast with a light drizzle. The conductor apparently didn’t even notice me board and I get a free ride. Always nice.
+T18:00- Arrive at my friend’s house. I have come down enough that conversing in person isn’t difficult or awkward, though there is still some psychedelia in my interactions, in the way my own voice plays in my head loud and clear, in the sense that I have a hyperawareness of every word I speak and their possible implications. But it is fun and comfortable to be here, with someone so familiar who is in turn so familiar with interact with me when I am tripping. We smoke some bowls of weed and play Super Smash Bros. Melee. His girlfriend makes us frozen pizza which I am able to eat without any problem. I find myself particularly proficient in melee right now, as though my dexterity and fine motor skill has improved a lot- indeed stimulation and tension may do that. We smoke more and transition to Mario Party 6, a game he is much more skilled in. I am not as good at this one but it’s colorful and light and fun. Socializing feels great, I have so much energy to get out and just talking and catching up with a dear friend feels like such an effective and satisfying way to spend that energy. There is a fiery stimulation in my brain that shepherds me towards socializing and interacting
+There is a fiery stimulation in my brain that shepherds me towards socializing and interacting
+, I accept the path it has taken me on and speak words that seem to fall into place exactly where they need to be- I receive words in turn that too fall where they need to. Everything is truly ideal. They show me what they’ve been building in their Minecraft server before I need to head out as they have to go to bed early. It was so lovely to interact and my heart feel so full. The drug still exists in my system as a deep stimulation, the last vestigial sensation of this substance that refuses to go away.
+T21:30- I walk to a Dunkin Donuts to get something to eat. This area is clearly meant for only cars- the roads are wide and foreboding, everyone is going so fast, there are no sidewalks and limited crosswalks. I think about how a suburb develops, how so many big businesses crop up along major roads and train lines like this, devolving into sprawling residential neighborhoods from there. I wonder how fast the development will go, if this will ever build up enough to become an area that could be considered truly “urban”, if this is just one step in the life cycle of human living spaces. The walk is scary- no sidewalks means constant awareness of the cars whipping by at 50 miles per hour, stopping at times to keep myself safe. It’s a shame that this place just is not meant for people and their measly two legs.
+Interacting with the store clerk is awkward, I mostly feel dazed and strung out, a bit out of it, like my attention needs to be jolted to respond properly. I get my donuts and hashbrowns and walk back to the station, yet again dodging cars. I have to wait about an hour for the next train. I still feel stimulated, forcefully alert. The ride home is a blur, I think my brain is getting tired of processing information for so long. I have been mostly awake for almost 40 hours now.
+T24:00- I get home, eat more dinner, still feeling it mostly just as stimulation. Visuals have disappeared, most of the psychedelic thought processes have subsided, I am tired.
+T26:00- Back to baseline I would say. I fall into a deep sleep shortly after this, though it isn’t nearly long enough and when I wake up the next morning I am still quite tired. I groggily drive back to my house in the city and take another long nap. I feel entirely normal when I wake up again.
+Conclusion: DOPr is a marathon of a drug. The duration is of course the most easily remarked upon aspect of the experience. It is long, phenomenally long. I tend to metabolize drugs quickly and the durations I experience are often shorter than normal, so other users can expect their experiences to stretch even longer than mine did. It was long to the point where one can get used to it, adapt to it, hardly notice that its there. Almost to say that it lends itself to stagnation and forgettability. But it is difficult for so long an experience to remain consistently novel. Beyond duration, the overall qualities I would characterize this experience with are as follows:
+For physical effects, moderate stimulation- a constant mental buzz with a manageable degree of physical stimulation, while there was restless legs and physical discomfort at times, at other times I was able to lie down comfortable and almost doze off into an unawares sleep-like state. This gentle stimulation is perhaps a property of the 4-alkane chain DOx’s- DOM induced a tranquil bliss within me, and DOPr left me feeling gently and neutrally still, in stark contrast to the overclocked stimulation other phenethylamines carry. Perhaps DOET would be similar if I could ever encounter it. There was some bodyload in a feeling of nausea that persisted throughout the experience, though it wasn’t bad enough to suppress appetite and could often be ignored. At a few points during the comeup however, it would swell and near a point of vomiting.
+Cognitive effects were fairly standard for a phenethylamine- thoughts flowing well into each other, forming easily into well-formed conclusions- acute holes of interest and relentless pursuit of knowledge, though not as ravenous as some other compounds can be. In fact, most flow of thought seemed organic and naturally paced, not hastened and racing. DOPr is a very neutral drug cognitively, solidly in the middle of the road. There were at times flashes of euphoria and satisfaction with my life’s circumstances or knowledge I consumed, though I wouldn’t characterize the entire experience as being particularly euphoric or enlightening- just overwhelmingly neutral.
+Sensory effects were noticeable, interesting, but ultimately also quite neutral in their nature and intensity, at least at this dose. Visuals were predominantly tightly wound and meandering spiral forms, appearing to ultimately produce labyrinthine patterns- these would serve as a textured infill on other more neutral textures, sometimes a simple 2-dimensional overlay, other times a telescoping and deeply shaded relief. Various spirals and repeating fern-like forms were also present, much of it having the concentric repeated quality of a high-frequency vibration. All were replete with flashing, drifting colors in stripes and spots, predominantly vibrant lime and olive greens, bright magentas, lemon yellows, a deep navy blue, at time a dull ochre. These colors weren’t vibrant or matte, but rather seemed cast onto a gelatinous translucency like stained glass.
+Overall I found DOPr to be an interesting novelty, an insight into the question of “what if I was tripping on a psychedelic for over a day? What would that feel like? “. I have taken other psychedelics of purported marathon durations like DOB, DOM, 2C-P, or 2C-iP, though as mentioned before, my body metabolized them faster than advertised. DOPr provided my longest psychedelic experience yet. I didn’t find it to be particularly exciting, though perhaps excitement would’ve been to its detriment for such a duration. I think the neutrality of the experience was the best possible scenario for that long stretch of time, it is a drug that allows me to take it where I wish and walk it on my own leash. It does not force me to go anywhere, which was a blessing under the circumstances. Perhaps that forcefulness could be found in higher doses. Visuals were similarly matter-of-fact, present but not forceful or intrusive with a unique character. I don’t think it’s an experience I plan on ever revisiting but it was an interesting one that I am glad I had.
+Exp Year: 2021
+ExpID: 115555
+Gender: Not Specified
+Age at time of experience: 25
+Published: Jul 28, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOPR (691) : General (1), First Times (2), Sex Discussion (14), Hangover / Days After (46), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

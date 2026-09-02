@@ -1,0 +1,200 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>编解 - 艾洛伊德的使用 - &quot;负责任的滥用&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/sleep-deprivation.html'>← 睡眠剥夺</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>编解 - 艾洛伊德的使用 - &quot;负责任的滥用&quot;</h1>
+<div class='sub-title'>Codeine - Erowid Exp - &#x27;Responsible Abuse&#x27;</div>
+<div class='meta'>作者：xchimp Citation · 日期：Aug 9, 2019 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=64240' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我去年开始服用代代因来缓解牙痛,
+在英国,可代因可在药店处方处获得,它是8毫克可代因与甲 (在美国称为乙氨基),易布洛芬或阿司匹林的组合.
+我当时在工作中, 午休时去药店.
+这位友好的药剂师表示同情,
+接下来的一个小时里,
+我应该在这里指出, 虽然我已经尝试了其他物质 (主要是向幻觉的光谱 (,晨光种子,大麻等) 我是完全片的天真.
+16毫克的可代因真的不应该足以做更多的减轻轻微的疼痛.
+我当时的睡眠不足也许加剧了它的效果.
+我怀疑我也可能对片相当敏感.
+接下来的一天我拔了牙.
+由于最初的反应让我很好奇, 我在网上做了一些快速的研究.
+当局肯定不会允许一个容易被滥用的片药物在没有处方的情况下出售?
+结果他们确实有, 更重要的是,
+这就是冷水的提取.
+很难估计药物的损失, 不准确的科学厨房化学,
+我第一次滥用药物时服用了大约50毫克 (8片), 但很快我开始服用100毫克 (16片) 到150毫克 (24片) 的药物.
+100毫克对我来说是足够的,当我没有服用一段时间.
+如果我最近做了,那么需要更高的剂量.
+我不会详细介绍取方法,
+过可代因,类药物和各种药片成分的污泥可能会耗时,
+没有提取,较高的剂量 (24片) 含有12g的,这可能是危及生命的.
+虽然较低的剂量可能不含致命剂量的胺, 但我怀疑把大量的胺放到我的肝脏上是个好主意.
+对于我来说,可代因是一种休假方式,
+消耗在水中的溶液, 很快就会起作用.
+我倾向于很快感受到药物的效果,
+我有时会用可乐来掩盖取后留下的苦味.
+这是一种我可以习惯的味道,虽然.
+经过几次的使用, 它的整洁程度远远低于我最初想象的.
+经过半小时左右, 感觉到全部效果,
+两者都是通过躺下来解决的.
+我的呼吸变慢了.
+我的四肢感到沉重,我的眼睛想关闭.
+我身边充满了温的温暖, 仿佛被棉花包裹在身边.
+没有什么真正重要.
+问题逐渐消失.
+这是一种冷漠, 但不是冷漠的, 没有魅力的抑郁.
+当现在看起来如此美好时, 很难关心任何事情,
+音乐在这个阶段是好的.
+我沉浸在其中,心灵充满幸福的空虚.
+没有什么大不了的白日梦, 滚过去无事无事.
+一个小时后,效果开始减弱.
+强度会在几个小时内慢慢减弱.
+我觉得自己比平时稍微了一些.
+发现这种药物是多么令人愉快, 几周后, 我经常使用它,
+由于我慢慢增加的耐受性,
+我每月只服用一次或两次, 有时更少.
+像任何阿片类药物一样, 成是完全可能的, 但我最接近的是在使用初期的一些非常轻微的渴望和对更强烈的阿片类药物的轻微好奇心.
+我避免连续两天使用它, 这可能有所帮助.
+对于我来说,可代因是一种积极的东西.
+我患有抑郁症, 偶尔可代因可以替代自我毁灭的应对方式.
+虽然它确实会影响我完成工作的程度更大.
+常常依赖它会是一个错误,
+对于任何处于类似情况的人来说, 我已经与几位医生公开地谈论我使用代因,
+我可能在滥用它,但我喜欢认为我在负责任地滥用它.
+其他:
+发布时间:2019年8月9日
+代代因 (14), 睡眠剥夺 (140):回顾 / 摘要 (11), 和习惯性 (10), 抑郁症 (15), 治疗意图或结果 (49), 不适用 (38)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Responsible Abuse
+Codeine
+by
+xchimp
+Citation:   xchimp. &quot;Responsible Abuse: An Experience with Codeine (exp64240)&quot;.
+Erowid.org
+. Aug 9, 2019. erowid.org/exp/64240
+DOSE:
+oral
+Codeine
+(extract)
+BODY WEIGHT:
+200 lb
+I started taking codeine last year to help with some toothache that more widely used analgesics weren&#x27;t helping with at all. Here in the UK, codeine is available over the counter at pharmacies as a combination of 8mg Codeine with paracetamol (known as acetaminophen in the USA), ibuprofen or aspirin. I was at work at the time and went to the pharmacy in my lunch break. The friendly pharmacist sympathised and suggested co-codamol. I took a couple of tablets and over the next hour completely spaced out.
+I should note here that, though I&#x27;ve experimented with other substances (mostly towards the psychedelic end of the spectrum (salvia, morning glory seeds, cannabis, etc.) I was completely opiate naive. 16mg of codeine really shouldn&#x27;t be enough to do much more than reduce mild pain. I was fairly sleep deprived at the time, so perhaps this potentiated its effects. I suspect that I may also be fairly sensitive to opiates anyway.
+The next day I had the tooth pulled. I had most of the pack left over after my jaw had healed and, intrigued by my initial reaction, I did some quick research on the internet. Surely the authorities wouldn&#x27;t allow an easily abused opiate to be sold without prescription? It turned out they did and, what was more, there was an easy way to get rid of most of the paracetamol. This is the cold water extraction.
+It&#x27;s difficult to estimate losses of the drug to the inexact science of kitchen chemistry, so the following figures are just estimates.. The first time I abused the drug I took around 50mg (8 pills), but I soon progressed to doses between 100mg (16 pills) and 150mg (24 pills). 100mg is enough for me when I&#x27;ve not taken it for a while. If I&#x27;ve done it recently then the higher dose is necessary. I won&#x27;t go into the details of the extraction itself since recipes are available all over the internet. Filtering the sludge of codeine, paracetamol and miscellaneous pill ingredients can be time-consuming, but I wouldn&#x27;t consider taking the pills without extracting first. Unextracted, the higher dose (24 pills) would contain 12g of paracetamol, which is potentially life threatening. And while the lower doses may not contain fatal doses of paracetamol I doubt that dumping large amounts of it on my liver is a good idea.
+Codeine is, for me, a way of taking a vacation from having to give a damn. Consumed as a solution in water, it comes on quite fast. I tend to feel the effects of drugs fairly quickly and codeine is no exception with the first hints coming on five minutes after ingestion. Sometimes I use cola to mask the rather bitter taste of the solution you&#x27;re left with after extracting. It&#x27;s the kind of taste I can get used to, though. After taking it a few times, it&#x27;s far less objectionable neat than I imagined at first.
+The full effects hit me around the half an hour mark along with some mild nausea and a fair amount of dizziness. Both are solved by lying down. My breathing slows. My limbs feel heavy and my eyes want to close. A delicious warmth surrounds me, as if I&#x27;ve been wrapped in cotton wool. Nothing really matters. Problems recede into the distance. It&#x27;s apathy, but not the cold, charmless apathy of depression. It&#x27;s difficult to care about anything when now seems so nice, so why not just lie back and enjoy the dumb smile that&#x27;s suddenly on your face? Music is good at this point. I fade into it, mind blissfully empty. Daydreams about nothing much occur, rolling past uneventfully.
+An hour later and the effects begin to wear off. The intensity fades slowly over a couple of hours. The rest of the day, and perhaps the next, I feel slowed down, slightly dumber than usual.
+For a couple of weeks after discovering how wonderfully enjoyable the drug was, I used it fairly often, at first once each weekend, then once or twice during the week. The effects began to be dulled due to my slowly increasing tolerance. So I stopped taking it so often, limiting my use to once or twice a month, sometimes less. As with any opiate, it&#x27;s entirely possible to develop an addiction, but the closest I came to that was some very mild cravings during my initial period of use and mild curiosity about stronger opiates. I avoided using it on any two consecutive days, which may have helped.
+Codeine&#x27;s a positive thing for me. I suffer from depression and codeine can occasionally help in place of more self-destructive ways of coping. It seems to have more of an anxiolytic effect for me than benzodiazepines like diazepam, though it does interfere with getting stuff done to a greater extent. Coming to rely on it on a regular basis would be a mistake, but I don&#x27;t see this as at all likely. A note for anyone in a similar situation: I&#x27;ve been open with several doctors about my use of codeine and none have seen it as problematic. I may be abusing it, but I like to think I&#x27;m abusing it responsibly.
+Exp Year: 2006
+ExpID: 64240
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 9, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Codeine (14), Sleep Deprivation (140) : Retrospective / Summary (11), Addiction &amp; Habituation (10), Depression (15), Therapeutic Intent or Outcome (49), Not Applicable (38)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

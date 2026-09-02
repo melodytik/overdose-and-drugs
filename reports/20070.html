@@ -1,0 +1,218 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;一个男人吃一个...一定会吓到你&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/amanitas-a-muscaria.html'>← 毒蝇伞(蛤蟆菌)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;一个男人吃一个...一定会吓到你&quot;</h1>
+<div class='sub-title'>Amanita muscaria - Erowid Exp - &#x27;A Man Eat A... Must Scare Ya&#x27;</div>
+<div class='meta'>作者：dead man walking Citation · 日期：Dec 22, 2004 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=20070' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>十年前我最后一次体验迷幻药.
+我最近对古老文化和宗教感兴趣, 在阅读古文&quot;瑞格维达&quot;时,
+那里有很多不同植物被认为是索马.
+虽然我认为这一切都是基于一位先生的观点.
+沃森和他的研究.
+我决定自己找出答案.
+像我说的, 我有经验使用改变思想的物质.
+我已经吃了经典的迷幻,
+我从来没有尝试过这种香菜.
+我从一个互联网网站上买了两袋28克的干燥阿曼尼塔.
+我决定不吃它们, 因为我知道黄色的可能是有毒的.
+我第一次品尝的是少量,不到一克,
+味道很好, 没有恶心, 效果很温和,
+接下来的一天, 我又加了一倍, 再次用茶.
+每一批茶都是用15分钟的时间煮熟的.
+效果似乎有点强烈.
+这次我添加了一些头骨,和.
+大多数报道说,阿曼尼塔菌会引起过度出汗,唾液和尿液.
+药物在尿液中消失 (我不会喝尿).
+我理解以弗得拉可能会减轻这些影响.
+吸了一些大麻后, 很难说是否有任何影响.
+另一方面, 我也感觉到一种轻微的高兴,
+我决定服用更大的剂量, 因为较小的剂量没有明显的效果,
+我喝了茶糖和牛奶 (牛奶和糖的味道实际上很不错).
+每小时4个小时, 我又多吃一些,
+现在我只喝了茶.
+另一个小时,仍然没有什么,除了一些额外的唾在我的嘴里,所以我说什么HEC,扔了所有剩下的,除了我不相信的黄色帽子,进入水和煮沸.
+这大约是30克,我想.
+茶非常强烈, 一袋香完全没有掩盖味道.
+这味道很糟糕,我添加了很多糖,但这次没有牛奶.
+我喝了一杯,大约是液体的一半,
+如果我不注意的话, 便会开始流.
+视力模糊, 但没有令人愉快的幻觉, 只是烦人.
+我脑子里不停地跳动, 短短的跳动,
+我发现自己在思考我刚刚从某个我一无所知的网页上买的,
+我开始恶心.
+也许我感觉不舒服,这就是为什么我有令人厌恶的想法,也许是另一种方式,谁知道.
+我试图让自己吐, 认为我会感觉更好.
+我把手指放进喉里, 但当我吐时, 什么都没有出来,
+我试着看电视, 但每一个频道似乎都在给我发消息,
+我认为我已经被毒害了,
+我感到有些恐惧, 但幸运的是,
+我非常努力理解这些心理图像.
+我意识到我生活中有很多事情需要修复.
+我觉得如果我不改变生活方向,
+另一方面,如果我明智地选择, 我会有很快乐的生活, 也能给别人带来很多快乐.
+两条道路在我面前是清晰的.
+我害怕睡觉,因为我认为我会死.
+我强迫自己放松,忽略恐惧.
+恐惧从来没有变成恐惧, 因为我接受了被强迫接受的真理, 并立即选择在我的生活中做出指示的改变.
+经过这个决定后,我感到非常平静和平静, 我对这&quot;教训&quot;感到一种喜悦和感激.
+描述我的感受最好的方式是说我充满了赞美我的创造者.
+虽然在身体上我仍然感到很可怕.
+我今天下午睡了大约11个小时后醒来.
+现在我已经昏昏欲睡,
+中毒可能需要几天才能导致死亡.
+首先出现发烧,寒,幻觉,然后是睡眠,
+然后昏迷和死亡.
+我在整个下午感觉非常平静,和平,高兴.
+总而言之, 我对Amanita Muscaria高剂量药物的体验,
+我能理解为什么有些人会有极端消极的反应,
+我知道自己会面临一些心理问题, 这确实对我有帮助.
+截止日期:2070年
+阿曼尼塔斯 - - A. muscaria (70):一个人 (16),艰难的经历 (5),回顾 / 总结 (11)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+A Man Eat A... Must Scare Ya
+Amanita muscaria
+by
+dead man walking
+Citation:   dead man walking. &quot;A Man Eat A... Must Scare Ya: An Experience with Amanita muscaria (exp20070)&quot;.
+Erowid.org
+. Dec 22, 2004. erowid.org/exp/20070
+DOSE:
+oral
+Amanitas
+(tea)
+oral
+Amanitas
+(plant material)
+BODY WEIGHT:
+160 lb
+It’s been about 10 years since my last psychedelic experience. My interests lately have been in ancient cultures and religions, and in reading the Rig Veda, an ancient religious text originally written in Sanskrit, I came across the plant/drug called Soma. There are loads of sites out there with many different plants suggested as being Soma. Amanita Muscaria seems to be the most popular candidate, although I think this is all based on the opinion of one Mr. Wasson and his research. I decided to find out for myself.
+As I said I have had some experience with mind altering substances. I’ve eaten the classic psychedelic mushrooms and had good experiences. The Amanita Muscaria is definitely not at all like anything else I have tried.
+I got two 28 gram bags of dried Amanita Muscaria from an internet site. In one bag about half of the caps looked yellow so I decided not to eat them, because I understand that the yellow ones may be of a different and more poisonous variety.
+In the interest of caution my first taste was a tiny amount, less than a gram, added to some chamomile tea. Tasted fine, no nausea, effects were so mild that I’m not sure if it was just the pot which I smoked afterwards.
+Next day I doubled the dosage, again in tea. Each batch of tea I made by boiling for 15 minutes. Effect seemed a little stronger. This time I added some skullcap, and ephedra. Most reports say the Amanita Muscaria causes excessive sweating, salivating and urinating. Also apparently the drug is lost in the urine (and I am NOT going to drink my piss). I understand that ephedra may lessen these effects. With all this stuff in me, and after smoking some pot, it was again hard to tell if there was any effect from the shrooms. There was a slight euphoria beyond these other substances, however, and the next day I slept much later than usual.
+A couple days went by and I decided to take a much larger dose, since the smaller ones had no apparent effect, so last night I put a few grams in the water with a teabag of chamomile for flavor. I drank the tea with sugar and milk (with the milk &amp;sugar it actually tasted pretty good). Each hour for 4 hours I had some more, and finally after 4 hours with nothing but a slightly heightened cannabis high I decided to eat the boiled shrooms. Until now I had only drank the tea.
+Another hour and still nothing, aside from some extra spit in my mouth, so I said what the hec, and threw all of what was left, aside from the yellow caps which I did not trust, into the water and boiled it. This was about 30 grams I think. The tea was very strong and one bag of chamomile did not mask the flavor at all. It tasted pretty bad and I added a lot of sugar but no milk this time. I drank one cup, about half of the liquid, but by this time the rest of what I had already taken was starting to kick in.
+In another hour or so I was sweating like crazy and salivating to the point where if I didn’t pay attention I would begin to drool. Vision was blurry, but no pleasant hallucinations, just annoying. My mind was racing, jumping in short bursts with no cohesion at all. I found myself mulling over the fact that I had just eaten a bunch of mushrooms that I bought from some internet site that I knew nothing about, and how smelly and nasty they were. I became nauseous. Maybe I was feeling sick and that’s why I was thinking disgusting thoughts, maybe the other way around, who knows. I tried to make myself puke, thinking that I would feel better. I put my finger down my throat but when I retched nothing came up so I decided that it was already in my intestines and puking wouldn’t help.
+I tried watching some tv but every channel seemed to be sending me messages that I was dead or dying. I decided that I had been poisoned and that my life was flashing before my eyes. I felt some fear, but luckily because of my past experiences I knew not to let my fear overcome me. I tried very hard to understand the mental images. It came to me that there are many things in my life that I need to fix. I felt that if I did not make a decision to change the direction of my life that I would die. On the other hand if I chose wisely I would have a very happy life and bring much joy to others as well. The two paths were clear before me. I was afraid to go to sleep, because I thought then I would die. I forced myself to relax and ignore the fear.
+My fear never became horror because I accepted the truth that was forced on me and immediately chose to make the changes in my life that were indicated. After this decision a great calm and peace came over me, and I felt a sort of joy and gratitude for the “lesson”. The best way to describe my feeling is to say that I was filled with praise to my creator. Physically I still felt horrible though.
+I woke this afternoon after sleeping about 11 hours. Today I am groggy and still have the feeling of being a “dead man walking”. Mushroom poisoning, as I have read, can take several days before death ensues. First there’s fever, chills, hallucinations, followed by sleep and a period of 1 or 2 days where the person appears to have recovered. Then coma and death. Aside from mulling over the possibility that I may die in another day or 2, I have had a very calm, peaceful, euphoric feeling all afternoon.
+In sum I would say that my experience with a high dosage of Amanita Muscaria was a bit like sitting in front of a mental firing squad. I can understand why some people would have extremely negative reactions, and why others would have extremely positive or spiritual reactions. It certainly helped me that I knew ahead of time that I had some mental baggage to deal with.
+Exp Year: 2002
+ExpID: 20070
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 22, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Amanitas - A. muscaria (70) : Alone (16), Difficult Experiences (5), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

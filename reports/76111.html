@@ -1,0 +1,218 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/gbl.html'>← γ-丁内酯</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - -</h1>
+<div class='sub-title'>GBL - Erowid Exp - &#x27;Kindling the Fire?&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jul 28, 2009 · <a href='https://erowid.org/experiences/exp.php?ID=76111' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>我认为它是完全无害的健康补充剂/健康的酒精替代品.
+在服用GBL之前,除了大麻之外,我几乎没有其他药物的经验,我每天都在吸大麻,直到我改变国家,失去供应商.
+我当时也很破产, 每周多喝一次以上的酒,
+我第一次使用GBL时, 非常喜欢它,
+我用GBL的帽子像吸草一样.
+我会在晚上尽可能多地服用,
+我从早上2点和6点大剂量的&quot;睡眠&quot;中恢复过来.
+我觉得针头轻微刺伤我的皮肤, 不像针头和针头, 但实际的针头.
+我认为我患上了流感, 所以晚上6点我开始了我的日常仪式, 这真的帮助了流感症状,
+我觉得自己患上了严重的流感,
+我开始在下午3点开始一次严重的G狂欢.
+很有趣的是,这一次我开始服用药物后, 所有流感症状都消失了, 那天晚上我完全没有睡觉.
+由于前一天的夜晚变成了第二天的早晨,
+我的眼睛大开, 血淋淋, 心跳不规律, 超过100次.
+我甚至感觉到我的眼睛上有轻微的针头.
+皮肤也感觉很奇怪, 感觉有些和冷.
+我嘴唇的感觉很奇怪,嘴里有很奇怪的感觉,我的牙也一样,
+我真的想相信这只是流感,
+但我意识到有什么不对,这不是流感.
+我在网上做了一些研究, 阅读了不超过一连续一天的使用情况,
+我很害怕,我的药剂方案是尽可能多地服用,
+我觉得我已经服用了最后一剂, 我讨厌GBL,
+幸运的是我决定不扔掉我的藏物.
+完全没有睡眠, 没有食欲 (但我确实喝了果汁).
+眼睛开, 身体充满活力和恐惧,
+只有2毫升的GBL (度未知) 每5小时,
+在第三天晚上我吸了一些非常糟糕的低档大麻, 在凌晨2点睡着了,
+我睡了一整夜, 但比以往任何时候都更加清醒,
+晚上结束时, 我发现自己跑过一条漫长的走廊 (数百个走廊中的最后一个,
+我从来没有来过这里; 我不知道我在哪里.
+我走进每间房间, 观察周围的环境,
+接下来我听到前门打开,我直接跑到1米的门,跳进去.
+我入自己的卧室.
+我完全清醒,但不是在床上, 判断通过窗户闪耀的明亮的阳光下午1点左右.
+我站在我的房间中间看着我永远不会忘记的东西.
+我把房间里所有的东西都摆成圆圈,
+除了家具之外,一切都安排好了,
+我看到了DVD和一套餐具,
+我觉得我做了什么, 怎么能向我的室友解释这件事,
+这就是我一生中最可怕的恐惧,
+随着恐惧的增长,恐慌席卷了我的头,
+我刚刚进入房间, 经历了大约30秒钟,
+接下来发生的事情, 绝对是我生命中最美好,最完全意想不到的惊喜.
+你可能已经猜到了,但我可以向你保证我1000%没有.
+我在床上醒来; 我躺在我的平常的睡眠姿势,
+我感觉到脸上起了巨大的微笑, 接着又有第二个惊喜,
+我觉得很高兴, 我睡着了, 仍然微笑着.
+接下来更多的激烈的梦想,
+第二天晚上睡眠不好,没有强烈的梦想,一周后一切完全正常.
+我已经做了一些研究, 试图解释这里发生了什么是有趣的事情.
+根据维基百科的资料:
+这种现象是由于反复的酒精排毒导致戒断综合征的严重程度增加.
+例如,暴饮酒者可能最初没有戒断症状,但随着每次恢复饮酒后戒断,他们的戒断症状的严重程度会加剧,最终可能导致完全爆发的狂妄和发作.
+每天晚上我吃得比以前更重, 在最后一天晚上我喝了20毫升的GBL (度未知)
+六天前我第一次服用1.5毫升几乎让我睡着了.
+在第一天晚上, 我服用了3毫升的药物.
+我在第一天完全没有副作用.
+很多与酒精发生的坏事都与GHB发生.
+我可以在许多不那么严重的戒酒症状的列表中,
+我把梦想归结为幻觉, 这在列表中.
+当你不期望幻觉时, 它们就成为你的现实.
+我认为自己非常幸运, 我没有一个糟糕的幻觉,
+六个月过去了, 我仍然感到快乐和平静.
+现在我服用GBL时, 当我无法入睡时, 我会服用2毫升, 这可能是一周一两次,
+其他:
+GBL (89):旅行后的问题 (8),一般 (1),未知背景 (20)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Kindling the Fire?
+GBL
+by
+GBL Respecter
+Citation:   GBL Respecter. &quot;Kindling the Fire?: An Experience with GBL (exp76111)&quot;.
+Erowid.org
+. Jul 28, 2009. erowid.org/exp/76111
+DOSE:
+repeated
+oral
+GBL
+(liquid)
+BODY WEIGHT:
+92 kg
+When I first started taking GBL I thought it was a completely harmless health supplement/healthy alcohol replacement. Before taking GBL I had little experience with other drugs except cannabis which I used to smoke daily and very heavily until I changed countries and lost my suppliers. I was also pretty broke at the time and was starting to drink alcohol heavily more than once per week which was getting expensive. First time I used GBL I loved it, great high, cheap and readily available, and no hangover. I took GBL caps like I smoked weed. I would take as much as I could take in the evening while still remaining awake in a sort of euphoric comatose state. The first few days I woke up absolutely fine and refreshed from my &#x27;sleeps&#x27; affected by big doses at 2am and 6am.
+On the fourth night the next morning I felt hot and anxious also now and then I felt like needles were slightly poking my skin, not like pins and needles but actual needles. I thought I was coming down with the flu so at 6pm I started my daily ritual as usual, it really helped with the flu symptoms but even with my knockout doses I only got 2 hours of bad sleep (sleep maybe OK but unpleasant weird dreams). Next day I really felt bad, I thought I had bad flu and I stayed home all day. I started really getting into another serious G binge at 3pm. Funny thing was this time all my flu symptoms disappeared soon after I started taking it, that night I had no sleep at all.
+As the night before changed to the morning after with no sleep in between I began to feel really terrible. My eyes were uncontrollably wide open and completely bloodshot and stinging; my heart rate was irregular and over 100bbm. Those needles were back with a vengeance and I even felt light ones on my eyes. My skin felt strange as well all over, kind of clammy and cold. My lips felt really weird and the inside of my mouth felt strange, my teeth as well, it was like my saliva had been replaced with something else. I really thought and wanted to believe it was just flu so I could continue using this euphoric miracle drug. But I realised something was wrong, this was not flu.
+I did some research online and read about not using more than one consecutive day at a time and also read about the GHB hangover and the horror stories of GHB withdrawals. I was pretty scared; my dosing regime was to take as much as possible whilst being able to stay awake to watch TV, and I had one hell of a tolerance. I decided I had taken my last dose, I hated GBL and I felt so scared and alone, I expected the withdrawal to last a week. Lucky for me I decided not to chuck my stash. I felt like I described above for the next two days and nights, absolutely no sleep, no appetite (but I did drink fruit juice). Eyes wide open and my entire body completely full, energy and fear 24 hours a day. The only thing that got me through was 2ml doses of GBL [concentration unknown] every 5 hours for the first day.
+On the 3rd night I smoked some very bad low grade weed and dozed off at 2am, at least that’s what I thought. I &#x27;slept&#x27; through the night but I was more awake than I&#x27;d ever been before, these were not like normal dreams. The night ended when I found myself running through a long corridor (last one of hundreds, I needed to escape) with 1 metre to go, I dove through a one metre square door, rolled down a flight of stairs and found myself in a high level city apartment during the afternoon. I had never been here before; I had no idea where I was. I went into each room observing my surroundings, maybe this is my house I thought(it was NOTHING like my house). Next I heard the front door open, I just ran straight to the 1metre door and  dove through. I tumbled into the room of my actual bedroom. I was completely awake but not in bed, and judging by the light of the bright sun shining through the window it was about 1pm. I was standing in the middle of my room and looking at something I will never forget.
+While &#x27;asleep&#x27; I had arranged all the things in my room into circles based loosely on the size of the objects. Everything excluding the furniture was arranged but I have a big room and there were so many things. Then I saw DVDs and a set of cutlery, stuff from other rooms was also there. A wave of intense fear swept over me, what the hell had I done, how can I possibly explain this to my flatmates, I thought everything would be OK once I slept. It was the worst and most terrible fear of my life, and it was getting worse by the second. As the fear grew panic took over my head slouched down and I focused on a small circle of small objects from a draw downstairs. About 30 seconds had passed since I entered the room and I just stood there, paralysed with dread, I squeezed my hands to my head and began to stare intensely at the small circle.
+And then what happened next I can absolutely say was the nicest and most completely unexpected surprise of my life. You probably already guessed but I can assure you I 1000% had not. I woke up in my bed; I was lying still in my usual sleeping posture with the covers tucked nicely around me. I felt a huge smile come over my face, then I got my second nice surprise, I had no more GBL hangover symptoms, everything was going to be OK. I felt so happy I drifted off to sleep still smiling. More intense dreams followed but I knew they were just intense dreams. Next night bad sleep no intense dreams, 1 week later everything completely normal.
+Since this experience I have done some research to try to explain what happened here is something interesting I found.
+Kindling from wikipedia:
+Kindling is the phenomenon where repeated alcohol detoxifications leads to an increased severity of the withdrawal syndrome. For example binge drinkers may initially experience no withdrawal symptoms but with each period of resumption of drinking followed by abstinence their withdrawal symptoms intensify in severity and may eventually result in full blown delirium tremens with convulsive seizures.
+Every night I binged heavier than before, on the last night I hit over (possibly way over) 20ml of GBL [concentration unknown] over the space between 3pm and 6am that is a big increase in dosage. The first time I used, six days before, 1.5ml almost sent me to sleep. By the end of that first night I took 3ml to sleep. During the first few days I had absolutely no side effects during the day.
+Maybe the way I took was the worst possible way but I think people should know how messed up you can get in a week. lots of bad things that happen with alcohol happen with GHB. Moving down a list of alcohol withdrawal symptoms I can put a tick next to many less serious ones that I had with GHB. I put the dream down to hallucinations which is on the list. When you don’t expect hallucinations they become your reality. I consider myself extremely lucky I didn’t have a bad hallucination, well I had a horrible terrifying one but it just turned out so great. In fact waking up was the best feeling I ever had in my life and I still feel happy and peaceful when I think about it 6 months later. Oh yeah, now when I take GBL I take 2ml when I cant sleep which is maybe 1 or 2 times a week, I never had another hangover and half the time I sleep the whole night through.--------
+Exp Year: 2007
+ExpID: 76111
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 28, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+GBL (89) : Post Trip Problems (8), General (1), Unknown Context (20)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

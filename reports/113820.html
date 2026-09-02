@@ -1,0 +1,472 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>加和各种 - 埃罗伊德 Exp - &#x27;第一个5个试验&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/changa.html'>← Changa</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>加和各种 - 埃罗伊德 Exp - &#x27;第一个5个试验&#x27;</h1>
+<div class='sub-title'>Changa &amp; Various - Erowid Exp - &#x27;First 5 Trials&#x27;</div>
+<div class='meta'>作者：Psyched68 Citation · 日期：Feb 2, 2020 · 剂量：50 mg · <a href='https://erowid.org/experiences/exp.php?ID=113820' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>(这是超过4000个字)
+关于我的一些事情:我30多年前第一次体验了迷幻药物.
+主要是,但也有LSD,梅斯卡林和MDMA.
+我在年轻时曾经吸食过和大麻, 每当我回到迷幻药时,
+几年前, 我又回到了迷幻药.
+尽管现在对他有更多的尊重和了解.
+几年前, 我又回到了迷幻药.
+尽管现在对他有更多的尊重和了解.
+我尝试过20多种不同的迷幻药,
+可能是因为我把三胺与我的不良旅行联系在一起.
+我估计我已经服用了2,300次迷幻药.
+我对现在这个时代的重新兴趣, 让我读了很多关于DMT/ayahuasca的文章,
+作为一个非常好奇的人, 我想知道这一切是什么.
+尽管如此, 我还是害怕尝试DMT, 因为它通常被描述比5克干更强烈.
+我很担心,因为我认识的一个男孩在服用亚华斯卡后不久自杀,
+无论如何,大约一年前我拿到了一些DMT晶体和一些Changa.
+我想找一个有经验的保姆来看我.
+但是我没有.
+我也害怕自己做, 因为网上有人说当你进入超空间时,
+第一个试验:
+无论如何,九月下旬我有一个周末自己和大约65mcgALD-52下午3点.
+晚上我喝了三瓶酒,
+在晚上10点15分.
+我服用了150毫克的普雷加巴林,
+我还服用了10毫克的2C-B来提高ALD-52的水平,
+我服用两种10毫克的胺.
+我看到我的袋子里有香 (50%的DMT).
+试试这个想法突然出现在我的脑海里.
+我想我也许只能吃一点点,
+现在开始发生一些奇怪的事情.
+仿佛我是一个电影中的演员,
+我不知不觉地在Soundcloud上收听一段与&quot;心灵之鸟&quot;的混音.
+我感到有点开心,也感到惊,
+我测量出17毫克的香 (大概是2毫克), 放在玻璃管中的灰上.
+我深呼吸了一下, 检查我是否能接受任何可能发生的事情 - - 我听到歌词&quot;当你准备好了, 我会投降, 和平地离开, 离开, 离开&quot; - - 从&quot;心灵的鸟儿&quot;中重复了几次.
+我已经觉得自己处于一种非常不同的状态, 很多事情导致了这一刻.
+改变了以前消费的药物通常不会导致.
+感觉很轻松,很自然,同时又神奇.
+我惊地发现我没有恐惧,甚至没有紧张.
+我一直预计我第一次抽DMT时会很紧张.
+我对自己的设置有点不确定, 因为我确实在6周前母亲去世后有一些悲伤,
+我提醒自己接受一切,
+我点燃了点火机,慢慢把它拉近碗, 我看到一些DMT灌注的Caapi叶子碎片变成色,
+我口中留着一种奇怪的味道, 感觉很熟悉,
+这让我想起的不是以前的迷幻体验.
+这种感觉是善良的.
+视觉效果很快就消失了,
+我觉得安全,决定增加剂量,
+我走进了蓝色和黑色的方形道,
+我飞过道的速度很快,
+这种视觉效果让我想起了我以前在2C-B和胺混合时看到的东西.
+让我想起一个用乐高建造的世界.
+我看到一个白色的狗雕像,
+我很惊我可以看看周围.
+我发现自己已经紧张了,深呼吸,放松,
+我不知为什么, 却被证明我对尼古丁的成,
+我不知为什么, 却被证明我对尼古丁的成,
+我可以坐电梯下去,然后放手.
+尼古丁并没有住我, 而是我住尼古丁.
+没有尼古丁的我更快乐,更健康.
+我知道戒烟比我想象的要容易得多.
+某种程度上,我感觉到&quot;它&quot;是一种存在,一种智慧 - - 想要我治愈.
+让我成为一个更好的&quot;工具&quot;来创造&quot;它&quot;正在创造的 (一个更好的世界?
+&quot;它&quot;是如此善良, 尊重 - - 就像它想让我有一个好的体验,
+我有一种与源头的联系的感觉,
+这小小的&quot;我&quot;只是一种幻觉.
+印度教的玛雅和阿特曼概念具有更深的意义.
+记忆有点模糊, 上述一些可能是过去旅行的回忆.
+我也遇到了一台黑蓝色的机器或外星昆虫生物,
+我在2C-B和胺时遇到了类似的情况.
+我得到的信息是我现在已经足够了, 我需要更多的休息,
+第二次试验:
+在10毫克2C-T-21的尾端和几个小时后一些GHB我决定再次尝试一些香.
+我有点累了.
+我增加了剂量, 基本上没有视觉效果.
+最后一次我抽了60-70毫克的香.
+我确实进入了道, 但它们很黑暗,
+没有洞察力.
+我看着邻居的, 我看到它变成了不同的动物.
+大多数时候只是有点奇怪.
+总结说,我今天被拒绝进入.
+我不知道它是否与2C-T-21或GHB有关.
+经历强化了我需要休息,
+第三次试验 两周后:
+我在最近去世的母亲的公寓里整理她的东西.
+自从我几个小时前到达以来, 我一直在哀悼.
+回到那里有很多回忆.
+在晚上10点45分
+我服用15+2mg2C-B, 因为我打算在晚些时候抽一些DMT,
+在晚上11点.
+我把17毫克的香放进管子里,
+2C-B的效果更像是10毫克而不是15毫克.
+很轻微的恶心和一些增加的身体意识.
+吸食DMT的目的是治愈自己.
+我放Kerala Dust的歌曲&quot;内华达&quot;, 烧了17毫克的香,
+只是让我有一种模糊的熟悉感,
+很快我抽了30毫克香,
+喉有点灼热.
+我进入了与第一次相同的蓝色和黑色马赛克道.
+我不知道我如何获得下一次体验.
+我下一个记忆是我母亲的死亡, 躺在无意识的她的嘴开.
+无论如何,我都能看到她,因为我看到她,
+作为她, 我感觉到我的整个身体麻木.
+我在身体的每一平方英寸都看到针的形象 (有点像电影&quot;地狱者&quot;中的那样), 不仅仅在皮肤外面,
+我无法沟通或做任何事情,
+无法尖叫,无法哭泣,无法通过死亡离开.
+时间不移动, 我正在经历永恒.
+我认为这一定是地狱... 真的是一种可怕的感觉但麻木使它以某种方式可以承受.
+我开眼睛,感觉到胸部有点温暖.
+像我在治疗中接受麻醉创伤时 (发生在6岁时) 感到的一些微震.
+我检查了我的脉, 现在是100,
+恐惧的感觉在我的身体像它可以做后梦.
+我不知道DMT是否消除了我悲伤所造成的一些麻醉?
+(这意味着强烈的悲伤往往会引起某种麻木,
+想想我是否应该再吸烟.
+这感觉不完整.
+我问自己是否愿意回到我刚才经历过的非常不舒服的状态.
+我问自己是否愿意回到我刚才经历过的非常不舒服的状态.
+我认为我需要回去, 为了以某种方式释放我的母亲从我刚刚经历她的经历.
+我准备了44毫克的香,
+(我认为这是我谁有困难让她走.
+我准备好像以前一样,接受两次大打击.
+现在有太多的烟雾,
+我看到我身上的绿色和白色的螺旋形状.
+有点淡的颜色,像没有太多的光.
+接下来我记得的是我母亲的脸, 说现在一切都好了, 她现在和所有的祖先在一起 (她被收养了, 没有人知道她的父亲是谁),
+她看起来很快乐,很平静, 给我一个额头上的吻,
+我注意到我的脸已经湿透了,
+我的肚子变得温暖,很好.
+我意识到所有麻木都是不好的, 地狱是意识到并没有感觉.
+德米似乎比其他迷幻药更明显地具有天生的智慧.
+我觉得第一次更梦的旅程是这次旅程的必要序幕.
+感恩的深深的感觉充满了我, 我不想喝酒.
+我正在想着未解决的痛苦如何引起仇恨和邪恶,
+第四次试验 第三次试验后的一天:
+我通常在倒之前服用150毫克的普雷加巴林,
+半小时后, 我拿了一张150g的AL-LAD.
+在那之后的3个小时, 我决定再次吸香.
+这一次我的意图是:我如何才能给予和接受更多的爱?
+我第一次抽了30毫克.
+我看到的白色天花板前面出现了一些图案.
+我闭上眼睛,又回到道里,
+没有太多发生了.
+我把帕切尔贝尔的炮在D,和充电我的管42毫克Changa,采取2个冲击烧了一点.
+我猜我闭上了眼睛,但我真的不知道.
+接下来的记忆就是在某种天堂之下 (我不是基督徒,
+很多我的祖先都在那里 (他们都在那里,
+他们都希望我最好!
+(我在几天后写这篇文章时,
+他们和我佩和与我一起学习的人也在那里,坐在闪亮的金色宝座上,在温和的金色光中浴.
+他们告诉我他们有空间给我, 他们的门对我开,
+因为如果我得到他们的爱,
+我需要先变得更大,更柔软.
+做更多的善良行为.
+我还收到了来自&quot;我不知道什么,但我会称之为&quot;DMT女王&quot;的信息,
+我觉得我们有对话, 我总是必须有一个诚实的问题, 否则我会惹她,
+我非常感谢她, 再见!
+整个空气充满了三维的金色和白色的线条.
+在中部有时会出现一个女神,一个光明的存在.
+虽然我看不到她的脸.
+她告诉我她现在愿意让我进来,
+我明白如果我选择多抽烟,
+我在房间里看着它是如此清晰.
+我觉得自己已经满足了,
+摘要 (写在我第一次四次试验后):
+现在我明白大家在说什么了!
+我对分子作为一种工具深深的尊重.
+我很高兴我的年龄和我第一次体验DMT时的年龄一样.
+我真的没有准备好, 当我年轻的时候我认为.
+让我最惊的是这种亲密的感觉和与更高的智慧交流的感觉
+让我最惊的是这种亲密的感觉和与更高的智慧交流的感觉
+(或者是我自己的和我们集体的无意识?)
+我认为最重要的东西是你能从中得到的教训, 如果你以尊重和诚实的意图接近DMT.
+现在我想我可能敢于进入超空间清醒, 也许我的剂量有点.
+第五次试验:
+我回到了我最近去世的母亲的公寓,
+所有的回忆都让我伤心.
+虽然这可能意味着我会经历一些非常黑暗的事情.
+我测量了4个重量为20,30,40和50毫克的Changa (50%的DMT) 堆,
+我已经喝了半个酒一个多小时了.
+六天没有服用任何药物.
+我很紧张,我尽可能地准备好了一切.
+我希望能在生活中获得更多的活力和快乐.
+我把&quot;和华尔兹继续&quot;放上了,
+我吸了20毫克香, 只有轻微和温和的模式.
+预计还不够.
+几分钟后, 我又抽了30毫克.
+我进入了某种道.
+首先,我感到紧张和害怕, 我想起我如何使自己麻木, 当我非常亲爱的祖母去世;
+然后我问自己为什么我总是那么害怕?
+没有理由!
+我突然觉得肚子和生殖器都变暖了, 开始微笑.
+现在吸40毫克的感觉更好.
+这次我的意图是如何不太害怕, 我重新阐述了如何变得更勇敢,
+我接受了两次大打击.
+奇怪的是,我几乎没有什么感觉.
+就像我的第二次审判一样.
+我认为这是一个挑战 - - DMT精神希望我做一些勇敢的事情 - -
+我吸了40毫克,然后吸了50毫克.
+我觉得我的身体松了,我意识到我无法完成击中.
+我退缩了,有些不安, 我认为这将会比我有过的任何事情都更强大.
+很快,我飞向花的东西, 听到一些闪闪发光的声音.
+这种经历的速度是我从来没有遇到过的.
+(然后我想我已经忘记了发生了什么.
+我突然又回到麻醉创伤.
+我是6岁的, 他们把这个面具戴在我的嘴和鼻子上.
+我能感觉到气体使我麻木, 带走我的意识.
+我为自己的生命而战,并试图屏住呼吸.
+但我的抵抗是徒劳的.
+我在等待室里着花, 我很害怕穿过.
+恐怕我会完全失去与现实的联系,
+我知道抵抗是徒劳的,我试着放弃,放手,接受死亡,穿过花门.
+但我却陷入了一种无感的恐惧.
+我有一段昏暗的记忆, 记得我六岁时被麻醉.
+我现在记得我进入了一个类似于我现在的地方.
+在&quot;矩阵&quot;中,
+但现在和那时我住.
+我不能去任何地方.
+接受恐惧并不能改变我对恐怖的感觉,
+这是一永恒.
+我意识到的情况更糟.
+我真的在为自己的生命而战!!!
+我是如何战斗的,但还是输了.
+我知道我的许多恐惧和麻木, 导致能量减弱和快乐的缺乏,
+我想要伸出手来给予爱和温暖给我6岁的自己.
+但是我看不到他.
+我试着触摸自己的胸部,
+我只能接受我完全无能为力.
+在某种程度上,在某个时候,我确实离开了矩阵...
+眼睛开时, 感觉到胸部和胃部充满温暖.
+我胃部和大腿背部有点.
+有点.
+我对DMT精神的力量和精确性感到惊!
+没有办法向她隐任何东西!
+这真是一个治疗工具!
+我们的政府把这与毒和海洛因相提并论吗?
+这完全是疯狂!
+所有关于精灵和外星人的谈话, 治愈创伤不是更重要吗?
+这让我震惊到底!
+我记得有些事情太奇怪了,
+我觉得我遇到了源头,
+我可能以前想到或想象的东西; 我现在经历了.
+但以一种我无法想象的方式, 也无法描述.
+我确实认为这将作为一个宗教经历.
+我现在可以看到我和所有人对真理的看法,我们的物质主义和自私的思维是多么深入.
+我们的文化有点像3岁的孩子...
+第二天:
+我每天早上服用18毫克2C-B.
+部分是出于一种贪, 尽我所能 (即远离家人) 吸毒.
+我还有一部分人认为这会帮助我感受悲伤并融入昨天的经历.
+我确实在拆除我生病的母亲家时哭得很大.
+我感觉2C-B比我预期的要多一点.
+有时我会想起我以前的DMT经历,
+我现在很高兴,你可以放手,然后再见!
+现在我能感觉到她给我的爱有多大.
+但很多时候我会在情感上拒绝.
+因为这不是我想要/需要的方式.
+所以,我对她采取同样的方式, 她对我采取的.
+虽然有点悲剧, 但现在能感受到她的行为背后的爱,
+我经常想起昨天的经历.
+我仍然非常震惊!
+如果我把我所经历的视为真相, 并把它带到合乎逻辑的结论,
+我在内心争论, 我是否真的见到了源头, 认识了终极真理,
+如此准确,如此真实, 某种意义上说,
+在我的经验中DMT就像一种杀毒药,
+它只是快速地进入并完成要求.
+在某种程度上, 我确实看到了这个代码/程序.
+这似乎是见了创造宇宙的力量.
+它的力量和智慧是如此之宏伟, 我不可能掌握它.
+我是否说我很惊?
+像某种模式以扭曲速度飞向我.
+我记得看到+符号和其他符号, 我认为它大多可能是黑白的.
+如果它对我做了我觉得它对我做了什么,
+很有趣的是,
+如果我告诉别人我的经历, 别人会怎么想?
+只有现在我才明白别人所说的不可解释!
+感觉如此真实,如此真实,同时看起来比我见过的任何特效更好,更奇怪.
+我很自卑.
+尽管我从未服用过任何常见的迷幻药物,
+我觉得不确定如果我再次吸食DMT,
+(我可能会,但现在感觉已经足够了).
+无论如何, 我发现我的经验非常有治疗效果,
+我从&quot;它&quot;那里得到的信息,上帝或我们称之为什么, 是&quot;它&quot;希望一切进化,
+帮助他人等等.
+如果我们允许它, 它就能帮助我们.
+时间表: 113820
+加 (816):单独 (16),治疗意图或结果 (49),实体/生物 (37),神秘经验 (9),困难经验 (5),回顾/总结 (11),组合 (3),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>First 5 Trials
+Changa &amp; Various
+by
+Psyched68
+Citation:   Psyched68. &quot;First 5 Trials: An Experience with Changa &amp; Various (exp113820)&quot;.
+Erowid.org
+. Feb 2, 2020. erowid.org/exp/113820
+DOSE:
+17 - 50 mg
+smoked
+Changa
+oral
+Various
+BODY WEIGHT:
+72 kg
+DMT (Changa) First 5 Trials
+(this is over 4000 words)
+A few things about me: I had my first psychedelic experiences over 30 years ago. Mostly mushrooms but also LSD, mescaline and MDMA. Had a very bad mushroom + oral hashish trip in my youth leading to too much anxiety whenever I returned to psychedelics, so I quit for over 2 decades. A few years ago, I returned to psychedelics. Though now with much more respect and knowledge.
+A few years ago, I returned to psychedelics. Though now with much more respect and knowledge.
+I’ve tried more than 20 different psychedelics, and won’t bother to mention them all, but currently my preference is low to medium doses of phenethylamines or ergolines. Probably because I associate tryptamines with my bad trip. My guesstimate would be that I’ve taken psychedelics 2-300 times. My renewed interest in this present era of course led me to read a lot about DMT/ayahuasca and listening a lot to the McKenna brothers and others talking about DMT. As I’m a very curious person I wanted to know what it was all about. Still I was afraid to try DMT, as it was often described as more intense than 5 g of dried mushrooms. That the son of an acquaintance recently committed suicide not long after taking Ayahuasca did not reduce my apprehension. Anyhow, about a year ago I got hold of booth some DMT crystal and some Changa. I thought that maybe I’d find someone with experience to be my sitter. But I didn’t. I was afraid of doing it myself also because people on the web said someone should be there to take the pipe when you enter hyperspace.
+First trial:
+Anyhow, in late September I had a weekend to myself and had taken about 65 mcg ALD-52 at 3 p.m. During the evening I had 3 bottles of beer – which I can’t say I felt. At 10.15 p.m. I took 150 mg pregabalin in order not to be awake too long. I also took 10 mg of 2C-B to boost the ALD-52 a bit and to combine with some Ketamine. I take two 10 mg lines of Ketamine. Just before midnight when I took out my baggie with Ketamine, I saw my baggie with Changa (50% DMT). The thought of trying it popped into my head. I thought maybe I can just take a very tiny bit to get my toes wet. It is now something weird starts to happen. It is like I’m an actor in a film sort of, like I just followed a predetermined script. I’m unintentionally listening to a mix with Birds of Mind on Soundcloud (came on after something I had chosen to listen to). I’m mildly amused and sort of surprised I feel so calm. I measure out 17 mg Changa (+-2 mg probably) and put it above some ash in a glass pipe. Just as I&#x27;ve gotten the pipe and torch lighter ready and put my body in a good position, I take a few deep breaths, checking that I feel OK to accept whatever will come - I hear the lyrics &quot;When you are ready, I will surrender, peacefully fall away, away, away&quot; - repeating several times from the Birds of Mind mix. I already feel like I&#x27;m in a very altered state, that so many things have led up to this moment. Altered in a way previously consumed drugs normally would not lead up to. I’m not altered in a forceful way; it feels very easy and natural – and at the same time magical. I notice with some surprise that I have no fear, not even nervousness. Previously I think I had always expected that I would be very nervous the first time I&#x27;d smoke DMT. I’m a bit uncertain of my set, as I do have some grief steaming from my mother’s death 6 weeks ago, but it feels OK to visit the grief if that is what DMT has in mind for me. I remind myself to accept everything and to keep breathing calmly.
+I ignite the lighter and slowly bring it closer to the bowl and I can see the few crumbles of DMT-infused Caapi leaf turning orange as my world starts to change. 3D patterns appear in midair, the strange flavor lingers in my mouth and I get this feeling of something very familiar, that I’m entering a place I know well. What it reminds me of is not something from previous psychedelic experiences. It feels kind and benign.
+The visual effects quite quickly fade to a more “normal” psychedelic alteration of what I see. I feel safe and decide to increase my dose and fill my pipe with 30 mg of Changa. Smoking the second bowl and closing my eyes I enter blue and black square shaped tunnels clad with mosaic reminiscent of the interior of the Shah mosque in Isfahan. I “fly” through the tunnels quickly, but not fast. There is something with the visuals that reminds me of things I’ve seen previously when combining 2C-B and ketamine. Something reminding me of a world built out of Lego. I see a white dog statue that looks like it was made of Lego. I’m amazed I can look around. I notice I’ve tensed up, take a deep breath and relax – and softly something flips and I enter a new tunnel or world. I somehow get shown that my nicotine addiction is like a heavy suitcase I carry around.
+I somehow get shown that my nicotine addiction is like a heavy suitcase I carry around.
+I can take an elevator down and let go of it. It isn’t the nicotine holding me, it is I who hold the nicotine. I see images of a happier and healthier me without nicotine. I somehow realize that it is much easier to quit nicotine than I imagine. Somehow, I sense that &quot;it&quot; – some sort of presence; an intelligence - wants me to heal. Heal so that I could be a better &quot;tool&quot; in creating whatever &quot;it&quot; is creating (a better world?). &quot;It&quot; was so kind, respectful - like “it” wanted me to have a good experience so that I&#x27;d come back. I have some sort of feeling of connecting with the source, the source some call god. That this little I – which is me – is just an illusion. The Hindu concepts of maya and atman ges a deeper meaning.
+I smoke once or twice more with 35-40 mg of Changa (memory’s a bit blurry) and some of the above may be memories from the last trips. I did also encounter a black-blue machine or alien insect creature that probed my body through its pointed fangs. Some time ago I encountered something similar when tripping on 2C-B and ketamine. The last time I smoked, the colors were very muted and I got the message that it was enough for now, that I need to be more rested and should be without any depressant drugs in my system the next time.
+Second trial – 1 week later:
+On the tail end of 10 mg 2C-T-21 and a couple of hours after some GHB I decide to try some Changa again. I was a bit tired. I escalate my dosage and basically get no visuals. Last try I smoke 60-70 mg Changa. Then I do enter the tunnels for a short while, but they are quite dark and in mostly brown. No insights. Afterwards I do feel slightly psychedelically altered, and when I look out at the neighbor’s hedge, I can see it transform into different animals. Mostly it just feels slightly weird. Conclude that I was denied entry today. Don’t know if it had something to do with the 2C-T-21 or GHB. The experience reinforces that I need to be rested and without any depressants in my system to be “let in”.
+Third trial – 2 weeks later:
+I’m in my recently deceased mothers’ apartment in order to clean out her things. Have been doing some grieving since I arrived a few hours earlier. Lots of memories in returning there. At 10.45 p.m. I take 15+-2mg 2C-B as I’m considering to smoke some DMT later and feel that it may be less threatening if on a low dose psychedelic in advance.
+At 11.00 p.m. I put about 17 mg Changa in my pipe and prepare two 30 mg doses for later on. The effects from the 2C-B feel more like 10 mg than 15 mg. Very slight nausea and some increased body awareness. My intention with smoking DMT is to heal me.
+I put on the song Nevada by Kerala Dust and burn 17 mg Changa – just to get my toes wet. Just gives me some vague familiar feeling without much other effect. Shortly after I smoke 30 mg Changa, focusing on accepting whatever I may experience and to keep breathing calmly. Burns my throat a bit.
+I enter the same blue and black mosaic tunnels as I did my first time. Then I don’t know how I got to the next experience. My next memory is of my mother dying, lying unconscious with her mouth open. Somehow, I can both see her as I saw her, and at the same time I’m being her. Being her, I feel a numbness in my whole body. I get this image of acupuncture needles in every square inch of my body (a bit like in the movie Hellraiser), but not just on the outside of my skin – everywhere in my whole body. I cannot communicate or do anything – but I am aware of the world. Unable to scream, unable to cry, unable to leave by dying. Time does not move – I’m experiencing eternities. I think I think this must be Hell… Really a terrible feeling – but the numbness makes it somehow bearable. At some point I open my eyes and a warmth comes to my chest. I have some micro trembling in my body – like I’ve had when working with an anesthesia trauma (happened when I was 6) in therapy. I check my pulse – it is 100 and I think it must have been over 120 a short while ago. The feeling of terror lingers in my body like it can do after a nightmare. I wonder if the DMT removed some of my anesthesia caused by my grief? (Meaning that strong grief often induces some sort of numbness as to experience all the pain at once is too much).
+Thinking about if I’m to smoke more. It feels unfinished. I ask myself if I’m willing to go back to that very uncomfortable state I just experienced.
+I ask myself if I’m willing to go back to that very uncomfortable state I just experienced.
+I’m thinking that I need to go back in order to somehow release my mom from that state I just experienced her experiencing. I prepare 44 mg of Changa and set myself the intention: How to let go of mom? (Thinking that it is I who have difficulty letting her go.)
+I prepare myself as before, take two big hits. Now it is so much smoke that I have some difficulty getting it all in. When putting the pipe down and closing my eyes I see cone shaped green and white patterned spirals above me. A bit muted colors, like not so much light. After that I may have lost some memory, but next thing I recall is my mother’s face coming down from above, saying all is well now, that she’s with all her ancestors now (she was adopted and no one knows who her father was), that it is OK to let go now. She looks happy and calm, gives me a kiss on the forehead and recedes upward in a dark blue space full of small stars of all colors. I notice my cheeks are wet from tears and start crying consciously. My belly becomes warm and nice.
+I’m left with the realization that all numbing is bad, and hell is to be aware and not being able to feel. DMT seems to have an innate wisdom to it in a more obvious way than other psychedelics. I feel that the first, more nightmarish, trip was a necessary prelude to this one. A deep feeling of being grateful fills me and I don’t feel like having a beer. I’m thinking about how unresolved pain causes hatred and evil and need to numb oneself.
+Fourth trial – day after third trial:
+In the morning I take 150 mg pregabalin, something I often do prior to tripping when I have to be around people who I don’t want to know that I’m tripping. One and a half hour later I take a tab of 150 ug AL-LAD. 3 hours after that I decide to smoke Changa again. My intention this time is: How can I be able to give and receive more love?
+I first smoke 30 mg. Patterns appear in front of the white ceiling I’m looking at. I close my eyes and I’m back into tunnels clad with mosaic like before. Not much more happens.
+I put on Pachelbels Canon in D, and load my pipe with 42 mg Changa, take 2 hits – burns a bit. I guess I closed my eyes, but I really don’t know. Next memory is being just beneath some sort of Heaven (I’m not a Christian – more of some kind of agnostic/Daoist/Buddhist/Sufi). Manny of my ancestors are there (they’re all there, but it is just some I can clearly see) – and they all love me! They all want the best for me! (I’m tearing up just writing this a couple of days later). They, and some other people I admire and have studied with are also there, sitting on shining gold thrones, basking in a mild golden light. They communicate to me that they have space for me, that they’re keeping their door open for me, but that I have to practice more to receive love. Because if I got their full love, it would burn me. I need to become bigger and softer first. Do more kind actions.
+I also get a message from – I don’t know what, but I’ll call “it” the DMT Queen – that whenever I enter her world with any kind of sedation/numbing substance in me, she will numb my experience to the same degree. I feel we have a dialogue, that I always must have an honest question to her – otherwise I’ll annoy her – which isn’t a good idea. I thank her profoundly and say good bye – until next time!
+When I open my eyes, the whole air is filled with golden-white strings in 3D. In the middle a goddess, a light being sometimes appears. Though I can’t see her face. She communicates to me that she’s now willing to let me in, that I’m ready. I understand that as if I choose to smoke more, I’ll break through – but I of course don’t know to what. When I look around the room it is so clear and sharp. But I feel satisfied, so I don’t smoke any more.
+Summary (written after my first 4 trials):
+Now I understand what ‘everyone’ have been talking about! I’m intrigued, I feel a deep respect for the molecule as a tool. I’m happy that I’m as old as I am when experiencing DMT for the first time. I really wasn’t ready for it when I was much younger – I think. What amazes me most is this feeling of familiarity and the feeling of communicating with a higher wisdom
+What amazes me most is this feeling of familiarity and the feeling of communicating with a higher wisdom
+(- or is it my own and our collective unconscious?). Though the visuals were amazing, I think they can be distractions and that the most important things are the teachings you can receive if you approach DMT with respect and honest intentions. Now I think I may dare to enter hyperspace sober and maybe up my dose a bit.
+Fifth trial – a week after the fourth:
+I’m back in my recently deceased mothers’ apartment to clean out the last things. All the memories make me sad. Still, I want to deepen my relationship with DMT, even though it may mean experiencing very dark things.
+I measure 4 piles of Changa (50% DMT) weighting 20, 30, 40 &amp; 50 mg and put them on small folded papers. I have had half a beer over an hour ago. Haven’t had any drugs in 6 days. I’m nervous and I prepare everything as well as I can.
+My intention is how to get more energy and happiness in my life. I put on ‘And the Waltz goes On’ with André Rieu on my Soundsystem. I smoke 20 mg Changa – only get slight &amp; mild patterns. As expected not enough. Within a few minutes I smoke another 30 mg. I enter some kind of tunnel. First, I get nervous and afraid, I think of how I’ve made myself numb, when my very dear grandmother died; all the years of shame and fear of my father dying from alcoholism and secondary diseases. Then I ask myself why am I always so afraid? No reason! I feel suddenly warmth in my stomach and genitalia and start to smile.
+Now it feels more OK to smoke 40 mg. This time my intention is how to not be so afraid – which I reformulate to how can I become braver and feel more?
+I take 2 big hits. Strangely, I hardly feel anything. Sort of like on my second trial. I think that this is a challenge – that the DMT Spirit wants me to actually do something courageous – which in this situation is to smoke my last and largest pile of Changa. So, within about 1-3 minutes from that I smoked 40 mg, I smoke 50 mg. When trying to take the second (- or was it the third?) hit I feel my body loosen and I realize I can’t complete the hit. I fall back and with some trepidation I&#x27;m thinking that this will be a lot more powerful than anything I&#x27;ve ever experienced. Very quickly I’m flying towards something chrysanthemum like and I hear some sparkling sound. This experience has a speed I&#x27;ve never encountered before. (Then I think I lost some memory of what happened.)
+Suddenly I’m back to my anesthesia trauma. I’m 6 years old and I’m being forcefully held while they put this mask over my mouth and nose. I can feel the gas numbing me, taking my conscious away. I fight for my life and try to hold my breath. But my resistance is futile. Somehow parallel to this I’m stuck in the waiting room by the chrysanthemum – I’m very afraid of going through. Afraid of that I’ll completely loose contact with this reality; that I’ll go crazy. And I know resistance I futile, I try to give up; to let go; to accept dying; to go through the chrysanthemum portal. But I’m stuck in numb terror.
+A faint memory of when being anesthetized when 6 years old comes to me. I now remember I entered a place similar to where I’m now. A place between dead and alive, in “the matrix” so to speak. But both now and then I’m stuck. I can’t go anywhere. Accepting what I fear does not transform my feeling of terror as it has done before on other psychedelics. It goes on an eternity. It is much worse that I consciously have remembered. I was really fighting for my life!!! God, how I fought – and still I lost... I know with my whole being that a lot of my fear and numbing that have led to decreased energy and lack of joy stems from this. I want to reach out and give love and warmth to my 6-year-old self. But I can’t see him. I try to touch my chest to give myself some warmth, but I cannot feel my hands as my chest is numb. Stuck in this numb terror I&#x27;ve got no choice than to just accept my complete powerlessness. Somehow, at some time, I do leave the matrix…
+As I open my eyes, I feel a lot of warmth coming to my chest and stomach. I have some spasm in my stomach and the back of my thighs. A bit of shivering too. I’m amazed of the power and precision the DMT spirit has! No way to hide anything from her! What a therapeutic tool! And our governments equal this with crack and heroin?!? Utter madness! All this talk of elves and aliens – isn’t healing traumas so much more important? I’m shaken to my core! I sort of remember that there were things too strange for my conscious mind to be able to remember. I have this sense of having encountered the source; the divine – and I’m so awestruck!!! Things I may have thought or imagined before; I have now experienced. But in a way I could not possibly imagine, nor possibly can describe. I do think this would count as a religious experience. I can now see how deeply steeped I – and all alike - are in our culture&#x27;s view of truth, our materialistic and selfish thinking. Our culture is sort of at the level of a 3-year old…
+The day after:
+I take 18 mg of 2C-B in the morning. It is partly out of a kind of greed – to do psychedelics to the max when I can (i.e. away from my family). Another part of me thinks it will help me grieving and to integrate yesterday’s experience. I do cry quite a lot as I disassemble my diseased mothers’ home. I feel the 2C-B a bit more than I expected. Sometimes I’m reminded of my earlier DMT experience of my mom coming down from heaven and giving me a kiss on the forehead. Saying everything is OK, I’m happy now, you can let go &amp; some sort of see you later! Still I feel so much grief and now I can perceive how much love she gave me – in the ways she could. But often when it happened, I emotionally rejected it. Because it was not in the way I wanted/needed it. So, I acted the same way towards her as she acted towards me. A bit tragic, but it feels good to now be able to feel the love beneath her actions.
+Often, I think of what I experienced yesterday. I’m still extremely awestruck! If I’d take what I experienced as truth and took it to its logical conclusion – it would change everything in my life drastically! Internally I debate if I’ve actually seen and met the source; the ultimate truth, the creator – or if I “only” had some sort of drug induced hallucinations. Yesterday’s experience: it was so exact; so truthful – in a way like if my computer seems slow, I’d ask for an antivirus to take away any unwanted code that slowed it down. In my experience the DMT was like an antivirus that shoots right to the core – without any regard for eventual feelings the host system carrying the virus may have had. It just quickly went in and did what asked for. And in some way, I did see this code/program. And it seemed like catching a glimpse of the force creating this universe. And its power and intelligence were so magnificent I could not possibly grasp it. Did I say that I’m awestruck? ;^)
+When I experienced “it”, I could see “its” working, like some kind of pattern flying towards me at warp speed. I remember seeing + signs and other symbols and I think it mostly may have been in black and white. If “it” did what I felt that “it” did to me, others should notice something different with me now. It’ll be interesting to see if that comes true next week. What will others think and be able to understand if I tell them of my experience? I sort of prepared for 3 years before having this experience, and only now do I understand what others have meant when they said it’s unexplainable! Something in the paradox of feeling so true, so real – and at the same time look better and stranger than any special effects I’ve ever seen. I’m humbled.
+Even though I’ve never taken extreme doses of any of our common psychedelics, DMT feels different than any of the 20-30 different psychedelics I’ve sampled. I feel uncertain if to be more or less afraid if I smoke DMT again. (I probably will, but right now it feels very enough). Anyhow, I found my experience very therapeutic, which some people say smoked DMT rarely is – at least compared to ayahuasca.
+The message I got from “it”, God or whatever we may call it, was that “it” wants everything to evolve and thus loves when we do things for our self and others that are in accordance with her will. Like to stop destructive habits, helping others etc. And “it” can help us in this if we allow “it” to.
+Exp Year: 2019
+ExpID: 113820
+Gender: Male
+Age at time of experience: 50
+Published: Feb 2, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Changa (816) : Alone (16), Therapeutic Intent or Outcome (49), Entities / Beings (37), Mystical Experiences (9), Difficult Experiences (5), Retrospective / Summary (11), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

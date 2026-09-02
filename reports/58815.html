@@ -1,0 +1,225 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>从天堂到地狱</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-haloperidol.html'>← 氟哌啶醇（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>从天堂到地狱</h1>
+<div class='sub-title'>DOC - Erowid Exp - &#x27;From Heaven to Hell&#x27;</div>
+<div class='meta'>作者：kteis Citation · 日期：Jul 6, 2007 · 剂量：2 hits · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=58815' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我和男朋友在DOC的经历总体上是如此可怕,
+也许你们中的一些人会嘲笑这一切的荒谬, 认为我们是非常愚蠢的...
+别把这些东西和精神病药物混在一起!
+我不确定剂量, 除了我们每个人吃了两次白色纸, 每个朋友告诉我们是DOC,
+我认为我可以很容易地处理这件事.
+我一直在服用抗抑郁药, 为了对抗我的双相情感障碍 (我从小就有过,
+或是非常轻微的高兴感) 或是愉快的,增强幸福感的效果 (即与LSD.
+例如,Zoloft/Paxil和酸一起意味着我从未有过糟糕的旅行,
+我男朋友从来没有过, 但因为我们的朋友说这是一个&quot;弱&quot;剂量, 我们每人服用两次.
+他服用的是抗发作药物.
+我服用拉米克塔尔, 一种抗发作药物/情绪稳定剂,
+也许这是我第一次做坏旅行的偶然因素?
+我们每个人都在半夜左右被击中两次.
+我立即感受到效果.
+墙上每一个海报都是3D的, 墙壁和天花板都在呼吸和变色.
+我正在享受它.
+很快就开始, 失去了方向, 不愿意独自一人 (这对他来说不常见).
+视觉图像不断升.
+我独自坐在门廊上抽烟, 在黑暗中, 闭上眼睛, 看到明亮的彩虹色, 几乎是火焰般的色彩,
+几乎是和平的, 但越来越紧张和不安.
+这次旅程不断地达到顶峰.
+没有汽车, 很多人, 很多人帮助我冷静下来.
+没有这样的运气.
+没有地方可以去, 精神病发作时, 太早了, 没有朋友来接我们,
+在早上7点左右, 精神病发作.
+开始的时候,BF甚至比我更糟糕,
+我记得我坐在黑暗中的电脑前, 试图打字, 感觉就像在迪斯尼乐园的&quot;加勒比海盗&quot;, 墙壁和天花板上挂着的尸体, 围着我.
+这很可怕.
+我不得不出去.
+我觉得我是在一个时间循环.
+我记得是凌晨5点23分,
+我也开始反复思考, 变得越来越不合理.
+我开始大喊大叫,重复自己, 只是说出随机数字和垃圾 (&#x27;三角学是一切的答案!
+5-21!等等).
+后来我开始扔东西和打破东西, 想到, &#x27;做你想做的事!
+我只需要说出神奇的字,我的盘子和玻璃杯就会神奇地自我修复!
+书籍,,到处都是,一个穿过我的窗户.
+我出去,开始扔花盆.
+看到车辆过路, 我会跑到车上, 挥手, 敲车窗, 开始对车内的人发出侮辱.
+我躺在路上, 想着如果被撞了怎么办?
+开始疯狂.
+在任何地方都找不到帮助.
+他用手机打电话给911.
+愚蠢的吗?
+可能.
+但如果他没有, 我可能会被人开车撞倒,
+警察来了.
+我走到那个警察面前, 称他为子,
+他认为我很逼人, 所以他喷了胡喷雾,
+医院的急诊室工作人员把我绑在床上8个小时,
+我醒来时发现我们已经被释放.
+我还能感觉到药物,看到颜色和脉动的光线.
+第二天下午5点左右.
+我有一个 dystonic 反应, 也就是一个 SEIZURE, 从haldol,
+这是一件好事.
+我发现我对哈尔多尔过敏.
+为了加重这一切, 我们最终有几个指控从snafu和得去监狱!
+(我们没有在同一天去,
+总结一下,这一次旅行已经花费了我们大约1万美元的法律费用,保释金和医疗费.
+我称之为&quot;监狱部&quot;. 不用说,我永远不会再碰到这些东西,只要我活着.
+事实上,我已经没有心情再吸毒了,
+你可能认为我写这篇文章是为了吓你.
+我没有.
+但是,你需要知道,这不是你父母的快乐药物.
+时间表:58815
+药品 -  (308), 药品 - 拉莫 (432), DOC (357): 医院 (36), 糟糕的旅行 (6), 组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>From Heaven to Hell
+DOC
+by
+kteis
+Citation:   kteis. &quot;From Heaven to Hell: An Experience with DOC (exp58815)&quot;.
+Erowid.org
+. Jul 6, 2007. erowid.org/exp/58815
+DOSE:
+2 hits
+oral
+DOC
+(blotter / tab)
+100 mg
+oral
+Pharms - Lamotrigine
+(pill / tablet)
+30 mg
+oral
+Duloxetine
+(pill / tablet)
+repeated
+smoked
+Tobacco - Cigarettes
+Pharms - Haloperidol
+BODY WEIGHT:
+160 lb
+The experience that my boyfriend and I had on DOC was so AWFUL overall that I feel the need to preface this report by saying that we are not anti-drug crusaders by any means, but, also that I am not making any of this up. Perhaps some of you will laugh at the sheer ridiculousness of this and consider us incredibly stupid ... but I hope that you may be able to avoid such an awful experience! Don&#x27;t mix this stuff with psych meds!!!
+I&#x27;m not sure of the dosage, except that each of us took two hits of white blotter paper each of what our friends told us was DOC and that it was a 16-hour trip. Being moderately experienced with LSD and meth myself for a decade now, I figured I could handle this easily. Also, I have been taking antidepressants off and on for about 10 years to combat my bipolar disorder (which I&#x27;ve had since very young, definitely pre-drugs!), and have usually mixed my psych meds with drugs, with either deadening effects (i.e. MDMA, I feel NOTHING, or either very *mild* euphoria) or pleasant, happiness-enhancing effects (i.e. with LSD. Zoloft/Paxil and acid together, for example, meant I never had a bad trip, and everything was just much more colorful!).
+My boyfriend had never tripped before, but, since our friends said this was a &#x27;weak&#x27; dose, we each took two hits. He takes tegratol, an anti-seizure medication. I take Lamictal, an anti-seizure med/mood stabilizer, which I&#x27;d never mixed with psychedelics before. Perhaps this was the random factor in making this the first BAD trip I&#x27;d ever had?
+We each took two hits at about midnight. I felt the effects immediately. VERY very strong, fractal, colorful visuals, every poster on my wall was 3D and the walls and ceiling were breathing and turning colors. I was enjoying it. BF began shaking all over immediately and became very disoriented and refused to be left alone (not common for him). The visuals kept peaking and peaking. I sat on the porch alone smoking a cigarette, and in the dark, closed my eyes and saw bright, rainbow, almost flaming colored visuals even with my eyes closed, as if tendrils and wrought iron patterns were growing and spiraling. It was very nice, almost peaceful, but with an increasing edginess and uneasiness.
+The trip kept peaking, and peaking. I might have enjoyed this if at a festival, in a large open space with NO CARS and lots of people and lots of people to help me calm down and come down. No such luck. Just my BF and I in our apt., both of us too fucked up to drive, and nowhere to go, and, by the time the psychosis hit, too early for any of our friends to come pick us up or come talk us down, or shove the many xanaxes down our throats that we really should have taken.
+Around 7 a.m., the psychosis hit full-on. BF initially was even worse than me, going into full-blown panic, making me even worse. I remember sitting in the dark in front of my computer, trying to type, and feeling like I was in the Pirates of the Caribbean ride at Disney World, with leering corpses hanging out of the walls and ceiling, surrounding me. It was awful. I had to get outside. I felt like I was in a time loop. I remember it being 5:23 a.m. for hours. Also, my thoughts began looping and growing more and more irrational. I began yelling and repeating myself, just blurting out random numbers and garbage. (&#x27;Trigonometry is the answer to everything! 5-21! etc etc). Then I began throwing things and breaking things, with the thought of, &#x27;Do what thou wilt! All I have to do is say the magick words and all my dishes and glasses will magickally repair themselves!&#x27; All reason disappeared. Books, candles, went everywhere, one through my window. I went outside, and began throwing flower pots. Then, upon seeing passing cars, I would run up to them, wave them down, knock on their windows and begin hurling slurs or insults at the people inside. I then laid in the middle of the road, thinking, so what if I get hit?
+BF began freaking out. Help was nowhere to be found. He called 911 on his cell phone. Stupid? Perhaps. But, if he hadn&#x27;t, I could have gotten run over or probably had the shit beat out of me by someone in one of these cars that I was flagging down and calling names.
+Cops came. I walked up to the cop and called him a pussy, among other names, and asked him for a cigarette. He thought I was being aggressive, so, he pepper sprayed me and handcuffed me. Both of us, me and BF, got to ride in the ambulance to the hospital, where the ER staff strapped me down to a bed for 8 hours after pumping me full of haldol.
+About 5 p.m. that day, I woke up and we were released. I was still feeling the drug, and seeing the colors and pulsating light.
+The next day around 5 p.m. I had a dystonic reaction, i.e. a SEIZURE, from the haldol, where my jaw locked up and my head rolled back and I couldn&#x27;t move it. Yay. Found out the hard way I am allergic to haldol.
+To top it all off, we ended up with a couple of charges from the snafu and got to go to jail too! (We didn&#x27;t go the same day, but, turned ourselves in about two weeks later on our lawyer&#x27;s advice).
+To sum it up, this one trip is costing us, so far, around $10,000 in legal fees, bail bond and medical bills. I call it DOC for &#x27;Department of Corrections.&#x27; Needless to say, I&#x27;ll never touch this stuff again for as long as I live. In fact, I&#x27;m not really in the mood to do any drugs anymore, period. You probably think I&#x27;m WITH LE writing this and trying to scare you. I&#x27;m not. But, you just need to know, this ain&#x27;t your parents&#x27; happy drug.
+Exp Year: 2006
+ExpID: 58815
+Gender: Female
+Age at time of experience: Not Given
+Published: Jul 6, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Haloperidol (308), Pharms - Lamotrigine  (432), DOC (357) : Hospital (36), Bad Trips (6), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

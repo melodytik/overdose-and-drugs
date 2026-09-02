@@ -1,0 +1,407 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;精神病,警察和女性&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/opioids.html'>← 阿片类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;精神病,警察和女性&quot;</h1>
+<div class='sub-title'>LSD &amp; Opioids - Erowid Exp - &#x27;Psychosis, Police and Femboys&#x27;</div>
+<div class='meta'>作者：Frankie Citation · 日期：Jan 14, 2026 · <a href='https://erowid.org/experiences/exp.php?ID=117321' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>接下来是我在LSD中经历过的最糟糕,也是唯一一次&quot;糟糕的旅行&quot;的故事.
+当我说糟糕的旅行,我真的意味着.
+我有很多不舒服和具有挑战性的经历,
+这些旅程的挑战在于, 沉重的内省性质使我对自己的缺点和问题充满了意识.
+但正如我所说,
+这次旅行并非如此.
+这是一个糟糕的旅程,
+我不想散布恐怖故事; 造成这次恐怖之旅的许多因素都是我自己的错.
+我当时的思维方式并不好.
+我和我的女朋友已经分手四年了.
+她还没有跟我分手, 但我觉得她不再爱我.
+我是一个双性恋男性,
+她也是双性恋者, 因此我在和她在一起时,
+我当时除了她之外没有人知道.
+我知道我们的关系即将结束,
+这将在旅行报告中更重要.
+这里是我的家.
+我母亲出差,预计凌晨2点左右回来.
+我对阿片类药物很沉迷.
+我对阿片类药物很沉迷.
+让故事开始吧.
+我突然觉得有强烈的冲动去吸食一些LSD.
+我收集了我的钱,与我的经销商见面并购买了5张纸板.
+我有整个房子自己.
+我出国旅行, 但会在凌晨2点左右回来.
+由于时间只有下午4点, 这给了我足够的时间来脚.
+我当时是个活跃的阿片类成者.
+我试图戒烟很多次,
+我当时非常丧,
+现在回想起来,我相信这些标签大约是每一个100ug.
+他们绝对是强势的一方.
+我消耗了另一个标签,使我到300ug.
+T+1:15 - 现在真的感觉到酸.
+我还会再买一张, 总计400ug.
+我决定冲入淋浴.
+这是一个非常奇怪的经历.
+我开始看到埃及象形文字的图案.
+我当时的片成使我掉了一些头发.
+我已经担心了这一点, 但当我洗头时, 看到手里有大量的头发落在地板上,
+我知道有些头发确实脱落了, 但我相信酸使我看到更多的头发.
+这真的让我很害怕.
+但它让我真正意识到我的成对我的身体造成了什么.
+这种令人毛骨然的感觉开始爬上我的脊椎.
+我正在听&quot;感恩之死&quot;的&quot;康奈尔77&quot; (这是一张非常棒的专辑,
+我推给任何使用迷幻药的人) 用JBL的大扬声器.
+我清楚地记得在歌曲&quot;失败者&quot;中, 杰里开始唱歌的时候,
+这种声音恰逢我的旅程真正起飞之际.
+现在每次听到这首歌, 就会想起那种感觉.
+我从淋浴中出来, 裸体坐在床上.
+我拿出那个卖给我的塑料袋, 仔细检查.
+我看到袋子里面的.
+我看到袋子上有形的图案,
+这次旅行开始变得非常激烈.
+我不记得太多.
+我一直在听康奈尔77的音乐.
+我喜欢这张专辑, 它让我从自我审视中走出来 (或更确切地说,
+但在专辑中途, 我的扬声器死亡.
+我发现自己处于一种令人毛骨然的寂静之中.
+我所有的问题和恶魔又开始浮出水面.
+酸对我来说是一种非常常见的效果,
+我总是听到这种声.
+有些来自卡车发动机,一些房子, 有些来自冷藏室风扇的声,
+这与LSD听觉幻觉已经像声的性质相结合,
+我开始沉迷于此事.
+我还记得我经常思考生物学.
+这让我对死亡产生了深深的恐惧,
+我看着我的手臂,看着我的血管.
+我现在意识到生命是多么脆弱,
+我觉得很奇怪的是我是一个活着的生物,
+下面一些性细节 - - 如果这让你感到激动或不舒服,请不要继续!
+~T+ 3:30 - - 我记得这个时期变得非常性欲.
+对我有很多这样的影响.
+这是一种不同的性欲.
+我开始自慰,看一些异性恋的色情片,
+在LSD下看色情片和做爱,
+我忘记自己是人类, 但性欲是人类的根源,
+我有一层不知自己在做什么.
+像我上面提到的那样,
+我不太关注性本身, 而是感官参与其中,
+我不只关注生殖器,例如腿部或手部,
+这里没有任何性力量.
+我看到的人类从事性活动,
+我同意了,因为我的身体也在告诉我.
+当我说它是外星人时,它确实是.
+裸体被无限复杂的,变形的碎片所覆盖,
+我在做这件事时, 另一个层次的意识只是在看着, 观察着.
+我不知道自己自慰了多久.
+但回想起来,我的高潮或高潮发生在同一时间,
+我很简单地记得高潮的时间.
+之后,我昏迷了; 完全的自我死亡; 融入一个.
+我将不再使用时间标记, 因为我没有时间感,
+接下来我记得一个敲门, 几乎敲门.
+我在家.
+我的房子有一个大玻璃入口,所以它也有两个门.
+外门从入口通往外面,内门从房子里面通往入口通往内面.
+我有外门的钥匙, 但没有内门的钥匙,
+我不知道我在门口等了多久.
+我站起来让她进来, 仍然高峰非常强.
+她很生气等待在门口,但我告诉她我睡着了.
+我和她聊了一会儿, 试图表现得清醒,
+我忙关掉它,她没有看到.
+我母亲开始注意到我表现得很奇怪.
+她问我有没有吃过什么, 我说我只是很醉了,
+(我对我使用大麻没有问题.
+她知道我也是个君子. 当她的脸变成碎形时,
+我绝望地告诉她真相.
+我记得我对她说:&quot;,我已经用了LSD了.
+她一开始很丧, 这种感觉立刻让我放弃了旅行.
+我已经给她造成了足够的创伤,
+这就是旅程真正开始变得糟糕的地方.
+我听到一个打电话的声音.
+我以为她打电话给我的父亲 (当时他不知道我吸毒.
+我对他有点害怕.
+我开始恐慌, 认为我的一切秘密都会被曝光.
+我们争论了几分钟,
+我以为邻居们听到我们说话, 因为我们提到了LSD,
+我离开了家, 去了一家餐馆,
+我不知道她离开了房子,我只是认为她去了楼下.
+听觉幻觉变得越来越强烈.
+我听到我尖叫, 求救.
+呼呼呼! 的声音有着遥远的,令人惊的回声.
+这让我想起那些电影中的邪恶势力模仿亲人的声音,
+我开始跑遍房子寻找, 尖叫着&quot;!
+现在我开始有时会失去意识.
+我记得我一直试图放音乐,
+我找了我的扬声器,拿起它,发现它已经死了,然后把它放回去.
+我重复了这一点很多次; 臭名昭著的思想循环,
+看到两名警察打开门, 走进来.
+我会惊慌失措, 像疯子一样在房子里跑来跑去,
+(当时我卖的毒品数量相当大,但在这次经历中我家里没有任何可观的产品.
+这表明LSD能够反射潜意识的恐惧.) 在某个时候,
+我会这样恐慌几分钟, 然后再次失去意识.
+我在这些自我死亡昏迷中做了什么我不知道.
+我会再次醒来并重复这个过程.
+我在这些自我死亡昏迷中做了什么我不知道.
+我会再次醒来并重复这个过程.
+我重复了几次, 直到我昏了很长一段时间.
+经过这长时间的昏迷之后, 我记得在床上醒来,
+显然我去餐厅, 意识到我在酸中的时候,
+我躺在床上, 试图放一些音乐来安慰我.
+我还以为警察在我的房子里, 但幻觉变得更糟.
+我从客厅里听到警察收音机的声音.
+我听到了无线电的声,
+在这个时候,刚刚在新闻上出现了一些警察枪击事件.
+我开始相信我会在家里被警察杀害.
+我清楚地记得我坐在床上看着我的门口, 完全相信任何一秒钟警察即将走进门口,
+我母亲说了一些关于大麻的东西, 我疯狂地把手指放在嘴唇上说:
+我以为警察听她和邻居们一起说话.
+我完全陷入了精神疾病.
+我记得有一次我问我:&quot;你是同性恋吗?
+你是一个femboy吗? 记住,我不是一个femboylol.
+让我们来看看这些精神药物有多么奇怪, 能够把每一个潜意识的想法和想法,
+我当时还没有向母亲说我是双性恋,
+记住,当她对我这么说时, 我相信我的邻居,警察, 和我在电话里的父亲都能听到她这么说.
+我所有的邻居,我的父亲,警察,他们都知道我是个吸毒者,
+我感觉自己很脆弱.
+感觉就像在一片人海中赤身裸体.
+我没有任何隐私.
+我觉得我最深层的,最黑暗的想法, 即使我不承认,
+我知道我的生活已经结束了.
+我记得我坐在那里, 必须接受这样一个事实:我是一个耻辱,
+我不得不接受这样一个事实:我即将被警察杀.
+我在手机上疯狂地发短信给几个毒贩朋友说我即将被捕.
+其中一个我刚刚说&quot;跑&quot;.
+我还删除了与同性恋有关的一切内容.
+我终于闭上眼睛坐在那里,
+我开始冥想, 让死亡的过渡尽可能顺利.
+我也一直在想着自己在吸毒.
+我发现迷幻药,尤其是LSD,
+我通过各种原型/观念来看待自己的毒.
+我看到了我的形象,长发,戴着罩衫,正在洗.
+(虽然这三张图片并排) 这代表了我认为毒品很酷的部分,
+我还看到我的身体停止工作并死亡;
+这代表了我对片的成.
+我完全意识到吸毒的负面影响.
+这和我提到的其他事情, 让我对自己的死亡意识变得超级敏.
+我知道这里有幽默元素,
+尽管如此, 我无法解释这对我来说是多么的创伤.
+是的,这是一个错觉, 但全心全意相信你最深的思想被曝光了,
+连续一段时间, 一样的思维循环和妄想.
+我仍然坐在那里安慰我.
+经过一两个小时的沉默,
+我仍然非常高,但我意识到我可能不会死,
+最终我下降到足以意识到警察没有在那里.
+最终我下降到足以意识到警察没有在那里.
+我问:&quot;警察在这里吗?&quot; 她说:&quot;当然不是,
+我非常感激自己没有被杀或被捕.
+尽管如此, 我仍然相信我的邻居和父母都知道我的秘密.
+我不再像以前那样妄想,也不再那么害怕.
+我只是感受到一种强烈的尬和脆弱的感觉.
+我觉得自己是个废话.
+我觉得自己是个沉迷者.
+我觉得自己是个双性恋者.
+我感到非常不安全.
+我一直在向道歉,
+我终于清醒了, 意识到我手头有少量特拉佐,
+虽然我还远远没有达到基线,
+我走进房子后面的阳光室 (我以前以为邻居们在听我说话), 发现那只是一个昏昏欲睡的周日下午.
+邻居们都没有醒过来.
+这使我对邻居听到我的错觉丧失了意义.
+我爸爸知道我所有的秘密的幻想也被杀了,
+我还以为我知道我所有的秘密.
+我99%肯定我看到她说&quot;你是同性恋吗?&quot;
+因为当我在一年后出来时, 她看起来非常惊,
+我觉得自己很,
+我向道歉,试图找出她知道多少.
+我当时清醒, 但经历非常创伤.
+我在接下来的两个月里患上了一种创伤后应激障碍.
+我在接下来的两个月里患上了一种创伤后应激障碍.
+在那两个月里, 我极度害怕死亡, 如此强烈, 以至于我多次恐慌发作.
+我觉得无望, 因为我不认为我有能力戒掉阿片类药物,
+我还觉得很尬, 因为我必须向朋友解释前一天晚上为什么疯狂地给他们发短信.
+总之,这是我有史以来最糟糕的旅行,
+我没有遵守规则,
+为了获得积极的体验, 一个人必须尊重它.
+这次旅行的负面影响现在已经消失了.
+实际上, 这才是我一生中最美好的事情.
+事实上,我在康复中心写信.
+我已经入学八个多月了, 我即将毕业.
+我在这里意识到这次旅程并不是徒劳的.
+我觉得自己是个子.
+这提醒我,生命不是永恒的,
+这也让我知道我不应该有什么秘密.
+我是个双性人,这是我的本性.
+我很感激任何阅读者, 请把这个故事作为一个谨慎的词尊重迷幻化合物.
+祝你们所有人好运!
+贾亚拉玛!
+贾亚汉努曼!
+时间表: 117321
+LSD (2),阿片类药物 (407):不好的旅行 (6),成和习惯 (10),性讨论 (14),旅行后的问题 (8),困难的经历 (5),孤独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Psychosis, Police and Femboys
+LSD &amp; Opioids
+by
+Frankie
+Citation:   Frankie. &quot;Psychosis, Police and Femboys: An Experience with LSD &amp; Opioids (exp117321)&quot;.
+Erowid.org
+. Jan 14, 2026. erowid.org/exp/117321
+DOSE:
+T+ 0:00
+2 hits
+oral
+LSD
+(blotter / tab)
+T+ 0:20
+1 hit
+oral
+LSD
+(blotter / tab)
+T+ 1:15
+1 hit
+oral
+LSD
+(blotter / tab)
+T+ 0:00
+oral
+Pharms - Trazodone
+T+ 0:00
+Opioids
+(daily)
+BODY WEIGHT:
+180 lb
+The following is an account of the worst and only “bad trip” I’ve ever had on LSD. When I say bad trip, I really mean it. I’ve had plenty of uncomfortable and challenging experiences that ultimately were good for me in the long run. The aspects of these trips that made them challenging was the heavy introspective nature causing me to be hyper-aware of all of my flaws and problems. But, as I said, all of these trips were beneficial to me in the long-term. This trip was not like that. It was an actual bad trip that actually made life worse for a while. I am not trying to spread a scare-story; much of the factors that made this a horror-trip were my own fault. My mindset at the time was not good. Me and my girlfriend of four years were just about to break up. She hadn’t quite broken up with me yet, but I had the sense that she didn’t love me anymore. I am a bisexual male, though I had realized I was bisexual while I was with my girlfriend. She was bisexual too, and because of this I felt accepted and content with my bisexuality when I was with her. I was not out at the time to anyone except her. Deep down, I was feeling insecure about my sexuality because I knew our relationship was about to come to an end. This will be relevant later in the trip-report. The setting was my house. My mother was out on a trip and expected to be back at around 2 a.m. I should also mention that I am extremely experienced with drugs of all kinds. At this time I was active in a pretty heavy addiction to opiates.
+At this time I was active in a pretty heavy addiction to opiates.
+Let the story begin.
+It was a beautiful, warm November day and I suddenly got a very strong urge to trip on some LSD. I gathered my money, met with my dealer and bought 5 paper tabs. I had the whole house to myself. My mom was out of town on a trip but would be back around 2 a.m. Seeing that it was only 4 p.m., this gave me plenty of time to trip. I was in active opiate addiction at the time. I’d tried to quit many times but failed. I was quite depressed at the time and thought a trip would help me figure out my problems.
+T + 0:00 - I consumed two of the paper tabs. Looking back, I believe these tabs were around 100 ug each. They were definitely on the stronger side.
+T + 30:00 - Beginning to feel the acid take effect. I consume another tab, bringing me to 300ug.
+T + 1:15 - Really feeling the acid now. I take another tab, totaling me at 400ug. I decide to hop in the shower. This was a very strange experience. All along the side of the shower, where the water condensation formed I began to see Egyptian hieroglyphic-type patterns. My opiate addiction at the time was causing me to lose some hair. I was already concerned about this, but I was even more concerned when I shampooed my hair and saw massive amounts of hair in my hands and falling to the floor. I know some hair really did come out, but I’m sure the acid made me see a lot more hair than there really was. This really freaked me out. It didn’t have too much of an effect on my trip, but it made me really aware of what my addiction was doing to my body. This eerie feeling began to creep up my spine. I was listening to Grateful Dead’s Cornell 77 (a fantastic album to listen to while tripping. I recommend it to any psychedelic user) on a big JBL speaker. I vividly remember during the song “loser” when Jerry starts singing the chorus there is a big feedback interference (eeeeeeeeeee sound). It was this sound that coincided with my trip really taking off. Anytime I hear it today I get reminded of that feeling.
+T + 1:45 - I get out of the shower and just sit naked on my bed. I get the plastic baggie that the LSD was sold to me in and closely examine it. Inside the folds in the bag I see mushrooms. Not literal, physical mushrooms, but I see mushroom shaped patterns on the bag, kind of like those cartoon-style mushrooms. The trip was starting to get very intense.
+T + 2:00 - T+ 3:00 - The peak begins to set in. I don’t remember much. I kept listening to Cornell 77. I love this album so it brought me out of my introspection a little bit (or rather made the introspection a little more positive). But around halfway through the album, my speaker died. I found myself in this eerie silence. All of my problems and demons began to float to the surface again. A very common effect of acid for me is an increased sense of hearing. I always hear this buzzing noise. Some of it comes from a truck engine, a few houses done, and some of it from the buzz of the fan in my freezer and some from the sound of my heater. When this is combined with the already buzz-like nature of the LSD auditory hallucinations, it creates this eerie, alien ambiance. My mind began to become consumed by this. I also remember thinking a great deal about biology. This brought up some deep fears of death in me that will be relevant later. I was looking at my arms, at my blood vessels. I realized now just how fragile life is, but also how alien it is. It felt very weird to internalize the fact that I am a living organism, and part of this massive universe. Some Sexual Details Below - Don’t Continue If This Triggers You or Makes You Uncomfortable!
+~ T+ 3:30 - All I remember at this period is becoming very horny. LSD has this effect on me alot. It is a different kind of horniness though. I started to masturbate, watching some straight porn but also some femboy porn. Watching porn and having sex on LSD, especially high doses is a very strange experience. I kind of forgot I was human, but the sex drive is so deeply rooted in the species that I was almost doing it subconsciously. A layer of me didn’t know what I was doing. As I mentioned above, the horniness caused by LSD is different from usual horniness. I was less focused on the sex itself, but the senses involved in it, if that makes any sense. Instead of focusing on the genitals, for example, I would focus on the thighs or the hands, I would focus on the look and feel of the skin. There was no sexual power involved in it. The humans I saw engaging in sexual activities felt more like aliens. I went along with it because my body was telling me too. When I say it is alien it really is. The naked bodies are covered with infinitely complex, morphing fractals seemingly flowing in a 3D manner through and around the cells of the body. As I did this there was another layer of my consciousness just watching; observing. I don’t know how long I was masturbating for. But looking back, my climax or orgasm happened around the same time as the most intense peak of my trip. I very very briefly remember the time of orgasm. After that, I blacked out; complete ego death; merging into the one.
+I will not be using time markings after this, as I had no sense of time so I cannot accurately make any assumptions about when these events happened. The next thing I remember is a knocking, almost banging on the door. My mom was home. My house has a big glass entry-way, and so it also has two doors. The outer door that leads from the entry-way to the outside and the inner door that leads from inside the house to inside the entry-way. My mom had a key to the outer door, but none to the inner door, it could only be unlocked from someone inside the house. I have no idea how long my mom was waiting at the door. I got up and let her in, still peaking very hard. She was upset for a minute for having to wait at the door, but I told her I was asleep. I talked to her for a minute trying to act sober when I realized my phone was on and still had femboy porn on the screen. I hurried and turned it off, she didn’t see.
+My mom started to notice that I was acting weird. When she asked me if I had taken anything, I told her that I was just pretty stoned and tired. (My mom has no problem with me using cannabis. She knows I’m an opiate addict also.) This plan started to fail when her face started to turn into fractals. Out of desperation, I told her the truth. I remember flat-out saying to her “Mom, I’m on LSD”. She was very upset at first, and this vibe instantly threw off my trip. I had already caused her enough trauma with my opiate addiction and I didn’t want to hurt her anymore. This is where the trip really started to go bad.
+My mom was looking at her phone, I had an auditory hallucination of the dialing sound. I thought she was calling my dad (who at the time had no idea of my drug use. I am somewhat intimidated by him). I began to panic, thinking all of my secrets would be exposed. We argued for a few minutes, saying the word LSD a few times. I thought that the neighbors could hear us, and because we were mentioning LSD, an illegal drug, they called the cops on us for a noise complaint. My mom left the house to go to a restaurant right down the street to calm down. I didn’t know she left the house, I just thought she went downstairs. The auditory hallucinations began to become intense. I heard my mom screaming, wailing for help. “Heeeeeeeeeeelp!” the sound of the wailing had this distant, echoey, eerie quality. Looking back it reminds me of those movies where some evil force can imitate the voices of loved ones, trying to lure them in. I started to run all over my house looking for my mother, all while screaming “MOOOOOOM!” This also reinforced the idea that the neighbors were calling in a noise complaint to the cops.
+At this point I began to come in and out of consciousness. I remember that I kept trying to put on music forgetting that the speaker was dead. I looked for my speaker, picked it up and found out that it was dead then put it back down. I repeated this many times; the infamous thought loop, though this was not the only one. I would come into consciousness, look into my entry way and literally see two cops opening the door (the outer door into the entryway) and walking in. I would proceed to panic, run around the house like a madman trying to find and hide any “evidence” that the cops could find. (I was selling quite a large amount of drugs at the time, though during this experience I didn’t have any notable amount of product in my house. This shows LSD’s ability to reflect subconscious fears.) At one point, I even considered jumping out my window and running so I wouldn’t be caught. I would panic like this for a few minutes and then lose consciousness again. What I did in these ego-death blackouts I don’t know. I would then come into consciousness again and repeat the process.
+What I did in these ego-death blackouts I don’t know. I would then come into consciousness again and repeat the process.
+I repeated this a few times until I blacked out for a longer period. After this long black-out, I remember coming-to on my bed with my mom rubbing my head, comforting me. Apparently my mom had gone down to the restaurant and realized it probably wasn’t the best idea to be angry with me while I was tripping on acid. While laying on my bed, my mom was trying to put some music on to comfort me. I still thought the cops were in my house, but the delusion got worse. From my living room I heard the sounds of the cop-radio. I heard the beeping sound of the walkie talkie along with some indistinct words coming from it. Around this time there had just been some cop-shootings in the news. This apparently was in my subconscious mind because I began to believe that I was going to be killed by the cops in my house. I vividly remember sitting there on my bed looking at my doorway, wholeheartedly believing that any second a cop was about to walk through the door, and shoot me on the spot. My mom said something about cannabis and I maniacally put my finger to my lips and said “SHHHHHHHHHHHHHH”. I thought the cops were listening to her speak along, of course, with our neighbors.
+I was in full-blown psychosis. At one point I remember my mom asking me “You&#x27;re gay? You’re a femboy?” Keep in mind, I am not a femboy lol. This just goes to show the strange ability of psychedelics to take every subconscious thought and ideation and bring it forth in your conscious mind in one big jumbled mash. As I previously said, I was not out to my mom as bisexual at the time, and I don’t think I was ready to be out to her. Keep in mind, when she said this to me I believed that my neighbors, the cops, and my dad who was “on the phone” could all hear her say this. All of my neighbors, my dad, the cops, they all knew that I was a druggie, gay femboy. I felt ineffably vulnerable. It was somewhat like being naked in a massive sea of people. I had no privacy whatsoever. It felt like my deepest, darkest thoughts that even I don’t acknowledge were out there for everyone to see. I knew that my life was over. I remember sitting there and having to come to terms with the fact that I was a disgrace, an embarrassment to my parents and my neighbors. I had to come to terms with the fact that I was about to be killed by the police.
+I went on my phone and frantically texted a few of my drug buddies that I was about to be busted. One of them I just said “run”. I also deleted anything related to anything gay on my phone and social media. I finally sat there with my eyes closed, meditating. I started meditating so the transition to death would be as seamless as possible. I also kept having images of me using drugs. I find that psychedelics, especially LSD, are incredible at evoking intense archetypal ideation. I saw my addiction to drugs through various archetypes/ideas. I saw an image of me, long hair and in a hoodie, taking a dab. (Though there were three of these images side-by-side.) This represented the part of me that thought drugs were cool, my stoner personality. I also saw a vision of my body shutting down and dying; my life wasted. This represented my opiate addiction. I became utterly aware of the negative-effects of my drug use. This, along with the other things mentioned, made me hyper-aware of my own mortality. I know that there is an element of humor here, even I think it’s funny. Despite this, I cannot explain to you just how traumatic this actually was to me. Yes, it was a delusion, but whole-heartedly believing your deepest thoughts were exposed, and having to prepare for your own death is a terrifying, humiliating experience.
+It continued like this for a while, the same thought loops and delusions. My mom was still sitting there comforting me. After around an hour or two of this, I finally began to come down. I was still extremely high, but it occurred to me that I might not die, and that I’ll just go to jail. Eventually I came down enough to realize that cops weren’t there.
+Eventually I came down enough to realize that cops weren’t there.
+I asked my mom “are the cops here” and she said “Of course not why would they be?” This felt a little like waking up from a nightmare, thankful that it wasn’t reality. I was so thankful that I wasn’t going to be killed or arrested. Despite this, I still believe my neighbors and my parents knew all of my secrets. I was not as delusional anymore, not as scared. I just felt this intense feeling of embarrassment and vulnerability. I felt like an utter piece-of-shit. I felt like shit for being an addict. I felt like shit for being bisexual. I felt so insecure. I kept apologizing over and over to my mom, I didn’t want to hurt her anymore. I eventually became sober enough to realize I had a small supply of trazodone on hand, which I immediately took. Within 20 minutes, I started to sober up, though I was still far from baseline. I went into the sunroom in the back of my house (where I had previously believed the neighbors were listening to me) and realized that it was just a sleepy Sunday afternoon. None of the neighbors were even awake. That killed my delusion of the neighbors hearing me. The delusion of my dad knowing all of my secrets was also killed when my mom told me she had never called him. I still thought my mom knew all my secrets. I am 99% sure that I hallucinated her saying “You’re gay? You&#x27;re a f?” because when I actually came out a year later she seemed very surprised, though I never asked her if she actually said this, so I don’t know.
+The trazodone put me to sleep, and I woke up the next morning feeling very groggy. I apologized to my mom, trying to find out how much she knew. I was sober, but the experience was very traumatic. I had a sort of PTSD for the next two months.
+I had a sort of PTSD for the next two months.
+During those two months I had an extreme fear of death, so strong that I had multiple panic attacks. I felt hopeless, as I didn’t think I had it in me to quit opiates, and that I’d die an addict. I also felt embarrassed because I had to explain to my friends why I frantically texted them the night before.
+In conclusion, this experience was the worst trip I’ve ever had, though it was my fault. I didn’t respect the set and setting rule, nor did I use a responsible dosage. LSD is a very powerful compound and one must treat it with respect to have a positive experience. The negative effects from this trip are now gone. Around a year later, I was admitted into a rehab (somewhat by will somewhat not) which actually ended up being the best thing that ever happened to me. In fact, I am writing this from rehab. I am a little more than eight months in and I am about to graduate. I realized here that the trip was not a waste. The LSD (my subconscious) was trying to send me a message. It was reminding me that this life is not forever, and that I need to treat my body with respect. It also taught me that I should keep no secrets. It is okay that I’m bi, it’s who I am. I appreciate anybody reading, please take this story as a word of caution to respect psychedelic compounds. Good luck to all of you! Jaya Rama! Jaya Hanuman!
+Exp Year: 2023
+ExpID: 117321
+Gender: Male
+Age at time of experience: 18
+Published: Jan 14, 2026
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2), Opioids (407) : Bad Trips (6), Addiction &amp; Habituation (10), Sex Discussion (14), Post Trip Problems (8), Difficult Experiences (5), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

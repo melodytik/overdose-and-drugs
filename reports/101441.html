@@ -1,0 +1,268 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>欧罗伊德Exp - &quot;成为一个数字实体&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dob.html'>← DOB</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>欧罗伊德Exp - &quot;成为一个数字实体&quot;</h1>
+<div class='sub-title'>DOB &amp; Cannabis - Erowid Exp - &#x27;Becoming a Digital Entity&#x27;</div>
+<div class='meta'>作者：1101011 Citation · 日期：Jun 26, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=101441' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这份报告在经验的细节和时间框架方面不太准确,
+我已经忘记了一些复杂的细节:这将教我如何记住旅程记录!
+报告很长,因为我深入探讨了这次事件的背景,背景和后果.
+***一个句子的摘要:
+我仍然不知道我是否喜欢或讨厌DOB,
+*** 背景和个人经验:
+我相信&quot;经验丰富的心理探险家&quot;会写出最有用的旅行报告,
+我已经吸大麻大约一年了, 经历了大约10次psilocybin旅行和3次DOB旅行 (包括这一次).
+我从来没有想过要写一篇旅行报告, 因为我发现我的经历与其他报道没有根本的不同,
+我经常在腿部和部出现血栓问题.
+我目前正在接受抗凝药治疗 (华法林)
+这份报告的部分内容是为患有类似病情的人提供信息,
+我注意到我一腿的血管收缩, 以往高剂量旅行曾经导致轻微的&#x27;血栓炎&#x27;但我发现大麻有助于防止血管收缩如果我抽烟两三个关节在来.
+第一次使用低剂量 (0. 7毫克),第二次增加剂量至1.5毫克.
+第一次我没有血管收缩, 但第二次呈现轻微的不适,
+***设置和设置:
+在此经历之前的六个星期里, 我意识到一些需要处理的个人问题,
+我已经习惯了相当大的工作量, 但这只是另一回事:
+这些问题暂时被放到后面,
+完成这项大规模项目后, 我决定休息一下, 追赶睡眠,
+在我决定我的身体已经准备好应对DOB之前,
+经验:
+时间调整为施用时的0:00
+我在实验日早上8点左右醒来后, 立即服用2毫克的DOB.
+我预计我的朋友Z将在11点左右到我的地方.
+他之前从未服用过DOB,
+我决定在旅途中尝试吸食大麻, 看看它与大麻有什么作用,
+我在舌头下了半个小时,
+我开始感觉到DOB的初始效应在服用后的1-2小时.
+但令人惊的是, 它似乎没有比较低的剂量更强烈.
+我个人觉得这种刺激有点不愉快,
+我更喜欢把它描述为我脑海中的一个巨大的开放空间:就像狗可以自由地在野外跑步一样,
+[3:00] 我去洗牙, 想摆脱嘴里的金属味道,
+我把牙膏吐出来,看着镜子,发现我的瞳孔终于开始膨胀了.
+在那一刻,Z敲了我的门.
+我转过身离开浴室,
+我看着浴室的墙壁 (这墙壁被涂成明亮的黄色), 想:为什么墙壁湿了?
+等待一个.
+没有.
+为什么墙壁正在融化?
+我从来没有真正体验过任何真实的视觉效果, 除了在一次高剂量旅行中, 人们的脸部有点扭曲,
+我一会儿确实确信墙壁正在融化,而且&#x27;我应该在整个房子融化之前跑去寻求帮助!&#x27;当我向前倾斜,仔细观察时,&#x27;融化&#x27;的现象更加令人信服!
+我终于成功地从墙上脱出来,
+我们坐下来谈论他应该预期的DOB之前, 我递给他一张纸.
+我们走到后院抽烟, 我注意到DOB效应的强烈放大,
+阳光照耀着我的皮肤, 温和的微风也让我感到惊,
+我们坐在后院的塑料箱子上谈论个人问题, 我感到有点不舒服,
+我认为这种不适是因为DOB影响了我的情感空间.
+我会试着解释我的意思.
+所有积极的情绪 (快乐,兴奋,希望,娱乐等等) 都被体验为相同的积极情绪, 我喜欢称之为&quot;好&quot;或&quot;1&quot;.
+所有负面情绪 (愤怒,悲伤,嫉妒,恐惧等) 都被压缩成&quot;坏&quot;或&quot;0.
+这就好像我的情感是简单的二进制,因此&#x27;1&#x27;和&#x27;0&#x27;.
+如果计算机或机器人能被教导感受情感, 我相信这将是它们的情感能力的范围.
+我对此感到困惑, 因为当我感觉到&#x27;0&#x27;时,
+我检查了我的电子邮件, 发现一封与工作有关的重要电子邮件,
+于是我跑上楼打电话给我的室友 (她比Z更熟悉电子邮件的学术风格),
+他的脸上轻轻地覆盖着旋转的颜色图案,这是相当令人兴奋的 (令人惊的是不是&quot;1).
+我带他下楼,向他解释我的问题,这让我再次感到有点&#x27;0&#x27;.
+我们发送了一封电子邮件,
+接下来的几个小时, 我被我过去两三个月放弃的个人问题所困扰.
+我决定浪费在阅读毒品,吸毒和种植毒品上的时间, 无论是在项目之前还是之后, 都是我个人问题的催化剂.
+至少在我的生活有某种形式的确定性和稳定性之前.
+我向Z表达了这种担忧, 并告诉他这可能不会永远持续: 迷幻药太有趣了.
+他看起来有点丧, 可能是因为他和我有相同的感受.
+我们静静地坐了一会儿, 抽了几根烟,
+现在我注意到了颜色.
+他们的颜色!
+天空是无限的蓝色和墙壁看起来完美白.
+我住的房子真的很老,有点破旧,墙上有破碎的面板和生的斑点.
+白色与蓝的天空形成了绝佳的对比, 斑在白色上立得很漂亮,
+这种颜色...
+蓝色的
+白色的
+污垢的
+我觉得自己已经走到了高原的尽头, 开始回归理智.
+我通常在这个时候会经历我腿部最严重的血管收缩,
+我认为大麻增强了DOB的迷幻效应,
+走路真是太棒了.
+我无法形容:感觉极其&quot;一&quot;.
+大部分迷幻效应已经消退,但我仍然感到相当刺激,我的思维空间仍然相当&quot;广&quot;,与上场时的感觉非常相似,除了我感到有点疲.
+我们花了晚上的时间玩电子游戏,打扫房子,回忆这段经历.
+我相信Z在晚上10点睡觉时还在一点,
+睡眠是相当容易.
+虽然我觉得自己很新鲜, 但在我的脑海里还有一点&#x27;广&#x27;.
+我躺在床上思考前一天做出的决定, 我在早上7点左右起床, 从厨房拿起一个垃圾袋.
+我走到后院, 出6棵大麻植物, 其中2棵准备收获,
+我把袋子放进垃圾桶, 坐在烟箱上, 哭了起来,
+***后果:
+写这篇文章的时候, 经历过一周,
+我很高兴我已经解决了很多问题, 从那以后我没有使用任何药物.
+我希望忙于课程, 稳步解决我剩下的问题,
+一些使用者注意到DOB似乎促进了复杂系统的&quot;理解&quot;,我也经历过这种现象,尽管根据我的经验,药物的其他效应似乎使得在旅行期间难以注意到这种效应.
+经过这次特别的旅行, 我每天都在经历这种现象.
+我一直在&quot;理解&quot;一个特别的系统, 这就是所谓的&quot;经济&quot; (我以前从来没有真正感兴趣的东西) 以及整个世界和人类的生活似乎围绕这个看似愚蠢的想法.
+我一直在思考这件事,
+我认为这种抑郁症主要源于我的DOB经历.
+我还注意到, 药物似乎对华法林治疗有负面影响.
+我通常保持在2.0和3.0之间, 但每当我在测试前几天服用DOB时,
+我已经服用华法林多年了,
+时间表: 101441
+发布时间:2021年6月26日
+大麻 (1):组合 (3),健康问题 (27),一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Becoming a Digital Entity
+DOB &amp; Cannabis
+by
+1101011
+Citation:   1101011. &quot;Becoming a Digital Entity: An Experience with DOB &amp; Cannabis (exp101441)&quot;.
+Erowid.org
+. Jun 26, 2021. erowid.org/exp/101441
+DOSE:
+T+ 0:00
+2 mg
+oral
+DOB
+(blotter / tab)
+T+ 4:00
+smoked
+Cannabis
+BODY WEIGHT:
+70 kg
+This report is not very accurate in terms of the details and time-frame of the experience since I had not planned to write a report on the experience. Furthermore, the experience was quite confusing at times and I have since forgotten the intricate details: that&#x27;ll teach me to keep a trip log! The report is however very long, because I delve quite deeply into the background, set and setting, and aftermath of the experience.
+***One-sentence summary:
+I still don&#x27;t know whether I love or hate DOB, but one thing&#x27;s for sure: don&#x27;t touch it if you&#x27;re in an unstable mindset.
+***Background and personal experience:
+It is my belief that &#x27;experienced psychonauts&#x27; write the most useful trip reports in terms of how informative or interesting the report is to the reader. I consider myself a &#x27;newbie&#x27; psychonaut, since my personal level of experience with psychedelics is quite limited, but I have found all of my experiences to be most interesting. I&#x27;ve been a heavy cannabis smoker for about a year and have experienced around 10 psilocybin mushroom trips and three DOB trips (including this one). I&#x27;ve never felt particularly inclined to write a trip report before because I found that my experiences weren&#x27;t radically different from those I&#x27;ve read in other reports, so my report would just be the same as all the others. This time I think my experience is worth sharing due to the relatively small number of reports on DOB and the fact that my subjective experience seems to have been slightly different from those described in other reports.
+I have had recurring problems with blood clots in my legs and
+I am currently on anticoagulant therapy (warfarin)
+and part of this report is to provide information to people with similar conditions so that they can make informed decisions. I&#x27;ve noted painful vasoconstriction in one of my legs with previous high-dose mushroom trips which once led to minor &#x27;thrombophlebitis&#x27; but I found that cannabis helped to prevent vasoconstriction if I smoke two or three joints during the come-up. I therefore decided to be careful with DOB, and started with a low dose (0.7 mg) for my first time, and increased the dosage to 1.5mg the second time. The first time I had no vasoconstriction but the second time presented minor discomfort which was remedied by taking a long walk around the neighbourhood.
+***Set and setting:
+During the 6 or so weeks prior to this experience, I had been aware of a few personal issues that I needed to deal with, but was unable to do so due to being completely drowned by my workload. Being a final-year engineering student, I am quite accustomed to a fairly large workload, but this was just something else: I literally spent all day every day for 6 weeks working in front of a computer. So these issues took a back seat for a while and a few more were added to the pile along the way. After the completion of this massive project I decided to take a break to catch up on sleep, then test the next higher dose of DOB, then get started on dealing with my issues.
+I spent about 2 weeks recovering (and smoking vast quantities of cannabis) before deciding that my body was ready to tackle the DOB.
+***Experience:
+Times are adjusted to 0:00 at the time of administration.
+[0:00] I took 2mg of DOB in blotter form as soon as I woke up at around 8AM on the day I had set aside for the experiment. I was expecting my friend Z to come over to my place at around 11AM. He had never taken DOB before and was keen to give it a go after I had told him of my previous DOB experiences. While I waited I re-read some DOB experience reports and decided that I&#x27;d try smoking some cannabis during the trip to see how it would interact with the DOB and to see if it would ease the vasoconstriction that I was expecting. I swallowed the chewed-up tabs after half an hour under the tongue.
+[2:00] I started feeling the initial effects of the DOB around 1-2 hours after administration. The first effect was the same stimulation I had felt in previous experiences, but surprisingly it didn&#x27;t seem to be any stronger than the lower doses. I personally find this stimulation a little bit unpleasant, but nothing I can&#x27;t handle. A little later I started feeling the familiar &#x27;mental clarity&#x27; as described by other users, but I prefer to describe it as a vast open space in my mind: In the same way a dog is free to run around in an open field, my mind was free to sprint around this vast space, just...because.
+[3:00] I went to the bathroom to brush my teeth in an attempt to get rid of the metallic taste in my mouth but the toothpaste burned like hell, so I gave up. I spat the toothpaste out and looked at myself in the mirror and noticed that my pupils were finally starting to dilate. At that moment Z rang my doorbell. I turned around to leave the bathroom but as I turned something caught my attention. I looked at the bathroom wall (which is painted bright yellow) and thought: &#x27;Why is the wall wet? Wait. No. Why is the wall melting? Oh wait, visuals!&#x27; I have never really experienced any real visuals except on one high-dose mushroom trip where people&#x27;s faces were a little distorted, so this was quite a surprise to me that the visuals were so convincing! For a moment I was actually convinced that the wall was melting and that &#x27;I should run for help before the entire house melts!&#x27; When I leaned forward to get a closer look, the &#x27;melting&#x27; was even more convincing! I finally managed to tear myself away from the wall and open the door for Z. We sat down and talked about what he should expect with DOB before I handed a blotter to him.
+[4:00] We went out to the back yard to smoke a few bong hits and I noticed a strong magnification of the DOB effects, but felt almost nothing in terms of typical cannabis effects. It was a warm, sunny day at the end of winter and the sun felt fantastic on my skin and the gentle breeze also felt amazing blowing through the hairs on my legs and arms. We sat on plastic crates in the back yard talking about personal issues and I felt a little uncomfortable, which is strange since I have known Z for a very long time and we are close friends. I attribute this discomfort to how DOB affects my emotional space. My experience with DOB is that it &#x27;compresses&#x27; or &#x27;filters&#x27; my emotions. I&#x27;ll try to explain what I mean by that. It seems as though all of the positive emotions (happiness, excitement, hope, amusement, etc.) are all experienced as the same positive emotion, which I like to call &#x27;good&#x27; or &#x27;1&#x27;. All negative emotions (anger, sadness, jealousy, fear, etc.) are compressed into &#x27;bad&#x27; or &#x27;0&#x27;. It&#x27;s as if my emotions are simple binary, hence the &#x27;1&#x27; and &#x27;0&#x27;. If computers or robots could be taught to feel emotions, I&#x27;m convinced that this would be the extent of their emotional capacity. This binary emotional space still has me quite stumped because when I feel &#x27;0&#x27; I have no idea what emotion I am actually feeling, and what I should do about it.
+[5:00] I checked my email and found an important work-related email that I had to respond to ASAP. I immediately felt &#x27;0&#x27; and decided that I was in no condition to write a professional response, so I ran upstairs and called my housemate (who is more experienced in the academic style of emails than Z is) to help me out. When he opened his bedroom door his face was lightly covered with swirling patterns of colour which was quite exciting (surprisingly not &#x27;1&#x27;). I led him downstairs and explained my problem to him, which made me feel a little &#x27;0&#x27; again. We sent the email off containing a total of about 10 words. This event made me feel very &#x27;0&#x27; for the next few hours as I was smothered by recurring thoughts of all of my personal issues that I had put aside for the past two or three months. I decided that the amount of time I had wasted on reading about drugs and taking drugs and growing drugs, both before and after my project, had been a catalyst for my personal issues. At that point I decided that this would be the last time I take drugs, at least until my life has some form of certainty and stability to it. I voiced this concern to Z and told him that it probably wouldn&#x27;t be forever: psychedelics are way too interesting. He seemed a little upset by this, probably because he felt the same way I did.
+[7:00] We sat in silence for a while and smoked a few joints, which amplified the DOB again. At this point I noticed the colours. The colours! The sky was infinitely blue and the walls appeared perfectly white. The house I live in is really old and a little scruffy with broken panels and rust stains down the walls. The white was in perfect contrast with the bright blue sky, and the rust stains stood out beautifully on the white, and I noticed that everything around me looked exactly like modern art with massively saturated colours and lots of contrast. The colours... Blue. White. Dirt.
+[8:00] At this point I felt that I was at the end of the plateau and beginning my descent to back to sanity. It is usually at this point that I experience the worst vasoconstriction in my problematic leg, but there was nothing! I figured that the cannabis had potentiated the psychedelic effects of the DOB and minimised most of the body load, which made me feel &#x27;1&#x27; so we decided to take the dog (and the DOB) for a walk. Walking was absolutely amazing. I have no way of describing it: it just felt extremely &#x27;1&#x27;.
+[10:00] Most of the psychedelic effects had died down at this point but I still felt quite stimulated and my mindspace was still quite &#x27;vast&#x27;, very similar to the feeling during the come-up with the exception that I felt a little fatigued. We spent the rest of the evening playing video games, cleaning the house and reminiscing the experience. I believe Z was still tripping a bit when I finally went to sleep at 10PM, 14 hours after dosage. Sleep came fairly easily.
+The next morning I woke up feeling refreshed, but could still feel a small amount of &#x27;vastness&#x27; in my mental space. I lay in bed thinking about the decisions I had made the day before, and I got out of bed at around 7AM and grabbed a garbage bag from the kitchen. I went to the back yard and pulled out all 6 of my cannabis plants, 2 of which were ready for harvest, and filled the garbage bag with the potent-smelling green-and-purple plants. I put the bag into the garbage bin, sat down on my smoking-crate and burst into tears, overcome with emotions relating to my personal issues, but happy to finally have my normal emotions back.
+***Aftermath:
+At the time of writing it is one week after the experience and I have been feeling very depressed for the past few days. I have been wading through my issues and am happy that I have dealt with a good number of them, and that I have not used any drugs since then. I am hopeful that keeping busy with coursework and steadily working through my remaining issues will help me to get back to a normal state of mind again.
+Some users have noted that DOB seems to promote the &#x27;understanding&#x27; of complicated systems, and I have also experienced this phenomenon, though in my experience the other effects of the drug seem to make this effect difficult to notice during the trip. After this particular trip however, I have experienced this phenomenon every day to a small extent. One particular system I have been &#x27;understanding&#x27; is this thing called the &#x27;economy&#x27; (something I have never really been interested in before) and how the whole world and all human life seems to revolve around this seemingly silly idea. I have continuously been thinking about this and how &#x27;unfair&#x27; it is, and it sucks. For this reason I believe that this depression is heavily catalysed by my DOB experience.
+I have also noticed that the DOB appears to have a negative effect on warfarin therapy. My INR is normally maintained between 2.0 and 3.0, but whenever I have taken DOB a few days before the test my INR dips as low as 1.5, so I&#x27;d imagine that the day or two after taking DOB the INR could be as low as 1.2. I have been on warfarin for a number of years as a preventative measure against DVT so I have a fairly good understanding of how it works.
+1101011
+Exp Year: 2013
+ExpID: 101441
+Gender: Male
+Age at time of experience: 22
+Published: Jun 26, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOB (19), Cannabis (1) : Combinations (3), Health Problems (27), General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

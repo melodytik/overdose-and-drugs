@@ -1,0 +1,223 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>氧化物 - 埃洛伊德的消耗 - &quot;经过这么长时间,它什么都不是&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/breathing.html'>← 呼吸法</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>氧化物 - 埃洛伊德的消耗 - &quot;经过这么长时间,它什么都不是&quot;</h1>
+<div class='sub-title'>Nitrous Oxide - Erowid Exp - &#x27;After All This Time It&#x27;s Nothing&#x27;</div>
+<div class='meta'>作者：Shark Citation · 日期：May 10, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=111146' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我已经使用了氧化很长一段时间.
+六个月左右的时间会过去了, 然后我会和几个朋友一起去喝酒,
+我使用了鞭奶油和弹药盒,并且经常一次堆叠/装载3-4个弹药盒 (在服用第一个后装载#3/#4).
+每次我都觉得自己正走向一个更深的团.
+我会在经历的高峰时获得这些启示, 然后它们会被剥离, 一层一层, 直到我回到起点.
+我不想记住这些经历,
+这感觉很奇怪.
+我最后一次到达那里 (现在已经有两周了).
+我知道发生了什么事,我正经历着什么,
+我从来没有如此失望.
+我现在几乎不想谈论它, 太平凡了,
+背景:在同事的沙发上, 听一些冷静的音乐.
+没有什么特别的.
+我早些时候喝了一两杯, 但效果已经过去了.
+这最后一个是四个弹, 呼吸设计 (我, 谁不知道任何关于这种东西) 删除氧气和吸入气体.
+我在里留下了一小部分,
+随着我吸入越来越多的气体,
+我会短暂地从鼻子里排出空气, 堵住它, 吸入更多的气体.
+所有这些都是为了尽可能地从我的系统中去除氧气.
+我意识到每次我这样做,
+选择更深入,或放弃.
+然后我意识到这个选择是什么.
+我意识到我必须坚持下去.
+我意识到它正在杀死我.
+我意识到这是一个选择.
+死亡,并发现这一切是什么,或活着,永远不知道.
+我感觉到我的身体在本能地,
+我的身体渴望呼吸,或我的思想渴望打开任何门.
+我可以感觉到我的身体在,.
+为了保持呼吸道的关闭,
+我不得不做出选择.
+我不清楚自己是如何选择的, 但我记得我有很多想法,
+这将是值得的.
+没有什么是这么困难, 而不是值得的.
+你几乎到了.
+每个人都会这样做.
+如果这很重要呢?
+让你做出选择,做出艰难的事情.
+要坚强起来.
+现在就死吧.
+我倒在沙发上, 身体与心灵争夺控制权.
+那些和我在一起的人都在喊叫我的名字,
+我意识到有一个原因, 只有一个原因,
+你即将毁掉这些人的生活.
+他们可能永远不会恢复.他们,以及所有其他人都会这样.
+我的妻子,我的家人,我的朋友.
+我不能让他们经历.
+接下来的时刻是非常有趣的.
+我选择了活下去.
+我从来没有选择不去, 因为它会对我所爱的人造成什么.
+我选择了活下去.
+我从来没有选择不去, 因为它会对我所爱的人造成什么.
+我开眼睛,开始呼吸.
+我试图表现出对不起,所以他们会知道.
+我很模糊,但足以正常思考.
+我向他们保证我没事,没有什么可担心的.
+情况似乎很快恢复.
+我不认为这会持续很长时间, 我让他们知道我已经完成了今晚,
+在我们离开之前,
+这听起来像一个释, 意识到我永远不能杀死自己.
+我希望说它感觉很好, 但它比这更混乱.
+我永远不会发现如果有什么东西.
+我不知道自己是否感到骄傲, 因为在激动的时刻, 我可以放弃我所相信的启蒙,
+或是我对自己刚刚得到一把钥匙并指向我生命中最大团的答案的门感到失望.
+我知道我不会死.
+我会昏倒,然后醒来.
+可能?
+无论如何,现在我已经做出了选择, 我倾向于唯一剩下的合理结论.
+我在追逐龙, 见证我的大脑部分关闭,
+当我下来时,我的大脑会慢慢地启动, 就像从洞穴里出来的洞穴人一样, 我觉得自己是伟大奇迹和意义的见证人.
+最终,我只是一个试图尽可能长时间屏住呼吸的白痴, 当他无法永远屏住呼吸时感到惊,
+时间表: 111146
+发布时间:2018年5月10日
+氧化 (40),呼吸 (470):一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>After All This Time It&#x27;s Nothing
+Nitrous Oxide
+by
+Shark
+Citation:   Shark. &quot;After All This Time It&#x27;s Nothing: An Experience with Nitrous Oxide (exp111146)&quot;.
+Erowid.org
+. May 10, 2018. erowid.org/exp/111146
+DOSE:
+repeated
+inhaled
+Nitrous Oxide
+(gas)
+BODY WEIGHT:
+215 lb
+I&#x27;ve been doing nitrous oxide for a long time. Usually 6 months or so would pass, and then I&#x27;d go on a bender and two four or five boxes with a few friends. I used a whipped cream canister and cartridges, and would often stack/load 3-4 cartridges at a time (loading #3/#4 after taking the first one). Every time I had a feeling of going deeper towards a mystery. I would have these revelations at the peak of the experience, and then they would be stripped away from me, layer by layer until I was back where I started. Something fundamental stopped me from remembering these experiences, or sharing them. It felt so strange.
+The last time (about two weeks now) I got there. I figured out what was happening, exactly what I was experiencing, and why I felt the way I did. I&#x27;ve never been so disappointed. I barely even care to talk about it at this point, its so mundane, but I figured that perhaps others would want to hear what I found.
+The setting: on a coworkers couch, listening to some chill music. Nothing really special there. Had a drink or two earlier, but the effects had worn off. This last one was four cartridges, with breathing designed (by me, someone who knows nothing about this sort of thing) to remove oxygen and inhale gas only. I left a tiny bit in the canister, but it was otherwise empty.
+As I would inhale more and more gas, I would fixate on holding my breath. I would briefly expel air out of my nose, plug it, and inhale more gas. All in an effort to remove as much oxygen from my system as possible. The last cartridge I took, I realized that every time I did this that I was being given a choice. A choice to go deeper, or to give up. And then I realized what that choice was. I realized I had to keep holding on. I realized it was killing me. I realized that was the choice. To die, and find out what all of this was about, or to live and never know. I felt my body convulse instinctively trying to breathe, and I *almost* let it, but then I realized that this was the challenge. My body&#x27;s desire to breathe, or my minds desire to open whatever door was there. I could feel my body shaking, convulsing. It was a herculean effort to keep my airways closed. I had to choose.
+How I chose is not entirely clear to me, but I can remember thinking many things, paraphrased but very true in spirit: &#x27;Hold on. It will be worth it. Nothing could be this difficult and not be worth it. You&#x27;re almost there. Its just dying, everyone does it. What if this matters? That you make the choice, and do the hard thing. Be strong. Die now.&#x27;
+I fell over on the couch, my body fighting my mind for control. The people that were there with me were calling my name, pushing on my chest, and otherwise trying to bring me back. And as it faded to darkness I realized that there was one reason and one reason only why I couldn&#x27;t go through with it. &#x27;You&#x27;re about to ruin these people&#x27;s lives. They might never recover.&#x27; Them, and all of the other people for which this would hold true for. My wife, my family, my friends. I couldn&#x27;t put them through it.
+The moment that followed was an interesting one. I chose to live. I could never choose not to, because of what it would do to the ones I loved.
+I chose to live. I could never choose not to, because of what it would do to the ones I loved.
+I opened my eyes and breathed. I tried to look sorry, so they would know. I was bleary but clear enough for normal thought. I assured them that I was okay, and that there was nothing to worry about. The situation seemed to recover pretty quickly. I don&#x27;t think it lasted very long for them, and I let them know that I was done for the night, and most likely forever. My coworker even enjoyed a few more cartridges before we left.
+It sounds like a catharsis, realizing that I could never kill yourself. I&#x27;d like to say that it felt good, but it was considerably more mixed up than that.
+I&#x27;ll never find out if there was something to it. I couldn&#x27;t tell if I was proud that in a moment of excitement I could give up what I was sure was enlightenment because I cared for others. Or if I was disappointed that I might have just been given a key and pointed at the door behind which the answer to the biggest mystery of my life lay.
+I know I wouldn&#x27;t have died. I would have passed out and woken back up later. Maybe?
+Either way, now that I&#x27;ve made my choice, I lean into the only remaining rational conclusion. I was chasing the dragon, witnessing parts of my brain shutting down, heading towards unconsciousness every time I took in that gas. And when I came down, the parts of my brain would slowly turn on, and like the cavemen emerging from the cave, I felt like a witness to great wonders and meaning.
+In the end, I was just an idiot trying to hold his breath for as long as he could, was surprised when he couldn&#x27;t hold it forever, and mistakenly felt privy to some miracle as I regained full consciousness.
+Exp Year: 2017
+ExpID: 111146
+Gender: Male
+Age at time of experience: 25
+Published: May 10, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Nitrous Oxide (40), Breathing (470) : General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

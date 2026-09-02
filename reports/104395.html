@@ -1,0 +1,238 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>伊波加因和酒馆 - 伊波加因 - 伊波加因</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ibogaine.html'>← 伊博格碱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>伊波加因和酒馆 - 伊波加因 - 伊波加因</h1>
+<div class='sub-title'>Ibogaine &amp; Tabernanthe iboga - Erowid Exp - &#x27;In One Go&#x27;</div>
+<div class='meta'>作者：Sam Citation · 日期：Sep 8, 2016 · 剂量：2.5 g · <a href='https://erowid.org/experiences/exp.php?ID=104395' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>使用 1g 伊波加因和 2.5g TA 的经验
+我从上次被洪水淹没后已经有一段时间了,
+我今年30岁, 不久就要去非洲度过三个月, 这可能是我今年剩下的最后一个自由周末,
+源头是他的订单, 并支持在哥斯达黎加种植的伊博加种子,
+我现在的机会和欲望, 仅限于偶尔的, 很少见的场合,
+我在星期五晚上被淹,所以我有周末的时间来恢复.
+我早餐吃了一杯果汁, 下午午午餐吃一些水果和坚果,
+在给药前几个小时, 我停止喝酒.
+我将伊波加的TA提取物和伊波加因放入空囊中, 摄入2.5g前者,1g后者, 总的来说是很好的剂量,
+这将是我最强烈的洪水经历,
+这将是我最强烈的洪水经历,
+没有.
+我确实认为第一次接触伊博加有点特别,
+我发现单纯的伊波盖因是一种快速而浅薄的体验, 几乎没有后光,
+我更喜欢提取的化物,
+我在经历这种情况时, 头和心衰是比较严重的.
+然而, 治愈和后光仍然是深度和长期的, 远远优于ibogaine.
+但在这个方面, 通过TA提取物,
+这次与之前的情况相比, 我一次性服用了剂量,
+我第一次进入伊博加世界时所经历的戏剧性经历, 显然没有像此后的洪水经历一样.
+我试着品尝一些TA粉末, 感受植物的精华, 感觉更加地味.
+我上床,关掉灯,电话,电脑和其他一切, 点上几个, 播放Bwiti MCongo口琴音乐,
+我在一个轻微的催眠状态, 然后事情开始转变.
+我开始听到高音的吟声音... 这声音来自我自己的大脑,
+这并没有持续很长时间,
+在闭眼后面, 一个形象向我伸出手.
+我是在伊博加王国.
+我第三只眼睛似乎再次打开,我的房间似乎非常清楚地聚焦.
+只是我不确定这是我的房间,但一个投影的双重,但一个非常令人印象深刻的幻觉.
+我确实挥舞着双臂在我的金发双眼前, 我可以清楚地看到他们再次移动
+我床上有疯狂的图案 (这很普通).
+我注意到一束绿色的光线从我的头发中射出来, 就在眉毛之间, 就在人们认为第三只眼睛的地方, 当它照在被子上时,
+这真是太酷了, 它让我从我处于的惚中醒来, 我失去了它!
+我在某个时刻清洗,并有一个桶手.
+胃部不容易让我去, 想把每一根伊波加都从那里除掉.
+我犯了一个错误, 洗完嘴后喝了一口水,
+这就是为什么在使用iboga之前重要的是保持水分,并确保您已经摄入了电解质.
+停止饮酒前几个小时会帮助化物吸收, 也可以避免你在基本失能时过早去所.
+现在事情开始迅速向前发展,
+虽然这有时会让人感到丧,
+即使这些想法可能是不愉快的, 在幻觉阶段, 它们会很快地前进,
+我发现很难回忆许多的视觉.
+我只是一个被动的旁观者,
+治疗是后来来的.
+到了黎明, 我把Bwiti的音乐关了.
+我第一次遇到洪水时也经历过同样的经历.
+星期六的白天,从黎明到黄昏, 是我有史以来最长的一天.
+我从来没有感到无聊.
+这就是治疗的源头.
+很多内容都涉及我目前的生活问题和个性特征, 以及我目前工作的注意力和集中度.
+伊博加对我最近的表演做了一些观察,
+我在七月份与卡西纳瓦巫师一起参加阿雅瓦斯卡仪式,
+它也提到了其他生活问题和需要注意的事情.
+它并没有把这些东西推到我的车上, 只是轻轻地把它们带到我的意识.
+由于某种原因, 我以为我已经入住了36个小时, 实际上只有24个小时...
+随着夜晚降临,这些幻象似乎在某种程度上醒来了.
+随着夜晚降临,这些幻象似乎在某种程度上醒来了.
+没有.
+我有很多梦想,像是幻象.
+我曾经读过中世纪的历史和古老的英格兰国王, 在这些幻象中,
+许多视觉是相当黑暗的,但我不能说这打扰了我,我觉得脱离.
+我决定在晚上做一些生物能源工作,
+没有.
+我很快就感觉到有形的能量波在我的身体上上下移动,
+我觉得我的天体开始脱离我的身体,
+虽然我对OBE很着迷,但我不确定是否能用伊波加来完成一个,
+之前的洪水, 在第二天我可以阅读, 但在这个剂量是徒劳的,
+我有令人难以置信的痕迹从Noribogaine淹没我的系统.
+经过40个小时的时间,
+我不记得我真的睡着了, 但我的头脑是清新的, 我可以站起来走路,
+喝了一杯果汁和洗后, 我感觉很好.
+我在当地公园散步, 呼吸新鲜空气,
+我很高兴我做了这件事.
+我注意到在醒来后, 几乎一周后, 我会经历视觉闪和从诺里波加因, 我经历过在夜晚几次.
+这并没有以任何方式干扰生活,
+我从洪水经历到今天, 一个多星期后, 我注意到一个非常令人惊奇的重大变化,
+我觉得自己的睡眠质量更好.
+这是一个非常值得欢迎的变化,
+我在睡眠前的催眠状态也似乎更深入, 我有兴趣更多地尝试OBE技术和冥想.
+其他:
+发布时间:2016年9月8日
+艾博加 (200),艾博加因 (28):单独 (16),治疗意图或结果 (49),实体/生物 (37),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>In One Go
+Ibogaine &amp; Tabernanthe iboga
+by
+Sam
+Citation:   Sam. &quot;In One Go: An Experience with Ibogaine &amp; Tabernanthe iboga (exp104395)&quot;.
+Erowid.org
+. Sep 8, 2016. erowid.org/exp/104395
+DOSE:
+2.5 g
+oral
+Tabernanthe iboga
+(extract)
+1 g
+oral
+Ibogaine
+(capsule)
+BODY WEIGHT:
+80 kg
+Experience With 1g Ibogaine &amp; 2.5g TA
+It had been a while since my last flood and I felt like it was time. I’m 30 this year, am off to Africa soon for three months and it was likely the last free weekend I would have for this experience for the rest of the year, and would be my last experience with iboga for a very long time, particularly given its conservation status. The source for it shipped iboga seeds with his orders and was supporting an iboga grow in Costa Rica so I was satisfied it was as ethically sourced as I could hope for. My opportunities and my desire for dabbling with psychedelics and related substances like iboga is restricted to quite sporadic and rare occasions these days, although I’m content with this and am increasingly exploring non substance means of consciousness exploration.
+I flooded on a Friday evening, so I would have the weekend to recover. I had a smoothie for breakfast, then some fruit and nuts for a late mid afternoon lunch, and I drank water throughout the day. A few hours prior to dosing I stopped drinking. I put the iboga TA [&#x27;total alkaloid&#x27;] extract and the ibogaine in empty ‘00’ capsules, and would be ingesting 2.5g of the former, 1g of the latter, all in all a good dose, around 28mg/Kg for my body weight (when considering ibogaine only as opposed to the other alkaloids). This would be my strongest flood experience, of the six I have had, bar my first time
+This would be my strongest flood experience, of the six I have had, bar my first time
+. This experience came nowhere near that in terms of visions, I do think there is something special about one’s first time with iboga, at least in a visionary sense.
+I found pure ibogaine alone to be quite a quick and shallow experience with very little afterglow to speak of, but my theory was it would synergise nicely with all the other alkaloids in the TA which have an important part to play, and definitely markedly extend the afterglow and deepen the visionary aspects of the experience, at least in my experience. I MUCH prefer the extracted alkaloids to ingesting the root bark as is...this is just a personal preference. But the wood seems to be much physically harder on one’s system and the dizziness and ataxia were much greater for me when I experienced it. The healing and afterglow were still deep and prolonged though, far superior to the ibogaine. But in this respect, with the TA extract, you get the best of both worlds.
+This time, compared to previous times, I ingested the dose in one go as oppose to staggering it, based on discussions with a few experienced people. My very dramatic entry into the iboga realm I had experienced on my first time had been markedly lacking in the flood experiences following this. So down the hatch the caps went, with a little water but not too much, and I made sure to taste some of the TA powder to experience that essence of the plant, felt more earthy that way.
+I got into bed, turned lights, phone and computer and everything else off, lit a few candles, put on a playlist of Bwiti M’Congo mouth harp music, and put some eye shades on. For a little while not much happened, and I was in a light hypnagogic state, and then things began to shift. The space behind closed eye lids began to deepen, and I began to hear this high pitched whining noise...this noise was coming from my own brain as it began to shift into iboga FM. This didn’t last long but was quite distinct and a sign of my consciousness changing. Behind closed eye lids, a figure materialised reaching out towards me. I was in the iboga realm. My third eye seemed to open again and my room very clearly seemed to come into focus. Only I’m not sure it was my room at all, but a projected double, but a very impressive illusion all the same. I did however wave my arms in front of my blond folded eyes and I could clearly see them moving again like I could during my flood, just not as vividly. There were mad patterns on my duvet cover (it is plain). As I was staring at it, I noticed there was a beam of green light projecting right out of my head between my eye brows, right where one would claim the third eye would be, and as it shone on the duvet it actually lit up a small circular area like a mini green spot light. This was so cool that it brought me out of the trance I was in and I lost it!
+I purged at some point, and had a bucket to hand. It was a good release and a deep purge, my stomach didn’t let me go easily and wanted every trace of iboga out of there. I made the mistake of drinking a sip of water after washing my mouth out and it came right back up...my stomach did not want anything in it at all. This is why it is important to hydrate prior to iboga and make sure you’ve ingested electrolytes. Stopping drinking a few hours prior will aid in alkaloid absorption and may save you a trip to the toilet too soon when you are largely incapacitated.
+Things were starting to move forward quickly now and I couldn’t remain focussed on any thoughts for long. While this can be frustrating at times, this is why I would find it hard to experience much in the way of terror or fear with iboga. Even if thoughts can be unpleasant, they move forward so quickly during the visionary phase that I will likely forget anything troubling before it even has time to get to me. I find it hard to recall much of the visions.
+For the visionary phase, I was much of a passive spectator, as oppose to an active participant. The therapy came later. Sometime around dawn I turned the Bwiti music off. It was raining, and the pitter patter of raindrops sounded exactly like the Bwiti music, I experienced the same thing on my first flood. The Saturday day time, dawn till dusk was one of the longest days I have ever experienced. I was never bored though. This is where the therapy came. Much of it was looking at current life issues and personality traits, and some issues with regard to my focus and concentration with regard to my current work. Iboga made some observations about my recent performance that were both harrowing and amusing at the same time. The lessons from the iboga seemed to follow on very well from the lessons and the arse kicking I received partaking of ayahuasca ceremonies with Kaxinawa shamans in July. It also brought up some other life issues and things that need attention. It didn’t shove these things down my float, just brought them gently to my awareness.
+When darkness fell on Saturday eve, I managed to miscalculate the time for a sec, for some reason I thought I was 36 hours in, when in fact it had only been 24 hours...I had another 12 hours before iboga would release me! As night fell the visions seem to awaken to some degree
+As night fell the visions seem to awaken to some degree
+. I had lots of dream like visions. I had been reading about history of the Middle Ages and English kings of old, and there was lots of this type of imagery in the visions, centred on the brutality of life back then. Many of the visions were quite dark, but I can’t say this bothered me at all, I felt detached. At some point later on in the night I decided to do some bioenergy work, just to experiment
+. Very quickly I could feel very tangible waves of energy going up and down my body, it was amazing and definitely my strongest experience of this. Having done this just for a little while, it felt like my astral arm was starting to detach from my physical body, and so then I packed it in. While I’m pretty fascinated by OBE’s at the moment I wasn’t sure about having one with iboga running through my system, I wanted to achieve one from a clear and sober head first. With previous floods, in the day after I could read, but on this dose it was futile, I could only think and ponder. I had incredible tracers from the noribogaine flooding my system.
+Some 40 hours later, I managed to get some kind of sleep. I don’t recall actually falling asleep, but my mind was refreshed and I could get up and walk about without nausea or ataxia, and sleep is needed for the brain to reset itself. After a smoothie and a shower, I felt pretty good. I went for a walk in a local park to get some fresh air and nature and felt very content and at peace, and grounded feeling of calm. I felt like I got a lot of work done over the weekend and am glad I took the plunge. I noticed on waking, for almost the week afterwards, I would experience visual flashing and trailing from the noribogaine, and I experienced it in the eves a few times. This did not interfere with life in any way and knew it would pass.
+A quite amazing and significant change I have noticed since this flood experience that is still with me over a week later is that I need noticeably less sleep. My sleeping seems to be more condensed and of good quality. This is a very welcome change and I hope it stays for a while. My hypnagogic state prior to sleep also seems deeper in some way, and I am intrigued to experiment more with OBE techniques and meditation with this in mind.
+Exp Year: 2014
+ExpID: 104395
+Gender: Male
+Age at time of experience: 29
+Published: Sep 8, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Tabernanthe iboga (200), Ibogaine (28) : Alone (16), Therapeutic Intent or Outcome (49), Entities / Beings (37), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,307 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>三基 - 埃洛伊德 - 幻影 晚会</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/trihexyphenidyl.html'>← 苯海索</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>三基 - 埃洛伊德 - 幻影 晚会</h1>
+<div class='sub-title'>Trihexyphenidyl - Erowid Exp - &#x27;Phantom Soiree&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Oct 22, 2012 · 剂量：2 tablets · <a href='https://erowid.org/experiences/exp.php?ID=76758' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>幻影之夜:我的特雷明体验
+我不知不觉地摄入了一种名为特里明的强烈幻觉剂.
+由于我喜欢像其他人一样笑, 并且愚蠢地把这个无知青少年当作权威,
+几年后我发现,特里米因 (Trihexyphenidyl hydrochloride的商业名称) 绝非梅斯卡林的温和变种,
+据传特里明也给患有精神分裂症和其他精神障碍的病人服用,
+尽管我在远方旅行中从未遇到过这种药物,
+我和我的三位朋友们一起试试琴.
+我们每个人都吞下了两个小白色的药片 - - 我没有办法估计剂量水平 - -
+经过几个小时在雨中地走来走去, 没有感觉到任何明显的效果,
+我邀请我的同伴们回家躲避雨, 让他们放心,
+我们在我的地下室打了个游泳池, 但药物仍然没有效果,
+我在睡觉前坐下来吃一碗麦片.
+我开始听到我的朋友在我后面的房间里说话.
+我专心听他们的谈话几分钟,然后开始记得他们已经回家了.
+在短暂的停顿后,声音回来了.
+这些无形的发言有着惊人的即时性.
+演讲者很快就开始问我问题; 我几乎无意中被迫加入对话.
+我突然觉得好像一个泡破裂了, 场景恢复正常. , , 我猜这台三合一终于可以工作了, 我想,
+声音持续到我睡着的时候.
+后来我醒来时完全受到了药物的影响.
+声音回来了,甚至比以前更明显.
+我注意到房子里所有的灯光都被关掉了,
+我在房间的角落躺在床上,面朝墙.
+声音不断地问我问题, 但现在我不再有意拒绝大声回答他们.
+现在事情真的变得有趣了... 几分钟后, 我在肩上跟我的同伴说话,
+虽然我从未忘记我服用了特雷明的事实, 我仍然相信那天晚上发生在我周围的大多数奇怪事件是真实的.
+重要的是,当一个人受到特里明的影响, 脑子总是会给出令人信服的解释,
+现在回想起来, 我真的相信我的朋友们在场, 似乎很荒谬, 但正如总是发生在特雷明的情况, 一个合理的理由提出了自己:我的朋友们也经历了药物的迟到效果,
+但如何解释其他没有乘坐三车的人也在场的事实?
+很快就传出我家的聚会.
+我也觉得不难想到, 十几岁的孩子在上学之夜凌晨2点在城里,
+另一个惊人的特点是,
+我会立刻忘记我在想什么, 一切会从头开始.
+新客人每分钟都在到来.
+在正常情况下我会欢迎一个夜晚的聚会, 但不是与我毫无疑问的母亲睡在隔壁房间.
+我反复劝告我的客人保持安静, 但没有成功.
+但我开始注意到,每当我提出自己的问题时,
+我对客人的提问无休止地说话, 但所有试图以我自己的方式开始对话的尝试都失败了.
+这些声音有着令人好奇的引力吸引力, 让我想起了托尔金&quot;指环王&quot;中诱人的萨鲁曼之声.
+我越来越担心有那么多人在家里游荡,
+我听到有人在地下室打球,
+我发了一个朋友去地下室告诉池鱼停止游戏.
+很快就停止了下楼的噪音.
+首先到达的朋友是我早些时候和他们一起落的朋友.
+我告诉他们药物对我的影响有多大, 他们笑了笑, 赞同点头.
+我永远不会忘记与这些幽灵交谈的奇怪感觉.
+很快就有更多的人加入聚会,
+另一个坐在安静地在房间的角落,还有更多流在稳步通过门.
+我拿起一张唱片的封面, 把它递给坐在我的床上的朋友多尼.
+虽然我怀疑这张专辑可能是毒品的骗局,
+虽然我完全意识到我正在经历强烈的药物体验,
+我不能够强调这些访客看起来不像闪,透明的幻觉或鬼魂,
+我没有感觉触摸到它们 (稍后再说一下).
+我总是很好地接待客人,
+我在房间里看到至少20个不同的人,
+在派对上,有些漂亮的女孩只是偶尔的熟人.
+一对夫妇在房间的角落里激情地接吻.
+但当我的社会学老师,
+佩里塔诺穿过一面墙, 刻意跨越房间, 然后消失在对面的墙上,
+我甚至与他们讨论了我更奇怪的幻觉.
+我不愿意穿着短从床上起床, 在房间里有不熟悉的女孩.
+我的子躺在房间对面的地板上,
+我地从床上起身,忙穿上子, 去所.
+我开始怀疑我的朋友们, 看到我有多无助, 玩弄我, 刻意试图放大我的困惑.
+我继续与我的访客互动, 直到外面开始变得明亮.
+我开始越来越担心我的母亲很快就会醒来发现他们.
+我坚定地宣布每个人都必须离开.
+没有一个灵魂回应.
+几分钟后我起床, 尖地打开窗户,
+我回来的时候,他们都消失了.
+通过窗户吹进来一阵微风,
+这只能加强我的怀疑,
+到了黎明, 我觉得自己已经&quot;降身&quot;了, 最糟糕的经历也已经过去了.
+我放弃了睡觉, 坐在客厅里, 沉浸在昏昏欲睡的, 吸毒的梦想中.
+有时我幻想自己正在用心灵感应与朋友交流.
+现在我被惊到完全注意一个尖的敲打从厨房到后院的滑动玻璃门.
+我转过身来,看到我的朋友丹,
+我站起来走到厨房, 现在我感觉有点有根, 我很高兴有人在附近讨论夜晚的狂欢节,
+我滑开门,但没有人被看到.
+通过一个隙在红木隔壁的底部边界的院子.
+所以他们还在和我玩游戏?
+我打电话给那些恶作剧者, 但没有得到回复.
+我很生气,回到里面坐下.
+我再次陷入昏昏欲睡, 直到我再次被一个更大声的敲门打断.
+我很快就起身打开门,看到我的朋友们还藏在隔壁后面,和我一起玩他们的幼稚游戏.
+我很生气,因为他们决心折磨我,
+我第三次回到椅子上.
+我很快就被丹的暴力敲打后门震惊了.
+我跳起来,开门,跑到后院,准备一些股.
+但此时我的朋友们, 毫无疑问预料到我的愤怒, 已经在山的下半路, 在树林里.
+我可以听到他们的笑声,
+为了向他们展示我的真实性, 我拿起一块块, 向他们抬起.
+我常常想知道她对我的行为有什么看法,或者我是否在着我的蛋对任何人说话,
+我来到乌蒂卡自由学院, 发现常见的长发群众和无所事事的人在宽的前台.
+我从前几天晚上在我的卧室聚在一起的几张脸中认出.
+我走到一些这些人, 羞怯地笑, 期待被关于晚上的不幸, 但他们表现得好像没有什么不寻常的事情发生了,
+我走近我在房间里见过的两个女孩, 问她们:&quot;我知道我昨晚很糟糕,
+我坚持说我在我的房间里见过他们, 相信他们参与了不断增长的阴谋,
+他们紧张地离开了我.
+幸运的是,在我上午的课程中, 似乎没有任何不良事件发生.
+午餐时间我走到外面,在一群学生中监视着丹,
+我对他严厉地说出了那个滑动门的事件.
+他热烈否认曾经在我的房子.
+我们周围的人似乎是有意识地微笑.
+我已经厌倦了这种残酷的笑话,
+&quot;我昨晚没有在你的房子!
+我们的气激烈,几乎发生了冲突.
+一个知名的当地精神探险家对我的古怪行为印象深刻, 他后来找我, 成为我的旅行伙伴.
+我很生气,在口里骂人.
+我意识到只有在服用药后22个小时, 我才摆脱了惚状态.
+我突然意识到没有人,甚至那些同样吃过特雷明的朋友, 前一天晚上都没有来我家.
+整个经历是一个非常详细的,包罗万象的幻觉.
+想知道我的母亲在地球上做了我的夜间运动和语,但我仍然更着迷特有特点的特雷明的性质.
+故事很快就传开了, 在我的高中同学中,
+十几岁的时们会在夜晚聚集在城边的森林里, 服用大量的毒品; 他们中的许多人经历了与我自己的经历非常相似的经历.
+与&quot;极端人&quot;的谈话变得很常见.
+一个特别鲁的年轻人, 称布莱尔, 成为一个特雷明大胆鬼, 吞下一把药丸, 带回与他的特雷明朋友们度过的夜晚的疯狂故事. 甚至有集体幻觉的情况,
+我们会激动地讨论我们从森林的阴影中出现的特雷明人,
+我记得有一次小组幻觉, 我们都看着一个消防栓变成一个跳舞的双脚动物.
+令人惊的是,幻觉甚至可以在白天发生.
+尽管如此, 似乎没有人像我在第一次音考验中那样受到了惊.
+无论一个人如何熟悉特雷明的经验, 一个人总是可以被一次又一次的幻象所欺骗.
+我一直在重复自己&quot;我知道我在,但这次我只想观察而不是参与体验&quot;但突然意识到我已经在告诉一个的人.
+我第一次使用特雷明大约一年后, 发现了一个惊人的发现:在特雷明的影响下,
+我很生气地注意到这幅画还不完整,
+一会儿后,那个形象就消失了.
+我从来没有把手臂从毯子下移开.
+我突然意识到, 在我去年的史诗般的旅行中,
+这就引发了各种各样的疑问,
+几十年来, 自从我体验了特雷明以来,
+我在网上搜索的结果很少, 有趣的是,
+我们正在采样的批量有什么异常?
+我们可能永远不会知道.
+但可能特雷明已经不再流行,
+我不会把它归类为迷幻药, 因为它扭曲而不是加敏的感知; 我一直坚持认为真正的迷幻药引起的幻觉不是&quot;幻觉&quot;在公认的意义上,
+除非与幽灵交往是您的好时光.
+其他:
+三基 (584):单独 (16),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Phantom Soiree
+Trihexyphenidyl
+by
+Nunatak
+Citation:   Nunatak. &quot;Phantom Soiree: An Experience with Trihexyphenidyl (exp76758)&quot;.
+Erowid.org
+. Oct 22, 2012. erowid.org/exp/76758
+DOSE:
+2 tablets
+oral
+Trihexyphenidyl
+(pill / tablet)
+BODY WEIGHT:
+140 lb
+Phantom Soirée: My Tremin Experience
+In the early 1970s, at the age of 16, I unwittingly ingested a powerful hallucinogen known as tremin. A high-school acquaintance had offered me a few tablets, describing the drug as “a mild form of mescaline that makes you laugh a lot.” Since I liked to laugh as much as the next guy—and was foolish enough to take this teenage know-nothing as an authority—I readily agreed to sample the goods.
+Years later I learned that, far from being a gentle variant on mescaline, tremin—a trade name for the chemical compound trihexyphenidyl hydrochloride—was classified as an antiparkinsonian medication used to alleviate involuntary muscular tremors. Rumor had it that tremin was also administered to patients suffering from schizophrenia and other mental disorders, which may well have explained its availability in my hometown of Utica, New York, the site of the state’s largest mental hospital. Though I never encountered the drug anywhere else on my far-flung travels, tremin was regularly available to thrill-seekers on Utica’s underground drug circuit, sometimes under the corrupted name “tremblin.”
+On a rainy weeknight I met up with three of my friends to try out the tremin. Each of us swallowed two small white tablets—I have no way of estimating the dosage level—and went for a walk in our neighborhood, eagerly awaiting the promised merriment. After trudging around in steady rain for several hours without feeling any noticeable effect, we disappointedly concluded that the tremin was either weak or bogus. Hoping to salvage what was left of the evening, I invited my companions back to my house to escape the rain, reassuring them that my mother had gone out with friends, in the event that tremin might still kick in. We killed time shooting pool in my basement but still registered no effect from the drug, so my friends headed home around 11 P.M. Tired and feeling a bit let down, I sat down to eat a late-night bowl of cereal before going to bed.
+While digging into my Total, I began to hear my friends talking in the room behind me. I listened intently to their conversation for a few moments, then remembered with a start that they had already gone home. After a brief pause the voices returned. Unlike the voices one typically ‘hears’ in the mind’s ear, these disembodied utterances had an uncanny immediacy. The speakers soon started badgering me with questions; I felt an almost involuntary compulsion to join in the dialogue. Suddenly I felt as though a bubble had burst, and the scene returned to normal. ‘Wow, I guess this tremin works after all,’ I thought, but by this late hour on a school night I had lost my enthusiasm for tripping into the wee hours, so I finished my cereal and went off to bed, leaving a few lights on for my mother. Eerily, the voices persisted right up to the moment I dropped off to sleep.
+Some time later—I have no idea how long—I awoke under the full influence of the drug. The voices were back, even more distinct than before. I noticed that the house lights had all been turned off, indicating that my mother had come home and was sleeping in the adjacent bedroom. I lay restlessly in bed in a corner of the room, facing the wall. The voices insistently plied me with questions, but by now I no longer had the will to resist answering them aloud. And now things were really getting interesting… After several minutes of speaking to my fellow tremin-droppers over my shoulder, I rolled over to find them visibly present—a party had somehow materialized in my bedroom.
+While I never lost sight of the fact that that I had taken tremin, I still believed that most of the outlandish events taking place around me that night were real. It&#x27;s important to mention that when one is under the influence of tremin, the mind invariably comes up with convincing explanations for whatever unlikely phenomena might occur. In retrospect, it seems ludicrous that I had really believed my friends were present, but as is always the case with tremin, a plausible rationale presented itself: my friends had also experienced the belated effect of the drug and had returned to my house for an impromptu party, mistakenly thinking that my mother was out of town rather than out for the evening.
+But how to explain the fact that others who had not taken the tremin were also present? By this time quite a crowd had gathered in my bedroom—apparently word had spread quickly about the party at my house. Again, I didn’t find it improbable that teenagers would be prowling around the city at 2 A.M. on a school night, rapping on each others&#x27; windows and sneaking out in the dark.
+Another striking characteristic of the tremin experience is that one enters a state of cyclical forgetfulness. No sooner would I feel that I’d gotten a grip on the situation than I would instantly forget what I’d been thinking about in the first place, and it would all start over again.
+New guests arrived by the minute. Under normal circumstances I would have welcomed a nocturnal party, but not with my unsuspecting mother asleep in the next room. Mortified at the prospect of her bursting in on our bacchanal, I repeatedly admonished my guests to be quiet, but without success. The ‘tremin people’ were full of questions—provocative ones at that—but I had begun to notice that whenever I asked a question of my own, it was invariably met with silence. Duped into a state of trusting receptivity by the tremin, I chattered away endlessly in response to my guests’ queries, but all attempts to initiate conversations on my own terms failed. The voices had a curiously persuasive gravitational pull that reminded me of the seductive “Saruman voice” in Tolkien’s Lord of the Rings.
+I grew increasingly paranoid that so many people were freely roaming around my house, oblivious to my snoozing mother. At one point I could clearly hear people shooting pool in the basement, right down to the clicks of the colliding balls. In alarm, I dispatched a friend to the cellar to tell the pool sharks to cut their game short. In a rare display of cooperation, he dutifully left the room and the noise from downstairs soon ceased.
+The first arrivals had been the same friends I had dropped the tremin with earlier. When I told them how strongly the drug was affecting me, they smiled and nodded sympathetically. I’ll never forget the weird sensation of engaging these phantoms in conversation. Before long more people arrived to swell the party—first friends, then acquaintances, and later a few total strangers. Some of the guests sat on the edge of my bed, another sat quietly in a corner of the room, and still more streamed in steadily through the door. At one point I picked up a record album cover and passed it through the outstretched hand of my friend Donnie, who was sitting on my bed. We both laughed in amazement, but while I suspected that the album stunt was probably a trick of the drug, I never doubted for a moment that Donnie was actually there. Though fully aware that I was undergoing an intense drug experience, I still failed to connect the presence of my visitors with the tremin.
+I can’t stress enough that the visitors looked nothing like flickering, transparent hallucinations or ghosts but instead seemed as solid and corporeal as physical humans. However, I had no sensation of actually touching them (more on that later).
+Ever the good host, I eventually got up and put a record on the turntable to entertain my guests. By this time I must have sighted at least 20 different people in my room, most of them high-school classmates. Among the partygoers were some attractive girls who were only casual acquaintances. One couple made out passionately in a corner of the room. All of this somehow seemed believable in my heightened state, but when my social studies teacher, Mrs. Perritano, passed through one wall, strode purposefully across the room, and then disappeared into the opposite wall, followed by the pitchfork-holding farm couple from “American Gothic,” I realized for the first time that at least some of my visitors were phantasms. Still, I remained convinced that the more familiar apparitions were truly present, and even discussed my more outlandish hallucinations with them.
+After a while I had a pressing need to urinate but was loath to get out of bed clad only in my undershorts with unfamiliar girls in the room. My pants lay on the floor on the opposite side of the room, close to the seated figure of my friend Wilson, his face shadowed by a wide-brimmed hat. I repeatedly whispered to Wilson to throw me my pants, but he made no response, so I sheepishly got out of bed, hurriedly pulled on my pants, and went off to the bathroom. I was beginning to suspect that my friends, seeing how helplessly discombobulated I was, were playing games with me, deliberately trying to amplify my disorientation.
+Once back in bed, I continued to interact with my visitors until it started to grow light outside. By sunrise the guests had mostly fallen silent, but I was becoming ever more anxious that my mother would soon rise and discover them. At length I firmly announced that everyone had to leave. Typically, not a soul responded. A few minutes later I rose, pointedly opened the window, and made another trip to the bathroom.
+When I returned they had all vanished. A breeze was blowing in through the window, so it seemed to make sense that my guests had left the room by that route. This only reinforced my suspicion that my friends were conspiring to “trip me out.”
+With the arrival of dawn came the feeling that I had ‘come down’ and put the worst of the experience behind me. I gave up on getting any sleep and went to sit in the living room, where I sank into dozy, druggy reveries. At times I fancied that I was communicating with friends telepathically. Presently I was startled to full attention by a sharp knock on the sliding glass door that led from the kitchen to the back yard. I turned and saw my friend Dan—one of the last visitors to have left my bedroom— grinning and waving outside on the patio. I stood up and walked to the kitchen—now that I was feeling a bit more grounded, I appreciated having someone around to discuss the night’s carnivale with—but in the few seconds it took me to reach the door, he was gone.
+I slid open the door but nobody was to be seen. A moment later I heard giggling and spied three pairs of shoes through a gap at the bottom of a redwood partition bordering the patio. So they were still playing games with me, were they? I called to the pranksters but got no reply. Miffed, I went back inside and sat down.
+I slipped back into drowsiness until I was again interrupted by an even louder knock on the back door. I rose quickly, opened the door, and saw that my friends were still hiding behind the partition, playing their juvenile games with me. Annoyed at their determination to torment me, I snapped, “C&#x27;mon, you guys!” More silence ensued.
+I returned to my chair a third time. No sooner did the tremin forgetfulness envelop me than I was jarred alert by Dan&#x27;s violent pounding on the back door. I leapt up, flung the door open, and ran out into the backyard, ready to kick some ass. But by this time my friends, no doubt having anticipated my anger, were already halfway down the hill, crashing about in the woods. I could hear their laughter and the sound of twigs snapping in the underbrush. Incensed, I picked up a brick and heaved it in their direction to show them that I meant business.
+A short time later I somehow managed to get through breakfast with my mother—I’ve often wondered what she made of my behavior, or whether I was babbling to nobody in particular over my eggs—then left for school. I showed up at Utica Free Academy to find the usual crowd of longhairs and ne&#x27;er-do-wells hanging out on the wide front steps. Among them were several faces I recognized from the previous night’s gathering in my bedroom. I walked up to some of these folks and laughed sheepishly, expecting to be ribbed about the night&#x27;s misadventures, but they acted as if nothing unusual had happened and appeared puzzled by my curious demeanor.
+I then approached two of the girls I had seen in my room and said, “I know I was pretty fucked up last night, but what were you guys doing at my house anyway?” Visibly flabbergasted, they protested that they had no idea what I was talking about. I insisted that I had seen them in my room, convinced that they were parties to the growing conspiracy to play mind games with me. They nervously moved away from me.
+Fortunately nothing untoward seems to have occurred during my morning classes. At lunchtime I went outside and spied Dan among a group of students hanging out across the street from the school. I confronted him peevishly about the episode with the sliding door. He heatedly denied having been at my house. People around us appeared to grin knowingly. I was growing tired of this cruel joke and told him to give it a rest. “I was not at your house last night!” he roared. Our tempers flared and we nearly came to blows. Meanwhile, a gaggle of bemused onlookers had collected on the sidewalk to observe this bizarre exchange, including one well-known local psychonaut who was so impressed by my eccentric behavior that he later sought me out and became my tripping buddy. Eventually I stormed off in a huff, cursing under my breath.
+At about 5 that evening I had the sensation of a veil lifting from me, and realized that only then—about 22 hours after I had ingested the tablets—had I emerged from my tremin trance. It suddenly hit me that nobody, not even the friends who had likewise taken tremin, had visited my house the night before. The entire experience had been an incredibly detailed, all-enveloping hallucination. I was mortified at the way I had behaved at school that morning, and wondered what on earth my mother had made of my nocturnal movements and mutterings, but I was still more fascinated with the peculiar nature of tremin.
+The story of my hallucinatory adventure spread quickly, and before long experimentation with tremin came into vogue among my high-school peers. Teenage hipsters would gather in the woods on the fringes of town at night and take sizable doses of the drug; many of them underwent experiences very similar to my own. Conversations with ‘tremin people’ became commonplace. One particularly reckless young fellow, nicknamed Blale, made a reputation for himself as a tremin daredevil, gobbling handfuls of the pills and bringing back wild tales of nights spent with his tremin “friends.” There were even instances of collective hallucination, where a number of people would see the same apparitions. We would excitedly discuss the tremin people we saw emerging from the shadows of the forest between waves of drug-induced memory lapses. I recall one group hallucination in which we all watched a fire hydrant transform itself into a dancing biped. Amazingly, the hallucinations could occur even in broad daylight. Still, nobody else ever seemed to have gotten as gobsmacked as I did during my first tremin ordeal.
+No matter how familiar one became with the tremin experience, one could always be fooled again and again by the apparitions. On one excursion, I kept repeating to myself that “I know that I’m on tremin, but this time I’m going to observe rather than participate in the experience”—but abruptly realized that I was already telling this to a tremin person.
+About a year after my initial tremin trip, I made a startling discovery: Lying in bed one night under the influence of tremin, I became aware of a figure holding a painting in front of me. I noticed with annoyance that the picture was incomplete, so I reached over and picked up a pastel from my desk, then colored in the blank spot on the paper. A moment later the image vanished. It was at that point that I realized that I had never moved my arms from under the blanket. It suddenly dawned on me that, during my epic trip of the previous year, I may never have gotten out of bed—or even opened my mouth. Naturally, this raised all kinds of questions as to what we were really doing, or not doing, on our tremin voyages.
+In the decades since my tremin experiences, I’ve never encountered so much as a mention of the drug again. My Web searches have produced very few results and, interestingly, only one passing reference to hallucinations as a side effect—no allusion whatsoever to the extraordinary universe of tremin phantoms that many Uticans witnessed. Was there something anomalous about the batches we were sampling? We’ll probably never know. But it’s probably just as well that tremin passed out of vogue, for it is a deeply disturbing substance that I wouldn’t recommend using for recreational purposes. I wouldn’t classify it as a psychedelic by any stretch, for it distorts rather than sharpens perception; I’ve always maintained that the visions prompted by true psychedelics are not ‘hallucinations’ in the accepted sense but rather are magnifications of the underlying structure of reality. Tremin is more apt to exacerbate angst than bring insights or pleasure—unless consorting with phantoms is your idea of a good time.
+Exp Year: 1973
+ExpID: 76758
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 22, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Trihexyphenidyl (584) : Alone (16), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

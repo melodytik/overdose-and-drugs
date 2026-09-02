@@ -1,0 +1,180 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 片 () - 艾洛伊德 - &#x27;使用后自行药物查&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/drug-testing.html'>← 药物检测</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 片 () - 艾洛伊德 - &#x27;使用后自行药物查&#x27;</h1>
+<div class='sub-title'>Poppies - Opium (pods) - Erowid Exp - &#x27;Self-Drug Screening After Using the Pods&#x27;</div>
+<div class='meta'>作者：knox harrington Citation · 日期：Oct 25, 2020 · <a href='https://erowid.org/experiences/exp.php?ID=86393' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>美国
+果和药物检测
+刚刚搬家, 没有任何街头娱乐活动.
+虽然我已经服用任何药物几个月了, 但在此之前我使用的药物包括:LSD,大部分类药物, 许多类型的类药物,
+我提到这一点是为了提供背景, 不是为了吹嘘,
+我很高兴能在网上找到马,
+我喜欢这两种,
+我尝试了以下摄入方法,
+茶 (浸泡在薄荷或茶袋中)
+混合冰淋 (令人惊的好)
+在麦粉中混合
+在PB&amp;J中散布
+在酸奶中混合
+我发现茶最好吃, 但冰淋混合物使用原始粉末产生最强烈的效果.
+我在网上找不到特别好的资料, 说明和副产品离开系统需要多长时间.
+我在网上订购了10个OPI自我测试, 价格约为20美元,
+我应该指出, 在开始测试前两周,
+我最后一次有效的剂量是在星期四晚上.
+在最初的24小时之后, 我开始每12小时检查自己.
+问题在于,我在周六晚上收到了新订单,
+茶没有任何效果, 我不相信它是 papaver somniferum.
+但很难说活性成分是否存在在一些小水平.
+我继续定期检查自己, 直到周二我没有任何问题.
+在最后有效剂量后5天和弱剂量/惰性剂量后3天.
+[报告的剂量:&quot;在3-4周内重复使用,共60-70个子&quot;]
+已使用的证券
+黄 -  (43), 药物测试 (59): 追溯 / 摘要 (11), 不适用 (38)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Self-Drug Screening After Using the Pods
+Poppies - Opium (pods)
+by
+knox harrington
+Citation:   knox harrington. &quot;Self-Drug Screening After Using the Pods: An Experience with Poppies - Opium (pods) (exp86393)&quot;.
+Erowid.org
+. Oct 25, 2020. erowid.org/exp/86393
+DOSE:
+pods repeated
+oral
+Poppies - Opium
+(tea)
+pods repeated
+oral
+Poppies - Opium
+(ground / crushed)
+BODY WEIGHT:
+190 lb
+Poppy Pods &amp; Drug Testing
+Having just moved and being without any kind of street recreation to be found. It had been a few months since taking any sort of drug but my repertoire leading up to this point had included: LSD, most all opiates, many types of benzos, ketamine, coke, rit/adderal/dex, pot, mushrooms, E, barbiturates and probably some others I forgot.  I mention this to provide background not to brag as I hardly think that being intoxicant savvy is an enviable quality.
+I was excited to find poppy pods readily available online and read positive reports and decided to order some from two separate vendors.  I was please with both though preferred the larger pods to the smaller ones.  I tried the following methods of ingestion always after grinding the pods thoroughly in a coffee grinder:
+Tea (steeped with a peppermint or citrus tea bag)
+Mixed with ice cream (surprising good)
+Mixed in oatmeal
+Spread inside a PB&amp;J
+Mixed in yogurt
+I found the tea to be the most palatable but the ice cream mix since it used the raw powder produced the strongest effects.
+So for a few weeks I ate and drank poppy products but the main point of my account here is to describe my self-drug screening efforts after stopping using the pods as I cannot find a particularly good source online for how long it takes for the pods and byproducts to exit the system.
+So I ordered 10 OPI self tests online for about $20 which is much better than paying $39 at Walgreens.
+I should note that I stopped eating the pod dust two weeks prior to beginning the tests so I cannot comment on how long they linger as compared with the tea.
+My final effective dose came on a Thursday evening.  And I began testing myself every 12 hrs after the initial 24.  The problem is that I received a new order that Saturday night and brewed up some tea.  The tea had absolutely no effect and I am not convinced it was papaver somniferum.  But its hard to say whether the active ingredients did exist in some small levels.  I continued to regularly test myself until I came up clean on Tuesday.  5 days after the last effective dose and 3 days after the weak/inert dose.
+[Reported Dose: &quot;Repeated over 3-4 weeks totaling 60-70 pods&quot;]
+Exp Year: 2010
+ExpID: 86393
+Gender: Male
+Age at time of experience: 28
+Published: Oct 25, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Poppies - Opium (43), Drug Testing (59) : Retrospective / Summary (11), Not Applicable (38)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

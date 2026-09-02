@@ -1,0 +1,716 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>埃罗伊德2C-B-Fly金库:调查提供了新的2C-B-Fly数据</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-b-fly.html'>← 2C-B-Fly</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>埃罗伊德2C-B-Fly金库:调查提供了新的2C-B-Fly数据</h1>
+<div class='sub-title'>Erowid 2C-B-Fly Vaults : Survey Provides New 2C-B-Fly Data</div>
+<div class='meta'>作者：Substance Search About Experience Vaults · 日期：Jun 25, 2009 · <a href='https://erowid.org/experiences/exp.php?ID=79599' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>植物与药物指数
+植物
+化学品
+制药品
+草药
+聪明的人
+动物
+基本知识
+图片
+经验
+法律
+化学学
+药物检测
+健康问题
+精神与文化
+欧盟
+植物地库
+阿曼尼塔斯
+类植物
+大麻
+可卡
+青类
+葡萄
+烟草
+更多的
+化学品库
+安非他胺
+在 DXM
+美国GHB
+基他胺
+没有LSD
+美国
+酸盐
+更多的
+药品库
+阿尔普拉佐兰 (Xanax)
+布普罗 (韦尔布特林)
+亚兹帕姆 (瓦利)
+素 (普罗萨克)
+可 (维科丁)
+甲基化物 (里塔林)
+帕洛克西因 (Paxil)
+更多的
+草药库
+黄
+达米安娜
+狐手套
+青
+乳
+尼皇家
+大
+更多的
+诺托罗普药物库
+亚德拉菲尼尔
+美国
+黄
+黄
+氨酸
+皮拉塞坦
+三胺
+更多的
+动物
+类
+双色
+更多的
+基本的金库
+剂量
+影响
+常见问题
+历史
+俗话
+图像库
+植物
+化学品
+制药品
+草药
+聪明的人
+提交图片
+经验库
+新的报告
+根据物质
+搜索
+关于体验库
+提交经验
+法律金库
+根据物质
+联邦法律
+国家法律
+毒品政策与改革
+禁令链接
+化学库
+根据物质
+结构
+化学比较
+药物检测金库
+基本知识
+其他产品
+精神活性药物与健康
+吸毒问题
+统计
+体库
+属灵的使用和仪式
+迷幻文化
+医疗用途
+家庭与精神活动
+毒品幽默
+精神活性链接
+供应商
+非英语资源
+日历事件
+档案网站
+思想与精神指数
+精神传统
+宗教自由
+呼吸
+跳舞
+设备
+在梦里
+鼓声
+原体
+禁食
+武术
+冥想
+祷告
+发生汗水
+运动
+精神传统
+佛教
+基督教
+印度教
+伊斯兰
+巫师活动
+更多的
+金库
+卡尔玛
+爱心
+吉纳
+拉贾
+更多的
+自由与法律指数
+法律与立法
+法院与正义
+警方的互动
+政府
+选举
+公民权利
+活动
+精神活性药物法
+资产没收
+陪审团无效
+言论自由
+宗教自由
+隐私权
+文化与艺术指数
+有远见的艺术宝库
+字符库
+客人专
+燃烧的人
+活动日历
+图书馆索引
+埃罗伊德评论
+在线书籍
+参考文献
+定期刊物
+引用
+词汇表
+语词典
+书籍按标题排列
+书籍 作者
+书籍按主题排列
+在线书籍库
+皮哈尔
+甲
+舒尔金实验室书籍
+对于狂喜的E
+更多的
+关于埃罗伊德指数
+有什么新消息?
+常见问题
+资金和支持
+公告
+新闻通讯
+提交的内容
+志愿者
+站点统计
+隐私权
+联系方式
+支持埃罗伊德!
+成为会员
+礼物
+欧罗伊德新闻通讯
+欧罗伊德档案CD
+购物袋
+衫
+这件毛衣
+诗歌的磁铁
+具有远见的海报
+新书和二手书
+玻璃分子
+阿尔伯特·霍夫曼签名的布洛特艺术
+关于本文档
+报告一个错误/更正
+要求使用本文档
+联系方式
+化学物质
+2cb_飞
+调查提供了新的2C-B-Fly数据
+乔恩·汉娜,火的埃罗维德,和地球的埃罗维德
+2008年11月
+艾罗伊德提取物#15
+&quot;调查提供了新的2C-B飞行数据.
+虫提取物
+没有.
+2008年11月15:3-5.
+2C-B-飞分子
+自2005年10月提交给Erowid的第一个2C-B飞机经验报告,
+然而, Erowid 机组人员最近参加了一次活动,
+对于大多数人来说,
+Erowid 机组人员发现了一个独特的机会, 收集关于一种目前很少有人类生物测试数据的化合物的信息.
+他们如同在飞行中进行调查, 要求那些服用过这种药物的人回答14个问题.
+这项调查共有26人参与.
+在回答他们服用了多少剂量的问题时,21名受访者报告了15毫克的剂量 (尽管有人谨慎地将其描述为&quot;15毫克±2毫克&quot;,因为用于称重材料的秤只对±2毫克敏感).
+四人服用其他剂量:12 mg,15- 18 mg,12 mg+5 mg65分钟后,以及20 mg.
+最后一位受访者回答&quot;1剂量?&quot;这表明他们不知道 (或记不起) 他们服用了多少.
+除了一人外,所有人都用口服药物 (其中一人用直肠),所有人都报告出现副作用.
+虽然有1人报告说,仅8分钟后就会感觉到第一反应,但13人则需要20到60分钟才能感觉到效果.
+大多数患者在2至2.5小时后才注意到效果,但其中一位患者在3小时后才感觉到效果.
+几个人提供了更详细的效应时间表.
+例如,一种轻微的效应在1小时后出现,增加氧化后的2小时后出现更强烈的效应,峰值在3-4小时左右,并且在11小时后恢复到基线.
+这位同样的人的回复突出了这个忙构建的调查存在的一个重要缺陷:它没有问是否以及何时可能与2C-B-fly一起消耗任何其他精神活性药物.
+一些使用者常常使用多种药物,回顾一下,Erowid了解到参与2C-B生物试验的几个人也曾使用过多种药物.
+Erowid 机组人员发现了一个独特的机会, 收集关于一种目前很少有人类生物测试数据的化合物的信息.
+报告的效果持续时间为4至12个小时以上 (一位患者描述主要效果持续9个小时,但部分效果在摄入后20个小时后仍可感觉到).
+十几人表示持续时间为8小时或更短 (其中只有3人表示持续时间为6小时或更短),而10人表示持续时间为8到10小时,而2人表示持续时间为11-12小时以上.
+另一个人模糊地说:&quot;它延续到第二天.
+在第5到第10个问题中,参与者被问及他们经历过的各种影响,并给受访者提供1到5的等级.
+这种形式的回应似乎表明了精神迷热爱者在回答问题时对不合规感的程度.
+在26名受访者中,有9人选择在一个或多个问题中从提供的选项中选择一个数字 (例如2.5,3.5,等等).
+这表明提供更多的分辨率 (例如1-10) 可能是有益的.
+也可能有必要给心理社区的成员更明确的指示,在选择答案时从提供的数量表中选择一个数字,因为有明确的定义值使数据的统计分析更容易.
+最好的效果
+一些人认为体验的&quot;最佳&quot;特点包括:视觉 (6人),开放的沟通 (6),身体感觉/反应 (5),幸福 (3),能量 (3),清洁/平滑的高潮 (3),和精神集中 (2).
+其他&quot;最好的&quot;效果包括同情,友,深思熟虑的休息,梦幻般的头脑空间,缺乏刺激,以及之后的睡眠能力.
+最糟糕的后果
+受访者最不喜欢的材料包括胃肠道不适 (6人),效果开始缓慢 (5),之后无法入睡 (3),头痛或第二天头 (3),持续时间太长 (2),并且效果不断出现和消失 (2).
+其他负面影响包括不适合社交,紧张,功能困难,以及各种体力问题,如胃,肌肉紧张和麻木.
+总结
+很明显,调查本身,以及对调查呈现的方法, 由于情况, 不是理想的.
+如果提前创建一个问卷并与参与者讨论在生物测试化合物之前,在体验期间可以更加关注这些问题所涉及的事情,从而获得更准确的答案.
+定期计时效果, 特别记住药物消耗的时间, 很有帮助.
+有关2C-B生物测试, 值得指出的是, 大多数人晚上晚上服用药物,
+包含关于性别的问题可能会让人了解男性或女性是否更容易经历某些类型的效应.
+未来的调查应该总是询问年龄和体重.
+在2C-B-fly调查中最大的错误是未能询问人们在服用2C-B-fly之前,期间或之后可能服用了哪些额外的药物或补充剂.
+在这26名患者中,2C-B-fly产生了类似剂量的广泛效应.
+对于一些人来说,15毫克是高度迷幻的,
+但总体而言, 大多数人似乎很享受这次体验,
+2C-B飞行调查
+你吃了多少?
+你是如何接受的?
+(口腔/鼻腔/直肠)
+你有没有得到效果?
+(是/不是)
+有多长时间才开始起作用?
+影响有多大?
+(弱 - 1 - 2 - 3 - 4 - 5 - 强)
+视觉上的效果有多好?
+(弱 - 1 - 2 - 3 - 4 - 5 - 强)
+如何打开心脏是?
+(弱 - 1 - 2 - 3 - 4 - 5 - 强)
+有多少人体负荷?
+(小的1 - 2 - 3 - 4 - 5 - 很多)
+你有多喜欢它?
+(小的1 - 2 - 3 - 4 - 5 - 很多)
+你想再做一次吗?
+(没有 - 1 - 2 - 3 - 4 - 5 - 是)
+这会持续多久?
+你最喜欢什么?
+你最不喜欢的是什么?
+描述:
+在事件发生后的几周内,GC/ MS 运行在微量残留的
+发现它是正确的标识和非常纯净的.
+5) 影响有多大?
+没有人回答&quot;1&quot; (最弱) 或&quot;5&quot; (最强).
+三个人给了它一个2&quot;&quot;,两个人给了它一个&quot;2.5&quot;,八个人给了它一个3&quot;&quot;,四个人给了它一个&quot;3.5&quot;,七个人给了它一个4&quot;&quot;,和一个人给了它一个&quot;4.5&quot; (一个人没有回答这个问题).
+一位受访者首先使用舒尔金尺度回答,然后将答案转换为调查格式.
+6) 视觉上的效果有多好?
+关于视觉效果水平的问题, 答案从&quot;1&quot;到&quot;5&quot;不等, 最常见的答案是&quot;3&quot;, 大约有同数人给出了&quot;2&quot;和&quot;4&quot;.
+更多的人认为视觉效果极低,
+7) 如何开放心灵?
+大多数人认为2C-B-fly有中等的同情效应.
+答案大多集中在&quot;3&quot;左右, 其中10人认为这些效应比&quot;3&quot;强, 6人认为它们较弱.
+8) 有多少人体负荷?
+对于这个问题,答案的一致性比其他问题要低.
+结果分布在非常低的体力负荷和相当高的体力负荷之间.
+没有人报告身体负荷过重,而31%的受访者认为身体负荷高于3级,58%的受访者认为身体负荷低于3级.
+9) 你有多喜欢它?
+几乎90%的受访者将2C-B-fly评为适度可爱或更好 (&quot;3&quot;或更高),60%的受访者在5分级别上评价它高于3分.
+10) 你是否愿意再做一次?
+这个问题得到了最统一的回答:96%的受访者表示愿意再次尝试2C-B飞行,其中84%的受访者表示愿意尝试2C-B飞行,而64%的受访者表示愿意尝试2C-B飞行.
+飞行:使用16毫克2C-B-Fly的经验
+# 在
+通过喷气燃料
+在春天,一群朋友决定一起尝试2C-B飞行.
+它花了两个小时才亮起.
+两个小时后, 我和我的同事互相看着, 想:&quot;我们有没有注意到什么?&quot; 需要走进自己的房间, 没有别人的刺激和大声的音乐, 才能感觉到它开始了.
+我们躺在床上的甜蜜安静中, 我们有了感官互动.
+我们感觉到闭眼视觉的轻微开始, 占据了我们的内心空间.
+音乐也得到了提升,
+我们发现这种物质在一对一的环境中很有趣, 但在这种剂量下,
+我的同事在和朋友聊天时笑了笑.
+我们以这种方式进行了几个小时.
+大约十个小时后, 人们开始下楼睡觉.
+这是一个非常愉快的经历; 身体感觉很好, 第二天我们都感觉很好.
+这是我最喜欢的化合物之一.
+几个月后我们又用了相同的剂量.
+这一次,我们三人决定进行新的实验:我们在摄入2C-B后8小时内注入15毫克5-MeO-DMT.
+我们都经历了这两种物质的&quot;战斗&quot;,
+我们两人不得不决定向5-MeO-DMT投降,
+第三个人说5-MeO-DMT是一种&quot;消极药&quot;.
+虽然没有人会推这种组合, 但我们很高兴进行实验, 发现这两种化合物似乎在争夺主导地位, 至少对这三个人来说是这样.
+即使吃了一些食物, 整个经历持续了大约12个小时.
+在体验过程中体内的良好感觉, 以及第二天的良好感觉, 都被重复.
+我希望能有更多这样的经历与我亲爱的精神航天家.
+两位女朋友说他们在2C-B-fly上有过多次高潮,
+回到化学品
+回到2cb_fly
+创建者:Erowid - 2009年6月25日
+2015年2月21日修改
+在公开复制Erowid信息之前需要许可.</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Plants &amp; Drugs Index
+Plants
+Chemicals
+Pharmaceuticals
+Herbs
+Smarts
+Animals
+Basics
+Images
+Experiences
+Law
+Chemistry
+Drug Testing
+Health
+Spirit &amp; Culture
+Community
+Plants Vault
+Amanitas
+Cacti
+Cannabis
+Coca
+Psilocybin Mushrooms
+Salvia divinorum
+Tobacco
+More . . .
+Chemicals Vault
+Amphetamine
+DXM
+GHB
+Ketamine
+LSD
+MDMA
+Nitrous
+More . . .
+Pharmaceuticals Vault
+Alprazolam (Xanax)
+Bupropion (Wellbutrin)
+Diazepam (Valium)
+Fluoxetine (Prozac)
+Hydrocodone (Vicodin)
+Methylphenidate (Ritalin)
+Paroxetine (Paxil)
+More . . .
+Herbs Vault
+Calamus
+Damiana
+Foxglove
+Ginseng
+Milk Thistle
+Pennyroyal
+Valerian
+More . . .
+Nootropics Vault
+Adrafinil
+DMAE
+Ginkgo biloba
+Hydergine
+Melatonin
+Piracetam
+Tryptophan
+More . . .
+Animals Vault
+Bufo Toads
+Phyllomedusa bicolor
+More . . .
+Basics Vaults
+Dosage
+Effects
+FAQs
+History
+Slang
+Image Vaults
+Plants
+Chemicals
+Pharmaceuticals
+Herbs
+Smarts
+Submit Image
+Experience Vaults
+New Reports
+By Substance
+Search
+About Experience Vaults
+Submit Experience
+Law Vaults
+By Substance
+Federal Laws
+State Laws
+Drug Policy &amp; Reform
+Prohibition Links
+Chemistry Vaults
+By Substance
+Structures
+Chem-Compare
+Drug Testing Vaults
+Basics
+Products
+Psychoactives &amp; Health
+Addiction
+LD50s
+Statistics
+Entheogen Vaults
+Spiritual &amp; Ritual Use
+Psychedelic Culture
+Medicinal Use
+Families &amp; Psychoactives
+Drug Humor
+Psychoactive Links
+Vendors
+Non-English Resources
+Calendar Events
+Archived Sites
+Mind &amp; Spirit Index
+Spiritual Traditions
+Religious Freedom
+Breathing
+Dancing
+Devices
+Dreaming
+Drumming
+Entheogens
+Fasting
+Martial Arts
+Meditation
+Prayer
+Sweating
+Yoga
+Spiritual Traditions
+Buddhism
+Christianity
+Hinduism
+Islam
+Shamanism
+More . . .
+Yoga Vault
+Karma Yoga
+Bhakti Yoga
+Jnana Yoga
+Raja Yoga
+More . . .
+Freedom &amp; Law Index
+Law &amp; Legislative
+Courts &amp; Justice
+Police Interactions
+Government
+Elections
+Civil Rights
+Activism
+Psychoactives Law
+Asset Forfeiture
+Jury Nullification
+Freedom of Speech
+Freedom of Religion
+Right to Privacy
+Culture &amp; Arts Index
+Visionary Art Vaults
+Character Vaults
+Guest Columns
+Burning Man
+Event Calendar
+Library Index
+The Erowid Review
+Book List / Store
+Online Books
+References
+Periodicals
+Quotes
+Glossary
+Slang Dictionary
+Book List / Store
+Books By Title
+Books By Author
+Books By Subject
+Online Books Vault
+PiHKAL
+TiHKAL
+Shulgin Lab Books
+E for Ecstasy
+More . . .
+About Erowid Index
+What&#x27;s New
+Erowid FAQ
+Funding &amp; Support
+Copyrights
+Announcements
+Newsletter
+Submissions
+Volunteers
+Site Statistics
+Privacy
+Contact
+Content Disclaimer
+Support Erowid!
+Make a Donation
+Become a Member
+Be a Monthly Donor
+Donate with PayPal
+Gifts
+Erowid Newsletter
+Erowid Archive CD
+Shopping Bag
+T-shirts
+Sweatshirt
+Poetry Magnets
+Visionary Poster
+New &amp; Used Books
+Glass Molecules
+Albert Hofmann Signed Blotter Art
+About this Document
+Report an Error / Correction
+Request to Use this Document
+Contact
+CHEMICALS
+2cb_fly
+Survey Provides New 2C-B-Fly Data
+by Jon Hanna, Fire Erowid, and Earth Erowid
+Nov 2008
+Erowid Extracts #15
+Citation:   Hanna J, Erowid E, Erowid F. &quot;Survey Provides New 2C-B-Fly Data.&quot;
+Erowid Extracts
+. Nov 2008;15:3-5.
+2C-B-Fly Molecule
+The first 2C-B-fly experience report was submitted to Erowid in October 2005, and since then we have published only 15 reports about this rare psychoactive drug.  However, Erowid crew members were recently at an event where about 30 people reported taking 2C-B-fly.  For most (if not all) of them, it was their first time consuming this substance.  The Erowid crew recognized a unique opportunity to gather information on a compound for which very little human bioassay data is currently available.  They whipped up a survey on the fly (as it were), asking those who had taken the drug to answer 14 questions.  Twenty-six people completed the survey.
+In response to a question asking how much they had taken, 21 respondents reported a dose of 15 mg (although one was careful to describe this as &quot;15 mg ± 2 mg&quot;, as the scale used to weigh the material was only sensitive to ±2 mg).  Four people took other doses:12 mg, 15-18 mg, 12 mg + 5 mg 65 minutes later, and 20 mg.  One final respondent replied &quot;1 dose?&quot;, indicating that they didn&#x27;t know (or remember) how much they took.  All but one person consumed the drug orally (one took it rectally) and everyone reported experiencing effects.
+Although one individual reported feeling an alert of first effects after only 8 minutes, for 13 people it took somewhere between 20 and 60 minutes before effects were felt.  Most of the remaining people first noticed effects by 2 to 2.5 hours, although for one it took 3 hours before onset.  Several people provided a more detailed chronology of effects.  For example, one noted mild effects were felt at 1 hour, stronger effects were felt at 2 hours with the addition of nitrous oxide, the peak was around 3-4 hours, and a return to baseline occurred by 11 hours.  That same person&#x27;s response highlighted an important way in which the hastily constructed survey was flawed: it failed to ask if and when any other psychoactive drugs might have been consumed along with the 2C-B-fly.  Polydrug consumption is commonplace among some users, and in retrospect Erowid learned that such consumption had occurred with several individuals who took part in these 2C-B-fly bioassays.
+The Erowid crew recognized a unique opportunity to gather information on a compound for which very little human bioassay data is currently available.
+Duration of reported effects ranged from 4 to 12+ hours (with one person describing that primary effects were felt for 9 hours but that some effects were still felt until 20 hours following ingestion).  A dozen people characterized the duration as 8 hours or less (with only three of those indicating 6 hours or less), while ten people listed the effects as lasting between 8 and 10 hours, and two said they lasted 11-12+ hours.  One person did not respond to the duration question, and another vaguely remarked, &quot;It lingered into the next day.&quot;
+Questions 5 through 10 asked participants about the types of effects they experienced and provided a scale of 1 to 5 for respondents to circle.  Responses to this format seem to indicate the degree to which psychedelic enthusiasts feel comfortable with non-conformity in answering questions.  Nine out of twenty-six respondents chose, on one or more questions, to select a number between the provided options (for example, 2.5, 3.5, etc.).  This suggests that offering more resolution (1-10 for example) might have been beneficial.  It may also be necessary to give members of the psychedelic community more explicit directions to choose a number from the scale provided when picking an answer, since having clearly defined values makes statistical analysis of the data easier.
+Best Effects
+Effects offered by a number of people as the &quot;best&quot; qualities of the experience included: the visuals (6 people), open communication (6), body sensations/response (5), happiness (3), energy (3), a clean/smooth high (3), and mental focus (2).  Some other effects mentioned as &quot;best&quot; included empathy, camaraderie, thoughtful repose, dreamy headspace, lack of stimulation, and the ability to sleep afterwards.
+Worst Effects
+Aspects of the material that were liked least by respondents included gastrointestinal distress (6 people), the slow onset of effects (5), inability to sleep afterward (3), headache or fuzzy-head the next day (3), lasted too long (2), and the effects kept coming and going (2).  Other negative effects mentioned included feeling antisocial, an edgy come-on, difficulty functioning, and assorted body load issues such as stomach growling, muscle tension, and numbness.
+Summary
+It is clear that the survey itself, as well as the approach taken toward presenting the survey, were not ideal due to the circumstances.  If a questionnaire is created in advance and discussed with participants before they bioassay a compound, greater attention could be paid during the experience to the sort of things that the questions address, allowing for more accurate answers.
+Clocking the effects at regular intervals and noting specifically what time the compound was consumed would be helpful.  With these 2C-B-fly bioassays, it is worth pointing out that most people consumed the drug late in the evening and stayed up all night, and this may have affected some people&#x27;s biorhythms, making it more difficult for them to sleep once the effects had concluded.
+Including a question about gender might allow insight into whether males or females are more likely to experience certain types of effects.  Future surveys should always ask age and weight.
+As previously mentioned, the biggest oversight in the 2C-B-fly survey was the failure to ask what additional drugs or supplements people may have taken before, during, or after they took the 2C-B-fly.
+In these 26 people, 2C-B-fly produced a wide range of effects from similar doses.  For a few people 15 mg was highly psychedelic, for others only moderately so.  But overall, the large majority seemed to enjoy the experience enough to want to try it again.
+2C-B-Fly Survey
+How much did you take?
+How did you take it?
+(oral / nasal / rectal)
+Did you get effects?
+(yes / no)
+How long did it take for effects to start?
+How strong were the effects?
+(weak - 1 - 2 - 3 - 4 - 5 - strong)
+How visual was it?
+(weak - 1 - 2 - 3 - 4 - 5 - strong)
+How heart opening was it?
+(weak - 1 - 2 - 3 - 4 - 5 - strong)
+How much body load?
+(little -1 - 2 - 3 - 4 - 5 - lots)
+How much did you like it?
+(little -1 - 2 - 3 - 4 - 5 - lots)
+Would you like to do it again?
+(no - 1 - 2 - 3 - 4 - 5 - yes)
+How long did it last?
+What did you like best?
+What did you like least?
+Describe:
+Several weeks following the event, GC/MS was run on a trace residue of
+the material, and it was found to be correctly identified and very pure.
+5) How strong were the effects?
+In response to the question about strength of effects, no one answered &quot;1&quot; (weakest) or &quot;5&quot; (strongest).  Three people gave it a &quot;2&quot;, two people gave it a &quot;2.5&quot;, eight people gave it a &quot;3&quot;, four people gave it a &quot;3.5&quot;, seven people gave it a &quot;4&quot;, and one person gave it a &quot;4.5&quot; (one person did not respond to this question).  One respondent first answered using the Shulgin scale, and then converted that answer to the survey&#x27;s format.
+6) How visual was it?
+Responses to the question about the level of visual effects ranged from &quot;1&quot; to &quot;5&quot;, with the most common answer being a &quot;3&quot;, and approximately equal numbers of people giving it a &quot;2&quot; and a &quot;4&quot;.  More people rated the visual effects as extremely low than rated them extremely high.
+7) How heart opening was it?
+Responses about the heart-opening character of 2C-B-fly also indicated that most people thought it had moderate empathic effects.  Answers were clustered mostly around &quot;3&quot;, with ten people considering these effects stronger than a &quot;3&quot; and six considering them weaker.
+8) How much body load?
+There was less consistency in answers to this question than for any other.  Results were spread between reports of very low body load and fairly high body load.  No one reported that the body load was extreme, while 31% rated it as higher than a &quot;3&quot; and 58% rated it as lower than a &quot;3&quot;.
+9) How much did you like it?
+Almost 90% of responses scored 2C-B-fly as moderately likable or better (&quot;3&quot; or higher), with 60% rating it higher than a &quot;3&quot; on the 5-point scale.
+10) Would you like to do it again?
+This question resulted in the most unified response: 96% replied positively (giving a &quot;3&quot; or higher) as to whether they would like to try 2C-B-fly again, with 84% giving a &quot;4&quot; or higher, and 64% replying with a &quot;5&quot;.
+Flying: An Experience with 16 mg 2C-B-Fly
+#
+by JetFuel
+It was the spring when a large group of friends decided to try 2C-B-fly together.  It took two hours to come on.  My partner and I looked at each other at the two-hour mark and thought, &quot;Do we notice anything yet?&quot;  It took going to our own room, without the stimulation of other people and loud music, to feel it come on.  As we lay next to each other in the sweet quiet of our bed we had sensual interactions.  We felt a gentle onset of closed-eye visuals taking over our inner space.  Music was also enhanced, as we explored more of our sense of touch.  After having sex, we joined the group again and noticed that, along with this substance being fun in a one-on-one setting, at this dose it is good for social interacting as well!  My partner laughed and laughed as he talked to a friend.  We carried on for hours in this manner.  After about ten hours, people started coming down and going to sleep.  It was a very enjoyable experience; it felt good in the body, and the next day we both felt great.
+This is one of my favorite compounds.  We did it again several months later at the same dosage.  This time, three of us decided to conduct a new experiment: we insufflated 15 mg of 5-MeO-DMT eight hours after we had ingested the 2C-B-fly.  We all experienced a &quot;battle&quot; of the two substances ten minutes into the onset of the 5-MeO-DMT.  Two of us had to decide to surrender to the 5-MeO-DMT, and we had beautiful experiences of heart-opening fluidity, feeling the interconnectedness of the universe.  The third person said that the 5-MeO-DMT was &quot;a buzz kill&quot;.  Although none of use would recommend this combination to anyone, we were happy to run the experiment and discover that these two compounds seem to fight for dominance -- at least they did for these three people.  The 2C-B-fly came back after 25 minutes, and even after eating some food, the entire experience lasted for about twelve hours.  The same good feeling in the body during the experience, and good feeling the next day, was repeated.  I would love to have more such experiences with my dear psychonautic family.  Two female friends say that they have had multiple orgasms on 2C-B-fly, so there is clearly more fun to be had!
+[
+back to chemicals
+]   [
+back to 2cb_fly
+]
+Created by Erowid - Jun 25, 2009
+Modified - Feb 21, 2015
+Content &amp; design © 1995-2025 Erowid.org. Permission required before publicly reproducing Erowid info.</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

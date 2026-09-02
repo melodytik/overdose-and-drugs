@@ -1,0 +1,189 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲基 - 埃洛伊德 - &quot;奇怪的特性&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methcathinone.html'>← 甲氧卡西酮</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲基 - 埃洛伊德 - &quot;奇怪的特性&quot;</h1>
+<div class='sub-title'>Methcathinone - Erowid Exp - &#x27;Strange Properties&#x27;</div>
+<div class='meta'>作者：Brain Damage Citation · 日期：Jul 22, 2008 · <a href='https://erowid.org/experiences/exp.php?ID=64285' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>合成最初是成功的,我至少有1克的MCAT自由基.
+这就是事情变得有点模糊的地方:由于缺乏适合物质的基, 我假设我可以慢慢地蒸发大部分水,
+我所读到的一切都使得它看起来好像药物很容易转换回f-a-drin在没有一个基础.
+没有真正的经验使用f-a-drin (因为我不相信它是真正的药物) 进一步模糊了线.
+我注意到这种药物的主要特点之一是其奇怪的抗精神病特性.
+我从来不确定什么是真实的.
+我总是相信每个人都想伤害我.
+有时我听到声音, 但不仅仅是声音,
+现在,当我服用这种药物时, 我的幻觉似乎会减弱.
+这真是奇怪, 因为几乎每一种非法药物我服用似乎都增加了我的偏执,
+我最接近的就是我以前服用的抗精神病药.
+我从来没有想过任何一种抗精神病药物会对你做任何事情,
+这种东西绝不是真正的安非他命, 但它确实让你变得快.
+这绝不是狂喜, 但似乎是高情绪的组成部分.
+我已经完全失去了魔力, 这可能让我感觉比狂喜更积极.
+我不能说所有这些东西都是好的.
+我开始下来的时候,有点粗.
+我认为它可能会让人上,
+它不会像普通安非他命一样影响我.
+很容易忘记我在上面, 当我开始下来时,
+尼古丁会让我感觉正常,
+我相信我试图戒烟 (至少已经持续了一个月) 是让我渴望别的东西,
+我认为这种药物对尼古丁戒断也有类似的效果.
+另一方面, 众所周知, 一种习惯往往会被换成另一种习惯,
+总而言之, 我认为这是一种值得尝试的药物,
+没有引起我胃病,头痛或其他任何迹象表明它不适合人类食用.
+似乎没有像阿片类药物,可卡因,烟草或纯安非他命那样让人上.
+它不会像某些药物那样严重抑制正常的身体功能,
+它还具有抗精神病和/或抗抑郁作用.
+我希望能够给患有各种精神疾病的人用这种药物,
+我知道它本身可能会引起精神病.
+虽然这种情况很可能只发生在严重的滥用量,长时间的滥用量,或在以前没有经验的吸毒者身上.
+我知道如果我不吸毒, 我不会有高潮.
+最后一个注意事项是, 再一次, 可能有些药物分解到f-a-drin中.
+我几乎肯定我的解决方案中包含了大量的MCAT.
+我知道最初的反应是有效的, 因为所有的物质都反应了,
+为了比较, 我服用了唯一一颗30毫克的f-a-drin药丸, 在手术过程中丢了 (后来又找到了).
+这种药的效果与我前一天服用的M.C.A.T.药有很大不同.
+我在开始感觉F-a-drin是不同的和较小的高之后,
+很快,我又回到那个好看的MCAT空间.
+药物似乎很快就开始起作用.
+我发现效果可能会在10分钟内出现.
+我不知道我决定开始写这篇经验报告的时间有多久,
+其他:
+甲基 (81):回顾 / 摘要 (11), 性别讨论 (14),一般 (1),不适用 (38)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Strange Properties
+Methcathinone
+by
+Brain Damage
+Citation:   Brain Damage. &quot;Strange Properties: An Experience with Methcathinone (exp64285)&quot;.
+Erowid.org
+. Jul 22, 2008. erowid.org/exp/64285
+DOSE:
+Methcathinone
+(freebase)
+BODY WEIGHT:
+140 lb
+The synthesis was initially a success, I had at least 1 gram of MCAT freebase. This is where things got a little iffy: In the absence of a suitable base for the substance, I hypothesized that I could slowly evaporate most of the water out, making a concentrated freebase solution. Everything I&#x27;ve read made it seem as if the drug will easily convert back into f-a-drin in absence of a base. And having no real experience using f-a-drin (as I do not believe it is a real drug) further blurs the line.
+One of the main things I&#x27;ve noticed about the drug is its strange anti-psychotic properties. My life is consumed by a constant &#x27;schizoid psychosis&#x27; wherein I am never sure what is really real. I am always sure that everybody is out to do me harm. Sometimes I seem to hear voices, but its not just voices, its more like distortions of previous memories that further seem to alter my perception of things.
+Well, when I&#x27;m on this stuff its like my delusions seem to be diminished. It&#x27;s really strange because nearly every other illegal drug I&#x27;ve taken seems to increase my paranoia in one way or another. The closest thing I can liken it to is the seroquel (an anti-psychotic) I used to take. It is so odd though because I never really thought any sort of anti-psychotic drug could do anything to you other than zombify you. This stuff is not straight amphetamine by any means but it does speed you up. It is not ecstasy by any means but there seems to be a component of elevated mood. Funny thing though, I&#x27;ve taken so much ecstasy that I&#x27;ve totally &#x27;lost the magic&#x27; and this is probably making me feel more positive than ecstasy would.
+Well, I can&#x27;t say everything about this stuff is good. When I start coming down its a little rough. I suppose it could be addictive somewhat though not nearly as bad as cocaine or opiates. It doesn&#x27;t affect me in the same way that straight amphetamines do. So it&#x27;s easy to forget I&#x27;m on it and when I start coming down I don&#x27;t feel &#x27;normal&#x27;. Kinda the way nicotine makes me feel &#x27;normal&#x27; when I need a cigarette. Funny thing, I believe that my attempt to stop smoking cigarettes (which has lasted at least a month) was one of the things that made me crave something else and end up with a batch of MCAT. Knowing that wellbutrin, a related compound, is used in the treatment of nicotine addiction makes me hypothesize that this drug my have a similar effect on nicotine withdrawl. Then again, it is known that one habit is often traded for another so this may not be the case.
+All in all, I believe that it a drug worth trying because it does not seem to have the toxicity of compounds such as 5-MeO-DiPT and 2C-E. It hasn&#x27;t made me sick to my stomach, given me a headache, or done anything else indicating that it is not fit for human consumption. It does not seem to be as addictive as opiates, cocaine, tobacco, or straight amphetamines. It doesn&#x27;t severely repress normal body functions like eating, sleeping, and drinking water like some drugs do. It also has anti-psychotic and/or anti-depressant effects. I would like to be able to administer this drug to persons suffering from various mental disorders to see if any positive effects were noticed. Of course, as with any hard drug, I know it has the potential to cause psychosis by itself. Though this is likely only in severe abuse quantities, over prolonged periods of time, or in persons not previously experienced with drugs. It seemed to increase my libido and in fact, I know that I would not have had a couple orgasms if I had not been tweeking.
+One last note is that again, it may be possible that some of the drug decomposed back in f-a-drin. I am mostly certain though that there is a good amount of MCAT in my solution. I know the reaction initially worked because all of the material reacted and the smell was SO wonderful. For comparison purposes, I took the only 30MG pill of f-a-drin which I lost during the procedure (and later found again). The effects of that pill seemed to be very different from the MCAT solution I was on the previous day. I took more MCAT solution after I started feeling sure that the f-a-drin was a different and lesser high. And very quickly, I was back into that nice MCAT space. The drug seemed to kick in amazingly quick. I was noticing effects possibly as quick as 10 minutes. I don&#x27;t know how much later I decided to start writing this experience report, I&#x27;m guessing 30 minutes.
+Exp Year: 2007
+ExpID: 64285
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 22, 2008
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methcathinone (81) : Retrospective / Summary (11), Sex Discussion (14), General (1), Not Applicable (38)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

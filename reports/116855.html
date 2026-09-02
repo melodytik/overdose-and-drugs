@@ -1,0 +1,871 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>生物测试:使用乙基的八项人体试验</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pce.html'>← 乙环利定</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>生物测试:使用乙基的八项人体试验</h1>
+<div class='sub-title'>PCE - Erowid Exp - &#x27;Bioassay: Eight Human Trials With Eticyclidine&#x27;</div>
+<div class='meta'>作者：Psychestim From Bluelight Collection Cita · 日期：Dec 19, 2022 · 剂量：18.0 mg · <a href='https://erowid.org/experiences/exp.php?ID=116855' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>** 背景信息**
+- 性别:男性
+- 年龄: 24
+- 重量: 80 公斤
+- 设置: 在家
+- 设置:今天感觉很好
+- 耐受性:没有,我大约每月使用一次或两次分离剂 (我对这一定位做出了例外,使用的频率略高于平常).
+- 之前的分离体验: 孟坦丁,N2O,DXM,FXE,MXE,MXPr,MXiPr,DMXE,O-PCE,3-MeO-PCE,3-MeO-PCP,3-HO-PCP,3-Cl-PCP,DCK,2-F-DCK,胺,3-Me-PCPy,以及几周前的一些所谓的&quot;PCE自由基&quot;的小试剂量,结果证明不是PCE (下一段将详细介绍).
+几周前我收到了一瓶PCE无基溶液,
+这种PCE自由基/EtOH溶液的气味很糟糕,颜色很黄色,这就是为什么我避免使用超过一个小的测试剂量 (4mg),直到我得到我的结果.
+虽然它显然比PCP更强大, 但我还是想保持安全, 避免摄入可能有害的化学物质.
+我第一次想到的是, 免费的基础必须包含一种不洁的物质,
+在论文&quot;从PCP到MXE:对离散药物的非医疗用途的全面审查&quot;中,Jason Wallach引用了两个不同的来源,他们声称PCE自由基与其他ACH相比异常恶臭,它们通常几乎没有气味.
+然而, 就像我的情况一样, 尚不清楚是PCE本身还是杂质造成的.
+几个月前, 实验室检测结果显示,
+他们无法确定我实际消耗了什么, 但根据他们,
+或许合成是错误的, 或许自由基与空气发生了反应,
+我所知道的是,当我试用时, 溶液确实是活跃的,
+无论是什么情况, 我抛弃了剩余的解决方案.
+他提供给我另一个克作为烟酸盐 (HCl不能形成, 因为他不能得到所有的水).
+收到色粉末后, 我又提交了一份样本进行实验室检测,
+他们还检测到我的样品中存在一种未知的杂质, 无法确定绝对确定性, 但测试设施的化学部门推测它可能是N-环基乙烯 (N-环基乙烯胺)?
+这种物质在体内代谢成环松和乙胺,
+PCE自由基的摩尔质量为203.33g/mol,而酸的摩尔质量为116.07g/mol,这意味着PCE烟酸的摩尔质量应该是319.4g/mol,但由于酸是一种二酸,PCE分子与酸分子的比例为2:1.
+这意味着PCE烟酸的分子质量应该在261. 37g/ mol (203. 33+ (116. 07/ 2)) 左右,这使其比自由基 (理论上) 效率低22%.
+**PCE烟酸 (2. 7毫克,口服) // 第一个试验 (24/ 07/ 22):**
+在早上进行1mg的敏感性测试后,我在分析平衡上称重2.7mg的PCE fumarate (=~2.1mg的PCE fb) 并将粉末放在我的舌头上.
+我口中最有毒的物质之一.
+它的味道相当强烈和不愉快.
+非常不寻常,与我品尝过的其他ACH相似.
+我没有注意任何效果, 但我觉得我感觉不到任何东西.
+我怀疑我还没有达到临界点, 我可能需要再服用几毫克,
+** 背景信息:**
+- -//- (见上文)
+- 设置: 在家
+- 设置:与昨天一样
+耐受性:我昨天服用了2.7毫克的非活性剂量,
+除了早上一杯咖啡和我的绿茶提取物,
+**PCE烟酸 (5. 1毫克,口服) // 第二次试验 (7/ 22/25):**
+出5.1毫克的PCE烟酸 (=~4毫克PCE fb), 把粉末倒在我的嘴里, 用一些水洗下去.
+我注意到我脑海中有一种轻微的头.
+比起3甲氧-PCE, 我通常需要等待45分钟才能感觉到任何东西.
+我觉得PCE非常轻微.
+这似乎只是一个门剂量,
+低剂量3MeO-PCE引起的一些高兴情绪,但没有真正的解离或刺激.
+我觉得自己有点无聊,
+我刚刚游泳, 能感觉到一些轻微的精神分离和重量在我的头.
+现在我会停止写笔记,
+现在我已经清醒了.
+眼前有一种微弱的头痛, 也许是PCE造成的,
+** 背景信息:**
+- -//- (见上文)
+耐受性:我昨天服用了5毫克的PCE烟酸,
+实验前没有任何物质被消耗除了早上一杯咖啡和我的绿茶提取物.
+**PCE烟酸 (7. 5毫克,口服) + 酒精 // 第三次试验 (26/ 07/ 22):**
+在空腹时口服7. 5mg (= ~5. 85mg PCE fb).
+已经过了10分钟, 我已经感觉到一些轻微的分离.
+我正在为生物考试准备一些记忆卡, 但我的思维逐渐减慢.
+我在做日常工作时有很多乐趣, 令人惊的是,
+几个月前我试着用中等剂量的3-Me-PCPy来做一些统一的东西,
+这种热度让人想起其他解离剂,
+我会说这是我有的一批常用剂量的下端.
+我很想多吃一点, 因为效果很好,
+我会避免使用更多的, 因为有很多其他机会让我更高, 我还有一堆工作要做,
+迄今为止,PCE的作用只是温和的, 比3MeO-PCP,3MeO-PCE,O-PCE或3Me-PCPy更少.
+这让我想起了我从口服甲基或甲基中获得的高兴和动力,
+过去半小时的高兴情绪肯定有所减弱,
+由于我很难找到单词,
+现在我们要做什么呢?
+确实有触觉抑制, 因为我刚刚去所,
+我的运动控制似乎完好无损, 我没有平衡或协调问题.
+我很惊地发现,
+我正在和父母聊天,同时喝一杯红酒.
+我在这种剂量下说话很正常,
+酒精短暂地增加了高,但它临结束.
+总体疲劳和思维减慢等残留效应,
+** 在**之后的第二天:
+我只有十分钟前醒来, 但我可以看到这药物有一些严重的抗抑郁药.
+很有意义,我做了3 - MeO-PCE的几次我有最强烈的, 低迷的光我有过经历.
+我心情上升了好几天, 这似乎也会有同样的效果.
+我觉得要把一些音乐和开始跳舞在我的房间.
+这对我来说是不寻常的,
+我感觉自己完全正常.
+** 背景信息:**
+- -//- (见上文)
+- 环境:在家里和女朋友和父母在一起
+- 设置:有点头但感觉很好.
+也许有点无情和疲.
+- 耐受性:我最后一次解离性经验是12天前的7.5毫克PCE试验.
+我早上喝了一杯咖啡,
+我也吃了一粒绿茶提取物囊在服用前一个小时, 像我通常做的 (可能) 帮助减轻arylcyclohexylamines的尿毒作用.
+**PCE烟酸 (9. 9毫克,口服) // 第4次试验 (07/ 08/ 22):**
+我在半肚子吞下一个含有9. 9毫克PCE烟酸的预计囊 (= ~7. 7毫克PCE自由基).
+现在已经出现了第一种效应.
+轻微的高兴情绪正在出现.
+我昨天的饮酒已经累了,一切都像负担一样.
+我经常喝这种药物.
+我真的需要把酒精摄入量限制在每月一次或更少...
+我和我们的狗玩了一点, 在家里做了一些事情,
+我不知道为什么,也许今天花了更长时间展开或我的宿醉影响高,
+我有点无聊.
+我可以感觉到一些解离和高兴的光通过我的疲劳和无情但不知为什么我的宿醉仍然压倒PCE.
+我感觉比一个小时前好一点,
+虽然我很高兴,但我不能像往常那样欣赏.
+没有任何刺激, 我仍然感到惰和疲.
+我敢打我现在可以入睡,如果我试着.
+我仍然感觉自己对一切都不感兴趣,
+绝对不会像我最后一次的试验那样有趣, 但我们会看到会发生什么.
+给我更多的多巴胺!
+现在我们要做什么呢?
+现在我感觉好了很多.
+我觉得这种分离非常明显.
+我正在听&quot;自杀男孩&quot;的新专辑,
+这首歌&quot;1000 Blunts&quot;很棒,
+我看到的每一件事似乎都有一种经典的&quot;水下&quot;过器.
+句子越来越难形成,我的大脑是.
+我嘴唇麻木,我自己的手臂,疼痛感受显著减弱.
+走路仍然很容易, 但我像鬼一样在房子里漫步, 没有重量,
+我试过的最容易成的解离药之一.
+在物理上,它让我想起一个更透明的MXE或一个不那么刺激的3-MeO-PCE.
+在精神上, 这感觉像一个更娱乐和更享乐的版本的3-MeO-PCE.
+我有兴趣知道3Me-PCE与它相比如何.
+我和父母交谈没有问题,
+我已经被镇静了,
+我过去的经历也没有太多刺激,
+我不知道为什么人们报告PCE的副作用更多, 到目前为止我没有注意到任何异常.
+我正在浏览一堆旧的蓝光主题,
+字母和线条是模糊的,
+情已经减弱了,我觉得自己很.
+这种感觉比我之前的试验更让人分离.
+我的女朋友请我帮她做披萨.
+这会变得很奇怪.
+我问她该怎么做, 结果她说:
+我告诉她我觉得自己无用,不知道自己在做什么.
+她把一堆面粉和水扔进一个桶里,
+面包的感觉很好
+我的手是粘性,我需要更多的面粉.
+这很有趣.
+我突然不再觉得自己无用了,
+这是一个不具有刺意味的深度.
+我把面团放在一边休息,洗手.
+我女朋友做了番茄,现在是 toppings 的时间了.
+我吃的很好, 但我的食欲被抑制, 我的味蕾似乎只有一半工作.
+现在PCE的效果正在减弱,这对我来说很好.
+我的猫刚刚进入房间,她太瘦了!
+她体重约两公斤, 尽管吃得很多.
+这是一只小猫.
+现在我有点担心和厌恶了.
+她的眼睛是水和粘性,我可以看到和感觉到她的脊椎, 她的毛皮是乱的,
+我继续抱着她,给她一些东西吃.
+现在要睡觉了.
+其余的效应 (例如视力模糊,光分离) 仍然存在,但并不令人烦.
+睡着了
+**第二天:**
+这次没有后光.
+我今天早上6点醒来,
+现在,早上10点45分, 我很后悔这个决定.
+我喝了一杯咖啡,
+有些人说在服用解离剂后第二天睡觉时会感到恶心, 但我从来没有经历过这种情况.
+显然PCE还在我的系统中, 这似乎是合理的, 因为它是一个长半衰期的脂性药物.
+我太累了,咖啡没有帮助.
+我现在不能学习,明天再试一次.
+** 背景信息:**
+- -//- (见上文)
+- 设置:在我的新公寓,一个人
+现在感觉很好, 我早些时候为生物学考试做了一些学习.
+耐受性:我在22/08/10上服用了6毫克的3-HO-PCP, 我把它留在溶液中,
+在此之前的三天是我与PCE的最后一次试验.
+我早上喝了一杯咖啡,
+之后我吃了一些剩下的拉塔图,
+我在午餐后一个小时服用了PCE.
+**PCE烟酸 (12. 4毫克,口服) +大麻 //第5次试验 (22/ 08/ 22):**
+在这个阴郁的星期一吃一个含有12.4毫克PCE烟酸的凝盖 (=~9.7毫克PCE自由基).
+两周前我和女朋友搬进了新公寓, 这是我新家的第一次离散体验.
+我女朋友在工作,所以我想我有机会试一下更高的剂量.
+我的思维开始减慢.
+我正在解决周期表的1000块拼图, 但专注变得越来越困难.
+我忽略了我之前的拼图进展, 因为找到合适的拼图,
+我听着一些乐观的技术音乐让我继续前进,
+我觉得自己已经分离了,
+我可以捏自己, 但没有感觉到任何疼痛.
+收集,排列和粘合所有这些拼图碎片是有点有趣, 因为目前我感觉像我剖析我的大脑成小的拼图碎片. +1 - 1 = 0.
+所以,解决这个难题是没有用的吗?
+这种二分法是否有意义?
+不管是什么
+我享受自己,但我不能正常运行.
+我很高兴当时我还没有完全醒来, 因为现在表现得清醒更有挑战性.
+音乐听起来很棒,我的思想在下降,而我的身体在自动驾驶.
+我闭上眼睛, 完全屈服于压力.
+我闭眼的视力完全是白色的, 开眼时会有一些轻微的幻觉效应,
+剂量越高,感觉就越少.
+似乎这种冷淡的分离正在压倒我在7.5毫克时体验到的高兴和动力.
+剂量越高,感觉就越少.
+似乎这种冷淡的分离正在压倒我在7.5毫克时体验到的高兴和动力.
+我内心有一种不舒服的感觉,
+我听着JAUZ的&quot;浴&quot;复制, 感觉就像在沙发上溶解.
+整个身体都在震动, 歌声与我的灵魂紧密相连.
+我正在体验与人类的团结和相互联系.
+我不得不思考人类和我们存在的时间, 但甚至不能开始表达我当前想象的复杂性.
+这真的是令人惊叹的感觉.
+现在是时候了.
+这种体验的重点是音乐和随之而来的思想.
+我着房间的空白墙壁, 陷入了的.
+我的身体感觉像一个冷,无骨的器官通过正常循环的住房,
+有一些PCE类型ACH的典型的躁狂,但它不如相应的甲基类相显而易见,也许是因为缺少刺激.
+在高原.
+影响并没有变得更强烈,令我失望的是,高峰期相当短暂,特别是与总体持续时间相比.
+我正在工作, 在笔记本电脑上做一些随机的事情.
+我浏览了Reddit和其他一些页面,
+我想我会在我的女朋友回来的时候抽一些大麻.
+我女朋友回家,我们面包,做沙拉,抽大麻,看电视,然后睡觉.
+在旅程的这个阶段, 真的没有什么可谈的,
+我在11点睡觉时仍然感觉到残留的效应.
+像预期的那样,食物味道不那么好,平凡的任务 (例如看电视) 更加沉浸,
+虽然PCE与大麻的结合总体上是愉快的,
+承认,当我把注意力转移到其他地方时, 它们很快就消失了,
+但大麻比平常强得多.
+我通常不喜欢与大麻混合, 我对大麻的耐受性也比较低,
+**第二天:**
+我睡得很好,但醒来时淋巴结略有胀,喉疼痛和头痛.
+我睡觉时窗户打开, 整个晚上房间都很冷,
+快速检测结果是阴性.
+我仍然可以辨别分离效应.
+我的协调能力有点差, 我仍然有轻微的水下视力,
+我已经服用PCE超过24小时了,
+我觉得自己就像一个无人形象的鬼魂在街上走动.
+食物很容易吞下, 但这并没有让我感觉更好.
+我将在一个小时内去健身房, 希望能加速淘汰过程.
+也许运动后的内啡因会让我的头脑清醒起来.
+我真的很期待通过另一种ROA来尝试PCE, 后果太长时间了.
+我在跑步机上跑了一小时,做了炼,
+我终于恢复了自我,
+我不会服用NSAID, 因为它不太麻烦.
+** 背景信息:**
+- -//- (见上文)
+- 年龄: 25
+- 设置:在我的公寓,与我的女朋友
+- 设置:感觉很好,可能有点压力由于即将到来的考试和其他个人事件,但总的来说我很好.
+- 耐受性:没有,我最后一次解离性经历是19天前,
+我在早上喝了一杯咖啡,
+在喝PCE前一个小时, 我服用了通常的绿茶提取物.
+**PCE烟酸 (14. 9毫克,口服) + 酒精 + 大麻 // 第6次试验 (10/09/22):**
+我将14.9毫克的PCE烟酸 (=~11.6毫克的PCE自由基) 溶解在5克热水中,
+味道不太糟糕,我已经足够稀释了.
+我的胃是,但还没有精神效应.
+我觉得自己有点无聊.
+情色的精神从无处可见地吸引了我的思想.
+我正在试图自慰, 但已经有强烈的触觉抑制.
+阴茎和脑子之间的隔绝, 逐渐变得越来越强烈.
+这有点有趣, 感觉就像我在摩擦一个无生命的物体.
+我终止了我的任务, 达到高潮,
+无论如何, 太阳在我的窗户里闪, 我感到极其幸福!
+非常满意.
+我正在听一些忧郁的哈音乐,
+我感到非常感激.
+我心灵和身体都受到刺激, 我想做一些有成效的事情,
+我正在对新型迷幻药做一些logD和pKa预测, 并将它们相互比较.
+看起来我可以在PCE上完成一些事情.
+这是非常不寻常的.
+这比平常要花更长的时间, 但我渴望科学知识.
+我自信地写下笔记,画出分子结构,
+我的女朋友要去拜访一个朋友.
+这可能是典型的&quot;清醒妄想&quot;案例.
+我上次使用的12.4毫克确实让我更加醉酒,
+现在我感觉自己太自信,很外向,
+我可能会说一些我不想说的东西.
+我在我的房间里跳舞,
+这真是太棒了,我感到自信和高兴.
+这是一种非常娱乐性的药物体验, 非常类似于典型的15毫克的3-MeO-PCE HCl.
+经典的感觉良好的药物体验但我喜欢采取更多.
+效果并没有我希望的那么强烈.
+我应该吸入一个小的块来把它提高一个口吗?
+不,我会抵抗.
+我觉得头脑清醒,刺激,在那一刻,上次我被锁在沙发上,
+这种药物每次服用都会有很大的变化,
+我听巴斯的歌曲&quot;Methylone&quot;, 听到外面鸟儿的声,
+现在开始下雨了!
+这真是一个美好的时刻,我感觉很棒!
+我喜欢裸体脱衣, 通过家庭友好的邻里做一个有文化的PCP跑,
+这种体力刺激是很自然的,
+没有不安的腿,没有疯狂地走在房间里, 只是渴望跳舞表达自己.
+活动减少.
+像上次一样,PCE的峰值相对较长的平原阶段相比,
+因为平原和偏移在情感上是中立的,
+也许一种赛或一些N-乙半氨酸会摆脱长期的后果.
+我女朋友和她的朋友回家, 我们聊了点时间.
+对于他们来说,我并没有变化,但通常我不会变化,
+我记得我们两年前买了一场音乐会的门票, 由于冠状病毒多次推迟, 今天将会举行...我们快速做饭,吃饭,准备好了.
+我打开了一酒让自己有心情.
+我还远远没有达到基线, 但效应足以让我去.
+虽然我对此并不兴奋,
+演唱会结束了,我们实际上比我们想象的要有更多的乐趣.
+我在演出中多喝了两杯酒.
+这种药物与酒精有很好的协同作用.
+现在我感到很累, 我和女朋友抽了一根烟,
+但大麻使它回来一点, 大麻的头部空间感觉比平时更宽.
+去睡觉.
+我已经了,累了,不知道我是否还能感觉到乙.
+**第二天:**
+站起来
+我感觉很好,也许有点疲, 但六个小时的REM睡眠压制后,
+让自己喝一杯咖啡,阅读新闻.
+只是看着我的笔记和计算从昨天... 一堆无用的数字和结构公式,
+我猜这就是他们称之为狂热.
+我现在心情很好.
+我和女朋友一起做早餐很有趣, 我们在公寓里唱歌跳舞.
+生命是美好的,我需要更经常地提醒自己!
+** 背景信息:**
+- -//- (见上文)
+- 设置:我的公寓,一个人
+我感觉很好, 今天一直很有成效,
+- 耐受性:最后一次分离体验发生在两周前,
+我早上喝了两杯咖啡,
+在我开始使用PCE前大约2.5小时,
+**PCE烟酸 (18. 0毫克,口服) + 洛拉泽帕姆 (1毫克,下舌) + HHC大麻 (0. 1g (20%),吸烟) // 第7次试验 (21/ 10/22):**
+服用一个绿茶提取物囊.
+*测量心率 - - 74次/分* (作为参考,我的正常静止心率通常在65-70次/分左右)
+时间是下午4点半, 我将18毫克的PCE烟酸 (=~14毫克的PCE自由基) 放入25毫升的H2O中,
+这大概是我试过的最高剂量,
+我感觉有点,我的四肢很冷,我的感知已经发生了变化.
+我感觉到它的效果非常强烈,
+我正在读一本关于神经科学的书,
+我有点分心, 在阅读和浏览电脑之间交替.
+没有任何的身体刺激,
+我充满活力和动力去做一些事情, 这是一种很好的感觉,
+也许我可以从经历中吸取一些东西,
+拖延和注意力问题绝对是我专业的一个大障碍.
+现在,我知道你在做什么.
+我希望这会发展成更多的东西,我认为我可以处理更多的毫克.
+而临床,麻醉的特征正在透.
+我不确定我是否想让这种高兴感消失,
+我很冷,把自己包裹在毯子里, 闭上眼睛,
+我对这样的剂量相当清醒, 但也许我的判断不是最可靠的.
+清醒的妄想绝对是这种物质的一种东西,
+毫不奇怪,这是我对PCE最强烈的经验.
+我在公寓里摇摇欲,
+我很,很,但相比于其他解离剂的强剂量, 我仍然很灵活.
+危险的
+虽然我的想法很混乱,
+这种丧感完全被冷淡的分离所压抑.
+我与世界和自己断绝了联系.
+这让我想起MXPr体验的下半段,
+如果再多吃5毫克, 我会昏倒,或者精神错乱,
+这可能值得探索, 但我会把它留给其他人.
+我很少看到任何离散药物, 唯一的例外是胺在孔剂量和水下视力,
+* 测量心率 - - 72次/ 分*
+* 测量心率 - - 每分钟65次*
+像其他解离剂一样, 合催化剂不会增加我的心率.
+我从来没有经历过任何副作用, 但说实话, 离散药几乎从来没有让我烦的副作用,
+我试过的3甲基化PCx的疼痛缓解没有那么明显.
+我真的不知道该怎么报道,
+我的女朋友回家了.
+下来了
+在我看电视时, 剩余的效果在背景中漫游.
+我把一片1毫克的洛拉塞帕姆药片放在舌头下,
+我的女朋友决定洗, 并直肠注射40毫克的MXPr.
+很快,她又回来躺在我旁边,看起来很困惑.
+她指出,她感到有点不舒服, 需要适应令人惊的强烈和快速的影响.
+尽管她过去与MXPr有过积极的经历,
+我试图让她平静下来, 和她说话, 但她似乎仍然有点焦虑和情绪.
+她最近有很多事情要思考.
+她开始哭泣, 谈起一些个人问题和不安,
+这种经历对她来说是非常清洁的,
+沟通和表达不如往常那样流, 但我们的对话仍然非常有价值.
+让我们两人有了自由和结合的情形,
+我们决定在附近的自动售货机里买一些含有HHC的哈希.
+走路仍然很奇怪, 我的腿有点动摇,
+现在我的思想比较清晰,心情也很好.
+呼吸新鲜的空气会给你带来新的活力!
+我觉得自己像一朵枯的花,
+我立即用烟草和0.15克的六大麻来.
+它的质地很柔软,有轻微的花香.
+我感觉到它正在慢慢地发生.
+这让我想起了常规的Delta 9THC, 但它在各方面都更微妙,
+虽然我的嘴巴没有干燥,
+只是躺在自动驾驶, 触觉不良, 着电视.
+这并不是真的让我高兴, 也许是因为和PCE.
+由于这是我第一次与HHC合作,
+我的女朋友似乎也处于警觉昏迷状态.
+*当前休息HR - 92bpm
+我真的不知道该怎么看待这种组合, 至少它没有让我变得偏执.
+无论如何,我们完成,刷牙,然后去睡觉.
+在一眼之内就睡着了.
+**第二天:**
+我觉得自己很累. 我觉得自己很累.
+我比平时更气, 很快就会感到烦.
+虽然早餐很丰富, 我现在更加平衡.
+头痛仍在持续.
+** 背景信息:**
+- -//- (见上文)
+- 设置:在一个朋友的公寓与三个其他朋友,我的女朋友和另外两个人.
+现在我很高兴我在这里.
+- 耐受性:我16天前服用了18毫克PCE.
+没有一点新奇的多药性,
+经过将PCE与中低剂量HC,大麻,酒精和二胺混合后,
+经过将PCE与中低剂量HC,大麻,酒精和二胺混合后,
+我选择了雷克萨胺作为我的毒药, 因为它目前是我最喜欢的分离剂之一,
+我觉得FXE是MXE和胺的完美混合体,
+我们将会看到这是否真实.
+作为一个侧记,FXE已经被实验室测试,并被证实是预期的物质.
+他们没有检测到其他任何东西.
+我胃是空的,我吃了我的常规补充剂之前吞分离.
+**PCE烟酸 (7. 0毫克,口服) +FXE HCl (40毫克+40毫克,口服) + // 第8次试验 (06/ 11/22):**
+吃7毫克的PCE烟酸盐 (=约5.46毫克的PCE).
+我在朋友家和另外几个人一起, 我们即将观看斯坦利·库布里克的&quot;2001太空漫游&quot;.
+我已经看到了一些微弱的效果.
+我的头开始变暖,一种高兴的声.
+我不得不打哈欠很多次.
+我朋友们会用口服服用70-80毫克的MXPr (只有其中一个人是空腹的).
+我希望在第一剂量时保持谨慎, 因此我服用40毫克的FXE HCl,
+我决定再吃40毫克的FXE.
+我的手是湿的,我感觉有点热, 但公平地说他们的公寓是相当热.
+一个肚子空的朋友感觉到MXPr非常强烈,
+其他病例的发病时间有所延迟.
+我感觉到FXE的超越和PCE的麻木开始消失在背景.
+这部电影是绝对坚果,或我,我真的不能告诉.
+我通常会觉得&quot;这部电影是为离散者制作的&quot;,
+尽管电影的节奏很慢, 我却很难跟踪发生的事情.
+在物理效果方面, 显然FXE超过了7毫克的PCE,
+我有双重视觉, 我的思想漂流到奇怪的地方.
+两种不同的分离性头部空间的交织方式有点新奇, 但我不确定我是否会推这种结合.
+只是没有真正的意义.
+我认为我宁愿把它们单独看.
+朋友们吸了一剂35毫克的MXPr.
+我不想再服用, 因为我必须在一两个小时后离开他们的家,
+精神效应仍在继续, 膀也明显受到了影响,
+我从所回来后, 一次短暂的偏执,
+我很快就沉浸在电影中,
+这部电影很奇怪,但我喜欢它,我需要在清醒的时候再看一次.
+我有一些奇怪的闭眼视觉图像,
+我服用了0.5毫克的泰米斯塔.
+现在我还很难记忆和说话.
+我朋友的 (清醒的) 女朋友问我关于谷氨酸激发毒性的解释,
+两个肚子满的朋友中的一个说他突然陷入了一个非常奇怪的洞,
+走回家的路仍然有点摇摇欲,
+我有点恶心,
+我很少有运动恶心当走在离散剂但现在我绝对做.
+在家,睡觉.
+**第二天:**
+我早上8点半醒来, 睡得很深,
+这是一个反复出现的现象, 我注意到每一次服用FXE后.
+这使得我很累, 当它消失了,所以睡觉之后很容易.
+但半毫克对我来说几乎没有什么意义.
+我今天确实感到有些头, 胃部也有些烦.
+我吃了一些麦片和牛奶, 这消除了腹痛,
+在公共图书馆学习, 考试顺利了.
+开始时我有一些注意力问题,
+结论:
+是大量常见的环胺的分子构成部分.
+但它是否像人们想象的那样伟大?
+总之,我觉得这是一件值得和令人愉快的事情,
+它与3-MeO-PCE非常相似,因为它是友好和高兴的 (尤其是低常见剂量),精神刺激,享乐主义,低躁,长时间和强大.
+脑区间有微妙的差异 (PCE是不那么内省,更浅,更令人困惑), 我发现它在身体上比3-MeO-PCE/-PCP更少刺激和麻醉.
+对于谨慎的使用者来说,它可以是一个很好的休药物,当然不是浪费时间,但这已经说了,我会选择一些离散剂 (例如:
+酸,酸,酸,酸,酸,酸,酸).
+较早的低常用剂量的实验取得了更好的结果,并突出了PCE与更单调和无动于衷的高剂量相比的独特特性.
+我18毫克试验的大部分感觉与MXPr剂量没有太大的不同,
+我最喜欢的试验是7.5mg和12.4mg的试验
+没有.
+我认为我的批量是相当纯净的, 但我仍然会建议采取比我用来解释我的样本未知杂质略低的剂量.
+我错过了一件事就是吸烟.
+实际上,当我收到第一批PCE免费基因时, 我准备好了自制的PCE,
+虽然我的朋友做了PCE,
+我最近也尝试过以舌下和直肠内给药的PCE,
+唯一值得一提的是,当您通过肠道服用产品时,您的产品所需量会减少,并且产量/持续时间会缩短.
+希望这篇生物试验有点有趣,
+保持安全,
+心理评价
+时间表: 116855
+发布时间:2022年12月19日
+PCE (880):各种 (28),回顾 / 总结 (11),组合 (3),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+Bioassay: Eight Human Trials With Eticyclidine
+PCE
+by
+Psychestim
+From
+Bluelight Collection
+Citation:   Psychestim. &quot;Bioassay: Eight Human Trials With Eticyclidine: An Experience with PCE (exp116855)&quot;.
+Erowid.org
+. Dec 19, 2022. erowid.org/exp/116855
+DOSE:
+2.7 - 18.0 mg
+oral
+PCE
+BODY WEIGHT:
+80 kg
+**Background information**
+- gender: male
+- age: 24
+- weight: 80 kg
+- setting: at home
+- set: feeling great today
+- tolerance: none, I use dissociatives approx. once or twice a month (I made an exception for this titration and used a little more frequently than usual).
+- previous dissociative experience: Memantine, N2O, DXM, FXE, MXE, MXPr, MXiPr, DMXE, O-PCE, 3-MeO-PCE, 3-MeO-PCP, 3-HO-PCP, 3-Cl-PCP, DCK, 2-F-DCK, Ketamine, 3-Me-PCPy, and a small test dose of some alleged &quot;PCE freebase&quot; a few weeks prior, which turned out not to be PCE (I‘ll go into detail in the next paragraph).
+I received a small bottle of PCE freebase solution a couple of weeks ago and handed some of it in for lab-analysis before I began my planned trials. The PCE freebase/EtOH solution reeked very badly and had a dirty yellow color, which is why I refrained from using more than a small test dose (4mg) until I got my results. Even four milligrams were clearly psychoactive which makes sense since it’s apparently even more potent by weight than PCP but I still wanted to stay on the safe side to not ingest possibly harmful chemicals. My first thought was that the freebase had to contain an impurity that caused the discoloration and repugnant smell, so I proceeded to do some research. In the paper &quot;From PCP to MXE: a comprehensive review of the non-medical use of dissociative drugs“, Jason Wallach cited two different sources who claimed that PCE freebase was extraordinarily malodorous compared to other ACH‘s, which usually have little to no smell. However, like in my case it was unclear whether the PCE itself or an impurity was responsible for this.
+A few months ago, the lab-result came back and revealed that my sample didn‘t actually contain PCE but an unidentifiable substance. They could not determine what I actually consumed but according to them, the unknown substance shared structural similarities with PCE. Perhaps the synthesis was botched, or the freebase reacted with the air, I honestly don‘t know. What I know is that the solution was definitely active when I tried it so maybe there was still some PCE in the sample at the time of ingestion which oxidized over the following weeks. Whatever the case may be, I discarded the remaining solution.
+After telling the chemist about my result, he offered to make me another gram as the fumarate salt (the HCl couldn‘t be formed as he couldn‘t get all of the water out). Upon receiving the beige powder I submitted another sample for lab-testing and this time it came back as PCE. They also detected an unknown impurity in my sample which couldn‘t be determined with absolute certainty but the chemistry department of the testing-facility speculates that it might be N-cyclohexylideneethylaine [N-cyclohexylideneethylamine ?]. This substance metabolizes into cyclohexanone and ethylamine in the body but as you only take such miniscule amounts the risk of taking it should be rather low.
+PCE freebase has a molar mass of 203.33 g/mol and fumaric acid has a molar mass of 116.07 g/mol, which means PCE fumarate should have a molar mass of 319.4 g/mol, but as fumaric acid is a dicarboxylic acid there will be a 2:1 ratio of PCE molecules to fumaric acid molecules. This means the molar mass of PCE fumarate should be around 261.37 g/mol (203.33 + (116.07 / 2)), which makes it ~22% less potent than the freebase (in theory).
+**PCE fumarate (2.7mg, oral) // 1st trial (24/07/22):**
+T:00:00:
+After a 1mg sensitivity test in the morning, I weigh out 2.7mg PCE fumarate (= ~2.1mg PCE fb) on my analytical balance and put the powder on my tongue. One of the more caustic substances I‘ve put in my mouth. Its taste is rather strong and unpleasant. Very unusual, not all that similar to other ACH‘s I‘ve tasted.
+T:04:00:
+Have been doing a lot of stuff in and out of the house, so I wasn‘t paying close attention to any effects but I don‘t think that I feel anything. I doubt that I have hit the threshold yet, it might take a few more mg‘s until I can clearly differentiate it from placebo.
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- setting: at home
+- set: same as yesterday
+- tolerance: I took an inactive dose of 2.7mg PCE yesterday which shouldn‘t interfere with today‘s experiment.
+Apart from a cup of coffee in the morning and my green-tea extract, no other substances were consumed this day.
+**PCE fumarate (5.1mg, oral) // 2nd trial (25/07/22):**
+T:00:00:
+Weigh out 5.1mg PCE fumarate (= ~4mg PCE fb), dump the powder in my mouth and wash it down with some water.
+T:00:15:
+I notice a faint lightheadedness developing in my head. The come-up is much faster than with 3-methoxy-PCE for instance, where I usually have to wait 45 min. to feel anything.
+T:00:40:
+So far, things have basically stayed the same, I feel the PCE very lightly. It seems that this is a threshold dose but nothing more.
+T:01:10:
+There is some euphoria reminiscent of low doses of 3-MeO-PCE, but no real dissociation or stimulation is noted. I feel a little bit dull and unbothered by everything, which is nice.
+T:01:40:
+I just took a swim and can feel some light mental dissociation and heaviness in my head. I will stop taking notes now as I have reached a plateau and there‘s not much to report on.
+T:04:30:
+I’m pretty much sober at this point. There’s a faint headache approaching, maybe the PCE contributed to it but who knows, it’s extremely hot today.
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- tolerance: I took 5mg PCE fumarate yesterday but dissociative tolerance doesn‘t build up that quickly so I don‘t think it will alter today‘s experience.
+No substances were consumed prior to this experiment apart from one cup of coffee in the morning and my green-tea extract.
+**PCE fumarate (7.5mg, oral) + alcohol // 3rd trial (26/07/22):**
+T:00:00:
+Take 7.5mg (= ~5.85mg PCE fb) by mouth on an empty stomach.
+T:00:10:
+It‘s been 10 minutes and I can already feel some light dissociation. I‘m preparing some flashcards for my biology exam but my thinking slows down by the minute.
+T:00:40:
+It‘s getting euphoric, I have a lot of fun doing mundane tasks and surprisingly my focus isn‘t all too bad. I tried doing some uni stuff on a moderate dose of 3-Me-PCPy a few months ago but constantly lost track of everything and got bored pretty quickly, which isn‘t the case here. The warmth is reminiscent of other dissociatives like 3-MeO-PCE or DMXE but I like this better than either, so far.
+T:01:30:
+I would say this is the lower end of a common dose for the batch that I have. I am tempted to take a bit more because the effects are quite nice and not as strong as I would like them to be. I will refrain from using more though, because there‘s plenty of other opportunities for me to go higher, I still have a bunch of work to do and I‘m meeting up with my parents in two hours. The PCE has been nothing but gentle so far, there‘s much less stimulation than with 3-MeO-PCP, 3-MeO-PCE, O-PCE or 3-Me-PCPy. It somehow reminds me of the euphoria and motivation that I get from oral methcathinone or methamphetamine but the NMDA antagonism smooths everything out.
+T:02:45:
+The euphoria has definitely diminished over the last half hour, but I‘m still far from sober. My thoughts are not a 100% coherent as I‘m struggling to find words and forming sentences is a little more difficult than usual.
+T:02:50:
+There‘s a definite tactile suppression because I went to the toilet just now and couldn‘t feel my penis. My motor control seems to be intact, I have no balance or coordination issues.
+T:03:35:
+To my surprise, spaghetti bolognese goes down easily and tastes delicious. I’m having a chat with my parents while drinking a glass of red wine. My speech is normal at this dose and I seem unimpaired to them.
+T:05:15:
+The alcohol briefly enhanced the high but it‘s coming to an end. There are a few residual effects like an overall tiredness and slowed-down thinking but I‘m in a very good mood.
+**The day(s) after:**
+T:18:55:
+I only woke up ten minutes ago but I can see that there are some serious anti-depressant qualities to this drug. Makes sense, the few times I did 3-MeO-PCE I had the strongest, hypomanic after-glow I‘ve ever experienced. I was in a heightened mood for days on end and this seems like it could do the same thing. I feel like putting on some music and just start dancing around my room. This is rather unusual for me but I do enjoy it greatly.
+T:48:00:
+No signs of mood improvement or hypomania left, I feel absolutely normal.
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- setting: at home with my girlfriend and my parents
+- set: a bit hungover but feeling okay. Maybe a tad bit emotionless and tired.
+- tolerance: my last dissociative experience was the 7.5mg PCE trial, 12 days ago.
+I consumed an espresso in the morning but apart from that no psychotropic substances were taken that day. I also ate a capsule of green-tea extract an hour before dosing as I usually do to (possibly) help mitigate the urotoxic effects of arylcyclohexylamines.
+**PCE fumarate (9.9mg, oral) // 4th trial (07/08/22):**
+T:00:00:
+I swallow a pre-weighed capsule containing 9.9mg PCE fumarate (= ~7.7mg PCE freebase) on a half-full stomach.
+T:00:30:
+First effects are unfolding now. Mild euphoria is making itself present. I am pretty tired from yesterday‘s drinking, everything feels like a burden. EtOH is such a shit drug and yet I drink it quite frequently. I really need to limit my alcohol intake to once a month or something…
+T:01:00:
+Not much is happening atm, I played with our dog a little bit and did a few things around the house but so far the effects are very subtle. Don‘t know why, maybe it takes a while longer to unfold today or my hangover influences the high, I can‘t really say. I‘m kinda bored.
+T:01:35:
+I can feel some dissociation and euphoria shine through my tiredness and emotionlessness but somehow my hangover is still overpowering the PCE. I feel a little bit better than an hour ago but it‘s nothing to write home about. The euphoria is definitely there but I just can‘t appreciate it as much as I usually would. There‘s no stimulation either, I still feel sluggish and jaded. I bet I could fall asleep right now, if I tried. My headspace seems to be unaltered, I still feel quite uninterested in everything and overall pretty tired and exhausted. Definitely not as much fun as my last trial so far but we‘ll see what happens. Feed me more dopamine!
+T:01:50:
+Somehow my call was answered, I feel much better now. The dissociation is very apparent and I feel it quite strong. I‘m listening to $uicideBoy$’ new album and it’s great. The song &#x27;1000 Blunts‘ is dope and the lyrics hit home. Everything I look at seems to have that classic &quot;underwater&quot; filter laid over it. Sentences are getting harder to form, my brain is mush. My lips are numb and I pinch myself in the arm, pain reception is diminished significantly. Walking is still easy but I wander through the house like a ghost, weightless, effortless and disconnected from my mind. PCE is definitely one of the more addictive dissociatives I‘ve tried. Physically, it reminds me of a more transparent MXE or a less stimulating 3-MeO-PCE. Mentally, it feels like a more recreational and more hedonistic version of 3-MeO-PCE. I‘m interested to know how 3-Me-PCE would compare to it.
+T:02:25:
+Talking to my parents worked out without a problem, my (sober) girlfriend confirms that. I am sedated, although not nearly as sedated as with ketamine or deschloroketamine. My last experiences weren‘t overly stimulating either but surely more than this. I don‘t know why people have reported more side-effects with PCE, so far I haven‘t noticed anything out of the ordinary.
+T:03:15:
+I am scrolling through a bunch of old Bluelight threads and notice that reading is difficult. The letters and lines are blurry and it takes a lot of effort to stay on track. The euphoria has decreased and I feel dumb. The PCE feels more dissociating than it did in my previous trials.
+T:04:00:
+My girlfriend asks me to help her make some pizza. This is gonna get weird.  After a bunch of babbling and stumbling nonsensical words, I ask her what to do. I tell her that I feel useless and have no idea what I’m doing. She throws a bunch of flour and water in a bucket and tells me to knead. Dough feels nice. My hands are sticky, I need more flour. This is fun. I suddenly don’t feel useless anymore because my girlfriend gave me a purpose. That‘s unironically deep. I put the dough aside to rest and wash my hands. Girlfriend made the tomato sauce and now it’s time for toppings.
+T:05:00:
+Eating was fine but my appetite was suppressed and my taste buds seemed to be only half working. The effects of the PCE are diminishing now and that’s fine by me. My cat just entered the room and she is so scrawny! She weighs about two kilograms even though she eats a lot. What a tiny fucking cat. Somehow she looks neglected, normally I find her really cute but now I’m somewhat concerned and disgusted. Her eye is teary and sticky, I can see and feel her vertebras, her fur is disheveled and she intrusively begs for food. I proceed to cuddle her and give her something to eat.
+T:07:00:
+Going to bed now. Residual effects (e.g. blurry vision, light dissociation) are still quite present but not bothersome.
+T:07:20:
+Fall asleep.
+**The day after:**
+T:19:45:
+There‘s no after-glow this time as far as I can tell. I woke up at 06:00 AM this morning and somehow decided that it was a good time to get out of bed. Now, at 10:45 AM, I regret that decision. I drank a cup of coffee but still feel groggy and tired, I also feel slightly nauseous. Some people report feeling shitty the next day after doing dissociatives if they go to bed when the effects haven’t completely worn off but I’ve never experienced that until now. The PCE is clearly still in my system which seems plausible because it’s a lipophilic drug with a long half-life.
+T:23:50:
+I‘m so tired, the espresso didn‘t help at all. I can’t study right now, will try again tomorrow.
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- setting: in my new apartment, alone
+- set: feeling pretty good, did some studying for my biology exam earlier.
+- tolerance: I had 6mg 3-HO-PCP on 10/08/22 which I had left in my solution and decided to drink because I moved apartment the next day and wanted to get rid of it. Three days before that was my last trial with PCE.
+I consumed a double shot of espresso in the morning and had three slices of toast bread with olive paste and tomatoes. A couple of hours later I had some leftover Ratatouille which was followed by a capsule containing my usual dose of green-tea extract. My PCE dose was taken an hour after I had lunch.
+**PCE fumarate (12.4mg, oral) + cannabis // 5th trial (22/08/22):**
+T:00:00:
+Eat a gel cap containing 12.4mg PCE fumarate (= ~9.7mg PCE freebase) on this gloomy Monday. I moved into a new apartment with my girlfriend two weeks ago and this is the first dissociative experience in my new home. My girlfriend is at work atm so I thought I’d take the chance to sample a higher dose of this.
+T:00:45:
+My thinking starts to slow down. I’m in the midst of solving a 1,000 piece jigsaw puzzle of the periodic table but concentrating becomes increasingly more difficult. I’m ignoring my previous puzzle progress, because finding the fitting pieces feels like a hopeless endeavor right now. I’m listening to some upbeat techno music to keep me going but I think I already lost the battle.
+T:01:10:
+I feel strongly dissociated, my limbs don’t belong to me anymore. Nociceptive processing is interrupted, I pinch myself but don’t feel any pain. Collecting, arranging and sticking all those puzzle pieces together is kinda funny because currently it feels like I’m dissecting my brain into little puzzle pieces. +1 - 1 = 0. So, is solving this puzzle useless? Does this dichotomy even make sense? Whatever.
+I’m enjoying myself, but I can’t function properly anymore. A maintenance guy fixed our door bell right after I dropped the PCE and I’m glad that I hadn’t fully come up at that point because acting sober is a lot more challenging now. Music sounds fantastic, my mind is descending while my body is on autopilot. The vigorous techno beat thumps down on my chest and I close my eyes to fully give in to the pressure. My closed eye vision is completely white and with my eyes open there are some slight hallucinatory effects like scenery slicing.
+T:01:40:
+The higher the dose, the less euphoric it gets. It seems that the cold dissociation is overpowering the euphoria and motivation that I experienced on 7.5mg.
+The higher the dose, the less euphoric it gets. It seems that the cold dissociation is overpowering the euphoria and motivation that I experienced on 7.5mg.
+There is an uneasy feeling in my gut, bordering on nausea, so I will lie down for a second. I’m listening to the ‘Trampoline’ remix by JAUZ and it feels like I’m dissolving on the couch. Vibrations buzzing through my whole body and the vocals are attaching to my soul. I am experiencing unity and interconnectedness with humanity. I have to think about the human species and our existence in time, but can’t even begin to articulate the complexity of my current imagination. A truly remarkable feeling.
+T:02:05:
+The focus of this experience is on the music and the concomitant thoughts. I’m staring at the blank walls of my room and fall into the gaping abyss of eticyclidine. My body feels like a cold, boneless housing of organs going through its normal cycle but my mind is illuminated in a special way. There is some mania present which is typical for PCE type ACH’s but it’s less obvious than with the respective methoxy-analog, maybe because of the missing stimulation.
+T:02:30:
+Plateau.
+The effects are not getting any stronger and to my disappointment the peak is fairly short-lived, especially compared to the overall duration. I am working on my PCE post and do some random stuff on my laptop. I scroll through Reddit and some other pages but I’m kinda bored. I think I’m going to smoke some weed later when my girlfriend comes home.
+T:03:00-11:00:
+My girlfriend comes home, we bake some bread, make ourselves a salad, smoke some cannabis, watch some TV and go to bed.  There really isn’t much to talk about in this stage of the trip, everything was kind of uneventful. The effects of the PCE dissipated very slowly and I still felt residual effects when I went to bed at T:11:00. As expected, food didn’t taste as good and mundane tasks (e.g. watching TV) were a bit more immersive, just like it usually is on dissociatives. The PCE/cannabis combination was generally enjoyable but there were some short bouts of paranoia and anxiety. Granted, they dissipated pretty quickly when I shifted my focus on to something else and they were triggered by some recent unfortunate, personal events that I had to think about. The combination didn’t offer anything special but the cannabis was much stronger than usual. I generally dislike mixing stuff with cannabis though and I have a relatively low tolerance so perhaps others might get more out of it.
+**The day after:**
+T:18:30:
+I slept fine but woke up with slightly swollen lymph nodes, a sore throat and a headache. My bedroom was pretty cold throughout the night because I slept with the windows open but after some tea it all went back to normal. Covid-19 rapid test came out negative.  I can still discern dissociative effects. My coordination is a bit off and I still have mild under-water vision typical for dissociatives.
+T:24:30:
+Over 24 hours have passed since taking the PCE and I still don’t feel normal. My headache is still there and I feel like a depersonalized ghost walking around the streets. Food went down easily but it didn’t make me feel any better. I will go to the gym in an hour in the hopes of speeding up the elimination process. Maybe the post-workout endorphins will clear up my head. Really looking forward to trying the PCE via a different ROA, the after-effects are just too long-lasting.
+T:28:00:
+I ran on the treadmill for an hour, did an ab-workout and ate gnocchi with vegetables in vodka-tomato sauce for lunch. I finally feel like myself again but there’s still a light headache present. I won’t take an NSAID because it’s not too bothersome.
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- age: 25
+- setting: in my apartment, with my girlfriend
+- set: feeling well, maybe a bit stressed due to upcoming exams and other personal events but overall I’m good.
+- tolerance: none, my last dissociative experience was 19 days ago with 12.4mg PCE.
+I consumed a double espresso shot in the morning and had two eggs with bread and a banana. An hour before drinking the PCE I took my usual dose of green tea extract.
+**PCE fumarate (14.9mg, oral) + alcohol + cannabis // 6th trial (10/09/22):**
+T:00:00:
+It’s a few minutes past 2 PM, I dissolve 14.9mg of PCE fumarate (= ~11.6mg PCE freebase) in 5cl warm tap water and down it in one go. The taste isn‘t too bad, I diluted it sufficiently.
+T:00:20:
+My stomach is growling, but there are no psychoactive effects yet.
+T:00:42:
+Light mental dissociation sets in, I feel a bit dull. An erotic spirit captivates my mind out of nowhere. I’m horny, I am trying to masturbate but there’s strong tactile suppression already. The disconnection between my penis and my mind is getting stronger by the minute. Kind of amusing, feels like I’m rubbing an inanimate object. I abort my mission to reach an orgasm due to the lack of perceived pleasure. Anyway, doesn’t matter, the sun is shining through my windows and I‘m feeling exuberantly happy! Very content. I’m listening to some melancholic hip hop music while my girlfriend is taking a shower. I am overcome by gratefulness.
+T:01:00:
+My mind and body are stimulated, I feel like doing something productive but the dissociation inhibits my abilities to do so. I‘m doing some logD and pKa predictions on novel psychedelics and compare them to each other. Seems like I can actually get things done on PCE. That‘s very unusual. It takes longer than normal but I have a thirst for science stuff. I confidently scribble down notes and draw molecular structures like I have a plan or a goal but I don’t have any of that.  My girlfriend is leaving to visit a friend of hers.
+T:01:25:
+Somehow the effects aren‘t particularly strong, but this might be a classic case of &#x27;delusions of sobriety‘. The 12.4mg I used last time definitely inebriated me more, but maybe that‘s where the danger lies with high doses of these PCE and PCP type drugs? I feel overly confident and extroverted right now and want to socialize. It‘s probably good that I‘m alone because I might say things that I wouldn‘t want to say when I‘m sober.
+T:02:00:
+I‘m dancing around my room, shirtless and rap along to German rap music. This is great, I’m feeling confident and euphoric. A very recreational drug experience and very similar to a typical 15mg dose of 3-MeO-PCE HCl. A classic feel-good drug experience but I‘d love to take more. The effects are not as strong as I would like them to be. Should I snort a tiny bump to turn it up a notch? No, I will resist.
+I feel very clearheaded, stimulated and in the moment, last time I was locked to the couch and rather in my head. This drug has been quite different every time I’ve taken it and needs some getting used to.
+T:02:30:
+I’m listening to &#x27;Methylone&#x27; by Bas and hear the birds chirping outside while white clouds are suffusing the sky. It‘s starting to rain! What a beautiful moment, I’m feeling damn great! I’d love to strip naked and do a cultured PCP run through the family-friendly neighborhood, but I will behave. The physical stimulation feels very natural, not forced. No restless legs, no frantically pacing around the room, just a desire to dance and express myself.
+T:03:45:
+Decrease in activity.
+Like last time, PCE‘s peak is relatively short-lived compared to its long plateau phase. Somewhat disappointing because the plateau and offset are emotionally neutral and not particularly exciting. Maybe a racetam or some N-acetylcysteine would get rid of the long after-effects.
+T:04:45:
+My girlfriend just came home with her friend and we talked for a little while. I didn’t seem impaired to them, but I usually don’t, most of the times I seem pretty unaltered to others when I‘m on drugs.  I was reminded that we had bought tickets for a concert two years ago which was postponed multiple times due to the coronavirus and that it was scheduled for today… We quickly cook a meal, eat and get ourselves ready. I open myself a can of beer to get myself in the mood. I’m still nowhere near baseline but the effects are manageable enough for me to go. I’m not too thrilled about it though, I’d rather stay at home.
+T:08:30:
+Concert is over, we actually had more fun than we thought we would have. I sweated and shouted a lot and I also drank two more beers during the show. The PCE synergized very well with the alcohol. I feel quite tired now, my girlfriend and I smoke a joint and take a night stroll through the inner districts of the city. The PCE is barely noticeable on its own anymore but the weed brings it back a little and the cannabis headspace feels spacier than usual.
+T:12:05:
+Go to bed. I‘m stoned and tired, no idea if I still feel the eticyclidine.
+**The day after:**
+T:18:10:
+Rise.
+I feel fine, a bit worn out maybe but what can you expect from six hours of REM-suppressed sleep. Make myself an espresso and read the news. Just looked at my notes and calculations from yesterday… A bunch of useless numbers and structural formulas and I really thought I was doing something productive yesterday smh. I guess that‘s what they call mania.
+T:22:00:
+I‘m in a seriously good mood. Making breakfast with my girlfriend is great fun, we’re singing and dancing around the apartment. Life is good and I need to remember that more often!
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- setting: my apartment, alone
+- set: feeling pretty well, it’s been a productive day so far and I’m excited for my highest oral dose of eticyclidine.
+- tolerance: last dissociative experience took place two weeks ago where I had three separate IM injections of R/S-ketamine, totaling up to 175mg.
+I had my usual two espressos in the morning, but other than that my system is free of any psychoactive substances.
+I had a large meal consisting of rice, broccoli, turkey strips and cream sauce about 2.5 hours before indulging in the PCE.
+**PCE fumarate (18.0mg, oral) + lorazepam (1mg, sublingual) + HHC hashish (0.1g (20%), smoked) // 7th trial (21/10/22):**
+T:-00:30:
+Take a capsule of green-tea extract.
+*Heart rate measured - 74 bpm* (for reference, my normal resting HR is usually around 65-70 bpm)
+T:00:00:
+It’s 04:30 PM, I dump exactly 18mg of PCE fumarate (= ~14mg PCE freebase) in 25ml H2O, swish it around and drink the solution. This is presumably the highest dose I’m going to try before switching to a different ROA.
+T:00:16:
+I’m feeling a bit burpy, my extremities are cold and there‘s a shift in my perception already.
+T:00:43:
+Feeling the effects quite strongly, I am washed over by a sense of well-being. I’m reading a book about neuroscience and it’s so captivating. I’m a bit distracted though and alternate between reading and surfing on my computer. There‘s no physical stimulation whatsoever but my mind is rattling. I am full of energy and motivation to do something, which is a great feeling, but not really of any use like we saw in my last 15mg trial. Perhaps I can take something away from the experience though and be more productive when I‘m not on PCE. Procrastination and attention problems are definitely a big hindrance in my major.
+T:01:05:
+I hope this develops into something more, I think I could handle a few more milligrams. The warmth and openness of PCE are diminishing ever so slightly and the clinical, anesthetic character is percolating. I‘m not sure if I want the euphoria to leave, the last couple of times were a little bland and monotonous when that happened.
+I‘m very cold, I wrap myself in a blanket, close my eyes and sink into the PCE space. I‘m fairly lucid for such a dose, but perhaps my judgement is not the most reliable. Delusions of sobriety are definitely a thing with this substance and it‘s good that I‘m in a safe and familiar setting.
+T:01:30:
+Unsurprisingly, this is the strongest experience I’ve had with PCE. I’m wobbling around my apartment, my movement is uncoordinated and precarious. I‘m floppy and wonky, yet I‘m still quite mobile compared to strong doses of other dissociatives. Dangerous!
+My mind is at ease even though my thoughts are disorganized. The euphoria from before is completely suppressed by the cold dissociation. I’m disconnected from the world and myself. This reminds me of the 2nd half of an MXPr experience when the euphoria dies down and only the dissociation stays.  5mg more of this stuff and I’d be knocked out cold, or psychotic, or both. Could be worth exploring but I‘ll leave that up to someone else.  Visually I haven‘t noticed much with this compound but I rarely get visuals from any dissociative, the only exception being ketamine at hole doses and the plain under-water vision typical for dissociatives but I don‘t count that.
+*Heart rate measured - 72 bpm*
+T:02:00:
+*Heart rate measured - 65 bpm*
+PCE does not increase my heartrate like other dissociatives do. It feels physically benign and I haven‘t really experienced any side-effects so far, but to be fair, I almost never have bothersome side-effects from dissociatives, apart from the rarely-occurring nausea and the typical elevated HR/BP and brain fog.
+Pain relief is not as pronounced as with the 3-methoxylated PCx I‘ve tried.  I don‘t really know what else to report on, I feel like I‘m repeating myself.  My girlfriend comes home.
+T:04:00:
+Coming down.
+T:05:00:
+The remaining effects are roaming in the background while I’m watching TV.  I place a 1mg lorazepam tablet under my tongue and it immediately dissolves.  My girlfriend decides to take a shower and rectally administer 40mg MXPr. Shortly after, she returns and lies down next to me, she looks very confused. She notes that she feels a little uncomfortable and needs to acclimatize herself to the surprisingly strong and rapid effects. Some time passes but she doesn‘t seem to enjoy herself even though she‘s had positive past experiences with MXPr. I try to calm her down and talk to her but she still seems to be a bit anxious and emotional. It‘s been a rough week for her and there‘s been a lot on her mind lately. She bursts out in tears and holds a monologue about some personal issues and insecurities she‘s held in for a while. The experience is remarkably cathartic for her, something I have predominantly seen with entactogens and psychedelics. I feel very empathetic and emotional too, communication and articulation are not as fluid as they usually are but our conversations still feel extremely valuable. A liberating and bonding situation for both of us and a great ending to an otherwise okay dissociative experience.
+T:07:30:
+We decide to take a stroll through our neighborhood and buy some HHC-infused hash from a nearby vending machine. Walking is still odd and my legs feel a little wobbly, but I‘m energetic. My mind is relatively clear by now and I‘m in a good mood. Breathing in fresh air is reinvigorating! I‘m feeling like a wilted flower suddenly blossoming again.
+We return home and I immediately roll a spliff with tobacco and 0.15g of this hexahydrocannabinol hash. The consistency is soft and it has a light flowery smell. I take a few hits and feel it coming on slowly. It reminds me of regular delta 9 THC but it‘s subtler in every way and less cloudy. My mouth is not dry, my mind is relatively lucid, but I‘m limp. Just lying there on autopilot, catatonic, gazing at the TV. It‘s not really making me euphoric, maybe because of the benzo and the PCE. I can‘t really say since it‘s my first time with HHC. My girlfriend seems to be in a vigilant coma as well.
+*Current resting HR - 92 bpm
+T:09:20:
+I don‘t really know what to think of this combination, at least it’s not making me paranoid. Anyway, we finish the spliff, brush our teeth and go to bed.  Fall asleep within a blink of an eye.
+**The day after:**
+T:15:30:
+Wake up with a slight headache (something I have later observed a few more times with HHC alone) and I‘m tired. I‘m more moody than usual and things annoy me rather quickly.  A large breakfast took care of things though and I‘m much more balanced now.
+T:23:00:
+Headache is still persisting.
+—————————————————————————
+**Background information:**
+- -//- (see above)
+- setting: at a friends apartment with three other friends, my girlfriend and two other people.
+- set: wasn’t in a social mood at all before going there but now I’m glad I’m here.
+- tolerance: I took 18mg PCE 16 days ago.
+What is a good bioassay without a bit of novel polypharmacy. After having mixed PCE with low-moderate doses of HHC, cannabis, alcohol and benzodiazepines I wanted to see how it combines with another dissociative.
+After having mixed PCE with low-moderate doses of HHC, cannabis, alcohol and benzodiazepines I wanted to see how it combines with another dissociative.
+I picked fluorexetamine as my poison, because it currently is one my favorite dissociatives and I feel like they‘d complement each other very well. FXE feels like the perfect hybrid between MXE and ketamine to me, so I think a combination with a more upbeat and manic ACH (like PCE) could be a decent MXE imitation. We‘ll see if that turns out to be true.
+As a side-note, the FXE has been tested by a lab and was confirmed to be the expected substance. They did not detect anything else.
+My stomach was empty and I took my usual supplement before ingesting the dissociative.
+**PCE fumarate (7.0mg, oral) + FXE HCl (40mg+40mg, oral) + // 8th trial (06/11/22):**
+T:00:00:
+Eat 7mg of PCE fumarate (= ~5.46mg PCE fb).
+I’m at a friend’s house with a couple of other people and we’re about to watch 2001: A Space Odyssey by Stanley Kubrick.
+T:00:18:
+I can already discern slight effects. My head is getting warm, a euphoric buzz is coming on. I have to yawn a bunch of times.
+T:00:30:
+My friends weigh out 70-80mg doses of MXPr and take them by mouth (only one of them has an empty stomach). I want to be rather conservative with my first dose so I take 40mg of FXE HCl to see if there are any unwanted interactions between the two.
+T:01:00:
+The effects are pretty mild at this point, I decide to swallow another 40mg of FXE. My hands are clammy and I feel a bit hot, but to be fair their apartment is pretty heated up.  The one friend with an empty stomach feels the MXPr strongly and seems to like it very much. The others are having a delayed onset. I’m feeling the numbness of the FXE overtake and the PCE starts fading into the background.
+T:02:00:
+This movie is absolute nuts, or I am, I can’t really tell. I usually get a sense of &quot;this movie is made for dissociatives” while I’m high on dissociatives and it’s no different this time. My friends are seemingly more incapacitated than I am, but I do have a hard time following what’s going on, even though the movie is so slow paced. The FXE is clearly overpowering the 7mg of PCE in terms of physical effects but there’s some added confusion I haven’t noticed in my last FXE trials. I’m having double vision and my mind is drifting off to strange places. It’s a somewhat novel intertwining of two different dissociative headspaces but I don’t know if I’d recommend this combination. There’s just no real point to it. This mix doesn’t remind me of MXE at all btw, and I think I’d rather take them individually.  Friends snort a 35mg booster of MXPr.
+T:03:00:
+My friends all take a second 35mg bump, but I refrain from redosing since I have to leave their place in an hour or two because I want to wake up early tomorrow. The psychoactive effects are still kicking and there’s an obvious impact on my bladder since I had to take a pee three times in the last two hours. There was a short bout of paranoia right after I returned from the toilet because I pictured my poor epithelial cells withering away in my bladder lining. I quickly sunk back into the movie and forgot about it though.  This movie is weird but I like it, I need to rewatch it some time when I’m sober. I have some funky closed-eye-visuals that I can’t describe, they’re quite simplistic and undefined.
+T:04:00:
+Effects have diminished quite significantly, I take 0.5mg Temesta.  My memory and speech center are still greatly impaired. The (sober) girlfriend of my friend asks me for an explanation of glutamate excitotoxicity but I can’t make sense of my thoughts nor express myself properly.  One of the two friends with a full stomach remarks that he fell into an unexpected and very bizarre hole because his first oral dose hit 1.5 hours later than expected.
+T:04:30:
+The walk home is still a bit wobbly, but luckily I only live about 1 km away. I am a bit nauseous and have to burp a lot. I rarely get motion sickness when walking around on dissociatives but now I definitely do.
+T:04:45:
+At home, go to sleep.
+**The day after:**
+T:14:00:
+Wake up at 08:30 AM, I slept deeply but longer than I wanted. This is a reoccurring phenomenon I have noticed every single time after taking FXE. It makes me very tired when it wears off so falling asleep afterwards is easy. The lorazepam could’ve also played a role in this but half a milligram is barely noticeable for me. I do feel a little dizzy today and I have some stomach irritation. I eat some cereal with milk which gets rid of the tummy ache but makes me a bit queasy.
+T:26:00:
+Spent the whole day in the public library studying for an exam and it went surprisingly well. I had some concentration problems in the beginning but those faded once I acclimatized.
+—————————————————————————
+**Conclusion:**
+PCE, the molecular building block of a plethora of commonly available arylcyclohexylamines. Its scarcity and illegality have made it a unicorn among the dissonauts around the world, but is it as great as people think it is? Well, to cut it short I think it’s worthwhile and enjoyable but not extraordinarily special. It‘s very similar to 3-MeO-PCE in that it is friendly and euphoric (especially low-common doses), mentally stimulating, hedonistic, hypomanic, long-lasting and potent. There are subtle differences in headspace (PCE is a bit less introspective, shallower and more confusing) and I find it less physically stimulating and anesthesizing than 3-MeO-PCE/-PCP. It can be a good recreational drug for careful users and is certainly not a waste of time but that having said, there are a number of dissociatives I would choose over this one (e.g. MXE, MXPr, FXE, 3-Cl-PCP, ketamine). Earlier experiments at low-common doses yielded better results and highlighted the unique qualities of PCE compared to the more monotonous and apathetic high doses. The majority of my 18mg trial didn‘t feel all too dissimilar from a dose of MXPr when the warm peak has dissipated, which was rather unexciting mentally. My favorite trials were the ones at 7.5mg and 12.4mg
+. I think my batch was fairly pure but I would still recommend taking slightly lower doses than what I used to account for the unknown impurity in my sample.
+One thing I missed out on was smoking this stuff. I actually prepared myself a home-made PCE dipper when I received the first batch of PCE freebase, but discarded it once I had gotten my disappointing lab-result. My friend who made the PCE didn‘t really enjoy smoking the PCE though and vastly preferred taking it orally. I have also tried PCE via sublingual and intrarectal administration recently but didn‘t find the experiences noteworthy. The only thing worth mentioning is that you need much less of your product when it’s taken parenterally and the comeup/duration are cut short.
+I hope this bioassay was somewhat interesting to read and serves as a decent reference point for future researchers of PCE.
+Stay safe,
+Psychestim
+Exp Year: 2021-2022
+ExpID: 116855
+Gender: Male
+Age at time of experience: 25
+Published: Dec 19, 2022
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+PCE (880) : Various (28), Retrospective / Summary (11), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

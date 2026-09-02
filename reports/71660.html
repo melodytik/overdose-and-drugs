@@ -1,0 +1,343 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉 - 埃罗维德 - &quot;无知的后果&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tropane-plants.html'>← 托烷类植物</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉 - 埃罗维德 - &quot;无知的后果&quot;</h1>
+<div class='sub-title'>Datura - Erowid Exp - &#x27;The Consequence of Ignorance&#x27;</div>
+<div class='meta'>作者：Shiggidy Shlade Citation · 日期：Mar 13, 2010 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=71660' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>现在我们会打电话给我的表哥马克和朋友莫.
+我们在9点左右到达马克的家.
+我在那里遇到了莫, 我们在客厅里轮流玩Socom,
+我和莫进了卧室, 因为有有线电视, 他想问我一些东西.
+他问我是否愿意搞.
+我总是下来, 但我们必须走到某个地方去得到它们.
+我们走了出去,骑着自行车到主街, 摘了一些种子,
+我拿了两粒充满种子的果, 一杯水, 他小得多,
+莫的体重只有140磅. 他服用比我少的剂量似乎是对的.
+我躺在床上着旋转的天花板风扇.
+我会告诉你我记得的事,以及目击者告诉我发生的事情.
+摄入后大约20分钟我开始感到奇怪.
+我感觉很好.
+我认为这与吸食大麻的效果相似, 但不是.
+两者之间唯一的相似之处在于我突然变得很口.
+我拿了一杯水出去看看叔叔有没有烟在卡车里.
+他做了,我放了一口哥本哈根酒.
+在这个时候,我感到很奇怪.
+我在脚,语, 汗水比平常高.
+由于嘴里极度缺乏水分,
+我把它拿出来,倒回家, 拿起另一杯水.
+我回到卧室,躺在床上, 再次看着天花板风扇.
+一个模糊的紫色斑点开始出现在天花板上.
+我对此感兴趣,所以留下来看他们一段时间.
+摄入后的时间:大约1小时
+莫进入房间,问如果可以关灯.
+我已经满足于&quot;紫色雾&quot;,
+我闭上眼睛,就像一个激光表演.
+随机物体的图像在视线中逐渐消失, 而圆形设计在背景中跳舞.
+现在,我记得的一切都会用引号来表达,
+接下来将按照时间顺序进行,
+现在我已经被汗水浸透了,
+后来我去所水, 结果我全身脱了衣服.
+我不知道莫在哪里,也不知道他在做什么.
+我在浴室里赤身裸体, 我开始打拳头.
+强烈的打击.
+我在浴室里打任何不被住的东西.
+据马克说,我叔叔被噪音唤醒了,然后站起来检查.
+我突然在客厅里脱了衫, 坐在沙发上,
+我感到困惑.
+我不确定我在哪里.
+我只是照父母的要求穿上鞋子和衫,然后上车.
+我站起来走出门口.
+我被送回乡下自己的家.
+我不确定我,我母亲和我父亲之间交换了什么话,但我怀疑有什么.*
+我在另一个沙发上醒来.
+这是我的.
+我看着我的父亲, 他看起来并不特别失望,
+我总是突然想起床,但每次我试图,我父亲严厉的声音响起说:&quot;呆下,不要起床.
+我一直试着,他开始笑,因为每次我站起来,
+我觉得自己是个9岁的孩子,
+经过多次尝试, 我认为我会从不同的角度去做.
+他用温暖的笑容看着我, 抓住我的手, 帮助我去所.
+我觉得自己很安全.
+我无法站立,所以我坐着,
+我又抬头看他, 想知道为什么随着时间的推移,
+我说:&quot;不要笑了.
+他帮助我站起来,把我放回沙发上.
+我坐下,倾听他和我母亲在另一间房间的谈话.
+我一直听到可怕的词语,
+重要的是要指出, 在这个疯狂的宗教中, 我们不去看医生.
+他们相信通过祈祷来治愈.
+所以如果有人谈到去医院看病,
+我记得我父亲从厨房回来,抓住我的手.
+我又一次昏迷了
+我被赶往附近的医院.
+莫伊的父母也做了同样的事情,
+我被急送进来,并被一个静脉注射塞进来.
+无论如何,他们都试图刺杀我.
+在第五次尝试后, 地板上有血迹,
+我是非常暴力的.
+没有人知道我在哪里.
+这时他们决定为我和其他人的安全而束我.
+我被绑在床上, 被强迫吃木炭.
+这不是一件容易的事,
+我得到了一个新的静脉注射, 里面有一些医疗废话,
+面部,胸部和子都被黑煤残留物所覆盖, 我终于睡觉了.*
+周围有很多人,
+这是一个新的一天和奇怪的事情正在发生.
+我祖母是个不吸烟的女人,
+我让姐姐向下倾斜,问她是否在吸烟.
+她的回答很简单:&quot;没有瓜,
+我在房间里四处看,
+另一面墙上的白板上写着&quot;你在医院,你没事.
+没有人会伤害你.
+护士显然这样做是因为在昏迷期间,
+我在房间里寻找一些熟悉的面孔,我找到了他们.
+我的整个家庭都在那里.
+虽然我被束, 我可以看看我的毯子.
+我是裸体,有一个管从我的阴茎出来.
+我觉得这很奇怪,因为我从来没有去过医院,也不知道导管是什么.
+我抬头看了一下我的输液袋,
+它开始生长特征,很快成为一个面孔的玉米耳.
+我转过身来自信地对他说:&quot;玉米头&quot;,我说,表情非常严.
+我在房间里看了看发生了什么奇怪的事情.
+一个钱与十美元的票在天花板上躺在一个小鱼旁边.
+我觉得这很棒,所以我不得不告诉最近的人.
+我的妹妹再次.
+她看起来像一个瓜, 她说那里什么都没有.
+我问我母亲&quot;性感束&quot;是不是真的必要.
+她笑着解开了我的手.
+我的功绩仍然受到限制.
+我突然发现自己又回到了马克的家.
+我手里拿着一个PS2控制器玩SOCOM.
+我一直在向马克道歉, 说&quot;我很抱歉&quot;一次又一次.
+我开眼睛,又回到医院.
+控制器变成了一张毯子,
+我感到害怕,脆弱.
+我哭了.
+每个亲近我的人都来祝我好运,和我聊天 (或试图用我嘴里说的胡说八道聊天),然后立即离开.
+我醒来的时候已经黄昏了.
+姐姐走近我,拥抱我,然后把我的鞋脱下来.
+我以为她会把我的裸体暴露给那几个人,
+我说没有!
+不要看下面的!
+她笑了起来, 说她必须去, 就这么做了.
+现在已经黑暗了.
+我在一个小时的大部分时间里不知不觉.
+我坐在我的床边, 突然, 巨大的百足动物和虫子从她的耳朵里开始出来.
+我很困惑,所以我把注意力转移到任何但她.
+昆虫已经填满了房间, 爬到所有的东西.
+我尖叫求救,母亲来安慰我.
+她拥抱我,告诉我闭上眼睛.
+我哭了起来.
+这很难.
+然后,我睡了.
+我醒来稍晚,没有超过半个小时过去了.
+然后我注意到了一些事情.
+在我的窗外,一个裸体的女人跳舞.
+她是一个美女.
+我记得我对自己说, &quot;一旦我睡着了,
+我在第二天醒来时发现更多的好友.
+然后是Boxy.
+波克西是一只小矮人,
+他从围绕着我的床的窗爬下来,
+他让我想起了旅行小矮人.
+我被俘了.
+他对我微笑时, 我脸上表现出最激动的表情.
+然后他眼说:&quot;看看这个.
+他开始在我的肩膀上跳起来.
+我很高兴, 开始高呼&quot;跳吧, 博克西!
+让我现在的观众享受.
+&quot;我没有它.
+我对我的家人说了一些不值得骄傲的话.
+我告诉我的祖母吃一个子, 我告诉我的阿她需要得到硬性,
+我又走出了这个世界.
+墙壁融化了,我在房间里拿着吉他.
+我开始玩,又一次,它融化成毯子.
+我很生气.
+我发作了.
+我一直在重复&quot;该死!
+没有!
+什么该死!?!?
+更多的祝愿者,更多的卡片,更多的胡说八道
+我醒来的时候已经晚了.
+我看着窗户,那个女人已经走了.
+她的位置是一个大男人长长的长袍和衣.
+他看着我,拿出一支50年代的普森.
+他开始通过窗户开火,我失去了它.
+我开始歇斯底里地哭泣,
+我在她的怀抱中睡着了
+我第二天醒来.
+我再次感觉正常.
+没有幻觉.
+没有疯狂的精神语.
+只有正常.
+护士进来, 出了我的导管中的气球,
+我可以自己穿衣服,站起来,走到浴室,
+我看着镜子,我全身都是黑色的.
+我看起来像我在一个聚会上失去了意识, 有人发现了一个Sharpie.
+我遇到莫在设施的淋浴,他看起来像地狱.
+他告诉我他看到的一切坏事.
+他醒来时发现他的房间里有很多尸体挂在天花板上.
+我为他感到难过.
+我为我们俩感到难过.
+我们没有先研究它,
+我失去了3天的秋季假期和我没有回忆的时间.
+我在医院待了这么长时间的原因是因为我的心率太高,
+我希望通过写这篇文章,
+其他:
+达图拉 (15):第一次 (2),糟糕的旅行 (6),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+The Consequence of Ignorance
+Datura
+by
+Shiggidy Shlade
+Citation:   Shiggidy Shlade. &quot;The Consequence of Ignorance: An Experience with Datura (exp71660)&quot;.
+Erowid.org
+. Mar 13, 2010. erowid.org/exp/71660
+DOSE:
+oral
+Datura
+(seeds)
+BODY WEIGHT:
+220 lb
+Before I begin the actual story of the trip, I’d like to give you, the reader, a look at what happened leading up to the time of ingestion. It won’t take long, but gives you a better understanding of how my entire personality changed due to the ingestion of the drug.
+I was at my cousins house with a friend. For now we’ll call my cousin Mark and the friend Moe. We showed up at Mark’s house at about 9. I met Moe there and we ended up taking turns at playing Socom in the living room, ripping on each other for no apparent reason, and eating what was left of the food in the house. Me and Moe went into the bedroom because there was cable in there and he wanted to ask me something. He asked me if I was down for getting fucked up. I was always down, but we had to walk somewhere to get them. We then walked out, rode our bikes down to Main Street and picked a few seed pods of something we had no idea the origin of.
+We headed back to the house, throwing caution to the wind I took two pods full of seeds with a glass of water, him being much smaller and never having any experience with any kind of drugs only took one. Moe weighs only about 140 lbs. it only seemed right that he took a smaller dose than I. I then laid down on the bed and stared up at the spinning ceiling fan. From this point on, I’m going to tell you what I remember and what witnesses told me had happened.
+About 20 minutes after ingestion I started feeling strange. I felt good. I thought it was similar to the effects of smoking marijuana, but it wasn’t. The only similarity between the two is all of the sudden I had bad cottonmouth. I got a glass of water and went outside to check if my uncle had any snuff in the truck. He did and I put in a pinch of Copenhagen. At this point I felt very odd. I was stumbling around, slurring my words, and sweating more than usual for the current temperature. I couldn’t handle the small chew I had and started to gag because of the extreme lack of moisture in my mouth. I took it out, stumbled back into the house and grabbed another glass of water. I went back into the bedroom and laid down on the bed and watched the ceiling fan once again. All of the sudden, a hazy purple spot started appearing on the ceiling. I was intrigued by this so I stayed and watched them for a while.
+Time after ingestion: roughly 1 hour
+Moe entered the room and asked if it was ok to turn the lights off. I had my fill of the “purple haze”, so I agreed to the black out. I closed my eyes and it was like a laser show. Images of random objects drifted in and out of sight while circular designs danced in the background. From here on, what I remember will be in quotes and what happened that I have no recollection of will be in stars. The following will be in chronological order to the best of my abilities.
+*At this point I was drenched in sweat so I was inclined to take off my shirt. I then went to the bathroom to splash water on my face and ended up completely undressing. I have no idea where Moe was, nor what he was doing. I was naked in the bathroom and I started throwing punches. Hard punches. I was boxing anything in the bathroom that wasn’t bolted down. According to Mark, my uncle was awoken by the noise and got up to check.*
+“I was all the sudden shirtless in the living room, sitting on the couch, looking up at Mark and my parents. I was disoriented.  Not sure of where I was. All I did was what my parents asked me to, which was put on my shoes and shirt and get in the car. I got up to walk out the door.”
+*I was driven back to my house in the country. I’m not sure what words were exchanged between me, my mother, and my father, but I doubt there were any.*
+“I came to on another couch. Mine. Looking up at my father, who didn’t look particularly disappointed, but more amused at my odd and silly behavior. I kept on having this sudden urge to get up, yet every time I attempted to, my fathers stern voice chimed in saying ‘Stay down, don’t get up’. I kept trying and he started to laugh as every time I got up, I’d sheepishly sit down. I felt like I was 9 years old, doing as I was told or I’d be sent to my room, or worse; the corner. After many attempts, I thought I’d go at it at a different angle. ‘I have to pee’, I said. He looked at me with a warm smile and took my hand and helped me to the bathroom. I felt secure for some reason.&#x27;
+&#x27;I wasn’t able to stand so I sat as my dad snickered in the doorway. I looked up at him again, wondering why I kept feeling younger and more helpless as the time passed. ‘I can’t go. Stop laughing,’ I said. He then helped me up and put me back on the couch. I sat and strained my ears for the conversation that went on between him and my mother in the other room. I kept hearing horrifying words like ‘die’ and ‘hospital’ and ‘overdose’. Its important to note at this point that in the crazy religion my family is apart of, we don’t go to doctors. They believe in healing through prayer. So if there was talk of a hospital visit, something bad was happening. I remember my father coming back in from the kitchen and taking my hand. I blacked out once again”
+*I was rushed to the neighboring town’s hospital. Moe’s parents did the same and we arrived around the same time. I was rushed in and had an IV stuck in me. Well, they tried to stick me anyways. After the fifth attempt, the floor was spotted with blood and I had something being pumped through my veins. I was being extremely violent. At one point I punched a doctor in the face and broke his glasses. This is when they decided it would be best for my and other people’s safety if I was restrained. I was tied to a bed and force fed charcoal. It was not an easy task but after about an hour they had it done. I was given a new IV with some other kind of medical bullshit in it to calm me down. With my face, chest and neck covered in black coal residue, I finally found sleep.*
+“I came to with people surrounding me. It was a new day and peculiar things were happening. My grandmother, who does NOT smoke, was holding a lit cigarette. I had my sister lean down to ask her if she was smoking. She responded with a simple ‘no jackass, gramma doesn’t smoke’. I looked around the room to see where I was and why I was tied down. A white board on the opposite wall read ‘You’re in the hospital, you’re ok. It is (current date) and no one is going to hurt you’. The nurse apparently did this because during my blackouts, I was violent, quixotic, and angry. I looked around the room for some familiar faces and I found them. My whole family was there. While restrained I was able to look under my blanket. I was naked and there was a tube coming out of my penis. I found this odd, because I’d never been to a hospital and had no idea what a catheter was.&#x27;
+&#x27;I looked up at my IV bag and it was an ear of corn. It started growing features and it soon became an ear of corn with a face. My father then asked what I was looking at and I turned to address him confidently. ‘Cornhead’ I said with a very serious look. I looked around the room at all the odd things happening. A money clip with a ten dollar bill in it was laying next to a small fish on the ceiling. I thought this was amazing so I had to tell the nearest person. My sister again. She looked up like the dumbass she is and said there was nothing there. I asked my mother if the ‘sexy bondage’ was really necessary. She laughed and untied my hands. My feat were still restrained.&#x27;
+&#x27;All of the sudden the room fell away around me and I was back at Mark’s house. I had a ps2 controller in my hand playing socom. 5 minutes of playing had passed and the controller melted into a soft, cotton material and I kept on apologizing to Mark saying I’m so sorry over and over again. I opened my eyes and I was back in the hospital. The controller was now a blanket, which I was clutching very tightly in my hands. I felt scared, vulnerable. I wept.”
+*Every one that was close to me came and bid their well wishes, chatted with me (or tried to chat with the nonsense coming out of my mouth), and promptly left.*
+“I came to and it was dusk. My sister approached me, gave me a hug, and took my shoes off of me. She had to lift the blanket a bit to get to them and I thought she was going to expose my naked body to the few people still in the hospital room. I said ‘NO! Don’t look under there! They took my clothes and stuffed me in a dark tube!’ She had her laugh, said she had to go, and did just that. It was dark now. I drifted in and out of consciousness for the better part of an hour. My aunt was at my bedside and all of the sudden, large centipedes and bugs started coming out of her ears. I was distraught, so I turned my attention to anything but her. The bugs had filled the room and were crawling all over everything. I screamed for help and my mother came to comfort me. She embraced me and told me to close my eyes. I cried. Hard. Then, I slept.&#x27;
+&#x27;I woke up a bit later, no more than a half hour had passed. Then something caught my eye. A naked woman outside my window, dancing. She was beautiful. I remember telling myself, ‘as soon as my mom’s asleep, I’m going out there and fucking the shit out of her regardless of this catheter.’ I passed out before she did, and now I realize it was obviously a hallucination. I awoke the next day to more well wishers. Then there was Boxy. Boxy was a gnome about the size of my thumb. He had climbed down from the curtain around my bed and posted up on my shoulder. He reminded me of the Travelosity gnome. I was captivated. I had the most excited look on my face as he smiled at me. Then he winked and mouthed ‘watch this’. He then started to jump up and down on my shoulder. I was overjoyed and started chanting ‘Jump, Boxy! Jump!’ to the enjoyment of my current audience.&#x27;
+&#x27;I was out of it. I said things to my family that I’m not proud of. I told my grandmother to eat a dick, I told my aunt she needed to get fucked HARD, and I called my other grandmother a whore. I then went out of it again. The walls melted away and I was in my room holding my guitar. I started playing and once again, it melted into a blanket. I was angry. I threw a fit. I kept repeating ‘FUCK! FUCK! WHAT THE FUCK!?!?’”
+*More well wishers, more cards, more bullshit*
+“I came to and it was night. I looked to the window and the woman was gone. In her place was a large man in a long trench coat and fedora. He looked at me and pulled out an old 50’s Thompsan. He began firing through the window and I lost it. I hesterically started crying, again my mother was there to comfort me. I fell asleep in her embrace.&#x27;
+&#x27;I awoke the next day. I felt normal again. No hallucinations. No mad psycho-babble. Just normality. The nurse came in, deflated the balloon in my catheter, and pulled it out (which hurt like a mother fucker). I was able to clothe myself, get up, walk to the bathroom, and take a shit. I looked in the mirror and I had black all over me. I looked like I passed out first at a party  and someone had found a Sharpie. I met Moe at the facility’s shower and he looked like hell. He then told me all the bad things that he saw. At one point, he awoke to his room full of dead bodies hanging on nooses from his ceiling. I felt bad for him. I felt bad for both of us.”
+We had taken Datura, or “jimsonweed”, without researching it first and we payed dearly for it. I’d lost 3 days of my fall break and hours of my life that I have no recollection of. The reason I was in the hospital for so long is because my heart almost exploded because of how high my heart rate was. I hope that by writing this I’ve helped inform you.
+Exp Year: 2005
+ExpID: 71660
+Gender: Male
+Age at time of experience: Not Given
+Published: Mar 13, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : First Times (2), Bad Trips (6), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

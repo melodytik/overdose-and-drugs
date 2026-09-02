@@ -1,0 +1,169 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>伊波加因 - 虫 - &#x27;在表面上划伤&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ibogaine.html'>← 伊博格碱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>伊波加因 - 虫 - &#x27;在表面上划伤&#x27;</h1>
+<div class='sub-title'>Ibogaine - Erowid Exp - &#x27;Scratching the Surface&#x27;</div>
+<div class='meta'>作者：Sugoi Citation · 日期：Aug 25, 2003 · 剂量：400 mg · <a href='https://erowid.org/experiences/exp.php?ID=26381' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我注意到的第一件事是微妙的身体感觉,
+我听说静止的肌肉有快速的节奏脉, 我们通常不会意识到,
+感觉变得越来越普遍, 就像能量在我的身体中流动 - - 就像爬在我身上,
+我觉得我的微妙的能量身体 (我可能是在比喻地说) 正在活跃,扩张和展开.
+我一直期待一个视觉,梦幻般的序列开始, 但它从来没有完全.
+我发现自己的想法变得非常奇怪,
+我能感觉到它们, 但却看不到它们 - - 就好像它们与我意识上认同的那部分心灵有着黑暗的屏幕隔开.
+我以前也曾经有过这种感觉,
+让我意识到自己在倒是这样的:
+我在城市街道上&quot;看到&quot;两个男人面对面,
+他们突然跳进一个空虚 - - 一个无限的黑色虚无.
+于是他们两人大喊大叫地跑向对立的方向.
+我在一个非常流动的梦幻空间里度过了两到三个小时.
+我会想象各种各样的事情, 往往是非常私人的--例如我爱的人的尸检,
+我的想法遍及整个地图, 从个人资料到意识的演变, 以及政客如何用惊人的事来分散我们注意力.
+我记得我读到人们在服用伊波时会有幻觉, 似乎是关于全球事件,
+(例如,有人可能想象一场可怕的即将到来的战争, 但这可能真的是他们自己心灵中的冲突.) 我开始问自己,
+我开始在视野左上边缘感觉到一种奇怪的动扭曲, 我开始转移注意力,
+后来我意识到这是一个很好的例子,
+第二天,当我还在想着这张照片时, 我意识到我经常用智力思维来分散注意力,
+我觉得我只是在划伤伊波加因状态的表面,
+我没有感到恶心, 但在旅程的高峰期,
+我能慢慢走到所,
+我在服用药物后很长一段时间感到昏昏欲睡, 在三天后才完全恢复.
+我觉得自己可以独自处理这种剂量 (幸运的是,因为我没有保姆),
+我怀疑在高剂量下恶心会成为我的原因.
+时间表: 26381
+伊波加因 (28): 单独使用 (16),第一次使用 (2), 宿醉 / 几天后 (46), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Scratching the Surface
+Ibogaine
+by
+Sugoi
+Citation:   Sugoi. &quot;Scratching the Surface: An Experience with Ibogaine (exp26381)&quot;.
+Erowid.org
+. Aug 25, 2003. erowid.org/exp/26381
+DOSE:
+400 mg
+oral
+Ibogaine
+BODY WEIGHT:
+86 kg
+I had planned to take a gram or so of ibogaine, but the friend who was going to be my sitter had to cancel.  Finally I decided to take a smaller dose, and took 400mg. one morning by myself.  That works out to approximately 5 mg/kg, about half the dose I&#x27;d originally planned on.
+The first thing I noticed was subtle body sensations, ramping up to powerful pulses over half an hour or so, especially in my arms.  I&#x27;ve heard that muscles at rest have a rapid rythmic pulsing that we are not normally conscious of, and I speculate that I may have been sensing that.  The sensations became more pervasive, like currents of energy throughout my body - sort of like ants crawling all over me, but I chose not to dwell on that comparison.   It felt to me as though my subtle energy body (I may be speaking metaphorically here) was beoming active, expanding and unfolding.  My visual field didn&#x27;t alter much; I kept expecting a visual, dreamlike sequence to start but it never quite did.  However, I noticed that my thoughts were becoming quite bizarre, and that&#x27;s when I realized I was in fact tripping fairly hard.  It was as though dreams were happening in my mind, and I could sense them but not quite see them - as though they were separated from the part of my mind that I was consciously identified with by a dark curtain.  I&#x27;ve had this sort of feeling before, both under the influence of psychedelics and in other altered states, such as in the hypnagogic state.
+The dreamlike thought that triggered my awareness that I was tripping was the following.  I &#x27;saw&#x27; two men facing each other on a city street, making eye contact.  They suddenly jump in unison into a void - an infinate black nothingness.  Just as suddenly they are back on the street, still making eye contact, at which point they run screaming in opposite directions.
+For two to three hours I was in a very fluid dreamlike space.  I would imagine all sorts of things, often very personal - e.g. the autopsy of someone I loved who died a couple of years ago, followed by my own autopsy.  My thoughts ranged all over the map, from that sort of personal material, to the evolution of consciousness, to how politicians distract us from important issues with spectacular trivia.  At the point I was thinking about that, I remembered reading that people will have visions under ibogaine that seem to be about global events, but can more usefully be analyzed as a sort of dream, being symbolically about your own life.  (For example, someone might imagine a horrible impending war, but it could really mirror a conflict in their own psyche.)  I started asking myself if that was true in my case, and thinking about how I might use these same sort of distraction techniques.  Around this time I started getting a strange fluttering distortion in the upper left periphery of my visual field, and began to divert my attention to it to see if it would unfold into something more revealing.  Then I realized that this was an excellant example of distracting oneself from more important matters.  The next day, still thinking of this image, I realized that I often use intellectual thought as a way of distracting myself from a more direct confrontation with my issues.
+I feel I was only scratching the surface of the ibogaine state, but I can see the potential of this substance as a tool for self-exploration.
+I did not experience nausea per se, but during the peak of the trip my head felt strange, and I felt somewhat disconnected from my body. I was able to walk to the bathroom when necessary, slowly and with a bit of difficulty.  I felt spacey and lethargic for quite a while after I took it, not recovering fully in that sense for about three days.
+I felt quite capable of dealing with this doseage alone (fortunately, since I didn&#x27;t have a sitter), but I think at a significantly increased dose a sitter would be a really good idea.  Also, based on the strange sensations in my head (especially when I moved) and my problems with balance and coordination, I suspect that at higher doses nausea would become a factor for me.
+Exp Year: 2003
+ExpID: 26381
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 25, 2003
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Ibogaine (28) : Alone (16), First Times (2), Hangover / Days After (46), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

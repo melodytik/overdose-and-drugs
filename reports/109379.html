@@ -1,0 +1,458 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>费尼布特 - 埃洛伊德药物 - &#x27;我认为这是我的处方&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/smarts-phenibut.html'>← 苯基丁酸(芬布他)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>费尼布特 - 埃洛伊德药物 - &#x27;我认为这是我的处方&#x27;</h1>
+<div class='sub-title'>Phenibut - Erowid Exp - &#x27;I Considered It to Be My Prescription&#x27;</div>
+<div class='meta'>作者：Alters of Oceans Citation · 日期：Apr 4, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=109379' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>其他:
+我在花生的旅程中的一个长期的详细介绍
+我看不到太多关于大量使用菲尼布特的详细报道.
+甚至在网上, 只有关于长期使用的危害的报告.
+除了对成分的科学解释, 供应商的推销观点,
+我相信有更多的研究可以编制更广泛的&quot;普通人&quot;研究, 但现在,
+我使用和喜欢Phenibut (我将把它称为PB或花生) 现在不到2年了.
+我从这个奇怪的补充中学到了很多东西,
+总的来说, 这是一种神奇的药物,
+首先,让我给你一个背景.
+我是一个31岁,有点英俊,中等色的家伙.
+我身高61,210磅左右,
+我在青春期一直是个轻度吸毒者,
+我很适应, 并且总是有积极的情绪,
+我和我的妻子决定放弃毒品.
+我们吸了很多大麻,
+我们都决定是时候放下这一切了,
+这不是一件很难的事情, 考虑到我在那个时候已经是日常大麻的使用者,
+尽管如此, 我们还是继续喝酒.
+起初,这并不是一个问题.
+我会在社交场合喝酒,过得很开心,笑,开玩笑等等.
+但随着时间的推移,
+我不是每天都喝酒,
+我喜欢喝醉
+我不是每天都喝酒,
+我喜欢喝醉
+感受着热,感受着温暖的酒精毯子.
+在我的脑海里, 我是超人, 我很有趣,聪明,
+现在我和妻子有了一个孩子,一个小女孩,我非常爱她.
+我妻子不赞成我喝酒, 简而言之,
+我开始寻找另一种方式.
+我一直喜欢天然的草药和植物,
+我使用了大量的卡瓦,激情花,,加利福尼亚,莲花,
+似乎没有什么能有效地替代.
+我有一天在研究Kratom, 偶然遇到了一个卖家,
+我很好奇, 对于一种物质来说, 这是一个奇怪的名字,
+任何符合这些标准,并以99.9%的纯度销售的产品,
+我决定订购一些卡, 但当时的兴趣不那么高.
+经过几天的汗水手和期待, 我的包裹到达了.
+我拿出塑料拉链袋, 里面有白色的水晶粉末 (和克拉在那里...
+我认为.
+我稍后会试试.
+它附带一个相当于250毫克的塑料测量,正确使用说明以及批量实验室的分析证书.
+晚上我在一个危险的化工炼油厂工作.
+除非你是一名医生或律师, 这份职业将是我取六位数收入的唯一途径.
+我很担心要尝试我新的一袋神秘的魔法.
+据报道,它会引起昏昏欲睡,
+经过几个小时, 我决定,不管怎样,
+我从我的研究中知道它需要2个小时才能起作用, 我不会在那个工作太长时间所以该死的.
+我应该在这里指出, 我把250毫克的小子留在家里.
+我所读到的一切都提醒要保持剂量在500毫克到1克之间.
+我最好的挖掘装置是16司水瓶的盖子.
+我小心地填满了半个盖子, 估计我能看到的是一克多或少.
+[Erowid的注意事项:
+两个相同体积的粉末样本 (即使是相同的化学物质) 不一定重量相同.
+因此,眼球测量是一种不准确且可能危险的测量方法,特别是对于非常少量的活性物质.
+看看
+这篇文章是关于测量剂量的重要性
+没有.
+我把盖子上的粉末倒入我剩余的水瓶中,
+我把帽子回来,开始摇动它一段时间.
+我把它倒回来, 吞下了我只能描述为路西弗的股的黄色汗水.
+这真是太糟糕了!
+它具有非常尖的味/味,
+幸运的是,我有一些Gatorade我可以洗掉可怕的巫术水.
+我等了大约1.5小时, 没有明显的效果.
+我决定重新服用药物,
+我重复了前面描述的步骤, 只是这次我没有水,
+果汁的味道也没有好转.
+不管我把它放在什么里面, 它都会让那种饮料的味道像基恩·西蒙斯夏天晚上的KISS演出后的结液体 (KISS是一支老乐队...
+无论是什么,你都会得到.
+随着时间的推移, 酸味会减轻.
+经过30分钟的时间,
+我已经被搞了.
+我的脑袋得很大, 身体似乎在浮动.
+我的协调明显失调,当我说明显,我只意味着它是可见的.
+我可以很好地沟通, 我很平衡, 认知能力很好.
+尽管如此,
+我觉得自己不仅是酒精浪费,而且是功能浪费.
+这真是太棒了!
+我听说很多报道把豆和豆的效果比较,
+诚实地说, 我无法将其与我的目录中的任何其他药物进行比较,
+我的身体是醉的,我的思想是清醒地扩大.
+我会偶尔出现外围幻觉, 像闪的图片或灯光,
+这就像在清醒的梦中行走.
+这太棒了.
+我把这种感觉带回家, 很容易就睡着了.
+我还应该指出,我确实开车回家.
+这不是一个好主意,直到你完全确定这药会如何影响你.
+如果您没有从我的剂量记录中确定, 我服用过量.
+我太不耐烦了,
+尽管对我来说这并没有被记录为负面的过量,
+[Erowid的注意事项:
+驾驶时喝醉,倒,或极度缺乏睡眠是危险和不负责任的, 因为它危害了其他人.
+不要这样做!
+我觉得自己已经很好了.
+我很昏昏欲睡,但没有发现难以从床上.
+我的身体和头脑都在.
+我还处于高潮状态,
+我感到活着,也感到疲,
+我感觉到它的影响持续了整天, 总共大约24个小时.
+我只是无法相信这东西有多强大.
+这种50克的白色粉末在互联网上便宜地购买, 几乎是小剂量,
+我发现了一些东西, 我迫不及待地想知道更多.
+我在接下来的几周里继续使用,
+尽管如此, 我仍然没有认真地看着那个微小的250毫克.
+我会使用厨房的小测量子.
+我常常用大约1/4茶匙,
+如果我真的想开个派对, 我会喝一整茶匙,
+在我离主题太远之前, 我确实实验了Kratom.
+我每次吃草药和植物时, 都会用茶来做.
+我从来没有感受到Kratom使用者所描述的任何影响.
+即使使用相对较高的剂量, 我也只能注意到轻微的&quot;发光&quot;感觉.
+很少有时候我会把红豆和茶结合在一起.
+我没有这么做很长一段时间, 在几次这样做之后, 我完全停止使用Kratom.
+我不完全相信这两种物质的协同作用,
+我妻子告诉我,有一天晚上, 我走进女儿的浴室,
+她问我在做什么, 我回答说:&quot;理解&quot;.
+另一个例子是我晚上从沙发上起床.
+我告诉妻子要去尿尿,然后直接走进我女儿的房间,
+我的妻子跟着我进去.
+她着丈夫, 站在昏暗的房间里, 用纸巾理他的头发.
+唯一的解释是&quot;我的脚并不是唯一做事的人&quot;.
+现在我还记不起这两种情况.
+我确实记得其中一个,这是最后一个.
+我当时正在工作.
+我在晚上和周末在家里做这件事.
+精炼厂的终端会拨打我的办公电话,
+我也会派出一个雇员承包商来满足他们的要求.
+这是一个这样的夜晚, 一个电话在凌晨2点左右.
+只是有人问有关实验室分析的问题 (我们的一项服务是测试化学品).
+我清楚地记得我挂了电话,就像我在梦中一样.
+想象一下天体投射.
+我醒着,有意识,但没有.
+我脑子里有什么东西告诉我:&quot;你的妻子知道[地点]的电话号码,
+她甚至无法理解问题的主题.
+这绝对是胡说八道.
+尽管如此,她睡着了,我直接走进房间,问她:&quot;你能打电话给[地点]问他们是否已经开始对石板进行硫化处理了吗?&quot;
+我妻子问我在说什么.
+我立即回到了现实, 虽然还在看着手机,
+很抱歉,我没有打算叫醒你.
+这是一个愚蠢的.
+没有必要说,我放下了克拉之后.
+这种经历并不一定是坏事.
+如果我回到我的年轻时代, 我可能会继续以这种方式进行实验.
+然而,我自己认为,我太老了.
+随着时间的推移, 在接下来的几周里, 我注意到花生对我的影响有所改变.
+我不再觉得自己醉了.
+现在药物获得了更加突出的无otropic 特性.
+我的记忆变得更加清晰,我的思想和言论变得像17世纪诗人的流动性,
+音乐也更深入,更令人愉快.
+我会对音乐的反应更加热情和活力.
+我从来没有过焦虑的问题, 尽管有时我会变得相当焦虑.
+像许多半害羞的男人一样, 我在与非常有吸引力的女性交流时遇到一些小问题,
+菲尼布特把所有这些都吹出水面.
+在我的经验中从来没有一种药物如此强大, 如此有效地消灭各种焦虑.
+我会发现自己很容易与令人恐惧的美女交谈,
+然而,只是为了记录, 我是一个非常忠诚的丈夫给我的妻子和家人,
+尽管如此,我没有问题成为我一直梦想成为的人.
+这是一件绝对奇迹, 找到了这张通往黄金自我的美好门票.
+我完全戒掉了饮酒, 因为到那时, 胡卜已经消除了对酒精的渴望.
+我有几次喝过一两杯酒,
+我发现酒精的效果是沉重和不舒服, 我的思想完全重新校准.
+几个月后, 我已经变成了一种日常习惯.
+我不再在宽容问题上保持谨慎.
+几个月后, 我已经变成了一种日常习惯.
+我不再在宽容问题上保持谨慎.
+我找到了一个平衡的衡量标准,
+我的临界剂量大约是4. 55克,或大约1小匙.
+我会陷入沉睡状态, 这是一种常见的过量药物的副作用.
+我会在早上服用半茶匙,
+我一直使用这种剂量, 并且继续使用.
+我问医生关于普罗维吉尔 (莫达菲尼尔) 的情况.
+莫达菲尼尔是名单的首选之一.
+获得剧本并不是一个问题, 因为我的工作,
+另外,我的时间表是每天24小时应急,
+我在工作中连续24小时或更长时间,
+医生诊断我患有轮班工作障碍,
+但有一个问题,当时我的保险公司不愿意支付Provigil,
+虽然我觉得很奇怪他们怎么不愿意支付比其他药物便宜的药物,
+尽管如此, 努维吉尔在我的使用中迎来了一个转折点.
+这两种药物效果如此之好,
+我最能描述这种协同效应是高兴和决心.
+这很像阿德拉尔的效果.
+强大的能量,敏的工作道德, 但没有紧张的汗水紧张.
+我所取得的成果不过是完美的物质组合.
+爱情并没有持续很长时间,
+现在我知道我需要什么.
+我有更多的订单, 但有延误的运输,
+我在前一天早上服用了最后一剂,
+我还不知道戒断的症状.
+我认为我只能服用我的努维吉尔,
+很快就开始戒断了.
+我感到恐慌不安,偏执,出汗,紧张, 我的手像DT一样.
+我当时感觉比以往任何时候都更不舒服.
+我知道这些东西没有什么可操的.
+我从工作回家声称生病,和不舒服地躺在床上,直到我的货物到达.
+我当时告诉自己,我需要放下这些东西,休息一下.
+我制定了一项计划, 以确保安全和舒适地停止使用.
+我制定了一项缓解计划,
+接下来的几周里, 我逐渐降低了剂量.
+在一个月内, 我从半匙减到500毫克.
+我完全成功地停止使用.
+禁食的前几天并不太糟糕, 我吃了一些L-Theanine来曲WD的症状,
+实际上我对以前的精神疾病有了启示.
+经过一些深入的思考, 我意识到对这些负面影响最大的贡献是努维吉尔.
+我甚至没有想到Nuvigil本身有多强大,
+我在逐渐减肥时所经历的轻微WD症状与那天大不相同,
+经过适当的缓解,
+我试图在没有花生的情况下过日子.
+我已经戒了两个月了.
+我开始考虑我最喜欢使用的原因.
+我在工作中工作得很辛苦.
+我每周平均工作70到80个小时, 有几周工作超过100个小时.
+我有三天的假期, 常常是躺在地上, 绝望的疲.
+我女儿期待和爸爸一起玩的时光.
+我从来没有真正考虑过花生如何消除我一天的疲劳.
+没有它, 我就像一个死去的木头.
+我很高兴能做所有要求我做的事情,
+我是超级爸爸, 摧毁了衣柜的巨魔和车库的杂乱.
+我开始把豆看作是处方药.
+我认为胡卜是我的药物,我的药物.
+这对我有很多积极影响.
+除了耐受性之外, 没有真正的后果.
+我决定继续服用药物.
+我自己订购了供应商拥有的最大的散装箱,
+我不再害怕依赖.
+我甚至在随机的几天停下来, 没有明显的WD.
+我每天都要服用药物,
+现在我希望以这种谨慎的态度结束.
+我不确定它是否与长期使用有关,
+我注意到了一些事情,
+我曾经陷入深度抑郁,
+我从来没有感觉到过这样的感觉.
+我曾经经过过这样的经历,
+这完全不符合我的特点, 尤其是花生.
+尽管如此, 我对每一件事都非常丧和愤怒.
+我在工作中经历了一段艰难的时光, 解决一些与此无关的自我问题.
+我知道这与此有很大关系.
+我和我的妻子在我们的关系中遇到了一些问题,
+我试图增加我的糖果粉剂量, 试图消除可怕的悲伤,
+我把它减少到非常低的剂量,
+经过近两年的每天使用,
+我猜想所有好的东西都有过期日期,
+我继续每天使用1g,
+这种东西真的很好让我更内省.
+我可以深入到我自己的思想中,
+我也注意到我的同情能力变得更加敏.
+我不是说我是个灵魂或能阅读思想,
+我可以轻易地找出某人, 我可以感受到能量,
+我也可以这样做,
+我沉思了很多,我专注于自己.
+我从小就把自己想象成一个无忧无虑,富有想象力的人.
+我告诉那个小男孩一天多次许多积极的事情.
+我每天都这样做了好几周.
+我充满了积极的想法,
+后来我无法忍受令人衰弱的抑郁症.
+我没有时间,也没有奢, 整天都在想自杀.
+作为一个父亲,丈夫和供养者,
+我并不是从那些有化学失衡的人身上拿走,
+我自己相信我能够重新编程自己的思想和状态,
+接下来的几周冥想和积极性说唱, 我开始感觉好了很多.
+现在更好了.
+我开始回到以前的自己,
+我不能肯定地说是豆让我处于这种状态,
+我可以证明它使我有能力以更分析的方式看待我的情况.
+我能够除无数层潜意识的威, 制定一种治愈策略,
+我注意到另一个效应,
+这种东西让我做梦.
+有时是非常生动的.
+几乎每天晚上我的脑海都充满了冒险,恐怖,动作,科幻小说,神秘,或任何这些故事的组合.
+我做了比以往任何时候都多的清醒梦.
+我有机会发现自己在做梦,
+我一直是个清醒的梦想家,
+每一个晚上.
+我有时会因为夜间的冒险而感到疲和压力,
+我创办了一个梦想日记,
+时间表: 109379
+发布时间:2019年4月4日
+智能 - - 费尼布特 (379):第一次 (2),组合 (3),成和习惯 (10),烂的经验 (4),治疗意图或结果 (49),回顾 / 摘要 (11),各种 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+I Considered It to Be My Prescription
+Phenibut
+by
+Alters of Oceans
+Citation:   Alters of Oceans. &quot;I Considered It to Be My Prescription: An Experience with Phenibut (exp109379)&quot;.
+Erowid.org
+. Apr 4, 2019. erowid.org/exp/109379
+DOSE:
+0.25-1.00 tsp
+oral
+Smarts - Phenibut
+(powder / crystals)
+BODY WEIGHT:
+210 lb
+A Long Extensive Look into My Journey on Peanut Butter
+I don’t see too many in depth reports about the extensive use of phenibut. Even online, there are only reports about the dangers of extended use. I’ve tried to find information regarding the pros and cons of using over time, along with experiences from those users. There is not much information out there apart from the scientific explanation of composition, marketing points from vendors, and horror reports from abusers. I’m sure there is more out there to compile a more extensive “layman’s” study, but for now, I will report on what I’ve come to find. I’ve been using and loving Phenibut (to which I will refer as PB or peanut butter moving forward) for just short of 2 years now. I have learned many things from this curious supplement and have had many ups and downs. Overall, I would say that it is a miracle drug and I plan to continue using for an undetermined length of time.
+First, I will give a bit of background. I am a 31 year old, slightly handsome, medium tanned dude. I am 6’1” and 210lbs give or take depending on the season (put it on a bit in the summer, I have no idea why). I have been a mild drug user for all of my teen years on in to my lower to mid-20’s. I’m pretty well adjusted and have always had a positive disposition with sharp intelligence and quick wit. Around the age of 25 or so I decided, along with my wife, to give up drugs. We smoked a lot of pot, and were hitting the coke a little harder than we should have. We both decided it was time to put it all down, and for no reason other than it was time to grow up and move on. This wasn’t a very hard thing to do considering I had been an everyday pot user at that time in my life, longer than I had been a non-user. However, we did continue to drink alcohol. At first, it wasn’t an issue. I would drink socially, have a good time, laugh and joke and so on. Over time however, it became a problem. I didn’t drink every day, but I drank every time I had the chance. I loved being drunk
+I didn’t drink every day, but I drank every time I had the chance. I loved being drunk
+, having a buzz, the euphoria of the warm alcohol blanket. In my head I was superman, I was funny, smart, free caring and sociable. By this time my wife and I had a child, a little girl whom I love dearly. My wife didn’t approve of my drinking, and long story short, my habit got to the brink of losing both of them.
+I started looking for an alternative. I have always been into natural herbs and plants that harbored intoxicating properties. I used a lot of Kava, passionflower, mugwort, California poppy, lotus flower, VERY SMALL DOSES OF DATURA LEAVES, etc. Nothing really seemed to effectively substitute. I was looking into Kratom one day, and chanced upon a vendor which also advertised a white powder substance labeled Phenibut 99.9% pure. I was curious, what a strange name for a substance, I’m willing to bet there is something to this mysterious white powder. After all, anything fitting those criteria and marketed as 99.9% pure is surely to be worth a deeper look. After some research and intrigue, I decided to place an order along with some kratom, which by that time consequently measured less interest. After a few days with sweaty hands and anticipation shits, my package arrived. I pulled out the plastic zipper pouch which contained the white crystalline powder (and the kratom was there to… whatever… fucking haza! I guess. I’ll try it out later). It came with a little plastic measuring spoon equivalent to 250mg, instructions on proper use as well as a certificate of analysis from the batch lab.
+Later that night I was on a job at a pretty dangerous chemical refinery. The refinery industry is pretty big in my area and unless you’re a doctor or lawyer, this vocation was going to be my only means of breaking into a 6 figure income. I was apprehensive about trying out my new bag of mysterious magic. It is reported to cause drowsiness and I needed to maintain constant vigilance for my job. After a couple of hours I decided, what the hell, I might as well try a little bit and see what happens. I knew from my research that it would take up to 2 hours to kick in, and I wasn’t going to be on that job for too long so fuck it.
+*I should note here, that I left the little 250mg scooper at home. Everything that I had read cautioned to keep the dose between 500mg – 1g. The best scooping devise I had was the cap of a 16oz bottle of water. I carefully filled the cap about half way, estimating what I could eyeball as 1g more or less.
+[Erowid Note: 
+Two samples of powder (even of the same chemical) with equivalent volumes won&#x27;t necessarily weigh the same. For this reason, eyeballing is an inaccurate and potentially dangerous method of measuring, particularly for substances that are active in very small amounts.
+See
+this article on The Importance of Measured Doses
+.]
+I dumped the powder from the cap into the remaining portion of my water bottle which was approximately 4oz. I screwed the cap back on and commenced to shake it for a short time. “Here goes nothing”, I tipped it back and swallowed down what I could only describe as the yellow sweat of Lucifer’s ass balls. Fuuuuccckkk this shit is foul! It has a very sharp salty / citric taste, and lingers on the taste buds for approximately eternity. Luckily, I had some Gatorade with which I could wash out the horrible witchcraft water. I waited about 1.5 hours with no noticeable effects. Like a typical fucking middle school novice on the verge of critical butt hurt, I decided to re-dose. I repeated the method in the same steps previously described, only this time I was out of water, I only had the Gatorade. It didn’t taste any better with Gatorade. Nothing works for the taste, no matter what I put it in, it will make that drink taste like the congealed liquid from Gene Simmons’ boot after a summer night KISS show (KISS is an older band… your parents could probably…. Whatever boot sweat, you get it). I’ve found it best to just drink with water, over time the acridness tends to diminish.
+After about another 30 min there was no guessing. I was fucked up. My head was buzzing hard and my body felt like it was floating. My coordination was noticeably discombobulated, and when I say noticeably, I only mean that it was noticeable to me. From an outsider’s perspective I was totally fine, I could communicate well, I was well balanced and cognitive. On the inside however, I was partying. I felt like I was wasted on alcohol, but functionally wasted. It was great! I’ve heard a lot of reports compare the effects of PB with benzos, but I dare say that’s an injustice and blasphemy. To be honest, I couldn’t compare this with any other drug in my catalog, nootropic or otherwise. My body was drunk, my mind was lucidly expanded. I would have sporadic peripheral hallucinations, like flashes of pictures or lights, everything was much more vivid and vibratory. It was like walking in a lucid dream. It was fucking amazing. I took that feeling home with me, and quite effortlessly fell asleep.
+*I should also note that I did drive home. This is not a good idea until you are absolutely sure how this drug will affect you. In case you didn’t ascertain from my dosing log, I overdosed. I was too impatient and took more than I needed. Though to me it didn’t register as a negative overdose, I found it incredibly difficult to drive and in my inebriated state, I put myself and others in severe danger.
+[Erowid Note: 
+Driving while intoxicated, tripping, or extremely sleep deprived is dangerous and irresponsible because it endangers other people.
+Don&#x27;t do it!
+]
+The next morning I woke up still very much under the influence. I was very drowsy, but didn’t find it difficult to get out of bed. My body and head was buzzing hard. My euphoria was still at peak, I felt great. I felt alive and also tired, drugged tired. I felt the effects continuing on for the rest of the day, totaling 24 full hours approximately. I just couldn’t believe how powerful this shit was. This little 50 gram bag of white powder purchased so inexpensively over the internet, on such a practically small dose, got me that fucked up for that long. I was onto something, and I just couldn’t wait to find out more.
+My use continued over the next few weeks, though I was much more conservative with my measurements by that time. However, I still didn’t look at that tiny 250mg scooper with any measure of seriousness. Instead I would use little kitchen measuring spoons. Most days I would use about ¼ teaspoon, others ½. If I really wanted to party I would take a whole teaspoon, but I would always take a break after 3 days of using.
+Before I dive too far off topic, I did experiment with the Kratom. Whenever I take herbs and plants, I always prepare it in a tea. I never felt any of the effects described by Kratom users. Even with relatively high doses I could only remark on a slight “glowing” feeling. There were few occasions where in I would combine the PB with my tea. I didn’t do this for long however, and after only a few times of doing so did I discontinue the use of Kratom completely. To explain, I’m not 100% on the synergy of these two substances, but on the times I would use both, I noticed black outs (as much as one can notice a blackout). My wife had told me that on one night, I went into my daughter’s bathroom and stood in the tub, staring at the wall. She asked me what I was doing, to which I replied, “Comprehending Momma”. There was another instance where I had gotten up off the couch late one night. I told my wife that I had to go pee and walked right into my daughter’s room wherein she was fast asleep. My wife went in after me. Curiosity sleuthed about her dumbfounded face as she gazed upon her husband, standing in a dimly lit room, combing his hair with paper towels. The only explanation given here was that “my feet aren’t the only ones doin’ stuff”. Neither of these situations do I remember to this day.
+There was one that I do recall however, and it was the last one. I was dispatching for my job at the time. This was something I did from home at night and on weekends. A refinery terminal would call my office line, which was rolled to my phone. They would request the services provided by my industry and in turn, I would dispatch out one of our employee contractors to service said request. It was one such night that a call had come in around 2 in the morning. It was somebody asking questions regarding a laboratory analysis (one of our services is testing chemicals). I can clearly remember hanging up the phone and it was like I was in a dream. Think astral projection. I was awake and conscious, but not. Something in my head told me “Your Wife knows the number to [location], ask her to call them and (get the answer)”. Now there was no fucking way on Earth my wife knew the number to [location], nor would she even be able to comprehend the subject of question. That was absolute nonsense. Nevertheless, I walked right into the room while she slept and asked, “Hey will you call [location] and ask if they’ve started on the sulfur and chlorides for that slate”. As you could imagine, my wife asked me what the fuck I was even talking about. I immediately snapped to reality, and while still looking at my phone replied cunningly, “Oh, speak to text…. Sorry didn’t mean to wake you”. Fucking idiot. Needless to say, I put the Kratom down after that. Not that experiences such as those are necessarily a bad thing. If I were back in my youth, I would probably continue experimenting in such a manner. However, by my own accord, I’m too old for that kind of nonsense.
+As time went by over the next few weeks I noticed a shift in the way peanut butter affected me. No longer was it causing me the overwhelming feeling of being intoxicated. Now the drug took on more accentuated nootropic properties. My memory became much clearer, my thoughts and speech were as fluid as a 17th century poet, and my humor was sharper than it had ever been. Music was also much more profound and enjoyable. Much like taking ecstasy, I would react to music with more passion and vitality. Equally, it’s important to account that I’ve never had too much a problem with anxiety in the past, though there were occasions where in I would become rather anxious. Much like many semi shy dudes, I had some slight trouble communicating with very attractive women, presenting myself in front of large crowds, speaking cohesively under duress, etc. Phenibut blew all of that right out of the water. Never in my experience was there ever a remedy so hard hitting and effective for decimating all levels of anxiety. I would find myself effortlessly speaking with intimidatingly beautiful women, and even flirting a safe bit. However, just for the record, I am a very dedicated husband to my wife and family, to whom I pledge my whole heart and no one else. Nevertheless, I had no problem just being the man I’ve always dreamed of being. It was an absolute miracle to have found this wonderful ticket to the golden me. I completely quit drinking, as by that time PB took away any and all desire to use alcohol. There were a few occasions where I had consumed maybe 1 or 2 beers, but it did not mix well with the PB. I found the effect of alcohol to be heavy and uncomfortable, my mind was totally recalibrated.
+After a few months I had slipped into an everyday habit. I was no longer using caution about the issue of tolerance.
+After a few months I had slipped into an everyday habit. I was no longer using caution about the issue of tolerance.
+Once I reached the peak of my use, I found a balanced measure of what I needed to get off. My threshold dose is about 4.5 – 5 grams, or 1tsp approximately. Anything over that would be more than I would need, and then I would get into the overwhelming drowsiness / nodding off stage which is a common and annoying side effect of overdose.
+I would take ½ tsp in the morning and ½ tsp in the late afternoon. I carried on that amount for the length of my using, and still apply it to my continued use. At some point I asked my doctor about Provigil (Modafinil). I was pretty well read on nootropics by this point, and Modafinil was one at the top of the list. It wasn’t a problem getting the script as my job, which I have previously described, is one in which requires constant alertness. Also, my schedule is on call 24 hours a day for 5 solid days, and 3 days off. It wasn’t unusual for me to be on a job for 24 straight hours or more. My doctor diagnosed me with shift work disorder and wrote the script with gusto. There was one issue however, my insurance company at the time did not want to pay for the Provigil and instead they suggested Nuvigil (Armodafinil). I didn’t have any problem with this, though I thought it quite curious how they didn’t want to cover a medication which cost significantly less than the other, but I am in no position to comprehend the incomprehensible methods of Big Insurance. Nevertheless, the Nuvigil ushered in a turning point in my use. The two drugs worked so well together, it was like I was on fire. I could best describe the synergy as euphoric and determined. Much like the effect of Adderall. Shit eating grin, glowing vibration of the soul, powerful energy, sharp work ethic, but without the jittery sweaty nervousness. I had achieved nothing less than the perfect combination of substances.
+The love affair didn’t last long however, before I realized the truth of dependence to this stuff. One particular day I had run out of my supply. I had more on order but there was a delay in shipment, so I wouldn’t have any more until later that evening. I took my last dose the morning prior, so I was more than 24 hours over due. I didn’t think much of it, as I was still ignorant to the symptoms of withdrawal. I figured I would just take my Nuvigil and go about my day as normal.
+It wasn’t long after that when withdrawal kicked in. I was terror stricken nervous, paranoid, sweaty, jittery, and my hands were shaking like the DT’s. I was more uncomfortable than I had ever been in my life at that time. I knew then that this stuff was nothing to fuck with in the manner in which I was. I went home from work claiming to be sick, and laid uncomfortably in bed until my shipment had arrived. I told myself then that I needed to put the stuff down and take a break. That can which had arrived was to be my last and I developed a taper plan to safely and comfortably discontinue use.
+I developed a taper plan to safely and comfortably discontinue use.
+Over the next few weeks I stepped down my dose incrementally. I went from a half tablespoon down to 500mg within about a month. After I got down that low, I stopped using completely and successfully.
+The first couple of days of abstinence weren’t too bad, I had some L-Theanine to curve the symptoms of WD and it fucking worked great. I had no real issues coming off the stuff and actually had a moment of epiphany concerning my previous WD. After some in-depth thought, I realize that what most contributed to the negative effects was the Nuvigil. I hadn’t even thought about how strong the Nuvigil was on its own because I had never taken it just by itself. The slight WD symptoms I had experienced while tapering off were vastly different and much more docile than on that day. The legitimate WD symptoms of PB when tapered properly were laughable.
+So anyway, I had stopped using and tried to carry on my day’s peanut butter-free. Everything was fine, I was abstinent for about 2 months or so. It was about that length of time whenever I started to take into consideration the reasons I enjoyed using the most. I worked a lot at my job being on call. I averaged anywhere between 70 and 80 hours per week, with some weeks clocking in over 100 hours. The three days I had off were often times spent laying around hopelessly exhausted. These were the days my wife counted on me for the typical honey dos, and the days in which my daughter anticipated quality play time with Dad. I never really took into consideration how peanut butter erased my day-off exhaustion. Without it, I was like a dead log. With it, I was glad to do all the things required of me, I was excited to. I’m fucking Super Dad, destroyer of closet trolls and garage clutter. It was at this point where I looked upon PB as a prescribed medication. I considered PB to be my prescription, my medication. It did so many positive things for me. It helped me in ways that no other substance could, and apart from the tolerance had no real setbacks. It was at that point that I decided to continue using my medication. I ordered myself the biggest bulk container my supplier had and continue to use today, even every day. The taper was so easy and worked so well, I was no longer afraid of dependence. I’ve even stopped here and there on random days with no noticeable WD. I use my medication every day and plan to continue until I damn well please.
+Now I should like to conclude with this bit of discretion. I’m not sure if it has anything to do with long term use or not, which is the spark of my curiosity. I’ve noticed some things within the latter end of my present days. There was a patch of some weeks, measuring less than two months here recently, where I fell into a deep depression. It was like nothing I had ever felt before. My depression was so aggressive and virulent that I often had thoughts of suicide. This is totally uncharacteristic of me, especially on peanut butter. Nevertheless, I was so remarkably depressed and angry about every single thing. I was having a rough time at work, sorting through some unrelated ego problems. I know that had a lot to do with it. Also my wife and I were having some issues with our relationship which could have also been a factor. I tried stepping up my dose of PB to try and combat the horrible sadness, but somehow that just inflated it more. I tapered down to a very low dose, thinking that maybe it was the PB. After almost 2 solid years of using pretty much every day, this was the outcome. I guessed that all good things have an expiration date, and this was mine. I continued at about 1g using every day and looked into reprogramming myself.
+This stuff is really good at making me more introspective. I could go deep into my own mind on a level never before discovered. I’ve also noticed that my empathic abilities have become much sharper. I’m not saying I’m psychic or can read minds, but I’ve been able to read people quite remarkably. I can figure someone out effortlessly, I can feel energies and tune in, in ways I never even noticed before. I could do the same for myself in my depressive state. I meditated a lot, I focused on myself deeply. I envisioned myself from my childhood, carefree and imaginative. I told that little boy several times throughout the day many positive things. I did this every day for weeks. I filled myself with positive thought, even if I didn’t believe it. There came I time where I just couldn&#x27;t tolerate debilitating depression. I don’t have the time or luxury to mope around all day wanting to off myself. There is way too much expected of me as a father, husband, and provider. Now, I’m not taking away from those who have an actual chemical imbalance, and thus do not have the means mentally to fix their own imbalances. I myself believe that I am able to reprogram my own mind and condition, and I did just that. Over the next few weeks of meditation and positivity rap, I started feeling much better. Much, much better. I started coming back to my old self, and thus far remain so. So I can’t definitively say that it was the PB which put me in that state, but I do know that taking more didn’t help the situation at all. I can attest to it giving me the ability to look at my condition in a more analytical way. I was able to strip away layers and layers of subconscious deterrents and develop a healing strategy, where before I would have probably just decided I was fucked in the head and got put on antidepressants.
+Another effect that I’ve come to notice which I feel is important to note. This stuff makes me dream hard. Very, very vivid dreams, sometimes stressfully vivid. Just about every night my mind is washed in tales of adventure, horror, action, science fiction, mystery, or any combination of the mentioned. I’ve had incredibly lucid dreams more than I’ve ever had before. I’ve had the opportunity to discover that I was dreaming while doing so, and analyze the texture and composition of it. I’ve always been a bit of a lucid dreamer, but on this stuff every night is a wild one. Every single fucking night. It’s gotten to the point where I sometimes wake up exhausted and stressed out because of my nightly adventures, crazy shit. I’ve started a dream journal just to get some of these things out, so many of them are so fantastic that I may be able to write a book someday.
+Exp Year: 2016
+ExpID: 109379
+Gender: Male
+Age at time of experience: 31
+Published: Apr 4, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Smarts - Phenibut (379) : First Times (2), Combinations (3), Addiction &amp; Habituation (10), Glowing Experiences (4), Therapeutic Intent or Outcome (49), Retrospective / Summary (11), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

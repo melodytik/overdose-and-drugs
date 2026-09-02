@@ -1,0 +1,268 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我的朋友告诉我我可能会感到惊&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/anadenanthera-spp.html'>← Anadenanthera spp.</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我的朋友告诉我我可能会感到惊&quot;</h1>
+<div class='sub-title'>Anadenanthera colubrina - Erowid Exp - &#x27;My Friend Had Told Me That I Might Be Surprised&#x27;</div>
+<div class='meta'>作者：bufolicious Citation · 日期：Mar 25, 2019 · 剂量：1 seed · <a href='https://erowid.org/experiences/exp.php?ID=106345' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>氧化
+(气体)
+布福因惊喜
+之前的经验:Psilocybe cubensis,4-AcO-DMT,4-HO-MET,4-AcO-MET,4-HO-DET,4-AcO-DET,4-HO-MiPT,4-HO-DiPT,DMT,DiPT,DALT,LSD,Ipomoea tricolor,Argyreia nervosa,2C-B,2C-I,未确定的DOx(s),MDMA,一些迷幻药 piperazine(s),DXM,胺,记忆素,氧化,二胺,大麻,JWH-018,JWH-250,A-834,735,其他一些大麻素,Salvia divinorum
+药物,无otropics,清醒梦的辅助, 和很多随机街头药物.
+设置:焦虑与期待.
+绝望地试图不过分思考未来的情况.
+通过比较我对其化学成分的了解与我已有经验的药物,
+我只要求宇宙让我的旅程充满启发和娱乐.
+背景:在一个非常安静的夜晚在家里,至少在一天剩下的时间里,远离任何责任的假期.
+我可能需要的一切都在这里, 从零食,饮料,娱乐,药物来扭转不良的身体影响,
+一切都准备好了, 准备好进行一夜的精神探索.
+背景:我已经服用迷幻药了好几年了,
+我对几何视觉效果有些不敏感, 比如碎形, kaleidoscopes, 和形状常量,
+我也很容易感受到幻化药物对身体的副作用,
+我最喜欢的迷幻药是三胺, 因为它们具有诱人的强烈幻觉效应,
+我经常用高剂量的氧化来缓解这种副作用,
+我也基本上每次服用任何迷幻药时都会使用大麻.
+他告诉我他如何获得了一些Anadenanthera colubrina, 并用它做了一些让它更可行的吸烟或吸入,
+他的意图是提高药物中的布福因的效果.
+他给我留下了一份准备, 据说相当于七个Anadenantheracolubrina种子.
+我应该考虑这个事实, 这位朋友似乎比我对幻觉药物视觉和视觉效应的敏感度要小得多.
+我应该考虑这个事实, 这位朋友似乎比我更不敏感于迷幻药的视觉和幻觉效应.
+他对我简要描述了吸了一两根种子后的经历, 它们似乎很有趣,
+也许这就是我把剩下的分成七分之一的原因, 用大约一粒种子的价值作为第一剂试剂.
+我用八个充电器装满一氧化气球, 用子它, 然后把房子里的灯光灭,
+我最后一次深呼吸, 然后开始轻轻地敲击我的点火器的火焰到碗上的顶部植物物质,
+我朋友曾经告诉我,我可能会感到惊,在前五分钟左右,
+我认为这是证实种子不会比我的朋友说的更强, 所以我勇敢地完成了碗,
+对于经历的下一个阶段, 尽管我对自己经历的事情感到相当清醒,
+我会按照对我来说最有意义的顺序来描述它们.
+我记得我房间里的影子开始扭转和滑动,
+我听说布丁可以比DMT在正确剂量中更有视觉效果, 所以这并不完全出乎意料.
+我记忆中最混乱的地方就是那个地方.
+我闭上眼睛,试图沉思,
+我还记得这一切的背景下有一种高兴的情绪,
+冥想起初是成功的, 我甚至成功地看到类似于DMT的超空间结构开始形成.
+起初我看到一道走廊的墙壁都被形象所覆盖, 它的设计与DMT非常相似,
+白色和黑色的条纹让我想起了1000毫克以上的LSD.
+另外,正如我所听到的, 设计确实看起来比DMT的水平更加混乱和复杂... 但不幸的是,
+在这个时候,事情变得相当不舒服.
+汗水是我注意到的第一件事,
+感觉像是因过热而引起的, 但在检查时我无法证实这是真的.
+尽管我对自己感到相对担忧, 但也没有什么危险.
+我觉得这可能更多与恶心和气体有关, 而不是心血管疾病,
+我在其他迷幻药中感到更严重的恶心, 但这种感官过载方式比其他任何药物都更加强烈.
+由于同样的原因, 我也比服用4替代型胺药物时得更厉害,
+最后,为了让一切变得更好, 我得到了我所能想象到的,
+总的来说,我不是一个快乐的露营者.
+我又开眼睛, 房间里的影子变成了无色但完全三维的生命大小的人物,
+我开始怀疑这对我来说不是一剂布福因的低剂量,
+我终于决定拿起我预先准备的氧化气球,
+我记得我刚开始吸入二氧化时, 我有点偏执, 很难控制, 通常在吸入一两次之后就消失了,
+这让我完全放松了心.
+接下来我记得的是我完全陷入了无法控制的死亡体验, 自从吸食Salvia divinorum提取物后,
+我在以太气中摇摇欲, 直到意识到我无能为力, 便放弃了.
+我还意识到, 在此期间, 我从外面看到了自己的身体,
+也许还有其他的事情发生, 但考虑到当时我有多疯狂,
+让我重新回到现实生活中,
+我感觉自己和感官感知有着极大的距离, 就像我通常在氧化物和迷幻药物中感觉的那样,
+首先我意识到发生了什么是因为我服用了药物, 然后我有一个快乐的时刻对自己当我意识到我也在bufotenin.
+我不记得它们现在是什么样子的. 我不记得它们现在是什么样子的.
+不幸的是,这可能是旅程中最愉快的部分, 不是因为其余部分仍然不太有趣,
+虽然这有点令人丧, 但我决定此时此刻除了忍受,
+我觉得如果我走到外面, 能享受更多的乐趣,
+搬家比我预料的要艰难得多.
+整身的紧张感可能是第一个最大的挑战,
+之后,我有点担心, 随时我可能会陷入体外体验,
+我有这种感觉, 仿佛被推出身体之外, 完全是因为我感受到的迷幻中毒的强度和感官过度负荷的总体氛围; 它改变我的感知方式实际上非常类似于4-HO-MET和阿曼尼塔,
+我感觉也一直闪着白色的灯光, 就像我在公共场所吸食大麻时感觉过度后的感觉一样.
+尽管这次旅行显然尽了最大努力与我作斗争,
+但试图坐下来倾听大自然的声音,
+实际上,自然界的简单白色噪音很快变得如此强烈,
+这远远超过我预期的仅仅是从这个简单的设置变化, 它只是让我的身体在震动等方面更受影响,
+如果不把我的身体状态推向令人不安的领域,
+我只是坐在我的房间里, 照着灯, 想着这次经历,
+我只是坐在我的房间里, 灯亮着, 想着这次经历, 直到它开始消失,
+在那之前做任何其他事情都过于困难.
+一旦它终于开始消失, 事情很快恢复正常.
+身体上的影响一旦减弱, 我实际上可以享受这种持续的高兴感,
+我只是在床上躺着, 关掉灯光, 感觉有点刺激,
+今天我醒来时感觉相当清爽,
+我最近吸了太多大麻, 头痛很严重,
+似乎没有任何其他持续的效果.
+我不得不说这次旅行在身体上确实太重了,
+也许如果我有一个清洁的提取或最好甚至是布福素自由基, 但直到我能够尝试其中任何一个我不会说.
+我可能只会用更低的剂量, 比如四分之一的剂量或最多三分之一, 如果觉得还不够,
+我觉得这种使用方法可能特别有效,
+我认为任何与此结合都需要非常谨慎地监测我的身体状况.
+这种经历实际上可能是我最喜欢的迷幻药之一.
+但在很多方面, 它的效果更强烈.
+它的几何图像似乎与DMT最相似, 但不同, 稍微更详细.
+旅行的心理方面我可能会说是最类似于4-HO-MET,
+超身视觉效应似乎与我认为LSD,4-HO-DET和4-HO-DiPT所带来的妄想风格最相似,
+复杂的幻觉,如我视野中移动的完全真实的人和动物, 我从未想过单独的迷幻药能做到这一点,
+最终,这是一次非常艰难的旅程,
+尽管我感到不舒服, 我的心率和体温从来不显得危险.
+千年前,我绝不会推它给一个初学者.
+这实际上更适合作为药物探索的终结.
+其他:
+发布时间:2019年3月25日
+色 (139):组合 (3),实体/生物 (37),第一次 (2),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Support Erowid Center with a
+$50 Donation
+And get a blacklight-inked &quot;Erologo&quot; tee
+My Friend Had Told Me That I Might Be Surprised
+Anadenanthera colubrina
+by
+bufolicious
+Citation:   bufolicious. &quot;My Friend Had Told Me That I Might Be Surprised: An Experience with Anadenanthera colubrina (exp106345)&quot;.
+Erowid.org
+. Mar 25, 2019. erowid.org/exp/106345
+DOSE:
+1 seed
+smoked
+Anadenanthera colubrina
+(ground / crushed)
+smoked
+Cannabis
+8 carts.
+inhaled
+Nitrous Oxide
+(gas)
+Bufotenin Surprise
+Previous experience: Psilocybe cubensis, 4-AcO-DMT, 4-HO-MET, 4-AcO-MET, 4-HO-DET, 4-AcO-DET, 4-HO-MiPT, 4-HO-DiPT, DMT, DiPT, DALT, LSD, Ipomoea tricolor, Argyreia nervosa, 2C-B, 2C-I, unidentified DOx(s), MDMA, some psychedelic piperazine(s), DXM, ketamine, memantine, nitrous oxide, diphenhydramine, Cannabis, JWH-018, JWH-250, A-834,735, some other cannabinoids too, Salvia divinorum, pentazocine, Amanita muscaria, Amanita pantherina, zolpidem, various legal herbs, pharmaceuticals, nootropics, lucid dream aids, and lots of random street drugs.
+Set: Anxious with anticipation. Desperately trying not to overthink what lies ahead. I have been very interested in trying bufotenin for many years now and have formed several different ideas of what the experience might be like by comparing what I know about its chemistry to drugs that I&#x27;ve already had experience with; I force myself to push these thoughts away and go into the trip with no expectations. I ask only of the universe that my trip be enlightening and entertaining if nothing else.
+Setting: At home on a very peaceful night, on vacation away from any sort of responsibilities at least for the remainder of the day. Everything that I could possibly need is here for me, from snacks, to drinks, to entertainment, to drugs to reverse adverse physical effects, to trusted sitters who will be sleeping and leaving me alone unless I tell them I truly need their help. Everything is good and ready for a night of psychonautic exploration.
+Background: I have been taking psychedelics for several years now and have come to understand my relationship with them quite well. I am somewhat insensitive to geometric visual effects such as fractals, kaleidoscopes, and form constants, but rather sensitive to the effects on the mind such as feelings of sensory overload, dissociation, and vivid visionary hallucinations. I also tend to be sensitive to physical side effects on psychedelics such as nausea, muscle tension, and tremors. My favorite psychedelics are tryptamines for the seductive and powerful hallucinogenic style they have, but unfortunately they can also be somewhat heavy on my body particularly with the tremors. I very often use nitrous oxide in conjunction with high doses both to calm this side effect to a degree and to enhance the intensity of the experience. I also use cannabis essentially every time I take any psychedelic.
+On this day, an old friend contacted me out of the blue to tell me about how he had obtained some Anadenanthera colubrina and done something with it to make it more workable to smoke or insufflate, I don&#x27;t recall what exactly but he didn&#x27;t say it was an extraction. His intent had been to increase the efficacy of the bufotenin in the preparation. After meeting up and hanging out for a bit, he left me with the preparation which was supposedly equal to seven Anadenanthera colubrina seeds. In retrospect, I should have accounted for the fact that this friend seems to be considerably less sensitive to both the visual and visionary effects of psychedelics by weight than I.
+I should have accounted for the fact that this friend seems to be considerably less sensitive to both the visual and visionary effects of psychedelics by weight than I.
+He briefly described the experiences he had had to me after smoking one and two seeds, and they seemed fascinating but not overwhelming in any way. I am used to my friends being either only about as sensitive to things as I am or even more so, so perhaps this is what led me to divide the pile I was left with into sevenths and use about one seed worth as my first test dose.
+I carefully layered the substance which reminded me of orange-brown extracted DMT into the middle of a bowl of cannabis in my bong, loaded a balloon of nitrous oxide with eight chargers and pinched it with a clothespin, and then turned out all the lights in the house and retired with my supplies into my bedroom. Once ready, I contemplated my situation for a moment, took a final deep breath, and then started lightly tapping my lighter flame to the top plant matter on the bowl to slowly heat the seed preparation. My friend had told me that I might be surprised that for the first five minutes or so it may feel like there was nothing happening at all, and maybe this is what got me in the end. I took only a hit or two at first and felt nothing at all, so I took this as some validation that that seed was not going to be at least any stronger than my friend had said, so I courageously finished off the bowl and relaxed in my bed.
+For the next phase of the experience, despite the fact that I felt quite lucid for what I was going through, I honestly cannot give a certain chronological order of events. I will describe them in the order that makes the most sense to me though. I do remember that first the shadows in my room began to twist and slide around in ways that they normally do on psychedelics, but it seemed to be a lot stronger than I would have expected really anything to be. I had heard that bufotenin can be even more visual than DMT in the right doses, so it wasn&#x27;t entirely unexpected. That is where things then start to get the most disorganized in my memory....
+At some point I closed my eyes and attempted to meditate and calm myself into the trip. I recall that there was some rising euphoria in the background of everything, but I was also starting to feel quite a lot of physical tension building up within me. The meditation was a success at first, and I even managed to get to the point of seeing hyperspatial architecture similar to DMT beginning to form. It began as the walls of a hallway covered imagery forming before me, and it really was remarkably like DMT in design, but the color scheme was different. Light green, pale yellow, and moderate beige were some of the dominant colors, and white and black stripes made something of an appearance in way that reminded me of LSD above 1000 mcg. In addition to this, and just as I had heard, the design really did seem like it was even more chaotic and complex than it would have been on this level of DMT... but unfortunately, I was unable to explore this on a deeper level due to being pulled out of this trance by the general discomfort of the trip.
+By this point, things had gotten pretty uncomfortable. Sweating was the first thing I noticed, and quite a lot of it. It felt like it was being caused by overheating, but I couldn&#x27;t actually verify that this was happening upon inspection. Likewise, my heart seemed to be beating at a normal rate and strength, so I didn&#x27;t feel particularly in danger, but I was still relatively worried about myself. My chest felt quite heavy and weird, but I feel like this may have been more related to nausea and gas than anything cardiovascular, though I did not vomit at any time. I&#x27;ve had worse nausea on other psychedelics, but this was far more amplified in a sensory overload kind of way than any others have been. For the same reason, I was also getting more tremors than I do on 4-substituted tryptamines just because my body was spazzing out from the overstimulation. Lastly, just to top everything off, I was getting what I can only imagine was the vascular effects I&#x27;ve heard about from bufotenin, as my limbs felt tight and my legs were actually in some light pain. Overall, I was not a happy camper.
+With my eyes open again, the shadows in my room were taking on the form of colorless but completely three-dimensional and life-size humans floating by, swimming dolphins, running big cats, and other things that I was less focused on. The intensity of it was starting to make me shake to an uncomfortable level, and I was beginning to suspect that this was not quite as low of a dose of bufotenin for me as my friend&#x27;s experiences had led me to believe it might be. Out of some fear of stressing out my body too much, I finally decided that I should grab the balloon of nitrous oxide I had prepared beforehand so that the anesthesia could force me to calm down for at least a little bit.
+What I do remember about coming up on the nitrous oxide is that I was a little paranoid about how hard of a time even this was having controlling my tremors, which normally disappear after the first couple of inhales, but by maybe six to eight, sure enough, they had gotten lesser and lesser until they totally ceased. This was the first thing that allowed me totally relax into the experience. The next thing I recall is being completely entrenched in a death experience beyond me control, to a level I have not reached since smoking a Salvia divinorum extract on over 1000 mcg of LSD. The emotional intensity of the bufotenin pretty much completely overrode the dissociation of the nitrous oxide, causing me to flail around in the ether as my consciousness disintegrated until I realized that there was nothing I could do and simply gave into it. In retrospect, I realize also that during this time I was seeing my body from the outside, below me lying in bed and covered in beautiful rainbow auras and tracers. There may have been other things going on as well, but considering just how out of my mind I was at the time, I&#x27;m amazed that I even remember that much.
+The return back to just bufotenin reality was slow and euphoric. I felt as if I was extremely far away from myself and my sensory perceptions, like I normally do on nitrous oxide and psychedelics, but far more than I ever had before. The first thing I did was realize that whatever just happened happened because I had taken drugs, and then I had sort of a happy aha moment to myself when I realized that I was also on bufotenin. This realization caused some very complex abstract visuals to start morphing around off in the distance, but I can&#x27;t remember what any of them were like now. Unfortunately, this was probably the most enjoyable part of the trip, not because the rest of it still wasn&#x27;t quite interesting, but just because it didn&#x27;t take long again for the physical side effects to return after the nitrous oxide wore off, which doesn&#x27;t always happen with other psychedelics. This was a little disheartening, but I decided that there wasn&#x27;t really going to be much else to do at this point but just ride it out. I figured that maybe I could enjoy myself a little more if I went outside where it would be nice and peaceful and natural, so I got out of bed and started to head in that direction.
+Moving was far more challenging than I expected it to be. All the tension all over my body was probably the first biggest challenge, since it was just making my body physically difficult to maneuver at all. After that, I was actually somewhat worried that at any moment I could snap off into an out-of-body experience and leave my body collapsed and injured somehow. I had this feeling that I was being pushed out of my body just due to the sheer intensity of the psychedelic intoxication I was feeling and the general vibe of sensory overload; the way that it was altering my perception was actually extremely similar to 4-HO-MET and the Amanita mushrooms, but it was definitely stronger than either of them. My perception also kept sort of flashing in and out with white lights like it has done before for me after sensory overload in public places on cannabis alone. Despite the trip clearly making its best efforts to fight me, I forced myself to keep a calm head through all of this and finally managed to make it outside where I collapsed on a lawn chair.
+It actually was quite calm and quiet outside, but trying to just sit and listen to nature turned out to be a lot less relaxing than I had initially hoped. Actually, the simple white noises of nature very quickly grew to become so intense that my entire external reality was becoming rapidly replaced by some entirely different dream world with entities reaching around my perception and starting to attempt to communicate with me. This was far more than I had expected just from this simple change in setting, and it was only making my body take even more of a toll in terms of tremors and the like, so I quickly forced myself to get back up and go inside. This part actually would have been incredibly enjoyable and desirable if it hadn&#x27;t been pushing my physical state into concerningly uncomfortably territory, a shame.
+After this, I simply sat in my room with the lights on thinking about the experience until it finally started to wear off, around forty five minutes to an hour after it first started kicking in.
+I simply sat in my room with the lights on thinking about the experience until it finally started to wear off, around forty five minutes to an hour after it first started kicking in.
+Doing anything else up to that point was simply too overwhelming. Once it finally did start going away though, things returned to normal pretty quickly. Once the physical effects started wearing off I was actually able to enjoy the lingering euphoria a little bit, and my imagination still had a psychedelic visual twist that still managed to be deeply complex. Beyond this point I just went back to lying in bed with the lights off and had a little bit of lingering stimulation, but I still fell asleep before too long. Today I woke up feeling fairly refreshed but still just slightly in a funk physically every now and then. I also got a pretty bad headache from smoking too much cannabis a little while ago, but it went away after abstaining for a few hours. There don&#x27;t seem to be any other lingering effects.
+In the end, I would have to say that this trip was definitely too heavy physically to be worth going to with this dosage again. Perhaps it would be different if I had a clean extraction or preferably even the bufotenin freebase, but until I&#x27;m able to try either of those I won&#x27;t be able to say. For what I have remaining of this preparation, I will likely only dose considerably lower, like maybe one fourth of the dose or maybe one third at most if that doesn&#x27;t feel like enough, and I&#x27;m sure that will still provide me with a fairly powerful experience with hopefully considerably less of a body toll. I get the feeling that this method of use may be especially effective when combined with 4-substituted tryptamines, LSD, or dissociatives. However, I think any combinations with this would require much caution in terms of monitoring my physical state.
+Aside from the horrible physical effects, this experience may actually have been one of my favorite of all psychedelics. It was generally similar to other tryptamine psychedelics that I have tried, but it was far stronger in many ways. Its geometric visuals seemed to be most similar to DMT, but different and somewhat more detailed. The psychological aspect of the trip I would probably say is most similar to 4-HO-MET, given the lucidity combined with the feeling of sensory overload. And the out-of-body visionary effects seemed to be most similar to the sort of delirious style I relate to LSD, 4-HO-DET, and 4-HO-DiPT, but to the point that it was practically more comparable to a high dose of diphenhydramine. The complex hallucinations like the completely realistic people and animals moving through my field of vision are like nothing I ever even imagined a psychedelic alone could do, and they outclass any visuals I&#x27;ve ever had on a psychoactive period.
+Ultimately, it was a horribly difficult trip to handle, and it was worth every second of it in retrospect. I was concerned by the apparently heavy reaction, but again, no matter how uncomfortable I was, my heart rate and temperature never seemed dangerous.
+Never in a thousand years would I recommend it to a beginner. This actually feels like something much more fitting to be a conclusion to a long life chapter of drug exploration.
+Exp Year: 2015
+ExpID: 106345
+Gender: Female
+Age at time of experience: 24
+Published: Mar 25, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Anadenanthera colubrina (139) : Combinations (3), Entities / Beings (37), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

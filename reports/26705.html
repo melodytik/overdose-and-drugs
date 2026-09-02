@@ -1,0 +1,207 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>乙 - 埃洛伊德 扩散剂 - &quot;黄克&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ephedrine.html'>← 麻黄碱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>乙 - 埃洛伊德 扩散剂 - &quot;黄克&quot;</h1>
+<div class='sub-title'>Ephedrine - Erowid Exp - &#x27;Yellow Jackets&#x27;</div>
+<div class='meta'>作者：Trucker speed Citation · 日期：Jan 14, 2007 · 剂量：1 caps · <a href='https://erowid.org/experiences/exp.php?ID=26705' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我惊的是这些药的颜色多样化:粉红/紫,黄色,黄色/紫,蓝/黑.
+我在通道前停了一个多小时, 比较标签,
+它们有一半是黄色的,有一半是黑色的.
+我花了30美元买了这块宝藏,
+我非常仔细地阅读标签, 确保所有东西都是合法的.
+我迫不及待地想尝试一个.
+显然唯一的&quot;可怕&quot;症状是心跳加快,
+我已经服用了咖啡因减肥药,
+我打开瓶子时,第一件让我闻到的就是一种令人难以置信的奇怪气味.
+我把药片扔到床上, 然后拿起一颗.
+我还没有吃东西, 其中一个副作用是&quot;食欲丧失&quot;.
+瓶子还说每天不超过3,所以我觉得我很安全.
+我早上7点喝了一杯饮食苏打水.
+我很快就忘了它, 赶紧走了两英里半的路程,
+我在7点20分的记录时间到达那里,
+一群女生从学校来跟我说话.
+虽然他们常常让我很烦,
+我进入学校, 每个人都立刻注意到我的态度是多么的伟大.
+我在体育课上打了最好的球比赛,
+我心跳每5秒超过17次.
+到了午餐的时候, 我早已忘记了饥饿,
+我突然开始笑起来, 没有任何明显的原因!
+我只是觉得很好,我想出去跑回家.
+我几乎坐不动, 无法集中注意力,
+我感到身体突然冷淡, 疲的感觉一天中第一次袭击我.
+我很难抬起头,
+走路回家花了我最长的时间, 我太累了, 我立刻在床上昏倒了, 几个小时没能动.
+我的脉跳得很快,慢慢地跳出我的子.
+五点左右, 我鼓起勇气把手在子上,
+它的跳动速度不到每秒2次.
+我睡着了,当我几个小时后醒来,我立即不得不采取一个狗.
+我从来没有饿过.
+当我晚上上台时, 我发现自己减掉了6磅.
+这很棒.
+我发誓第二天继续使用药物.
+这一次,我带了两件黄色克, 而不是整天, 我被电线和紧张.
+我几乎无法写字, 我整天都在思考, 或着笔.
+我充满了活力,当学校结束时,
+我开始在家里快速行走, 像个疯子一样指,
+我终于开始做了数百个按摩,
+它们让我陷入一种惚状态.
+晚些时候,当我试图睡觉, 我不能.
+我心跳太快了,我以为我会心脏病发作.
+它也跳过节拍,而且非常不规则.
+接下来的一天早上,
+我认为我已经了, 但在一分钟左右, 他们是好的.
+我头发和头皮, 仿佛突然长大了, 我的脸.
+我发现我已经减掉了4磅.
+我从那时起就做了黄色克, 现在我知道什么是预期的,
+而且,我在上面时会说得更多.
+其他:
+乙 (23):第一次 (2),健康问题 (27),健康益处 (32),医疗用途 (47),学校 (35)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Yellow Jackets
+Ephedrine
+by
+Trucker speed
+Citation:   Trucker speed. &quot;Yellow Jackets: An Experience with Ephedrine (exp26705)&quot;.
+Erowid.org
+. Jan 14, 2007. erowid.org/exp/26705
+DOSE:
+1 capsl
+oral
+Ephedrine
+(capsule)
+2 capsls
+oral
+Ephedrine
+(capsule)
+BODY WEIGHT:
+117 lb
+The first time I bought a yellow jacket, I had been in the vitamin and healthfood store searching for Stacker 3&#x27;s, another ephedra loaded stimulant.  I was amazed at the wide spectrum these pills were available in: pink/purple, neon yellow, yellow/purple, blue/black. I parked in front of the aisle for over an hour, comparing lables to see which had the most caffeine, and settled for the Yellow Jackets. They were half yellow with black stipes,and half black. They looked like candy, and I paid $30 for the treasure and hurried home.
+I took great care to read the label and make sure everything was legit. I couldn&#x27;t wait to try one. Apparently the only &#x27;horrible&#x27; symptoms were accelerated heart beat, and nausea. I was already on a caffiene diet pill, so I delayed trying them till the next morning.
+When I opened the bottle, the first thing to hit my nose was an incredibly funky scent. I removed the cotton &#x27;filler&#x27;, dumped the pills onto my bed, and picked up one. I hadn&#x27;t eatten yet, and one of the side effects was &#x27;loss of apetite&#x27;. The bottle also said not to exceed 3 daily, so I felt I was safe. I took one at 7:00 am with a cup of diet soda.
+The pill tasted awful, but I quickly forgot about it and hurried off on a 2 1/2 mile walk to school which usually took 40 minutes. I got there in record time at 7:20 and had time to kill.
+A bunch of girls from school came over to talk to me. Ususally they annoyed me, but for some reason, I was able to tolerate them, and even joked with them.
+I entered school and everybody instantly noticed how great my attitude was. I played the best kickball game ever in gym class, and I wasn&#x27;t even winded.  My pulse was well over 17 beats per 5 seconds. By the time lunch had rolled around, I&#x27;d long forgotten about my hunger, and I wasn&#x27;t even feeling remotely nauseous.
+At around 2 I was sitting in detention afterschool, and I suddenly started laughing~FOR NO APPARENT REASON! I just felt so good, and I wanted to go outside and run home. I could barely sit still and I couldn&#x27;t concentrate on anything-or else I concentrated so hard, I couldn&#x27;t hear a thing!
+At 2:30, 10 minutes before I could go home, I felt a sudden cold drain take over my body, and exhaustion struck for the first time all day. I could barely lift my head up when we were finally dismissed. Walking home took the longest time ever, and I was so beat, I immediately passed out on my bed and was unable to move for several hours. My pulse beat hard and slowly out of my neck. At around 5 I mustered the strength to slap my hand to my neck, and took my pulse. It was beating less than 2 beats a second. I fell asleep, and when I awoke a few hours later, I immediately had to take a shit. It was the worse case of diareah ever, and I wasn&#x27;t hungry at all.
+When I got on the scale later that night, I saw that I&#x27;d lost 6 pounds. That was excellent. I vowed to continue using the drug the next day. This time, I took 2 yellow jackets, and instead of zooming through the entire day, I was wired and jittery. I could barely write, and I figdgeted all day, or zoned out staring at my pencil. I was full of energy and when school got out, I ran all the way home without stopping. I wuz still super hyper, and I began speed walking around my house, snapping my fingers like a maniac to reduce the speed. I eventually began doing hundreds of pushups and found they were easier to do than ever. They put me into a sort of trance.
+Later that night, when I tried to sleep, I couldn&#x27;t. My heart was beating too fast and I thought I was going to have a heart attack. It was also skipping beats and very irregular. The next morning, I awoke with numb arms. I thought I was paralized but after a minute or so, they were fine. My hair and scalp were tingling as though they were suddenly growing, and my face itched. However, I found that I had lost 4 more pounds.
+I&#x27;ve done yellow jackets since then, and have had no trouble with them now that I know what to expect: Diareah, naseoua, loss of apetite, tingling, and irregular heart beating. Also,I keep talking more when I&#x27;m on it.
+Exp Year: 2003
+ExpID: 26705
+Gender: Female
+Age at time of experience: Not Given
+Published: Jan 14, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Ephedrine (23) : First Times (2), Health Problems (27), Health Benefits (32), Medical Use (47), School (35)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

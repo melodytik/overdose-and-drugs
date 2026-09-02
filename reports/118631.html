@@ -1,0 +1,308 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>MXPr - Erowid Exp - &quot;不断演变&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methoxpropamine.html'>← Methoxpropamine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>MXPr - Erowid Exp - &quot;不断演变&quot;</h1>
+<div class='sub-title'>MXPr - Erowid Exp - &#x27;Constant Evolution&#x27;</div>
+<div class='meta'>作者：MineCamo Citation · 日期：Dec 12, 2025 · <a href='https://erowid.org/experiences/exp.php?ID=118631' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>您好,
+今天我想分享我最近使用50毫克MXPr (或3-MeO-2-Oxo-PCPr) 的经验,
+我对这种化合物有着很少的信息,
+由于这次经历非常独特,
+[提交]一个.
+需要提前提供一些信息:
+我是一名20岁的法国男性, 居住在西班牙,
+在这次旅行之前,我已经有过大麻的经验 (还有一堆衍生品,如THC-P,HHC,HHC-PO), (4-HO-DMT),4-HO/AcO-MET,4-HO-MiPT,5-MeO-MiPT,DPT,LSD,AL-LAD,PRO-LAD,LSZ,甲基,2C-D,2C-B-FLY,Salvia Divinorum,5-MAPB,,DCK,DMXE,3-Me-PCPy,MXP,克拉,酒精,肌醇,蓝莲花,尼古丁,哈图利斯/C Ed (Cathainone),2-MMC
+莱昂林和哈尔/哈尔马林.
+我总是对所有化合物进行大量的研究 (即使是那些我不感兴趣服用的化合物),并从低/中剂量开始,
+我没有服用任何副作用,
+设置:
+我将独自一人在马德里的公寓里,
+我还住在一个广的自然公园附近,
+为了这个特殊的体验, 我最终会留在室内,
+设置:
+我心情很好 (当天早上我偶然遇到了我的临时邻居,
+我打算今天做这件事, 如果我有心情,
+试试一种新化合物有点担心,
+(有些音符可能有时会有点重复或不准确; 尽管混乱在很大程度上是可以控制的,但有时会出现短期记忆的中等变化,
+14:40 我测量50毫克的MXPr和把它倒在一个凝囊,
+我在等待效果的出现时,
+15: 05 与其他阿里环环胺 (至少对我的新陈代谢) 一样, 口服ROA的反应相当快.
+我开始感受到一种轻微的解离和镇静感 (接近胺类解离剂的出现), 但它有一种奇怪的独特感觉,
+我开始在扬声器上播放我的离散播放列表,
+15:10 这种感觉非常激烈,非常忙, 我已经感觉到更多的身体分离,
+我已经感觉到身体的分离, 而头部空间开始像迷幻的门.
+我闭上眼睛时, 我可以观察到一些波动的线条,
+15:15 效果迅速发展, 在这个点上它们与DMXE相比, 但有更大的心理强度和更少的身体&quot;中毒&quot;.
+MXPr的一般感觉似乎比一个更少混乱,但也更有挑战性/精神困惑.
+我还能完全控制自己的身体,
+我闭上眼睛时仍然有一些简单而不详细的挥舞线条.
+我心率稍微升高,站起来时也会有轻微的空间偏差.
+15:20 轻微的恶心/胃部不舒服,但不够强烈以至于真正令人不安,最终很快就会消退.
+我的行走能力显然以类似的方式改变了2F-DCK和DCK,
+这种效果显然在身体上具有镇静作用,
+15:25 第一次与分离, 我觉得我的歌单不是适应和更多的焦虑而不是愉快.
+转换到我的迷幻歌曲列表, 结果更符合我的感受.
+我触觉的感觉非常减弱, 如果不是完全抑制特别是在我的手指尖,
+这种快速而忙的出现, 伴随着这种物质带来的奇怪而独特的感觉,
+15:30 我很难描述或描述MXPr的作用,
+我觉得我在我的思想清晰, 但对记忆有明显的影响和适度的困惑.
+我觉得我在我的思想清晰, 但对记忆有明显的影响和适度的困惑.
+总体而言, 这种体验令人满意, 非常有趣,
+每次报道的5分钟感觉就像10到15分钟, 因为发生了很多事情 (类似于迷幻药).
+它们的效果似乎在不断变化,
+即使我的思维流感觉不变, 头部空间也非常接近一些迷幻药物,
+我还能感觉到心率轻微但持续增加, 一些出汗和肌肉收缩可能与MXPr对血清素的可能影响相对应 (与MXE,DMXE和MXiPr化学相似).
+15:40 效果在短周期内不断变化, 从强烈的迷幻和混乱到空间和石化 (类似于DCK或THC在更基本和减缓的解离).
+在更激烈的阶段, 很难继续画, 因为我被迫进入一种沉思状态,
+另一个矛盾的效果是我的身体感觉轻而易举, 无力移动, 但重力感觉更重,
+15:45 在我的纸张上和一些其他表面上我偶尔会看到非常清晰和短暂的振动,
+身体的高潮与MXP类似,但更令人愉快和温暖,即使有时可以感觉有点中立.
+15:55 效果仍然比以前难以描述,我觉得精神清醒和意识到我很受身体影响,矛盾的是有一定程度的混乱 (可能有点混乱,但保持意识,绝对没有清醒妄想尽管我的思维模式的变化很小).
+我坐在椅子上有一些重力幻觉几乎与高剂量THC的感觉相同.
+音乐有时听起来很愉快,细致,但也很单调,有时不太有趣,有时在同一个曲目中.
+排尿频率中等增加类似于酒精和其他许多阿里环胺导致脱水, 我经常喝少量水以避免.
+我在镜子里着自己几分钟, 解离的感觉加剧,
+影响不断变化和演变,
+这种不断的演变也使得很难感觉到效应是否正在上升,达到顶峰或下降.
+对于我来说,口服MXPr的效果和这种剂量比我尝试过的任何其他离散药更接近大麻的非常高剂量,
+16:05 我把腿伸在床上放松几分钟,同时保持静止,闭上眼睛我有强烈的脱离我的环境和可以感觉到非常明显的幻觉扭曲我的身体在空间 (像我的腿被拉伸).
+很奇怪的效果, 但令人惊的是,
+16:10 我一直在画画,
+即使我改变了位置, 身体扭曲幻觉仍然存在每次我停止移动一段时间, 时间扭曲仍然很重要.
+16:15 分离仍在加剧.
+我试过的最奇怪的分子之一,
+每次我能够描述效果时, 另一个阶段会产生不同的精神和身体强度,
+16:20 另一个更激烈的阶段, 我从清醒过渡到中度分离到完全陷入我的思想和失去自己在音乐.
+16h25 回到一个更清醒的阶段, 迷失方向和困惑消失和镇静变得更明显.
+我终于觉得我越来越少感到惊, 即使在更激烈的阶段 (达到平原?
+虽然我仍然很醉,
+16:30 MXPr, 至少在这个体验中, 感觉像一种奇怪的混合物
+也非常视觉, 当然没有变形或迷幻几何, 但有强烈和一致的视角扭曲
+16:40 像DMXE一样, 我不认为效果是最有利于绘制的, 至少在上升和高峰期间.
+但强烈的感觉和混乱会使得很难保持和精确的运动.
+16:45 触觉上的失联仍然存在, 并且很强烈, 特别是在走路时,
+尤其现在它们的激烈度稍微下降了.
+我觉得效果开始稳定,所以我决定一根大麻,
+我很好奇这些效应会如何协同作用,
+时间17点15分,我走到露台,天气很好,太阳开始下来.
+在T+2h35时, 我在舒尔金评分尺度上仍处于++级,
+我点燃了我的,开始吸烟.
+17:20 黄昏的颜色照耀着建筑物, 和而强烈,
+身体的高潮比以前更为充满活力和快乐, 分离的强度重新升高.
+这种组合显然增强了MXPr已经存在的迷幻效应.
+17:30 如果DMXE对我来说可以感觉像&quot;迷幻酒&quot;, 感觉上与高剂量的酒精有着更清晰和迷幻的头部空间相似;
+吸食大麻在DMXE加剧了体验的混乱方面,
+尽管如此, 吸烟在任何早期都会使其影响在强度方面变得难以控制, 尤其是在精神上.
+很令人愉快, 但在描述效果方面我又一无所知.
+17:48 突如其来的自我检查, 我感觉到对每一个项目和任务的强大推动,
+这是一种完全独特的精神体验, 感觉像是完全的炼, 但绝对没有启示触发它,
+我感觉到一个包罗万象的,深深的满足,
+这种极其奇怪而强烈但愉快的感觉消失的速度与出现的速度一样快.
+我很难理解它,但在经历的那个阶段, 我无法再感到惊,所以我接受不理解它,
+我完成了我的合并,然后回去整理我周围的一些东西,
+我仍然觉得自己比吸烟前更清醒, 但效果依然明显,
+我坐下来继续画画.
+影响仍然存在,
+我在使用大麻后感觉不那么分离,
+我做了一个新鲜水果的甜点, 很好吃,
+18:40 类似于上升,下降 (至少从最强烈的效果) 是相当快.
+类似于上升,下降 (至少从最强烈的影响) 是相当快速.
+我仍然有一些轻度/中度的视角扭曲, 但整体强度大大减少.
+持续的效果更像是精神乱, 而不是分裂,
+20:00 回到基线
+这种经历既有趣又令人不安.
+我很想深入探讨MXPr的效果, 尤其是现在我有了更好的想法, 效果对我来说是什么, 希望这将帮助我能够更好地描述和描述它们.
+如果您对探索MXPr感到好奇,
+这种化合物有时很难在精神上管理, 所以我认为它不适合没有良好的经验的人
+我会将这种化合物分类为类似胺类和大多数类似PCP的解离剂.
+我会非常谨慎地对待组合,因为MXPr可能非常强烈 (同时也要记住它可能会对MXE,DMXE,MXiPr等类型的胺激素产生类似的影响,这可能会使一些相互作用变得危险).
+感谢您阅读这篇旅行报道,
+祝你有愉快的时光,并保持安全.
+时间表: 118631
+甲索胺 (896):组合 (3),一般 (1),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Constant Evolution
+MXPr
+by
+MineCamo
+Citation:   MineCamo. &quot;Constant Evolution: An Experience with MXPr (exp118631)&quot;.
+Erowid.org
+. Dec 12, 2025. erowid.org/exp/118631
+DOSE:
+T+ 0:00
+50 mg
+oral
+Methoxpropamine
+(capsule)
+T+ 2:20
+smoked
+Cannabis
+BODY WEIGHT:
+65 kg
+Hello,
+Today I’d like to share a recent experience I have had with 50mg of MXPr (or 3-MeO-2’-Oxo-PCPr) orally and in combination with a joint of cannabis later on.  Having little information available around on this compound, I had moderate expectations but ended up being quite surprised. Since the experience was quite unique and very little reports are available I thought I would
+[submit] one.
+A few informations beforehand:
+I am a 20 yo french male living in Spain, quite interested in psychedelics and psychoactive compounds in general. Before this  trip I had previous experiences with Cannabis (also a bunch of derivatives like THC-P, HHC, HHC-PO), Mushrooms (4-HO-DMT), 4-HO/AcO-MET, 4-HO-MiPT, 5-MeO-MiPT, DPT, LSD, AL-LAD, PRO-LAD, LSZ, Methallylescaline, 2C-D, 2C-B-FLY, Salvia Divinorum, 5-MAPB, Nitrous, DCK, DMXE, 3-Me-PCPy, MXP, Kratom, Alcohol, Muscimol, Blue Lotus, Nicotine, Khat/Catha Edulis (Cathinone), 2-MMC, Leonurin and Harmin/Harmalin. I always do a lot of research on all compounds (even ones am not interested in taking) and start with low/medium doses, weighed on a calibrated balance (supposedly precise but errors of a few mg are expected). I do not take any side treatment but I am a daily weed smoker.
+Setting:
+I will be alone in my apartment in Madrid where I feel very comfortable, and have access to an outside terrace. I also live next to a wide natural park I can easily access and go enjoy nature. For this specific experience I will end up staying inside and only getting out on the terrace for smoking.
+Set:
+I am in a very positive mood (boosted by a random encounter that same morning with my temporary neighbor, which turned out to be French and Parisian so we chatted and exchanged contacts). I had planned to do the experience today if I felt like it and have the rest of the day for myself. There is a little apprehension trying a new compound, especially one with little information available, but I still feel relaxed and confident while staying ready for surprises.
+(Some of the notes might be a little repetitive or unprecise at some moments; even though confusion was largely manageable it was present at times along with a medium alteration of short-term memory similar in feeling to many psychedelics)
+14:40 I measure 50mg of MXPr and pour it in a gelatin capsule that I down with some water on an empty stomach. While waiting for the effects to appear, I take a quick shower before sitting at my desk to start drawing.
+15:05 As with other Arylcyclohexylamines (at least for my metabolism), the comeup is rather quick in Oral ROA. While drawing, I start to feel a light sense of dissociation and sedation (close to the come-up of more ketamine-like dissociatives) but it has a weird distinct feeling that resembles a lot, for me, the rush  that smoked/vaporised cannabis can give. I start playing my dissociative playlist on the speaker and feel a light enhancement of music appreciation.
+15:10 The come-up is rather intense, very rushy, I already feel more physically dissociated while the headspace starts resembling a psychedelic threshold.
+The come-up is rather intense, very rushy, I already feel more physically dissociated while the headspace starts resembling a psychedelic threshold.
+There are some light perspective distortions and, when I close my eyes, I can observe a few waving lines, very subtle and poorly detailed, not specifically colorful either.
+15:15 Effects are quickly developing, at that point they are comparable to DMXE but with a greater mental intensity and less physical “intoxication”. The general feeling of MXPr seem less chaotic than than one but also a bit more challenging/confusing mentally. I still fully control my body but I am quite slowed down and my perception of gravity starts being more affected. Still those rather simple and not detailed waving lines when I close my eyes. My heart rate feels slightly elevated and there is a light spatial disorientation when standing up.
+15:20 Light nausea/stomach discomfort but not powerful enough to be really disturbing and end up subsiding rather quickly. My walking capacity is clearly altered in a similar way to 2F-DCK and DCK but with a more mechanical feeling than the more “wobbly” feeling of these for me. The effects are clearly physically sedating but there is a moderate mental stimulation giving a weird paradoxical sensation.
+15:25 For the first time with dissociatives, I feel like my playlist is not adapted and more anxiogenic than pleasant. Switching to my psychedelic playlist turned out to match the vibe much more, to me. My tactile sensations are very diminished if not completely suppressed especially at the tips of my fingers, dunno how strong the analgesic effects are but tactile disconnection is clearly intense.
+The quick and rushy come-up paired with the very weird and unique feeling of that substance left me a little confused.
+15:30 I have a lot of struggle describing or even characterizing precisely the effects of MXPr, there are some similarities with very different molecules but the combination of these aspects is definitely a very unique feeling. I feel stoned but stimulated, lucid in my train of thoughts but with a clear effect on memory and a moderate confusion.
+I feel stoned but stimulated, lucid in my train of thoughts but with a clear effect on memory and a moderate confusion.
+The overall experience feels satisfying and very interesting but with a slight anxiogenic aspect and a bit of frustration, coming from my difficulty to characterize the effects.
+15:35 Clear alteration of my balance and time perception dilated: the 5 minutes between each report entry feel like 10-15min as so many things are happening (in a similar fashion to psychedelics). The effects seem like they are constantly changing which make them very hard to describe. Even if my stream of thoughts feels unaltered the headspace is very close to some psychedelics like 4-HO-MET or 5-MeO-MiPT for me, with maybe a little more confusion. I can also feel a light but consistent increase in heart rate, a bit of sweating and muscle contractions that could correspond to the probable effects of MXPr on serotonin (being close chemically to MXE, DMXE and MXiPr).
+15:40 The effects are constantly changing in brief cycles ranging from intensely psychedelic and chaotic to spatial and stoning (resembling DCK or THC in a more basic and slowed down dissociation). In the more intense phases it gets very hard to keep drawing as I am kind of forced into a contemplative state where physical dissociation and perspective distortions become very prominent. Another paradoxical effect is that my body feels light and really effortless to move around but gravity feels heavier especially when walking or standing.
+15:45 On my piece of paper and some other surfaces I occasionally see very clear and brief vibrations, sometimes quite intense. The body high is buzzy in a similar way to MXP but much more pleasant and warm even if it sometimes can feel a bit neutral.
+15:55 the effects are still as hard to describe than earlier, I feel mentally lucid and conscious that I am very physically affected and that paradoxically there is a certain degree of confusion (can be a little chaotic but staying conscious about it, absolutely no sobriety delusion despite the little variation of my thoughts patterns). The body high is pleasant, warm and euphoric, sitting on my chair there are some gravitational hallucinations almost identical in feeling to high doses of THC. In tune with the cycles I was describing earlier, the music sometimes sounds pleasant and highly detailed but also monotone and not interesting at times, sometimes within the same track. Moderate increase of urination frequency similar to alcohol and many other Arylcyclohexylamines causing dehydration, I regularly drink small amounts of water to avoid that.
+16:00 Coming back from the bathroom I stare at myself in the mirror for a few minutes, the sensation of dissociation intensifies and it feels like I am watching me but from someone else’s eyes. The effects keep changing and evolving in those cycles of different intensity and nature. That constant evolution also makes it hard to sense if the effects are coming-up, peaking or coming down. The effects of MXPr orally and in that dose are for me closer to very high doses of cannabis with a psychedelic aspect than any other dissociative I have tried (DMXE shares similarities but the general experience is totally different for me).
+16:05 I extend my legs on the bed to relax them for a few minutes, while staying still and eyes closed I have an intense dissociation from my environment and can feel very distinct hallucinations of distortion of my body in space (like my legs being stretched). Very weird effect but surprisingly it feels quite euphoric and funny.
+16:10 I keep drawing, still that paradoxical sensation of being very affected while my stream of thoughts stays unaltered. Even if I changed position, the body distortion hallucinations are still present each time I stop moving for a while, time distortion is still important.
+16:15 Dissociation is still intensifying. MXPr is definitely one of the weirdest molecules I tried feeling-wise along with Salvia. Each time I am able to characterize the effects another phase sets up with various mental and physical intensities, it kinda feels as the effects are constantly still developing without ever reaching a stable plateau.
+16:20 Another more intense phase, I pass from lucid with a moderate dissociation to fully tripping in my thoughts and losing myself in the music.
+16h25 Back to a more lucid phase, disorientation and confusion disappear and sedation gets more pronounced. Even if the effects are still weirdly morphing and very much present, I finally feel like I am getting less surprised, even in more intense phases (reaching plateau?). I am still very much intoxicated but I feel less confused than earlier.
+16:30 MXPr, at least in this experience, feels like a weird mix between a very high dose of weed, a psychedelic for the headspace and a dissociative for the body-feelings, definitely very unique. Also very visual, of course no morphing or psychedelic geometry but with intense and consistent perspective distortions along with occasional vibrating textures and color saturation.
+16:40 Like with DMXE I wouldn’t say the effects are the most facilitating for drawing, at least during the come-up and peak. There is some creativity enhancement or at least I feel there could be some but the intense sensations and confusion can make it hard to keep-on and have precise movements.
+16:45 The tactile disconnection is still present and intense, balance alteration is also noted especially when walking. The quick successive intense and calmer phases have left me a little shaken (similar to the feeling I get coming out of an intense roller coaster), especially now that they are lightly less intense.
+17:00 I feel the effects are starting to plateau so I decide to roll a joint of Cannabis to try the combination before the effects start coming down. I am curious about how the effects might synergize as I find similarities in feelings between MXPr and high dose of THC.
+17:15 I head out on the terrasse, the weather is nice and the sun is starting to come down. That dissociative has satisfyingly long effects, at T+2h35 I am still at a solid ++ if not a +++ on Shulgin’s Rating Scale. I light up my joint and start smoking.
+17:20 The colors of dusk’s shine on the buildings are saturated and intense, Clear perspective distortions. The synergy with the first effects is enjoyable, the body high is even more vibrant and euphoric than earlier, dissociation regains in intensity. The combination clearly enhances the already present psychedelic aspect of MXPr’s effects.
+17:30 If DMXE for me can feel like “psychedelic alcohol” having similarities in feeling to a high dose of alcohol with a much clearer and psychedelic headspace; MXPr on its side feels like a very high dose of oral THC but with the psychedelic and dissociative aspects extrapolated. Smoking cannabis on DMXE intensifies the chaotic aspect of the experience, while combined with MXPr, the intensity is definitely enhanced but in a much more harmonious way. Nevertheless smoking at any point earlier would have made the effects hardly manageable intensity-wise, especially mentally.
+17:45 Suddenly, the dissociation is accompanied by a euphoric sensation of deep peace, very pleasant but again I am left clueless in the characterization of the effects.
+17:48 Sudden introspection, I feel a powerful boost of general motivation for every project and task I feel I must carry on at the moment. An intense and indescribable sensation suddenly manifests, this is a completely unique mental experience, it feels like a complete catharsis but with absolutely no revelation triggering it, or without being able to comprehend it. I feel an all-encompassing and profound satisfaction but without being able to identify the source of it.
+17:55 That extremely strange and intense but pleasant sensation disappears as quickly as it appeared. It was like a 2nd peak but exceptionally brief and intense, I have trouble making sense out of it but at that point of the experience I am unable to be further surprised so I accept not understanding it and simply enjoy that absolutely unique mental experience that has been happening all along. I finish my joint and head back in to tidy the few stuff I had around and taking a hot shower to heat up. I still feel more lucid mentally than at the peak before smoking but effects are still clearly present and I can observe intense vibrations of some textures and light suppression of visual acuity.
+18:10 I am out of the shower feeling more relaxed, I sit back at my desk to keep drawing. Effects are still present but way more manageable than earlier. Surprisingly I feel less dissociated after combination with cannabis, I am probably more in the come-down phase of MXPr.
+18:20 I make myself a nice smoothie with fresh fruits, it’s tasty and fills my stomach up which feels nice.
+18:40 Similar to the comeup, the comedown (at least from the most intense effects) is quite quick.
+Similar to the comeup, the comedown (at least from the most intense effects) is quite quick.
+I still have some light/moderate perspective distortions but overall intensity is greatly reduced.
+The lingering effects feel more like a psychedelic come-down than a dissociative one, except about the anti-depressant effects I find less obvious than DMXE or even 2F-DCK but still present.
+20:00 Back to baseline
+This experience was as much interesting than unique and disturbing. I am curious about exploring more in depth MXPr’s effects, especially now that I have a better idea of what the effects can be for me, which hopefully will help me being able to better describe and characterize them.
+If you are curious about exploring MXPr, I would say expect the unexpected. This compound was rather challenging at times to manage mentally so I don’t think it is ideal for people without a good prior experience with both dissociatives and psychedelics.  As with DMXE and maybe 3-Me-PCPy I would classify this compound as in between the categories of Ketamine-like and most PCP-like dissociatives. I would be quite precautious regarding combinations, as MXPr can be quite intense (also keeping in mind it probably displays effects on Serotonin similar to MXE, DMXE, MXiPr, etc that could make some interactions dangerous).
+Thanks for reading this Trip Report and I hope it could have helped some and entertained others.
+Have a nice time and stay safe :)
+Exp Year: 2024
+ExpID: 118631
+Gender: Male
+Age at time of experience: 20
+Published: Dec 12, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methoxpropamine (896) : Combinations (3), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,433 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>伊波加因 - 埃罗维德 - &quot;没有边界&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ibogaine.html'>← 伊博格碱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>伊波加因 - 埃罗维德 - &quot;没有边界&quot;</h1>
+<div class='sub-title'>Ibogaine - Erowid Exp - &#x27;No Boundaries&#x27;</div>
+<div class='meta'>作者：TPTB Citation · 日期：Nov 19, 2010 · 剂量：454 mg · <a href='https://erowid.org/experiences/exp.php?ID=88298' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我被我的表哥提醒, 他最近在墨西哥开设了一家伊波诊所,
+我十五年前曾经读过它, 但我只熟悉伊波加因的中毒中断特性,
+我在那个时候患有严重的抑郁症.
+我经历了非常艰难的一年.
+我很丧, 没有吃饭四天了.
+我表弟鼓励我飞往墨西哥的诊所接受伊波加因治疗.
+我对此表达了一些担忧.
+我在精神和情绪不稳定的时候, 犹不决要服用幻觉药.
+我从来没有想过在这种心态下服用青素或LSD,
+我表哥向我保证,最好的时间是当你处于智力的尽头.
+他解释说你不需要&quot;清洁&quot;才能服用伊波加因, 因为&quot;根&quot; (他称之为,
+他还向我保证, 经过伊博加治疗, 我将无所畏惧地改变, 我将不再有成 (我已经成了尼古丁,
+我决定这样做.
+所以,我尽可能多地研究了伊波加因.
+我在网上阅读了所有可用的资料,
+结果发现这些信息并没有给我任何关于我将要经历的线索,
+我在一个星期六抵达墨西哥,
+按照他的指示,我一整天都没有吃东西,这对我来说并不难,因为我没有太多的食欲.
+检查我的心电图报告以确保我没有心脏问题后, 医生立即给我一个&quot;测试&quot;剂量的伊波加因,
+我在30分钟内感觉到了药物的作用.
+我的表妹说通常需要更长时间.
+他说这是一个好迹象, 我对它很敏感,
+我对这种药物非常谨慎, 因为我以前对它有过非常可怕的经历.
+我开始感到极度焦虑,
+我表弟猜测我可能患有某种形式的PTSD,
+他告诉我,当一个人进入梦境时,
+他给了我两个囊我吞下了严峻的决心.
+这使我摄入的伊波加因量达到每公斤体重18毫克.
+我开始强烈地感觉到心脏衰竭的开始,
+我怀疑那些容易患上海痛的人可能会因伊波因而感到恶心,
+我表哥为此准备了大量的药物.
+我也看到非常生动的阴影小径,
+我决定去卧室躺下.
+我将在12个小时内失能.
+必须闭上眼睛才能体验伊波加因.
+我一直躺在床上, 眼睛被蒙上, 焦虑不断增加.
+终于,在我的眼皮的太空般的黑暗中, 我看到我上面漂浮的东西.
+它们看上去像是阿富汗人的毯子,
+它似乎有意识.
+它发出一个深沉平静的声, 慢慢地降落在我身上, 覆盖了我.
+现在,我的大部分焦虑都消失了.
+后来又发生了什么事,
+我觉得&quot;伊博加&quot;正在为我做准备, 在接下来的经历中, 我确信&quot;伊博加&quot;是有意识的,
+我仍然相信这一点.
+我开始看到别的东西.
+(从此以后,我将要描述的一切都是动画的...或是在动画世界里.
+这就像皮克斯的动画,但却是iboga动画.
+伊博加有自己的独特动画风格.
+我在谈论看到家庭成员,城市等时, 我并没有像在我们的典型现实中那样看到它们.
+我看到的是这些东西的动画版本,
+我第一次看到黑暗中出现的面孔.
+他们会向我漂流.
+我直接看着他们的眼睛, 他们直接看着我的眼睛.
+他们往往是男性, 皮肤很白,
+随着它们靠近我, 它们就像在我的头旁边一样,
+我一直期待他们解体时会是可怕的,
+我开始看到奇怪的动画动物.
+他们都很, 短短的腿和大圆形的身体.
+我记得我认为他们永远不能用这样的腿走路.
+它们会漂过我的脑海,
+我在远处看到一个小金发女孩坐在色的运河船上.
+她带着一只红色的糖果在太空中向我划来.
+她在过我的头, 却没有解体.
+她非常清楚地说:&quot;你好!&quot;,并划船.
+我不能强调这一切是多么令人难以置信的生动.
+在这段经历中, 我有着鲜明的印象,
+仿佛我在iboga的帮助下来到这个地方, 他们都对我感兴趣, 想:&quot;这个新人是谁?&quot; 仿佛他们都来看我,
+然后,发生了非常重要的事件.
+一个穿着尿布的黑人女婴开始从上面轻轻地向我下来.
+她是下降的头先,并持有她的手在她面前与红色的药丸.
+她像在水中移动一样.
+她轻轻地把药丸放进我的嘴里, 然后慢慢地回到了上面的空间.
+这对我来说很重要,
+这让我充满希望和惊奇.
+这似乎是故意的信息.
+我告诉他一个黑人婴儿刚刚给了我我需要的东西.
+然后一个黑色的雌性像猎人灵魂从上面下来, 坐在我眼前50英尺的地方.
+后来她又出现了,说&quot;驱动SLOOOOWWWW!&quot;
+我认为这意味着我应该放松一下.
+许多人对我的紧张和紧张表示不满,
+在这个时候,强度增加.
+我在太空中飞行,
+我看到了最令人惊叹的波动,仿佛是马赛克般的迷幻模式,
+我对自己说:&quot;等一下,我们开始了!&quot; 然后,
+我被放大到一个公园.
+接下来我发现自己正和一群活的人一起在城市里奔跑.
+我也是一个动画家.
+在前面是一位二十多岁的女孩,她开心地向我挥手,让我跟着她跑.
+我跟着她走了一段时间, 直到我们到达了一个太空古老的汽车,
+于是我的视角突然转变为我坐的汽车.
+我在距离它大约1000英尺的高度.
+这就是强烈的听觉部分开始的经验.
+汽车开始沿着一个未来的过山车轨道.
+于是我的视角再次改变,
+我们开始在这个轨道上围绕城市.
+这就像是人类无法想象的过山车.
+我们正违背物理定律, 沿着这些曲线, 以如此不虔诚的速度行驶.
+但它是如此光滑和自信.
+这是一次令人谦卑但极其有趣的经历.
+旅程中最重要的部分之一.
+我从车里出来,又回到了公园.
+周围有许多活的人,
+大多数行动都是一系列事件的一部分.
+这就像是无意义的事件.
+两个人正试图向相反的方向行走, 他们互相碰撞, 不停地试图行走,
+一棵树长在他的地方, 另一个人砍下了树, 一个斧头的冲击, 树倒下, 它变成了小动物,
+这种情况持续了很长一段时间.
+我觉得它在嘲笑我.
+这就好像伊博加说:&quot;你以为你会有所有这些启示,
+我会告诉你你根本不知道发生了什么事, 但我知道你需要什么, 我会用我的方式做, 没有界限, 不是你想象的方式. 经验的某些阶段, 一个老&quot;狗&quot;类型的人,
+他总是非常生气, 他会指着我,
+我不明白他在说什么.
+他的速度很快, 但我知道他是在罵我.
+这实际上是相当有趣的.
+这部分经历有一些不舒服的方面.
+我看着这些事情发生, 我会有这样的想法, 天哪,
+当然,在这样的旅行中,如果你想到,
+所以,我希望看到它开始.
+动画版本的孩子或其他家庭成员将进入游戏 (因为我&quot;想到&quot;他们),
+然后我又戴上眼罩.
+我从来没有看到任何令人不安的东西.
+我脱下眼罩, 在房间里看到一些有趣的东西.
+像海藻一样的树枝横向从我左边的墙壁延伸到房间的中间.
+每次我脱掉眼罩, 他们都在场,
+在我对面的窗户旁边还有一个巨大的复杂的非洲面具.
+我真的认为这是一个固定在房间里.
+我没有意识到它是一个幻觉直到第二天当它不再在那里.
+这与其他幻觉药物有很大不同, 因为在使用psilocybin或LSD时, 物质会不断变形和脉动.
+不会出现持续10至12小时的幻觉.
+每当我脱掉眼罩, 我也会看到一个直径约20英尺的圆形,
+圆圈在我的身体周围一边一边转动,
+它会从上到下穿过我的视野, 大约每秒两到三次.
+我明白为什么最好闭着眼睛去体验伊博加.
+我还应该指出的是, 在整个经历中, 我能够实时地向表哥指挥我在任何时候所经历的一切.
+我从来没有&quot;脱离&quot;过, 无法清楚地表达自己,
+我走不了大约10个小时.
+我总是叫我的表哥来, 他总是在门外.
+他会帮助我跪在床上, 让我稳定地在床上,
+这次旅程又进入了另一个阶段.
+我从空中看到这座城市,
+我在城市中看到各种各样的东西.
+我看到我的妻子的家人站在一边的运河和我的家人站在另一边.
+我妻子的家人跳过水面, 拥抱我的家人, 他们开始在圆形中跳舞,
+这反映了我对妻子的深切关注, 因为她最近禁止我的孩子再见到我的一家人,
+在此期间, 发生了一件令人不安和不舒服的事情.
+我听到我的母亲在我的右耳说话就像白天一样平凡,就像她从我的头两英寸.
+我觉得她根本不知道自己在那儿,
+我不明白她在说什么,
+我发现自己着头,转过头来试图让它消失.
+听到我哥哥的声音,
+在那之后,它不再发生.
+经历中一个非常愉快和有意义的部分发生在这里.
+尽管我还戴着眼罩, 我可以想象我身处的房间.
+林覆盖山的一侧从左到右倾斜.
+从树木的内部有美丽的金属蓝光层,
+非洲部落的人在那些树里.
+我能听到他们惊人的鼓声,
+我非常喜欢它, 似乎他们完全意识到我, 他们为我的利益而表演.
+我转向左边, 看到一个身着非洲服装的非洲女人站在我的床旁边.
+她没有动画.
+她看起来很真实.
+她微笑着摇着跟着节奏.
+我看着她,她看着我, 我们能够通过心灵感应来交流.
+我问她是否真的在那里.
+她说是的,她和我在一起.
+我在经历之前做研究时, 读到许多人被&quot;伊波加灵&quot;所访问,
+我认为这是她.
+她表示鼓/歌/伊波加庆祝活动是为我而进行的, 她向我示意继续关注它, 我做了.
+她也是.
+我又回到了城市,从空中观察它, 却被10到20个部分的几何图案所绕, 它会停下来,让我观察一个看似微不足道的两秒钟场景.
+接下来我会被带到另一个场景,
+几何图案的部分也构成了连接事件的序列, 导致每个场景.
+那些场景对我来说似乎毫无意义.
+另一个人爬上三层楼梯, 或有人举起东西.
+但有十或十五个他们一直重复自己每时每刻.
+随着经验的发展, 复发的频率也在增加.
+也就是说,在重复的场景之间, 不重复的场景数量不断减少.
+后来,这些反复出现的场景开始困扰我.
+它们的重复越多, 就越令人反感.
+我不想看到他们.
+我发现自己着吟.
+我很不舒服,但我不知道为什么.
+我开始尝试用我的思想来打断导致每一个重复的场景的事件序列.
+我试图设想一些不同的东西来&quot;欺骗&quot;这个过程.
+我会一直认为我成功了,然后不可避免地出现重复的场景.
+我每次都越来越反感.
+这持续了大约四个小时.
+我发现这是伊博加强迫我改变习惯的奇怪方式.
+终于,我从梦境中走出来的速度比我进入梦境的速度快.
+我完全饿了.
+现在我又有了全力以赴的饥饿.
+我躺在那里一段时间反思这次经历.
+时间大约是凌晨五点.
+我终于从床上站起来,
+我表妹在沙发上睡着了.
+我问他是否可以给我吃点东西.
+他说我只有十四个小时, 我应该先下载/反思时间,
+我回到床上思考了看似永恒的东西.
+我表哥带着一盘切片的果和香进来.
+这是我一生中吃过的最好的一顿饭.
+终于我又地从床上爬出来,
+我表哥说,大多数人整天都睡在床上.
+我不可能这样做.
+整天我开始感到丧和痛苦.
+我表哥警告我说, 服用伊波后的第二天是很常见的,
+我一直在质疑自己, 认为伊波盖因对我没有我所期望的效果.
+我认为这可能是我最后的希望,
+我在睡觉之前, 绝望地哭了起来.
+我知道我不是一个尼古丁成者.
+我觉得我从来没有抽过一支香烟.
+我确实处于成前的状态.
+这真是一个礼物.
+这样的自由!
+我笑着从床上起床,开始穿衣服.
+周围的景象让我意识到, 自从我记得起,
+那些一直在我的脑海中占据主导地位的聊和忧虑,
+我比以往任何时候都更加专注.
+我觉得自己是禅师,
+我看待未来时,
+我有一个非常强烈的感觉,
+我看着自己在服用伊波之前的过去,
+我意识到我一直在消极地杀死自己.
+我只能想到,我在想什么?
+我是谁?我可以看到我是个什么样的奴隶.
+我感觉好像我脑海中积累了多年的混乱层层被清除了,
+我可以说这是一个深刻而根本的变化,
+另一个令人惊的事情是我在那里呆了六天,
+我不断地检查自己, 计算时间以确保我没有错过飞机.
+似乎因为我的思想如此清晰, 我现在生活在&quot;现在&quot;中,
+这让我觉得一天的时间比以前长了四倍.
+一个月过去了,
+我离开墨西哥好像已经很久了.
+接下来的几天里, 每次炼身体, 我都能清楚地感受到内啡因的自然升高.
+这是一种最美好的感觉.
+我表哥告诉我, 为了在未来长期内保持伊波加因的积极性,
+我从一开始就没有过任何过错, 但一年后我必然会有新的行为模式,
+为了保持身体内啡因的充足量, 我立即开始每天的运动计划,
+我也改变了自己的饮食习惯.
+我不再渴望含糖或脂肪的食物, 也不再渴望每餐吃很多食物.
+虽然我不一定想戒咖啡因,
+我决定在早上喝一杯小咖啡,
+即使没有糖,它也很甜.
+我已经看到了我的体重和身材的显著积极变化.
+我没有告诉任何人我做了什么.
+但很多人告诉我我看起来更年轻了.
+我看起来好像什么都不打扰我了.
+他实际上观察到了这一点.
+但它给了我以一种积极的方式处理这些问题的能力.
+我现在是个更健康,更快乐的人.
+我可以肯定地说, 伊波加因是我一生中最重要的事情.
+我会说是的, 因为在伊波加因之前, 我不是我自己.
+我无法成为今天的父亲.
+我无法成为孩子们的榜样.
+我最近搬出了自己的房子,
+我认为这是一个机会.
+我目前正在与妻子离婚,
+但现在我比以往任何时候都更快乐,更自信.
+伊波加因改变了我的生活.
+已使用的证券
+2010年11月19日发布
+伊波加因 (28):治疗意图或结果 (49),实体/生物 (37),健康益处 (32),成和习惯性 (10),一般 (1),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+No Boundaries
+Ibogaine
+by
+TPTB
+Citation:   TPTB. &quot;No Boundaries: An Experience with Ibogaine (exp88298)&quot;.
+Erowid.org
+. Nov 19, 2010. erowid.org/exp/88298
+DOSE:
+454 mg
+oral
+Ibogaine
+(capsule)
+589 mg
+oral
+Ibogaine
+(capsule)
+589 mg
+oral
+Ibogaine
+(capsule)
+BODY WEIGHT:
+200 lb
+I was reminded of ibogaine by my cousin who had recently opened an ibogaine clinic in Mexico, where it&#x27;s legal.  I had read about it fifteen years earlier, but I was only familiar with the addiction interruption properties of ibogaine, not its psychotherapeutic qualities.  I was suffering from severe depression at the time.  I had been through a very rough year.  I was depressed to the point that I hadn&#x27;t eaten for four days.
+My cousin was encouraging me to fly to his clinic in Mexico to receive an ibogaine treatment.  I expressed some concerns about that.  Primarily, I was hesitant to take a hallucinogenic drug during a time when I was so mentally and emotionally unstable.  I would never have even considered taking psilocybin or LSD in that state of mind, even when I used to experiment with those things.  My cousin assured me that the best time to take ibogaine is when you are at your wit&#x27;s end.  He explained that you didn&#x27;t have to be “cleansed” to take ibogaine, because the “Root” (as he called it, being that it comes from the root of the iboga plant) takes you to that state.  He also assured me that after the iboga treatment, I would be fearless of change, and I would have no more addictions (I was addicted to nicotine, and I had been having some problems with alcohol).  I decided to do it.  So, I researched ibogaine as much as I could.  I read everything available online and watched all the relevant videos.  It would turn out that none of this information gave me the slightest clue about what I was going to experience, which is one reason why I&#x27;m writing this narrative.
+I arrived in Mexico on a Saturday and was at my cousin&#x27;s house by around 2:00 PM.  Following his instructions, I hadn&#x27;t eaten for the entire day, which wasn&#x27;t difficult for me being that I didn&#x27;t have much of an appetite anyway.  After reviewing my EKG report to make sure I had no heart problems, he immediately gave me a “test” dose of ibogaine that was the equivalent of 5 mg per kg of body weight.
+I felt the onset of the medicine within 30 minutes.  My cousin said it usually took longer.  He said it was a good sign that I was sensitive to it, and that my body seemed ready for it.  It felt like the onset of a strong psilocybin mushroom trip, of which I am extremely wary due to some very frightening past experiences with psilocybin.  I began to feel some extreme anxiety thinking I was about to go into a major trip.  My cousin speculated that I might have some form of PTSD from a bad trip I&#x27;d had in the past, and we discussed how ibogaine is also used to treat PTSD.  He then told me that the anxiety typically diminishes when one enters the dream state.  He gave me two more capsules which I swallowed with grim determination.  This brought the amount of ibogaine I&#x27;d ingested to 18 mg per kg of body weight.
+Within twenty minutes I began to strongly feel the onset of ataxia, but I didn&#x27;t feel nauseous at all.  I suspect that people who tend to get seasick may get nauseous from ibogaine, but I don&#x27;t get motion sickness.  My cousin keeps a supply of Dramamine on hand for that purpose.  I was also seeing very vivid shadowy trails laced with rainbow colors that followed any movement I observed.  I decided to go into the bedroom and lie down.  My cousin informed me that in a few minutes I would not be able to walk, and I would be incapacitated for about 12 hours.
+Ibogaine must be experienced with one&#x27;s eyes closed.  I stayed on the bed with a blindfold on, and my anxiety kept building.  Eventually, in the space-like blackness of my eye lids, I saw something floating above me.  It resembled an afghan-like blanket with a jellyfish-like texture.  It seemed to be sentient.  It made a deep calm purring noise and slowly descended upon me and blanketed me.  At this moment, most of my anxiety melted away.  Then, it happened again, and the rest of my anxiety was completely gone.  I felt as if the iboga was preparing me for what was to come, and for the rest of the experience I was convinced that the iboga was sentient, and that it had consciousness and an agenda.  I still believe that today.
+I then began to see other things.  (From this point forward, everything I&#x27;m going to describe was animated...or in an animated world.  It was like Pixar animation, for instance, but it was iboga animation.  The iboga had its own unique style of animation.  So, when I talk about seeing family members, cities etc., I wasn&#x27;t seeing them like they would be in our typical reality.  Instead, I was seeing animated versions of these things... representations... very amazing representations).  I first began to see faces coming out of the blackness.  They would drift toward me.  I was looking them directly in the eye, and they were looking directly into my eyes.  They tended to be male with white skin and they always had bulges coming out of their foreheads.  As they drifted close to me they would disintegrate into nothing just as they got right beside my head.  I kept expecting it to be gruesome when they disintegrated, but it never was.  Then I began to see strange animated animals.  They were all very puffy and had short stubby legs with large rounded bodies.  I remember thinking that they could never walk with legs like that.  They would drift past my head and also disintegrate.  Then, in the distance, I saw a little blonde girl in a brightly colored canal boat.  She was paddling toward me through space with a big red lollipop.  As she rowed past my head she didn&#x27;t disintegrate.  She very clearly said, “Hello!”, and rowed on by.   I can&#x27;t stress enough how incredibly vivid this all was.
+During this part of the experience, I had the distinct impression that the world I was in, and all the beings in it, already existed.  It was as if I had dropped into this place with the assistance of iboga, and they were all interested in me, thinking, “Who&#x27;s this new guy?”  It seemed they were all coming over to check me out, as if I was providing some sort of entertainment for them.  Then, something very significant happened.  A black female baby in a diaper began to gently descend toward me from above.  She was descending head first, and was holding her hand out in front of her with a red pill in it.  She was moving like someone moves through water.  She came down and gently put the pill in my mouth, then retracted slowly back up into the space above.  This was important for me because it seemed symbolic of the gift that the iboga was giving to me.  It filled me with hope and wonder.  It felt like a deliberate message.  My cousin entered the room, and I told him a black baby had just given me what I needed.
+The faces and the animals went on for about an hour or so, and then a black female who resembled a preying mantis came down from above and settled about what I perceived to be 50 ft in front of me.  In a very insectile-like voice filled with echo and reverb she said to me, “STAAAAAYYYY CLEEEAAANNNN!” Later she appeared again and said “DRIVE SLOOOOWWWW!”. I took this to mean that I should take it easier.  In the past I&#x27;ve had many people comment on my nervousness and stress as I would always be demonstrating my anxiety by pacing around.
+At this point, the intensity increased.  I was being hurled through space making very fast and sharp turns.  As this was occurring, I was seeing the most amazing fluctuating mosaic-like psychedelic patterns that were coming and going very rapidly.  I was saying to myself, “Hold on, here we go!”  Then, through space I saw a floating city down to my left in front of me.  I was zoomed down to it, and I landed in a kind of park.  The next thing I knew I was running through the city with a group of animated people.   I was also animated.  In the lead was a girl in her twenties who kept cheerfully motioning for me to keep up with her as she ran.  I followed her for a while until we reached a space-aged car, and we jumped into it.  Then my perspective suddenly changed to an aerial view of the car that I was in.  I was about 1000 ft above it.  This is where the strong auditory part of the experience began.  There was a loud buzzing noise that morphed into the sound of a futuristic engine as the car began whizzing along a kind of futuristic roller coaster track.  Then my perspective changed again to a point of view from inside the car.  We began zooming around the city on this track.  It was like a roller coaster ride that no human could ever dream up.  We were defying the laws of physics as we took those curves at such ungodly speeds.  But it was so smooth and sure of itself.  It was a humbling but extremely fun experience.  It stands out as one of the most significant parts of the trip.
+When I got out of the car, I was back in the park again.  There were many animated people all around me doing what seemed to be the most random and insignificant things.  Most of the actions were all part of a constant sequence of events.  It was like a vignette of nonsensical occurrences.  Here is an example of a one or two minute segment of this:  Two of the people were trying to walk in opposite directions and they bumped into each other and kept trying to walk but they kept stopping each other, then another person came from behind and bopped one of them on the head, and he went completely into the ground, and a tree grew in his place as another person chopped the tree down with one stroke of an ax, and as the tree fell it turned into small animals which scurried away while one animal got caught under the foot of another person who slipped and fell into a bucket being carried by another person who caught a bird by the feet and threw it at me but it turned into a ball which I dodged, etc.  This went on for a long time.  During this experience, I got the impression that the iboga was making fun of me in a way.  It was as if the iboga was saying, “You thought you were going to have all these revelations and see these significant life changing visions, but I&#x27;ve got a surprise for you.  I&#x27;m going to show you that you actually don&#x27;t have the slightest clue what&#x27;s going on, but I know what you need, and I&#x27;m going to do it my way with no boundaries, not the way you expect.”  At certain points during this portion of the experience, an old “salty dog” type man with a short white beard and mustache would appear about ten meters away from me.  He was always very angry with me, and he would be pointing his finger at me and “bitching me out”.  I couldn&#x27;t understand what he was saying.  He was going “RUH RUH RUH RUH RUH” very rapidly, but I knew he was scolding me.  It was actually quite comical.
+There was an uncomfortable aspect to this part of the experience.  As I was watching these things occurring, I would get a thought like, &#x27;Gosh, I hope I don&#x27;t see my family members get murdered&#x27;, or something like that.  Of course, on a trip like this, if you think it, it&#x27;s probably going to get you.  So, I would see it begin.  Animated versions of my kids or other family members would come into play (because I “thought” them into it), and I would quickly pull the blindfold off for a few seconds, which would completely alter the parameters of the trip.  Then I would put the blindfold back on. I never saw anything disturbing.
+When I took the blindfold off I saw some interesting things in the room. There were seaweed-like branches extending horizontally from the wall to my left that stretched to the middle of the room.  They were there for the entire ten or twelve hours of the experience every time I removed the blindfold.  Also, there was a large intricate looking African mask beside the window across from me.  It was there so consistently throughout the night that I truly thought it was a fixture in the room.  I didn&#x27;t realize it was a hallucination until the following day when it wasn&#x27;t there anymore.  This is very different from other hallucinogens because with psilocybin or LSD things would constantly be morphing and pulsing.  There would not be fixed hallucinations that remained for 10 or 12 hours.   Whenever I removed the blindfold, I would also always observe a circle about 20 ft in diameter made of shadow sparsely laced with rainbow colors similar to the movement trails I&#x27;d been seeing.  The circle was turning end over end around my body as if I was in the center of it.  It would go across my field of vision from top to bottom approximately 2 or 3 times per second.  It was annoyingly repetitive, and I could see why the iboga is best experienced with one&#x27;s eyes closed.  I should also note here that throughout the entire experience I was able to dictate to my cousin, in real time, everything I was experiencing at any time.  Never was I “out of it” in the way that I couldn&#x27;t clearly express myself, hence the fact that I can remember so much about the experience.
+For approximately 10 hours I couldn&#x27;t walk.  Whenever I had to urinate I would call for my cousin who was always just outside the door.  He would help me get up on my knees on the bed and hold me steady there while I urinated inside a pot.
+Eventually, the trip went into another phase.  I was looking at the city from an aerial view that varied from 10 to 40 ft at different times.  I was being zoomed around the city seeing various things.  At one point, I saw my wife&#x27;s family standing on one side of a canal and my family standing on the other side.  My wife&#x27;s family jumped over the water, embraced my family, and they began dancing around in a circle performing a song with an amazing orchestral sound singing, “We&#x27;re a happy family!”  It was remarkable.  This reflected a deep concern of mine being that my wife had recently forbidden my children from seeing my side of the family ever again, which was one of the reasons we had separated.
+During this period, something slightly disturbing and uncomfortable happened.  I heard my mother talking into my right ear just as plain as day like she was two inches from my head.  But I had the impression that she didn&#x27;t know she was there, as if I was listening in on her conversation.  I couldn&#x27;t understand what she was saying because it was extremely rapid gibberish.  I found myself wincing and turning my head to try to make it go away.  It finally went away, but then the same thing happened with my brother&#x27;s voice, but in my other ear.  After that stopped, it didn&#x27;t happen again.
+A very pleasant and significant part of the experience occurred here.  Even though I still had the blindfold on, I could envision the room that I was in.  At the far wall across from me, on the left side of a very large window, was the side of a jungle-covered mountain sloping downward from left to right.  From within the trees were beautiful layers of metallic blue light as if the light was from metallic blue fires beneath the trees.  African tribesmen were inside those trees.  I could hear their incredible drumming, and they were performing a celebration of iboga.  They were drumming and chanting a beautiful melody, singing, “Ibogaaaaaa, ibogaaaaa!”  I enjoyed it immensely, and it seemed as if they were completely aware of me, and they were performing for my benefit.
+At this moment, with the blindfold still on, I turned to my left, and there was a heavyset African woman with African garb standing beside my bed.  She was not animated.  She seemed real.  She was smiling and swaying to the rhythm.  When I looked at her she looked at me, and we were able to communicate telepathically.  I asked if she was really there.  With a big comforting smile she said yes, she was there with me.  While doing my research before the experience, I had read of many people on ibogaine being visited by the “Spirit of Iboga”, who typically comes in the form of an African person.  I assumed that was her.  Nodding in an understanding way, with that big smile on her face, she indicated that the drumming/chanting/iboga celebration was being done for me, and she motioned for me to continue paying attention to it, which I did.  So did she.
+Then, I was again back at the city observing it from an aerial view, but I was being whizzed  around in geometric patterns of about 10 to 20 segments, and it would stop and let me observe a two-second scene which seemed insignificant.  Then I would be whizzed through another pattern and stop for two seconds on another scene.  The segments of the geometric patterns were also occurrences that made up a sequence of linked events that led to each scene.  The scenes consisted of things that seemed meaningless to me.  For instance, there would be someone I didn&#x27;t know putting something on a table, or another person crawling up a flight of three stairs, or someone lifting something.  It went through hundreds of these scenes, but there were ten or fifteen of them that kept repeating themselves every so often.  And the frequency of the repeats increased as the experience progressed.  That is, the number of non-repeated scenes in between the repeated ones kept decreasing.  Eventually, the repeated scenes started to bother me.  And the more they repeated, the more revolting they seemed.  I did not want to see them.  As I kept seeing them, I found myself wincing and groaning.  It was very uncomfortable, but I couldn&#x27;t figure out why.  I began to try to use my mind to interrupt the sequence of events that led to each repeated scene.  I would try to envision different things to “fool” the process.  I would keep thinking I succeeded, and then the repeated scene would inevitably appear.  I was increasingly revolted each time.  This went on for about four hours.  The following day I realized that that was the iboga&#x27;s strange way of forcing me to break my patterns of behavior.
+Eventually, I popped out of the dream state faster than I had gone into it.  I was completely famished.  My hunger was back full force.  I lay there for a while reflecting on the experience.  It was about five o&#x27;clock in the morning.  I finally got out of bed and stumbled through the door.  My cousin was dozing on the couch.  I asked him if I could have something to eat.  He said I was only fourteen hours into it, and I should have some download/reflection time first as the food could interrupt the process.  I went back to bed and reflected for what seemed like an eternity.  My cousin eventually came in with a  plate of sliced mango and banana.  It was the best meal I had ever eaten in my entire life.  Eventually I stumbled out of bed again and was up for the day.  My cousin commented that most people stay in bed for the entire following day.  There was no way I was doing that.  Throughout the day I started to feel gradually down and miserable.  My cousin warned me that it was very common for the day after an ibogaine trip to be a down and depressing day, and that I would resurrect on the third day. I was constantly questioning myself and thinking that the ibogaine didn&#x27;t do for me what I&#x27;d expected it to do.  It had been my last hope, and it seemed to have been a failure.  I cried with hopelessness that night before I went to sleep.
+The next morning when I woke up, I immediately knew that I wasn&#x27;t addicted to nicotine.  I felt like I had never smoked a cigarette in my life.  I was truly in a pre-addiction state.  What a gift that was.  Such freedom!  I got out of bed with a huge smile on my face and began to get dressed.  When I looked around, I realized that for the first time since I could remember, I was truly happy inside my own mind.  All of the chatter and worry that had constantly dominated my mind were completely gone.  I was more focused than I had ever been in my life.  I felt like a Zen master, even though I didn&#x27;t really know what that was supposed to feel like.  When I looked to the future, I saw opportunity instead of despair.  I had a very strong feeling that everything was going to work out no matter what.  When I looked to my past self before the ibogaine, I seemed like a total stranger to myself.  I realized that I had been killing myself with negativity.  I could only think, &#x27;What was I thinking?  Who was I?”  I could see what a slave to addiction I had been.  I felt as if layers upon layers of chaos that had accumulated in my mind over the years had been removed, and what remained was a tranquil feeling of the true “me” that had been buried for so long.  I could tell this was a deep and fundamental change that wasn&#x27;t going away any time soon.
+Another amazing thing was that I was there for six days, but it seemed like I was there for a month.  I kept checking myself and counting days to make sure I hadn&#x27;t missed my flight.  It seemed that since my mind was so clear, and I was now living so much more in the “now”, that I was noticing so much more throughout the day.  This made my perception of a day seem four times longer than it used to.  Even now, a month later, a week seems like a month.  It seems like an eternity since I left Mexico.
+Throughout the following few days, every time I physically exerted myself, I could so clearly and physically feel the natural high of endorphins.  It was the most wonderful feeling.  My cousin informed me that the way to keep the positivity of the ibogaine going long into the future was to begin to create new positive patterns of behavior.  I had a clean slate, but a year down the road I would inevitably have new behavior patterns, so it was my responsibility to make sure they were good ones.  I immediately began a daily exercise regimen that has continued to this day in order to keep a good supply of endorphins in my body.  The ibogaine also changed my eating habits.  I no longer crave sugary or fatty foods, nor do I crave as much food per meal as I used to.  The ibogaine also got me off caffeine, but I didn&#x27;t necessarily want to get off it.  I decided to drink a small cup of coffee in the morning, about a quarter of what I used to drink.  Even without any sugar it tasted sweet.  It&#x27;s only been a month since my experience, and I&#x27;m already seeing significant positive changes in my weight and in my physique.
+When I went back to work, of course I didn&#x27;t tell anyone what I had done.  But many people told me that I looked younger.  One co-worker said I looked as if nothing bothered me anymore.  He actually observed this.  Ibogaine didn&#x27;t take away my problems, but it gave me the ability to deal with them in a positive way.  Because of the ibogaine, I am now addiction-free, and I&#x27;m a much healthier and happier person.    I can safely say that ibogaine is the most important thing that has ever happened to me.  One might ask, “More important than the birth of your children?”  I would say yes because, before ibogaine, I was not myself.  I was not able to be the father that I can be today.  I was not able to be the role model for my children that I can be today.  I recently moved out of my house, and I did it with a positive attitude.  I saw it as an opportunity.  I&#x27;m currently going through a divorce with my wife, and I&#x27;m having some financial problems.  But, I&#x27;m happier and more sure of myself than I&#x27;ve ever been.  Ibogaine changed my life.
+Exp Year: 2010
+ExpID: 88298
+Gender: Male
+Age at time of experience: 37
+Published: Nov 19, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Ibogaine (28) : Therapeutic Intent or Outcome (49), Entities / Beings (37), Health Benefits (32), Addiction &amp; Habituation (10), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,314 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>虽然不是我习惯的, 但还是很好</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mda.html'>← 3,4-亚甲二氧基安非他明</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>虽然不是我习惯的, 但还是很好</h1>
+<div class='sub-title'>MDA &amp; Cannabis - Erowid Exp - &#x27;Not What I Was Used to but Still Very Nice&#x27;</div>
+<div class='meta'>作者：Yami Citation · 日期：Oct 29, 2025 · <a href='https://erowid.org/experiences/exp.php?ID=107629' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我之前曾经向莫莉 (MDMA) 和萨斯 (获得MDE而不是MDA) 投诉过.
+我不会详细介绍这两种经历,
+我每天都抽大麻,我吃过三次,一次是莫莉,一次是萨斯.
+我每天都抽大麻,我吃过三次,我吃过莫莉一次,又吃过萨斯一次.
+我没有服用任何药物.
+我有一些强烈的药物焦虑,所以在服用任何东西之前,
+尽管如此,我吸毒后的焦虑总是消失.
+我在圣诞节下午1点左右服用了.
+我和我的女朋友L在一起是因为我想让她看到它如何影响我,
+我不确定是否要使用SASS, 然而,L有点强迫,所以我使用了它.
+我觉得我过去的经历很好, 药物焦虑我正在经历会消失一旦我服用药丸.
+不过,与我以前的经历不同,
+我在上来时感到适度的不适.
+我和L躺在床上看她玩GTA5,
+我试图开始性活动, 但我感到的不适太大,
+我决定玩&quot;传奇联盟&quot;游戏, 因为我觉得这会分散我的注意力,
+我仍然感觉到适度的不适,
+我还能专注于比赛.
+在我无法承受之前, 我尽可能多地参加联赛.
+我试图再次与L,但我太不舒服.
+我站起来,看着卧室门后面的人体大小的镜子,
+我确实知道我已经接近到达终点了.
+我觉得我需要新鲜的空气,
+我回到里面,告诉L我想出去散步.
+我住在农村,所以有一个运河大约2⁄3英里远.
+我决定走到那里回来.
+我感觉到我的脚有能量,
+我认为这是药物的刺激部分.
+我们走了大约三分之一的路到运河之前我累了,想回去.
+我们回家的时候,大约是下午2点.
+到了这个时候,我感觉很好.
+我开始感受到与萨斯相伴的温暖幸福.
+我和L回到我的房间, 在那一刻我们又试图做爱.
+这一次我更兴奋了.
+我试着操L,我只是迷失在它之前意识到我甚至没有硬了,我的性欲只是没有.
+我向她道歉了,她也接受了.
+我听到爸爸在浴室洗, 所以我叫叫我知道他什么时候洗完,
+我知道我身体的温度信号是搞的, 但直到洗后才完全意识到.
+我把水的温度调整到我觉得舒适的温度, 但热水感觉很冷, 甚至让我发.
+感觉不舒服, 但我发现我不介意.
+关掉水后,我发现自己太冷了,我开始.
+我把这段经历告诉了她.
+现在是去看&quot;星球大战:力量觉醒&quot;的时候了.
+我和L,我爸爸,我,和妹妹一起上车.
+我发现闭上眼睛,听音乐可以缓解轻微的不适.
+我带着一瓶水来,
+我知道萨斯人对我有这样的作用,
+我也知道我的抑制会降低, 萨斯是萨斯,
+为了躲在那些不知道我像个混蛋一样的人中间.
+我知道我可以处理这件事. 我知道我可以处理这件事.
+我眼睛也很大,所以我戴着太阳镜,直到进入电影院.
+这时是下午3点半, 电影在下午3点50分开始.
+我在预览中和L多次交谈, 电影开始时,
+这让我进入了令人失望的部分.
+我以前与萨斯的经历
+每个波长约一个小时, 每个波长都比前一个好得多.
+这位萨斯并没有这样做.
+在第一波波浪中,
+虽然有点令人失望,
+电影结束后, 晚上6点45分左右, 外面已经黑暗了.
+我可以正常使用浴室 (由于某种原因,
+到了晚上7点10分, 我和L走进我的房间,
+我还在感觉着同样的高原感觉,
+在此时,L和我开始对话.
+这使得L和我可以谈论我们的关系.
+我们聊了到晚上八点半,
+我提到这个是因为我躺在那里, 我觉得很陷入困境, 因为我还在滚动,
+这真是太疯狂了.
+[Erowid的注意事项:
+驾驶时喝醉,倒,或极度缺乏睡眠是危险和不负责任的, 因为它危害了其他人.
+不要这样做!
+晚上九点,我把L送回家.
+下来离开我在一个更清晰的心态.
+我也曾经在海岸上驾驶过SASS,
+我也没有很努力地滚动, 我知道下降正在发生,
+我知道这场倒闭会发生, 因为我已经进入了8个小时的拍摄.
+这次的Sass火力较少, 但持续时间更长.
+我回家的时候,晚上9点半.
+我知道自己会陷入抑郁, 因为这次投篮与我以前的SAS体验不同,
+虽然我从来没有遇到过这种情况, 但很多人告诉我,
+我对此的治疗方法是拍摄一个胖股的照片.
+我一直在吸烟在这个火5g, 有一座山的keef在我的磨粉机,我无法抗拒.
+晚上9点50分左右, 我在抽烟后走进去,
+不同于莫莉, 在我的经验, 萨斯不给我无限吸草的能力.
+莫莉我觉得大麻的高只是坐在我的卷的顶部.
+换句话说,我能感觉到草的存在,
+然而,在翻滚时吸烟似乎会加剧这种影响.
+我不仅仅是高, 我已经放大了下降到一个点我没有滚动,
+我感觉了,但也温暖,就像我在滚动.
+我玩了GTA5一段时间,
+我睡觉的时候是凌晨12点.
+我不认为这是睡眠.
+基本上我闭上眼睛, 陷入了GTA 5的热梦,
+我还能感觉到自己的温度波动,
+我在床上睡觉时, 感觉到我的脚很热,
+我找不到治疗方法, 但我想我有一点昏了, 因为在闭上眼睛10分钟后,
+我又关闭了他们大约10分钟, 时间是早上8点.
+于是我终于睡到12月26日上午11点.
+在我真正醒来之前, 已经是午夜12点了.
+我给L发了短信, 问她对所看到的有什么看法.
+她说我在Sass上表现得很好, 她说我的快乐心情也让她很高兴,
+我感觉有点,但没有太糟糕.
+我有点迟,但我可以吃.
+晚上1点半左右,我的家伙M来找我,我跑到他的家.
+我们抽了一些相当好的大麻, 然后抽了同样的大麻, 但大麻是我最喜欢的吸烟方式,
+晚上四点左右, 我们到另一个朋友家去,
+我没有再吸草了, 因为我下午5点半要上班.
+我不需要告诉你我的工作细节, 但到班结束时,
+我把我的同事带回家,我在12:45到家时被炸了,我抽了一些大麻,
+现在是凌晨1点半,
+这是一个8/10的经历,
+我经历过:
+情绪改善
+我全身都是温暖的感觉
+(虽然我表示这是令人失望的,但回想起来,我喜欢这种温和的感觉,
+自我思考
+与L结合
+治疗我的抑郁症
+大麻加剧了下降
+头脑清晰
+大约像大麻一样低调 (减去瞳孔扩张)
+我在投球时的思维方式在投球后也是如此.
+持续了很长时间
+我经历过的缺点:
+不舒服的出现
+温度波动
+减少性欲
+睡眠问题
+之后被了 (大麻为我缓解了这一点)
+时间表: 107629
+MDA (34):小组 (2-9) (17),宿醉 / 几天后 (46),性讨论 (14),组合 (3),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Not What I Was Used to but Still Very Nice
+MDA &amp; Cannabis
+by
+Yami
+Citation:   Yami. &quot;Not What I Was Used to but Still Very Nice: An Experience with MDA &amp; Cannabis (exp107629)&quot;.
+Erowid.org
+. Oct 29, 2025. erowid.org/exp/107629
+DOSE:
+T+ 0:00
+1 capsl
+oral
+MDA
+T+ 8:30
+smoked
+Cannabis
+BODY WEIGHT:
+116 lb
+I have previously rolled on Molly (MDMA) and Sass (got MDE instead of MDA). I will not go into either of those experiences, however, I will compare them to my latest rolling session.
+A bit of background on my experiences with drugs: I smoke weed every day, I have taken mushrooms three times, I have taken Molly once and Sass once.
+I smoke weed every day, I have taken mushrooms three times, I have taken Molly once and Sass once.
+I am not on any medication. I have some intense drug anxiety, so before taking anything, I’m always a bit tripped out. However, my drug anxiety always leaves after I ingest the substance.
+I dosed on Christmas around 1:00PM. My girlfriend L was with me because I wanted her to see how it affected me before trying it herself. I was iffy on taking the Sass however, L was a bit pushy about it, so I took it. I figured that since my past experiences had been good, the drug anxiety I was experiencing would go away as soon as I took the pill. However, unlike my previous experiences, the come up was not comfortable at all. I felt moderate discomfort as I was coming up. I had been laying in bed with L watching her play GTA5, but I could not get comfortable. L tried to initiate sexual activities, but the discomfort I felt was too much to really get invested in it, so I told her I wasn’t feeling it. I decided to play a game of League of Legends because I felt it would distract me until the Sass kicked in.
+I was still feeling moderate discomfort, but as I played League, my vision would become blurry every so often. However, I was still able to concentrate on the game. I played League as much as I could before it became too much for me to handle. I tried to lay with L again, but I was too uncomfortable. I got up and looked in the human sized mirror on the back of my bedroom door and saw that my pupils were huge. I knew for a fact that I was close to reaching the end of the come up.
+I decided I needed fresh air, and as soon as I walked outside, I felt a lot better. I went back inside and told L that I wanted to go for a walk. I live out in the country, so there is a canal about ⅔ of a mile away. I decided I wanted to walk there and back. I felt an energy in my feet that propelled them forward of their own accord. I figured that was the stimulant part of the drug. We got about ⅓ of the way to the canal before I got tired and wanted to go back.
+When we got back to the house, it was about 2:00PM. By this point I was feeling pretty good. My moderate discomfort turned into minor discomfort, and I was starting to feel the warm happiness I associate with Sass. I went back in my room with L and at that point we tried to have sex again. This time I was more aroused. I tried fucking L and I just got lost in it before realizing that I wasn’t even hard anymore, and my sex drive just wasn’t there. I apologized to her and she was fine with it.
+I heard my dad taking a shower in the bathroom, so I hollered at my mom to tell me when he was done so I could also shower. I knew that my body’s temperature signals were fucked up, but I didn’t realize the full extent until I showered. I adjusted the water’s temperature to what I knew would be comfortable for me, but the “hot” water felt cold against my skin, and it even gave me goosebumps. The cold feeling was discomforting, but I found that somehow I didn’t mind it. After turning off the water, I found that I was so cold that I was shaking. After drying off and rejoining L, I recounted this experience to her.
+At this point, it was time to leave to see Star Wars: The Force Awakens. I got in the car with L, my dad, my mom, and sister. The car ride was somewhat unpleasant, but I found that closing my eyes and listening to music relieved the minor discomfort. I brought a water bottle with me so that I could sip on it and because I had been getting urges to drink water. However, I knew that the Sass was doing that to me and small sips of water quenched my body’s false need for water. I also knew my inhibitions would be lowered, and Sass being Sass, I would have the urge to just talk and talk and talk. I refrained from doing this in order to stay hidden among those who didn’t know I was rolling like a motherfucker. On my previous journey with Sass, I had been in public while rolling, so I knew I could handle it. My eyes were also dilated as fuck, so I wore sunglasses up until entering the movie theater.
+At this point it was 3:30PM, and the movie started at 3:50PM. I talked to L a bunch during the previews and as the movie started, I hit my zen point where I felt nothing but warm goodness. This leads me to the disappointing part of the experience. My previous experience with Sass
+had come in 6 waves with each wave lasting about an hour and each wave was exponentially better than the last. This Sass didn’t do that. It plateaued at the first wave and stayed that way. While somewhat disappointing, I didn’t really care.
+After the movie it was about 6:45PM and it was dark outside. I was able to use the bathroom normally (for some reason, I felt like my bodily functions were outta whack) and went outside the cinema and drove home with my parents and L. When we got home at 7:10PM, L and I went in my room and got comfortable in pjs and lied down. I was still feeling the same plateau feeling I felt at the start of Star Wars.
+At this point L and I began conversating. I was feeling very introspective and this allowed L and I to talk about our relationship. We talked until 8:30PM when she went to sleep while cuddling me. I’m mentioning this because as I layed there, I felt very trapped because I was still rolling and it tripped me the fuck out that there was a girl laying on me and I couldn’t move if I didn’t want to wake her up. That was trippy as fuck.
+[Erowid Note: 
+Driving while intoxicated, tripping, or extremely sleep deprived is dangerous and irresponsible because it endangers other people.
+Don&#x27;t do it!
+]
+At 9:00PM I drove L home. The whole roll had been very clear headed, and the come down left me in an even clearer state of mind. I’ve also driven on Sass before on the coast so I knew I could handle it. I wasn’t rolling terribly hard either, and I knew the comedown was happening because I was into my 8th hour of rolling.
+I knew the comedown was happening because I was into my 8th hour of rolling.
+Unlike my previous Sass experience, this Sass was less fire, but it lasted longer.
+When I got home, it was 9:30PM. I knew I was coming down and since this roll was not similar to my previous Sass experience, I thought the comedown would leave me depressed. While it hasn’t ever happened to me, many people have told me that Molly and Sass have bad comedowns, so I didn’t want to take any chances. My remedy for this was to take a fat ass snap of keef. I have been smoking on this fire 5 g nug and there was a mountain of keef in my grinder that I could not resist.
+When I went inside after smoking, around 9:50PM, I was feeling blown away. Unlike Molly, in my experience, Sass does not give me the ability to smoke unlimited weed. On Molly I feel like the high from the Cannabis is just sitting on top of my roll. In other words, I can feel the weed’s presence, but I can’t feel its effects. Smoking while rolling however seems to intensify the effects. I wasn’t just high, I had magnified the comedown to a point where I wasn’t rolling, and I wasn’t high, but a strange combination of the two. I felt stoned but also warm like when I had been rolling. I played GTA 5 for a bit before deciding I wanted to sleep.
+It was 12:00AM when I went to sleep. I wouldn’t really call it sleep though. Basically I closed my eyes and fell into a GTA 5 fever dream, except without the unpleasantness. I was also still feeling my fluctuating temperature, except it had changed into feeling extremes of one temperature that made sense. For example, under the covers, my feet were extremely hot, but outside of the covers, they were very cold. I didn’t find a remedy for this, but I guess I passed out for a bit because after 10 minutes of closing my eyes and going into the fever dream, I opened my eyes again and it was 2:00AM. I closed them again for about what I thought was 10 minutes and it was 8AM. Then, finally, I actually slept until 11AM on December 26th.
+It was 12:00PM before I really got up. I texted L and asked her what she thought about what she saw. She said she really liked how I was on Sass and said that my happy mood made her happy as well, and that she was excited to try it. I was feeling slightly fried, but not too bad. I was a bit sluggish, but I was able to eat. Around 1:30PM, my homie, M, hit me up and I dipped off to his house. We smoked some pretty alright weed and then smoked a blunt with the same weed, but blunts are my favorite way to smoke, so I got a placebo of feeling even higher. Around 4:00PM we dipped off to our other friend’s house and chilled with him for a bit. I didn’t smoke any more weed, because I had work at 5:30PM.
+I’ll spare you the details of my job, but by the end of my shift, it was 11:45PM. I took my coworker home and I got home at 12:45AM fried as fuck, I smoked some weed and it made the fried feeling go away. Now it is 1:30AM as I write this, and this will be where I conclude my experience.
+It was an 8/10 experience that I would do again.
+PROS I experienced:
+Improved mood
+Warm feeling all over my body
+Plateau feeling (While I indicated this was disappointing, in retrospect, I liked the mild feeling, and it was good for L to see what was up with Sass)
+Introspective thinking
+Bonding with L
+Treats my depression
+Comedown intensified by Cannabis
+Clear headedness
+About as low key as weed (Minus pupil dilation)
+The mindset I entered the roll with was the same after the roll
+Lasted a long time
+CONS I experienced:
+Discomforting come up
+Temperature fluctuation
+Reduced sex drive
+Sleeping issues
+Fried as fuck afterward (Cannabis relieved this for me)
+Exp Year: 2015
+ExpID: 107629
+Gender: Male
+Age at time of experience: 19
+Published: Oct 29, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDA (34) : Small Group (2-9) (17), Hangover / Days After (46), Sex Discussion (14), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,211 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>浮动水箱 - 形外观 - &quot;在水箱中的时间&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/floatation-tank.html'>← 漂浮舱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>浮动水箱 - 形外观 - &quot;在水箱中的时间&quot;</h1>
+<div class='sub-title'>Floatation Tank - Erowid Exp - &#x27;Time in the Tank&#x27;</div>
+<div class='meta'>作者：Mink Snopes From Erowid Extracts Collecti · 日期：Jun 18, 2012 · <a href='https://erowid.org/experiences/exp.php?ID=68367' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我第一次了解浮动水箱是因为对约翰·利利的兴趣.
+经过几年的麻烦, 我扩大了改变学习的技巧, 包括冥想,和I Ching.
+我对浮动水箱的了解源于对浮动水箱的兴趣
+约翰·利利
+没有.
+经过几年的麻烦, 我扩大了改变学习的技巧, 包括冥想,和I Ching.
+我发现附近一家按摩中心提供浮动水箱,
+首先是两小时的体验; 我清醒地进入体验,
+我不确定该等什么:一方面,我希望遇到极端的外星人;另一方面,我对外星人充满怀疑,
+对于那些想了解参观水箱的地方的逻辑, 很简单:你之前 (和之后) 洗, 插入耳塞, 坐进水箱,
+关闭门时需要一些照顾,但在大多数情况下,我经历它作为一个完全被动的事 - - 也就是说,直到意识的改变开始.
+我经常轻轻撞到水箱的两侧.
+我花了一段时间才学会如何完全屈服于我不会沉没的事实.
+一旦我学会了正确的放松,把自己置于水箱的中心,
+我感觉自己正被360度地平行旋转.
+到了某种程度,
+这有点令人不安, 但没有引起头或恶心.
+我慢慢意识到我的左眼的肌肉比右眼更加紧张,
+我开始试图&#x27;调整&#x27;我的眼睛, 随着我调整眼睛的微小肌肉,
+也许是对&quot;第三只眼睛&quot;或第六个心脏进行动作的一种方式,
+我开始有清晰的感觉收集和澄清我过去几天的所有想法和经历.
+甚至日常细节也获得了独特的意义.
+我回想起童年时代,
+我回忆起一些生动的童年经历, 但我不会说回忆中有什么戏剧性;
+作为一个作家, 这对我来说非常有用,
+这感觉是迷幻的;
+我开始感觉到我正在参与一个特殊的故事,
+这感觉是迷幻的;
+这似乎是一个旅程, 有自己的形状和叙事弧.
+进入水箱的过程对我来说变得很明显,
+我感觉到自己的力量和温柔.
+我开始觉得自己已经达到顶峰, 我想出去庆祝,喊叫或其他事情.
+我感到高兴, 充满了仁慈, 清晰, 和洞察力.
+的凝液滴入我的眼睛, 燃烧得疯狂.
+我不得不从水箱里出来拿一个毛巾.
+在进入水箱之前擦拭水箱的内顶可以防止滴水.
+我很容易找到我的中心; 不过,我不能保持它很长时间.
+我估计大约一个小时已经过去了.
+据我所知, 泰达脑电波的出现, 很大程度上导致了中的认知效应.
+由于缺乏经验, 我无法维持.
+通常,泰达波只是睡眠的前奏, 在它们开始深层无意识之前,
+像睡眠周期一样, 脑电波在水箱中以15分钟的周期运行,
+盐我的眼睛只是最后一根,
+我在水箱里的剩余时间被子疼痛所扰乱,
+像冥想一样, 这种痛苦可能是一个重大挫折如果一个人根本不能做任何事情.
+奇怪的是,我的子在接下来的几天里,
+这似乎是带伸展到正确位置的结果,
+我只能假设一个人应该愿意在水箱里接受一些不适,
+也许身体在完全放松时会感到疼痛,
+这感觉就像是在体质层面上学习.
+奇怪的是,我在水箱里有很多视觉活动.
+但这一切都没有真正的代表性或有趣.
+这似乎是素活动, 像压在我的眼球, 变异的涂抹无形的颜色和光.
+在某个时刻,我从童年时代的家里看到一非常鲜明的灯光,
+作为一种精神探索工具, 这有着巨大的前途; 然而, 如果一个人习惯于迷幻的压倒性视觉表演,
+尽管如此, 身体上的好处也不能忽视;
+我建议任何对浮游感兴趣的人去当地浮游中心, 看看迈克尔·哈奇森的&quot;浮游之书:探索私人海域&quot; (The Book of Floating: Exploring the Private Sea).
+其他:
+浮动水箱 (369):一个人 (16),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Time in the Tank
+Floatation Tank
+by
+Mink Snopes
+From
+Erowid Extracts Collection
+Citation:   Mink Snopes. &quot;Time in the Tank: An Experience with Floatation Tank (exp68367)&quot;.
+Erowid.org
+. Jun 18, 2012. erowid.org/exp/68367
+BODY WEIGHT:
+200 lb
+I became aware of floatation tanks through an interest in John Lilly. After a few years messing around with psilocybin-containing mushrooms, cannabis, and Salvia divinorum, I expanded my techniques for altered learning by including meditation, yoga, and using the I Ching. When I discovered that float I I became aware of floatation tanks through an interest in
+John Lilly
+. After a few years messing around with psilocybin-containing mushrooms, cannabis, and Salvia divinorum, I expanded my techniques for altered learning by including meditation, yoga, and using the I Ching. When I discovered that float tanks were offered by a nearby massage center, it seemed like a perfect extension of my interests.
+The first experience was two hours; I went into it sober and well-rested, having primed myself the night before through detoxification tea and light eating. Naturally, I was unsure of what to expect: on the one hand, I was sort of hoping for extreme, alien encounters; on the other hand, I was healthily skeptical and just as interested in simple physical relaxation.
+For those who are curious about the logistics of visiting a place where a tank is offered, it&#x27;s quite simple: you shower beforehand (and afterward), insert ear plugs, settle into the tank, and spend your allotted time in a fully relaxed horizontal position. It&#x27;s important to avoid getting the highly salty water in your eyes, and it requires some care when crouching down to close the door, but for the most part I experienced it as an entirely passive affair--that is, until the alterations in awareness began.
+For the first half hour, I was jostling all over the tank and often bumping up gently against the sides. It took me a while to learn how to surrender entirely to the fact that I would not sink. Once I learned to properly relax, situate myself in the center of the tank, and settle down mentally, I began to feel like my body was being tilted into a vertical position: a sense of ceaseless momentum forward and upward. This subsided and I then felt as though I were being rotated horizontally 360 degrees. There came a point at which I lost all sense of direction and physical bearing. This was mildly unsettling but did not provoke vertigo or nausea.
+Slowly, I began to realize that my left eye felt like its muscles were focused more tightly and pushing harder into the darkness than my right eye. I began trying to &#x27;attune&#x27; my eyes, and there was an accompanying sense of centering and calm as I tuned in to the more minute ocular muscles. Perhaps it was a way of fidgeting with the &#x27;third eye&#x27;, or sixth chakra, located in the region between and behind the eyes. I then began to have a clear sense of gathering up and clarifying all my thoughts and experiences from the past few days. Even mundane details took on a distinct sense of importance. I reflected back to childhood, when there was no such thing as the &#x27;mundane&#x27; and all experience was intense and a portal to insight. I recalled a few vivid childhood experiences, but I wouldn&#x27;t say there was anything dramatic about the recall; rather, I was thinking very coherently by synchronizing my own imagery, memories, and day-to-day experiences in a relaxed but deeply engaged manner. As a writer, this was extremely useful for me, and it allowed me to reach a state of mind that is hard to achieve outside of the tank.
+I know all these effects can be attained without a floatation tank, but as I deepened into this aspect of the experience, I began to sense that I was participating in a special story within my psyche. It felt psychedelic;
+I began to sense that I was participating in a special story within my psyche. It felt psychedelic;
+that is, it seemed like a trip, with its own shape and narrative arc. The process of getting into the tank became clear to me as a sort of weird, modern ritual, and I was glad I had chosen to seek this out for myself.
+I felt empowered and gentle. At this point, the activity of my mind dulled a bit and I began to feel as though I&#x27;d &#x27;peaked&#x27;, and I wanted to get out and celebrate and shout or something. I felt euphoric and was filled to the brim with benevolence, clarity, and insight. However, a substantial annoyance then set in: salty condensation from the tank&#x27;s lid dripped into my eye and burned like mad. I had to emerge from the tank for a towel. It turns out that wiping off the inner roof of the tank before going in can prevent the dripping. When I got back in, the water jostled me around some, but I more readily found my center; nonetheless, I couldn&#x27;t maintain it for long.
+Up to the point of the eye-stinging drip, I would estimate that approximately an hour had passed. It is my understanding that the emergence of theta brainwaves is largely responsible for the cognitive effects in the tank. I assume I achieved a plateau of theta waves, but because of my inexperience, I was unable to maintain it. Usually, theta waves are but a prelude to sleep, and the mind isn&#x27;t used to functioning within their frequency for very long before they initiate deeper levels of unconsciousness. Much like sleep cycles, it seems brainwaves in the tank run in 15-minute cycles, with a slow build-up and an extended 30-45 minutes in the theta realm occurring before a leveling-off occurs. The salt stinging my eyes was just the final straw in my attempt to maintain the somewhat trance-like state.
+After recovering from the drip, the remainder of my time in the tank was disrupted by an ache in my neck that I simply could not relieve. Much like in meditation, such pain can be a major setback if one simply can&#x27;t do anything about it. Surprisingly, my neck was more limber for a few days afterward. This seemed to be the result of fascia stretching into its right place, much like with a massage. All I can assume is that one should be willing to give in to some discomfort for purely therapeutic purposes in the tank and trust in the fact that it is doing one good in the long run. Perhaps if a body in full relaxation experiences pain, it&#x27;s because it needs to learn to adjust to a completely relaxed state. It felt like a kind of learning on a somatic level.
+Curiously, there was quite a bit of visual activity going on for me while in the tank. However, none of it was representational or really all that interesting. It seemed like phosphene activity, much like pressing on my eyeballs, with mutating smears of formless color and light. At one point, a very distinct image of a lamp from my childhood home emerged, and it was so vivid, and clearly seen--not imagined--that it seems worth noting as a cognitive effect.
+I think that, as I gain experience, I&#x27;ll be able to more effectively delve into submerged areas of my psyche while in the tank.
+I think that, as I gain experience, I&#x27;ll be able to more effectively delve into submerged areas of my psyche while in the tank.
+As a tool for mental exploration, this has immense promise; however, if one is used to the overwhelming visual spectacle of psychedelics, the tank experience might seem a bit tame. Nonetheless, the potential physical rewards shouldn&#x27;t be overlooked; it was as relaxing as a massage or light yoga. I suggest that anyone interested in floating find a local float center and check out Michael Hutchison&#x27;s The Book of Floating: Exploring the Private Sea; it is an amazingly comprehensive and exciting book on the subject.
+Exp Year: 2007
+ExpID: 68367
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 18, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Floatation Tank (369) : Alone (16), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

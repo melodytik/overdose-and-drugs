@@ -1,0 +1,383 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达尔特和各种 - 埃罗伊德 Exp - &quot;结合的闪光&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dalt.html'>← DALT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达尔特和各种 - 埃罗伊德 Exp - &quot;结合的闪光&quot;</h1>
+<div class='sub-title'>DALT &amp; Various - Erowid Exp - &#x27;Shines in Combination&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Nov 10, 2016 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=109373' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>(与大麻,2C-I,LSD,胺,3-MeO-PCP,2C-B,4-AcO-DET)
+达尔特的真正亮点在于组合.
+这就是我对这种不为人知的化学物质的兴趣的原因.
+这是一系列关于DALT与其他物质结合的报道.
+有些是我写过的报告的摘录.
+DALT + 2C-I 时间
+烟:烟
+背景:我的后院
+我在那天晚上冲动服用了15毫克2C-I.
+这是一个相当标准的旅行,我在朋友家度过了.
+我最终回家, 决定测试DALT的相互作用.
+经历了大约6个小时,
+虽然一些旋转的图案入黑暗,
+我在后院的浴里放松,
+在熟悉的苦甜味味上.
+经验的第一笔笔记.
+我感受到的放松是巨大的,有形的,
+剩余的2C-I刺激会让位于DALT的热水,
+感觉好像天空正在对我进行放大, 就像夜空的巨大复杂拼图已经变成了语般的迷幻毯子,
+视觉效果已经有了很大的变化, 它们是巨大的空气图案,
+但当与迷幻药物结合时, 它确实有独特的方法,
+这也很可能是由于同期使用的大麻.
+视觉效果并不完全像2C-I的视觉效果,但是,它们看起来,软化,圆化,呈现出更多的块状和不那么复杂,尽管它们的流动和行为更有机.
+听觉效应没有被发现, 除了声音有点模糊和低音.
+我躺在浴里, 沉入其中,
+我可以轻松地沉浸其中.
+想象一下你在温暖的热带海洋的浅水中,月光照亮沙的,远处的棕树的轮,然后想象一下你在温暖的水中潜水,
+然后把音乐引入等式, 像水晶卡塔那那样穿过水, 像跳舞的水晶般闪在你的耳朵里.
+每一个低音的脉冲, 每一个滑动的旋律都让你摇篮,
+这就是我的感觉.
+我知道我可以站起来,移动,做事, 但我选择不这样,
+我终于决定起来,回到里面.
+虽然有些残留的视觉效果比我开始时更强烈.
+DALT + LSD 在
+烟:烟
+背景: 在我的公寓周围
+序言:我们今天在我家举办一个聚会.
+但直到晚上才会出现.
+我决定喝一些很好的酸, 和我的朋友一起在电影院看新的星球大战电影,
+记住我最近的DALT实验, 我决定现在是重试的最佳时机.
+我把90毫克放进一个小碗大麻里,
+我已经在旅程的高峰期.
+我在我的地下室, 人们已经上楼在聚会之前.
+我决定独自呆在这里, 以免他们闻到烧焦的RC气味.
+在几次冲击后, 大麻会凝结成一块坚固的块.
+我感觉它像一只百脚一样在我的喉里滑下来.
+我已经抽完碗了, 我已经觉得自己已经从边缘掉下来.
+感觉房间已经变成球形,
+视觉图像的图案像是鱼眼镜片或某种圆顶.
+我的身体感觉很沉重, 变得淡,
+我决定上去卧室, 感觉就像我在漂浮,
+我在我的卧室,我正确的球.
+我有点焦虑, 我觉得我太了, 无法在家里举办派对.
+身体的分离是很重的, 而这一切都源于我对现实心理的分离,
+尽管我感到焦虑, 我的身体却被一场平静的洪水所淹没,
+视觉效果有所提升, 但它们并不像LSD复杂的图案.
+它们是块状的, 形状类似于一个圆顶, 上面有网格,
+这张网格闪着清凉的色彩, 旋转在我周围,
+我只能躺着着天花板, 无法参与或有意义地互动.
+我仍然没有意识到.
+虽然我真的不能做太多,
+房友在吉他上演奏了一些东西, 我闭着眼睛缩起来, 沉浸在CEV的精致世界里, 流动的块状形状流过我身边,
+这就像在一个道中奔跑, 身体处于镇静状态,
+我的短期记忆已经变得无能为力.
+试图与人交谈的尝试会失败, 因为我会在谈话中途忘记我们谈论的是什么.
+不适合社交活动.
+我在聚会上吸了很多大麻,
+我发现自己缩在地板上, 希望这些药物能释放它们对我的铁腕.
+仿佛有一只虹色的钢铁手像口香糖一样伸展我的思想,
+我绝对不觉得自己是个醉汉, 而是觉得这次旅行已经远远超出了目前的范围.
+感觉不仅仅是我在增强LSD,
+现在已经平静下来了, 我能正常生活,
+所有的迷幻药似乎已经释放了对我的控制.
+DALT + 凯他胺
+烟:烟
+背景:我的卧室
+序言:我的朋友和室友和我决定在晚上举行一个基他胺聚会.
+晚上我开始服用170毫克,
+我在胺雾中不知何故想起了我想用一种解离剂来测试DALT,
+我和一个朋友一起爬上楼, 远离其他人,
+奇迹是我没有把它撒到每一个地方.
+我也不知道我如何轻轻点燃碗,
+我和我的朋友分享了这个碗.
+试试烟雾的味道
+我可以感觉到它的味道, 但这种分离使我无法感觉到它不愉快的酸味.
+这种愉快而又熟悉的放松感罩着我.
+胺使我觉得自己像是液体, 我的身体就像一片油在温柔的湖面上,
+视觉方面已经开始发挥作用.
+凯他胺给我带来了一些轻微的图案, 但现在它们已经全力以赴,
+房间突然变得非常小, 仿佛我已经长大了,
+这间房间也看起来是球形的.
+我坐在床上听音乐,我的朋友躺在地上.
+我闭上眼睛, 身体消失, 我被带入一个充满黑暗的世界,
+形状随着音乐的舞蹈和移动, 感觉好像我的身体在各种荒谬的方式旋转和扭动,
+几乎像一个奇怪的宇宙按摩.
+似乎已经开始减弱了.
+我回到楼下, 仍然感觉浮动和,
+DALT + 3-MeO-PCP + 2C-B + LSD 其他
+烟:烟
+背景:我的卧室
+烟味像甜蜜的DMT, 这是一种非常微妙但可控的,
+每一次击中都让我感觉自己越来越远离现实,
+像一个伟大的宇宙舌头, 伸出手来品尝我,
+最后它品尝我的味道,并吸引我进入它的嘴巴.
+我真的没有了.
+我闭上眼睛, 感觉我的身体变得虚无.
+我感觉到它融入我的床单, 成为我周围巨大的碎石的一部分.
+我对自己如此疏远, 我觉得某种母性女性的爱包围着我.
+感觉就像被的毛腿拥抱,
+一个伟大的绿色的光透这个领域和布在我周围.
+我不觉得我在接触某个实体, 只是触摸和拥抱宇宙或我内心某种内在本质的化身.
+我感觉到一个伟大的母亲的存在从天空下降,
+这感觉像是神的手, 这感觉像是神圣的保护和生命的火和死亡的森林的燃烧背.
+我心里有一朵烂的粉红色水晶花,
+死亡是需要思考的.
+我的心跳很快,如果我死了会怎么样?
+我的存在,一切都变成了一个伟大的复杂的头骨, 一个似乎是由十亿个状纤维编织的头骨,
+这是一个巨大的沙漠,
+一切都如此自然,完美,美丽.
+我感觉自己被净化和治愈了,
+我感觉到与其他旅行一样的生命力,
+这种本质,我刚才提到的非实体,
+DALT + 3-MeO-PCP + 4-AcO-DET + 凯他胺 没有
+烟:烟
+背景:我的卧室
+我下楼问我是否应该给他注射胺.
+我很担心在家里有这么多人,
+我认为至少告诉他们我即将使用的药物会减轻一些负担.
+尽管如此,
+我上去我的房间和吸一碗达尔特.
+我感觉自己被拆解成多色的带,
+我是一把利的箭, 我是一把穿过流的箭,
+现在我心里没有任何疑问.
+我必须深入.
+我已经准备好了.
+我在这个状态下设法将一些胺粉碎并将其切成线条.
+感觉就像我的头脑是个雪球, 我只是摇了摇.
+我觉得自己在水中漂浮,
+时间在此之后就不再重要了.
+我记得躺在床上, 感觉有热量从我下面升起, 我觉得我变成了气体,
+这感觉像蒸汽.
+我整个视野都变形,融化和泡.
+在美丽但混乱的沼泽中掩盖我的存在.
+我对此有笔记,
+我记得自己逐渐感觉到自己经历了完全的范式转变.
+我一直陷入迷幻状态.
+每次我陷入迷幻状态, 就好像一个全新的世界在围绕着我产生,
+在每一个形成的世界里, 我发现自己内在地承载着它的属性和历史的知识.
+我完全知道自己在哪里,在那里做什么,以及那里的一切是如何运作的.
+我觉得自己在外面,但却在逃避一些责任,
+每次我走进一个世界, 我都会把它留在一个无人看护的,
+每一次旅行都让我感到焦虑和不负责任.
+我已经得很厉害.
+我眼睛会自行闭上, 让我陷入一种惚和一个新的世界.
+如果我能提醒自己我的身体是如何工作的, 我可以开眼睛,
+但很快,我又不小心漂流到另一个世界.
+一个反复出现的主题是命运和预定.
+在所有这些领域中, 存在着一种无所不知的预感,
+视觉上,它在某一点表现为无限的网格, 每个块在时间和空间的向量点, 所有存在的可能性在我面前,
+怪异的东西.
+我觉得自己正面临着一场灾难, 我盲目地朝着它奔走.
+另一个不祥的感觉是我正在入现实结构,
+我觉得我会碰到一个无限的黑暗, 永远摧毁我的思想,
+我还记得看到很多碎形状和重复的形状序列,
+巨大的细分形状罩着我.
+我记得有一次我漂浮在浅海中, 这座巨大的粉红色有意识的塔楼立在我上面.
+我总是担心我下面的人会怎么想,怎么说.
+我觉得我听到了我的名字.
+我以为他们是在谈论我.
+我得太, 无法接近任何人.
+这让我感到震惊.
+我在浴室里喝了一杯酒.
+我实际上已经走路并操作水龙头.
+我几乎被困在浴室里,
+感觉世界就像一艘摇的船,
+我继续在房间里漂流进出这些世界.
+我已经习惯了,我的身体已经保持了冷静和平静.
+我让自己更加沉迷,感觉更满意,更少焦虑.
+我希望我能回忆起这些世界, 也许我需要再次触发这种状态来重新访问它们?
+我的现实被粉碎了, 每个碎片都呈现出不同的颜色.
+一个世界在这个阶段的旅程只是一个巨大的虚无,
+另一个是,我周围的环境声音开始以共感形式呈现,
+每一个声音都为林或珊瑚礁的多样性,
+终于我已经足够稳定了, 不再偶然地漂流到不同的领域.
+我走出了我的房间.
+整个房子都是黑暗的.
+我转过身去看一堵墙,
+它们在碰到的任何地方都会产生波纹, 从每一个接触点, 一个发光的网状图案就会放出来,
+我能够与坐在楼梯上的朋友进行相当连贯的交谈.
+周围的黑暗仍有鲜花的图案.
+他们不想看电影,所以我们回到我的房间.
+最终其他朋友也跟着.
+结论:单独的DALT可以在碗上, 给吸烟带来一种令人放松的迷幻味道,
+它真正的亮点在于与其他迷幻药物相结合.
+让他们感受到一种全新的体验, 一个放松,舒适,独特的场所,
+我没有尝试过在有压力之旅时, 但我认为它可以减轻焦虑的经历,
+时间表: 109373
+发布时间:2016年11月10日
+DALT (769), 其他 (136): 组合 (3), 回顾 / 总结 (11), 其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Shines in Combination
+DALT &amp; Various
+by
+nervewing
+Citation:   nervewing. &quot;Shines in Combination: An Experience with DALT &amp; Various (exp109373)&quot;.
+Erowid.org
+. Nov 10, 2016. erowid.org/exp/109373
+DOSE:
+smoked
+DALT
+Various
+BODY WEIGHT:
+120 lb
+DALT Explorations Pt. 2 Combinations
+(with Cannabis, 2C-I, LSD, Ketamine, 3-MeO-PCP, 2C-B, 4-AcO-DET)
+Where DALT really shines is in combinations. The first time I ever took it was in combination, and that is what led me to pursue interest in this obscure chemical.  This is a series of reports of DALT in combination with other substances. Some are excerpts from reports I&#x27;ve already written.
+DALT + 2C-I
+Dose: 50 mg (+15 mg 2C-I @T-6:00)
+ROA: Smoked
+Setting: My backyard
+Preface: I impulsively dosed 15 mg of 2C-I earlier that night. It was a pretty standard trip, I spent it at a friend’s house. I eventually went home and decided to test the interaction with DALT. At this point I was about 6 hours into the experience and I was on the comedown. The visuals had mostly died down, although some swirling patterns crept into the darkness at the corners of my vision. I relaxed in a bathtub in my backyard and packed the DALT between two layers of Cannabis.
+T0:00-Light the bowl. Inundated by the familiar bittersweet flavor.
+T0:06-Struck by the first notes of the experience. The relaxation I feel is immense and tangible, it’s like a great warm rain pouring down on me. The residual stimminess of the 2C-I gives way to the great warm flood of DALT, washing away the tension and extra energy in my nerves and in my veins. It feels like the sky is zooming in on me, like the vast intricate jigsaw puzzle of the night sky has become this proverbial psychedelic blanket that is draping over me now.
+T0:14-The visuals have picked up quite a bit, they are vast airy patterns that are folding and transforming and dancing in the distant reaches of my vision. DALT on its own is certainly not visual, but when combined with psychedelics it truly has a unique way of bringing their visual aspect back. This is also likely from the cannabis that was consumed concurrently. The visuals do not entirely resemble the 2C-I visuals however, they seem blunted, softened, rounded, rendered more blocky and less intricate, though more organic in their flow and behavior. No auditory effects are noted other than things sounded a bit blurry and lo fi. I am lying in this bathtub and sinking into it, it feels like I am really taking a warm bath and gently sinking below the surface.
+T0:20-Music is fantastic and I can so pleasantly and easily sink into it. Imagine being in the shallows of a warm tropical sea, the moonlight illuminating the ripples of sand the silhouettes of palm trees in the distance, and then imagine diving into the warm water, like the embrace of bathwater, and lying on the bottom, no sound except for the gentle creeping of the waves above, no feeling except the gentle flow of the water as it ambles around your form. Then introduce music into the equation, cutting through the water like a crystal katana, shimmering into your ears like a cascade of dancing crystals. The soundwaves vibrate the water around you and each pulse of bass, each slithering melody cradles you and ripples the sand beneath you. This is what it felt like. I know I can get up and move and be functional, but I choose not to, this is so comfortable and I want to sink into it as intensely and as best I can.
+T0:40-I finally decide to get up and go back inside. It was a pleasant experience, I’m mostly down now, although there are definitely residual visuals that were stronger than when I started.
+DALT + LSD
+Dose: 90 mg (+200 ug LSD @T-4:00)
+ROA: Smoked
+Setting: All around my apartment
+Preface: We were hosting a party at my house today. But it wasn’t until night. I decided to take some very good acid and see the new star wars movie in a theater with my friend who was also tripping. Afterwards, we got to my house, and remembering my most recent experiment with DALT, decide now is prime time to try it again. I packed 90 mg into a small bowl of Cannabis and let loose. I am more or less at just off the peak of the trip.
+T0:00-I’m in my basement, people are already upstairs hanging out before the party. I decide to hang out here by myself to spare them the burnt rc smell. The ratio of DALT to cannabis in the bowl is leaned heavily towards the DALT, and after a few hits it consolidates into one solid chunk. I hit the hot acrid smoke for a while, it feels like it’s slithering down my throat like a centipede.
+T0:15-I’ve finished smoking the bowl and I am already feeling like I have dropped off the edge. It feels as though the room has become spherical and is shrinking around me. The patterns of the visuals bulge like a fisheye lens or some sort of dome. My body feels heavy and faded, as if it’s turning to static. I decide to go up to my bedroom, it feels like I’m floating the whole way there like a disembodied head and shoulders.
+T0:20-I’m in my bedroom and I am properly tripping balls. I am a bit anxious, I feel as though I am tripping way too hard to host a party at my house. The bodily dissociation is heavy and it all feeds into this headspace of mental dissociation from reality, of dissociation from causality and the flow of time, of dissociation from my physical surroundings and other human presences. Despite the anxiety, my fading body is overwhelmed with a physical flood of calm, at odds with my racing thoughts. The visuals have kicked up, but they do not resemble the intricate patterning of LSD. Instead, they are blocky and resemble a dome with a grid on it, like the inside of the dome of the pantheon. This grid is flashing with cool colors and reeling around me, sucking me into its splendor and dizzying my mind. People begin to arrive and all I can do is just lie back and stare at the ceiling, unable to engage or interact meaningfully.
+T0:50-I’m so dizzy and out of it still. I manage to go downstairs and interact with people, although I really cannot do much but talk about how hard I’m tripping. My roommate plays some stuff on his guitar and I curl up with my eyes closed and sink into an exquisite world of CEV’s, flowing blocky shapes that stream past me and reverberate into infinity. It’s like speeding down a gridded tunnel, while my body is sedated and couchlocked and immobile. My short term memory has been rendered impotent. Attempts to converse with people fall apart as I forget what we are talking about midway through the conversation. Not ideal for socializing.
+T1:50-I smoke a lot of weed throughout the party, and it just rockets me further and further away. I find myself curled up on the floor wishing these drugs would release their iron grip on my mind. It feels like a great iridescent steely hand is stretching my mind away like bubblegum, geometric forms and fractals spilling from it. I definitely don’t feel like I am stoned + tripping, but rather that the trip has been amplified far beyond what it should be at this point in time. It doesn’t just feel like I am enhancing the LSD, but rather I am being bombarded with the convalescence of all of the drugs at once.
+T3:30-It has calmed down by now, I am functional and able to be social, and cannabis no longer smacks me in the face like it was earlier. All of the psychedelics seemed to have released their hold on me.
+DALT + Ketamine
+Dose: 50 mg (+ 170 mg Ketamine @T-2:00 &amp; 120 mg Ketamine @T-0:30)
+ROA: Smoked
+Setting: My bedroom
+Preface: My friends and roommates and I decided to just have a ketamine party night. I started off the night with 170 mg, and then topped it off bit later with 120 mg. In my ketamine fog I somehow remembered that I wanted to test DALT with a dissociative, and what dissociative is more pure and neutral than ketamine? I went upstairs with a friend away from other people, and somehow managed to grind up some weed and pack a bowl with the DALT sprinkled on top. It’s a miracle I didn’t spill it everywhere. I also don’t know how I ever managed to gently light the bowl, but I made do. I shared this bowl with my friend.
+T0:00-Taste the smoke. I can certainly taste its flavor, but the dissociation prevents me from detecting any of its unpleasant acridity.
+T0:08-That pleasant and familiar relaxation washes over me. The ketamine makes me feel like I am liquid, that my body is a slick of oil bobbing on the surface of a gentle lake, and the DALT becomes a ripple that slowly takes the unctuous slick to pieces, gently and calmly dissolves my sense of self into the space around me.
+T0:15-The visual aspect has kicked in. Ketamine gives me some light patterned visuals but now they are out full force, transparent patterns overlaid on every surface, warping them, bulging and distorting everything. The room suddenly feels very very small, it’s as if I have grown in size, or it has closed in around me, but it’s a very comfortable and cozy feeling. The room also appears to be spherical.
+T0:20-I sit back on my bed and listen to music, my friend is on the floor. I close my eyes and my body fades away, and I am brought into a great dark world of streaming and rushing cubes and prisms, all of them gently lit from a distance by an eerie turquoise light. The shapes dance and move with the music, and it feels as though my body is being spun and twisted around in all sorts of absurd ways, but once again, it’s quite relaxing and not distressing in the least. Almost like a strange cosmic massage.
+T0:30-It seems to already be wearing off. I go back downstairs still feeling floaty and fuzzy, with a vital warmth smoldering deep inside of me.
+DALT + 3-MeO-PCP + 2C-B + LSD
+Dose: 80 mg + (200 ug LSD @ T-7:00, 35 mg 2C-B @ T-6:00, 10 mg 3-MeO-PCP @ T-4:00 &amp; T-1:35)
+ROA: Smoked
+Setting: My bedroom
+T7:00 (T0:00)-The smoke tastes like sweet DMT, it is a very subtle but manageable acrid, it tastes sort of like pumpkins but it is wholly a unique odor. Each hit I take feels like I am being pulled further and further out from reality, into a grand fractal globe of repeating concentric patterns. Like a great cosmic tongue, reaching out to taste me, and my essence swirling away from me to meet it. At last it savors my flavor, and draws me into its maw. I am truly gone.
+T7:20 (T0:20)-I close my eyes and it feel my body fade to nothing. I feel it melt into my sheets, become a part of the great fractallized diamond everything around me. I am so distant from myself, I feel the love of some motherly feminine essence envelop me. It feels like an embrace from the fluffy legs of a moth, it feels like being enshrouded in its dusty wings. A great green glow permeates this realm and cascades around me. I do not feel like I am contacting an entity, merely touching with and embracing a personification of some inherent essence of the universe or of my internal self. I feel this great motherly presence descend from the sky and enshroud me in great smoky fingers. It feels like the hand of god, it feels like divine protection and the fire of life and the burning back of forests of death. A great glowing pastel crystal fractal flower blooms above me and blossoms into infinity. Death is something to think about here. My heart is racing, what would happen if I were to die? My existence, everything became a great intricate skull, one that seemed to be woven from a billion waxy fibers, it was like a cattle skull, flashing in deep green and crimson, it was the idea of death, encapsulating all the fears and notions the living hold towards it. It was a great desert that was blossoming with life, it was an oasis of existence. Everything felt so natural and perfectly in place, and so beautiful. I felt cleansed and healed, the energy was pastel pink, green, turquoise and blue. I felt the same strike of life force I’ve gotten from other trips, especially mixing psychedelics and dissociatives. This essence,  this non-entity that I mentioned before is wrapping me in its dusky wings and singing soothing songs that cascade onto my brain.
+DALT + 3-MeO-PCP + 4-AcO-DET + Ketamine
+Dose: 50 mg + (10 mg 3-MeO-PCP @ T-4:00, 20 mg 4-AcO-DET @T-2:30, 150 mg of Ketamine @T+1:20)
+ROA: Smoked
+Setting: My Bedroom
+T4:00 (T0:00)-I pop downstairs briefly to ask whether I should administer ketamine. I feel anxiety about tripping so hard when there are so many people in my house. I figure at least informing them of the drugs I am about to use will lessen some of the burden. I am still apprehensive though. I go up to my room and smoke a bowl of DALT. I feel like I am being unraveled into ribbons, polychrome and intertwining. I am razor sharp, I am an arrow piercing through the turbulence that has become my reality, flowers blossoming in my path. There is no doubt in my mind now. I must go deeper. I am ready.
+T4:30 (T0:30)-Somehow in this state I manage to crush some ketamine and cut it into a line. The onset feels immediate, it’s like my mind is a snowglobe and I just shook it up. I feel like I am floating in water, my entire room has been flooded. Time kinda stops being a thing after this. I remember lying on my bed, and having it feel like there is warmth rising up from beneath me, I feel like I have become gaseous and this warmth is carrying my form upwards. It feels like steam. Psychedelic visuals begin to kick into next gear, with my entire field of vision warping, melting, and bubbling. Glowing tracers and rippling auras begin to form all around me, obscuring my existence in a beautiful but chaotic morass. I have notes from this but honestly they are completely incoherent.
+To the best of my memory, it gradually felt like I had undergone a total paradigm shift. I kept falling into trances. Every time I fell into a trance, it was like an entire new world was being generated around me, a world with its own set of physical laws and properties. Within each world that formed, I found myself to inherently carry the knowledge of its properties and history. I knew exactly where I was, exactly what I was doing there, and exactly how everything there worked. But in each world I was stricken by a longing to return home, I felt like I was out and about but shirking some responsibility, a responsibility to keep track of my body back in this world. It was as though my body was a toddler, prone to wandering into danger, and each time I travelled into a world I was leaving it unattended, potentially in harms way. So each journey I made left me with a distinct feeling of anxiety and irresponsibility. I was tripping right fucking hard. My eyes would drift shut as of their own volition, catapulting me into a trance and a new world. If I could remind myself of how my body worked, I could open my eyes and briefly pull myself out to check on my body and make sure it was in working order. But I would soon accidentally drift off into another realm again.
+One recurring theme was predestination and predetermination. Across all of these realms was this foreboding sense of omniscience, of experiencing the entirety of time at once. Visually, it at one point manifested as an infinite grid, each block a vectored point in time and space, all the possibilities of existence laid out before me, and an indescribable sentience dictating my path through this grid. Freaky stuff. This sense of predetermination was very ominous, it felt as if some disaster was lined up for me, and I was blindly careening towards it. The other ominous feeling was that I was hacking into the fabric of reality, and that something did not want me doing that. It felt as though I was going to stumble upon an infinite darkness that would shatter my mind permanently, that this was forbidden knowledge that I was touching upon.
+Otherwise, I recall seeing a lot of fractalizing shapes and repeated sequences of forms, each one gradually shrinking in size and tapering into infinity. Great segmented forms loomed over me. In one I remember floating in a shallow sea, this immense segmented pink sentient tower looming above me. There was constant worry about what those beneath me were thinking of me and saying. I thought I heard my name. I thought they were talking about me. I was tripping wayyyyyy too hard to be near anyone. I was deeply shaken. At some points I managed to hoist myself up to get a drink from the bathroom. I actually managed to walk and operate a faucet. I almost became trapped in my bathroom as it became a cage of magenta iridescent forms. It felt like the world was a rocking boat, typical of dissociatives. Back in my room I continued to drift in and out of these worlds. At this point I was getting more used to it, and I had the precedent of my body remaining restrained and peaceful. I allowed myself to drift further, felt more content and less anxious. God I wish I could recall these worlds, perhaps I need to trigger this state again to revisit them? My reality had been shattered, and each shard painted a different color. One world in this stage of the trip was simply a vast nothingness pockmarked with an infinite 3 dimensional array of glowing sigils, representing some language I could never comprehend. In another, the ambient sounds around me began to take up synesthetic representations as a fantastic bestiary of sound creatures. Music was incredible in this state, each sound contributing to a diverse jungle or coral reef of blossoming and personified phonics. Eventually I settled down enough that I was no longer accidentally drifting off into different realms. I stepped outside my room. The whole house was dark. I turned to face a wall, and began to tap and dance my fingers across it. They rippled wherever they touched and from each point of contact a glowing reticulated pattern bloomed, looking like a tangled circuitboard, or the veins of an insects wings. I was able to pretty coherently talk to my friend who was sitting on the stairs. Floral patterns still adorned the darkness all around me. They didn’t want to watch the movie so we went back to my room. Eventually the other friends followed.
+Conclusion: DALT on its own can be sprinkled onto a bowl to give a nice relaxing psychedelic edge to smoking, though its questionable if that’s worth dirtying a bowl with the smell/residue. Where it really shines is in combination with other psychedelics. It grabs them by the hand and elevates the experience to an entirely new place, a relaxing and comfortable and unique places that is very different than just amplifying an experience with weed. Perhaps most valuable though is the immense anxiolytic effect- I have not attempted this while having a stressful trip, but I postulate that it could put a damper on anxious experiences and wash the user in a pleasant bath of relaxation.
+Exp Year: 2016
+ExpID: 109373
+Gender: Male
+Age at time of experience: 21
+Published: Nov 10, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DALT (769), Various (136) : Combinations (3), Retrospective / Summary (11), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

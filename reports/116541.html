@@ -1,0 +1,198 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>五米奥 - 埃罗伊德的 实验 - &quot;像狗一样做&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/5-meo-malt.html'>← 5-MeO-MALT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>五米奥 - 埃罗伊德的 实验 - &quot;像狗一样做&quot;</h1>
+<div class='sub-title'>5-MeO-MALT - Erowid Exp - &#x27;Do It Like Dogs Do&#x27;</div>
+<div class='meta'>作者：CyberCanine Citation · 日期：Aug 1, 2022 · 剂量：10 mg · <a href='https://erowid.org/experiences/exp.php?ID=116541' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我 (26MtF) 的女朋友 (20MtF) 想知道在这种物质下发生亲密关系是什么.
+我们有一个亲爱的朋友在我们的疯狂经历中进行了反思.
+我决定在注射之前插上一个股塞,
+我们两人都大约在同一时间注射了10毫克.
+起初它烧伤了我的鼻子,
+我在上升过程中鼻子里面留下了痛苦的刺痛,
+时间+5分钟:上升需要大量的唾液.
+另一位女朋友称之为&quot;酒吧&quot;,
+我为我们俩准备了一张毛巾,
+我注意到我腿的持续疼痛和鼻子的刺痛都不知所措.
+我曾经用过LSD和等其他物质,
+我不得不小心, 以免在第二天让我疼痛.
+我不得不小心, 以免在第二天让我疼痛.
+我要求我的女朋友先用我们常常戴着的皮带我的股.
+我们都是毛皮的BDSM关系, 所以这种事情总是存在.
+每一次拍打我都要求她更多,
+我能感觉到我的股发射的打击,
+我心中的想法明显分散.
+我很难一次能想象多件事情, 就像我的想法和忧虑变成了沙子,
+我要求女朋友不要再带, 我们可以享受彼此的温暖,
+我们的手漫步在我们像狗一样流, 和唯一的想法我的头可以保持是她是多么可爱.
+一旦唾液得到控制, 真正的乐趣就开始了.
+我开始用边框来对她进行测试, 触觉是如此强烈,
+时间+15:我被了起来,然后滑进来.
+她说她通常会让我慢下来,因为她没有这种感觉,
+我把她折成两半, 首先把她放在交配的位置上,
+没有任何地方可以让我的思想流浪,因为它太短的领带概念化比手头的直接任务.
+这种情况持续了大约一个小时,
+每一次我回头看看我们的导师是否在享受美好时光, 每次我回头看她都在微笑,
+为了记住喝些水或改变位置, 但一旦我们恢复正常,
+只是为了在&quot;酒吧毒品&quot;上做这件事的新奇性.
+我女朋友喝了一大口水, 喊出她需要吐.
+我们的护理人员很快给她一个袋子, 她了一些,
+记住我们都是吸血爱好者, 我想鼓励她在我子上.
+她只是点了点头,让我深入.
+我感觉到她的喉, 很快就感觉到唾液在我的膝盖上流下来.
+我可以感觉到我子周围的碎片.
+我不关心她把我们 (幸好是防水的) 床单都弄成热口袋.
+我们决定把自己和床都清理好.
+我们已经开始下来了, 并且相信我们可以处理淋浴.
+我给了她最后一个快速的边缘操在浴室的柜台之前我们一起跳进去.
+她被一些浴相关的PTSD短暂触发, 但能够很快地从它我的帮助.
+我女朋友说我欠她一些食物, 考虑到我让她吐了晚餐,
+食物到达时我已经清醒了,
+总的来说,这可能是我一生中最好的性爱,
+我已经忘了14岁的时候有多少次高潮了,
+我会说这是一种强大的嗜好药, 如果正确地使用.
+没有任何其他资产
+发布时间:2022年8月1日
+5-MeO-MALT (883):小组 (2-9) (17),性讨论 (14),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Do It Like Dogs Do
+5-MeO-MALT
+by
+CyberCanine
+Citation:   CyberCanine. &quot;Do It Like Dogs Do: An Experience with 5-MeO-MALT (exp116541)&quot;.
+Erowid.org
+. Aug 1, 2022. erowid.org/exp/116541
+DOSE:
+10 mg
+insufflated
+5-MeO-MALT
+(powder / crystals)
+BODY WEIGHT:
+135 lb
+T-5: Having both done 5-MeO-MALT (Malt) already, my (26MtF) girlfriend (20MtF) wanted to see what being intimate on this substance was. All sober talks of consent were had before dosing, and we had a dear friend tripsit our wild experience. I decided to put a butt plug in before dosing just to make it that much hotter.
+T=0: We both dosed at about the same time, insufflating 10mg each. At first it burned my nose, though not as bad as ketamine. A bitter stinging stuck to the inside of my nose for about 5 minutes during the come-up, but it became unnoticeable once I hit my peak.
+T+5m: The come-up involves a lot of drool. Another girlfriend of mine refers to it as &quot;pubby&quot; because of the stream of slobber and the way it inhibits thought to the level of an animal. I had a towel prepared for both of us, which we pretty much saturated.
+At the same time as the drool began, I noticed the persistent pain in my leg was imperceptible, as was the stinging in my nose. I’ve had this happen on other substances like LSD and shrooms, but this was something else. The concept of the pain didn’t even register, and I had to be careful not to move in ways that would leave me sore the next day.
+The concept of the pain didn’t even register, and I had to be careful not to move in ways that would leave me sore the next day.
+Realizing how sensitive my body was getting and how little pain was bothering me, I asked my girlfriend to start by spanking my ass with a leash we keep around. We’re both furries in a switchy BDSM relationship, so that kind of thing is always around. Each slap I was asking her for more, getting more and more erect. I could feel the strikes radiating out from my ass like bright flashes of beautiful colors in my mind.
+T+10m: My thoughts were noticeably scattered. It was difficult to conceptualize more than one thing at a time, like my ideas and worries were turning to sand and running out through my fingers. I asked my girlfriend to stop with the leash-slapping so we could just enjoy each-other’s warmth and drool into the towel. Our hands wandered while we slobbered like dogs, and the only ideas my head could hold onto were of how lovely she was.
+Once the drool was under control, the real fun began. I started by rimming her, and the synesthesia was such that I felt as though I could see the contours of her hole as my tongue danced around.
+T+15: I got all lubed up and slid in. She remarked where she would normally have asked me to slow down from the pain of entry, she had no such sensation this time and was eager for me to get to business. I folded her in half and took her in a Mating Press position first, my lips all over her face and nose in her hair as I went, experiencing things in an entirely sensory way. There was nowhere for my mind to wander, as it was on too short a leash to conceptualize more than the immediate task at hand. This went on for about an hour, with a few position changes involved along the way. Every now and then I would turn to make sure our tripsitter was having a good time, and each time I looked back she was just grinning ear to ear for the chance to watch us go at it this hard. There were a few times where we’d have to call our soft-safeword of “Yellow” so that we could remember to drink some water or change position, but we’d go right back at it once we were alright. Of course we had to spend a long time in doggy-style too, even just for the novelty of doing so on the “pubby drug”.
+T+1h: (This part gets kind of gross so if you don’t like vomit, skip this paragraph.) My Girlfriend took a too-big gulp of water and called out that she needed to throw up. Our tripsitter was quick to get her a bag, and she wretched some phlegm, but nothing major. Remembering that we’re both emetophiles, I got the idea to encourage her to throw up on my dick. I checked in to make sure that was okay once her head was around my penis, and she just nodded and took me in deeper. I could feel the back of her throat, and soon enough feel drool pouring down around my lap. After a minute or so of this, she full-on threw up, and I could feel the chunks around my balls. It was the hottest thing ever, and I didn’t care that she just got Hot Pocket all over our (thankfully waterproof) sheets.
+T+1h15m: After a bit with the vibrator each, we decided to get ourselves and our bed cleaned up. We were already starting to come down at this point, and were confident we could handle a shower. I gave her one last quick rimjob over the bathroom counter before we hopped in together. She was briefly triggered by some bathtub-related PTSD, but was able to quickly ground out of it with my help.
+T+1h25m: My girlfriend told me I owed her some food considering I caused her to throw up her dinner, and I ordered some curry the three of us split. I was functionally sober by the time the food got there, and was able to sleep fine afterwards.
+Overall: Probably the best sex of my life, even with the weird vomit-kink stuff. I lost track of how many orgasms I’d had around 14, hell I’m pretty sure I had two just giving a rimjob. I would go on record as saying this stuff is a POWERFUL aphrodisiac when used in the right mindset.
+Exp Year: 2022
+ExpID: 116541
+Gender: Not Specified
+Age at time of experience: 26
+Published: Aug 1, 2022
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+5-MeO-MALT (883) : Small Group (2-9) (17), Sex Discussion (14), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,248 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>环素和编解与乙氨基 - 爱洛伊德 - &quot;疯狂的浪漫的白日梦&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-cyclobenzaprine.html'>← 环苯扎林（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>环素和编解与乙氨基 - 爱洛伊德 - &quot;疯狂的浪漫的白日梦&quot;</h1>
+<div class='sub-title'>Cyclobenzaprine &amp; Codeine with Acetaminophen - Erowid Exp - &#x27;Crazy Wavy Daydream&#x27;</div>
+<div class='meta'>作者：Chris Citation · 日期：Nov 13, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=112937' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>美国
+我18岁,最近毕业高中, 我很无聊在我的空时间完成狗.
+我是一个大人物, 实际上已经尝试了任何精神药物我可以得到我的手.
+我绝对会把自己看作是使用大多数药物的重量级.
+我在高中时常尝试各种毒品,
+我最近意识到某些药物对我的生活有更大的负面影响,所以我试图减少我发现自己依赖的物质 (例如:
+这种药物可能会引起一些疾病 (如阿尔普拉佐拉姆,可代因,费尼布特等).
+我觉得有必要尝试一些新事物.
+我经常使用Tylenol 3 w/ codeine, 主要是因为它很容易在我的地方获得.
+我之前曾尝试过CWE (冷水提取) 几次, 但总是发现它也过了一些代因.
+我决定每两天服用6-10粒,
+于是在一个星期三的下午, 我尝试了我的最新实验.
+我知道环素是可代因的增强剂,
+我在我父亲的家里, 我知道他不会回家再过几个小时.
+我之前曾经受过代因的影响, 能够在他面前处理自己,
+我准备好了好旅程 (我已经准备好了扬声器,
+我下午2点50分服用了一片环素和四片Tylenol 3 w/ codeine.
+科代因的影响 (我的手臂和身体的&quot;浮动&quot;感觉) 似乎比没有环素的更快.
+我通常需要40分钟才能感觉到任何效果,
+T+ 0:40 - 开始出现一些中性效应 (眼睛干燥,胃部不舒服),并因环二增强了一些.
+我很难用连贯的句子来写作,
+谢天谢地,我已经校正了.
+T+ 1:00 - 编码因与环素的作用显著增强.
+效果与单独服用9片 (270mg) 代代因的效果相似.
+我注意到类似于阿尔普拉佐拉姆的感觉, 我的身体感觉没有重量, 我的想法变得不连贯.
+为了减轻胃部的感觉, 我决定打几碗.
+我选择服用更多的Tylenol 3s (60毫克可代因), 总共180毫克.
+我等待其他Tylenol的效果发生.
+其他2种Tylenol的效果还没有发生,但是我的胃变得越来越不舒服,我注意到它发出很多噪音. (这是我使用它时常见的可代因副作用)
+我没有注意到任何从可代因, 但走路已经变得有点困难.
+由于我的速度显著减慢,
+我注意到我的瞳孔已经缩小到一个点的大小 (当我服用160毫克以上的可代因时很常见).
+我开始倾听一些波浪式的电子混音,
+我在研究效果时对这种组合犹不决, 但我没有注意到其他人报道的任何负面影响 (心跳加快,
+我决定在晚上用我的大麻和烟草, 每当我从最后一次中恢复过来,
+总的来说我每半小时抽一次.
+我开始干燥, 我相信这是因为碗在不吃的结合.
+我唯一的负面反应是我的胃.
+整个经历中,
+整个经历中,
+虽然我的胃并不常常, 但总是有不同的感觉,
+我听起来很好 (至少在我的脑海里是这样),
+虽然我通常是这样说话, 但很难编造句子, 因为我的大脑运行速度比平时快了50%.
+幸运的是,我的想法足够可信, 让我爸爸可以把它摆脱,
+音乐被放大到我只能与MDMA相比.
+听音乐时, 我能感觉到我身体的每一个骨头都受到低音的震动.
+我从未想过音乐会是我吸毒之旅中如此积极的体验,
+T+ 3:30 - 代代因和环素的作用现在与阿尔普拉佐拉姆非常相似.
+我在楼上喝咖啡时, 动得很慢, 很难保持双手的稳定.
+我发现我的脚在动摇,眼皮在闭合.
+整体体高持续时间远远长于如果只服用代代因而没有环素
+总的来说, 我相信这次经历很愉快,
+我认为下次我会增加我的环素剂量,
+时间表: 112937
+发布时间:2019年11月13日
+药品 - 环素 (267):单独使用 (16),组合使用 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+Crazy Wavy Daydream
+Cyclobenzaprine &amp; Codeine with Acetaminophen
+by
+Chris
+Citation:   Chris. &quot;Crazy Wavy Daydream: An Experience with Cyclobenzaprine &amp; Codeine with Acetaminophen (exp112937)&quot;.
+Erowid.org
+. Nov 13, 2019. erowid.org/exp/112937
+DOSE:
+T+ 0:00
+10 mg
+oral
+Pharms - Cyclobenzaprine
+T+ 0:00
+120 mg
+oral
+Codeine
+T+ 0:00
+1200 mg
+oral
+Acetaminophen
+T+ 1:20
+smoked
+Cannabis
+T+ 1:20
+smoked
+Tobacco
+T+ 1:30
+60 mg
+oral
+Codeine
+T+ 1:30
+600 mg
+oral
+Acetaminophen
+T+ 0:00
+repeated
+vaporized
+Nicotine
+T+ 3:30
+1 cup
+oral
+Coffee
+BODY WEIGHT:
+190 lb
+I&#x27;m 18, recently graduated high school, and I&#x27;m bored to complete shit during my free time. I&#x27;m a big guy, and have tried practically any psychoactive I can get my hands on. I would definitely consider myself as a heavyweight with most drugs. During my high school years, I would try any drug that was in circulation, xanies one day, LSD and molly the next. I&#x27;ve recently realized that some drugs have more of a negative effect on my life, so I&#x27;ve tried to cut down on substances I&#x27;ve found myself dependent on (e.g. Alprazolam, codeine, phenibut etc).
+One day, during my reading week (which is a Canadian version of March Break for college students) I felt the need to try something new. I am a frequent user of Tylenol 3 w/ codeine, mainly because it is so easy to obtain from where I come from. I have tried a CWE (cold water extraction) a couple of times before, but always found it filtered out some of the codeine as well. So I decide to take 6-10 pills maximum every two days so that I don&#x27;t exceed the 3000mg daily limit of acetaminophen.
+So on a Wednesday afternoon, I tried my newest experiment. I knew that cyclobenzaprine was a potentiator of codeine, so I decided to take them in combination to record the effects. I was at my dad&#x27;s house and knew he wasn&#x27;t coming home for another couple of hours. I&#x27;ve been under the influence of codeine and been able to handle myself in front of him before, so I decided I&#x27;d be able to handle it in combination with cyclobenzaprine. I prepared my setting for a good trip (I had a speaker setup ready to blast music, and brought down some drinks) So now that all of my background info has been established, here&#x27;s my experience with these crazy drugs;
+T+ 0:00 - I took one tablet of cyclobenzaprine and four Tylenol 3 w/ codeine pills at 2:50pm in the afternoon.
+T+ 0:20 - The effects of the codeine ( the &quot;floaty&quot; feelings in my arms and body) seemed to come on a lot faster than without the cyclobenzaprine. It usually takes 40 minutes for me to notice any effects, but it took half the time this way.
+T+ 0:40 - The somewhat neutral effects (dry eyes, upset stomach) began and felt somewhat amplified by the cyclobenzaprine.
+T+ 0:50 - While writing this report, my arms and legs feel incredibly heavy, and I&#x27;m struggling to write in coherent sentences lol. Thank god I proofread :)
+T+ 1:00 - The effects of the codeine with cyclobenzaprine has been amplified significantly. The effects are similar to taking 9 tablets (270mg) of codeine by itself.
+T+ 1:20 - I&#x27;ve noticed feelings similar to alprazolam, in which my body feels weightless and my thoughts are becoming incoherent. To help with the feeling in my stomach, I decided to hit a couple bowls.
+T+ 1:30 - After hitting a couple bowls, I chose to take a couple more Tylenol 3s (60mg codeine) making it 180mg in total. I wait for the effects of the other Tylenols to take place.
+T+ 1:40 - The effects of the other 2 tylenol haven&#x27;t taken place yet, but my stomach has become more and more upset, and I&#x27;ve noticed it&#x27;s making a lot of noises. (which is a common side effect of codeine from my experiences with it)
+T+ 2:00 - The effects have completely taken place now, I feel drowsy and sensitive to feelings and noises. I haven&#x27;t noticed any itchiness from the codeine, but walking has become somewhat difficult to do. Trying to walk up the stairs took me a minute or two as I was significantly slowed. When I look in the mirror in my bathroom upstairs, I notice my pupils have have contracted to the size of a dot (which is common when I take upwards of 160mg codeine).
+T+ 2:10 - The sedative effects of the mixture is very pleasant, I begin listening to a couple of wavy electronic mixes that I listen to in order to relax and meditate. I was hesitant of the combination while researching the effects, but I&#x27;m not noticing any negative effects others reported (increased heart beat, sweating or shivering) I feel completely at ease and sedated.
+T+ 2:30 - Knowing that the effects of the codeine and cyclobenzaprine will potentially last a surplus of 5 hours, I decided to settle down for the evening with my weed and vape, taking hits whenever I recover from the last one. Overall I&#x27;m smoking every 30 minutes or so.
+T+ 2:50 - After hitting multiple batch bowls (Cannabis w/ Tobacco) I begin to dry heaving, I believe this is because of the bowls in combination of not eating. The only negative reaction I had with the combination of all these drugs was with my stomach. During the entire experience, my stomach felt off.
+During the entire experience, my stomach felt off.
+My stomach wasn&#x27;t upset all the time, but would consistently feel different, like there was a weight on it.
+T+ 3:00 - My dad got home, I was able to communicate without slurring my words, however when trying to talk to someone pretending to be sober, it was extremely difficult. I sounded fine (at least in my head I did) but what I was saying didn&#x27;t make much sense. It was like I was trying to improvise everything on the spot, which is how I speak normally, but it was hard for me to make up sentences cause my brain was working at 50% the speed it was usually. Luckily, what I came up with was believable enough for my dad to shake it off as me just acting weird.
+T+ 3:10 - Music is amplified to an extent I can only compare to MDMA. While listening to music through my speakers, I could feel every bone in my body vibrate from the bass. I didn&#x27;t expect for music to be such a positive experience from my drug induced trip, considering I had mostly been taking depressants (besides weed), but music was by far one of the highlights of my trip.
+T+ 3:30 - The effects of the codeine and cyclobenzaprine were now very similar to alprazolam. When I went upstairs to make myself a coffee, I was moving slowly and finding it difficult to keep my hands steady. Once I went back downstairs and sat down on my office chair, I found my feet fidgeting and my eyelids closing.
+T+ 5:00 - The euphoria continues and the day goes on, easier to think and thoughts are clear. The overall body high lasts alot longer than if only taking codeine without cyclobenzaprine
+OVERALL, I believe this experience was pleasant and I think I&#x27;ll continue to dabble in the cyclobenzaprine realm. I think next time I&#x27;ll up my dosage of cyclobenzaprine and limit myself to 4 Tylenols max.
+Exp Year: 2019
+ExpID: 112937
+Gender: Male
+Age at time of experience: 18
+Published: Nov 13, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Cyclobenzaprine (267) : Alone (16), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

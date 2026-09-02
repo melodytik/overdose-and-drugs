@@ -1,0 +1,223 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>青毒 - 伊罗伊德探险 - &quot;青的第一个突破&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/toad-venom.html'>← 蟾毒(蟾酥)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>青毒 - 伊罗伊德探险 - &quot;青的第一个突破&quot;</h1>
+<div class='sub-title'>Toad Venom - Erowid Exp - &#x27;First Full Toad Breakthrough&#x27;</div>
+<div class='meta'>作者：Cuauht · 日期：Jul 13, 2018 · 剂量：1 hit · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=112103' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我希望以一个简短的概述来开始这次旅行报告,
+我是一名30多岁的专业人士,
+我不是在寻找萨波来逃避生活.
+在哲学上,我是一个唯物主义者 (在民主和西普斯的意义上).
+我相信物理世界是存在的, 药物通过与某些神经受体相互作用而起作用.
+尽管我长大时信仰宗教, 但我不相信上帝或神.
+我有很多年来使用各种类型的迷幻药物经验, 包括LSD,psilocybin,大部分2C类药物,MDMA,DMT,和Mescaline (以及我年轻时的半打或更多的奇特的研究化学物质).
+我也曾多次尝试过低剂量的合成5-MEO-DMT.
+现在我每隔几年就会使用幻觉药,
+这是一个古老的墨西哥考古遗址,
+在巨大的巨石的周围, 显示无可置疑的迹象被用于无数千年作为磨石,
+我和另外两个人一起,
+周围的音乐在低音调上.
+调解者跪在我旁边,带着装满的管子 (剂量不明,碗是由调解者打包的).
+他简短地讲了我安全的重要性, 他们会照顾我,
+他告诉我要小心不要吸入燃烧的Sapo, 我们将以较小的剂量开始,
+记住他的警告, 我慢慢地深吸了一口气.
+烟味令人愉快, 完全不同于NN-DMT常见的塑料烧灼感.
+我把烟斗交还给他,然后躺在睡袋上,
+在我还没有呼吸到底, 事情开始迅速改变.
+我感觉到时间开始减慢, 一种独特的振动感让我感到困惑.
+我感觉到时间开始减慢, 一种独特的振动感让我感到困惑.
+无限的波动眼睛, 让人想起亚历克斯·格雷的画作,
+我让烟雾从我的肺部.
+在那一刻,时间和空间完全崩.
+我不确定我记得的&quot;生活&quot;中有多少是真实的, 有多少是幻觉.
+我被存在的虚幻性感所征服.
+我在此刻所做的一切都是一个计划,
+我开了眼睛.
+我可以看到我自己的身体在我的视野下方,我的朋友在左边和辅导员在右边.
+我身上的树木闪着比真实的光更真实的光.
+我不知道发生了什么或我看到的是什么.
+然后我意识到, 我就是所有发生的事情.
+我是那个躺在毯子上的人,那个促进者,那个制造了这些神奇分子的,我周围的巨石,每一滴曾经落在地球上的雨水,
+这一切都是玛雅的梦, 梦者正在醒来.
+在那一刻,我知道&quot;我&quot;正在死亡.
+尸体躺在地上永远不会再起身, 事实上那个尸体, 和所有这些共识的现实,
+电影结束了,是时候回家了.
+没有恐惧,没有忧虑,没有焦虑.
+因为我没有留下任何东西.
+这一切都是经验的教训,
+所有事情都导致了这一点.
+到了离开的时候了.
+这种意识是无限次循环的.
+我会成为&quot;我&quot;,然后我会意识到没有&quot;我&quot;,然后我会知道我正在死去/存在的幻觉正在结束,
+我再次闭上眼睛,放手.
+我没有任何英语词来形容这种感觉,
+纯粹的幸福,纯粹的接受, 所有我以前认为好的和坏的世界.
+只是接受现状.
+后来我开始回归自己, 意识到我实际上是一个与其他时空有着不同的存在的人,
+提供者给我一些薄荷香水洗手,
+我把它倒在我的手上,并把它带到我的脸上.
+这种气味让我更深入地认识&quot;我&quot;作为一个独特的存在.
+我把双腿放在巴达康萨纳姿势 (我不知道这个姿势叫什么,
+我笑了笑,拒绝了.
+我笑了笑,拒绝了.
+我看着周围的岩石, 它们完全被令人难以置信的细节雕刻所覆盖.
+这种风格主要是阿兹特克人的,
+我可以转过头来看, 却看不到任何变化.
+他们只是存在.
+我终于明白了为什么一个人要花一子在石头上刻画,
+对于一种通常被认为不是特别视觉的药物, 我对我所看到的印象非常深刻.
+随着时间的推移, 我开始把毒品经历和我的&quot;真实&quot;生活拼起来,
+我在手机上查看脸书, 只是为了确认我不确定背景故事的重要部分.
+现在我正在经历的事情并不是真的发生 (我相信这就是5个圈子所说的&quot;重新激活&quot;).
+我心跳非常快 (我怀疑是在实现的循环中).
+我需要更多的身体健康, 尤其是心脏运动.
+尽管我仍然相信药物通过激活大脑中的受体来起作用,
+这感觉不像是药物,
+虽然我仍然认为希腊唯物主义者是对的,
+发布时间:2018年7月13日
+青毒 (46):小组 (2-9) (17),宿醉 / 几天后 (46),导游 / 护理 (39),神秘体验 (9),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>First Full Toad Breakthrough
+Toad Venom
+by
+Cuauhtémoc
+Citation:   Cuauhtémoc. &quot;First Full Toad Breakthrough: An Experience with Toad Venom (exp112103)&quot;.
+Erowid.org
+. Jul 13, 2018. erowid.org/exp/112103
+DOSE:
+1 hit
+smoked
+Toad Venom
+(dried)
+BODY WEIGHT:
+195 lb
+I wanted to start off this trip report with a brief summary of who I am, and where I was at in terms of my substance use going into this experience. I’m a late-30s professional, working full time in a field I love. I wasn’t looking for any ‘escape’ from my life by seeking out Sapo. Philosophically, I’m a materialist (in the Democritus and Leucippus sense). I believe the physical world is what exists, and drugs work by interacting with certain neural receptors. Although raised religious, I do not believe in any God or Gods. I have had many, many years experience with a variety of psychedelic drugs, including LSD, Psilocybin, most of the 2C family, MDMA, DMT, and Mescaline (plus a half dozen or so more exotic research chemicals in my youth). I have also tried low-dose synthetic 5-MEO-DMT on several occasions. At this point, I only use psychedelics every few years, but I am in no way a novice to these headspaces.
+The setting for this was an old Mexican archeological site, home of a native village thousands of years ago. Surrounded by giant boulders showing unmistakable signs of being used for untold millenium as grinding stones, under a massive torote tree, far from any disturbance.
+I was with two other people, my friend who had arranged the session, and a respected Mexican facilitator.
+Ambient music was turned on at a low volume. The facilitator knelt down next to me with the loaded pipe (dose unclear, bowl was packed by facilitator). He gave a short talk about the importance of knowing I was safe, that they would watch over me, and that I should surrender to the experience. He told me to be careful to not inhale the burning Sapo, and that we would start with a smaller dose, and I could take more in a half hour or so if I wanted to go deeper. Keeping his warning in mind, I inhaled slowly, but deeply. The smoke had a pleasant taste, not at all like the burning plastic sensation so common with NN-DMT. I handed the pipe back to him, and laid back on the sleeping bag while still holding the smoke in my lungs, and closed my eyes.
+Before I even exhaled, things were beginning to change rapidly. My sense of time began to slow, a distinct vibration sense overtook me
+My sense of time began to slow, a distinct vibration sense overtook me
+, and an infinite field of undulating eyes, reminiscent of an Alex Grey painting, was clearly visible, as clear as I’ve ever seen anything with my eyes open and sober.
+I let the smoke out of my lungs.
+At that moment, time and space collapsed entirely. I was unsure of how much of my ‘life’ that I remembered was real, and how much was delusion. I was overcome with the sense of the illusory nature of being. That everything I had done up to this moment had been a program designed to bring me to this exact moment, that in fact this moment was the purpose of that program. I opened my eyes. I could see my own body in my lower field of vision, my friend to the left and the facilitator to the right. The trees above me shimmered with a light far more real than real light. I had no idea which part of what was happening or what I was seeing was ‘me’. Then the realization came, that I was ALL of what was happening. I was the person lying on the blanket, the facilitator, the toad which had made these magical molecules, the boulders around me, every drop of rain that had ever fallen on the planet, every speck of dust in the distant cosmos. That it was all Maya, a dream, and that the dreamer was waking up. In that moment, I knew that ‘I’ was dying. That the body laying on the ground would never get up again, that in fact that body, and all of this consensus reality, was simply vanishing back into The Source. The movie was over, and it was time to go home. There was no fear, no worry, no angst. Because I wasn’t leaving ‘anyTHING’ behind. It had all been a lesson, to experience being, and to reach this moment. Everything had led up to this. And it was time to go. This realization looped an infinite number of times. I would be ‘me’, then I would realize there was no ‘me’, and then I would KNOW that I was dying / that the illusion of being was ending, and then I was ‘me’ having the realization again.
+I closed my eyes again, and let go. I don’t have any English word to describe this feeling, but I’m sure there’s a long one in Sanskrit that might apply. It was pure bliss, pure acceptance, of all that I had previously considered both good and bad in the world. It was accepting it all, as it is.
+As I started to come back in to myself some time later, and realize I was in fact a person who had distinct existence from the rest of all space-time, I sat up. The facilitator gave me some minty smelling water to wash my hands with, and said ‘cleanse yourself’. I poured it on my hands, and brought it to my face. The smell helped to bring me further in to ‘me’ as a distinct being. I brought my legs together in the Baddha Koṇāsana posture (I had no idea what this was called, I Googled it as I was writing this report), and could feel the alignment of my spine grounding me to this world. The facilitator asked if I would like to try a larger hit, and I laughed and declined.
+The facilitator asked if I would like to try a larger hit, and I laughed and declined.
+I looked over at the boulders that surrounded me, and they were totally covered in incredibly detailed carvings. The style was mostly Aztec, with lots of skulls and serpents. I could look away and look back, and they stayed totally unchanged. They just WERE. I finally understood what would cause a person to spend a lifetime chiseling at stone to bring their vision into the world. For a drug generally considered to be not particularly visual, I was pretty damn impressed with what I was seeing.
+As more time passed, I started to piece together what had been the drug experience, and what was my ‘real’ life, but it took quite a while to feel sure of that. At an hour in I was on my phone checking Facebook, just to confirm major parts of my back story that I was unsure about.
+I’m still, a few days later, having flashes that maybe I’m still in that place where time collapsed, and this thing I’m experiencing now isn’t really happening (I believe this is what is being referred to in 5 circles as ‘reactivation’). Physically the session felt taxing, and the facilitator said my heartbeat was incredibly fast at one point in the experience (I suspect during the loops of realization). This has made me realize I need to work more on my physical health, particularly cardio.
+Although I still believe that drugs operate by triggering receptors in the brain, I will admit that my agnosticism on this front has been shaken. This did not feel like a drug, it felt like remembering. And while I still think that the Greek materialists were right, I’m hoping more and more they were wrong.
+Exp Year: 2018
+ExpID: 112103
+Gender: Male
+Age at time of experience: 37
+Published: Jul 13, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Toad Venom (46) : Small Group (2-9) (17), Hangover / Days After (46), Guides / Sitters (39), Mystical Experiences (9), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

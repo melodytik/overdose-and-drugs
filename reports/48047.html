@@ -1,0 +1,197 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>龙 - 虫 - &quot;轻微的呼吸经验&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bromo-dragonfly.html'>← Bromo-Dragonfly</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>龙 - 虫 - &quot;轻微的呼吸经验&quot;</h1>
+<div class='sub-title'>Bromo-Dragonfly - Erowid Exp - &#x27;Mild Experience with Insufflation&#x27;</div>
+<div class='meta'>作者：Pelleus Citation · 日期：Dec 15, 2005 · <a href='https://erowid.org/experiences/exp.php?ID=48047' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>据称B-DFLY是从网上合法药品销售商购买的.
+它以粉末的形式出售,用填充剂稀释,使200毫克的包装含有200微克的活性物质.
+我没有让粉末分析其含量,但我从同一供应商购买了其他优质物质.
+经过阅读几个人从同一供应商购买相同物质的报道后,我得出结论,300微克 (一半袋粉末如上所述) 吸入实际上不会是一个鲁的剂量,尽管B-DFLY据传是更高的功效基于其测量功效作为5-HT2A受体激动剂.
+背景:在家里和一个亲密的朋友在一起.
+设置:非常好奇.
+我们吃了一块很好的鱼.
+我们每个人都用鼻腔注射了300微克B-DFLY.
+我开始感觉到一些东西.
+下面描述的效果在接下来的半小时内发展.
+时间+1点 (18点30分):影响明显但轻微.
+一些兴奋;事情比平时更有趣 - - 当我们坐在电脑前聊天和挖掘音乐时,
+感觉有一种轻微的迷幻感, 但唯一能看到的是一些非常微妙的闪的光效应.
+接下来的几个小时, 我们聊天, 喝了一瓶葡萄酒,
+在22点到23点之间, 效应减弱了.
+我的朋友得到了更温和的效果, 没有视觉效果.
+总体感觉是服用了一剂超值的迷幻药物.
+我发现最接近的比较是3毫克鼻内2C-B, 虽然这持续了比3毫克2C-B会持续更长时间.
+由于8毫克鼻内2C-B是中等强度的,良好的鼻内2C-B剂量, 我认为800微克B-DFLY鼻内将是个很好的剂量对我来说,
+我和我的朋友之前经历过300次, 但后果非常温和.
+所以我们几乎感觉不到的剂量对其他人来说可能是巨大的.
+附录 - 之前的经验:
+我曾在娱乐和/或实验中使用过的一些药物,按我个人偏好的顺序列出*:
+2C-T-2, 2C-B, DET, 2C-E, MDA+素**,安非他命,MDMA+素**, (Psilocybe semilanceata,Psilocybe cubensis,Copelandia cyanescens等),AMT,TMA-2,4-OH-DiPT,DMT,LSD,德克斯特罗米多芬 (DXM),神经的种子,氧化,Yopo,大麻,乙醇,Sativa,大麻印加,乙烯,Ipomoea violacea的种子,阿曼尼塔,Salvia divinorum
+不同类型的二胺 (弗鲁尼特拉塞帕姆,二胺,二胺),可卡因,1,4- 布坦迪醇,GHB,乙,DiPT,Papaver somniferum茶,DMT + Peganum harmala种子***,5- MeO- AMT.
+*) 基于各种变量,如愉快性,多功能性,纯粹的乐趣,洞察力和胃肠道副作用 (后者仅对5-MeO-AMT和组合DMT+P.
+我不再单独服用MDA或MDMA,
+然而,素很可能提供有效的保护 (例如,见Br J Pharmacol.
+2001年9月134日):46-57和J·克林精神药物.
+1993年6月13日) 时间:214-7).
+***) 除了E+fluoxetine,这是列表中唯一提到的组合,因为它的名气和我没有尝试P. harmala本身.
+以下物质我没有评估足够多次或足够的剂量将它们列入优先清单:B-DFLY,阿特罗宾,2C-T-4,ALEPH-7,TFMPP,Datura stramonium种子.
+我以前只用在医疗目的上的药物:素,素,克洛米普拉,巴斯皮龙,醇,素,佐尔皮.
+时间表: 48047
+虫 (349):一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Mild Experience with Insufflation
+Bromo-Dragonfly
+by
+Pelleus
+Citation:   Pelleus. &quot;Mild Experience with Insufflation: An Experience with Bromo-Dragonfly (exp48047)&quot;.
+Erowid.org
+. Dec 15, 2005. erowid.org/exp/48047
+DOSE:
+T+ 1:00
+repeated
+oral
+Alcohol - Beer/Wine
+(liquid)
+T+ 0:00
+300 ug
+insufflated
+Bromo-Dragonfly
+(powder / crystals)
+BODY WEIGHT:
+87 kg
+The alleged B-DFLY was bought from an internet seller of legal drugs. It was sold in powder form, diluted with a filler so that a package of 200 milligrams contained 200 micrograms of active substance. I have not had the powder analyzed for its content, but I have bought other substances of good quality from the same supplier.
+After having read several peoples reports of the same substance bought from the same supplier, I came to the conclusion that 300 micrograms (one and a half bag of powder as described above) insufflated would actually not be a reckless dose, despite B-DFLY being rumoured to be of higher potency based on its measured efficacy as a 5-HT2A receptor agonist.
+Setting: at home with a close friend.
+Set: very curious.
+T - 0:30 (17.00): We ate a fine piece of smoked salmon.
+T + 0:00 (17.30): We each took 300 micrograms of B-DFLY intranasally.
+T + 0:30 (18.00): I began to feel something. The effects, described below, developped over the next half hour.
+T + 1:00 (18.30): The effects are evident but mild. There is a certain euphoria; a calm, centrally stimulated feeling (not tense in the body); a little excitement; things are more fun than usual - when we sat there in front of the computer and talked and dug music, I laughed to all sorts of things. There was a certain mild psychedelic feeling, but the only visuals I got were some very subtle, shimmering light-effects in the background. We spent the next few hours talking, sharing a bottle of wine and a juicy chunk of entrecôte; watched DVD and drank a few beers. Between 22.00 and 23.00, the effects subsided. My friend got even milder effects, and no visuals at all.
+T + 6:00 (23.00): Down to baseline by now, except for some mild alcohol inebriation.
+The overall feeling was of taking a just-over-threshold dose of a psychedelic. The closest comparision I find is 3 mg intranasal 2C-B, though this lasted longer than 3 mg 2C-B would have lasted. Since 8 mg intranasal 2C-B is a moderately strong, good dose 2C-B intranasally, I think that 800 microgram B-DFLY intranasally would be a good dose for me, arbitrarly assuming the same, quite steep dose curve that 2C-B has. Needless to say, this goes for me and my friend, with the previous experience of 300 with very, very mild effects. B-DFLY seems to be an extremely variable drug, so the dosage we barely felt is perhaps a whopping one for someone else.
+Appendix - previous experience:
+Some drugs I’ve used recreationally and/or experimentally, listed in my personal approximate order of preference*:
+2C-T-2, 2C-B, DET, 2C-E, MDA+fluoxetine**, amphetamine, MDMA+fluoxetine**, psilocybian mushrooms (Psilocybe semilanceata, Psilocybe cubensis, Copelandia cyanescens etc.), AMT, TMA-2, 4-OH-DiPT, DMT, LSD, dextromethorphan (DXM), Argyria nervosa seeds, nitrous oxide, Yopo, ethanol, Cannabis Sativa, Cannabis Indica, diethylether, Ipomoea violacea seeds, Amanita muscaria, Salvia divinorum, various benzodiazepines (flunitrazepam, diazepam, oxazepam), cocaine, 1,4-butanediol, GHB, ephedrine, DiPT, tea from Papaver somniferum, DMT + Peganum harmala seeds***, 5-MeO-AMT.
+*) based on such different variables as pleasantness, versatility, sheer fun, insight potential and gastrointestinal side-effects (the latter being extreme and place-determining only for 5-MeO-AMT and the combination DMT + P. harmala).
+**) I do not take MDA or MDMA alone anymore due to their known serotonergic neurotoxicity. However, fluoxetine most probably offers a working protection (see for example Br J Pharmacol. 2001 Sep;134(1):46-57 and J Clin Psychopharmacol. 1993 Jun;13(3):214-7).
+***) Except for E+fluoxetine, this is the only combination mentioned in the list, for the reasons of its fame and that I’ve not tried P. harmala by itself.
+The following substances I have not evaluated enough times or in enough dosage to include them in the preference list: B-DFLY, atropine, 2C-T-4, ALEPH-7, TFMPP, Datura stramonium seeds.
+Lastly, some drugs I have previously used only for medical purpose: fluoxetine, fluvoxamine, clomipramine, buspirone, propranolol, propiomazine, zolpidem.
+Exp Year: 2005
+ExpID: 48047
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 15, 2005
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Bromo-Dragonfly (349) : General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,384 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;危险上,但很棒&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-methylmethcathinone.html'>← 4-Methylmethcathinone</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;危险上,但很棒&quot;</h1>
+<div class='sub-title'>4-Methylmethcathinone - Erowid Exp - &#x27;Dangerously Addictive, but Awesome&#x27;</div>
+<div class='meta'>作者：Fazer Citation · 日期：May 27, 2009 · <a href='https://erowid.org/experiences/exp.php?ID=76345' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>(4-甲基甲基丁在审查中被称为梅)
+一个.
+序言 - - 我是如何接触到毒品的.
+我搬到了另一个城市学习, 得到了自己的公寓,
+我们都19岁了, 享受了新发现的单身生活自由.
+我觉得自己更像个成年人,
+我喜欢独自生活的自由, 没有人告诉我该做什么.
+我很快在新城里交了很多新朋友,
+我朋友E没用多个小时就订购了2g来试试.
+我朋友叫我去他家.
+半个小时后, 我在他的公寓外面敲门.
+他邀请我进入他的小单间公寓, 首先引起我的注意的是一个带有白色粉末的CD盒.
+他告诉我他已经试过前一天,
+我很惊他能控制自己, 没有再服用药物,
+我坐在朋友旁边的椅子上, 他尽可能小心地把它分成小堆.
+我选择了与他相同的剂量.
+我在鼻子里感觉到一种非常尖的疼痛,
+这是我第一次使用中枢神经系统刺激剂.
+我不得不承认, 吹出白色粉末感觉有点酷,
+我们在网上放松了心, 大部分时间都静静地看着有趣的视频,
+2. 在
+开始 - - 事情开始发生 (T+10)
+我开始感到头脑空虚,
+我也感到非常轻松,清醒,对生活满意.
+我觉得我没有什么可担心的.
+我最突出的感觉是突然强烈地想说话.
+我不知道该怎么说, 因为我的大脑不断地产生新想法,
+我终于决定要谈什么,
+在我的句子中间我的头脑完全空白了,我忘了我想告诉他什么.
+我担心这种情况会在高后继续下去.
+他告诉我前一天他也经历过同样的事情,
+我觉得有所缓解和放松.
+我们开始谈论女孩,
+这时,时间开始比以往任何时候都快.
+我在做一些简单的事情,
+我们决定再服用250毫克, 这次是口服.
+需要重新服用药物是非常非常强烈,
+我们都把它吞下来, 继续谈论女孩.
+我们都没有吃过任何东西超过12小时.
+半小时后, 我开始感觉到前面的冲动,
+经过15分钟的时间,
+我感觉到之前所有的感觉,
+我们的谈话从女孩转向性.
+我通常不愿与任何人谈论我的私人生活,
+我们开始谈论我们失去了童时,我们做了谁,最好的吸管等等.
+很高兴能更多地了解一个童年朋友的想法和感受.
+我甚至敢说, 经过这次梅德龙的经历, 我们的关系比以前更紧密.
+我对他有很大的信心.
+我觉得我已经无法坐下了.
+我只想在埃尔的公寓墙壁之间跳跃.
+我有太多的能量, 只是愚蠢的, 感觉好像我可以为世界提供一年的电力
+我站起来伸出双手,
+我告诉他我想知道我能保持这个位置多久,
+,我厌倦了站在那里,但我觉得没有任何努力保持我的手臂,我只是感到无聊.
+这种几乎无限的能量与极度轻的感觉相结合,
+我觉得我可以像哈尔克一样跳跃,
+我没有跳下去, 因为我们在里面,
+如果我试图跳下, 我可能会失望, 意识到我实际上没有像哈尔克这样的品质 (这将是一个非常毁灭性的打击).
+3. 没有.
+视力变化 - (T+5:00)
+第二剂的效果开始减弱, 但几乎没有被注意到.
+我立刻觉得需要使用更多.
+我告诉E, 但他说我们应该等到最后一剂完全消退.
+经过一段时间后,我不再感觉到任何影响,他也一样.
+我们决定每人摄入250毫克,等待半小时,然后再注入每人125毫克.
+我从来没有想过要放松一下, 感觉良好和像哈尔克一样是我现在唯一想到的事情.
+当最新的375毫克的全部效果在我身上, 我开始感到奇怪.
+现在我脑袋的消失感更令人恐惧,
+我决定坐下,闭上眼睛 (自从我伸出手臂的实验以来,
+坐着对我来说是太放松了.
+我试着与E说话, 放松一下,
+我对自己说,这可能是如此大剂量的完整效果,
+我打开眼睛看看E在做什么,
+我可以专注于房间里的其他东西,
+无论我离它有多近或多远,
+我可以轻松地专注于他的房间里的其他物体.
+我试着用近距离和远距离的物体进行&quot;聚焦练习&quot;.
+我试图专注于他的电影海报时, 我注意到一种微妙的幻觉.
+照片显示5名男子站在对面,
+想象一下把5个物体放在一起,然后把中间的物体移向前方.
+然后往右往左走, 看着它隐藏着其他物体.
+我觉得这种效应很难描述,尽管它并不复杂.
+我转向另一个角度,
+确实是
+我看到那个漂浮的角色隐藏着左边或右边的人,
+他告诉我他也曾经在第一次尝试时 (前一天) 幻觉.
+他告诉我,海报上的一个角色一直在吐唾.
+我从海报上转眼, 恢复正常,
+我们又开始谈论同一个话题 (女孩).
+我们都不厌倦,继续前进.
+我们继续聊了好几个小时, 我感觉比以前更好.
+我们完成时, 埃尔的魔术白粉袋已经空了, 太阳开始升起.
+总的来说,十个小时过去了,
+这十个小时最多就像两个小时.
+我尽快走回家, 希望能早点睡觉 (我不想整天睡觉, 晚上醒来,
+我根本没有睡觉.
+我真的很努力,但这是不可能的.
+我也试着吃一些但我不喜欢任何东西的味道,
+我的衣服也闻起来像梅.
+我猜我在晚上出汗了.
+4. 没有
+总结和结论
+积极影响:
+快乐,警觉增加,轻松的感觉,增加的社交能力,增加的能量
+中性作用:
+&quot;空&quot;的头,幻觉,无法对屏幕进行聚焦
+负面影响:
+严重影响短期记忆
+优点:
+在高潮的时候很棒
+缺点:
+很容易上
+似乎对某些材料有腐蚀性影响
+没有进行太多的研究,
+一般的想法:
+总的来说,这是一个非常愉快的经历,
+我几乎完全不感兴趣酒精作为一种中毒手段.
+现在已经有几个月了, 自从我喝醉了,我很高兴.
+我希望我偶尔使用的娱乐性药物比我以前每周末喝酒更有害.
+我也尝试过其他具有类似效果的物质 (MDPV,4-FMP),
+我不知道合法产品会有这么强大和令人上的效果 (在我写这篇文章的时候,
+我们只能继续前进, 直到没有什么剩下.
+我认为这药物最大的危险在于,
+我不认为这是事实, 因为有几份评论报告说它确实很容易上.
+另一个可能会让人使用过多的原因是, 降落/降落非常顺利, 很可能在良好的睡眠后感觉完全清新.
+现在我对待所有毒品都非常尊重, 因为我注意到其中一些毒品会让人上,
+我认为这对我来说是一个很好的开端药物,
+现在我写这篇结论部分的时候, 我已经对梅德龙有了更多的知识和经验.
+我决定把这个部分包括在内, 主要是为了帮助那些从未使用过兴奋药物的人 (在这种情况下是梅).
+我已经读了很多关于它的文章,
+我希望有人会发现它有用.
+一个.
+当你觉得你不再有任何效果时,不要增加剂量,停下来.
+我会尽可能少地使用它.
+为了自己的利益,
+否则你将不得不处理长期的渴望更多.
+2. 在
+不要使用相同的鼻孔 (duh) 并尝试将吸入与另一种注射方法相结合.
+我发现在短时间内使用大量药物后, 在寒冷的天气中通过鼻子呼吸会很痛苦.
+3. 没有.
+在分量时不要使用对您很重要的卡片 (即信用卡,驾驶执照等).
+它们会受损并停止工作.
+如果您的皮肤上有任何污染,
+4. 没有
+别低估它的成性.
+有些人觉得它比可卡因和/或安非他林更糟糕,
+如果你能控制这种情况, 很有可能你能控制大多数成.
+(我甚至会称之为一个成就,
+五个
+首先使用小剂量,看看是否会出现不良反应.
+对于任何你不熟悉的物质,
+六个
+经过口服和20-30分钟后的补充呼吸,
+七个
+这是一种RC (研究化学品), 关于致死性,长期健康方面,危险组合等信息非常有限.
+如果您担心自己的健康,
+没有.
+如果你开始牙 (牙) 你可能会在第二天诅咒自己没有买.
+我还发现有助于记住那些我需要记住的东西.
+换句话说, 简单地告诉我在做这件事的时候不该做什么.
+我往往很容易忘记当我高.
+没有.
+最后,但并非最不重要的是, 记住你可能会在使用后的第二天闻起来很怪异.
+如果你想避免问题,尽快洗.
+根据使用量, 你也可能会注意到几天后你的汗水有不同的气味, 至少我是这样做的.
+有些人还报告了引起灼热感的红疹.
+也许是梅弗德龙引起这些烧伤, 因为它是通过皮肤流汗?
+在使用完后, 仔细擦拭和保持卫生也可能是件好事.
+法律绝对不等于安全.
+梅菲德龙就是一个完美的例子.
+合法物质通常很少或根本没有进行研究.
+在你决定尝试之前,
+其他:
+4-甲基甲基 (458):小组 (2-9) (17),成和习惯性 (10),回顾 / 总结 (11),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Dangerously Addictive, but Awesome
+4-Methylmethcathinone
+by
+Fazer
+Citation:   Fazer. &quot;Dangerously Addictive, but Awesome: An Experience with 4-Methylmethcathinone (exp76345)&quot;.
+Erowid.org
+. May 27, 2009. erowid.org/exp/76345
+DOSE:
+T+ 0:00
+125 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 0:00
+250 mg
+oral
+4-Methylmethcathinone
+(powder / crystals)
+T+ 5:00
+250 mg
+oral
+4-Methylmethcathinone
+(powder / crystals)
+T+ 5:30
+125 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 0:00
+125 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 0:00
+125 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+BODY WEIGHT:
+75 kg
+(4-Methylmethcathinone is referred to as mephedrone in the review)
+1. Prologue - How I came into contact with drugs.
+When I moved to another town to study, I got my own apartment, and so did a close friend of mine, ”E”. We were both 19 years old and we enjoyed the new-found freedom of living alone. I felt more like a grown up, doing all necessary tasks that had been done for me by someone else earlier. I liked the freedom of living alone, no one telling me what to do.
+I quickly gained many new friends in my new town and it didn’t take long until me and my friend E heard of mephedrone. It didn’t take many hours for my friend E to order 2 g to try it out. A couple of days later the shipment had arrived and my friend told me to come on over to his place.
+About half an hour later, I was outside his apartment and rang the doorbell. He invited me into his tiny one-room apartment and the first thing that caught my eye was a CD-case with white powder on top of it. He told me he had already tried it the previous day, and that it was great. When I think back at this (I’m amazed he controlled himself and didn’t re dose now that I’ve experienced the feeling myself.)
+I sat down at a chair next to my friend as he tried to, as carefully as possible, divide it into smaller piles. My friend started by insufflating 125 mg and I chose the same amount as he. When I insufflated it I felt a quite sharp pain in my nose that got me worried, but my friend told me it was supposed to hurt a bit. So far so good, my first time with a central nervous system stimulant. It felt kinda cool and ”forbidden” to insufflate the white powder I must admit. E placed the remaining mephedrone aside, and we both relaxed while browsing the internet, mostly being quiet and laughing at funny videos.
+2. Onset - Things are starting to happen (T+10)
+My head is starting to feel empty and light, as if someone suddenly removed my brain. I also feel very light, alert and pleased with life. It felt as if I had nothing to worry about. The most prominent thing I felt though, was a sudden and strong urge to talk. I didn’t know what to say though because my brain was constantly generating new ideas and I forgot the old ones very quickly.
+When I finally managed to decide what I wanted to talk about, I opened my mouth and began to speak. In the middle of my sentence my mind went completely blank and I forgot what I wanted to tell him. My short term memory was severely impaired and I feared that it would continue after the high too. I told my friend about my problem and he told me he experienced the  same thing the day before and that his memory was back to normal today. I felt relieved and relaxed again.
+Somehow, we started talking about girls, mainly famous ones. This is when time started to rush by faster than I had ever felt before. I was having the time of my life, doing something as simple as just talking to a close childhood friend. Somewhere in this conversation we both felt the effects diminish and we decided to take an additional 250 mg each, this time orally. The need to re dose was very, very strong, nothing like I’d ever experienced before. We both swallowed it all in a piece of toilet paper and continued our conversation about girls. None of us had eaten anything at all for more than 12 hours at this point.
+About 30 minutes later, I started to feel the rush from before, but more subtle this time. After fifteen more minutes things were really starting to happen. I feel all the feelings from earlier, except this time it felt like they had been multiplied numerous times. Our conversation changes from girls to sex. I’m usually uncomfortable talking about my private life to anyone, but now it just felt right and easy to talk about. We started talking about when we lost our virginity and to whom we did, best blow job and so on. It was nice to get to know more about a childhood friend, his thoughts and feelings. I even dare to say that after this experience with mephedrone, we have a closer relationship than before. Furthermore, I feel that I can trust him with anything and I feel comfortable speaking my mind to him.
+About an hour after the latest refill dose, I feel that I can no longer sit down. I simply CAN’T sit down, I just want to bounce between the walls of E’s apartment. I’ve got so much excess energy that it’s just silly, it feels as if I could supply the world with electricity for a year by only running in a hamster wheel for five minutes. I stand up and stretch my arms out so that it looks like I’m nailed to a cross. E wonders what the hell I am doing, and I tell him I wanted to know for how long I can hold this position without getting tired. Well, I got tired of standing there, but I felt no effort at all to keep my arms up, I simply got bored. This feeling of next to limitless energy combined with the feeling of being extremely light was really awesome. It felt like I could jump like The Hulk with next to no effort. I didn’t jump though, because we were inside and apparently it’s in the middle of the night at this point. If I would have tried to jump I would probably just be disappointed anyway, realizing that I actually have no Hulk-like qualities at all (that would be a too devastating blow).
+3. Altered vision -   (T+5:00)
+The second dose is starting to diminish in its effects, but it is barely noticeable. I instantly feel the need to use more. I tell E, but he says that we should wait until the latest dose has worn off completely. Some time later I feel no effects anymore and neither does he. We decide to ingest 250 mg each, wait for half an hour and then insufflate another 125 mg each. The thought to take it easy never crossed my mind, feeling good and Hulk-like was the only thing on my mind now.
+When the full effect of the latest 375 mg are upon me, I start to feel weird. The feeling that my brain is gone is now more frightening than funny and pleasant. I decide to sit down and close my eyes (I’d been standing up since my experiment with stretching my arms out. Sitting was just too relaxing for me). I talk to E as I try to relax, and after a few minutes I don’t feel weird anymore. I thought to myself that it was probably the full effect of such a large dose that caught me by surprise.
+I opened my eyes to check what E is doing but I can’t focus on the monitor. I&#x27;m able to focus on everything else in the room though, but not on the screen. It didn’t matter how close or far away from it I was, it was simply impossible for some reason.
+The feeling of being unable to focus didn’t worry me, since I could focus on all the other objects in his room with ease. I tried this ”focus exercise” on objects close and far away. When I try to focus on one of his movie posters, I notice some sort of subtle hallucination. The picture shows 5 men standing next to each other, facing the &#x27;cameraman&#x27;. I get the feeling that one character is ”floating” in front of the others (Imagine putting 5 objects next to each other and then moving the middle one a bit forward. Then walk left and right and watch as it hides the other objects. I find this effect hard to describe, even though it is not complicated at all). I move myself to another angle to see if that is the case. It was. When I moved I saw the floating character hide the people on the left or right of him, depending on if I was looking at it from the left or right.
+I tell E what I saw and he tells me that he, too, got hallucinations the first time he tried (one day earlier). He told me that the one of the characters at the poster had been spitting on him. I look away from the poster and I get back to the normal, but still high, me. We start talking again, still about the same subject (girls). Neither of us tired of it and we continued as before. We kept talking for many more hours and I felt better than before.
+When we were done, E’s bag of magic white powder was emptied and the sun was starting to rise. All in all, ten hours had gone by I had consumed a little less than 1 g of mephedrone. These ten hours felt like two hours, at most.
+I said goodbye to my friend and walked home as quickly as possible, hoping to get some sleep before it was too late (I didn’t want to sleep in all day and waking up at night because then I would have a hard time ”resetting” to normal in time for school). I didn’t get any sleep at all. I tried really hard but it was impossible. I also tried to eat some but I didn’t like the taste of anything and found it hard to swallow. My clothes also smelled of mephedrone. I guess I sweated it out during the evening.
+4. Summary and conclusion
+Positive effects:
+Euphoria, increased alertness, feeling of being light, increased social ability, increased energy
+Neutral effects:
+&#x27;Empty&#x27; head, hallucinations, unable to focus at a screen
+Negative effects:
+Severely impaired short term memory
+Pros:
+Awesome when high
+Cons:
+Very addictive
+Seems to have corrosive effects on certain materials
+Not much research has been conducted, making it unreliable
+General thoughts:
+Overall it was a very pleasant experience, alot better than I had imagined it would be. After this I&#x27;ve almost lost complete interest in alcohol as a means of intoxication. It&#x27;s now been several months since I drank myself to a stupor which I&#x27;m very happy with. I hope my occasional use of recreational drugs are less harmful than drinking every weekend as I used to. I&#x27;ve also tried other substances with similar effects (MDPV, 4-FMP), but so far they have all disappointed me when I compare them to mephedrone.
+I had no idea something legal could be this powerful and addictive (At the time I&#x27;m writing this it&#x27;s been made illegal). Neither me or E felt that we should stop, we simply kept going until there was nothing left. This is, according to me, the biggest danger with this drug; one doesn&#x27;t seem to realize or even notice when one has crossed the line, until it&#x27;s too late. Maybe we (Me and E) just have bad self control, but I don’t think that&#x27;s the case, since several reviews report that it indeed is highly addictive.
+Another reason that might make one use this too often, is that the landing/comedown is very smooth and it&#x27;s quite possible to feel fully refreshed after a good night&#x27;s sleep. I would say the best thing that came out of this experience for me, is that I now treat all drugs with the utmost respect since I’ve noticed how addictive some of them are, not to mention deadly. I&#x27;d say this was a pretty good &#x27;starter drug&#x27; for me that opened my eyes.
+At the time I&#x27;m writing this conclusion-part, I&#x27;ve gained more knowledge and experience about mephedrone. I decided to include this part mainly to help people who never have used a stimulating drug before (in this case mephedrone). I&#x27;ve read quite a lot about it and here I just summarized what I have learned. I hope someone will find it useful.
+1. When you feel that you no longer get any effect, don&#x27;t increase the doses, just stop. I would try to use it as infrequently as possible. When you do use it, be moderate, for your own sake. Otherwise you will have to deal with a lengthy period of longing for more.
+2. Insufflating this drug will wear on your nostrils quite a bit. Don&#x27;t stick with the same nostril (duh) and try to combine insufflating with another method of administration. I&#x27;ve found it painful to breathe through my nose in cold weather after using large amounts over a short period of time.
+3. Don&#x27;t use cards that are important to you while portioning (i.e. credit cards, driving license etc.). They will get damaged and stop working. If you get any on your skin, wash it away as fast as possible, just to be on the safe side.
+4. Do NOT underestimate its addictiveness. Some find it worse than cocaine and/or amphetamine and the feeling that you need more of it may last for several weeks. If you can control this, chances are you can control most addictions. (I&#x27;d go so far as to call it an achievement when you&#x27;ve gained full control and can tell yourself to stop at any time.)
+5. Start out with a small dose to see if you notice adverse effects. Always do this with any substance that is new to you.
+6. Oral administration and a follow-up insufflation 20-30 minutes later really got me going.
+7. This is a RC (Research Chemical) with very limited information about lethality, long term health aspects, dangerous combinations etc. I would not recommend using this substance at all if you are concerned about your health.
+8. Buy chewing gum! If you start clenching your teeth (bruxism) you will probably curse yourself the next day for not buying it. Another thing I have found useful is putting up post-it&#x27;s with different things that I might need to remember while I&#x27;m high. I usually put up a lot of &#x27;DON&#x27;T..&#x27;-notes, in other words, notes that simply tell me what NOT to do while I&#x27;m at it. I tend to forget easily while I&#x27;m high.
+9. And last, but not least, keep in mind that you might smell weird the day after using. If you want to avoid questions, shower as soon as possible. Depending on how much you use, you might also notice that your sweat smells differently several days after, at least I did.
+Some have also reported red rashes that cause burning sensation. Maybe mephedrone causes these burns as it is perspired through the skin? Scrubbing and maintaining your hygiene extra carefully might also be a good thing to do after you&#x27;ve used.
+Don’t be naive like I was, legal does absolutely NOT equal safe. Mephedrone is the perfect example for this. Legal substances often have little or no research at all performed on them. Use caution and read a lot about it before you decide to try it out.
+Exp Year: 2009
+ExpID: 76345
+Gender: Male
+Age at time of experience: Not Given
+Published: May 27, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-Methylmethcathinone (458) : Small Group (2-9) (17), Addiction &amp; Habituation (10), Retrospective / Summary (11), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

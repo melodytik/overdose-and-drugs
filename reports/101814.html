@@ -1,0 +1,246 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>烟草和克拉 - 埃罗维德的故事</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tobacco.html'>← 烟草</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>烟草和克拉 - 埃罗维德的故事</h1>
+<div class='sub-title'>Tobacco &amp; Kratom - Erowid Exp - &#x27;The Quit Smoking Usig Kratom Story&#x27;</div>
+<div class='meta'>作者：SeroZero Citation · 日期：Sep 17, 2014 · <a href='https://erowid.org/experiences/exp.php?ID=101814' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>美国
+我是一名23岁的法学学生,
+由于我独自生活, 我还以兼职联邦办公室无人机为生.
+我从未在私营部门工作中遇到过这样的情况.
+我认为是因为机器太大了,
+我们大部分时间都在做无关紧要的工作 (招聘指南甚至告诉你,
+在这种文化中, 毒品的使用是无处不在的,
+这在日本的&quot;工薪人&quot;文化中得到了充分的体现, 在那里, 办公室工作者经常在晚上或早晨在火车或地铁上被发现,
+简而言之,许多公务员吸烟,
+虽然这只是从观察和经验来看,但吸烟成/酒的比例似乎远高于人口的平均样本.
+我从来不理解为什么上述任何一种都吸引任何人, 直到我沉迷于第一种 (我从来不喜欢第二种).
+我从来不喜欢大麻, 这是一种习惯 (我每天服用6个月),
+像大多数人一样, 我从来不想成为尼古丁成者.
+没有预警就突然向我走来.
+这是一个非常阴险的.
+开始时,我偶尔从一个同事那里抽一支香烟.
+充满烟雾的肺部会让人感到活着.
+对于我来说,
+我喜欢烟雾在我的肺部中舞蹈的温暖感觉:我甚至想过抽猫,
+这让我感觉比平时更不空虚.
+除此之外, 尼古丁是一种强大的焦虑解消剂,
+很久以前, 我买了一包.
+我每天抽两支,但只有在工作中.
+在工作和家中,
+我会买更多的包装.
+我感觉很糟糕:易怒,昏昏欲睡,不舒服, 我一整天都感觉到那些臭名昭著的精神渴望,
+由于当时我吸烟仅仅几个月,
+我还没有准备好戒烟:
+我决定放弃当我在工作中点燃一个和感到难以置信的恶心 - - 同样的品牌,同样的情况.
+也许是一个坏的批量.
+无论如何, 这一经历让我头上一道灯泡闪: 我花了一笔钱慢慢地自杀.
+我不想在绝对必要之前死去.
+于是我开始了一次伟大的冒险:戒烟.
+虽然我很容易放弃我的大麻习惯, 我知道这将是一个不同的野兽因为我感觉如何当我跳过一天的修复.
+我试过几次冷火:一个完全和彻底的灾难.
+我从来没有经历过第三天.
+我认为这是因为我曾经吸过相当强烈的香烟 (经典的丹希尔斯,亨特S.
+普森的品牌).
+政府说吸烟的渴望只持续两到三分钟,
+我曾经计时过一次, 持续了大约20分钟.
+尤其是因为我感觉到他们如此强烈, 以至于我的脑海在20分钟内不停地在我的视野中投射出&quot;允许吸烟&quot;的标志 (一个绿色圆圈的点燃香烟).
+这不是幻觉,也不是视觉 - - 只是当你专注于一个想法时会发生的事情:你能在脑海中&quot;看到&quot;一个微弱的轮,
+我无法停止思考癌症棒, 不管我怎么努力.
+我在软弱的束下失败了,
+其他症状是昏迷, 脏的粘液覆盖着我喉的刺激部位,
+我女朋友对我很生气, 她告诉我去买一包, 在她发疯之前抽一包.
+这真是太好了!
+吸毒者最糟糕的梦.
+于是我继续买了更多的香烟.
+我试过使用贴片.
+戒烟可能比吸烟更昂贵.
+尼古丁贴片的价格完全过高,
+无论如何,这也没有起作用.
+皮肤会在被修补的部位出来.
+我被告知我对贴片过敏 (但不是烟?)
+最后, 刺的是, 答案在工作中出现.
+让我开始的地方也会让我放弃.
+另一位同事告诉我他正在使用的新草药,
+我曾经尝试过这种方法治疗季节性抑郁症,
+我发现我的短期记忆力受到影响, 就像吸食大麻一样.
+我感觉到身体充满了愉快的声,
+我可以很容易地进入&#x27;清醒梦&#x27;, 不睡觉, 梦想, 没有意识到任何一种意识状态,
+根据传统的使用方式, 克拉对于手工劳动 (以及办公室的无人驾驶) 非常好,
+我还读到它可以消灭尼古丁的渴望,
+我告诉我的同事给我两个星期的薪水, 并提供给他10美元的麻烦.
+他通常用囊, 但没有时间给我做, 所以他告诉我用眼球它使用一个细的药瓶 (我敢打你会得到阿提万一样).
+他通常会吃一瓶药, 但我只能吃一半到四分之三,
+我直接从瓶子里拿出来.
+这种东西味道像股, 但我发现如何采取它没有尝过太多:关闭你的眼球,平你的舌头,保持尖端下面的牙.
+然后把一些粉末的克拉倒在嘴里, 确保没有任何在你的舌头, 因为这就是什么触发吐反射.
+我终于能够在两次拍摄中服用我的剂量 - - 这是一种艺术.
+没有烟的第一天是幸福.
+我没有感觉到任何尼古丁的渴望, 和高兴感, 愉快的身体声和止痛特征Kratom确保我感觉没有身体不适除了喉中的粘液球.
+我感到高兴和有成效.
+我每隔两天服用一次,
+两周后, 我停止了 kratom, 从那以后我没有感觉到一个渴望.
+我在等待一周后, 为了好玩而抽了一支烟:
+现在我已经戒烟一个月了, 身体对此表示感谢:
+一些使用者表示,
+我试着在 kratom 的影响下吸烟 (当时我还在吸烟, 并没有戒烟) 我发现吸烟 kratom 使一个人渴望尼古丁比正常的几天/几周, 当一个人服用后续的 kratom 剂量.
+这也带来不舒服的恶心, 并不是很愉快.
+报告的结论就是:
+我可以说这甚至是愉快的.
+我希望这种美妙的草药能帮助其他尼科被俘的人!
+时间表: 101814
+克拉 (203),烟草 - 香烟 (266):一般性 (1),成和习惯性 (10),健康益处 (32),各种 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+The Quit Smoking Usig Kratom Story
+Tobacco &amp; Kratom
+by
+SeroZero
+Citation:   SeroZero. &quot;The Quit Smoking Usig Kratom Story: An Experience with Tobacco &amp; Kratom (exp101814)&quot;.
+Erowid.org
+. Sep 17, 2014. erowid.org/exp/101814
+DOSE:
+repeated
+smoked
+Tobacco - Cigarettes
+(daily)
+repeated
+oral
+Kratom
+(plant material)
+BODY WEIGHT:
+155 lb
+I am a 23 year old law student on his final year. Since I live alone, I also make a living as a part-time federal office drone. This is important because there is something about government work that sucks the soul out of its drones that I have never encountered working in the private sector before.
+I think it is because the machine is simply too big and one feels like an insignificant little piece working to achieve ends beyond his ability to even understand. We are mostly stuck doing insignificant work (the hiring guide even tells you that while the work you do might be considered childlike/crap/borderline useless normally, remember that you are in the service of a higher calling and yadda yadda) that entails no intellectual performance, no originality, no individuality. In that sort of culture, drug usage is rampant as the only steam valve available to open. This is made abundantly clear in, for example, the Japanese &#x27;salaryman&#x27; culture, where office workers are often spotted in trains or subways late in the night/early in the morning, drunk off their saddle and slumped over in a stupor after working impossibly long overtime hours that can stretch well in the double digits per day.
+Long story short, a lot of public servants smoke, and a lot of them drink. Although this is purely from observation and experience, the rate of smoking addiction/alcoholism seems much higher than in an average sample of the population. I never understood why any of the above was appealing to anyone, until I got addicted to the first (I never liked the second). I always was more of a cannabis guy, an habit (I partaked every day for 6 months) I had no difficulty whatsoever to kick.
+Like most people, I never really wanted to have a nicotine addiction. It crept up on me, without warning. It is very insidious. It started off by bumming a cigarette every now and then from a colleague on my break. There is something about filling your lungs full of smoke that makes one feel alive. It certainly did for me. I loved the warm feeling of the smoke dancing around in my lungs : I&#x27;ve even thought of smoking catnip just for that feeling. It just makes me feel so much less empty than usual.
+In addition, nicotine is quite the powerful anxiolytic, which really helps with the aforementioned anxiety from feeling so small, tiny and useless at work. A long time ago, I bought a pack. I&#x27;d smoke two a day, but only at work. Then it was three, then five, then eight, at work and at home. I&#x27;d buy more packs. One time, I didn&#x27;t have any smokes on a holiday where all the stores were closed. I felt like crap : irritable, sleepy/lethargic, uncomfortable in my own skin, and I felt those notorious mental cravings all day, and that is when I knew I was addicted. It didn&#x27;t bother me since I had been smoking for just a few months at that time.
+I was not ready to quit yet : smoking was just too convenient (and legal), especially at work. I decided to quit when I lit one at work and felt incredibly nauseous - same brand as always, same circumstances as always. Maybe it was a bad batch. Either way, that experience made a light bulb flare up above my head : I was paying a fortune to kill myself slowly. Nevermind the stimulating anxiolytic, nevermind the smoke in my lungs ; I don&#x27;t want to die any time before I absolutely have to.
+So on I went to a glorious adventure : quitting cigarettes. Even though I easily put aside my weed habit, I knew this would be a different beast because of how I felt when I skipped a day of fixes. I tried cold turkey a few times : a complete and utter disaster. I never made it past day 3. I attribute this to the fact that I used to smoke quite strong cigarettes (classic Dunhills, Hunter S. Thompson&#x27;s brand).
+The government says that cigarette cravings last just two to three minutes, I&#x27;m telling you this is complete and utter crap. I timed one once and it lasted around 20 minutes. That is a long time to go with only one thing on your mind, especially because I felt them so strongly that my mind would project the &#x27;smoking permitted&#x27; (a lit cigarette with a green circle around it) sign in my vision non-stop for those 20 minutes. It wasn&#x27;t an hallucination nor a visual - just what happens when you concentrate on a thought : you can &#x27;see&#x27; a faint outline of it in your head that translates into seeing it in your visual field. In this case, it was completely involuntary : I could not stop thinking about the cancer sticks, no matter what I tried. So I failed under the thrall of weakness and always ended up buying a pack.
+Other symptoms were lethargy, hacking up disgusting globs of mucus that coated my throat&#x27;s irritated areas and a general feeling of discomfort almost like fever. One notable case was when I was undergoing the classic irritability from nicotine withdrawal and my girlfriend was so annoyed with me she told me to just go buy a pack and smoke one before she went crazy. Sweet! Peer acceptance and rationalization : an addict&#x27;s worst nightmare. So, of course I went ahead and bought more smokes.
+I tried patches. Quitting smoking is perhaps even more expensive than just smoking. The pricing of nicotine patches is completely exorbitant and is quite near outright abuse. Anyway, that didn&#x27;t work either. Even on the weakest patches, my arm would hurt and feel very heavy and my skin would break out at the patched area. I was told I was allergic to the patches (but not the smokes?)
+Finally, the answer came, ironically, at work. The same place that made me start would make me quit. A colleague had told me all about kratom, this new herb he was using for his migraines. I had tried it in the past for seasonal depression and felt great. On the uptake, kratom makes me stimulated, euphoric, concentrated, and possessed of a misleading clarity of mind, because I find that my short-term memory is affected similarly to when I smoke pot.
+When I&#x27;m at the peak, I feel a very pleasant body buzz, kind of like being wrapped around a warm, soft blanket all day long. On the comedown, I feel relaxed but scatterbrained and my concentration takes a hit, and I can easily enter &#x27;waking dreams&#x27; where I&#x27;m not sleeping but dreaming while being unaware of either state of consciousness, which often causes me to jolt awake and open my eyes. So, in accordance to its traditional use, kratom is very good for manual labor (and office droning), but poor for studying as I find it can make one prone to forgetting material due to the impairment of short-term memory even though one feels very awake and mentally present - it can bring one to be quite overconfident in one&#x27;s retention, in fact. I&#x27;d also read it kills nicotine cravings, so I decided to try it more fully.
+I told my coworker to give me two weeks&#x27; worth and offered to pay him ten bucks for his trouble. He usually takes it capsulated but didn&#x27;t have time to make some for me, so he told me to eyeball it using a slim pill bottle (the same you&#x27;d get for Ativan, I&#x27;d wager). He usually took a full pill bottle but I took a half to three-quarters because I did not have any tolerance. I took it straight from the bottle with water. This stuff tastes like ass though, but I found out how to take it without tasting it too much : closing your glottis, flatten your tongue, keeping the tip under your bottom teeth. Pour water in your mouth, making it a recipient, then dump some powedered kratom, making sure not to get any on your tongue as this is what triggers the vomiting reflex for me. I ended up being able to take my dose in two shots at the end - it&#x27;s somewhat of an art.
+First day without smokes went like bliss. I did not feel any cravings for nicotine, and the euphoria, pleasant body buzz and painkilling attributes of Kratom ensured I felt no physical discomfort aside from the globs of mucus in my throat. I felt euphoric and productive. I took it every two days so as to not replace an addiction with another and also to acquaint my body with the feeling of having nothing psychoactive. Two weeks later, I stopped the kratom, and I haven&#x27;t felt a single craving since. In fact, I smoked one just for fun after a week&#x27;s waiting period : it made me sick more than anything else and my body rejected the idea of having any more. I&#x27;m now a month free of smoking and my body is thanking me for it : I have no more phlegm, my pulmonary capacity is coming back slowly and my cardio seems even better than before I started.
+One thing though : some users report that kratom makes them want to smoke more. I tried having kratom and smoked a cigarette under its influence (back when I still smoked and was not quitting) and I found that smoking with kratom makes one crave nicotine more than normal for a few days/weeks when one takes subsequent kratom doses. It also brings uncomfortable nausea and is not at all pleasant.
+Well, that concludes my report. I quit an average smoking habit for ten bucks and no effort, and I can say it was even pleasant. I hope this wonderful herb helps other nico-captive people!
+Exp Year: 2013
+ExpID: 101814
+Gender: Male
+Age at time of experience: 23
+Published: Sep 17, 2014
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Kratom (203), Tobacco - Cigarettes (266) : General (1), Addiction &amp; Habituation (10), Health Benefits (32), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

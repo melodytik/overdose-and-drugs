@@ -1,0 +1,280 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉 (Innoxia) - 虫 - &quot;恐惧的猫&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tropane-plants.html'>← 托烷类植物</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉 (Innoxia) - 虫 - &quot;恐惧的猫&quot;</h1>
+<div class='sub-title'>Datura (Innoxia) - Erowid Exp - &#x27;Scaredy Cat&#x27;</div>
+<div class='meta'>作者：Double D Citation · 日期：Aug 9, 2009 · <a href='https://erowid.org/experiences/exp.php?ID=71662' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>我把它包括在这里, 因为我觉得它是合适的.
+看到,我像你之前Datura,我觉得我有什么证明,
+我走上了那条自我毁灭的道路,
+我不像你现在, 我不再采取药物证明任何东西,
+我已经证明了所有我需要证明自愿或否则.
+你谈论不好的旅行,回忆和恶魔; 对我来说,它们不再重要,不再存在.
+我看到了人们不应该看到的东西, 如此可怕的景象, 甚至逃避最疯狂的梦,
+我曾经经历过死亡的边缘, 深入地看着它血红的眼睛; 我曾经经历过疯狂的边缘,
+我不像你,因为我不害怕死亡,我见过它很多次,现在它对我像早晨的太阳一样熟悉.
+我感觉到魔鬼的咬着我的肉,剑刺穿我的干,车祸,心脏病发作,无限的子群.
+我绝望地试图与这些恶魔作斗争, 阻止出血,
+但总是以死亡告终.
+我开始慢慢地接受这一点,
+现在,我已经看过自己死亡无数次了, 它不再困惑我,我接受它,
+有个聪明人曾经说过,只有一个死亡,
+我在几天前经历过我的经历,所以现在,当我的时刻终于到来,
+我生活的目的不是为了恐惧或担忧, 而是为了抓住每一秒钟的宝贵时光,
+死亡是终结,所以我不会用生命为它做准备,
+我知道看到死亡只是生命的另一个方面, 如此习惯于它只是一个协会,
+一个人可能会怀疑,一个人,见证这样可怕的景象没有死亡的恐惧比一个人更危险的罩着他的生命在保护包裹,害怕甚至冒险进入世界害怕伤害.
+我不能回答这个问题,我只能说,我不是一个邪恶的人,我不想伤害任何不想伤害我的人,我是合理的,逻辑的,友好和快乐的,我学会了有高薪的专业工作,我没有争或对生活的怀疑,我没有时间.
+这种经历发生在我在马德里的公寓里.
+没有像LSD等药物那样让我&quot;&quot;,也没有像酸药一样溶解我的自我或让我看到和图案.
+这种药物使我的梦想和梦成为现实.
+它给我带来像日出一样真实的景象,声音和气味,
+几个月后, 两天前我发现情况并非如此, 我只是在那次坏酸的旅行中划了表面,
+我在这种药物下,依赖于我的头脑,因为它会引发各种事物,这些事物超越了所有可能性,那些奇怪的东西,我的常识尖叫着我不要相信它,不幸的是,Datura沉默了那个声音,理性的声音,逻辑的声音,因此,我依赖于这些我见证的东西
+不管它们看起来多么奇怪, 意识到这些事情是正常的,
+追逐家中的家具,用板谈论家政,用汁盒和钥匙做三明治,和那些已经变小而住在水果碗里的朋友说话...这一切都是正常的,自然的,
+我接受并相信我的感觉告诉我.
+一个聪明的报告说,在我之前,并用这样的口才表达...
+它完全不像酸, 是的, 它可以以各种方式杀死你.
+时间大约是6点15分, 我从工作中累了, 迫切需要休息.
+我很丧地走进公寓门口, 发现我的朋友/经销商坐在楼梯上,
+我第一反应是表达我的疲劳,并陪他走出去,然而&quot;,我有新东西,你没有尝试它.
+那些话可能是他唯一能说的话,让我允许他那天晚上.
+他必须明智地选择他们.
+首先我以为他是在开玩笑.
+这些袋子包含一些莉莉或某种东西的内容.
+他提起Datura这个名字, 这名字引起了警钟,兴奋和恐惧.
+我知道这朵花的存在, 我读过很多关于它的使用的报道,
+最后它最终落在了我的手中.
+我会让这个机会错过吗?
+也许我应该这样做,我第二天有工作,事情要做,承诺.
+吃了一茶匙种子, 喝了一杯有恶味的混合物, 尽我最大的努力不吐口气,
+我认为这可能是合适的时间来打电话工作生病, 然而我认为我可能会设法去工作第二天,
+我不得不说, 哈哈哈哈哈哈哈!
+你知道的!
+换了衣服,和经销商聊了一会儿, 直到我注意到移动变得越来越困难,
+这些症状逐渐加剧, 直到我感觉到我以前曾经感觉到的东西,
+我感觉就像我感染了一种轻微的黄热病时一样, 感觉非常热, 口腔和鼻腔极其干燥,
+我一直在检查我的心率, 在空腹摄入药物40分钟后, 心率达到130次.
+我刚刚开始注意到我的经销商已经开始区外和自言.
+我决定留下他与他的内心独白,躺在我的床上.
+我到达我的房间看到偶尔的数字飞过去在我的外围视力.
+我从躺下的时候就开始变得模糊和困惑.
+我开眼睛, 躺在那里好像10分钟, 试图让恶心过去.
+开眼的时候,我很高兴看到一个叫卢克的朋友站在门口,问我是否没事,他告诉我,每个人都在等我.
+考虑到两个问题, 这似乎有点奇怪.
+一个.
+据我所知,卢克在英国,
+据我所知, 只有我和我的经销商在我的公寓里.
+我完全没有意识到我已经服用了任何药物.
+接下来我发现自己在客厅里被朋友们包围, 我知道他们中的一些人在现实生活中已经死亡,
+我和卢克的女朋友劳拉为我的客人做饭.
+我已经停止了脚, 仍然在盘子上.
+我从来没有觉得人们消失,然后在不同的地方重新出现是奇怪的,
+我也没有试图用牙住一把椅子,
+值得一提的是, 我躺下后从来没有见过我的经销商,
+这种幻觉的真实性令人惊, 其中一位客人正在我的iPod上播放音乐,
+音乐和我现在听到的声音一样真实,
+实际上没有播放音乐.
+香水和汗水的气味是真实的, 我和一只不存在的猫的谈话是真实的.
+打开电视,让新闻记者问我我在工作中的项目,
+没有什么看起来更真实.
+我认为最显著的方式来描述这种药物下发生的事情是,
+我在做某件事,或者我认为我在做某件事, 当我回到现实,
+我以为自己在用火腿和面包做三明治, 却发现自己正试图从一个被压碎的色纸箱里咬出一块,
+我会认为我在抽烟,然后意识到我手里没有香烟,
+这些事情似乎并不奇怪或可怕,
+那天晚上我看到越南共产党人躲在水槽里,
+一旦清醒了就很难解释, 因为在现实生活中,
+我记得在和沙发争后, 我试图走出房子, 敲门,
+我不想在这里谈论一些事情, 不过我会举一个例子,
+地面开始充满有毒的昆虫.
+蜘蛛太大了, 实际上它们的身体是汽车轮胎大小的,
+我最能记得的是它们的特征清晰, 背上有虹蓝色图案的坚硬闪亮的外,
+8个黑眼睛和嘴巴看起来好像他们属于地狱与子和粘液滴落在地板虫,这似乎使地板生物越来越激动,声和喋喋不休的声音变得越来越大,它是耳聋的.
+在这个时候,我已经1岁了.
+邻居们听到了所有的骚动, 准备入, 这让我感到担忧, 因为我不想让他们也成为这些虫子的牺牲品,
+我担心我将要面对的命运会是不必要的可怕.
+我感觉到我的子背部有点湿,
+我突然感觉到一个刺伤我的子后面,
+我跳起来,试图抓住子上的腿,
+我嘲笑自己是多么愚蠢,
+我觉得在这个时候我倒在地板上.
+我急忙试图清理它,我记得我开始了,但接下来的记忆是我在浴室里处于句子中间,
+后来我又躺在沙发上,
+我在某个时候在夜里得到冰来缓解口腔干燥,
+我认为这是我最后一次完全的区分.
+之后我有轻微的幻觉, 但没有什么让我完全失控,
+我会想象一些物体,比如阅读报纸,然后我的注意力会分散,它会消失.
+我记得我和母亲在电话上说了几次.
+我把手机留在工作室, 没有固定电话.
+我很高兴看到你.
+我醒来时仍然有轻微的幻觉,
+两天后我的视力仍然很模糊,
+一个糟糕的旅行酸就像在公园里的一天与一个糟糕的旅行.
+在这方面, 这相当于我每一个最糟糕的梦被释放到我的现实中,
+优点:这使我能够面对自己的恶魔,消除恐惧症,克服个人问题.
+故事的序言提到死亡,
+我认为我已经克服了酸和胺事件, 我被证明错了2天前.
+尽管如此,在达图拉之后,
+没有任何其他资产
+2009年8月9日发布
+数据 (15):第一次 (2),不好的旅行 (6),治疗意图或结果 (49),困难的经历 (5),独自一人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Scaredy Cat
+Datura (Innoxia)
+by
+Double D
+Citation:   Double D . &quot;Scaredy Cat: An Experience with Datura (Innoxia) (exp71662)&quot;.
+Erowid.org
+. Aug 9, 2009. erowid.org/exp/71662
+DOSE:
+1 leaf
+oral
+Datura
+(tea)
+40 seeds
+oral
+Datura
+(seeds)
+BODY WEIGHT:
+165 lb
+The introduction was written for a friend in Spain that enquired about Datura, I include it here because I feel it appropriate.
+See, I was like you before Datura, I felt I had something to prove, and I took drugs to prove that something. I rampaged through that path of self destruction, the very path you stand on now. I am not like you now, I no longer take drugs to prove anything, I take them for enjoyment. I have proved all that I need to prove willingly or otherwise. You talk of bad trips, flashbacks and demons; to me they cease to matter, to exist. I have seen things men should not have to see, sights so ghastly they evade even the maddest of nightmares, nothing of this earth can pale in significance. I have traveled to the brink of death and looked deeply into its blood red eyes; I have traveled to the edge of insanity and peered over into that gaping abyss. I am not like you because I don’t fear death, I have seen it so many times that now it is as familiar to me as the morning sun. I have felt the devils jaws rip away at my flesh, the swords cut through my torso, the car crashes, the heart attacks, the infinite swarms of scorpions.
+The first few times I fought it, I tried desperately to fight those demons, to stem the bleeding as slowly light began to fade, and my realization of the last few minutes reflected all of those years past. But always it would end in death. Slowly I began to accept this, I offered no resistance. And now, now that I have seen myself die a myriad of times, it ceases to mystify me, I accept it, I look at its eyes and without blinking I smile for I know that it comes again. A wise man once said that there can be only one death, of this you can be sure. And I experienced mine a few days ago, so that now, when my hour finally comes it will just be a repeat of a previous experience, something not to be feared because I have already borne witness to it.
+And for that very reason my life feels fuller, because I live it not in fear or apprehension, I live trying to snatch every valuable second I can before I die for the final time. Death is the end, so I will use life not to prepare for it, but to live what comes before it. I know what it feels like to see death as just another facet of life, to be so used to it that it is merely an association, like the color of a leaf the sound of a bee, I attach no emotion to it, for all that emotion dissipated with the mystery the first times I saw myself die.
+One might question whether a man, a witness to such ghastly sights with no fear of death is more dangerous than one cocooning his life in protective wrapping, scared to even venture into the world for fear of harm. This I cannot answer, all I can say is, I am not a man possessed of evil, I intend no harm on anyone who does not wish to harm me, I am reasonable, logical, friendly and happy, I am learned with a well paying professional job and I have no quarrels or qualms on life, I have no time for them.
+I wish to talk about an experience I had not long ago, with a plant called Datura Innoxia. This experience took place in my flat in Madrid.
+One thing that I wish to say early on about this plant is that it did not make me “trip” as one might associate with LSD and the likes, it does not dissolve my ego or make me see swirls and patterns as I would on acid. This drug brings my dreams into existence, and my nightmares. It presents me with sights, sounds and smells as real as the rising of the sun, such pure hallucinations that cannot be distinguished from reality; the boundary between imagination, dream and reality is irrefutably decimated.
+I thought I saw my own death on Acid a few years back, and then Ketamine a few months later, two days ago I learnt this was not the case, I had merely scratched the surface in that bad acid trip and and K hole.
+On this drug I am at the mercy of my mind, for it will conjure up things that defy all possibilities, things so bizarre that my common sense screams at me not to believe it, unfortunately Datura hushes away that voice, the voice of reason, of logic, and therefore, I am at the mercy of these things I witness, for no matter how bizarre they seem the realization that these things are as normal will prevail. Chasing furniture that is scurrying around my house, speaking house politics with ironing boards, making sandwiches of orange juice cartons and keys, speaking to friends that have become small and reside in fruit bowls… this is all normal, natural even, as common place as time passing and the moon rising, there is no question of this being too strange to be true. I accept and I believe what my senses tell me.
+As one savvy report stated before mine, and phrased with such eloquence.. “It is nothing at all like Acid, and yes....it can kill you in a variety of ways.”
+It was about 6:15 when I arrived home, tired from work and in desperate need of a bit of chill time. So I was frustrated when I walked through the door of my flat to find my friend/dealer sitting on the stairs with a big grin. My first instinct was to express my tiredness and escort him out, however the words “I have something new, you haven’t tried it.” escaped his lips before I could manage to produce my sentence. Those words were possibly the only thing he could have said that would have me allow him to stay that night. He must have chosen them wisely.
+So we walk into my flat and he produces a few cut up flowers and some vile looking seeds, at first I thought he was humoring me. These bags containing the mushed up contents of some Lilly or something. That was until he mentioned the name, Datura, the name sent off alarm bells, excitement and apprehension. For I knew of this flower, I had read so many reports on its use, I was familiar with the toxicity of atropine after seeing videos of people on the drug. And finally it had ended up in my hands. Was I going to let this chance pass up? Perhaps I should have done, I had work the next day, things to do, commitments.
+But no, I immediately took the contents of the flower bag made a tea, ate a teaspoon of seeds, drank the foul tasting concoction trying my best not to gag and then got changed out of my suit. On reflection I think this may have been the appropriate time to call into work sick, however I thought I could probably manage to go into work the next day, as I had not had very much, even in spite of the varying levels of toxic alkaloids found from plant to plant. On reflection I have to say, Ha HAHHAH HAHHA HA! ED YOU KNOB!
+Erhem, Right so got changed, chatted to my dealer for a while, until I noticed that movement was becoming increasingly difficult, as was reading anything closer than about two feet from my eyes. These symptoms came on stronger and stronger in waves until I felt something I knew I had felt before, something from my childhood (not that many years ago). I felt exactly as I did when I caught a mild strain of yellow fever, I was extremely hot, extremely dry mouth and sinuses, clammy, my heart was pounding rapidly and I did not feel at all comfortable. I kept checking my heart rate which about 40 mins after ingestion on an empty stomach was reaching peaks of 130bpm. I had just started to notice my dealer had started zoning out and muttering things to himself. I decided to leave him with his internal monologue and lie down on my bed.
+I reached my room seeing the occasional figure dart past in my peripheral vision. From the moment I lay down things start to get fairly hazy and confusing. I opened my eyes after having been laying there for what seemed to be 10 minutes attempting to get the nausea to pass. When I opened my eyes I was pleased to see a friend of mine called Luke standing by the door asking whether I was ok, he informed me that everyone was waiting for me. Considering two points this seemed a bit strange. 1. Luke as far as I knew was in the U.K some 2,500Km away and 2. As far as I knew the only people in my flat were me and my dealer. By this point I was completely oblivious to the fact I had taken any kind of drug. The next thing I knew I was in my living room surrounded by friends, some of which I knew to be dead in real life, and most of which live back in Britain, this alarmed me somewhat, not because of who was there but because I thought that my neighbors might get angry at the noise we were making.
+After this me and Luke´s girlfriend Laura, took it upon ourselves to cook for my guests. The fairly inedible looking food was still on plates when I had stopped tripping. I did not at any point think it strange that people would disappear and then reappear in different places and indeed as different people, I never questioned the reality of naked people I had never met before asking if they could take a shower. Neither was attempting to restrain a chair with teeth that was attempting to run out of my flat. It is probably worth noting that I never saw my dealer after I went to lie down, it would have been difficult amongst the multitude of people that were there, but I´m pretty certain he had left.
+The awesome reality of this delirium was astounding, one of the guests was putting on music from my ipod, an ipod that was in my car, in reality. The music was as real as the sounds I hear around me now, the songs in the playlists were in exact order. There was, in reality, no music on. The smell of perfume and sweat that mingled in the air was real, the conversation I had with a cat that did not exist was real. Switching on the television to have news reporters asking me questions about projects I was handling at work was real. Nothing could have seemed realer.
+I think the most notable way to describe what happens under this drug is that it is a series of either major or minor zonings out. One minute I&#x27;m doing one thing, or I think I&#x27;m doing one thing when I snap back into reality and realize I&#x27;m doing something or am somewhere completely different. It´s like a slow oscillating wave constantly shifting from one reality to another one, I would think I was making a sandwich from ham and bread only to find myself trying to bite a chunk out of a squashed empty orange carton with a set of house keys neatly placed on top. I would think that I was smoking, then realize I had no cigarette in my hand, thus leading me to think I had dropped it, then searching and searching and finding no cigarette. All these things rather than seeming odd or scary, were more annoying than anything else.
+That night I saw Vietnamise communists hiding in sinks but somehow appearing real size, like as if the whole size ratio was completely muddled up. It is so hard to explain once sober because things that are not physically possible and cannot happen in real life seem perfectly normal. I remember trying to get out of my house after having an argument with my sofa, banging on the door only to zone back in to me banging on the bedroom wall, on the other side of the house.
+At some point this trip turned very dark, some things I won’t discuss here however I will give you one example, that caught me off guard. The floor started teeming with venomous insects. Spiders far too large to be real, literally with bodies the size of car tires started descending from what appeared to be holes in the roof. The thing that I remember best was the clarity of their features, a hardened shiny shell with a neon blue motif on their backs, clear defined segments and legs with hairs sprouting off them that looked like razor wire. 8 blackened eyes and mouths that looked like they belonged in hell with pincers and goo dripping onto the floor bugs, this seemed to make the floor creatures more and more agitated, the hissing and chattering noise grew louder and louder it was deafening.
+By this point I was 1. Sure the neighbours had heard all the commotion and were getting ready to break in, this alarmed me because I didn’t want them to have to fall prey to these bugs too, and 2. I was concerned that the fate I was about to meet was going to be unnecessarily gruesome.
+I felt a drop of moisture on the back of my neck and got ready to jump up and punch whatever was hanging above me as hard as I could. Then suddenly I felt a stab on the back of my neck, almost like a kitchen knife but warmer. I jumped up trying to grab hold of the leg that was on my neck and at that moment I zoned back in again and found myself jumping in an empty room. I laughed at how stupid I was being and for good measure checked for bugs under the sofa. I think it´s at this point that I threw up.. on the floor. I hastily tried to clean it up, I remember starting but then the next memory I have is of being midsentence in the bathroom but not remembering who or what I was speaking to, and having a terrible sense that I had forgotten something terribly important.
+Then I zoned back in on the sofa again gagging on something that would later prove to be ice. I had at some point in the night got ice to alleviate the dry mouth, something that worked well until I zoned back in and nearly choked on it. I think this was my last full zoning out. After this I had minor hallucinations but nothing that took me fully out of sync, like to another place. I would imagine objects such as reading the newspaper then I would get distracted and it would disappear. I remember speaking with my mother on the phone a few times. I have left my mobile at work and we have no landline. These effects slowly diminished until I fell into a restless sleep. I awoke still slightly hallucinating, thinking I was doing things which I wasn’t or vice versa. My vision is still very sketchy some 2 days later and the effects lasted a good 26 hours.
+A bad trip on acid is like a day out in the park compared to a bad trip on this. On this it is comparable but much much worse, to every one of my worst nightmares being unleashed into my reality and not being able to do anything about it.
+Pros – This enabled me to face my demons, destroy phobias and overcome personal problems. The introduction to this story mentioned death, this was a personal phobia growing up for me. I thought I had overcome it with the Acid and Ketamine incidents, I was proved wrong 2 days ago. However after Datura I now know it no longer affects me.
+Exp Year: 2008
+ExpID: 71662
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 9, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : First Times (2), Bad Trips (6), Therapeutic Intent or Outcome (49), Difficult Experiences (5), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

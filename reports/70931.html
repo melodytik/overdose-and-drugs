@@ -1,0 +1,224 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2C-E - Erowid Exp - &quot;一个不可思议的工具&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-e.html'>← 2C-E</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>2C-E - Erowid Exp - &quot;一个不可思议的工具&quot;</h1>
+<div class='sub-title'>2C-E - Erowid Exp - &#x27;An Incredible Tool&#x27;</div>
+<div class='meta'>作者：Interstellar Arnold Citation · 日期：Jul 8, 2008 · <a href='https://erowid.org/experiences/exp.php?ID=70931' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我和我的女朋友J从网上买了6克2C-E HCl粉, 在一个月的时间里,
+我们得到的2C-E的影响远远超出了我们实际上的9-12小时.
+我和J都从2C-E获得了明显而强烈的后照, 持续了几个月.
+我们都决定,作为2C-E使用的直接结果, 我们不再希望消费酒精作为一种麻醉剂,
+我相信2C-E对我们有所帮助, 帮助我们意识到我们一生中一直受到的文化条件,
+酒精让我们觉得自己很,很愚蠢,在整个社会引起了很多争议,而且实际上是身体上很有害的东西,
+我认为这比戒酒更为显著.
+我在2C-E实验之前吸烟了6年.
+我现在21岁,
+在此经历之前,我已经试图戒烟了两年,但一切都失败了;我只是不喜欢吸烟,但我觉得很严重的尼古丁上,有时会在工作中吸烟,不时会从灰里起垃圾.
+我在厨房工作很糟糕, 住在很多年轻人喝酒和吸烟的环境中.
+我不记得我戒烟和使用2C-E的时间表,
+我记得我第一次在2C-E旅行时吸烟, 仍然觉得我&quot;享受&quot;了我的香烟,
+我在清醒时也曾有过这种想法,
+我可能吸了一支香烟, 而这完全是因为对尼古丁的依赖.
+我已经服用了较大剂量的2C-E, 我的思维工作速度更快,
+我很难描述2C-E是如何帮助我戒除尼古丁成的重要.
+但我觉得我们对酒精的态度的改变, 和我对酒精的断,
+没有感觉2C-E有助于戒断的任何身体症状.
+我从2C-E中获得的积极精神强化.
+这种强化在旅途中以多种方式表现出来,比如意识到需要抽烟来感觉满足的情感影响,疯狂的迷幻想象,以及我在抽烟时对自己造成的伤害的心理图像,
+这就是你40年后的样子!
+作为强烈的迷幻体验在旅行报告中所写的规范.
+我记得第四次旅行时, 我没有抽一支烟,
+每次我感觉到一个渴望出现的时候,
+我从来没有假装忽视事实,
+我在戒烟后使用尼古丁贴片短时间,但没有达到指导的时间 (10周).
+在我停止使用贴片后, 症状没有复发,
+另外,J从来不是一个吸烟者,
+虽然我说2C-E帮助我戒烟,
+我觉得2C-E有助于我戒烟,
+我从来没有想过戒烟是个严重的问题, 想用强烈的迷幻药来解决,
+我和J在经历了几个月后的光中发现的其他一些效果是,我们有更好的应对压力的能力,彼此的沟通更好,更容易更经常地积极地思考,我们都有一个非常深刻的新能力,
+在身体死亡之后, 我们的本质或灵魂或心灵的延续,
+在我们2C-E之旅中, 诚实地说, 感觉就像在古代宗教中积累的知识,
+经历仍在我们心中产生共,
+我们都感到非常幸运, 能够获得如此 (相对) 大量的这种极其非凡的化合物.
+对于我在旅行中从2C-E获得的个人主观效果, 我也非常印象深刻.
+这绝对是&quot;经典的迷幻&quot;感觉,
+我会把2C-E的效果与这些药物相似,但不同.
+我只尝试过这种类型的LSD和, 但2C-E绝对是非常有价值的工具.
+旅行的目的非常清晰,
+虽然我的想法非常庞大,而且很快,
+这就像LSD和使用一个非常非常棒的计算机,
+您可以做同样的事情, 但根据我的经验, 2C-E 感觉更易于使用.
+对我来说一直是&quot;爆炸性的&quot;.
+2C-E感觉是宇宙,极其广,极其结构化和有组织,人造 (不一定是坏品质,
+是的,它是令人印象深刻的视觉.
+我对2C-E的非美学效果更感兴趣,
+如果我把手臂移动到空中, 就好像我的手在留下自己坚实的印记.
+颜色的增强是非常明显的, 我们都注意到的是&quot;新的迷幻色彩&quot;,
+这种颜色似乎覆盖了我们所观察到的物体,
+我还看着J的头发变得最疯狂的虹紫色,
+她的头发实际上似乎变成了那种颜色,然后很快就消失了.
+我对这种效果感到非常开心.
+我们会注意到视觉变得相应的黑暗, 当主题返回更积极的事情, 视觉会再次&quot;颜色起&quot;和变得快乐.
+这非常有趣.
+我认为我们最引人注目的视觉效果之一是我们都相信我们可以探测光环.
+我不知道如何描述它除了感觉我开始接近精神世界.
+我们的旅程中, 一切都充满了精神.
+我们听了很多Shpongle和奥罗拉的儿子, 红色王,工具,和,
+音乐确实听起来绝对令人惊叹.
+让我们感觉很好. 现在,
+威恩和其他古老的吉他摇滚音乐,
+但听音乐时并没有特别的效果.
+关于2C-E最好的事情,如果你问我, 是它带来的所有变化,
+这是一种非常自然的感觉状态,
+这是一个悖论,
+感谢您阅读我的旅行报告,
+其他:
+2C-E (137):小组 (2-9) (17),回顾 / 总结 (11),多天经验 (13),宿醉 / 几天后 (46),健康益处 (32)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+An Incredible Tool
+2C-E
+by
+Interstellar Arnold
+Citation:   Interstellar Arnold. &quot;An Incredible Tool: An Experience with 2C-E (exp70931)&quot;.
+Erowid.org
+. Jul 8, 2008. erowid.org/exp/70931
+DOSE:
+repeated
+2C-E
+(powder / crystals)
+BODY WEIGHT:
+165 lb
+My girlfriend, J, and I acquired 6 grams of 2C-E HCl powder from an online vendor, and had 4 amazingly powerful 2C-E trips over the course of approximately one month, starting at the beginning of December 2007, and going until the first week of January 2008.
+The effects of 2C-E we got went far beyond the 9-12 hours we actually tripped out.  Both J and I had a distinct and very powerful afterglow from 2C-E that lasted several months.  We both decided, as a direct result of our 2C-E use, that we no longer wished to consume alcohol as an intoxicant, and now 4.5 months later we are both adhering to our decisions very well.  What I believe 2C-E did to us was help us to become aware of the cultural conditioning we have all been subject to for our whole lives to drink alcohol.  At some point along our little 2C-E odyssey, the fact that alcohol made us feel dumb, stupid, caused a lot of strife throughout all of society, and is in fact a quite physically harmful thing to ingest just felt like it was being made so well known to us, and we just kind of went “Why the fuck DO we drink?”
+There is yet another remarkable effect 2C-E had upon me which I think is even more remarkable than the alcohol consumption cessation. I was a smoker prior to this 2C-E experiment, for 6 years.  I am 21 now, and began when I was 15.  I had been trying to quit on an off with all miserably failed attempts for about 2 years prior to this experience; I simply did not like being a smoker, but I felt quite seriously addicted to nicotine, and would engage in such activities as smoking cigarette butts at work sometimes, and rolling up scummies out of ash trays from time to time.  It had truly become a filthy (not to mention expensive) habit, but quitting didn’t quite seem like an option to me, for I was working a shitty kitchen job and living somewhere with lots of young people where drinking and smoking was the norm.
+I can’t recall exactly the chronology of my quitting and 2C-E use, but it was something like this.  I remember smoking on my first 2C-E trip, and still feeling like I “enjoyed” my cigarette, but I was thinking an awful lot about the sheer stupidity of it.  I also engaged in this type of thinking when sober, but it was different somehow on 2C-E.  The 2nd and 3rd time I tripped on 2C-E, I think I may have had 1 cigarette, and it had it sheerly out of a dependence on nicotine.  However, these times the cigarettes dry acrid smoke was especially potent with my heightened senses, and I had taken larger doses of 2C-E, and my mind was working much faster and was “way further outside the box” so to speak.
+I’m having difficulty describing how I felt 2C-E was important in helping me stop my addiction to nicotine.  But I feel like our change in attitude towards alcohol, and my addiction interruption occurred because of similar mental processes.  It didn’t feel like 2C-E helped any physical symptoms of withdrawal at all.  Everything that helped me to quit was like positive mental reinforcement I gained from the time I spent  on 2C-E.  The reinforcement manifested in several ways during the trip, such as realizing the emotional impact of needing a cigarette in order to feel satisfied, crazy psychedelic imaginings and mental imagery of the damage I was doing to myself when I smoked, although this was not unpleasant, it was just like a logical “well if you’re going to put formaldehyde and tar in there then this is what you might look like in 40 years!”.   It was much more powerful and profound then I can possibly convey here, as is the norm for strong psychedelic experiences being written up in trip reports.
+The fourth trip I remember not smoking a single cigarette, and all my cravings felt very manageable mentally.  It felt as through 2C-E helped me find the strength within myself to remind myself why I do not want to be a smoker any longer, EVERY time I felt a craving arise.  It was like I thought about my addiction on 2C-E so intensely, that I could never again pretend to ignore the fact that it REALLY BOTHERS ME to be a smoker.  I used the nicotine patch for a short time immediately after quitting smoking, but I didn’t use it for anywhere near as long as the directed amount of time (10 weeks).  And after I stopped using the patch, no symptoms returned, and still 4.5 months later, no relapse.
+As a side note, J was never a smoker, and did not like me being a smoker.  So although I say 2C-E helped me quit smoking, I also wanted to quit prior to using 2C-E.  But I felt as thought 2C-E helped me quit in a very unsuspecting way.  I never had quitting smoking as a serious issue I wanted to tackle with my use of powerful psychedelics, but it was just a nice little bonus this teacher gave me.
+Some other effects me and J both noted as a part of our months-long after glow was an increased ability to cope with stress, better communication with each other, it was easier to think positively more often, and we both had a very profound new capacity to think about spiritual matters in a very receptive and deep way, which we both think we were unable to really “accept”, such as the continuation of our essences or souls or minds or whatever you wish to call it after bodily death occurs.
+During our 2C-E trips, it honestly felt like so much knowledge that has been accumulated in the ancient religions became accessible to us through whatever means, and the results of that exposure was our afterglow.  The experience still resonates with us today, but not nearly as much as the 4 weeks following our trips.  It was truly remarkable to have a ++++ experience, and we both feel very lucky to have procured such a (relatively) large amount of this extremely extraordinary compound.
+As to the individual subjective effects I got from 2C-E on my trips, I was also very impressed.  It definitely felt “classically psychedelic”, whatever that means.  Take the tried and true psychedelics – LSD, mushrooms, peyote, DOM – well I would classify 2C-E’s effects are comparable to, but different than these.  I have only ever tried LSD and mushrooms of these examples, but 2C-E definitely is a super valuable tool.  My trip was remarkably clear headed, no thought looping or racing thoughts.  My thoughts were extremely voluminous and fast moving, but it felt organized.  It is like LSD and mushrooms are using a really really awesome computer that only has DOS, and 2C-E is like upgrading to windows.  It’s still all there, and you can do all the same things, but 2C-E felt more user friendly in my experience.  Mushrooms have always been “explosive” for me.  2C-E felt cosmic, extremely vast, extremely structured and organized, artificial (not necessarily a bad quality, but it definitely didn’t feel natural in my body!), and defiantly has a “wise teacher” feel to it.
+And yes, it was impressively visual.  I was more impressed with the non-aesthetic effects of 2C-E, but even still the visuals are nothing that can be dismissed.  I had very thick lasting trails, it didn’t seems all “multiples frames”, if I moved my arm trough the air it would seem as though my hand were leaving solid impressions of itself behind.  Color enhancement was very noticeable, and something we both noticed was a “new psychedelic color”, that seemed to be like every shade of neon and black flickering at 10000000 times a second.  This color would appear to overlay objects we looked at, and would make up the unique, not-LSD fractal-like geometric designs.  I also watched J’s hair turn the most insanely crazily color of neon purple for a split second, so much so that it seemed to light up objects around her.  It wasn’t even like it was a visual, her hair actually seemed to change to that color and quickly fade back.  I was quite amused by this effect.
+At some points when our conversation with turn to “darker things” we would notice the visual become correspondingly dark, and when the subject matter returned to more positive matters, the visuals would “color up” again and become happy.  It was very interesting.  I think one of the most intriguing visuals we both noticed was that we were both convinced we could detect auras.  I don’t know how to describe it other than it feels like I am beginning to approach the spiritual world.  Everything about all of our trips just oozed intense spiritualness.
+We listened to a lot of Shpongle and Sons of Aurora, King Crimson, Tool, and Ween and anything else that ticked our fancy.  The music did sound absolutely amazing.  It had that “psychedelic depth” to it, and it wasn’t only crazy tripped out techno that made us feel good.  Ween and other good old guitar rockin’ out music felt so heartfelt and still produced mushroom style music euphoria.  But no unique effects were noted from listening to music otherwise.
+The best thing about 2C-E if you ask me, is that all the changes it brings about, it feels as if they come from the heart.  It was a very natural feeling state, despite the synthetic nature of the drug.  It is paradoxical, but then again, isn’t everything??  Thanks for reading my trip report, I hope you have gained something from it.
+Exp Year: 2007
+ExpID: 70931
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 8, 2008
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-E (137) : Small Group (2-9) (17), Retrospective / Summary (11), Multi-Day Experience (13), Hangover / Days After (46), Health Benefits (32)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

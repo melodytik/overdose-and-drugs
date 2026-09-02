@@ -1,0 +1,341 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 埃洛伊德 - 我的男孩玩具</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/opiates.html'>← 鸦片类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 埃洛伊德 - 我的男孩玩具</h1>
+<div class='sub-title'>Heroin - Erowid Exp - &#x27;My Boy Toy&#x27;</div>
+<div class='meta'>作者：Holly Citation · 日期：Mar 11, 2006 · 剂量：2.5 g · <a href='https://erowid.org/experiences/exp.php?ID=37038' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>我从11岁开始喝酒和吸大麻.
+然后我转向了可卡,然后是酸,,特殊K,然后是毒,然后是氧,然后是海洛因.
+我从来不喜欢速度.
+我在奥扎克山区的一个小镇长大.
+我在七年级被强奸了.
+我喝醉了,醒来时我的毒贩就在我身上.
+我从来没有提起诉讼,
+那时我的父母决定将我送到亚特兰大与我叔叔一起生活.
+这对我来说是一个很大的改变.
+我是个新生, 开始学酸,X,K.
+我已经到了我不会去学校没有.
+我想要尽可能地达到最高的精神启蒙状态.
+我会独自坐下来研究一切.
+我读过很多特伦斯·麦肯纳,肯·基西,蒂莫西·利里等.
+我只是做出愚蠢的决定.
+我16岁时在一个酒吧遇到了我的未婚夫克里斯.
+他当时21岁.
+我在游泳池里着一个家伙.
+我总是看起来老了,
+我将在几个月内成为21岁.
+他去监狱八个月后我们在一起五个月.
+他出狱后,我跟他一起搬出去了.
+我们开始吸毒.
+有时我们每天花上一千美元的钱.
+无需说我们卖了很多毒品.
+我会发,当我们跑了,我会发,让他和我出去,得到另一个百 peice.
+很多时候我们只能骑一圈, 所以当我们跑出来的时候, 我们已经接近目的地,
+我讨厌警察在引擎盖.
+这太危险了.
+我们和那个能让我们脱离肥胖的男人交往!
+我们开始喝酒和服用药物,
+我们两人之间至少要支付70美元的酒吧账单.
+另外,我们正在服用上帝知道多少卡纳克斯和瓦利姆.
+这让我们变得很恶毒.
+人们不明白我们是如何在一起的, 因为我们一直在互相争.
+我们的一个朋友开始销售Oxycontins.
+在亚特兰大, 每个人都和他们的祖母都在用海洛因,氧化物或美沙.
+我们喜欢它!
+尤其是我!
+我找到了我的蜜汁.
+我所有的朋友总是告诉我去买大麻, 因为它更便宜,更好.
+你可以以30-40美元买一瓶80毫克的Oxi, 或者买一袋20美元的男孩,
+我是如此反海洛因和针,我说了该死的不!
+后来我的朋友们都开始吸毒.
+我开始得到我不再高的地方.
+所有的照片都色了.
+这就是我想要的.
+我开始吸海洛因
+我喜欢它甚至更多!
+我有一个朋友来住我们.
+他对这些东西上, 没有香或汽车.
+我开始每天带他去,
+我卖汽车,最后失去了工作.
+同一天,克里斯和我发生了关系, 他和父母一起住了一段时间.
+我不得不带我的朋友去喝药.
+我告诉他我正在考虑吸毒而不是吸毒.
+我很生气,很丧,我想像他一样.
+他说他会打我.
+我总是非常害怕针头, 但我让他.
+我从第一枪开始就被住了.
+几天后,克里斯和我和解了, 他搬回来了.
+他不知道我正在拍摄.
+他终于发现我回家时已经了,
+我很擅长隐藏事情,如果我需要, 但这很明显.
+他检查我的手臂一个晚上.
+我已经承认了.
+他很生气.
+他说如果我打算拍摄,那么他也是.
+我不会停止.
+我们最终把那个孩子赶出去了, 所以我们不得不在街区警察而不是直接去经销商.
+我们很快就找到了最好的,最肥胖的袋子.
+有一天我在工作,克里斯有我的车.
+他应该接我.
+他整晚都没有接电话.
+我知道有什么不对.
+我提前离开, 让一个男人在工作带我回家.
+我们住在公寓的二楼.
+门是锁着的,他有我的钥匙.
+我们在抽烟时总是把阳台的门打开.
+他没有打开门.
+我可以看到他在沙发上躺着,我可以听到他的喘息.
+我的朋友爬上阳台,为我打开门.
+我永远不会忘记他的表情.
+他是硬的和蓝色.
+他的部已经有泡.
+我跑到他身边,喊着他的名字,哭着.
+我告诉我的朋友打电话给911.
+他们带他去医院,他几乎没有.
+这是一个奇迹,他做了.
+显然他整天躺在那里.
+我和他在救护车里,
+我从来没有感觉到这样的痛苦.
+我认为我会失去我一生的爱.
+为了养活我的习惯, 我跳舞,
+他没有接电话.
+我打电话回来一次,
+他有我的车,所以我打电话给一个朋友去看他.
+这也是同样的情况.
+他不得不爬上阳台.
+我听到&#x27;,我的上帝!&#x27; 我开始哭泣,告诉他打电话给911.
+我坐了一辆出租车到城的另一边.
+他只能听到低音的声音和一个高调的戒指.
+他无法回答护士的问题, 但他能理解我,
+我站在他身边,握住他的手.
+他们用一个充满空气的热毯包裹他.
+我睡着了,头靠在他身边. 这一次,他们把他送进了戒毒中心,
+他一周后出狱, 我告诉他如果他回来, 我会离开他.
+我们还没有真正上.
+我为了他而辞职.
+几天后,他回家时,手臂上有针痕.
+起初他说他只是在吸毒 (我们最喜欢的另一种).
+这真的伤害了我.
+我让他搬出去,即使它杀了我.
+我不得不做点什么, 因为他再也没有幸运了.
+过了一段时间,我们又在一起了.
+我们又开始了.
+我在舞蹈中了很多钱,而他却在钱.
+我们最终和死者一起巡回演出.
+我们从一个城市到另一个城市,
+我称之为毒品之旅.
+我们回到亚特兰大,
+我们只是变得更糟.
+我们搬到了更便宜的地方, 放弃了忙碌, 因为我们太了, 人们不愿意和我们合作,
+我们的一个朋友帮了我们.
+她把我们的钥匙和她锁在一个酒店房间.
+她刚刚在几个月前被关进监狱,
+我每一秒钟都在吐.
+我的身体像鱼一样.
+我们每天的产量大约是1克.
+一个星期后, 我终于开始有了一些活力.
+我开始和她一起吸烟和吃药.
+我从来不喜欢这些东西.
+我是个毒,我总觉得警察来了,或者在看,一切都被监听.
+一个月的时间我们做得很好.
+现在我们开始分30美元的袋子.
+我们说我们不会增加剂量,但当然,我们做了.
+两年后,我们的情况变得非常糟糕.
+我们最终入侵了可乐机, 在街上向人们索钱.
+我认为我是个好骗子.
+人们给我10,20,100美元.
+我们最终被关在佐治亚州北部.
+我们已经入侵了周围的所有机器, 所以我们现在正在旅行.
+我在监狱里做了排毒.
+他们没有给我任何药物.
+几个星期后我出来了, 6天后又被关进了.
+我跑了,吃了大麻.
+他们抓住我,带我去医院抽胃.
+我签了一份文件说如果我死了, 他们不负责任,
+我有两次违规接触, 在佐治亚州北部的另一个县被释放.
+那个跟我们一起去的小伙子把我们出来,
+他被转移后的第一天就出来了.
+我在那里呆了一个月.
+当我出来时,他有一个镜头等着我.
+我们每天花费300-500美元.
+我在肩膀肌肉上有, 由于肌肉注射,
+我不得不去把它剪掉.
+几周后, 胸部疼痛严重,
+那天早上我应该去法庭.
+他们发出了逮捕令, 尽管我传真了我的文件.
+我在俱乐部工作时被接走.
+我不得不在监狱里再次排毒.
+德卡尔伯县把我送进了医院, 每天给我3次Darvocets, 每天检查5次我的生命体征.
+我在一个星期后又被转移到北方.
+另一周后, 我被指控为在防守线上分发海洛因和大麻,
+他们没有足够的证据来起诉我, 直到它再次发生.
+他们抓住克里斯在交付包裹时, 再次指控我.
+监狱是如此之小,以至于男人的牢房就在女人的旁边.
+在整个监狱里通常有8到10名女性.
+这座建筑被禁用了9年, 所以他们把我们搬到了一个新的监狱.
+我们可以与他们交谈.
+他们撤销了我的指控, 从密谋在防守线上分发到将受管制物质带到防守线上.
+我确信自己会被关进监狱,
+毒品特别小组的队长为我去战斗.
+他们向我提供了10年的缓刑, 加上大量的处罚和罚款.
+我花了三个月.
+我昨天刚出来,克里斯还在监狱里.
+他因为而受到严格的监禁.
+这就是我们第一次在一起时他被关进的原因, 但他违反了.
+这就是为什么他在强度.
+我在监禁期间的特殊条件规定我不能与克里斯有任何联系.
+我希望和祈祷我可以得到下降.
+这一次我真的会保持清洁.
+我比以往任何时候都更有意志力.
+我想要很长一段时间, 我只是不知道如何保持干净.
+我不想使用美沙,
+我错过了我的生活和我的爱,
+我们会看到会发生什么.
+祝我好运.
+海洛因 (27):各种 (28),  Hangover / 几天后 (46), 抑郁症 (15), 过量服用 (29), 和习惯性 (10), 火车事故和旅程灾难 (7), 健康问题 (27), 糟糕的旅程 (6), 艰难的经历 (5), 回顾 / 总结 (11)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>My Boy Toy
+Heroin
+by
+Holly
+Citation:   Holly. &quot;My Boy Toy: An Experience with Heroin (exp37038)&quot;.
+Erowid.org
+. Mar 11, 2006. erowid.org/exp/37038
+DOSE:
+2.5 g
+Heroin
+(daily)
+BODY WEIGHT:
+115 lb
+I have always had an addictive personality.  I started drinking and smoking pot when I was 11.  Then I moved to coke, then acid, extacy, special K, then crack, then oxy&#x27;s, then heroin.  I never liked speed.
+I grew up in a small town in the Ozarks.  I was raped in seventh grade.  I was wasted and woke up to my coke dealer ontop of me.  I never pressed charges, although I did go to the hospital.  That&#x27;s when my parents decided they were shipping me to Atlanta to live with my uncle.
+It was a big change for me.  When I was a freshman, I got into the acid, X, and K.  I got to where I wouldn&#x27;t go to school without trippin.  I wanted to get to the highest state of spiritual enlightenment as possible.  I would sit by myself and study everything.  I have read alot of Terrence McKenna, Ken Keasy, Timothy Leary, etc.  I wanted to &#x27;know all.&#x27;  I&#x27;m definately not stupid, I just make stupid decisions.
+I met my fiance, Chris, when I was 16 in a bar.  He was 21.  I was husslin this guy in pool.  I have always looked older and had a fake ID.  I&#x27;ll be 21 in a few months.  He went to jail for eight months after we were together for five months.  I moved out with him as soon as he got out.  We started smoking crack. Sometimes we would spend a thousand dollars a day on the two of us.  Needless to say we were selling alot of drugs.  I would fien so bad when we ran out, I would get the shakes and make him go out with me to get another hundred peice.  Alot of times we would just ride around, so when we ran out, we would already be close to our destination and on our way.  I hated coppin in the hood.  It was too dangerous.  We hooked up with this one guy who would break us off fat!
+When we decided to quit smoking crack, we started drinking and taking pills like it was going out of style again.  We would have a $70 minimum bar tab between the two of us.  Plus, we were taking God only knows how many Xanax and Valium.  It made us really mean.  People didn&#x27;t understand how we were together because we were constantly into it with each other.
+One of our friends started selling Oxycontins.  Everyone and their grandmothers are on either heroin, oxy&#x27;s, or Methadone in Atlanta.  We loved it!  Especially me!  I found my nectar.  All of my friends would always tell me to just go get dope because it was cheaper and better.  You could buy an 80mg Oxi for $30-$40, or go get a $20 bag of boy and ALOT higher.  I was so anti heroin and needles I said FUCK NO!
+Eventually all of my friend were shooting dope.  I started to get where I wasn&#x27;t getting as high anymore.  All of them were faded as fuck.  That&#x27;s how I wanted to be.  I started snorting heroin.  I loved it even more!  One of my friends came to live with us.  He was addicted to the shit, and didn&#x27;t have a liscense or a car.  I started taking him to get it every day and have been doing it every day since.  I was selling cars, and ended up losing my job.  The same day, Chris and I got into it and he went to live with his parents for a while.  Meanwhile, I had to take my friend to get his fix.  I told him I was thinking about shooting dope instead of snorting it.  I was pissed off and depressed and I wanted to get as high as he did.  He said he would hit me.  I have always been deathly afraid of needles, but I let him.  I was hooked from the first shot.
+A couple days later, Chris and I made up and he moved back in.  He didn&#x27;t know I was shooting it.  Eventually he caught on when I would come home already high and would never do any around him.  I am very good at hiding things if I need to, but this was obvious.  He checked my arms one night.  I confessed.  He was pissed.  He said if I was going to shoot it, then so was he.  I wouldn&#x27;t stop.
+We ended up kicking that kid out, so we had to cop in the hood instead of going straight to a dealer.  It didn&#x27;t take long before we found the best and fattest sacks.  I was at work one day and Chris had my car.  He was supposed to pick me up.  He hadn&#x27;t been answering his phone all night.  I knew something was wrong.  I left early and had a guy from work take me home immediately.  We lived on the second floor of the apartments.  The door was locked, and he had my keys.  We always kept the balcony door open when we were smoking.  He wasn&#x27;t answering the door.  I could see him lying on the couch, and I could hear him wheezing.  My friend climbed the balcony and opened the door for me.  I&#x27;ll never forget the way he looked.  He was stiff and blue.  He had foam stuck to his neck where he had already seizured. I ran over to him screaming his name and crying.  I told my friend to call 911.  They took him to the hospital and he barely made it.  It was a miracle that he did.  Apparently he was lying there all day.  I rode in the ambulance with him and stayed by his side the whole time.  I have never felt such pain in my life.  I thought I was going to lose the love of my life.
+Three weeks later I was at work at my knew job at the club, dancing to support my habit, and I just had a feeling something was wrong.  He wasn&#x27;t answering his phone.  I called back one more time and immediately freaked out.  He had my car, so I called a friend to go over and check on him.  It was the same situation.  He had to climb the balcony.  I heard &#x27;Oh my God!&#x27;  I started crying and told him to call 911, I was on my way!  I took a cab all the way across town.  All he could hear was muffled voices and a high pitched ring.  He couldn&#x27;t answer the nurses questions, but he could understand me, just because we know each other so well.  I stood beside him and held his hand.  They had an air filled heat blanket on him. I slept with my head next to him.  they put him in a detox center this time since this was the second time he went to that hospital in 3 weeks.
+When he got out a week later, I told him if he got back on the shit, I would leave him.  We weren&#x27;t really physically addicted yet.  I quit for his sake.  A few days later he came home with needle marks on his arms.  At first he said he was just shooting coke (another one of our favorites).  It really hurt me.  I made him move out, even though it killed me.  I had to do something, because he wasn&#x27;t going to get lucky again.
+Some time past and we got back together.  We started back on the shit.  I made alot of money dancing and he did hustling.  We ended up going on tour with The Dead.  We would go from city to city and visit their ghettos.  I called it dope tour.  We went back to Atlanta to quit.  We just got worse.  When we moved to someplace cheaper, quit hustling because we were so junked out people wouldn&#x27;t work with us, pawned all of our shit, and lost our place, we decided to kick.
+One of our friends helped us.  She took our keys and locked in a hotel room with her.  She had just kicked in jail a few months earlier and was a speed freak now.  I was puking every second.  My body was flopping like a fish.  We were doing about a gram a piece a day.  Chris has never gotten very sick.  A week later, I was starting to finally get a little energy.  I started smoking and eating speed with her.  I never liked that shit.  I&#x27;m a tweeker peeker and I always think the cops are coming or watching and everything is bugged.
+We did good for a month.  We started back just splitting a $30 bag now.  We said we wouldn&#x27;t up our dose, but of course, we did.  We ended up pretty bad off for two more years.  We ended up breaking into coke machines and asking people on the street for money.  I thought I was a good con.  People gave me $10, $20, $100.  We ended up getting locked up in north Georgia.  We had broke into all of the machines around here, so we were traveling to do it now.  I had to detox in jail.  They didn&#x27;t give me any medicine.  I got out a couple weeks later and got locked back up 6 days later in the hood.  I ran and ate the dope.  They tackled me and took me to the hospital to pump my stomach.  I signed a paper saying if I died, they were not responsible, but they were not pumping my stomach.  I got 2 disorderly contacts and was released with a hold in another county in north Georgia!  The kid that rode with us up there narced us out for hitting some machines in another county.  Chris was locked up with me.  He got out the first day after he was transported.  I stayed there a month.
+When I got out he had a shot waiting on me.  We were spending $300-$500 a day eventually this time.  I got an absess on my muscle on my shoulder from taking a muscle shot one day when my veins were not working, and I was jerking, puking, and hallucinating.  I had to go get it cut out.  A couple weeks later I was having really bad chest pains and I had to go back to the hospital.  I was supposed to go to court that morning.  They issued a bench warrant even though I faxed my papers.
+I was picked up at work at the club.  I had to detox in jail again.  Dekalb County put me in the infirmary and gave me 2 Darvocets, 3 times a day and checked my vital signs 5 times a day.  I was transfered back up north again a week later.  Another week later I was charged with Cospiricy to distribute heroin and marijuana across guardlines for a package they found a couple of months before that was dropped off when Chris was locked up.  They didn&#x27;t have enough evidence to charge me until it happened again.  They cought Chris redhanded dropping a package off, and charged me again.  The jail was so small  that the men&#x27;s cells were next to the womens.  There were usually 8-10 women in the entire jail.  The building was condemmed for 9 years, so they moved us to a new jail.  The men and womens cell blocks were connected with a door, so we could talk to them.
+They dropped my charges from conspiricy to distribute across guardlines, to bringing controlled substances across guardlines.  I thought for sure I was going to prison, so did everyone in there, including the guards and the captain.  The captain of the drug task force fought for me to go.  They offered me a plea  of 10 years probation with intense and a bunch of stipulations and fines.  I spent three months.  I just got out yesterday and Chris is still locked up.  He is on intense probation for mushrooms.  That&#x27;s what he got locked up for when we first got together, but he violated.  That&#x27;s why he&#x27;s on intense.  Part of my probation&#x27;s special conditions says I can have no assotiation with Chris.  I&#x27;m hoping and praying that I can get that dropped.
+I am really going to stay clean this time. I have more will power than ever before.  I wanted to kick for a long time, I just didn&#x27;t know how to stay clean.  I didn&#x27;t want to resort to Methadone, but I was about to because I didn&#x27;t know what else to do.  I miss my life and my love so much that it hurts more than anything else ever!  We&#x27;ll see what happens.  Wish me luck.
+Exp Year: 2004
+ExpID: 37038
+Gender: Female
+Age at time of experience: 20
+Published: Mar 11, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Heroin (27) : Various (28), Hangover / Days After (46), Depression (15), Overdose (29), Addiction &amp; Habituation (10), Train Wrecks &amp; Trip Disasters (7), Health Problems (27), Bad Trips (6), Difficult Experiences (5), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,181 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>阿德拉菲尼尔 - 艾洛伊德扩散 - &quot;完全集中&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/adrafinil.html'>← Adrafinil</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>阿德拉菲尼尔 - 艾洛伊德扩散 - &quot;完全集中&quot;</h1>
+<div class='sub-title'>Adrafinil - Erowid Exp - &#x27;Complete Focus&#x27;</div>
+<div class='meta'>作者：randyyy Citation · 日期：Jan 18, 2013 · 剂量：450 mg · <a href='https://erowid.org/experiences/exp.php?ID=80308' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>在互联网上, 我读到一种叫做Modafinil的有趣药物.
+我读到的报道非常好, 赞扬药物.
+所以我在网上搜索了Adrafinil.
+由于价格和合法性, 我选择阿德拉菲尼尔而不是莫达菲尼尔.
+我唯一担心的是阿德拉菲尼尔可能会造成肝脏损伤 (如果经常使用,可能会改变肝脏中的某些酶水平).
+据我所知,如果你不经常使用药物,
+我第一次使用它是在学校.
+在那一天, 我不吃早餐,
+到了9点左右, 我突然意识到:我在学校的注意力比很久以前更强.
+课题甚至没有那么有趣,
+我可以把注意力集中在任何事情上.
+如果我真的想,我可以连续15分钟研究时钟.
+我不再在教室里着眼睛,
+我很快就完成了, 因为我完全没有被分心.
+对于精神刺激, 没有太多.
+我觉得自己在思考.
+我也没有想太多表面的事情.
+阿德拉菲尼尔与大多数其他兴奋剂有很大不同.
+咖啡因总是让我无法入睡.
+我可以服用阿德拉菲尼尔并轻松地入睡.
+实际上,这可能让事情变得更容易,
+但有时候我发现自己不想睡觉.
+我会夜阅读几个小时.
+咖啡因也给了我一种&#x27;内心紧张&#x27;, 而阿德拉菲尼尔却没有.
+后来我开始每周服用三次阿德拉菲尼尔.
+我确实曾服用600毫克 (两片), 却发现自己患上了严重的&quot;精神头痛&quot;,
+我发现450毫克 (一粒半药) 是我最适合的剂量.
+除了更高剂量的头痛, 唯一的其他不良影响是硫气味,
+亚德拉菲尼尔和大麻是一种有趣的组合.
+我几乎无法听话或说话.
+但阿德拉菲尼尔消除了这种流浪.
+我从来不是一个好演讲者, 事实上, 我经常口吃.
+吸食大麻后不久, 我服用了300毫克的阿德拉菲尼.
+这让我成为一个多产的演讲者.
+我讲述了精心设计的故事.
+我成为一名教学家,
+已使用的证券</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Complete Focus
+Adrafinil
+by
+randyyy
+Citation:   randyyy. &quot;Complete Focus: An Experience with Adrafinil (exp80308)&quot;.
+Erowid.org
+. Jan 18, 2013. erowid.org/exp/80308
+DOSE:
+450 mg
+oral
+Adrafinil
+(pill / tablet)
+BODY WEIGHT:
+140 lb
+On the internet, I read about an interesting drug called Modafinil. The account I read was quite a good one, and praised the drug. So I searched online and found out about Adrafinil. Due to price and legality, I chose Adrafinil over Modafinil. The only thing I was concerned about was the potential liver damage that Adrafinil may cause (it may change levels of certain enzymes in the liver if used very regularly). As far as I have read, it is no concern if you&#x27;re not going to use the drug very often.
+The first time I used it was during school. That particular day, I skipped breakfast and took 300mg (one pill) around 8:45. Around 9:00, it hit me: I was more focused in school than I had been in a very long time. The subject matter wasn&#x27;t even that interesting, but I had complete focus on the lesson. Once I realized I had this ability to focus, I could focus my complete attention on anything. I could study the clock for 15 minutes straight if I really wanted to. No longer did my eyes dart around the classroom, desperately seeking a focal point. School work became quite easy, and I finished it in record time because I wasn&#x27;t distracted at all.
+As far as mental stimulation goes, there wasn&#x27;t a whole lot. Adrafinil didn&#x27;t make me &#x27;think,&#x27; I felt that I was thinking on my own accord. My thoughts wouldn&#x27;t wander nearly as much, and I didn&#x27;t find myself thinking about superficial things a whole lot.
+Adrafinil differed greatly from most other stimulants. Caffeine always made it impossible for me to sleep. I could take Adrafinil and go to sleep with ease. In fact, it may have made it easier since it prevented my mind from wandering. But sometimes I found myself just not wanting to sleep. I would stay up and read for hours on end. Caffeine also gave me a sort of &#x27;inner tension,&#x27; while Adrafinil did not.
+Later, I started taking adrafinil about three times a week. At one point, I did take a dose of 600mg (two pills), but I found myself getting an acute &#x27;mental headache,&#x27; the kind you get from staring at a television screen too long. 450mg (one and a half pills), I found out, was the perfect dose for me. Besides for the headaches at higher doses, the only other undesirable effect was the sulfur smell that would plague my urine for almost 48 hours after all effects of the drug had worn off.
+Adrafinil and Cannabis was quite an interesting combination. While normally high on cannabis, my thoughts would wander, almost to the point where I could not listen or speak. But adrafinil elimated this wandering. I was never a good speaker, in fact, I often stutter. Shortly after taking smoking Cannabis, I took 300mg of adrafinil. This turned me into a prolific orator. I told elaborate stories without fault. I became didactic, almost to the point where I was teaching my friends a lesson.
+Exp Year: 2008
+ExpID: 80308
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Jan 18, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Adrafinil (216) : Unknown Context (20), Glowing Experiences (4), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

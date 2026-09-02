@@ -1,0 +1,324 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>爱洛伊德旅行 - &quot;极其愉快的旅行&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-ho-mipt.html'>← 4-HO-MiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>爱洛伊德旅行 - &quot;极其愉快的旅行&quot;</h1>
+<div class='sub-title'>4-HO-MiPT - Erowid Exp - &#x27;An Extremely Pleasant Trip&#x27;</div>
+<div class='meta'>作者：Valentina Citation · 日期：Feb 6, 2025 · 剂量：12 mg · <a href='https://erowid.org/experiences/exp.php?ID=118616' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我很开心,因为下午和一起学习开车.
+我已经准备了一个爵士乐歌曲列表,
+我一直生活在焦虑和忧郁之中.
+我把迷幻药视为开启灵魂之窗的药物,
+我尊重这些物质,
+我只是想再次感受到我意识的广度.
+设置:我的卧室,坐在我的床上.
+在我面前有一个窗口.
+经历的高峰期恰逢黄昏, 那里有一个美丽的, 清的蓝天.
+这是一个非常舒适和亲密的环境.
+我在上来的时候打开了空调.
+我感觉到一种典型的紧张感,
+我还没有注意到任何效果, 但音乐听起来有点好, 可能是安慰剂.
+根据Psychonaut Wiki的说法, 它至少需要20分钟才能开始出现,
++26m:颜色感觉更生动和和, 尤其是蓝色.
+我发现很难不随着音乐的节奏移动.
+我很高兴我早些时候开车很好,当我的教我.
+现在,我会根据时钟来记录时间, 而不是与我服用4-HO-MiPT时的差异,
++30m:我感到轻微的恶心, 但很轻微.
+18:20 (开始于17:45):我的脚有着一种奇怪但愉快的感觉,
+我觉得摆动它们很有趣.
+音乐感觉更深入, 我可以专注于不同层次的乐器,
+身体负荷已经在这里, 但与2C-B或LSD不同,
+18:24:在写上一条信时, 我有点想尿尿,
+我刚才想起了,但现在的冲动要少得多.
+恶心持续但似乎没有恶化.
+我可能会有点头,所以我避免太多地移动身体 (我坐着).
+18:29:我闭着眼睛,如果想到它,我可以看到鲜明的图像,特别是当音乐与它保持一致时.
+18:30: 激烈的快乐浪潮在我的身体上下流.
+虽然我的身体一直是&quot;我&quot;,
+我感觉到&quot;我&quot;的本质在我的每一英寸.
+18:32: 恶心会让位给一种令人难以置信的愉快的身体感觉.
+我非常感激能体验到这一点.
+18:34:我可以通过思考改变我对音乐的感知.
+18:36:我对身体的控制感是最高的;每一个动作都感觉精确编排.
+它像羽毛一样轻,却像铁一样坚固.
+18:38:闭上眼睛,我可以看到一条延伸到地平线的泥土道路的生动场景,消失在无限.
+18:42:如果我可以, 我会拥抱音乐.
+没有前或后, 只有强烈愉快的现在.
+爵士乐在空气中漂浮, 充满了充满乐趣的精髓,
+如果我能,我会拥抱音乐.
+没有前或后, 只有强烈愉快的现在.
+爵士乐在空气中漂浮, 充满了充满乐趣的精髓,
+这是一个极其性感的时刻.
+我在镜子里看着自己,
+我是一个整体.
+我居住在我的整个身体, 不只是从我的头看.
+18:46:触摸物品感觉极其性欲和愉快.
+我只是想擦自己对另一个身体.
+18:47:闭上眼睛, 我看到经典的无限的思想.
+从那里可以去任何地方.
+18:50:高峰期即将到来, 我的思想变得更加深刻,
+然而,当我闭上眼睛时,
+18:52: 时间感觉很奇怪; 眼之间似乎有很长的时间过去了,
+音乐作为时间的指南.
+18:52:另一个快乐的波浪让我站起来,移动,触摸我的手臂和腿.
+一切都非常真实和美好.
+我感觉到爵士乐在我的骨头.
+我感觉到爵士乐的3D,甚至4D.
+18:57:音乐的感觉是... 美味的
+我正在吃它.
+19:01:在一个月亮的夜晚十字路口, 瓦伦蒂娜和安吉尔相遇.
+但我告诉他们,他们需要和解. 安吉尔已经走了很长一段路,
+祝他们两人好运.
+从现在开始,我会陪伴瓦伦蒂娜.
+再见,安吉尔,无论你的旅程带你去哪里.
+19:05:我感觉自己完整了.
+我感觉自己.
+我哭了,但它是清洁.
+我很久没有感觉到这样的真实.
+19:08:我感到内心的平静,
+这就像是对你一直认识的人说再见,
+19:10:我想知道我怎么能承受两个人的重量到现在.
+我的身体现在感觉轻了很多.
+19:12:音乐描绘的风景是完美的.
+19:14:我认为山峰已经在我身后.
+瓦伦蒂娜感觉很好.
+瓦伦蒂娜有点害怕, 需要把伤口关闭.
+19:17: 快乐的波浪在我的身体中流动.
+19:18:各种动物体现了我闭着眼睛看到的一切.
+19:20:我的身体感觉强烈的性欲, 每一次触摸都会唤起想法.
+我觉得自己正坐在山顶上, 在日落之际, 问候被登的山,
+他们不必这样做,但他们这样做.
+我非常感激.
+19:26:我觉得自己像一个可塑的心理质量,
+19:27:爵士乐感觉就像是土星环中的多彩水晶云.
+我意识到现在是19点28分, 已经过去了一个半小时.
+由于我没有超越现在的时间感, 很难掌握它的流逝.
+19:29:每一个音响都在我的心中产生回响,
+圣塞巴斯蒂安塔是我从房间里看到的,
+19:34:我降低音乐音量,再次站起来感受自己的体重.
+现在我的身体感觉更加沉重,
+尽管如此,
+让我感到特别满意,
+19:37:这首歌中的机器人声音&quot;我爱纽约&quot;让我觉得非常有趣.
+19:38:我仍然可以迷失在思想中, 但它们现在不那么深刻.
+纯粹的意识在遥远的地平线上.
+正常的意识系统正在夺回主导地位,
+19:43:我恢复正常的时间感,
+我只想和床上一起听爵士乐.
+19:44:我闭上眼睛, 颜色已经色了.
+灯光不再发光,
+如果以前我能深入意识领域,
+19:48:我已经忘记了永恒的感觉, 连续的现在, 没有时间状态,
+没有担心存在.
+19:49:12毫克的4-HO-MiPT已经完成了他们的工作.
+现在,这是我的决定.
+19:51:爵士乐仍然很好听,
+我很喜欢它作为世界上的, 阻止我沉浸在精神深处.
+探索自身的头脑总是学习并获得深入探索的能力.
+矛盾的是,这种物质的下降是刺激性的.
+19:58:我走路和说话时感觉轻松得多.
+一切都很轻松.
+永远保持对自己的身体的控制,
+我已经和音乐一起来去去,
+有些闭眼视觉留存.
+21:14:一个特殊的旅程.
+任何花时间去参观的人都会感到愉快.
+22:33:我回来了,感觉完全清醒了.
+这是一次非常愉快的旅程.
+我还没有太多的心理药物经验, 只有试过2C-B和LSD总共几次,
+如果说LSD是一种超音速喷气, 强度会让你完全消散,
+思想流动也很轻松.
+每一个动作和思想都经过精心策划.
+激素是一种快乐的硬核, 一种疯狂的意识狂欢.
+这就是爵士乐.
+它带你走在公园里, 握住你的手, 并告诉你不是你想听的,
+如果你接受它的指导,它会帮助你,因为它是你,而不是对你不利.
+我觉得12毫克是对这种药物的很好的介绍,
+除了4-HO-MiPT,我还获得了4-HO-MET和5-MeO-MiPT,用于未来的勘探.
+现在我对今天的旅程感到满意.
+我打算花点时间去品尝这一经历,
+时间表: 118616
+4-HO-MiPT (342):一般 (1),第一次 (2),烂的经历 (4),音乐讨论 (22),性讨论 (14),治疗意图或结果 (49),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>An Extremely Pleasant Trip
+4-HO-MiPT
+by
+Valentina
+Citation:   Valentina. &quot;An Extremely Pleasant Trip: An Experience with 4-HO-MiPT (exp118616)&quot;.
+Erowid.org
+. Feb 6, 2025. erowid.org/exp/118616
+DOSE:
+12 mg
+4-HO-MiPT
+BODY WEIGHT:
+65 kg
+~12mg 4-HO-MiPT
+Trip Report
+PREPARATIONS: I&#x27;ve waited for a long time for a day like this. I felt today was the day. I&#x27;m in a good mood and cheerful after spending the afternoon learning to drive with mom. I have prepared a jazz playlist featuring Casiopea and Miles Davis.
+SET: I live with constant anxiety and melancholy. I view psychedelics as medicines opening a window to the soul, whose action, if brief, heals my mind for months at a time. I treat these substances with respect and I am thankful for those who create them. For this very specific trip, I just wanted to feel the breadth of my consciousness again.
+SETTING: My bedroom, sitting on my bed. In front of me there is a window. Peak experience coincided with twilight, and there was a beautiful, clear blue sky. This is a very comfortable and intimate environment. I turned the AC on during the come up.
++15m: I feel the typical nervousness that follows taking a psychedelic. I don’t notice any effects yet, but the music sounds slightly better, might be placebo. According to Psychonaut Wiki, it takes at least 20 minutes to start coming up, so I wait patiently while listening to some of my favorite songs.
++26m: Colors feel more vivid and saturated, especially blue. I find it hard not to move to the rhythm of the music. I&#x27;m glad I drove well earlier, while my mom was teaching me. From now on, I&#x27;ll note the time based on the clock rather than the difference from when I took the 4-HO-MiPT, as it’s getting harder to focus and calculate.
++30m: I feel mild nausea, but it&#x27;s very slight.
+18:20 (started at 17:45): There’s a strange but pleasant sensation in my feet, like my toes are being hugged. I find it amusing to wiggle them. The music feels deeper, in the sense that I can focus on different layers of instrumentation, for instance, I can isolate the sound of the drums. The body load is already here, but unlike 2C-B or LSD, it&#x27;s very pleasurable.
+18:24: While writing the previous note, I had the urge to pee, but I forgot about it as I finished writing. I’ve just remembered, but now the urge is much less. The nausea persists but doesn’t seem to worsen. I might be a bit dizzy, so I avoid moving my body too much (I’m sitting down).
+18:29: With my eyes closed, I can see vivid imagery if I think about it, especially when the music aligns with it.
+18:30: Waves of intense pleasure flow up and down my body. While my body has always been “me,” it now feels more connected than ever. I feel the essence of &quot;me&quot; in every inch of my being.
+18:32: The nausea gives way to an incredibly pleasurable body sensation. I am deeply grateful to be experiencing this.
+18:34: I can alter how I perceive the music just by thinking about it.
+18:36: My sense of control over my body is supreme; every movement feels precisely orchestrated. It’s as light as a feather yet solid as iron.
+18:38: With my eyes closed, I can see a vivid scene of a dirt road stretching into the horizon, fading into infinity.
+18:42: If I could, I would hug the music. There is no before or after, just an intensely pleasurable now. Jazz floats in the air, perfuming existence with its playful essence, like a restless child.
+If I could, I would hug the music. There is no before or after, just an intensely pleasurable now. Jazz floats in the air, perfuming existence with its playful essence, like a restless child.
+18:45: This is a deeply erotic moment. I look at myself in the mirror and move my body. I am whole. I inhabit my entire body, not just watching from my head.
+18:46: Touching things feels intensely erotic and pleasurable. I just want to rub myself against another body.
+18:47: With my eyes closed, I see the classic infinite plane of the mind. From there, it’s possible to go anywhere.
+18:50: The peak approaches, and my thoughts become deeper, with longer gaps between conscious moments. With my eyes closed, however, there’s as much reality as with them open.
+18:52: Time feels strange; it seems like a long time has passed between blinks, but it’s only been seconds. The music serves as a guide to time’s passage.
+18:52: Another wave of pleasure makes me stand up, move, and touch my arms and legs. Everything feels exceptionally real and good. I feel jazz in my bones. I feel jazz in 3D, maybe even 4D.
+18:57: Music feels… delicious. I am eating it.
+19:01: In a moonlit nighttime crossroads, Valentina and Ángel meet. They don’t get along well, but I tell them they need to reconcile. Ángel has already walked far, and now it’s Valentina’s turn to follow the path. Good luck to both of them. From now on, I’ll accompany Valentina. Farewell, Ángel, wherever your journey takes you.
+19:05: I feel whole. I feel like myself. I cry, but it’s cathartic. I haven’t felt this real in a long time.
+19:08: I feel inner peace, yet also a sense of farewell. It’s like saying goodbye to someone you’ve always known as they walk away down a road.
+19:10: I wonder how I’ve managed to carry the weight of two people until now. My body feels much lighter now.
+19:12: The landscapes painted by the music are perfect.
+19:14: I think the peak is behind me. Valentina feels good. Valentina is a little scared and needs to close the wound.
+19:17: Waves of pleasure course through my body.
+19:18: Various animals embody everything I see with my eyes closed.
+19:20: My body feels intensely erotic, and every touch evokes thoughts.
+19:22: I feel like I’m sitting atop a hill at sunset, greeting the hill for being climbed, the clouds for passing, the tree for existing, and everything else for simply being and accompanying me. They don’t have to, but they do. I’m grateful.
+19:26: I feel like a malleable mental mass, plastic yet dense, reshaping itself.
+19:27: Jazz feels like a multicolored crystalline cloud among Saturn’s rings.
+19:28: I realize it’s 19:28, and more than an hour and a half have passed. Since I have no sense of time beyond the now, it’s hard to grasp its passage.
+19:29: Each note reverberates in my heart and forms waves that echo into eternity.
+19:31: The Tower of San Sebastián, which I see from my room, is vast but also an extension of my being, like everything else.
+19:34: I lower the music volume and stand again to feel my weight. My body feels heavier now; the peak is clearly behind me. However, the sensations remain fresh. The crunch of the dirt grains under my shoe is especially satisfying, decorating each step.
+19:37: The robotic voice in this song, “I love New York,” strikes me as incredibly funny.
+19:38: It’s still possible to lose myself in thoughts, but they’re less profound now. The pure consciousness is farther away on the horizon. Normal systems of consciousness are reclaiming dominance, and thoughts no longer guide visions.
+19:43: My normal sense of time returns, marking the descent. It’s very pleasant, and I just want to merge with my bed, listening to jazz.
+19:44: With my eyes closed, the colors have faded. The lights no longer glow, resembling the faint phosphorescence of recently extinguished lamps.
+19:46: If before I could delve into the field of consciousness, lifting and immersing myself in it, I no longer can.
+19:48: I had forgotten the feeling of the eternal, continuous present, the no-time state, and I’ll miss it again. No worries exist there.
+19:49: The 12mg of 4-HO-MiPT have done their job. Now, it’s up to me.
+19:51: The jazz is still delicious, flowing and gliding. About 20–30 minutes ago, I considered turning it down, but I enjoy its presence as an anchor to the world, keeping me from drifting too far into the mental depths, for now. The mind that explores itself always learns and gains the ability to delve deeper with each journey.
+19:55: Paradoxically, the comedown from this substance is stimulating.
+19:58: I feel much lighter as I walk and talk. Everything feels effortless. It would be wonderful to maintain this control over my body forever.
+20:37: I’ve come and gone with the music, but only superficially now. Some closed-eye visuals linger.
+21:14: An exceptional trip. The valleys of the mind, always green and flourishing, brighten the day of anyone who takes the time to visit them.
+22:33: I’m back and feel completely sober.
+AFTER: This was a very, very pleasant journey. I don’t have much experience with psychedelics yet, only having tried 2C-B and LSD a handful of times in total, but this was the most pleasurable trip I’ve ever had. If LSD is a supersonic jet, where the intensity dissolves you completely and makes it hard to focus on thoughts for any reasonable period time, 4-HO-MiPT is a Rolls Royce. It’s not fast, not slow, and thoughts flow effortlessly. Every movement and thought feels meticulously orchestrated.
+LSD is happy hardcore, a frantic consciousness rave. 4-HO-MiPT is jazz. It takes you on a stroll through the park, holds your hand, and tells you not what you want to hear but what you need to hear. If you accept its guidance, it helps you, for it is you, and it does not work against you.
+I feel that 12mg was a wonderful introduction to this medicine, and being reasonable with the dose benefited me greatly, given my lack of prior experience with tryptamines. Alongside 4-HO-MiPT, I’ve also acquired 4-HO-MET and 5-MeO-MiPT for future exploration. However, for now, I am more than satisfied with today’s journey. I plan to take some time to savor this experience before embarking on further expeditions into the ocean of consciousness.
+Exp Year: 2024
+ExpID: 118616
+Gender: Female
+Age at time of experience: 23
+Published: Feb 6, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-HO-MiPT (342) : General (1), First Times (2), Glowing Experiences (4), Music Discussion (22), Sex Discussion (14), Therapeutic Intent or Outcome (49), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

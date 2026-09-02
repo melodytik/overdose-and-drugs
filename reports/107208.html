@@ -1,0 +1,211 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>哈希奇 - 埃洛维德的死亡 - &quot;在阿登斯山脉过量服用&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cannabis-hash.html'>← 大麻(哈希)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>哈希奇 - 埃洛维德的死亡 - &quot;在阿登斯山脉过量服用&quot;</h1>
+<div class='sub-title'>Hash - Erowid Exp - &#x27;Overdose in the Ardennes&#x27;</div>
+<div class='meta'>作者：accessing this page · 日期：Apr 20, 2018 · 剂量：0.42 g · <a href='https://erowid.org/experiences/exp.php?ID=107208' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>大麻素</span></h2>
+<div class='body'>由于英语不是我的母语, 请原谅我可能犯的语法错误.
+首先是背景.
+我们都生活在荷兰, 但这个故事发生在比利时的阿登山,
+我们在高中时组建了这个小组, 但之后我们都去了不同的大学,
+我们租了一间房子,可容纳14人,
+我们的小组共有10人, 年龄在18到20岁之间 (我20岁是最年长的).
+我们认为这是一个不错的机会, 尝试一些草或大麻第一次.
+我们都没有任何经验,
+我们六个人拿走了.
+我会叫他们K,G,B,L,S和D.
+另一位朋友更有经验.
+他建议我们买2.5克大麻, 我们在荷兰的咖啡店买了大约20欧元.
+我们决定采用一种无可击的食方法,
+我们吃了哈希而不是大麻, 因为大麻不会像哈希那样溶解.
+我们在炉子上慢慢加热巧克力牛奶, 不让它沸,
+我把巧克力分成6杯,
+我们在一个骑.
+在30分钟后,
+起初感觉很好, 我们都像预期的那样大笑.
+起初感觉很好, 我们都像预期的那样大笑.
+我们从沙发上站起来,
+我的笔记本电脑连接到别的立体声装置,
+音乐感觉非常完美.
+半小时后, 我们意识到自己犯了错误,
+我开始越来越高兴, 直到它成为我唯一能想到的.
+我的视力开始变形,
+我突然觉得很热,所以我决定出去躺在湿石上.
+这时下雨了.
+房子看起来很远,虽然我可以清楚地听到其余的人在里面说话.
+我离房子只有一个米, 但看起来远远不止.
+地面在旋转,好像我喝醉了.
+我听到K (我们最小的) 愤怒地说我给了他们错误的剂量 (尽管后来他们告诉我她从来没有说过这样的话).
+我们的四个保姆照顾着我们.
+我几乎不能走路,所以他们带我进去, 把我躺在地板上,
+显然D有恐慌发作并试图从窗户爬出来, 所以他们把他放在床上冷静下来,
+我觉得她已经哭了.
+两位保姆跑过去,走进树林,
+完全专注于 (他后来告诉我) 把双手放在眼睛上,
+雷格音乐帮助我们度过, 因为它是平静和稳定的.
+几分钟过去了.
+然后我的笔记本电脑蓝屏和爆炸的静态通过立体装置.
+这让我们都感到惊,
+这也许是整个旅程中最不愉快的部分.
+我们的保姆试图让我们在床上之后.
+我在所吐,然后睡着了,
+他们把我放在床上之后.
+我记得走廊一直在旋转.
+六个小时过去了,
+走廊一直在旋转.
+六个小时过去了,
+他们最终把我们都送到床上.
+我们一直到第二天下午, 所以超过24小时.
+我们的四个朋友如此关心我们, 非常感动.
+这使我们之间的友更加紧密.
+现在回想起来,我们应该做得更好.
+我绝对不建议第一次吃大麻,
+烟雾对肺部的伤害不如火烟对关节的伤害.
+我还建议在熟悉的环境中进行.
+烟雾对肺部的伤害不如火烟对关节的伤害.
+我还建议在熟悉的环境中进行.
+其他:
+大麻 - 大麻 (93):第一次 (2),准备/食谱 (30),导游/看护 (39),过量服用 (29),困难经历 (5),大群 (10+) (19)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Overdose in the Ardennes
+Hash
+by
+S. Bell Ens
+Citation:   S. Bell Ens. &quot;Overdose in the Ardennes: An Experience with Hash (exp107208)&quot;.
+Erowid.org
+. Apr 20, 2018. erowid.org/exp/107208
+DOSE:
+0.42 g
+oral
+Cannabis - Hash
+(liquid)
+BODY WEIGHT:
+65 kg
+As English isn’t my primary language, please excuse me for any grammatical mistakes I may have made.
+Context first. We all live in the Netherlands, but this story takes place in the Ardennes in Belgium, where I went on holiday with a group of friends. This group formed in high school but we all went to a different university after that, so it had been a long time since we’d all seen each other.
+We hired a villa for a week for 14 people which was equipped with a jacuzzi, pool table and two floors and several bedrooms. The group amounted 10 people, all between 18 and 20 years old (I was oldest at 20). As we were all together and away in the woods from any inquisitive people, we figured it was a nice opportunity to try some weed or hash for the first time. We all had zero experience but were very eager to learn. Six of us took it. I’ll call them K, G, B, L, S (me) and D.
+Another friend of mine was more experienced though. He recommended we buy 2.5 grams of hash, which we bought in a coffee shop in Holland for about € 20,-. As none of us were smokers or skilled bakers, we decided to use a foolproof method of taking the hash; we’d dissolve it in hot chocolate milk. We took hash instead of weed as weed doesn’t dissolve like hash does. It worked extremely well; we slowly heated the chocolate milk on the stove without letting it boil, and within 15 minutes the hash was dissolved completely. At 14:15, I distributed the choco over 6 cups, which we drank on an empty stomach. We were in for a ride.
+After about 30 minutes, we all started to feel the effects. Initially it felt nice, we got all giggly as was expected.
+Initially it felt nice, we got all giggly as was expected.
+We stood up from the couch we’d been sitting on and started walking around and talking about how nice it felt. My laptop was connected to the stereo installation of the villa, so we spaced on reggae. The music ‘felt’ perfect.
+30 minutes later however, we realized the mistake we’d made, as everything started to feel very odd. My high became more and more intense, until it became all I could think of. My vision started to morph and deform like a mosaic filter in Photoshop. I suddenly felt very hot, so I decided to go outside to lie down in the wet gravel. It was raining. The house looked very distant, though I could clearly hear the rest of them talking inside. I was barely a meter away from the house, but it looked like way more. The ground was spinning like I was drunk. I heard K (our youngest) talk angrily about how I’d served them a wrong dose (though later they told me she’d never said anything like that).
+Our four sitters took care of us. At this point I could barely walk, so they took me inside and laid me down on the floor, where I got a nice impression of the chaos. Apparently D got a panic attack and tried to climb out of a window, so they laid him in bed to calm down and locked the windows. B was trying to calm K down who (I thought) was in tears. Two sitters ran past me and went into the woods, as G was missing and had probably left the house. L was sitting calmly in his chair, his entire attention focused (so he told me later) on keeping his hands over his eyes, trying to keep the stimuli out. The reggae music helped us through as it was calm and constant.
+A few minutes went by. Then my laptop bluescreened and blasted thundering static through the stereo installation. It startled us all which didn’t feel nice at all (understatement of the year). That was perhaps the least enjoyable part of the whole trip. Our sitters tried to get us in bed after that. I vomited on the toilet after which I fell asleep, dropping the glass cup I’d been given and sending splinters everywhere. They laid me in bed after that. I remember that the hallway just kept spinning and spinning. About six hours had passed since we took the chocolate milk.
+the hallway just kept spinning and spinning. About six hours had passed since we took the chocolate milk.
+They put us all in bed eventually. We stayed high until afternoon the day after, so for more than 24 hours. The fact that our four friends took such great care of us was very touching. It made the friendships we share even stronger.
+Looking back, we should’ve done better research. I&#x27;d definitely not recommend eating weed / hash for a first time because estimating the right amount was very difficult. I’d say a bong works best for a first time, as it can be dosed properly and the smoke isn’t as harsh on your lungs as hot smoke from a joint. I&#x27;d also recommend taking it in a familiar environment.
+I’d say a bong works best for a first time, as it can be dosed properly and the smoke isn’t as harsh on your lungs as hot smoke from a joint. I&#x27;d also recommend taking it in a familiar environment.
+Exp Year: 2014
+ExpID: 107208
+Gender: Male
+Age at time of experience: 20
+Published: Apr 20, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cannabis - Hash (93) : First Times (2), Preparation / Recipes (30), Guides / Sitters (39), Overdose (29), Difficult Experiences (5), Large Group (10+) (19)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

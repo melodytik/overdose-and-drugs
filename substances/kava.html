@@ -1,0 +1,115 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>卡瓦(卡瓦胡椒)</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>卡瓦(卡瓦胡椒)</h1>
+<div class='sub-title'>Kava</div>
+<div class='meta'>药理类别：抑制剂</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span></span><span class='mv'>4 · 强</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span></span><span class='mv'>5 · 极高</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li>身体放松、肌肉松弛、焦虑下降、思维清晰（不产生明显认知损害）、口腔麻木感；</li><li>含卡瓦内酯，作用于 GABA 与电压门控钠通道，属抗焦虑/肌肉松弛类。</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li>身体放松、肌肉松弛、焦虑下降、思维清晰（不产生明显认知损害）、口腔麻木感；</li><li>含卡瓦内酯，作用于 GABA 与电压门控钠通道，属抗焦虑/肌肉松弛类。</li></ul></div>
+</div>
+<div class='brief'><div class='sec risk'><span class='k'>【风险提示】</span> 本页 183 篇报告属 B 类。最大的争议点是<strong>肝毒性</strong>——多国曾报告与使用相关的肝损伤病例（可能与使用地上部分而非传统根茎、或乙醇/丙酮提取物有关）。与酒精、苯二氮䓬合用增强镇静与肝负担。长期大量使用出现「卡瓦皮炎」（皮肤干燥脱屑）。有肝病史者应避免。</div>
+<div class='sec'><span class='k'>【作用特点】</span> 含卡瓦内酯，作用于 GABA 与电压门控钠通道，属抗焦虑/肌肉松弛类。口服 20–60 分钟起效，持续 2–4 小时。</div>
+<div class='sec'><span class='k'>【常见剂量与途径】</span> 传统为根茎水浸液（「卡瓦茶」），也有胶囊/提取物。</div>
+<div class='sec'><span class='k'>【他人报告中的体验（含负面）】</span> 身体放松、肌肉松弛、焦虑下降、思维清晰（不产生明显认知损害）、口腔麻木感；高剂量出现嗜睡与共济失调。</div></div>
+<h2 class='block'>他人经历报告（229 篇）</h2>
+<div class='item'><h3><a href='../reports/106515.html'>卡瓦 - 艾洛伊德 - &quot;过敏反应&quot;</a></h3><div class='meta'>Mar 29, 2017 · 剂量 2.5 oz</div><div class='ov'>我读过很多关于过敏反应的报道, 都来自那些试图找到一种方法来克服过敏并继续使用卡瓦的患者; 我能理解精神健康的好处是否值得去折衷,</div></div>
+<div class='item'><h3><a href='../reports/107014.html'>晨光种子和卡瓦 - 伊洛伊德的实验 - &quot;超越的手段&quot;</a></h3><div class='meta'>Oct 17, 2017</div><div class='ov'>美国 我对LSA的第一次体验, 包含在早晨的光 (Purpurea) 里, 实际上,经历了那场可怕的经历之后, 只有四年后, 为什么我的弱势意志坚持? 简而言之, 现在是我改变经历的时候了. 我在一个非常消极的地方几个月…</div></div>
+<div class='item'><h3><a href='../reports/81510.html'>卡瓦 (面粉) - 耳鼻 - &quot;很好,可以减轻焦虑和忧郁&quot;</a></h3><div class='meta'>Oct 8, 2009</div><div class='ov'>总的来说,一切都很无聊, 但我不会像酒精那样变得百分之百无忧无虑,</div></div>
+<div class='item'><h3><a href='../reports/50245.html'>卡瓦 - 埃罗伊德的感觉 - &#x27;浮动的感觉&#x27;</a></h3><div class='meta'>Mar 24, 2008 · 剂量 1 cup</div><div class='ov'>我开始浏览互联网, 这让我想起了我在抽里有一小部分卡瓦! 我以前曾经过卡瓦, 并且喜欢口中麻木的感觉 (事实上, 准备过程: 我拿出我的卡瓦, 放进一个大麻茶袋里. 我使用的卡瓦大约是一把手, 但对于正常人来说, 我的手…</div></div>
+<div class='item'><h3><a href='../reports/39049.html'>卡瓦 - 埃罗伊德探险 - &quot;非常奇怪的假旅行&quot;</a></h3><div class='meta'>Apr 16, 2007 · 剂量 0.5 g</div><div class='ov'>阅读报告后, 我没想到会有太大的效果, 我决定在晚上10点左右一小部分, 我预计会发生一些可怕的事情, 我注意到我的嘴巴在时变得麻木, 我躺了一会儿, 开始听一些&quot;灵性化&quot;音乐, 很快,我开始感到轻松, 开始有几种&#x27;头&#x27;…</div></div>
+<div class='item'><h3><a href='../reports/14309.html'>卡瓦 - 埃洛伊德的探险 - &quot;极限和超越&quot;</a></h3><div class='meta'>Mar 25, 2005 · 剂量 240 oz</div><div class='ov'>总的来说,我觉得我更喜欢喝卡瓦的场景,</div></div>
+<div class='item'><h3><a href='../reports/91847.html'>卡瓦 - 耳膜消毒剂 - &quot;高温剂量&quot;</a></h3><div class='meta'>Jun 4, 2018 · 剂量 2000 mg</div><div class='ov'>我之前尝试过卡瓦, 剂量大约为3/4的效果让我感觉非常社交. 我想增加一点,看看大剂量会有什么作用, 每个含有75毫克的卡瓦拉克,总共2000卡瓦拉克. 坐下来读一本好书. 虽然心情有所改善, 现在我还没有感觉到任何东西…</div></div>
+<div class='item'><h3><a href='../reports/111995.html'>卡瓦卡瓦 - 虫 - &quot;,然后入冰桶&quot;</a></h3><div class='meta'>Jun 2, 2018 · 剂量 10 oz</div><div class='ov'>[本文最初以手写的笔记形式出现在 书 2, 舒尔金实验室书籍 没有. 第四章 98 - 卡瓦 卡瓦根 (新鲜) 大约10新鲜的根被和喷入冰桶 (京都旅馆,SF,MD,LA还有两个人) 和[与]水被入玻璃杯中,并在3点钟喝…</div></div>
+<div class='item'><h3><a href='../reports/64820.html'>卡瓦 - 埃洛伊德的旅行 - &#x27;伪装旅行?</a></h3><div class='meta'>Feb 4, 2016 · 剂量 15.5 g</div><div class='ov'>另一种:我认为我再也不会尝试这种方法,</div></div>
+<div class='item'><h3><a href='../reports/89838.html'>沙维亚神和卡瓦 - 埃罗维德 - &#x27;离开王国&#x27;</a></h3><div class='meta'>Feb 3, 2016</div><div class='ov'>这种行为最终会导致萨尔维亚被禁赛.</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 229 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

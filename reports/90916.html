@@ -1,0 +1,205 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>爱洛伊德探险&quot;欢迎来到水世界&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pcp.html'>← 苯环利定</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>爱洛伊德探险&quot;欢迎来到水世界&quot;</h1>
+<div class='sub-title'>PCP - Erowid Exp - &#x27;Welcome To Waterworld&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Dec 6, 2017 · 剂量：7 hits · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=90916' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>&quot;在加利福尼亚, 雨不多, 但每个人总是湿的. &quot;正在讨论的药物是PCP, 也被称为液态水.
+现在除了加州的某些地区和东海岸的部分地区,
+在分享我的经验之前, 我必须提醒你: 抗生素与我听说过的或经历过的任何药物都不同.
+虽然有些人能享受它, 发现它是愉快的, 其他人变得极度迷,
+让我们一起走进我与Sherm相遇的黑暗和扭曲的记忆中.
+我一直对PCP感兴趣.
+我从13岁开始每天尝试各种幻觉药物和吸大麻,
+十七岁的时候, 我第一次有机会尝试.
+我在一个聚会上遇到了一个当地的血派成员, 喝了几个小时,
+他告诉我他整天&quot;湿&quot;所以我打电话给他2或3天后,
+他拿出一支纽波特100香烟和一个小棕色的瓶子,
+我把钱交给他, 他把瓶子的盖子开,
+我立即闻到一种强烈的化学气味,
+这味道让我鼻子,但我立刻爱上了它.
+他把香烟卷在他的手指之间,
+为了让液体上升到香烟中.
+他重复了这两次, 整个香烟是湿和棕色到过器.
+他把入嘴里,用牙撕出过器,点燃另一个雪茄,把入给我.
+他解释说开放的火焰不能触及水,否则它会燃烧,浪费浸泡,所以他把另一支雪茄交给我,我把它放在水的尖端.
+我深深地吸了一口气, 感觉到一个冷淡的,轻微的刺在我的喉和肺部.
+味道可以描述为吃一个神奇的标记墨水盒,
+我把子交给了供应商,
+第一个效应在3到4分钟内感觉到,并且非常奇怪.
+首先我感到麻木.
+我的嘴巴,胃,腿,手指和几乎所有的皮肤都麻木了.
+显然这种化学物质最初是为了麻醉而制造的,
+接下来我注意到的是我开始做白日梦.
+我完全忘记了我正在进行的任何对话或我脑海中的任何想法.
+我感觉到一种浮动的感觉,
+我不想像个瓜那样表现,所以你再抽一口.
+这一阶段 (6-8次击中后) 我称之为&quot;尘埃落定&quot;. 走路几乎是不可能的,视力极为模糊,有点像闪光灯,远处听到奇怪的声音.
+感觉就像在梦中;你可以看到你周围的一切,并有点认出它是什么,但这一切看起来陌生和奇怪.
+语言听起来很奇怪,说话感觉也很奇怪.
+没有什么是真实的.
+语言听起来很奇怪,说话感觉也很奇怪.
+没有什么是真实的.
+我觉得自己是无敌的,勇敢的,对任何事情都不一顾.
+我开始想起我的父母和兄弟姐妹, 意识到我忘记了他们是谁.
+我可以在脑海中想象他们的面孔, 但无法与他们的名字或记忆联系起来.
+我可以稍微记住我的名字和我是谁,
+我失去了与现实的联系,失去了生活的意义,失去了生命的意义.
+尽管如此,我没有害怕或担心,
+我只能坐在墙上, 着我的脸, 着我20分钟左右 (这就是所谓的&quot;卡住&quot;).
+我感谢我的供应商,然后前往我的朋友家.
+我在散步时完全失去了理智,
+我觉得自己在自己身上漂浮, 看到自己走在幻想世界里,
+效果持续了3到4个小时, 下降是温和而平稳的回归现实.
+我那天晚上睡得很好,第二天没有发现任何残留效应或宿醉.
+我肺部也很好,
+我在接下来的几个月里抽了5到6次水, 直到我的供应商在2010年8月中旬被枪杀.
+我还没有找到任何与水有关的人, 但我迫不及待地等待着我能再次尝试的那一天.
+我知道这些旅行的回忆将永远留在我的脑海中.
+总结一下, 我希望用纽约族说唱歌手Tame-One的两句话来总结整个毒品:&quot;我把香烟浸入最邪恶的液体中,
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Welcome To Waterworld
+PCP
+by
+dgaf420
+Citation:   dgaf420. &quot;Welcome To Waterworld: An Experience with PCP (exp90916)&quot;.
+Erowid.org
+. Dec 6, 2017. erowid.org/exp/90916
+DOSE:
+7 hits
+smoked
+PCP
+(liquid)
+1 cig.
+smoked
+Tobacco - Cigarettes
+BODY WEIGHT:
+240 lb
+&#x27;It doesn&#x27;t rain much in California but everyone&#x27;s always wet.&#x27;  The drug in discussion is PCP also known as water in its liquid form.  It is a scarce drug to find these days aside from certain areas in CA and parts of the East Coast.  Before I share my experience I offer a fair warning: PCP is unlike any other drug I have ever heard of or experienced.  It effects everyone differently from my experience and while some can enjoy it and find it pleasurable, others become extremely disoriented and find the effects overwhelming sometimes to the point of freakouts.  With this in mind come with me as we stroll down the dark and twisted memories of my encounters with sherm.
+I was always interested in PCP growing up.  I&#x27;d tried various hallucinogenics and smoked pot daily since age 13 but for some reason the negative, dark stigma the media associated with PCP lured me in.  At age 17 I got my first chance to try it.  I&#x27;d met a member of a local Blood set at a party and got his number after a couple hours of drinking and sharing blunts with him.  He informed me he had &#x27;Wet&#x27; all day so I called him 2 or 3 days later and set up a deal for a &#x27;Dip&#x27;.  We met up at a local Target store and sat down on a wall behind it.  He pulled out a Newport 100 cigarette and a small brown bottle he called a &#x27;vial&#x27;.  I handed him the cash and he unscrewed the bottle lid revealing a neck hole just the size for a cigarette to fit into.  I immediately smelled a strong chemical odor which can best be described as a mix between acetone and sharpie marker.  The smell stung my nose but I instantly loved it.  He then rolled the cigarette between his fingers to loosen the tobacco and  dunked the cigarette into the vial about a quarter of the way down.  He then quickly pulled it out and began drawing through it repeatedly to get the liquid to travel up the cig. He repeated this 2 more times and the entire cigarette was wet and brown down to the filter.  He placed the Dip into his mouth and ripped the filter out with his teeth, lit another cig and passed the dip to me.  He explained that an open flame could not touch the water or it would flame up and waste the dip so he passed the other cig to me and I placed the cherry of it to the tip of the water.
+After a few pulls I inhaled deeply and felt a cool, slight numbing tingle throughout my throat and lungs.  The taste can be described as eating a magic marker ink cartridge except slightly more metallic.  I passed the dip back to my supplier and looked up to the sky.  The first effects were felt within 3 to 4 minutes and came on very strangely.  At first I feel numb. My mouth, stomach, legs, fingers and almost all skin is numb.  Obviously the chemical was first created as an anesthetic and it is a very good one indeed.  The next thing I notice is that I&#x27;m beginning to day dream.  I completely lose track of whatever conversation I was currently having or whatever thought was currently in my head.  I feel a floating sensation and suddenly the drug peaks.  Keep in mind that by this time the Dip is getting passed back to you for the third or fourth time and I don&#x27;t want to act like a punk so you take another pull.
+This stage (after 6-8 hits) is what I call &#x27;dusted.&#x27;  Walking is practically impossible, vision is extremely blurry and somewhat strobe-like, and weird noises sound from far away.  The feeling is like being in a dream; you can see everything around you and somewhat recognize what it is, but it all looks foreign and strange.  Words sound strange and speaking feels weird.  Nothing seems real.
+Words sound strange and speaking feels weird.  Nothing seems real.
+Everything seems slightly dark and grim with a sadistic undertone but at the same time I feel invincible, courageous, and impervious to anything.
+At one point during the smoke out I began to think of my parents and siblings and realized I&#x27;d forgotten who they were.  I could picture their faces in my mind but couldn&#x27;t associate any names or memories with them.  I could slightly remember my name and who I was, yet I couldn&#x27;t.  I&#x27;d lost my connection with reality, my point of living, and what life even was.  Yet I wasn&#x27;t scared or worried, I absolutely loved it.  These new found realizations swirled through my head and I just sat on the wall with a dead blank stare on my face for about 20 minutes (known as getting &#x27;stuck&#x27;).  By this time We&#x27;d finished the Dip off and I thanked my supplier and headed to my friends house.  I was totally out of my mind on the walk but I loved it.  I felt as if I was floating above myself watching myself walk in a fantasy world and it was an amazing experience.  The effects lasted 3 or 4 hours and the comedown was a gentle and smooth ease back into reality.
+I slept fine that night and found no residual effects or hangover the next day.  My lungs were fine as well and didn&#x27;t seem at all irritated by the harsh chemical.  I smoked water 5 or 6 times after that within the next couple of months until my supplier was killed in a drive-by shooting mid August 2010.  Since then I&#x27;ve yet to find anyone with connections to water but I eagerly await the day I can try some again.  It is such a surreal and mystical experience that I absolutely love and I know that the memories of these trips will stay in my mind forever.  In conclusion, I&#x27;d like to sum the entire drug up in 2 lines from NY sherm rapper Tame-One: &#x27;I dip my cigarettes in the most wicked of liquids- And it have my blacking out just like 6 solar eclipses.&#x27; ~ PEACE LOVE &amp; DOPE!
+Exp Year: 2010
+ExpID: 90916
+Gender: Male
+Age at time of experience: 17
+Published: Dec 6, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+PCP (113) : General (1), First Times (2), Glowing Experiences (4), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

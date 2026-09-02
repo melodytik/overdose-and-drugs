@@ -1,0 +1,532 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>果公司的&quot;你是特别的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ald-52.html'>← ALD-52</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>果公司的&quot;你是特别的&quot;</h1>
+<div class='sub-title'>ALD-52 &amp; Cannabis Edible - Erowid Exp - &#x27;You Are the Special&#x27;</div>
+<div class='meta'>作者：RR Citation · 日期：Nov 24, 2016 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=109540' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我在网上买了一些1P-LSD和ALD-52,
+我想看一下1P/ALD的效果是否有所不同.
+我几周前已经服用了1P,
+我有有限的时间来测试两种不同的化学品, 并及时重新订购.
+我会一个人倒, 服用一片125微克的ALD-52药片,
+只有0.2到0.4克的杂草.
+我之前至少10次服用过单独或集体精神药物, 包括LSD,,ALD-52,1P-LSD和DXM.
+那天是星期二,我也像往常一样到达工作.
+我很高兴看到他们.
+我想如何在不需要休息一天的情况下安排时间 (我们目前在工作中陷入困境, 休息不是一个好的职业选择).
+我决定最好的做法是早点回家,在家工作 (实际上不是工作),
+让我可以睡得很好, 第二天仍能上班.
+我个人在经济危机期间并没有承担过任何艰难的责任,
+我终于按照计划下班, 大约下午1点左右.
+我回家,吃了一块饼,
+我想看看这种组合是否会让人愉快,
+现在回想起来,这显然会让我对ALD-52的经验有点困惑,
+草饼干/饼干 (非常简单的食谱) 需要大约一个小时.
+这里是我用作草食用的食谱:
+- 预热烤箱到230华氏度
+- 拿大约1碗的价值的杂草 (估计2~4g) 放在一些,确保不双包装
+- 将草/纸包装到烤盘中, 烤15分钟
+- 拿一些饼干,把努特拉抹在上面.
+- - 当草准备好了, 拿出来和烤箱预热到305华氏度.
+- 拿出草的片和粉碎它到努特拉.
+-把饼干打碎在一起 (想象一下你会如何打开一个Oreo) 并放入纸,
+- 一旦预热,将饼干/包装放在烤箱中20分钟.
+- 打开包装,等待几分钟如果它太热了,享受!
+我喜欢这种方法, 因为它在材料和努力方面非常简单, 耗时不到一个小时,
+我已经吃到了.
+现在是下午2点半左右.
+我想让可食和饼有时间在我的胃里坐下来,
+我通常会经历一些恶心/奇怪的胃感觉如果我没有吃任何东西,所以吃是前提条件.
+我认为我会在30分钟左右.
+我坐在电视前等待, 然后开始看&quot;邪恶女孩&quot;.
+我选择了Mean Girls, 因为我感觉有点性欲,
+T = 0:00 至 + 1:00
+我在家办公室, 在电脑上设置工作虚拟桌面.
+我拿出ALD-52的清除器.
+我认为最好是从较低的剂量开始, 特别是因为我会独自一人在,
+最好从较低的剂量开始, 特别是因为我会独自一人在倒和结合它与食用杂草.
+于是我拿起其中一个.
+每个都有125微克的ALD-52.
+我用舌下吸了一会儿, 然后它, 吞下它,
+接着我收到一个同事的信息, 要求我在一小时内为他做点什么.
+狗的时间.
+幸运的是,这并没有什么太复杂, 所以我提前为自己准备好了一切,
+我回到客厅继续看电影.
+我在另一个房间里就把它放在播放上.
+我住的城市也很近, 晚上外出走路往往是不合适的选择.
+我喜欢在旅行中享受几小时的阳光.
+也许我可以在外面走动.
+现在是下午3点, 我没有太多的白天时间去走路, 而且还得在阳光升起的时候,
+我觉得我可能会有时间出去散步,所以我很高兴.
+我开始觉得草有点可食.
+这主要是冷静的沙发土豆的感觉.
+我经常在办公室和客厅之间走来走去,
+我有点担心工作中发生了什么问题,我不得不在工作中解决问题,或者有人要求我回来工作,
+幸运的是,这些事情在我的工作中并不常见,
+我在手机上设置了下午4点的钟, 以便我记得为我的同事做这件事,
+在40分钟的时间里, 我开始经历轻微的视觉噪音干扰.
+我可以说,我已经开始了.
+我感觉不像我在1P-LSD时那样受到刺激,
+时间+1点
+我打开电话报警, 我走进办公室,
+我把手机上的另一个钟设置为15分钟后回来.
+我开始看到彩虹的光环.
+我相信可食草也开始起作用,
+我很满意坐下来.
+我每5分钟就回到办公室检查同事的信息.
+每当我起床时, 我都会感到焦虑,
+我提醒自己这就是这次经历的目的,
+我更担心在此期间被要求做一些工作,
+当我在客厅里, 我正在偷它给邪恶的女孩.
+我没有问题保持勃起.
+我发送一封电子邮件表示我已经完成了.
+现在是下午四点半左右, 我可以安全地离开工作.
+我很快就感觉到一种宽松的感觉.
+我已经出去了!
+我已经完成了工作!
+圣诞老人场景即将上演, 时间非常合适.
+我有点担心同事打电话给我, 要求我用个人电话做某事,
+我在客厅里有一个大窗户,
+它有彩虹般的光环, 百叶窗与光线形成了一种图案.
+我花了一会儿欣赏它.
+然后,我坐下面看电视.
+一个强大的彩虹模糊了我的视野边缘.
+客厅的视觉温度随着电视上的颜色变化而变化.
+圣诞老人场景开始,所以我疯狂地打了它.
+我开始觉得自己与手和阴茎没有联系, 虽然我仍然感觉到快乐.
+我没有接近排卵,所以我停止了.
+我决定继续看电影一段时间.
+我看了看窗外,看到邻居的妻子在家里.
+她带着一些东西进来,我发誓她正在看着,可以通过这个窗户看到.
+没有看到我拉它 (虽然我在我的手在我的子里),或什么.
+我开始有点偏执,
+我起身关上窗,然后继续看电影.
+随着电影的发展, 琳莎·罗汉变得越来越受欢迎,
+她的眼睛变得完全黑, 她的头发是尖的,
+她的女同性恋朋友的头发让我想起了一只蜘蛛 (长长的黑色丝).
+我终于决定不再看这部电影了, 因为我已经不再那么喜欢它了.
+我暂时停顿在Netflix的屏幕上.
+我家里有一种令人毛骨然的寂静,
+我也起身关上后门的百叶窗.
+不想让任何人看到里面.
+我坐下来讨论看什么.
+然后我突然想到:乐高电影.
+我之前想在旅行时看这部电影,
+我也从来没有见过.
+但现在,我确实感觉到了.
+我把电影放上了.
+我有一种明显的融化感,
+我觉得自己正慢慢地沉入沙发,
+我的身体有着彩虹般的光环, 但从概念上来说,
+我开始认为我不仅在物理意义上融入环境,
+我同时存在于过去,现在和未来.
+我不知道从乐高电影中可以期待什么.
+立即入一个美丽的岩景观.
+我只能想到这部电影是如何被设计为在LSD上观看.
+眼睛的白色,旋转和彩虹色令人着迷.
+我担心先知的安全, 因为主要的坏人将他下台,
+我觉得这很有趣,而且非常荒谬.
+我从此开始记忆有点模糊.
+我相信我从食用草和LSD中长大, 它们非常接近,
+让所有人都喜欢你, 永远快乐!
+我觉得这样的想法是完全荒谬的.
+乐高的房间正在改变颜色.
+我对他洗的形象没有印象.
+但后来我意识到这部电影是动画片.
+我猜到直到电影中的那一刻, 我还没有完全确定.
+他读了说明书, 我有个短暂的想法说说明书会是空白的,
+我为他感到遗憾,除了他的植物,他没有任何朋友.
+乐高玩家开始工作, 视觉上有很多事情发生.
+我很难跟踪实际发生的事情, 因为这部电影实际上有很多很快的剪辑, 但&quot;一切都很棒&quot;歌曲的安抚声音提醒我,
+我惊地看到另一个乐高在外围飞入现场.
+乐高人脱下了他们的斗, 结果被揭示为一个漂亮的乐高女人.
+这让我想起我曾经在LSD中看到的女人的面孔.
+我立刻觉得自己在家里,我觉得电影的创作者知道我经历了什么,他们自己经历过,并想为观众重现那一刻. (序列是相当迷人的,甚至没有触发) 乐高的家伙有一个漫长的&quot;&quot;时刻,我发现这是非常有趣的,但也很简单地困惑,因为它持续了很长时间
+我不确定我是否在时间循环或什么.
+由于某种原因, 乐高玩家发现自己在地下,
+他说他不再有指令, 我同情他.
+我不能确切地说他正朝着什么目标前进.
+我不确定这是在电影中看起来很奇怪 (确实如此) 还是酸在发挥作用.
+我不确定发生了什么事.
+有一个好警察和一个坏警察.
+我觉得这很有趣.
+我的整个身体都融入了沙发.
+房间的灯光不断移动, 我在这一点上确实在倒.
+男人被女孩救出, 他们走到小里.
+他不小心撞到一个乐高,而乐高女孩告诉他他很聪明.
+无论他觉得什么是对的, 是正确的事情, 乐高人只需要跟着那种感觉,
+接下来我记得是乐高对那个人说:你是宇宙中最有才华,最有趣,最非凡的人.
+似乎他们直接对我说话.
+这就是安抚女性乐高再次说.
+这太棒了.
+我感觉非常好.
+我觉得自己在乐高中是个个体.
+我也怀疑他们所说的话, 我也缺乏内心的信心去相信她,
+他回答说他是特别的人, 立即被抛出他的深处进入一个疯狂的情况.
+接下来是一场疯狂的乐高摩托车追逐场景.
+我的上帝,电影是多彩的.
+这里有太多的动作.
+每个乐高本身都非常复杂,
+乐高世界是无限的.
+我开始对情节感到困惑.
+这部电影中有很多时刻重复了&quot;你是最有才华的&quot;...的言论,
+我相信这在电影中只发生两三次,
+我开始产生一些关于电影中所发生的事情的错觉,
+一个.
+所有的乐高都是单一意识的一部分.
+整个宇宙是一个单一的意识, 大爆炸是意识分裂成不同的思想线.
+宇宙只是一个巨大的思想, 所有的意识只是试图找到答案的过程.
+然而,这些过程无法就答案达成一致, 因此它们无法重新结合在一起成为一个, 结束宇宙并解决原始问题.
+我认为乐高男孩和乐高女孩是同一整体的两个部分, 我看到他们努力理解这一事实,
+抗拒的部分本身就是纯粹的自我,纯粹的自私,纯粹的分离.
+女乐高玩家承认自己想成为&quot;特殊的&quot;时刻,
+我看到男乐高的脸变成灰色和闪亮的像片, 看起来他的脸正在被删除, 但它正在变成另一个脸...
+因为他们还没有准备好合并.
+2. 在
+整部电影只是一个人的头脑中的意识流.
+只是指导他重新发现自己的想象力.
+它们在乐高玩家的脑海中, 而脑海却是空的.
+其他乐高玩家说他很平凡, 他对自己的想象力失去了信心.
+乐高正试图帮助他重新发现对自己的信心,
+这部电影本身似乎是随机的, 每一个场景我相信只是这个人的思想流的一部分.
+这位乐高玩家只是说出他脑海中想到的东西,
+3. 没有.
+作为第二号的分支, 我也曾经相信乐高是指导,
+知道这样做意味着电影/体验/意识将会结束,
+我不想离开电影界,
+他只是无法结束它.
+这就像宇宙一样; 一个巨大的想法, 但我们不能把自己带到结束, 因为我们害怕或我们不想回到无,
+我们要坚持经验,坚持我们是谁,
+结束这次体验意味着结束我们的确定性,
+另一个想法开始, 这也会达到其不可避免的结论,
+身体上我开始注意到我的心跳极快.
+我感觉到我的胸部, 不确定它是ALD-52或什么.
+我认为这实际上是食用草造成的.
+我开始感到非常热.
+我躺在沙发上.
+我和沙发一起融化了.
+我觉得我的大脑正在融化,
+我正在出汗.
+我是在笑.
+我哭了.
+我正在擦鼻子上的粘液.
+我太专注于电影而没有真正关心自己的身体状况.
+我终于停下来看电影,然后站起来尿尿.
+我认为我身体状况很好,只是了.
+我一直在喝水.
+每当我去所, 当我着自己尿尿的时候, 我总是会有点担心所会突然变得疯狂,
+我试图继续移动眼睛和头部,
+电影最终转到了一个场景, 整个电影实际上是威尔·费雷尔和一些孩子在现实生活中玩乐高.
+我想到威尔·费雷尔和那个孩子是同一意识的一部分,
+我认为我们的世界本身可能只是更大的东西在玩弄我们,
+这些力量甚至无法理解我们在宇宙中的小维度.
+一切都以某种无限度的循环形式连接在一起, 一切都比其他东西大,
+这部电影终于结束了, 放大了华纳动画集团的标志,
+我还以为电影的开头是同一个序列的逆转 (虽然它实际上只是在放大后进入岩).
+电影结束后, 我觉得自己刚刚经历了一次惊人的经历.
+我坐在沙发上一会儿, 试图理解我刚刚看过的, 但没有成功.
+时间+4点
+我看了这部电影,
+我起身走了一下.
+我感觉非常融化.
+仿佛我是一个水彩画上的水滴,
+我感觉非常融化.
+仿佛我是一个水彩画上的水滴,
+随着纸张的转动, 它会轻微地移动,
+我非常热,所以我打开了房子的空调.
+我花了一会儿享受凉爽的空气.
+我决定出去抽烟.
+我在电视上打开&quot;办公室&quot;,
+我了一些大麻,并打包了一个碗.
+我穿着牛仔 (我穿着睡衣) 这样看起来就不奇怪了.
+我在手机上检查了温度,
+早些时候下雨了,所以有点湿.
+我走到后面的门廊和吸烟.
+我站在外面一会儿,享受它.
+我曾想过要去散步,
+我还在幻觉中, 树上的影子在我面前变形.
+我开始担心邻居会出来/看到我,
+我可以听到&quot;办公室&quot;的声音,
+感觉好像我有个可以回家的人,
+我决定玩&quot;守望者&quot;.
+我发现跟踪每个人在哪里有点困惑.
+我很想和别人说话,所以我上了麦克风,
+我扮演一个治愈者 (怜悯) 跑来跑去试图治愈球队,
+我一直在对每个人大喊&#x27;来看看!&#x27;
+其他玩家似乎服从我的命令, 试图通过表情来与我互动.
+终于我厌倦了无法与任何人交谈,
+我坐在房子里,又沉默了一会儿.
+我看了看我的手表, 我在4到6小时之间 (我不记得确切地).
+所以我知道我还有时间.
+这是我的时间.
+我总是觉得,你经历过一段艰难经历之后, 能获得的清晰和清晰,
+我从来没有尝试过闭眼视觉,
+这并没有真正起作用.
+我决定放一些音乐.
+特别是在EDM上, 这让我打开电影XOXO,
+我听音乐,但没有真正得到任何视觉.
+我也一直稍微开眼睛.
+我决定不喜欢躺下, 起身跟着音乐跳舞, 闭着眼睛.
+我真的很享受.
+我感觉到与空间的统一,
+我只是自由地设计出我想要的东西, 我开始觉得自己是在从宇宙本质中提取出来的模式中跳舞.
+我所有的动作,精确的数学,一个方程,一点点信息,
+我在看电影时闭着眼睛跳舞,
+我个人强烈推这部电影.
+我有时会停下来躺在沙发上, 开始出汗,
+我看了看外面的情况.
+看到邻居的门开着, 街上有很多车,
+但是在选举之夜,所以我认为他们只是在开个派对.
+我在看电影时想到了一种舞蹈风格,
+一旦舞蹈达到临界质量, 微妙程度就会减少, 在几秒钟的时间里, 房间会突然爆发成一个舞场.
+我把这个想法写在纸上.
+我不确定它是否能在实际上发挥作用,
+在舞蹈/电影中没有其他重大见解.
+电影结束后又回去抽了一些大麻, 然后立即回来.
+我又回到了看守,玩了一些.
+实际上我玩了两次, 被邀请参加某个小组, 和他们一起玩了一段时间.
+我很开心,我从来没有告诉他们我.
+我在办公室打开电话, 查看手机上的小组聊天,
+视觉效果已经消失.
+尽管如此,
+我怀疑中毒更多的是可食草.
+我把&quot;办公室/视节目&quot;放上电视机,
+我只是享受在外面, 思考节目, 笑.
+我终于觉得自己已经不再吃草了, 我的瞳孔又恢复正常了.
+去睡觉了
+第二天
+第二天我感觉非常好.
+没有奇怪的身体疲劳或感觉, 没有任何负面的心理.
+我花了很长时间才明白自己在乐高电影中想到什么.
+去工作,然后回家看了乐高电影.
+还有一种可以更快地入睡的食物.
+这部电影的情节与我记得的完全不同!
+但我也很确定它是为了&quot;&quot;而设计的 (在计算机图形行业中,
+结论
+与1P-LSD相比, 我发现它更令人愉快, 身体负荷更好 (震是我唯一经历过的中性/负面的事情).
+但是,身体负荷可能会被可食草混,所以我不能肯定说这种物质单独服用会有什么感觉.
+心理状态也会影响.
+我开始发展一种关于精神药物的理论, 基本上是它们把数小时/数天/数周/数月/数年的思维量压入你大脑中的一个非常短的时间段 (事实上, 时间延长的体验是那些似乎在实时发生在你身上的思想竞赛),
+所以你的潜意识必须在事实发生后清理碎片, 这可能是为什么事物很难拼在一起,
+但这只是一个理论,我不是科学家.
+我只是一个吸毒的人.
+我从这次旅行中得到的东西与我对乐高电影的妄想有关,
+我最近正经历着一种中年危机 (尽管我年轻).
+我从事的行业非常技术化,不具创造性,
+我选择进入这个行业是出于经济原因,
+最近, 我开始做更多的创意, 但我对自己的作品有信心危机, 相信它不够好, 害怕批评,
+电影中的&quot;你是特别的&quot;情节让我感到非常放心.
+记忆和经历留在我心中, 我确实感到更有信心.
+我可以接受我似乎被提出的建议吗?
+我不认为这是旅行的目的, 而我的潜意识会从经历中推断出其他原因.
+很难知道.
+其他:
+ALD-52 (748):一般 (1),组合 (3),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+You Are the Special
+ALD-52 &amp; Cannabis Edible
+by
+RR
+Citation:   RR. &quot;You Are the Special: An Experience with ALD-52 &amp; Cannabis Edible (exp109540)&quot;.
+Erowid.org
+. Nov 24, 2016. erowid.org/exp/109540
+DOSE:
+oral
+Cannabis
+(edible / food)
+125 mg
+sublingual
+ALD-52
+(blotter / tab)
+BODY WEIGHT:
+160 lb
+I had purchased some 1P-LSD and ALD-52 from an online vendor some time ago, and originally tripped with some friends ingesting both. I was planning another trip with friends in a few weeks time, and I wanted to see if there was a difference in the effects of the 1P/ALD. I had taken the 1P weeks ago,and was now ready to take the ALD. The upcoming trip I was planning involved some friends from out of town, so I had a limited window of time in which to test the two different chemicals and re-order in time for the trip itself. I would be tripping alone, taking one tab of 125 microgram ALD-52 blotter, and eating a weed containing approx. 0.2 - 0.4 grams weed. I have taken psychadelics before both alone and in group settings at least 10 times before including LSD, Shrooms, ALD-52, 1P-LSD, and DXM.
+It was a tuesday, and I arrived at work normally. However, I was suddenly overcome with a feeling of wanting to trip that night. I thought about how I could time things out without having to take a day off work (we were currently in a crunch at work, taking off would not be a good career move). I decided that the best course of action would be to go home early and &#x27;work from home&#x27; (not really working) and take the ALD-52 around 2pm, which would allow me to stop tripping by 12am-2am. Then I could get a decent amount of sleep and still go in to work the next day. I personally wasn&#x27;t responsible for anything that difficult during the crunch, so I reasoned my work performance wouldn&#x27;t be affected.
+I ended up going with the plan and leaving work around 1pm. I came home, ate a burrito, and made some weed edibles. I wanted to see if the combination would be pleasurable, and if it would really increase the intensity of the trip as I had read about. In retrospect, this obviously would confound my experience with the ALD-52 a bit, but I figured it would be okay and I would mostly be able to separate out the effects. It took about an hour to make the weed crackers/nutella (very simple recipe).
+Here&#x27;s the recipe I used for the weed edibles:
+-Preheat oven to 230 degrees fahrenheit
+-Take about 1 bowl&#x27;s worth of weed (.2-.4g estimated) and place into some aluminum foil, make sure not to double wrap at all
+-Place the weed/foil wrap into a baking dish and bake for 15 minutes
+-Take some crackers and spread nutella on them.
+-When the weed is ready, take it out and preheat oven to 305 degrees fahrenheit.
+-Take the weed out of the foil and crumble it up into the nutella.
+-Smush the crackers together (imagine reversing how you would open an oreo) and place in aluminum foil, make sure not to double wrap at all.
+-Once preheated, place the cracker/foil wrap in the oven for 20 minutes.
+-Unwrap, wait a few minutes if it&#x27;s too hot, and enjoy!
+I like this method because it&#x27;s really simple in terms of materials and efforts, takes under an hour to do, requires a very small amount of weed, and the precise dosage can be controlled.
+T - 0:30
+I ingested the edible. It was about 2:30pm right now. I thought I would give the edible and burrito some time to sit in my stomach so I don&#x27;t get any bad nausea or anything. I usually experience some nausea/weird stomach feeling if I haven&#x27;t eaten anything, so the eating was a prerequisite. I figured I would drop in about 30 minutes. I sit in front of the TV to wait, and start watching Mean Girls. I chose Mean Girls because I was actually feeling a bit horny, and wanted to see if I could have a crazy jacking off experience to that talent show scene where the girls dress up as sexy santas and perform a dance to &#x27;jinglebell rock&#x27;.
+T = 0:00 to + 1:00
+I am in my home office, have my work virtual desktop up on the computer. I take out the ALD-52 blotters. I toy with the idea of taking 2 blotters instead of 1, but figure it would be best to start at a lower dose, especially because I will be alone while tripping and combining it with a weed edible.
+best to start at a lower dose, especially because I will be alone while tripping and combining it with a weed edible.
+So I take one of the blotters. They are 125 micrograms of ALD-52 each. I suck on it sublingually for a moment then chew it up and swallow it, as I am impatient and not really sure that it makes a difference how you ingest it orally.
+Immediately after I take it, I get an IM from my co-worker asking me to do something for him in an hour. Shit. Luckily, it&#x27;s nothing too complicated, so I get to work setting everything up for myself in advance so that all I have to do is click a few buttons and wait for a few minutes. It&#x27;s all set up so I go back into the living room to continue watching the movie. I just leave it on play while I am in the other room.
+Most of the trips I have been taking so far have been at night, and I live somewhat close to a rough part of town, so walking around outside at night is often not an option for me. So, I relish the thought of getting a few hours of daylight in during my trip. Maybe I will be able to walk around outside. It&#x27;s winter though, so sunset is at 5pm, and it is now 3pm, so I won&#x27;t have a lot of daylight time to walk, and it would also have to be right during the come up, which I don&#x27;t exactly prefer to be publicly visible during. I think maybe I will have some time to walk outside, so I am feeling happy.
+I begin feeling the weed edible a bit. It&#x27;s mostly a chill couch potato feeling. I periodically walk between the home office and the living room to check if I recieved any other IMs from co-workers. I am somewhat worried about something going wrong at work and me having to troubleshoot while tripping balls, or someone asking me to come back to work, or asking me to do something complicated. Luckily, all of that stuff is fairly uncommon for my job, so I&#x27;m not too worried. I set an alarm on my phone for 4pm so that I remember to do this thing for my co-worker and don&#x27;t just stay in la-la land accidentally.
+At the 40 minute mark, I begin to experience mild visual noise disturbances. I can tell that I am starting to come up. I don&#x27;t feel quite as stimulated as I did with the 1P-LSD, more like I am melting.
+T + 1:00
+My phone alarm goes off and I go into the home office and do the task for my co-worker. I kick things off and set another alarm on my phone to come back in 15 minutes. I am beginning to see rainbow auras all over things. I believe the weed edible is kicking in as well, as I begin to feel a body high coming over me. It is very &#x27;couch potato&#x27;; I am most content simply sitting down.
+I end up walking back to the home office every 5 minutes to check for IMs from co-workers. Every time I get up, I get a little tinge of anxiety that I&#x27;m going to walk into the home office and see something crazy. I remind myself that that&#x27;s what this experience is all about, so I am put at ease. I am more worried about being asked to do something for work during this period, and having to navigate complicated technical stuff while tripping. When I am in the living room, I am jacking it to Mean Girls. I had no trouble maintaining a boner.
+Eventually the process I had kicked off finishes successfully and I send an email out indicating that I&#x27;m done. Then I disconnect from my virtual desktop, as it is around 4:30pm and I can safely &#x27;leave&#x27; work at this point. A feeling of relief immediately washes over me. I&#x27;m out! I&#x27;m done with work! The trip is just starting now too, and the santa scene is about to come on, so the timing is perfect. I worry slightly about getting a call from co-workers asking me to do something on my personal phone, but that is also rare so the thought is brief and ultimately the anxiety is extremely temporary.
+I have a large window in my living room, and light is streaming through the blinds there. It has a rainbow aura to it, and the blinds create a bit of a pattern with the light. I take a moment to admire it. Then, I sit down and face the TV. A strong rainbow blurs the edges of my vision. The visual temperature of the living room changes as the colors on the tv change. The santa scene kicks off and so I whack it furiously. I begin to feel disconnected from my hand and then my penis itself, though I am still feeling pleasure. I don&#x27;t get anywhere close to cumming, so I stop. I decide I&#x27;ll keep watching the movie for a while.
+I look out the window and see that my neighbor&#x27;s wife is home. She is carrying some stuff inside and I swear she is watching and can see in through the window here. Not sure if she saw me yanking it (though I was doing it with my hand inside my pants), or what. I begin to get a bit paranoid, especially as it will be dark soon and much easier to see inside my house. I get up and close the blinds and then continue watching the movie.
+As the movie progresses as Lindsay Lohan becomes a more popular girl, she starts to look more and more like a demon to me. Her eyes turn completely black, and the strands of her hair are sharp and pointy and very &#x27;in your face&#x27;. Her lesbian friend&#x27;s hair reminds me of a spider (long black strands). I eventually decide to stop watching the movie, as I&#x27;m not really enjoying it as much anymore. I pause on the netflix screen for a moment. There is an eerie silence in my house, and I have a flash of anxiety again. I get up and close the blinds on the back door too. Don&#x27;t want anyone to be able to see inside.
+I sit back down and debate what to watch. Then it hits me: The Lego Movie. I had wanted to watch this before while tripping, but I just wasn&#x27;t feeling it during that trip. I&#x27;ve never seen it before either. But now, I am definitely feeling it. I put the movie on.
+I have a distinct sensation of melting throughout my entire body. I feel as if I am slowly sinking into the couch and through the floor. My body has a rainbow aura around it, but conceptually it feels to me more like waves rippling away as I moved through the space like water in a pond. I begin to think that not only am I merging with my environment in a physical sense but also a temporal sense. I exist simultaneously in the past, present, and future.
+I have no idea what to expect from the lego movie. It immediately launches into a fantastic lava landscape. The opening scene is very colorful and fast, and I can only think about how this movie was obviously designed to be watched on LSD. The eyes of the prophet lego guy are mesmerizing in their whiteness, swirliness, and rainbowness. I worry for the safety of the prophet guy as the main bad guy kicks him off the ledge and makes a joke. I actually find it to be very funny, and quite absurd.
+T + 2:00
+From this point onward, my memory is a bit hazy. I believe that I came up from the weed edibles and the LSD very close to one another, and my memory was a bit affected, so I&#x27;ll try to convey what I remember experiencing.
+The lego guy has instructions for &#x27;How to fit in, have everybody like you, and always be happy!&#x27; and I am cracking up. I find the very notion of such a thing to be utterly preposterous. The lego guy&#x27;s room is changing colors. I am not impressed by the visual of him taking a shower. But then I realize that the movie is in stop motion animation. I guess I wasn&#x27;t entirely sure up until that moment in the movie.
+He reads the instructions, and I have a brief thought that the instructions are going to be blank, or just turn out to be outright lies. I feel sorry for him that he doesn&#x27;t have any friends except his plant. The lego guy goes to work, and there is a lot going on visually. I am having trouble keeping track of what is actually going on, as the movie actually has a lot of very quick cuts, but the soothing sounds of the &#x27;Everything is awesome&#x27; song reminds that me that everything is in fact, awesome. As the guy loses his instructions and walks off the construction site, I am startled by another lego darting into the scene in the peripheral. The lego takes off their cloak and it&#x27;s revealed to be a beautiful lego woman. It reminds me of a vision I once had of a woman&#x27;s face while on LSD. I instantly feel at home, I feel as if the creators of the movie know what I had experienced, had it experienced it themselves, and wanted to recreate the moment for viewers. (the sequence is quite psychadelic even not tripping) The lego guy has a long drawn out &#x27;uhhh&#x27; moment, which I find to be extremely hilarious, but also confusing briefly as it lasts so long and I am not sure if I am looping in time or what.
+For some reason, the lego guy finds himself underground and walking over to something extremely trippy looking. He says he doesn&#x27;t have his instructions anymore, and I empathize with him. I can&#x27;t exactly tell what the object is he is moving towards. I&#x27;m not sure if it looks weird in the actual movie (it does) or if it&#x27;s the acid working its magic.
+The lego guy is then being questioned by police officers, and I am not sure what&#x27;s going on. There is a good cop and a bad cop. I find it to be hilarious. My whole body is melting into the couch. Colors are changing, the entire room is breathing, the room lighting is constantly moving, I am definitely tripping at this point. The guy gets rescued by the girl lego and they go outside in the alleyway. He accidentally trips onto a lego which gets attached and the girl lego tells him that he is brilliant. I have a brief thought that he can do no wrong, that whatever he feels is right, is the right thing, and the lego guy just has to go with that feeling and everything will work out.
+The next thing I remember is the legos saying to the guy &#x27;You are the most talented, most interesting, and most extraordinary person in the universe.&#x27;. It seems as if they are speaking directly to me. It&#x27;s the soothing female lego saying it again. It&#x27;s so awesome. I feel so good. I feel myself personified in the lego. I too doubt the words about what they are saying, I too lack the inner confidence in myself to believe her, but just like the lego guy, I want to believe. He answers that he is the special guy, and immediately is thrown out of his depth into an insane situation. A crazy lego motorcycle chase scene follows. My god, the movie is colorful. There are so many moving parts. Each lego itself is so complex, it contains so much information. And the lego world is infinite.
+I begin to become confused with the plot. There are multiple moments in the movie where the &#x27;you are the most talented...&#x27; speech is repeated again, and this confuses me. I believe it only happens 2-3 times in the actual movie, but I experienced it looping through several times. I begin to come up with a few different delusions as to what is actually going on in the movie, and I will explain them below.
+1. All the legos are part of a single consciousness. The entire universe is a single consciousness and the big bang was that consciousness splitting off into separate threads of thought. The universe is just one giant big thought, and all consciousness is just processes trying to arrive at some answer. However, the processes can&#x27;t agree on what the answer is, and thus they are unable to join back together and become one, ending the universe and solving the original problem. I see the lego guy and the lego girl as two parts of the same whole, and I see them struggling to understand that fact, getting very close, but unable to merge fully with each other because of a &#x27;piece of resistance&#x27;. The piece of resistance is itself pure ego, pure selfishness, pure separation. There is a moment where the female lego admits she wanted to be &#x27;the special&#x27; and the two legos come close to merging. I see the face of the male lego become gray and shiny like aluminum foil, looking like his face is being erased, but it&#x27;s morphing into another face...what face is going to come? It doesn&#x27;t come, because they aren&#x27;t ready to merge yet.
+2. The entire movie is just a stream of consciousness inside one person&#x27;s head. The prophet lego guy and the girl lego guy are just guides to help him rediscover his own imagination. They are in the lego guy&#x27;s mind, and it is empty. The other legos say how the guy is unremarkable, and the guy loses confidence in his own imagination. The legos are trying to help him rediscover that confidence in himself, in his own original thought. The movie itself seems so random that every scene I come to believe is just a part of the guy&#x27;s stream of thought. The lego guy is just saying whatever pops into his head and it is coming to be reality.
+3. As an offshoot of number 2, I also believed for a time that the legos were guides again, but they were trying to guide the guy to completely clear his thoughts. Knowing that doing so would mean that the movie/experience/consciousness would come to an end, it was bittersweet. I didn&#x27;t want to leave the movie world, and neither did the lego guy. He just couldn&#x27;t bring himself to end it. It&#x27;s just like the universe; one giant big thought, but we can&#x27;t bring ourselves to end it because we&#x27;re scared or we don&#x27;t want to go back to nothingness, or to lose our ego and become who knows what next time? We want to hold on to the experience and hold on to who we are, and what we know, because we are so certain of it in this moment. Ending the experience would mean ending our certainty, and having to deal with a whole new world of incredible randomness again; another trip launching off. Another thought launching off, which too would come to its inevitable conclusion, repeating forever and ever.
+Physically I began to notice my heart beating extremely fast. I felt my chest, unsure if it was the ALD-52 or what. I think it was actually the weed edible causing this. I began to feel extremely hot. I laid on my side, sprawled out on the couch. I melted with the couch. I felt that my brain was melting and I was unable to comprehend the movie. I was sweating. I was laughing. I was crying. I was wiping mucus off my nose. I was too focused on the movie to actually be anxious about my physical condition at all.
+At one point I paused the movie, got up, and took a piss. I pissed clear and in high volume, it seemed, so I figured I was fine physically, just tripping. I kept drinking water. Whenever I would go to the bathroom, as I stared down at myself pissing, I would always become slightly worried that the bathroom would suddenly go to crazy town and I would get stuck in there. I tried to keep moving my eyes and head while in there for that reason, to not allow any looping or visual recursion to completely take root.
+Back at the couch, the movie eventually moved to a scene where the whole movie turned out to actually be will ferrell and some kid playing with legos in real life. I thought about how will ferrell and the kid were a part of the same consciousness, an old and young sentience. I thought about how our world itself could just be something bigger playing with us, forces outside of our control, a dimension we couldn&#x27;t even comprehend. And those forces couldn&#x27;t even comprehend our smaller dimension inside of everything. Everything looped together in some sort of infinite recursion of scale, where everything was bigger than something else, but you could pass through infinitely to wind up anywhere along the various levels of scale.
+The movie eventually ended, zooming backwards out of the Warner Animation Group logo, which tripped me out. I actually thought the beginning of the movie was the same sequence reversed (though it actually just goes right into the lava after zooming into the logo). After the movie was over, I felt as if I had just gone through a tremendous experience. I sat on the couch for a moment, trying to comprehend what I had just watched, but unsuccessfully.
+T + 4:00
+Any confusion I had watching the movie had now vanished. I got up and moved around a bit. I felt extremely melty. Like I was a drop of water on a watercolor painting that hadn&#x27;t quite dried
+I felt extremely melty. Like I was a drop of water on a watercolor painting that hadn&#x27;t quite dried
+and was still in a liquid state, moving ever so slightly when one turned the paper, blending with everything else. I was super hot, so I turned on the house&#x27;s AC. I took a moment to enjoy the cool air.
+I decided to go outside and smoke a bowl. I turned on The Office on the TV so I could have some background noise instead of eerie silence. I ground up some weed and packed a bowl. I went and put on some jeans (I was wearing pajama pants) so I wouldn&#x27;t look weird. I checked the temperature on my phone, and it was a cool 60 out so I figured it would be all good. It had rained earlier, so it was a bit wet. I walked out to the back porch and smoked. I stood outside for a moment, enjoying it. I thought about going to walk around, but decided against it. I was still very much hallucinating, and the shadows from the trees on the fallen fall leaves were very much morphing in front of me. I became paranoid that my neighbors would come out/could already see me, so I decided to go back inside. I could vaguely hear the sounds of The Office while outside on the back porch, which was comforting to me. It felt like I had someone to go back to inside the house, rather than just solitude and loneliness.
+I decided to play overwatch. I found it a bit confusing to keep track of where everyone was. I had an urge to talk to people so I got on the mic, but couldn&#x27;t find anyone who would actually talk to me. I played a healer (mercy) and ran around trying to heal the team, but doing a poor job. I kept yelling at everyone to &#x27;Come to mama!&#x27; &#x27;Suckle at my healing teat.&#x27; etc. I thought it was hilarious personally, and the other players seemed to obey my commands and tried to interact with me via emote.
+Eventually I got bored with not being able to talk to anyone and ejected back to the xbox dashboard. I sat in the eerie silence of the house again for a moment. I looked at my watch, and I was somewhere between 4 and 6 hours (I don&#x27;t remember exactly). So I knew I had some time still. This was my time. I always felt like the lucidity and clarity you get after the come up is your reward for making it through the ordeal that can be coming up.
+I had never really tried to do closed eye visuals before, so I laid back and tried to do that. It wasn&#x27;t really working. I decided to put on some music. EDM specifically, which then led me to turn on the movie XOXO to play in the background. I listened to the music, but wasn&#x27;t really getting any visuals. I also kept opening my eyes slightly. I decided I didn&#x27;t like laying down and instead got up and started dancing to the music with my eyes closed. I really enjoyed that. I felt a oneness with the space, and a confidence in my dance moves. I just freestyled whatever I felt like, and I started to feel that I was dancing in patterns extracted from the essence of the universe. All of my moves, mathematical in precision, an equation, a tidbit of information, a way to store and convey information to a discerning eye.
+I danced with my eyes closed or while watching the movie, taking off my ear phones for scenes I particularly enjoyed. I would highly recommend this movie, personally. I would occasionally stop to lie on the couch as I began sweating, and also get up to pee. I looked outside. I was a bit alarmed to see a bunch of my neighbors&#x27; doors open and many cars on the street. But it was election night, so I think they were just having a party.
+I had an idea while watching the movie for a style of dance that could be very subtley performed while simply talking to others at a party. It would slowly influence others to dance subtley themselves, and once the dancing reached critical mass, the subtley decreased and in a span of a few seconds the room suddenly would erupt into a dance floor. I scribbled the idea down on paper. I&#x27;m not sure if it would work in practical sense, but I think it&#x27;s a cool idea.
+Didn&#x27;t really have any other major insights during the dancing/movie. Went back outside to smoke some more weed after the movie and then immediately came back in. Got on overwatch again and played some more. Actually made play of the game twice, got invited to some group, and played with them for a while. It was chill, and I had a good time, never told them I was tripping. After I got bored of playing, I turned on the office and looked at my group chat on my phone for stuff about the election.
+T + 10:00
+The visuals had mostly wore off by this point. I still felt intoxicated though, and unable to sleep. I suspect the intoxication was more from the weed edible. I put on The Office/Peep Show and watched various episodes while laying on the couch and browsing the internet from my phone. I was just enjoying vegging out, contemplating the shows, and laughing.
+T + 14:00
+Finally felt like I had come off the weed edible, and my pupils had returned to normal size. Went to sleep.
+The next day
+Felt pretty great the next day. No weird body tiredness or sensations, nothing negative mentally. Took me a while before I could articulate what I was actually thinking about during the lego movie. Went to work, and then came home and watched the lego movie. Had another edible to induce sleep faster. It turned out that the plot of the lego movie was nothing like what I remembered! But I&#x27;m also pretty sure it was made for tripping (psychadelic use is very common in computer graphics industry).
+Conclusions
+Compared to 1P-LSD, I found it much more pleasurable, with a much better body load (tremors is the only neutral/negative thing I experienced). However, the body load was probably confounded by the weed edible, so I can&#x27;t definitely say what the substance would feel like taken alone. It could also be affected by mental state.
+I am beginning to develop a theory about psychadelics, which is that they essentially ram hours/days/weeks/months/years worth of thinking into a very short time period in your brain (and that in fact, the experience of time dilation are those racing thoughts seemingly playing out in real time for you), and you aren&#x27;t consciously able to process all of it. So your subconscious has to clean up the pieces after the fact, which can be why things are difficult to peice together afterwards, and sometimes it takes weeks before you feel as if you truly understood what happened during your trip. But, it&#x27;s just a theory; I&#x27;m not a scientist. I&#x27;m just some guy taking drugs :)
+What I took away from this trip was ultimately related to one of the delusions I believed about the lego movie; about not having enough confidence in my own original thoughts. I have recently been having a sort of midlife crisis (though I am young). I work in a very technical and non-creative industry, but I am a very creative person by nature. I chose to go into that industry for monetary reasons, but my creative side has not been able to flourish in such an environment. Recently, I have been getting back into doing more creative things, but I have had a crisis of confidence in my own work, believing that it&#x27;s not good enough, being afraid of criticism, believing that maybe I am not a good enough original thinker/artist. Perhaps it&#x27;s just being out of practice, but I felt extremely reassured by the &#x27;You are the special&#x27; sequence in the movie. The memory and the experience of what I felt has stayed with me, and I have indeed felt more confident.
+Can I take the advice I have seemingly been presented? That remains to be seen, and indeed, perhaps this wasn&#x27;t the point of the trip at all and my subconscious will reason something else out of the experience. It&#x27;s hard to know.
+Exp Year: 2016
+ExpID: 109540
+Gender: Male
+Age at time of experience: 26
+Published: Nov 24, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+ALD-52 (748) : General (1), Combinations (3), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,258 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>贝皮雷登 - 埃罗维德 探险 - 尸医学</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/biperiden.html'>← 比哌立登</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>贝皮雷登 - 埃罗维德 探险 - 尸医学</h1>
+<div class='sub-title'>Biperiden - Erowid Exp - &#x27;Zombie Med&#x27;</div>
+<div class='meta'>作者：Semo Citation · 日期：Oct 28, 2020 · 剂量：25 mg · <a href='https://erowid.org/experiences/exp.php?ID=114649' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>阿基尼顿接管
+我有几个精神疾病, 其中一个是失眠.
+我已经睡不着了三天了.
+到了第四天,
+我的药物是奔类药物和抗抑郁药.
+他们最近根本没有帮助我睡觉.
+我的药物是奔类药物和抗抑郁药.
+他们最近根本没有帮助我睡觉.
+我从医生那里得到的药.
+由于我患有肝硬化, 她不能给我任何比米尔塔扎更强的药物.
+我无法忍受无法睡觉甚至无法吃.
+即使我睡着了,我也会在30分钟内醒来.
+我告诉他们情况, 但没有提到肝硬化.
+他们给我提供了一些Haloperidol,Valium,Seroquel, 但我拒绝了因为这些都不起作用.
+总共含有25毫克Biperiden的药物.
+所以医生说我会给你注射
+我们将把你的血清.
+我告诉他如果他们可以在我的股上射击.
+他回答说,我猜你从来没有这么多 akineton之前,笑了.
+我对阿片类药物,精神药物和镇静剂有经验.
+所以我认为这不会起作用.
+带我去医院的父亲回家说,当你做完的时候给我打电话,我会带车来接你. 他认为我会失去我的东西,
+他说无论如何我会在一个小时左右.
+我在过去的10小时里服用了20毫克的西巴.
+他们把我放在一个轮式床上, 给我一些支持的东西, 因为我很弱.
+护士进来进行注射.
+我告诉他们我想要在部注射,
+她很好地拒绝了,
+然后将注射物混合在维生素血清中.
+我没有感觉到任何东西除了我的手臂疼得很痛.
+打电话给护士说我没有觉得睡觉.
+她将血清的流量增加到最大.
+这就是事情开始变得有趣的地方.
+我用耳机听音乐,
+我又打电话给护士,告诉她我有点不舒服.
+她放慢了血清,然后离开了.
+我觉得我会被操了,所以我打电话给我父亲来接我.
+我父亲来了,但我不得不留下40分钟来完成血清.
+我的父亲离开喝一些咖啡,直到我完成.
+我开始在床周围的白色窗上看到一些生动的视觉幻觉.
+我说:&quot;这也可以.
+我忘记了失眠, 因为我头,
+我口中很干, 不停地试图吞下,
+我不再感觉到自己的身体, 完全麻木, 视力模糊.
+我开始失去了自我,
+我听到一个朋友住在很远的地方, 我以为他坐在我旁边,
+我已经回头了, 想想我在和谁说话.
+几分钟后又发生了.
+(此后我完全昏了, 完全不知道发生了什么,
+只有我父亲在那天晚上, 他说他15分钟后接我,
+我无法相信我的意识是多么混乱,我甚至不能告诉多久了.
+他试图带我回家我记得我试图穿我的鞋,但这就是它.
+我的老人说我不能穿鞋,所以他帮我了.
+我甚至无法从床上站起来,
+在汽车里,他说我在说胡说八道.
+我指着轮子问他从哪个屠夫那里买了这些轮子?
+我们在家,我上床睡觉了,但我在几分钟内又起床了,在家里走来走去.
+我拿了一瓶Windex酒给我父亲作为酒.
+我确切的句子是:&quot;欢迎来到我们的酒吧先生,你想喝一些酒吗?&quot;
+我可以记住一个小事,但我确信.
+我的嘴巴不能产生唾液.
+我感觉像棉嘴, 但不是大麻干嘴.
+完全干燥了,我像牛一样着.
+我只记得这个,但它感觉像地狱.
+我父亲告诉我,我在说胡言乱语20分钟.
+我说话,发出声音, 但我无法沟通,
+我不知道它听起来如何.
+我问他为什么你没有录制这,他说我没有想到我有乐趣.
+我睡了8-9个小时,醒来吃了一些谷物,然后又睡了2个小时.
+我醒来时没有任何严重的副作用,只是有些昏昏欲睡.
+我醒来后感觉有点头痛和头脑模糊.
+我可以开车或工作, 没有任何烦.
+我从来没有觉得这种药物是娱乐的, 因为我不记得我说什么和做什么.
+我告诉她发生了什么事.
+她问医院的名称,并重复3次你确定他们给了你那么多阿基尼顿.
+我说:&quot;是的,我很擅长药理学,
+于是我回家后研究了副作用和过量服用.
+幸运的是我还活着.
+我知道那家医院有什么不对.
+晚上值班的医生总是一样的,在门外吸烟.
+每当我急于有恐慌发作或其他事情他总是把我送回家高但这一次太多了.
+我很感激有这样的经历, 但我希望我能够控制它.
+我甚至无法理解发生了什么事, 我甚至无法告诉当我第一次打电话给护士时,
+我甚至不确定我是否打电话给她.
+两个月过去了, 记忆力也很差.
+我以前记忆力很好, 记得20年前的地址,
+我在工作中填写一份表格时犹是否是在2020年或2022年.
+试验室要做一个MRI扫描, 看看有没有什么问题,
+它的过量使用效果比任何类型的阿片类药物都更糟.
+时间表: 114649
+发布时间:2020年10月28日
+比佩里登 (719):医院 (36),旅行后的问题 (8),医疗用途 (47),火车残骸和旅行灾难 (7)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Zombie Med
+Biperiden
+by
+Semo
+Citation:   Semo. &quot;Zombie Med: An Experience with Biperiden (exp114649)&quot;.
+Erowid.org
+. Oct 28, 2020. erowid.org/exp/114649
+DOSE:
+25 mg
+IV
+Biperiden
+(liquid)
+oral
+Pharms - Diazepam
+BODY WEIGHT:
+72 kg
+Akineton Takes Over
+I have several mental health condition one of them is Insomnia. I wasn&#x27;t able to sleep straight for 3 days. And when it was day 4 I was feel like dying. My medications are benzodiazepines and seroquel with an antidepressant. They were not helping me to sleep at all lately.
+My medications are benzodiazepines and seroquel with an antidepressant. They were not helping me to sleep at all lately.
+The meds I got from my doc. Didn&#x27;t work since I had cirrhosis she couldn&#x27;t give me anything stronger than mirtazapine. I couldn&#x27;t stand being not able to sleep I couldn&#x27;t even eat. Even if I sleep I would wake up in 30 minutes. So I went to a different hospital and told them the situation but didn&#x27;t mention about the cirrhosis. They offered me some Haloperidol, Valium, Seroquel, but I refused since none of those would work. Instead they were ok with giving me 5x Injection of Akineton which contains a total amount of 25 MG Biperiden.
+So doc. said I&#x27;ll give injection for
+Akineton but we will put in your serum. I told him if they can just make the shot on my butt. He replied I guess you never had that much akineton before and laughed. I&#x27;m experienced with opioids, psych. medication and tranquilizers. So I thought it wasn&#x27;t gonna work. My father who brought me to the hospital went home and said call me when you are done and I&#x27;ll pick you up with a car he thought that I&#x27;ll lose my shit but I said I&#x27;ll be fine I can go back to home by myself. He said anyway I&#x27;ll be there in an hour or so.
+I had 20 mg of diazepam in the last 10 hours.
+T:0.00 They put me in a wheeled bed and gave me some supportive stuff because I was weak.
+T:0.05 Nurse came in to do injection. I told them that I want injection on the hip and want to fall asleep at home. She kindly rejected that and told me to relax. And mixed the shots in the vitamin serum.
+T:0.40 I wasn&#x27;t really feeling anything besides my arm hurt so much from the medicine. And called out for nurse told her that I wasn&#x27;t feeling sleepy at all. And she increased the flow rate of the serum to maximum.
+T:0.55 This is where things started to become interesting. I was listening to some music with my headphones but I suddenly started to feel a discomfort in my chest and legs. I called nurse again told her that I was feeling a bit weird. She slowed down the serum and left.
+T:1.15 Serum was halfway there and I had that feeling that I was going to be fucked so I called my father to pick me up.
+T:1.25 My father came but I had to stay for 40 minutes more to finish the serum. And my father left to have some coffee till I finish.
+T:1.35 I started to have some vivid visual hallucinations on the white curtains around the bed it was cartoonish but I could watch it if it was projected on the curtains. And I said yea that works too. I forgot my insomnia for awhile because I was lightheaded and felt like sobering up from a hardcore drinking night.
+T:1.45 My mouth is so dry I constantly try to swallow but I can&#x27;t. I no longer feel my body it&#x27;s completely numb and my vision is blurry. I started to lose myself and had severe audio hallucinations. I heard a friend of mine who is livin far far away and I thought he was sitting next to me and I was having a conversation while there is no one.
+T:1.50 I&#x27;ve came to my senses and I was like &quot;who the hell I&#x27;m talking to&quot;. Then a few minutes later it happened again.
+(After that point I blacked out completely don&#x27;t have a clue at all about what happened it was around 9 pm and I woke up at 8 am and I thought I just fell asleep but listen what happened according to my father.)
+T:2.00 Only my father was around that night and he said he picked me up 15 minutes later after he went to get some coffee. I just couldn&#x27;t believe how messed up my awareness is I couldn&#x27;t even tell how long it has been. And he tried to take me home I recall that I was trying to wear my shoes but thats all of it. My old man said that I wasn&#x27;t able to wear my shoes so he helped me with that. I even couldn&#x27;t get out of the bed and sit on wheelchair to the car.
+T:2.05 In the car he said that I was talking nonsense. I was pointing to the wheels and asking him which butcher he get those wheels from?
+T:2.15 We were home I went to bed but I was up in minutes again and walking around the house.
+T:2.30 I guess I took a bottle of windex and offered it to my dad as a beer. My exact sentence was this &quot;Welcome to our pub sir, would you like to have some beer.&quot; And he said I sprayed it around.
+T:2.35 There is a small thing I can remember, but I&#x27;m sure. My mouth couldn&#x27;t produce saliva. I was feeling like cotton mouth but not like cannabis dry mouth. It was dry completely and I was chewing the cud like a cow. I only remember this but it felt like hell.
+T:3.00 My father told me that I was talking gibberish for 20 minutes. I was talking making sounds but I wasn&#x27;t able to communicate and what I say was not a language. I don&#x27;t know how it did sound. I asked him why you didn&#x27;t record this, he said I didn&#x27;t think of that I was having fun. After all these funny high stuff I slept for 8-9 hours and woke up and had some cereal then slept again for 2 hr more.
+When I woke up I didn&#x27;t have any serious side effects just some drowsiness.
+After I woke up completely I felt a lil bit of headache and mind fog. After effects wasn&#x27;t that bad I could drive a car or work without any annoyance. But I didn&#x27;t find this medicine recreational at all since I didn&#x27;t remember anything of what I said and what I did.
+On the next day I went to see my psychiatrist and told her what happened exactly. She asked for the name of the hospital and repeated 3 times are you sure of that they gave you that much Akineton. I was like yeah, I&#x27;m good with pharmacology btw but my roads never crossed with biperiden until then. So after I came back to home researched for the side effects and overdose.
+I was more than lucky to be alive. There is something wrong with that hospital I know that. The doctor on duty in the nights always the same and smoking right outside the door. Whenever I rush there with a panic attack or something he always sends me home high but this time was too much. I&#x27;m thankful to have a experience like this but I wish I was able to control it.
+I wasn&#x27;t even able to understand what was going on I wasn&#x27;t even able to tell if I was gone when I called the nurse for the first time or not. I&#x27;m not even sure that I called her.
+It has been 2 months I guess and I&#x27;m struggling so much with my memory. I used to have a great memory I could remember my address from 20 years ago but now I forget things I say easily. There times that I get confused so much and I hesitated that if we were in 2020 or 2022 when filling up a form at work. Prob. gonna get an MRi scan to see if something is wrong since I can&#x27;t prove it to my therapist and psychiatrist. It&#x27;s OD effects are way more worse than any kind of opioid.
+Exp Year: 2020
+ExpID: 114649
+Gender: Male
+Age at time of experience: 26
+Published: Oct 28, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Biperiden (719) : Hospital (36), Post Trip Problems (8), Medical Use (47), Train Wrecks &amp; Trip Disasters (7)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

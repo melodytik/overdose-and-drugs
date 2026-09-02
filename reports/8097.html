@@ -1,0 +1,283 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>现在,我已经知道了.</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dpt.html'>← DPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>现在,我已经知道了.</h1>
+<div class='sub-title'>DPT - Erowid Exp - &#x27;DPT IM... or Was it IV?&#x27;</div>
+<div class='meta'>作者：Dirk Citation · 日期：Feb 10, 2002 · 剂量：100 mg · <a href='https://erowid.org/experiences/exp.php?ID=8097' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我和朋友凯恩最近购买了一些DPT,
+虽然我们确实在&#x27;实验成为我们&#x27;的层面上取得了成功.
+作为一个经验丰富的心理探险家, 我们决定我先去,
+我们用100毫克的DPT HCL制成溶液 (作为其他人的注意, 每10毫克DPT溶解,
+作为下面的护理员 (和我的) 报告的前言, 重要的是要指出我在注射过程中,
+我是一个经验丰富的凯他IM用户, 虽然我做这一切所有的时间与药物,
+由于这种情况并不罕见, 我没有想到如果DPT进入我的血液,
+现在,鉴于我对DPT的实验, 我已经确定我对这次第一次旅行的反应极其高超我应该对100毫克IM的反应,
+所以,虽然这本应该是静脉注射, 但我们都觉得我无意中给自己注射了静脉注射.
+这里有两份实验报告,
+凯恩的监护人报告:
+迪克已经9个小时没有吃东西了.
+在经验发生前2小时服用60mg的Allegra (过敏药物),以应对通常的早晨鼻水后滴水.
+没有其他药物在系统中.
+情绪焦虑但积极.
+10:35AM到10:38 - - 迪克注射了两针,并指出他击中了每个手臂的血管.
+10:40 - 身体负荷已经开始起作用,
+一切都变得&#x27;有条纹和泡&#x27;.
+10:41 - 发和轻微的肌肉抽,恶心是注意到.
+迪克开始吟.
+&quot;无法描述的视觉效果.
+10:45 - 干燥的, 随后吐黄色的胆汁.
+我建议不要这样做.
+&quot;很糟糕,很糟糕,这真的很糟糕&quot;. 明显的沉重呼吸/吟.
+10:50 - 迪克的胃是空的.
+&quot;,我的上帝,这是如此,如此可怕. &quot;更多的干燥-heaving.
+迪克要求我让他活着.
+&quot;我不喜欢这!&quot;,&quot;一切都很痛苦!&quot;,&quot;太多,太多,太多.
+迪克现在几乎在哭泣.
+更多的干.
+迪克是支在水槽和浴,倾斜在所.
+我对&quot;它是什么样子&quot;的回答是&quot;鲜的颜色&quot;.
+凯恩向迪克保证,迪克不会死,因为凯恩是救护员.
+之后,迪克告诉我 (凯恩) 我说的和我的行为没有任何不同,
+11:01 - 迪克不断要求知道&quot;还有多长时间&quot;这个阶段结束 (20分钟到目前为止).
+迪克来到耶稣面前,为他&quot;曾经做过的一切&quot;道歉.
+&quot;我不会向任何人祝愿这样&quot;, &quot;这太糟糕了.
+11:05 - - 迪克开始了一种K-巴巴,
+吐似乎已经停止.
+仍然与上帝讨价还价,让它停止.
+&quot;酒精&quot;这个词没有其他可理解的词.
+&quot;我不知道,我不知道,我不知道.
+现在正在哭泣.
+&quot;牧民们&quot;
+11:08 - - 迪克现在很紧张,很激动,
+凯恩注意到迪克的衫上有汗水.
+&quot;感官过度负荷&quot;,&quot;再也没有&quot;,&quot;所有迹象都指向坏&quot;.
+11:18 - 迪克回到床上, 缩成胎儿的位置.
+眼睛似乎没有集中在任何地方.
+严重的幻觉.
+&quot;更多的放大,放大,放大.
+迪克开始问一些愚蠢的问题,比如&#x27;这张着陆地图上有什么臭味?&#x27;, 他经常用同样的措辞回答自己, 但用一种更像陈述的语气.
+&quot;这一切只会导致农药&quot;, &quot;这就是我永远不会渴望的酒&quot;. 迪克在放弃这个想法之前重复了七到十次他的问题,但很快就转向了同样无意义的问题,通常用另一个无关的主题回答自己;例如&quot;,混是好事吗?
+没有水.
+11:28 - 迪尔克问道,&#x27;此事之后,有谁能原谅我吗?&#x27;有些小的吐.
+迪克继续多次问同一个问题.
+11:34 - 搬到客厅, 那里有空调.
+迪克正在大汗淋.
+凯恩拿出一个金属碗,如果需要,迪克可以吐;迪克仍然注意到恶心.
+11:45 - 迪克躺在沙发上.
+现在似乎心情好了, 笑着说他的奇怪话,
+&quot;混是好事吗?&quot;他一直说/问&quot;生物?&quot;被解释为他应该被连接到呼吸器和心脏监测器;凯恩回答说&quot;,不&quot;.后备注:呼吸器问题与迪克希望凯恩检查他的脉和呼吸有关,但迪克无法形成问题,让凯恩理解他在这种心态中想要什么.
+11:56 - &quot;仍然太内向,需要外向&quot;.重复几次.
+12:15 - 快速下降
+德克说:&quot;这比X,K或酸更好.
+&quot;不能这样做, [插入共同的宣誓敌人]&quot;.
+12:25 - - 接近基线.
+迪克现在可以理性地说话.
+音符的可视化正在迅速减少,
+我认为这种经历非常不典型.
+迪克在服用DPT时触及了两条血管,
+我没有碰到任何血管.
+根据其他经验报告, 我估计迪克在25-30毫克DPT之间直接进入他的血液,
+没有.
+德克的报告:
+没有什么精神的东西 (也许是轻微的,
+我认为它更像是速度而不是酸 (因为它是机械的,而不是精神的).
+不幸的是, 视觉和负载相互增加, 恶心立即显现 (你的胃感觉像是被推到你的喉).
+视觉效果比你能做的任何酸都更强烈, 但看起来更像是的视觉效果,
+另一件值得注意的事情是, 在进一步的实验中, 我发现其他药物虽然有效,
+只是除了与所有人交谈的冲动和酒精的快乐之外, 我什么都没有感觉到 (没有言语不清,倒,
+虽然我记得这一切, 但我不能完全解释,
+尽管我无法用英语 (或其他语言) 完全解释,
+基本上,视觉和身体负荷不断上升,不断上升,并没有停止,直到我的大脑停止接受来自眼睛的输入, 我开始吐,
+最好的解释方式是把人体/大脑看成是运行着某种二进制代码的机器.
+如果你感觉热,则为1,如果感觉不热则为0;如果你感觉冷,则为1;如果感觉不热则为0;如果你看到一个红点,则为1等等.
+你的大脑处理基本的想法/思维模式,包括言语,都以同样的方式; 如果你想说&quot;我饿了&quot;,那就是1而不是0,
+当你某个部分做出决定时, 首先访问整个&quot;开关组&quot;, 然后找到正确的开关并打开.
+例如,你从一个冷房进入一个热房;当你移动时,可以访问&quot;不同程度的冷&quot;的开关组,并且任何特定的开关都被设置为0.
+然后,访问&quot;不同级别的热&quot;组,并将正确的开关转换为1.
+想象一下,每一个开关,或者至少每个类别中占主导地位的开关,
+这不仅仅是感官的过载, 这是在一个人的每一个层面的和... 这就是我在实时体验了大约一个小时,
+我的大脑不再接受所有感官系统的输入, 因为它无法处理所有信息,
+我只能说&#x27;这真是太糟糕了&#x27;和&#x27;太多了&#x27;以及偶尔的单词 (在我的大脑中,
+我无法用句子形式说出任何有意义的话, 因为每当我试图思考时,
+卡恩的监护人报告说, 任何我试图说的话,
+我慢慢地 (按照我的标准...时间实际上不适用于超载状态,我几乎没有开始认识到它的通道,直到我几乎从整个事情) 能够忽略一些外来开关我的大脑/身体一直试图访问,至少可以开始偶尔分辨图像 (完全混乱
+只是偶尔看到现实的一), 偶尔说出有意义的句子或单词等.
+随着药物消耗, 变化变得不那么明显, 恢复到他们通常的&quot;幕后&quot;状态.
+在经历期间,我也经历了我通常的&quot;过度放纵&quot;编程循环, 问我是否/认为我会死, 接受耶稣, 希望他能阻止这一切,
+我认为它实际上使事情变得更糟,因为它已经被硬编码到我的元编程中, 现在它是自动运行的, 我被迫亲自观看/体验整个&#x27;开关&#x27;程序,
+由于我说的大部分东西是可理解的Kaen与这个metaprogram相关,而我试图说的东西否则得到了混,它进一步我的理论,这只是一个&#x27;你太多的物质和吐,运行&#x27;上帝我要死&#x27;的程序&#x27;我已经硬编码到我.
+总结一下, 我学到了更多关于我的身体是如何工作的比任何人都应该有,
+我仍然感到受伤 (旅行后晚上我睡不着觉, 因为我担心会做梦,
+没有.
+我坚持认为任何试验这种物质的人都需要一个保姆,
+虽然这绝对不是一个&quot;好旅程&quot;,
+虽然你会学到很多关于自己的东西, 我还是不建议任何人重复我经历过的经历.
+时间表:8097
+DPT (21):小组 (2-9) (17),过量服用 (29),导游/保姆 (39),健康问题 (27),困难经历 (5),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Getting Rid of Your Physical Books?
+If you have books or periodicals about drugs, contribute them to Erowid!
+Your old books will find a good home in our library or for a supporter. [
+details
+]
+DPT IM... or Was it IV?
+DPT
+by
+Dirk
+Citation:   Dirk. &quot;DPT IM... or Was it IV?: An Experience with DPT (exp8097)&quot;.
+Erowid.org
+. Feb 10, 2002. erowid.org/exp/8097
+DOSE:
+100 mg
+IM
+DPT
+(liquid)
+BODY WEIGHT:
+170 lb
+My friend Kaen and I recently acquired some DPT, with the plan of doing 100mg IM each as an experiment in human existence. As it turned out neither of our experiences were fun, although we definitely succeeded on the &#x27;experiment in being us&#x27; level. Being the more experienced psychonaut, we decided that I&#x27;d go first, with Kaen sitting for me and keeping notes on what transpired. We made a solution out of the 100mg DPT HCL (as a note to others, it requires roughly .2ml of warm water for every 10mg of DPT to dissolve), roughly 2mL of solution split amongst two needles, and began.
+As a forward to the following sitter (and my) report, it&#x27;s important to point out that I hit a blood vessel in both shoulders, during injection. I&#x27;m a highly experienced Ketamine IM user, and although I do this all the time with said drug, at the most all it would do is keep me in the K-Hole a little longer. Since it wasn&#x27;t unusual, I didn&#x27;t think about the possibility that the DPT would react much differently if it got in my blood stream (despite the things I&#x27;d read from Shulgin about IV injection of DPT). Now, given my experimentation with DPT following this one, I&#x27;ve determined that my response to this first trip was extremely above and beyond how I should have responded to 100mg IM, and therefor both Kaen and I believe that I actually got a decent amount of the DPT into my bloodstream. So, although this was supposed to be an IM dose, we both feel that I inadvertently gave myself an IV dose.
+Here are the two reports of the experiment, beginning with Kaen&#x27;s notes:
+Kaen&#x27;s Sitter Report:
+Dirk hasn&#x27;t eaten in 9 hours. Took 60mg Allegra (allergy meds) 2 hours prior to experience in response to usual morning post-nasal drip. No other drugs in system. Mood is anxious but positive.
+10:35AM to 10:38 - Dirk injects both needles, noting that he hit a blood vessel in each arm.
+10:40 - Body load is already kicking in, as if LSD. Everything is getting &#x27;streaky and bubbly.&#x27;
+10:41 - Shuddering and minor muscle convulsions, nausea is noted. &#x27;Like shroom visuals...insane how fast it hit.&#x27; Dirk begins groaning. &#x27;Can&#x27;t describe visuals.&#x27;
+10:45 - Dry heaving, followed by vomiting of yellow bile. &#x27;I don&#x27;t suggest doing this.&#x27; Severe tremors in body. &#x27;Bad, bad, this is really bad.&#x27; Distinct heavy breathing/groaning.
+10:50 - Dirk&#x27;s stomach empty. .  &#x27;Oh, my God, this is so, so awful.&#x27;  More dry-heaving.  Dirk requests that I &#x27;keep him alive&#x27;.  &#x27;I don&#x27;t like this!&#x27;, &#x27;Everything hurts!&#x27;, &#x27;Too much, too much, too much&#x27;.  Dirk is near crying at this point.  More dry-heaving.  Dirk is braced against sink and bathtub, leaning over toilet.  &#x27;Bright-shaped colors&#x27; is the response I get to &#x27;what does it look like&#x27;.  Kaen reassures Dirk that Dirk will not die because Kaen is an EMT.  Post-note:  Afterward, Dirk told me (Kaen) that what I said and my demeanor made no difference whatsoever, only that my talking could take his mind off the experience ever-so-slightly for a short period of time.
+11:01 - Dirk continually requests to know &#x27;how much longer&#x27; for this stage to be over (20 minutes in so far).  Dirk has come to Jesus at this point, apologizing for &#x27;everything [he&#x27;s] ever done&#x27;.  &#x27;I wouldn&#x27;t wish this upon anyone&#x27;, &#x27;This is so, so bad&#x27;.
+11:05 - Dirk has begun a form of K-babble, reasoning out completely illogical things.  Vomiting appears to have stopped.  Still bargaining with God to make it stop.  The word &#x27;alcohol&#x27; comes out with no other comprehendible words with it.  &#x27;I don&#x27;t know, I don&#x27;t know, I don&#x27;t know&#x27;.  Crying now.  &#x27;Rancheros.&#x27; (?)
+11:08 - Dirk is edgy and agitated now, moving around quite a bit, likely in a vain attempt to escape his body.  Kaen notes perspiration through Dirk&#x27;s shirt.  &#x27;Sensory overload.&#x27;, &#x27;Never again&#x27;, &#x27;All signs point to bad&#x27;.
+11:18 - Dirk back in bed, curled into the fetal position.  Eyes don&#x27;t seem to focus on anything.  Severe hallucinations.  &#x27;More zoom-zoom-zoom.&#x27;, &#x27;Zoom-zoom-zoom?&#x27;.  Dirk begins asking inane questions, such as &#x27;What just stinks on this landing map?&#x27;, and often answers himself with the same phrasing, but in a more statement-like tone.  &#x27;It all just leads to pesticide.&#x27;, &#x27;It&#x27;s the beer I will never hunger for.&#x27;  Dirk repeats his questions anywhere from seven to ten times before letting that thought go, but quickly changes to another equally nonsensical question, normally answering himself with another non-related subject; for instance, &#x27;Is confusing good?  Water.&#x27;
+11:28 - Dirk asks, &#x27;Can anyone forgive me after this?&#x27;  Some minor vomiting.  Dirk continues asking the same question multiple times.
+11:34 - Moved to living room where the air conditioner is.  Dirk sweating profusely.  Kaen brings out a metal bowl into which Dirk can vomit if need be; Dirk still notes nausea.
+11:45 - Dirk is lying on the couch.  Seems in better spirits now, chuckling over the bizarre things he&#x27;s babbling, still slipping in and out of inanity.  &#x27;Is confusing good?&#x27;  He keeps saying/asking &#x27;Bio?&#x27;, interpreted as if he should be hooked to a respirator and heart monitor; Kaen replies, &#x27;No.&#x27;  Post-note:  The respirator question had to do with Dirk wanting Kaen to check his pulse and breathing, but Dirk could not form the question to make Kaen understand what he wanted in that state of mind.
+11:56 - &#x27;Still too much introverted, need to extrovert.&#x27;  Repeated several times.
+12:15 - Coming down quickly.  Dirk says, &#x27;It&#x27;s better than X, K, or acid.&#x27;  Suggests lower dosage for future attempts.  &#x27;Couldn&#x27;t do this to [insert mutual sworn enemy here].&#x27;
+12:25 - Much closer to baseline.  Dirk can reason and talk coherently now.  Notes visuals are lessening quickly, but still there.
+Post-Note: I believe this experience to be highly non-typical.  The fact that Dirk hit both blood vessels in his administration of the DPT dose likely contributed to the strength of the experience.  My subsequent DPT experience (the next morning) was nowhere near that insane and I did not hit any blood vessels.  Based on other experience reports, I would estimate Dirk got somewhere between 25-30mg DPT directly into his bloodstream, in addition to the 70-75mg intramuscular.
+----------
+Dirk&#x27;s Report:
+For any sane(?) dose, it&#x27;s all body load and minor visuals, nothing mental (maybe minor, but not really noticeable). Despite the visuals and acid-like body load, I think of it more as speed than acid (in that it&#x27;s a mechanical thing, not a mental thing). Unfortunately, the visuals and load go up with each other, and nausea is prominent right away (your stomach feels like it&#x27;s being pushed up your throat). The visuals are so much more intense than any amount of acid you could do, but looks more like shroom visuals except it just keeps getting crazier and crazier. Another thing to note is that in further experiments, I have found that other drugs, although they do take effect, are totally overwhelmed by even a low dose of DPT. For instance, I did 50mg of DPT and about an hour later drank enough alcohol to be reasonably drunk, but beyond the impulse to talk to everyone and booze-happiness I felt nothing (no slurred speech, stumbling, and the body load was still all DPT).
+As for my experience, although I can (unfortunately) remember the whole thing, I can&#x27;t fully explain it because it was such a non-normal operating state for a human being. Even though I am incapable of fully explaining it in the English language (or any other, I bet), I can replay it in my mind just like any other memory. Basically, the visuals and body load just kept going up, and up, and up, and didn&#x27;t stop until my brain actually stopped accepting input from my eyes, I started throwing up, and my brain&#x27;s ability to function was reduced to it&#x27;s basic operating system.
+The best way to explain what happened is to think of the human body/brain as a machine running on a kind of binary code. If you&#x27;re hot it&#x27;s a 1, and a 0 if you&#x27;re not hot; If you&#x27;re cold it&#x27;s a 1 for that switch, 0 if not; If you&#x27;re seeing a single red point of light it&#x27;s a 1 there, etc. Even how your brain processes basic thoughts/thought patterns, including speech, is the same way; If you want to say &#x27;I am hungry&#x27; it&#x27;s a 1 rather than a 0, but it&#x27;s also a 1 if you want to say &#x27;I&#x27;m not hungry&#x27;. Now, to take it a step further, similar switches are grouped together, and when any part of you makes a decision to do something, the entire &#x27;switch group&#x27; is accessed first, and then the correct switch is located and turned on. For instance, you step from a cold room to a hot one; As you are moving, the switch group for &#x27;different levels of being cold&#x27; is accessed, and whichever particular switch was active is set back to 0. Then, the group for &#x27;different levels of being hot&#x27; is accessed, and the correct switch is turned to 1. If you&#x27;re processing what you want to say, such as &#x27;would you like to go to the store with me?&#x27;, you&#x27;re accessing thousands, if not millions, of switches that involve variations of that sentence, including switch banks for the opposites of that and similar statements.
+Now with that in mind, imagine turning on every switch, or at least the dominant ones of every category, to 1 simultaneously. This isn&#x27;t just sensory overload, this is saturation on every level of one&#x27;s being...and it&#x27;s what I experienced for about an hour real-time, coming up to the absolute peak of it (absolutely everything on) quickly then gradually turning switches off until I was eventually back to baseline with only the correct switches active. When it first kicked in at full-blast, my brain stopped accepting input from all of my sensory systems because it couldn&#x27;t handle it all, and could barely keep my intellectual functions running.
+All I was capable of saying was &#x27;this is so, so, so bad&#x27; and &#x27;too much&#x27;, and the occasional single word (which in my brain, due to all the switches being turned on, was the blurting out of a single word or words that best described the literally millions of thoughts that were active in response to me trying to say something). I was incapable of saying anything meaningful in a sentence form, as I&#x27;d be overwhelmed by millions of thoughts simultaneously whenever I tried to think. As stated in Kaen&#x27;s sitter report, anything I tried to say beyond a word or two just got progressively more jumbled up.
+When I finally started coming down I slowly (by my standards...time didn&#x27;t actually apply in the overload state, I pretty much didn&#x27;t start recognizing it&#x27;s passage until I was almost out of the whole thing) was able to ignore some of the extraneous switches my brain/body kept trying to access, and at least could start to occasionally make out images (completely messed up, like a broken monitor playing colorful white noise and gaussian blurs, with only the occasional glimpse of reality), say the occasional sentence or word that sort of made sense, etc. The ride down was gradual, and as the drug wore off the switches became less apparent to me and returned to their usual &#x27;behind the scenes&#x27; status.
+During the experience I also went through my usual &#x27;over indulgence&#x27; programming loop of asking if/thinking I&#x27;m going to die, accepting Jesus in the hopes that he would stop the whole thing, and apologizing to everyone and everything. I think it actually made things worse as it, being pretty hard-coded into my metaprogramming by now, was auto-run and I was forced to watch/experience the whole &#x27;switch&#x27; routine first-hand when I could have instead, maybe, just have been totally shut-down and in observation mode for the duration. Since most of the things I said that were understandable by Kaen related to this metaprogram, where-as the things I&#x27;d try to say otherwise got scrambled, it furthers my theory that this was just a &#x27;you took too much of a substance and are puking, run the &#x27;oh God I&#x27;m going to die&#x27; routine&#x27; program I&#x27;ve got hard-coded into me.
+To wrap this up, I learned way more about how my body works than anyone should ever have to, no matter how interesting it may be. I still feel traumatized by it (I had trouble sleeping the night after the trip because I feared I&#x27;d have a dream about it, and sure enough, the next morning I had a dream in which the DPT suddenly started working, as if I was having a flashback), and my brain seems to be running a little differently than it used to although I couldn&#x27;t say how.
+----------
+To finalize all this, I insist that anyone experimenting with this substance have a sitter handy until you&#x27;re comfortable with your doses, no matter how hard-headed and experienced you think you may be. Although this definitely wasn&#x27;t a &#x27;good trip&#x27;, it wasn&#x27;t a &#x27;bad trip&#x27; either, and it was most definitely an enlightening experience. It was, however, quite traumatizing - although you&#x27;ll learn a lot about yourself, I still don&#x27;t suggest anyone repeat what I went through.
+Exp Year: 2001
+ExpID: 8097
+Gender: Male
+Age at time of experience: Not Given
+Published: Feb 10, 2002
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DPT (21) : Small Group (2-9) (17), Overdose (29), Guides / Sitters (39), Health Problems (27), Difficult Experiences (5), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

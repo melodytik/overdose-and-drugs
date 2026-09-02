@@ -1,0 +1,213 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;在山顶上闪&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-det.html'>← 4-AcO-DET</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;在山顶上闪&quot;</h1>
+<div class='sub-title'>4-Acetoxy-DET - Erowid Exp - &#x27;Lightening on the Mountain Top&#x27;</div>
+<div class='meta'>作者：Morninggloryseed Citation · 日期：Dec 19, 2002 · 剂量：14 mg · <a href='https://erowid.org/experiences/exp.php?ID=19794' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>2002年8月
+经过一个
+不舒服,没有回报
+在室内使用4-AcO-DET的经验中, 我认为我应该在更原始的户外环境中再试一次,
+我在附近的印第安山峰上进行了预先计划的徒步旅行.
+我封装了两个药片, 一个含有16毫克, 一个含有14毫克,
+我的搭档对很多迷幻药物有点强硬, 所以她选择服用比我高一点的剂量.
+开车到达徒步路径的景色如同往常一样美丽, 乘坐小公路穿过山脉,
+我们这个小组有五个人,
+到了停车场, 我和我的伙伴都吃了药.
+由于干旱, 我们决定抽一些我带在车里, 而不是带在徒步旅行.
+我们知道在改变状态下处理火灾不是一个聪明的想法.
+我们花了五分钟左右消耗大麻, 然后我们离开了我们的徒步旅行.
+在20分钟内发现了4-AcO-DET的效果.
+首先,我注意到一个强大的能量波动.
+后来,我周围视野中的物体充满了活力和能量.
+我闭上眼睛时, 颜色变得更加鲜,
+很快,当我把手移到脸前时,
+走路是没有困难的, 只要我继续前进, 但当我坐下来休息一下,
+经过大约1个半小时的旅程, 我们终于到达了步道的尽头,
+只有两个勇敢的灵魂试图爬上顶部, 没有安全绳或安全带.
+我坐在靠近岸边的岩石上, 惊叹地看着周围的景象.
+我在舒尔金尺度上获得了非常强大的加2分.
+能量的激增让位给了一种平静的感觉,
+在附近的两座山峰之间有一个空间, 你可以看到几千英尺以下的大平原,
+但同时, 我也感觉到自己与一切有联系.
+我也感觉到自己已经达到了如此高的成就, 并且感受到了强烈的欢喜和高兴.
+没有绝对感觉疲劳从长和稍微困难的登,
+或许4-AcO-DET和其他胺类药物对高山病有类似的效果?
+我们在山顶花了大约20分钟,突然出现了一场风暴.
+我们知道我们必须快速下降.
+在暴风雨中登上山顶是非常危险的,
+我们都想到了这一点,
+我们下山的两次经历,
+首先,我看到一阵闪电闪过我的头,
+第二个是感觉到静电充电在我的身体中积累.
+我可以感觉到电流在我的身体.
+为了纪录,我们群体中那些不沉迷于4-AcO-DET的人也感受到这种负荷,
+在山顶上, 感觉到电流穿过你的身体,
+闪电除了击中你,没有别的!
+无需说我们一直保持快速冲刺, 直到我们终于到达了树木.
+我们都知道现在有更高的物体被雷击.
+其他徒步行程都不那么多事.
+几乎3个小时后, 我已经完全恢复了.
+只有一个愉快的意识在我的身体留下.
+所有的触觉感觉都变得非常强烈.
+我和我的伴侣都很想独处一会儿, 试验这些增强感觉,
+像我的
+最近的甲基隆体验
+我发现环境对我对某种物质的评价有很大影响.
+我之前两次接触4-AcO-DET (一次是吸烟,一次是口服) 导致了非常不舒服的焦虑状态,
+我唯一的焦虑是与雷电和暴风雨有关.
+至于我对4-AcO-DET的印象...
+但有几个重要的区别.
+感觉有点像, 让我打哈欠,
+但对我来说,4-AcO-DET的持续时间从来不超过四个小时,
+4-AcO-DET在视觉上并不像西那样丰富, 精神特性似乎有点不同.
+它们更像是&quot;化学物质&quot;,
+当然,你的行程可能会有所不同.
+结论是, 4-AcO-DET 可以在山上散步, 或在床上和女朋友一起度过夜晚,
+也许未来的曝光会改变这一观点.
+无论如何,这是一个非常有趣的分子, 我肯定会再次使用它.
+4-AcO-DET (188):小组 (2-9) (17),自然/户外 (23),烂的体验 (4),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Lightening on the Mountain Top
+4-Acetoxy-DET
+by
+Morninggloryseed
+Citation:   Morninggloryseed. &quot;Lightening on the Mountain Top: An Experience with 4-Acetoxy-DET (exp19794)&quot;.
+Erowid.org
+. Dec 19, 2002. erowid.org/exp/19794
+DOSE:
+14 mg
+oral
+4-AcO-DET
+1 bowl
+smoked
+Cannabis
+BODY WEIGHT:
+155 lb
+August 2002
+After an
+uncomfortable and unrewarding
+experience with 4-AcO-DET indoors, I figured I should give this chemical one more try in a more pristine outdoor setting before writing it off completely.  With that in mind, I jumped at the opportunity to test this substance during a preplanned hiking trip in the nearby Indian Peaks.  I encapsulated two pills, one containing sixteen milligrams and one with fourteen, for my partner and myself.  My partner is a bit of a hard head with many psychedelics, so she elected to take a slightly higher dosage than me.  The drive up to the hiking trails was beautiful as always, involving a nice cruise on a small state highway through the mountains, passing through a few tiny towns along the way.  There were five of us in this group, but only my partner and I took the substance.
+When we got to the parking lot, my partner and I each took our pills.  Because of the drought, we decided to smoke some pot I brought in the car instead of bringing it with us on the hike.  We knew it wouldn&#x27;t be a smart idea to deal with fire in our altered states.  We took five minutes or so to consume the pot, and then we took off on our hike.  The effects of the 4-AcO-DET were noted in twenty minutes.  At first, I noticed a strong energy surge.  Later, objects in my surrounding visual-field vibrated with energy and life.  Colors began to get brighter, and images abounded when I closed my eyes.  Soon, I noticed impressive trails when I moved my hands in front of my face.  The was no difficulty in walking as long as I kept going but when I sat down to take a break, the intensity of the situation seemed to prevail and I would get swept up into the trip/my mind.
+We finally reached the end of the trail around one and one-half hours into the journey, and at a height of nearly 12,000 feet.  The summit was only a few-hundred feet higher than we were, and there were actually two brave souls who were attempting to climb to the top without safety ropes or harnesses.  There was a small lake at the top, and I sat down on a rock near the shore and observed my surrounding in awe.  By this time, I had reached the peak of the experience, and I was at a very strong plus-two on the Shulgin Scale.  The energy surge gave way to a sense of calmness and even slight sedation.  There was a space between two nearby peaks where you could see the Great Plains thousands of feet below, and it really put everything into perspective…how small I was compared to it all.  And yet at the same time, I felt completely connected to everything.  I also felt a sense of accomplishment at having climbed so high and experienced a state of strong exhilaration and euphoria.  There was absolutely no sense of fatigue from the long and slightly difficult climb, which given the altitude was rather strange.  Perhaps 4-AcO-DET and other tryptamines have effects similar to coca with regards to altitude sickness?
+We spent around twenty minutes on the mountaintop when a sudden storm moved in.  We were well above the tree-line, so we knew it was necessary to get down fast.  Being on top of a mountain during a storm is very dangerous, and lightening-strike fatalities are not uncommon in my area.  That was on all of our minds, and suddenly we were all filled with a sudden sense of urgency to get off.  There were two moments on our descend that I will never forget.  The first was literally seeing a bolt of lightening flash past my head and strike a tree a few hundred feet below.  The second was feeling a static charge build through my body soon after.  Suddenly the hair on my arms stood up, and I could literally feel electricity in my body.  For the record, those in our group who did not indulge in the 4-AcO-DET also felt this charge, so it was not a result of any altered perceptions I was experiencing.  It is quite a foreboding feeling to feel electricity going through your body when you are above tree line on a mountaintop.  The lightening has nothing to strike but you!  Needless to say we maintained a fast sprint the entire way until we finally made it to the trees.
+When we reached tree-line, there was a major sigh of relief from all of us knowing that there were now taller objects for the lightening to strike.  The rest of the hike down was less eventful.  By the time I reached the parking lot, nearly 3 hours after the start, I was all but baseline.  Only a pleasant awareness in my body remained.  All tactile sensations felt incredibly enhanced.  Both my partner and myself would have loved a moment alone to test these enhanced sensations, but that was not to be.  As with my
+last methylone experience
+, I was shown that set and setting do dramatically influence my evaluation of a substance.  My two previous exposures to 4-AcO-DET (once with smoking and once orally) had resulted in a very uncomfortable state of anxiety and little valuable insight.  There was none of that this time, and the only anxiety I felt during the whole experience was related to the lightening and the storm.
+As far as my general impression of 4-AcO-DET…
+On the surface I am reminded of psilocybin but there are several important differences.  There is a mushroom-like ‘feel’ to it, in that I get the yawns and I feel somewhat sedated.  But 4-AcO-DET never lasts any longer than four hours for me, unlike mushrooms that can last up to six.  4-AcO-DET isn’t quite as visually rich as psilocybin, and the mental properties seem a bit different.  It feels more ‘chemical-like’ and seems to offer me less in the way of cosmic revelations, at least compared to mushrooms.  Of course, your mileage can and will vary.
+In conclusion, I’d have to say 4-AcO-DET is enjoyable to take on a hike in the mountains, or for an evening in bed with your girlfriend, but I still don&#x27;t consider it much of a healing substance, or one that I would take when I have serious issues to work on.  Perhaps future exposures will change this opinion.  Either way, it’s a very interesting molecule and I will definitely work with it again.
+Exp Year: 2002
+ExpID: 19794
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 19, 2002
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-DET (188) : Small Group (2-9) (17), Nature / Outdoors (23), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

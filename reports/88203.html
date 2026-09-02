@@ -1,0 +1,392 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>德米特 - 埃罗伊德的经验 - &quot;现实损失&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dmt.html'>← 二甲基色胺</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>德米特 - 埃罗伊德的经验 - &quot;现实损失&quot;</h1>
+<div class='sub-title'>DMT - Erowid Exp - &#x27;Reality Loss&#x27;</div>
+<div class='meta'>作者：Anonymous Citation · 日期：Feb 18, 2011 · <a href='https://erowid.org/experiences/exp.php?ID=88203' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我还很年轻, 没有足够的技巧来描绘我在旅途中所经历的地狱.
+我为此表示歉意.
+我认为写这篇文章的时间是以后,
+现在,我已经忘记了这次旅行的大部分.
+我读过许多其他旅行经历,
+我希望从说我很年轻,很不成熟开始.
+我仍然是.
+我当时15岁, 厌倦了生活.
+我做了几次, 很享受.
+我立刻对此感兴趣.
+我不知道自己陷入了什么.
+我之前曾经有过DMT晶体, 我抽了很少,
+这次旅行非常美好,
+我经销商有MAOI可供与DMT药一起食用.
+我和三个朋友在一起,我的经销商为我们提供了每一个药.
+他还欠我一笔额外的钱.
+我的药丸中含有最多的DMT (大约250毫克).
+我的朋友们每一个都有大约150毫克.
+我们走到公园,
+半小时后,在8点02分, 我们服用了药.
+我们都坐下来,放松,在摇摆上放松, 等待效果开始.
+我们决定与经销商联系.
+他建议等待更长时间,
+我们回到我的房子,抽了一些水龙烟, 放松, 等待效果开始.
+半个小时过去了, 弟弟告诉我,
+(是的,我是个该死的白痴.
+完全是一个瓜.
+我选择了完全错误的场景,这样的事件发生.) 我继续进来,和我父亲吃饭.
+瓜卡莫利和面包.
+现实正在.
+偏执正在控制着我.
+我周围的一切都在振动.
+我父亲没有注意到我表现得很奇怪.
+房间里的人都在.
+现在我可以控制自己, 但很难做到.
+终于,我吃完了,回到车库的朋友, 发现其中一个躺在楼梯上.
+我被告知他已经倒了.
+他可以和我交流, 我叫他站起来.
+我完全不知道DMT的力量, 假设他有点麻烦.
+每一步都让我感觉像是踏上一个不同高度的台阶.
+这太多了.
+我的经销商为我们提供杀死药,某种白色物质.
+我不知道它们里面有什么, 但我们被告知它们会在五分钟内或更短时间内摧毁我们的旅程.
+我从口袋里拿出药丸 (我有两粒,另外一粒250毫克的DMT药丸,还有一颗杀药药丸).
+得太厉害了,我把药混了起来.
+我的朋友们服用了合适的杀药.
+我又不小心又吃了一粒DMT药, 喝了一半能量饮料.
+另一个错误.
+我走出车库,离开我的朋友在楼梯上,
+颜色正在偏离.
+马上DMT让我完全了不起.
+树开始呼吸,叶子有眼睛.
+我看着草, 立刻在每片花之间沉浸.
+我向天空看,一个棋盘接管了.
+棋盘上有小方形,蓝色的,和一个粉红紫色.
+棋盘是个古典的效果, 不断旋转.
+我几乎无法控制自己,走得更远,
+我选择躺下来, 因为步行太多了.
+偏执正在摧毁我.
+效果立即改变.
+我是一个房间角落里的摄像机.
+一个完全白色的房间,墙壁的轮有黑色的线条.
+我看着一个外星人家庭用一种完全无关紧要的语言交流.
+他们的声音极高,每一个说话都难以辨认.
+我相信我在这个阶段最长的时间.
+颜色变色,白色又变成了棋盘.
+然而,棋盘更深,黑色和紫色,更深.
+没有更多的天空.
+我在幻灯片中漂浮, 跌倒,跌倒.
+没有结束的下降.
+我的身体正在做各种各样的翻转.
+我已经完全失去了控制, 忘了现实.
+我脑海中想到的每一个字都会一遍又一遍重复.
+我质疑自己的自我.
+每一句我对自己想到的话,都在变化,
+随着我在意识中创造出每一个陈述,
+每个陈述在我的脑海中产生之后, 视觉字幕也随之产生.
+字幕在我的眼前飞来飞去, 向上下来, 扭曲, 纵向, 横向,
+字幕也被曲, 适应我声音的变化.
+这一切都是在黑色和紫色之间,
+我身体不断地浮动在其中.
+我在想自己:
+&quot;这是什么鬼啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊?&quot;
+放手掌在嘴边, 发出一声不变的声音,
+我一直认为这是美国原住民所做的事情.
+无论如何,这正是我脑子里想到的,我大喊大叫.
+我讲话的断断续续也因音调的变化而变化.
+我一直在问自己:这是什么!
+我的名字是什么?
+我是谁呢? 这种变化只会让我更加害怕.
+我完全失去了对现实的理解,
+在身体上,在情感上.
+我的所有感官都融为一体.
+我的感知被内外搞了.
+我对自己说话的速度越来越快.
+我大喊大叫,骂骂我哥哥, 像个女孩一样, 尽我所能大喊大叫.
+我想要离开这个地狱.
+这部分是非常难以描述的.
+在这段时间里, 我觉得, 在此经历之前, 我一直在寻找答案,
+一个生命的目的.
+在这段旅程中,这是高潮.
+我觉得好像我一生都没有看到真理,
+真相是什么?
+这就是现实.
+在此之前的一切都只是梦!
+这就是现实!
+我惊慌失措了
+这就是它.
+我是在地狱.
+这是我父母一直在告诉我的.
+我是在地狱.
+我从喉后面开始感到一种无法辨认的疼痛.
+子的面积是我喉的十倍, 被迫从喉伸出到嘴前.
+我开始吐.
+我不知道自己会吐.
+这是我一生中经历过的最痛苦的事情,
+我试图远离它, 但它不会停止从我的嘴里出来.
+我感觉好像我的整个身体都爆炸了,
+我已经完全失去了身体的部分, 只是觉得自己正在崩.
+酸是绿色的,棕色的颜色,和我像大腹.
+我大喊大叫,没有停止大喊.
+没有其他出路!
+我想要发出噪音!
+我想要离开这个地狱!
+我再次迷失在这个未知的空间.
+我听到我周围的声音, &#x27;他是否服用药物?&#x27; &#x27;不,他正在使用药物&#x27;.
+这部分,我可以生动地描述.
+这感觉就像一个清醒的梦.
+在这个梦中, 我倒在地上, 形成了一个现实,
+环境与我们日常生活完全不同,
+天空是蓝色的,树木是绿色的,然而,这一切都像一幅画.
+一个5岁的孩子用水画的画.
+没有什么是利的,一切都有圆边缘.
+我躺在地上倒.
+躺在那里.
+我周围有很多人, 每个人都在问我,&#x27;他是否吸毒?&#x27;
+药物这个词, 改变了意思.
+这个词在音调和长度上发生了许多变化.
+这句话是伸展.
+在这个维度,这个词标志着我的死刑.
+这种药物描述了即将死去的人,
+毒品是一种疾病,
+实际上我在地面上的状态大约是半个小时.
+我已经完全忘记了时间.
+它们的形状终于恢复到原来的形状.
+现实已经回来了.
+形成了一层我感知和真实环境之间的层面.
+在这些层之间放置了形状.
+这次旅行已经结束了.
+我被家人追赶并稳定下来.
+我继续战斗, 因为他们都抓住我,
+我倒在水泥车道上, 被拖进了草地上.
+我躺在草地上.
+从未知的维度旋转回来, 就像骑着一个永无止境的旋转滑梯,
+这场滑梯以强烈的击结束.
+我回来了, 许多人着我.
+这回归现实,就像出生一样.
+我着衫上有血, 完全困惑, 人们着我.
+我第一次看到我们的房子和车.
+慢慢地我开始回忆起自己.
+我觉得好像我第一次看到一切.
+我记得在未知的维度听到的最后一件事是我哥哥的声音.
+他叫我的名字,问我是否好.
+听到他的声音就好像看到道尽头的光.
+我立刻感到宽慰.
+这就是旅行.
+一个糟糕的旅行.
+一个500MG的过量.
+预期的剂量是250毫克, 我认为它应该持续一两个小时.
+我的朋友们没事,他们被放下了.
+我不知道他们经历了什么,
+我很高兴发生在我身上的事情,没有发生在他们身上.
+邻居听到我的尖叫声, 打电话给附近的保安, 他来帮我的家人摔倒我.
+他问我吃了什么, 我向他大喊:&#x27;DIMETHYLTRYPTAMINE&#x27;保安打电话给警察,
+这一切都是在旅行结束后.
+我躺在床上似乎大约半个小时,直到每个人都离开了.
+(这张床是在我的车库上方的公寓里.
+经过一段时间,
+半路上, 我倒在客厅的上,
+我继续我的旅程上楼,进入我的房间.
+我感到非常痛苦.
+我洗了个,睡了.
+在我的睡眠中,没有梦.
+我闭上眼睛, 进入一个黑暗的世界.
+在任何地方都是黑色的.
+我在第二天醒来时, 牙套松了, 眼睛黑了, 整个身体都被咬.
+我的手掌被咬了.
+德克萨斯州的火已经吃了我.
+我无法打字, 因为火, 我的手完全胀了.
+我手指之间有咬.
+我在其他的咬伤之上受到了咬.
+显然是在我吐和在院子里跑来跑去之后, 我在堆里滚来滚去.
+这很可能是造成了难以忍受的痛苦,和地狱.
+我相信能量饮料和我以前吃过的食物,
+这是一个改变人生的经历,
+你们可能都认为我是个该死的白痴,
+我搞了很多.
+我希望我写的东西对你有好处.
+我再次为缺乏描述而道歉.
+我在这个网站上阅读了许多其他文章,
+我担心到那时, 我会忘记我的经历.
+我是一个瓜, 我肯定从我的错误中吸取了教训.
+我现在尊重它的能力.
+这种物质应该明智地使用.
+我不会改迷幻药, 直到我年纪大了,
+自从这次经历以来, 我的大脑已经变得一团糟.
+我的生活已经改变了.
+在痛苦之前的未知维度, 我遇到了我的自我.
+我遇到了被困在身体中的内心灵魂, 质疑它的目的和存在.
+我觉得我必须在未来再次回到这个领域.
+希望在未来,在一个更安全的环境中.
+我很高兴从自己的错误中学习.
+我从这次经历中学到了很多.
+很多.
+请小心
+时间表:
+第一个药丸: 8: 02
+DMT (第二个250MG药片):9:15左右,不准确
+我从湿里拿出手机, 读出晚上10点50分的文字.
+我立刻感到震惊.
+我觉得时间已经过去了.
+其他:
+双双 (18):第一次使用 (2),过量服用 (29),不良旅行 (6),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Reality Loss
+DMT
+by
+Anonymous
+Citation:   Anonymous. &quot;Reality Loss: An Experience with DMT (exp88203)&quot;.
+Erowid.org
+. Feb 18, 2011. erowid.org/exp/88203
+DOSE:
+T+ 0:00
+oral
+MAOIs
+T+ 0:30
+250 mg
+oral
+DMT
+(capsule)
+T+ 1:45
+250 mg
+oral
+DMT
+(capsule)
+BODY WEIGHT:
+165 lb
+I am very young, and lack the skill required to portray the Hell I endured during my trip. For that I apologize. I considered writing this later, when my writing skills have further developed. However, by that time, I would have forgotten much of the trip. I have read many other trip experiences, and decided it&#x27;s time to share my indescribable event with others.
+I would like to start this entry off by saying I was very young and immature. I still am. At the time I was 15 years old, and bored with my life. I had done salvia a couple of times and enjoyed it. When I heard a dealer would have DMT available, I was instantly interested. I had no idea what I was getting myself into. My dealer had DMT crystals available previously, and I smoked a very small amount, around 10-15mg&#x27;s possibly, and enjoyed it greatly. The trip was beautiful and I badly wanted to repeat it.
+The day had come when my dealer had MAOI available for consumption with DMT pills. I was with three friends, my dealer had provided for us each a pill. I was given an extra that he owed me. My pill was loaded with the most DMT (around 250MG). My friends each had about 150MG in their&#x27;s. We walked to a public park, and each consumed an MAOI. Half an hour later, at 8:02, we took the pills. We all sat down, relaxed, chilled on the swings and waited for the effect to kick in.
+None of us were feeling anything after about an hour, and decided to contact our dealer. He advised to wait longer, as it is tough for the body to digest. We returned to my house, smoked some hookah, and relaxed, waiting for the effects to kick in. About half an hour passes, and my sibling informs me that my father wants to have dinner with me. (Yes, I am a fucking idiot. Complete idiot. I chose the completely wrong setting for such an event to occur.) I proceed inside, and eat with my dad. Guacamole and bread. Reality is buzzing. Paranoia is taking me over. My complete surroundings are vibrating.
+My father does not notice that I am acting very strange. The room was shaking. At this point I am able to control myself, but struggle doing so. Finally, I finished eating and return to my friends in the garage, finding one of them laying on the stairs. I am informed he collapsed. He is able to communicate with me, and I tell him to sit up. I am completely unaware of the power of DMT and presume to assume he is having a little trouble. The DMT is hitting me harder and harder, every step I take, felt like taking a step on a step on a different height.
+This is too much. My dealer provided for us kill pills, some sort of white substance. I have no idea what was in them, but we were told they would kill our trip within five minutes or less. I pull the pills out of my pocket (I have two, another 250MG DMT pill, and a kill pill). Tripping so hard, I mix up the pills. My friends take the proper kill pills. I took another DMT pill, accidentally, and drank half a can of an energy drink. Another mistake.
+I took a step outside the garage leaving my friends on the staircase to an upstairs apartment. Colors are swerving. Immediately the DMT takes me completely. The tree began to breathe, the leaves had eyes. I look at the grass and am immediately submerged between each petal. I looked up towards the sky and a checker board took over. The checker board had small squares, those of blue, and a pinkish purple. The checker board was in a kaleidoscope effect, and constantly spiraling. I can barely control myself, and walk further away from the house onto a field that is apart of our property. We have a hill under a fig tree where I choose to lay down, as walking was too much. Paranoia was destroying me.
+The effects immediately changed. I was a camera in the corner of a room. A completely white room, with black lines for the outlines of the walls. I was watching an alien family communicating in a language that was completely gibberish. Their voices were extremely high pitched, and every word they said was unrecognizable. I believe I was in this stage for the longest time.
+Colors were swerving, the whiteness turned into the checkerboard again. The checkerboard however, was much darker, Black and purple, very much darker. There was no more sky. I was floating inside the kaleidoscope, falling and falling. There was no end to the falling. My body was doing all sorts of flips. At this point, I had lost all control, and forgotten about reality. Every word I had thought in my mind would be repeated over and over. I questioned my ego. Every word I thought to myself, was changing pitch, as the thought was being processed in my mind. As I created each statement in my consciousness, my mind reprocessed it, questioning whether it was legitimate or not. After each statement was produced in my head, visual subtitles were produced to follow. The subtitles were flying in front of my eyes, going up and down, twisting, vertically, horizontally, in numerous ways. The subtitles were also being bent, adapting to the pitch change of my voice. This is all in a layer between the black and purple never ending kaleidoscope. The kaleidoscope was a new dimension that my body was constantly floating in. I was thinking to myself:
+&#x27;What the fuuuuuuaaaaackkkccccccckkk is theeeeeeeeeiiiiiiiiiis?!&#x27;
+Put your palm to your mouth and produce a constant sound, muffle that sound, by flapping your palm forward and away from your mouth. I&#x27;ve always thought that&#x27;s what native Americans did or something. Anyways, that&#x27;s EXACTLY what was going through my head, I was screaming at the top of my lungs. The on and off cut up of my speech was also being altered by the change of pitch. I kept asking myself: &#x27;WHAT IS THIS!?! &#x27; WHAT THE FUCK!?&#x27; WHAT&#x27;S HAPPENED TO ME!? WHAT IS MY NAME!? WHO AM I 1?!?&#x27; The change of pitch only terrified me more. I completely lost grasp of reality, and myself in an unknown dimension. Physically, and emotionally. All my senses had blended together. My perception was fucked inside out. I spoke faster and faster to myself. Yelling, cursing my brother, I screamed at the top of my lungs, like a girl, as loud as I could. I wanted to get out, I wanted out of this hell.
+This part is extremely hard to describe. During this part, I had felt like, everything before this experience, I was constantly seeking for answers, seeking for a quest, seeking for a reason for life. A purpose of life. At this time of the trip, this was the climax. I felt as if I had been blinded from the truth my whole life, and now this was it. The truth. This is REALITY. Everything before this was just dream! This is reality! I panicked. This it. I am in Hell. This is what my parents are always telling me about. I am in Hell. An unrecognizable pain rises from the back of my throat. The back of my mouth was being pried open, a cone, ten times the size of my throat opening was being forced out of my throat to the forward of my mouth. I began vomitting. I did not know I was throwing up.
+This has was the most painful thing I&#x27;ve EVER experienced in my life and never want to go through ANYTHING like it ever again. The throw up didn&#x27;t end, I thought to myself it was acid, and tried to stay away from it, yet it would not stop coming out of my mouth. I felt as if my whole body was exploded, my insides were bursting out of me. I had lost complete identification of my body parts, and simply felt as if I was falling apart. The acid was a green, brown color, and came out of me like large diarrhea. I screamed, I screamed, and did not stop screaming. There was no other way out! I wanted to make noise! I wanted out of this Hell!
+The throwing up cools down, and I am yet again lost in this unknown dimension. I hear voices around me, &#x27;Did he take drug?&#x27; &#x27;Oh no, he&#x27;s doing drugs&#x27;.
+This part, I can describe vividly. It felt like a lucid dream. In this dream, I was collapsed on the ground, a reality was formed, a stable environment was around me. The environment was nothing like our everyday environment, but it was stable. THe sky was blue, trees were green, however, it was all like a painted picture. A picture a 5 year old had painted, with water pencils. Nothing was sharp, everything had round edges to it. I was on the ground collapsed. Laying there. I was surrounded by people, everyone was asking, &#x27;did he take drugs?&#x27; My mind processed the statement, and absorbed the word &#x27;drug&#x27;. The word drug, changed meaning. The word went under numerous changes, in pitch, and length. The word was stretched out. In this dimension, the word had marked my death sentence. The term drug described one about to die, who had been marked by the horrible disease. Drug was a disease and I had caught it.   I was in this state on the ground for in reality was about half an hour. I had lost ALL track of time.
+FINALLY, shapes were returning to their original form. Reality was coming back. A layer between my perception, and my real environment was created. Shapes were put between these layers. The trip was dying down. I ran into a fence, head-on, as I was being chased and stabilized by my family. I kept fighting as they were all holding on to me, keeping from hitting for objects. I collapsed onto the cement drive-way and was dragged into the grass. I laid in the grass. Spiralling back from the unknown dimension, was like riding a never ending spiralling slide, and throughout that, was the horrifying checkerboard of black and purple. The slide ended with a powerful THUMP. And I was back, faces were staring at me. This return to reality, was like being born. There was blood on my shirt, I was in COMPLETE confusion, faces were staring at me. I saw our house, and the car for the first time. Slowly things were coming back to me. I felt as if I was seeing everything for the first time. The last thing I remember hearing in the unknown dimension was my brother&#x27;s voice. He said my name, and asked me if I was okay. Hearing his recognizable voice was like seeing the light at the end of the tunnel. I was in instant relief.
+That was the trip. A bad fucking trip. An overdose of 500MG. The intended amount was 250MG, which I thought was supposed to last for an hour or two. My friends were alright, they were dropped off. I do not know exactly what they experienced but my brother told me they were wanting hugs from him. I am happy what happened to me, did not happen to them. My neighbor heard me screaming, and called the neighborhood security guard, who came and assisted my family in wrestling me to the ground. He asked me what I had taken, and I yelled in his face: &#x27;DIMETHYLTRYPTAMINE&#x27; The security guard called the police, who were really friendly, and flashed their flashlight in my eyes and took me up inside my house and laid me on the bed and left. This was all after the trip ended. I laid on the bed for what seemed about half an hour, until everyone had left. (This bed was in an apartment above my garage).
+After I regained stability, I was helped inside the house, to my room. Halfway there, I collapsed onto the tile of my living room, my vision was completely blurred by skinny orange lines. I continued my voyage up the stairs and into my room. I was in so much pain. I took a shower and slept. In my sleep, there was no dream. I shut my eyes, and was in a realm of black. Pure black, everywhere. I woke up the next day with loose braces, a black eye, ant bites ALL over my body. My palms were covered with ant bites. Texas fire ants had eaten me. I could not type due to the fire ants, My hands were completely swollen. I had ant bites between my fingers. I had ant bites on top of other ant bites. Apparently after I was throwing up and running around the yard, I rolled around in ant piles. This is most likely was caused the unbearable pain, and Hell. I believe the energy drink, and food I had eaten before caused the never ending throw up.
+This was a life changing experience and all happened two days before my 15th birthday. You are all probably thinking I&#x27;m a fucking idiot, and you are 100% correct. I messed up big time. I hope what I have written is beneficial to you. Once again, I apologize for my lack of description. I have read numerous other posts on this website, and found them all very descriptive and written professionally. I fear by that time, I will have forgotten my experience.
+I am an idiot, and I have DEFINITELY learned from my mistake. DMT is an extremely powerful substance, and I now respect it for its capabilities. Such a substance should be used wisely. I will not be tampering with psychedelics until I am older and my brain somewhat returns to its original state of being. Since this experience, my brain has been a mess. My life has changed. In the unknown dimension before the pain, I met with my ego. I met with my inner soul trapped within my body and questioned its purpose and being. I feel like I must return to this realm in the future again. Hopefully in the future, in a much safer environment. I am happy to learn from my mistakes. I learned a lot from this experience. A lot. Please be careful.
+Time Table:
+MAOI: 7:32 PM
+DMT (1st pill): 8:02
+DMT (2nd 250MG pill) : 9:15ish, not exact
+The rest I do not know, however, as I regained consciousness and absorbed reality, I pulled my phone out of my wet pants, and read 10:50PM. I was instantly shocked. It felt like SO much more time had passed.
+Exp Year: 2010
+ExpID: 88203
+Gender: Male
+Age at time of experience: 15
+Published: Feb 18, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DMT (18) : First Times (2), Overdose (29), Bad Trips (6), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

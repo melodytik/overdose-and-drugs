@@ -1,0 +1,264 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾罗维德的故事 - &quot;一个完全偏见的故事&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/smarts-sulbutiamine.html'>← 硫胺丁二酯</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾罗维德的故事 - &quot;一个完全偏见的故事&quot;</h1>
+<div class='sub-title'>Sulbutiamine &amp; Various - Erowid Exp - &#x27;A Completely Biased Account&#x27;</div>
+<div class='meta'>作者：Whiskey McGee Citation · 日期：Apr 24, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=82361' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>硫胺 - 一个完全偏见的帐户
+我朋友常说吸毒让你感觉好一点, 不如晚上睡得很好, 吃了一顿美味的午餐,
+对于我第一次服用硫胺的经历,
+经历开始于前一天晚上, 当一个我真的喜欢的女孩和我在美食披萨后第一次做爱.
+两者都非常美味.
+随后,我睡了9个多小时.
+化学物质在早晨开始起作用, 时间表如下:
+我吃了一粒胆药, 因为我读过, 诺特罗普药喜欢你这样做.
+我做到了.
+我将预测的0.5克的硫胺硫酸盐倒入一杯水中,
+味道不好, 但它不像狮子尾巴 (粗) 或梦想草 (味道像撒旦的股).
+我和女孩去当地咖啡馆喝一点咖啡.
+我得到一个小杯咖啡和味道.
+的
+我有点迟到工作, 但心情很好.
+这是一个美丽的驱动到这里,它看起来是一个美丽的一天.
+时间+30
+我肯定有好感觉.
+工作似乎更轻松,我很乐意解决所有问题.
+的
+在这个美丽的星期五开车,
+颜色变得更加鲜, 感觉就像我很久没有感觉到的沉醉.
+我觉得我是在爱情中毒.
+... ,这可能是迷恋而不是爱情,
+陪审团还没有确定硫胺的含量,
+我注意到人们对我特别好.
+微笑,特别礼貌和乐于助人
+我猜我有一种非常可爱的光, 人们对此有反应.
+或许我正在掌握&quot;秘密&quot;?
+也许我只是一个高?
+或许我正在掌握&quot;秘密&quot;?
+也许我只是一个高?
+我决定加入一些皮拉塞坦.
+这不会伤害,对吗?
+一辆车上有两个漂亮的女孩,
+他们问我是否去烧人,我确认.
+他们微笑,我们开车离开.
+他们怎么知道?
+也许我看起来很糟糕?
+皮拉塞坦似乎做了一些额外的事情.
+我的思维是移动非常非常快.
+我在公路上开车, 没有人能快速出路,
+我检查了我的脉,一切正常.
+没有快速的冲动只是简单的感觉令人难以置信和有能力.
+我得出的结论是, 硫胺是一种巨大的成功.
+工作是令人愉快和平静.
+我决定增加250毫克的硫胺,
+我在酒吧里见到一个朋友,点了酒.
+这味道很棒.
+我仍然不禁注意到这些颜色.
+如此明亮,如此生动.
+提升是绝对是一个好的选择和饮料.
+硫胺+酒精=胜利
+在酒吧里被要求在网络电视剧中扮演插曲.
+今天的另一场胜利.
+能和演员们聊天,
+我还是不禁注意到这天的色彩多么鲜,天气多么美好,
+酒的效果已经减弱了,我开始有点累了.
+在所有这些精神刺激之后,小睡会很好.
+感觉相当回归到基线, 但这是一个伟大的日子, 我通常感觉好生活中的一切.
+工作是愉快的,思想是清晰的,简洁的, 流动轻松.
+我内心的批评者没有告诉我我在生活中错了多少.
+对于我来说, 硫胺使我觉得我有很好的睡眠,
+我确实睡得很好, 得到一个漂亮女孩的关注, 吃得很好,
+时间表: 82361</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Completely Biased Account
+Sulbutiamine &amp; Various
+by
+Whiskey McGee
+Citation:   Whiskey McGee. &quot;A Completely Biased Account: An Experience with Sulbutiamine &amp; Various (exp82361)&quot;.
+Erowid.org
+. Apr 24, 2017. erowid.org/exp/82361
+DOSE:
+T+ 0:00
+1 tablet
+oral
+Vitamins - Choline
+T+ 0:10
+500 mg
+oral
+Smarts - Sulbutiamine
+(powder / crystals)
+T+ 0:20
+1 cup
+oral
+Coffee
+T+ 2:30
+1 g
+oral
+Piracetam
+T+ 4:00
+250 mg
+oral
+Smarts - Sulbutiamine
+(powder / crystals)
+T+ 4:15
+2 glasses
+oral
+Alcohol - Beer/Wine
+BODY WEIGHT:
+170 lb
+Sulbutiamine - A completely biased account
+My friend often says that doing drugs makes you feel only a little better than if you&#x27;ve gotten a great nights sleep, eaten a tasty lunch and then snuck off sometime during the day for a quickie and while that is a bit of an over simplification of things I can definitely attest to its accurateness.  The following is completely biased account of what happened on my first sulbutiamine experience because all those things happened to set the stage.
+The experience starts on the previous night when this girl I&#x27;m really into and I make love for the first time after a gourmet pizza.  Both were delicious.  That was immediately followed by a sound nights sleep of more than 9 hours.  The morning is where the chemicals start to play an effect and the timeline is as follows:
+T +0:00 (10:00am)
+I take a pill of Choline because I read that nootropics like it when you do so.  I did.
+T +0:10
+I dump a pre-measured .5g amount of sulbutiamine sulfate into a glass of water and pound it.  Not pleasant tasting but it&#x27;s not nearly as bad as lions tail (gross) or dream herb (tastes like the ass of satan).
+T +0:20
+Girl and I go to local coffee shop for a small amount of caffeine.  I get a small cup of coffee and season to taste.  Yum.
+T +1:00
+I arrive to work a bit late but in good spirits.  It was a beautiful drive up here and it&#x27;s looking to be a gorgeous day.
+T +1:30
+Definitely got some good vibes floating my way.   Work seems easier and I tackle all problems with gusto.
+T +2:00
+Wow.  Driving with the windows down on this beautiful Friday has gotten me feeling good.  Colours seem brighter and it feels just like an intoxication I haven&#x27;t felt in a long time.  It feels like I&#x27;m intoxicated on love.  Hrmmmm…  Well, it&#x27;s more likely infatuation than love but there is definitely something extra glowy about the day.  Jury still out on sulbutiamine but things look promising.
+T +2:15
+I notice that people are being extra nice to me.  Smiling, being extra courteous and helpful.  I would guess that I have a very lovey glow going on and people are reacting to it.  Maybe I&#x27;m wielding The Secret?  Maybe I&#x27;m just high?
+Maybe I&#x27;m wielding The Secret?  Maybe I&#x27;m just high?
+T +2:30
+I decide to throw some Piracetam into the mix.  It couldn&#x27;t hurt right?
+T +2:45
+Driving down the street a car filled with 2 pretty girls beckon me to open my window.  They ask if I went to burning man and I confirm.  They smile, we drive off.  How did they know?  Maybe I look fucked up?
+T +3:00
+Piracetam seems to have done something extra.  My mind is moving really really quickly.  I&#x27;mdrivingonthefreewayandpeoplearen&#x27;tgettingoutofmywayfastenoughandI&#x27;mcalmandrelaxedbutgoingfastinmycarisreallywhatmyfastmovingmindwantstodorightnow.
+I check my pulse and all is normal.  No speedy rush just plain feeling incredible and capable.
+T +3:30
+I come to the conclusion that Sulbutiamine is a resounding success.  Mind is still sharp and work is pleasant and calming.
+T +4:00
+I decide to boost 250mg of Sulbutiamine to make the feeling last longer.
+T +4:15
+I meet a friend at a bar and order a beer.  Tastes amazing.
+T +4:30
+Still can&#x27;t help but notice the colours.  So bright and so vivid.  Booster was definitely a good choice as was the drink.  Sulbutiamine + booze = win.
+T +5:30
+Get asked to be extra in a web series while at the bar.  Chalk up another win for the day.
+T +6:00
+Chatting with the cast and am amiable and (hopefully) entertaining.  Still can&#x27;t help but notice how bright the colours are and how beautiful the day is and how grateful I am for everything.
+T +7:00
+Booze is wearing off an am getting a little tired.  A nap would be nice after all this mental stimulation
+T +8:00
+Feel pretty much back to baseline but it&#x27;s been a great day and I generally feel good about everything in life.  Work was enjoyable and thoughts were clear, concise, and flowed easily.  No trace of my inner critic telling me how much I&#x27;m going wrong in life.
+For me sulbutiamine makes me feel like I had a great nights sleep, got laid, ate a good meal and am excited about life in general but this is exactly why you shouldn&#x27;t believe anything I say.  I actually DID get a good nights sleep, attention from a pretty girl and a good meal so I was probably going to have a kickass day no matter what!
+Exp Year: 2009
+ExpID: 82361
+Gender: Male
+Age at time of experience: 29
+Published: Apr 24, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Smarts - Sulbutiamine (793), Piracetam (95) : First Times (2), Glowing Experiences (4), Combinations (3), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

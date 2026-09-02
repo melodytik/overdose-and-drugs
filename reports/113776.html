@@ -1,0 +1,461 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>5-MeO-DPT - Erowid Exp - &quot;系统性探索&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/5-meo-dpt.html'>← 5-MeO-DPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>5-MeO-DPT - Erowid Exp - &quot;系统性探索&quot;</h1>
+<div class='sub-title'>5-MeO-DPT - Erowid Exp - &#x27;Systematic Exploration&#x27;</div>
+<div class='meta'>作者：Pharmakeus Bob Citation · 日期：Nov 15, 2019 · 剂量：20.6 mg · <a href='https://erowid.org/experiences/exp.php?ID=113776' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>对5-MeO-DPT进行系统的探索
+因为我找不到关于5-MeO-DPT (5-Methoxy-N,N-dipropyltrypamine) 的任何总结,我想系统地研究这种化合物,并比较不同剂量的效果.
+我28岁,身体健康, 在这些实验时没有服用任何药物或其他药物.
+由于隐私原因, 我没有列出实验的年份,
+在所有报告中,将使用舒尔金尺度来对影响强度进行分类.
+准备剂量: (如果你只想阅读旅行报告或结论,请跳过此部分)
+我从一家提供质子NMR光谱的知名公司获得了这种化合物,
+在5,10和15毫克的经验中,剂量是如下测量:
+40 +/- 2毫克的5-MeO-DPT自由基,使用准确度为1毫克的珠宝秤进行称重.
+由于自由基在水中的溶性较差,将多余的汁加入到500毫升的杯子中 (约为50毫升的果汁).
+实际上,我正在摄入的是5-MeO-DPT的酸盐.
+将5-MeO-DPT自由基添加到果汁中,并允许溶解.
+一旦溶解,将自来水添加到杯子中,直到杯子中总共有400 +/- 10毫升的液体.
+换句话说,现在的度是0.1 mg/ml,在给定的误差范围内.
+下面报告中的5mg,10mg和15mg剂量是分别通过测量50 +/- 1ml,100 +/- 1ml和150 +/- 1ml,使用分级筒进行测量.
+携带错误意味着消耗的剂量为5 +/- 0.5 mg,10 +/- 0.5 mg,15 +/- 0.5 mg.
+对于20.6毫克的经验,我可以使用高精度的实验室级量表,精度在0.1毫克 (0.0001克) 之内.
+我测出的剂量为20.6毫克,所以20.6毫克的剂量是20.6 +/- 0.1毫克的自由基,后者也被转化为酸盐.
+为了保持与以前的剂量一致,将20.6mg的自由基添加到Erlenmeyer瓶中,并用多余的汁处理以产生酸盐.
+然后将更多的水添加到中,以稀释液体 (约100毫升).
+第一个试验:
+时间=8:45: 胃空时摄入剂量.
+这味道很苦.
+T=8:52: 观察到一些头昏和焦点较低.
+可能是安慰剂.
+发生了一些事情.
+增加警觉性.
+耳朵里有轻微的声.
+时间=9:17: 绝对上升到一个 (+).
+在一个清晰的 (+).
+这一阶段的效果主要是肢体能量增加.
+一般的刺激感.
+开放的思想,在情感上更灵活.
+没有视觉.
+听力稍微提高.
+我感到充满活力和和平.
+仍然没有视觉.
+非常温和.
+我仍然可以做任何我想做的事.
+感觉很满意.
+清理厨房和做早餐.
+能够以极大的热情去做.
+充满活力, 感觉高效.
+食欲没有减弱.
+充满活力, 感觉高效.
+食欲没有减弱.
+吃完一个很好的早餐.
+几乎恢复到原来的状态, 只是感觉有点充满活力,心情很好.
+感觉就像在我的头骨上住了一根刺.
+一些肌肉.
+第二次审判:
+T=10:09:摄入了100ml含有5-MeO-DPT酸盐的液体.
+味道非常苦.
+我肚子里有一些谷物.
+我也感冒了,不太严重.
+这里有什么东西.
+增加能量.
+警觉,不安.
+时间=10:47:仍在上升.
+非常顺利.
+在大约一个 (+).
+时间=11:04:仍在上升.
+很高兴,充满活力.
+没有视觉.
+现在效果已经很明显了.
+有很多能量.
+肢体的松精神错乱的想法.
+嘴巴干燥
+没有视觉.
+时间=11:34:可能在 (++).
+效果似乎比上次更强大, 但不是两倍强.
+我牙有奇怪的感觉,
+时间=11:53:仍在 (++)
+没有视觉效果, 除了表面的细节和更明亮的光线.
+肌肉和头部的不适比上次少了.
+胃部有些不舒服.
+非常充满活力和快乐的感觉.
+身体温度升高 (实际上我没有检查过).
+我还能感觉到我的身体充满活力.
+情绪基本上是中立的.
+眼睛有些模糊.
+显然有一些烟草和大麻的渴望.
+T=12:44:急性影响已经减弱.
+在一个强 (+).
+能量已经变成了不安.
+阅读没有障碍 (阅读文章).
+一些轻微的效应仍然明显.
+弱 (+) 的
+有点清醒.
+吃了一些谷物.
+吃饭后的情绪提升.
+时间=2:00:吸了一些低THC大麻 (THC&lt;1%) 与烟草混合.
+感觉不那么不安, 相当放松.
+现在感觉非常放松和平静.
+这种感觉就像在长时间的好休息后醒来一样.
+没有高能量.
+感觉很好!
+吃了一顿饭,现在完全在基线.
+感觉很好,有点疲.
+我的身体感觉比平时更温暖.
+总的来说,这种剂量对身体的不适程度远远低于前一次 (5 mg) 剂量.
+第三次审判:
+测量出3x50ml的溶液,该溶液在6月22日被制备并存储在冰箱中.
+用草水混合, 掩盖味道.
+时间=11:26:喝了液体.
+仍然有一种非常苦的味道.
+我不确定这是否是安慰剂,
+绝对不是安慰剂.
+很有空间和刺激.
+在一个 (+++) 或强 (++).
+我感觉有点冷.
+几乎没有视觉效果, 但感觉非常&quot;松&quot;,
+很多的能量.
+我仍然觉得自己有点分离.
+时间=12:28:可能是强 (++).
+观看视频并对其中的人产生爱心.
+感觉到我的身体和心灵都在一个满意的位置.
+非常,但几乎没有视觉效果 (除了增强的颜色和更明确的边缘).
+在一个 (++) 时.
+没有视觉.
+触觉感觉更加平滑,更加强烈.
+时间=1:24:吃一些披萨.
+但食物的味道却很好!
+非常高兴.
+一些明确的菌性质.
+T=1:41: 吃完了.
+回到一个强 (+).
+开始感到温暖和汗水.
+感觉非常满意.
+时间2时01分:仍然非常刺激.
+内容.
+一些肌肉 (+).
+在T=2:23: 绝对下降到 (+).
+我已经恢复正常了.
+我甚至可以与陌生人再次互动如果我不得不,
+时间=3:03:仍然精神声和感觉智力刺激.
+接近基线, 我有很好的感觉&quot;关闭&quot;.
+这真是太棒了.
+在花园里散步.
+外面非常美丽.
+虽然感觉有点偏离, 但几乎恢复到原来的状态.
+完成了一些数学作业, 得到的结果比我通常在一周内得到的要多.
+我很容易得到新的想法,
+仍然感到非常智力刺激.
+这可能是低剂量强大的认知增强剂,
+我不知道,但这应该被调查.
+第四次审判:
+T=9:10: 胃部分满的时候喝下液体 (半个小包).
+味道很苦, 汁的味道也没有帮助.
+味道让我有点恶心.
+用汁清洗下来, 这有帮助.
+T=9:16:第一次报警 (+/-)
+T=9:37 现在感觉到了一些明显的效应 (+).
+轻的头部和退出.
+时间=9:57:强 (+).
+感觉很舒服,而且总体上也很满意.
+仍在上升.
+绝对至少是 (++).
+有点寒冷.
+有点分离.
+放松/平静的头部空间.
+渴望躺下.
+显著的视觉缺失,除了光线的变化和有些模糊的视力.
+在床上躺着.
+很难集中注意力.
+非常催眠.
+总体上是愉快的 (++) 或 (+++).
+仍然没有真正的视觉.
+感觉轻而柔软.
+我仍然可以集中注意力,如果我想要,但很容易漂移到和离开一个像梦一样的状态 (+++).
+短期记忆发生变化.
+一些非常温和的视觉效果:表面轻微呼吸.
+增强色彩/边缘.
+时间=11:17:非常轻松.
+不想动一个肌肉.
+时间是11:30:饿了,但不想起床.
+时间=11:55:吃了一些东西 (小包).
+仍在 (++/+++) 的位置.
+非常满意.
+汗流了一点,但是我的脚很冷.
+精神上我觉得自己又有了更多的控制.
+视力不够集中, 我真的必须集中精力才能读出文字. (++) 恢复了更多的运动控制.
+时间=12:43:回到我可以做实际的事情和完成工作的水平, 包括需要复杂的精神功能的工作.
+轻微头痛,但这可能只是因为我从早上起几乎没有喝任何东西.
+T=1:48:头痛已经消失.
+最多在一个 (+).
+几乎没有触觉增强了.
+仍然有点眼.
+在精神上我感觉相当基本.
+总的来说,我觉得这剂量比15毫克剂量更远.
+这一次我确实觉得它影响了我的短期记忆.
+虽然我已经恢复到基本水平,
+短期记忆力仍然下降;这与较低剂量完全不同.
+我建议小心对任何超过20毫克的东西.
+一个小时前吃了一些食物,做了一些工作.
+但短期记忆问题似乎大多已经消失了 (我认为).
+结论和总结:
+在测量了这种化合物的不同剂量后,出现了以下模式:
+这种三胺的一个显著特征是几乎完全没有视觉效果.
+这种三胺的一个显著特征是几乎完全没有视觉效果.
+没有模式,没有变形,也没有流动.
+有时还会有类似于一两杯酒的模糊感.
+只有试验的最高剂量 (20 mg) 引起了表面的 (非常轻微) 呼吸,类似于3 - 4 mg的5-MeO-MIPT.
+在情感上, 这种化合物是非常友好和宽恕的.
+我觉得它是相当高兴的, 它让我充满了非常阳光和乐观的倾向对生活在大多数情况下.
+此外还有一种精神刺激, 这也存在于LSD等化合物 (和大多数其他迷幻药).
+虽然高兴,乐观和增加的能量是一个非常常见的特征,
+这种高兴和活力并不像安非他命,
+我从来没有过厌食症,
+情感空间更像是充满精神幻觉的高兴感,
+触觉也大大改善, 皮肤更柔软,
+这与高兴感相结合, 肯定会给这种化合物带来一些毒性.
+在性方面, 这种化合物绝对不会干扰任何这样的行为.
+触摸和感觉大大增加, 让性方面变得愉快和可行的.
+然而,与5-MeO-MIPT不同, 这种化合物似乎并不是一种固有的嗜好药.
+如果一个人愿意的话, 他可以把经验转向那个方向,
+这可能是因为这种组合的心理图像并不特别生动, 大部分的重点似乎是身体和智力方面.
+总的来说, 这不是最好的诱惑剂,
+在精神方面,5-MeO-DPT似乎远远没有比psilocybin或LSD提供.
+虽然对生活和世界的洞察力确实是可能的, 但它通常缺乏传统迷幻药的深度.
+它似乎有助于提高智力,
+在15和20毫克的剂量中,该药物也具有相当的分离性,几乎像低剂量 (约4毫克) 的吸烟5-MeO-DMT.
+似乎还有一个平原, 一个达到积极的影响.
+而正面的效果基本上是相同的水平.
+我注意到20毫克剂量对我短期记忆和注意力有持续而令人担忧的下降.
+这种效果持续了几个小时,即使其他效果已经消失了.
+这可能是令人担忧的原因,并警告服用该化合物的剂量过高.
+尽管如此,在一天结束时我确实完全康复了.
+总体而言,这是一个可爱且可能非常有用的化合物.
+持续时间约为4至6小时.
+我认为它的效果处于迷幻药和毒素之间.
+我认为它的效果处于迷幻药和毒素之间.
+我会称之为一种具有强烈的精神特质的智能迷幻药.
+我发现我从中低剂量得到最多的价值, 特别是10到15毫克的范围.
+20毫克对我来说太多了,
+整体而言, 让这款复合物如此美好 (对我来说) 是缺乏视觉效果 (这可能会分散注意力),
+时间表: 113776
+发布时间:2019年11月15日
+5-MeO-DPT (391):一般性 (1),回顾性/总结 (11),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Systematic Exploration
+5-MeO-DPT
+by
+Pharmakeus Bob
+Citation:   Pharmakeus Bob. &quot;Systematic Exploration: An Experience with 5-MeO-DPT (exp113776)&quot;.
+Erowid.org
+. Nov 15, 2019. erowid.org/exp/113776
+DOSE:
+5 - 20.6 mg
+oral
+5-MeO-DPT
+(liquid)
+BODY WEIGHT:
+75 kg
+Systematic Exploration of 5-MeO-DPT
+Since I could not find any general summaries about 5-MeO-DPT (5-Methoxy-N,N-dipropyltrypamine), I wanted to systematically investigate this compound and compare the effects at various doses.
+I am 28 years old, in good health and was not taking any medications or other drugs at the time of these experiments. For privacy reasons I omitted the year of the experiments, but they all took place within the same year. Throughout the reports, the Shulgin scale will be used to classify the intensity of the effects.
+Preparation of doses: (Skip this part if you just want to read the trip-reports or the conclusion)
+I obtained this compound from a reputable company offering proton NMR spectra, and I am therefore very confident that I ingested the above stated compound.
+For the 5, 10 and 15 mg experiences, the doses were measured out as follows:
+40 +/- 2 mg of the freebase of 5-MeO-DPT where weighed out using a jewelry scale which is accurate to 1 mg. Due to poor solubility of the freebase in water, an excess of lemon juice was added to a 500 ml beaker (about 50 ml of juice). So really, what I was consuming was the citrate salt of 5-MeO-DPT. The 5-MeO-DPT freebase was added to the juice and allowed to dissolve. Once dissolved, tap water was added to the beaker until there was a total of 400 +/- 10 ml of liquid in the beaker. In other words, the concentration was now 0.1 mg/ml to within the given errors.
+The 5mg, 10mg, and 15mg doses in the reports below were measured out by measuring off 50 +/- 1 ml, 100 +/- 1 ml and 150 +/- 1 ml, respectively, using a graduated cylinder. Carrying the error gives that the consumed doses were 5 +/- 0.5 mg, 10 +/- 0.5 mg, 15 +/- 0.5 mg.
+For the 20.6 mg experience, I had access to a high-accuracy laboratory-grade scale, accurate to within 0.1 mg (0.0001 g). The dose I measured out read 20.6 mg, so the dose for the 20.6 mg experience was 20.6 +/- 0.1 mg of the freebase which was later also converted to the citrate salt. In order to remain consistent with the previous doses, the 20.6 mg of freebase was added to an Erlenmeyer flask and treated with an excess of lemon juice to produce the citrate salt. More water was then added to the flask to dilute the liquid (about 100 ml).
+First Trial:
+Dose: 5 +/- 0.5 mg Date: 22 June
+T=8:45 : Ingested the dose on an empty stomach. Quite bitter taste.
+T=8:52 : Some light headedness and lower focus noted. Could be placebo.
+T=9:09 : Something is happening. Increase in alertness. Very mild buzzing in ears.
+T=9:17 : Definitely coming up at about a (+).
+T=9:30 : At a clear (+). Effects at this point are mainly increased energy in the limbs. General feeling of stimulation. Open thoughts, emotionally more pliable. No visuals. Slightly more acute hearing.
+T=9:45 : Quite euphoric. I fell energized and at peace. Still no visuals.
+T=10:28 : Still feeling it and it has plateaued. Quite mild. I can still do everything I want to. Feeling content.
+T=10:40 : Went to clean kitchen and make breakfast. Was able to go at it with a great deal of enthusiasm. High energy and feeling productive. Appetite not diminished.
+High energy and feeling productive. Appetite not diminished.
+T=11:10 : Finished a nice breakfast. Almost back to baseline, just feeling slightly more energized and in a very good mood. Something which felt like a “pinch” along the ridge of my skull. Some muscle “pinches”.
+Second Trial:
+Dose: 10 +/- 0.5 mg Date: 25 June
+T=10:09 : Ingested 100ml of the liquid containing the 5-MeO-DPT citrate. Taste is very bitter. I have some cereal in my stomach. I also have a slight cold, not very strong.
+T=10:38 : Something is here. Increase in energy. Alertness, restlessness.
+T=10:47 : Still rising. Very smooth. At about a (+).
+T=11:04 : Still rising. Again, quite euphoric, lots of energy. No visuals.
+T=11:15 : Effects quite apparent now. A lot of energy. Looseness of the limbs psychedelic thoughts. Dry mouth. No visual.
+T=11:34 : Probably at a (++). Effects seem stronger than last time, but not twice as strong. Strange sensations in my teeth, but I get this on other psychedelics too.
+T=11:53 : Still at a (++). No visuals except for enhanced details on surfaces and brighter light. Less muscle and head discomfort than last time. Some stomach discomfort. Very energized and feeling happy. Increased body temperature (I did not actually check this).
+T=12:25 : Still feeling energy in my body. Mood largely neutral. A bit starry eyed (blurry vision). Some craving for tobacco and cannabis apparent.
+T = 12:44 : Acute effects have diminished. At a strong (+). Energy has turned into restlessness. Reading is not hindered (reading article).
+T=1:45 : Some mild effects still apparent. Weak (+). Slight alertness. Ate some more cereal. Mood lift after having eaten.
+T=2:00 : Smoked some low THC cannabis (THC &lt; 1%) mixed with tobacco. Feeling less restless, quite relaxed.
+T=2:34 : Feeling very relaxed and at peace now. Similar feeling to having just woken up after a long good rest. Not high energy.
+T=2:54 : Feeling great!
+T=3:33 : Ate a meal and am fully baseline now. Feeling good and a little bit tired. My body feels warmer than usual.
+Overall this dose had much less of the physical discomfort of the previous (5 mg) dose.
+Third Trial:
+Dose: 15 +/- 0.5 mg Date: 23 July
+T=11:22 : Measured out 3x50ml from the beaker of solution which had been prepared and stored in a refrigerator on the 22 of June. Mixed with strawberry lemonade to mask the taste.
+T=11:26 : Drank the liquid. Still has a very bitter taste.
+T=11:36 : Not sure if it’s placebo, but I’m quite elated.
+T=11:45 : Definitely not placebo. Very spaced out and stimulated.
+T=11:59 : At a (+++) or strong (++).
+T=12:01 : Feeling a bit chilly.
+T=12:03 : Still almost no visuals, but feeling very “loose” almost dissociating.
+T=12:11 : Lot’s of buzzing energy. Still feeling like I’m dissociating a bit.
+T=12:28 : Maybe a strong (++). Watching video and feeling a lot of love for the people in it. Feeling jelly loose in my body and mentally in a content spot. Very trippy, but virtually no visuals (except for enhanced colours and more defined edges).
+T=1:12 : At a (++). No visuals. Tactile sensation feels more smooth, enhanced.
+T=1:24 : Eating some pizza. Levels of hunger are unaffected, but food tastes great! Quite euphoric. Some definite entactogenic qualities.
+T=1:41 : Finished eating. Back to a strong (+). Starting to feel warm and sweat a little. Feeling very content.
+T=2:01 : Still very stimulated. Content. Some muscle cramping (+).
+T=2:23 : Definitely down to (+). I am functional enough again. I could even interact with strangers again if I had to, but I hope I don’t have to.
+T=3:03 : Still mentally buzzing and feeling intellectually stimulated. Close to baseline and I have a great feeling of “closure”. Wonderful. T=3:54 : Went for a walk in the garden. Very beautiful outside. Still feeling slightly spaced out but virtually back to baseline.
+T=5:44 : Finished some mathematical work and got more results than I usually do in a week. New ideas came to me readily and flowed very freely. Still feel very intellectually stimulated. Could this be a potent cognitive enhancer at low doses, or at the tale-end of a full experience such as this one? I don’t know, but this should be investigated.
+Fourth Trial:
+Dose: 20.6 +/- 0.1 mg Date: 13 August
+T=9:10 : Drank the liquid on a partially full stomach (half a bagel). Taste is pretty bitter and the lemon juice taste doesn’t help. Taste makes me a bit nauseous. Wash it down with orange juice, which helps.
+T=9:16 : First alert noted (+/-).
+T=9:37 : Feeling some clear effects now (+). Light headed and exited.
+T=9:57 : Strong (+). Spaced out and overall content feeling. Still rising.
+T=10:07 : Definitely at least (++). A bit chilly. Somewhat dissociative. Relaxed/calm headspace. Desire to lie down. Remarkable lack of visuals, except for changes in light and somewhat blurry vision.
+T=10:36 : Lying in bed. Hard to focus. Pretty hypnagogic. Overall pleasant (++) or (+++). Still no real visuals. Feeling light and soft.
+T=11:04 : I can still focus if I want to but easily drift in and out of a dream-like state (+++). Changes in short-term memory noted. Some very mild visuals: Surfaces breathing slightly. Enhanced colours/edges.
+T=11:17 : Very relaxed. Don’t want to move a muscle.
+T=11:30 : Getting hungry but don’t want to get up.
+T=11:55 : Ate something (bagel). Still at (++/+++). Very content. Sweating a bit, but my toes are very cold.
+T=12:22 : Mentally I feel more controlled again. Vision is unfocused enough that I really have to concentrate to be able to read words. (++) Regained more motor control.
+T=12:43 : Back to a level where I could do practical things and complete work, including work requiring complex mental feats.
+T=1:02 : Mild headache, but this is probably just due to the fact that I barely drank anything since the morning.
+T=1:48 : Headache is gone. At most at a (+). Almost no tactile enhancement left. Still a bit cock-eyed. Mentally I feel pretty much baseline. Overall I don’t feel this dose took me much further than the 15mg dose. However, this time I do feel that it affected my short-term memory.
+T=2:27 : While I am pretty much baseline again, I still feel a bit “fuzzy” in the head. Short-term memory is still decreased; this is quite unlike the lower doses. I would advise caution for anything at or above 20 mg.
+T=4:37 : Had some food an hour ago and did some work. Still feeling (very) mild after-effects, but the short-term memory problem seems to have mostly disappeared (I think).
+Conclusion and Summary:
+After assaying this compound at various doses, the following patterns emerged:
+One rather striking feature with this tryptamine is the almost complete lack of visuals.
+One rather striking feature with this tryptamine is the almost complete lack of visuals.
+There are no patterns, no morphing and no flowing. There was only a slight enhancement of colours, sharper edges but also sometimes blurriness similar to a beer or two. Only the very highest dose tried (20mg) produced any sort of (very mild) breathing of surfaces, similar to 3-4 mg of 5-MeO-MIPT.
+Emotionally, this compound is very friendly and forgiving. I found it to be quite euphoric, and it imbued me with a very sunny and optimistic disposition towards life at most times. Additionally there was a certain mental stimulation present, which is also present in compounds such as LSD (and most other psychedelics). While the euphoria, optimism and increased energy where a very common feature, there was still room for malaise. The euphoria and energy were not amphetamine-like and certainly not as intense as, for instance, MDMA. It was also not anorexic in the least, I always had a good appetite. The emotional space was more of a euphoria with a psychedelic flavour, and it was very pleasant.
+Tactile sensations were also enhanced greatly, with my skin feeling much softer and touch feeling better in general. This, together with the euphoria, definitely gives this compound some entactogenic qualities.
+In terms of sexuality, this compound definitely did not interfere with any such actions. Everything was still working just as well, if not better, than sober, and as with most psychedelics, touch and sensation were greatly increased, making the sexual aspect enjoyable and workable overall. However, unlike say 5-MeO-MIPT, this compound does not seem to be an aphrodisiac inherently. One can steer the experience in that direction if one chooses to, but it doesn’t come as naturally as with other compounds such as 5-MeO-MIPT or even psilocybin. This may be due to the fact that mental imagery is not particularly vivid with this compound and most of the focus seems to be on the physical and intellectual aspect. So overall, not the best aphrodisiac, but ok if nothing else is available.
+In terms of spirituality, 5-MeO-DPT seems to have far less to offer than say psilocybin or LSD. While insights about life and the world are certainly possible, it just generally lacks the depth of more traditional psychedelics. It does seem to enhance intellectual ability somewhat, at least at lower doses. I was able to do some mathematical work much more fluidly than usual (at the tail end of a 15 mg experience). At the 15 and 20 mg doses, the drug also had quite a dissociating character, almost like a low dose (about 4mg) of smoked 5-MeO-DMT.
+There also seems to be a plateau that one reaches for the positive effects. I found that at 20mg, the effects were barely stronger than at 15mg, and the positive effects where largely at the same level. What I did notice however, was a persistent and somewhat worrying decline in my short term memory and ability to focus with the 20 mg dose. This effect persisted for several hours, even after the other effects had largely worn off. This may be a cause for concern and a warning about taking this compound up to too high of a dose. I did make a full recovery by the end of the day though.
+Overall, this is a lovely and potentially very useful compound. The duration is about 4-6 hours. I would put its effects somewhere between a psychedelic and an entactogen.
+I would put its effects somewhere between a psychedelic and an entactogen.
+I would call it an intellectual psychedelic with strong entactogentic properties. I found that I got the most value out of the low to medium doses, particularly the 10 to 15 mg range. 20 mg range was a little too much for me with some mildly worrying side effects. But overall, what makes this compound so nice (for me) are the lack of visuals (which can be distracting) and the elated mood and mild stimulation.
+Exp Year: 2019
+ExpID: 113776
+Gender: Male
+Age at time of experience: 28
+Published: Nov 15, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+5-MeO-DPT (391) : General (1), Retrospective / Summary (11), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

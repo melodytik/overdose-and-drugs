@@ -1,0 +1,182 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>皮拉塞坦 - 埃洛伊德 显明</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/piracetam.html'>← 吡拉西坦</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>皮拉塞坦 - 埃洛伊德 显明</h1>
+<div class='sub-title'>Piracetam - Erowid Exp - &#x27;Clarity&#x27;</div>
+<div class='meta'>作者：newB Citation · 日期：May 16, 2006 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=42582' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>在我的第一天, 我在早餐前服用了一片800毫克的药片,
+早餐主要由蛋和牛奶组成,
+我读过其他人服用皮拉与素作为胆补充剂的报道,
+我注意到的第一件事是&quot;清晰&quot;的感觉.
+这很难解释,所以请耐心.
+我开始看到春天的美丽.
+我几乎每天都在同一条路上上班,
+我开始微笑, 意识到我已经被忽视了很长一段时间.
+整天都很平静,似乎过得很快.
+在回家的路上, 我在日落中看到同样的美丽.
+这一天没有记忆效应,
+第二天我选择服用两片800毫克的药片.
+我跟着吃了同样的早餐,
+开车去上班似乎没有那么神奇.
+我一整天都处于积极的心态之中,
+我确实注意到我的记忆回忆有明显的差异.
+我发现自己不仅记得相关的信息,
+像是高中老师的名字.
+那些我多年没有见过的朋友的地址和电话号码.
+我今天做了一次很短的冥想,
+为了比较,在第三天我什么也没吃.
+结果与第二天相同:增加了平静和记忆力.
+第四天我也没有服用任何药物,
+认知和平静之间出现了明显的分歧.
+我发现自己吸更多的香烟,
+我不得不查找两天前记得的信息,
+我记得两天前回忆起这个信息,
+总的来说这是一个很好的经历.
+我听说别人说的戒烟效果,
+我注意到在服用皮拉时,
+在400毫克到2000毫克的剂量中,效果是一样的.
+我目前正在服用3200毫克,
+在15分钟内就开始显现清晰效果.
+我不觉得放松, 但这很可能是能量饮料的影响.
+尽管如此, 我确实感觉到阅读,写作和听音乐的启发.
+没有任何负面的副作用.
+其他:
+皮拉塞坦 (95):一般 (1), 其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+Clarity
+Piracetam
+by
+newB
+Citation:   newB. &quot;Clarity: An Experience with Piracetam (exp42582)&quot;.
+Erowid.org
+. May 16, 2006. erowid.org/exp/42582
+DOSE:
+oral
+Piracetam
+(pill / tablet)
+BODY WEIGHT:
+168 lb
+On my first day, I took one 800mg tablet before breakfast, then proceeded to work as usual. Breakfast consisted of mostly eggs and milk as they are good sources of choline. I have read reports from other people who took piracetam with hydergine as a choline supplement and had positive effects.
+The first thing that I noticed is a sense of &#x27;clarity&#x27;. It is very hard to explain, so please bear with me. As I was driving to work, about an hour after taking the pills, I started to see the beauty of spring. I drive this same route to work almost every day, but somehow it seemed more beautiful, as did the sunrise. It was very peaceful, I began to smile at the realization of something that  had been ignored for quite some time. The entire day was very calm and seemed to pass quickly. On the way home, I saw the same beauty in a sunset. There were no noted memory effects this day but definitely a positive mood change.
+The second day I opted to take two 800mg tablets. I followed this with the same breakfast and drive to work. The drive to work seemed less magical than the day before. I was in a positive frame of mind all day but the day seemed to pass more slowly. I did notice a marked difference in my memory recall however. I found myself remembering not only pertinent information, but seemingly useless information. Things like named of teachers in high school. Addresses and phone numbers of friends that I have not seen in years. I managed a very short meditation this day and was very pleased with the results.
+For comparison, on the third day I took nothing. The results were the same as the second day: increased calm and increased memory. On the fourth day I also took nothing, but this time with dramatic results. There was a sharp cutoff in cognition and calmness. I found myself smoking more cigarettes and taking more breaks. I had to look up information that I remembered two days ago, this was very confusing to me. I could remember recalling this information two days ago, but could not recall the information itself.
+Overall this was an excellent experience. As for the stop-smoking effects that I have heard others talk of, they were quite subtle. I noticed that I smoked less cigarettes in the days I took piracetam, but only in hindsight. In playing around with the dosage from 400mg to 2000mg the effects were the same. I am currently on 3200 mg and am drinking an energy drink called &#x27;Bawls&#x27;. The clarity effects set in within about 15 mins. I do not feel relaxed, but that is more than likely the effects of the energy drink. However, I do feel inspired to read, write, and listen to music. There were no negative side effects from any of this.
+Exp Year: 2005
+ExpID: 42582
+Gender: Male
+Age at time of experience: Not Given
+Published: May 16, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Piracetam (95) : General (1), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

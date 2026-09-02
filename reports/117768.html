@@ -1,0 +1,333 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;好莱山脉的吸血鬼&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tryptamines-substituted.html'>← 取代色胺类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;好莱山脉的吸血鬼&quot;</h1>
+<div class='sub-title'>LSD - Erowid Exp - &#x27;The Hollywood Hills Vampires&#x27;</div>
+<div class='meta'>作者：Muse Citation · 日期：Nov 5, 2024 · <a href='https://erowid.org/experiences/exp.php?ID=117768' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我去加利福尼亚拜访一个朋友.
+她告诉我我们要去参加一个聚会, 聚会时间大约是10点半,
+我从来没有去过燃烧的人所以我很高兴见到每个人.
+我们到达聚会,我的朋友打开一个卷,但我不想要任何东西.
+我没有感觉到这种氛围,
+我朋友告诉我,如果我想要,她可以给我一些LSD.
+我曾经倒过很多人,
+至少在LSD上,与陌生人,我不会乞求被按摩,我可以更好地保持我的立场.
+至少在LSD上,与陌生人,我不会乞求被按摩,我可以更好地保持我的立场.
+她带我去见一个让我想起甘道夫的人.
+他是一位看起来很有趣的老士,
+他看起来像一个现代的甘道夫.
+他唯一的东西是甜蜜的糖果,用药.
+他看了一眼我, 很可能看到我很瘦,
+你理解吗?
+我说:&quot;是的,好吧.
+我记得他说一些&quot;不,我不是在开玩笑.
+这是超级强大的.
+只是把一半.
+我抓住糖果,在他面前把它打成两半, 然后把剩下的东西塞进口袋里.
+我了糖果,然后走了一步.
+经过大约45分钟, 我仍然没有感觉到任何东西,
+我讨厌有时我如此不耐烦.
+我吃完剩下的东西后, 一切就像一把子.
+我在屋顶上和一个自闭症患者交谈 (这不是幻觉), 我们在一个真实尺寸的棋盘上打国际象棋 (我猜?)
+我们谈了很多我不记得的事情.
+我只是记得这次的谈话非常深刻和有趣.
+我离开屋顶,去找我的朋友.
+她在后面的门廊上和一个听起来像八的女孩说话.
+我看着她的嘴里,看起来像是黑色绿色的泥滴出.
+我可以看到她的牙都是黑色的和恶心的.
+我把朋友拉到一边,问她那黑绿色的泥是什么,她看着我,
+我朋友笑了笑,说我只是在倒,她没有任何黑色的污泥.
+(几个月后我发现那个女孩是一个巨大的废话,所以我没有那么远.
+接下来,我开始注意到,如果我真的专心,
+从他们灵魂的创造开始到现在.
+我可以看到有些人以前是狐,
+我看到了一些人穿着狐尾巴和马尾巴, 也许这就是为什么我看到这些,
+我开始厌倦在外面的院子里,
+他穿着绿色的克跟我说话, 里面没有衫,
+我觉得自己正处于&quot;指环王&quot;的中间.
+每个人都与精灵,妖精,狐,鹿,马或巫师有某种联系.
+老人已经回来了,他现在是甘道夫.
+在此时, 我心里毫无疑问,
+他着我,我微笑着挥手.
+他很快就离开了.
+我从来不是一个LOTR粉丝.
+这就是这么有趣的原因.
+他觉得自己对那天晚上给我药物负有责任.
+我觉得安全,因为我知道他不会给我什么坏东西.
+但我没有听从他的警告.
+我终于在浴室里, 因为我有个月的女性问题 (我会让它在那.
+我相信每个人都能理解.
+这将在以后有意义,
+我走到镜子前, 记得我看着自己, 想:&quot;,我是女王.
+我是一位埃及女王. 我可以看到自己,
+这真是太美了.
+但这是最好的部分结束.
+现在开始了奇怪的事情...
+我离开浴室, 客厅里的音乐在一个巨大的音乐系统上播放, 一位DJ在播放一个疯狂的深深的黑房子,
+他们有红灯,每个人都在跳舞.
+太热了,每个人都在滚动和出汗.
+这让我窒息了.
+我试着跳舞,但突然我吓坏了.
+我觉得自己正处于地狱之中.
+这首歌突然达到顶峰,
+我在一个&quot;燃烧的男人&quot;派对上,
+这些人是恶魔, 我在地狱里与恶魔一起跳舞.
+我不得不离开.
+我走出侧门,空气很凉爽, 而之前有一个地狱般的红光, 这里,
+(这只是我还是宇宙总是让这些奇怪的事情发生当你在LSD故意吓跑你.) 我现在被运送到天堂的门.
+在我的左边有楼梯, 我认为是天堂的楼梯.
+在我的右边坐着几把椅子.
+我知道我已经到了天堂, 我必须在椅子上等待我的亲戚.
+我坐下来等待,然后我意识到我在3000英里外,
+这不是天堂.
+我已经了.
+我试图在脑海中理解这次旅程,
+我只是知道我喜欢外面的凉爽空气.
+人们出来看我,很快就有了一群人聚集.
+但每个人都对我很有思想和尊重.
+一个女孩 (后来我知道她是穿着鹿尾的消防员) 试图帮助我呼吸,
+我感谢她,并试图假装慢呼吸.
+另一个女孩走了出去 (这就是我说的奇怪的巧合) 所以一个女孩走了出去说:&quot;你是蜜蜂女王.
+我们为你而来.
+我不知道这意味着什么, 但我知道这与我作为女王有关,
+她可能意味着任何我需要她会在那里为我,但我在旅行所以我没有得到它.
+她通常是红发的, 因为我认识她, 但出于某种原因,
+我什么也没说, 只是在我的脑海里, 我开始质疑我们的友,
+然后这个家伙出来跟一个女孩说话, 她表情很奇怪,
+(我的朋友后来告诉我她只是喝了酒,但她看起来有点扭曲和破碎.) 他们在聊天,她大声问他,让每个人都能听到,谁是最漂亮的?
+(我的朋友后来证实这是真的,
+她说他喜欢我) 对我来说这意味着我一直怀疑:
+这是一个吸血鬼的巢, 我被诱惑在这里在满月在我的时期,所以他们可以吸血我的血液因为我是O阴性和我有良好的血液.
+我起身跑出了房子.
+巧合的是,这家房子前面又出现了人.
+我甚至不能把这个狗.
+你看到这一切是多么疯狂吗?
+这几乎是计划.
+我甚至不能因为回顾自己的结论而感到丧.
+我走出了非常意图走回家,直到我记得,我在3000英里外.
+我一直试图让我的脑海清醒.
+我一定看起来很疯狂.
+我被街上的灌木住了.
+我会假装在路边散步, 但我会回到坐在路边, 或躲在灌木里,
+有些人问我是否没事, 我说:&quot;是的,很好.
+现在, 我非常希望这次旅行结束,
+我下一个聪明的想法是如果我等到太阳升起, 吸血鬼会失去他们的力量和他们的计划会被挫败.
+所以我等了.
+并且等待着
+我等到我不能再等了.
+我很冷,我想要一个淋浴,我想要一个床.
+我现在已经了大约7-9个小时, 我还在幻觉中看到随机的彩色图案无处不在,
+我知道这是我获取朋友家地址的机会, 所以我跑进去,
+每个人都只是放松和下来他们的卷.
+我找到了我的朋友, 终于说服她回家,
+我说:&quot;给我地址,或跟我走,但我要走了. 她不明白为什么我这么奇怪,
+我心里想到这一切, 我是O负面的, 我有月经,
+我认为这肯定意味着他们能闻到我的血型.
+这太奇怪了.
+我必须承认, 回想起来,
+我可以保持半控制, 因为我小时候已经至少有30次跌倒了.
+我在旅行中了解了自己.
+尽管如此, 保持我头上的统治比平常要困难得多, 因为这是我从来没有取得过的最高成就,
+这种情况是无法比较的.
+但我怀疑如果我没有这种优势,
+对于我的体型来说,
+吸血鬼的存在, 让我无法集中我的思想,
+吸血鬼的存在, 让我无法集中我的思想,
+而LSD的神灵真的很喜欢和我打架,
+我的意思是蜜蜂女王?
+在我在浴室里想到之后?
+然后是灯光,歌曲,水瓶,我是0阴性.
+我是说,它是如此的好设置.
+所以很棒的宇宙...你再次欺骗了我的股.
+很好!
+我跟我的朋友确认了这一点,
+她只是无法理解我为什么会如此冒犯.
+后来我告诉她我对她的想法,所以我不得不为认为她是一个恶魔而道歉,
+到了家,我就洗了.
+最后的图案从浴室的中出来, 它们呼吸和跳舞.
+我试图睡觉, 但我的眼睛的模式不会让我.
+或是我认为.
+我醒了8-9小时后, 完全没事.
+这东西是干净的,干净的,干净的.
+我承认这一点.
+在外面要小心, 记住在倒的时候, 总是质疑你所有怪异的想法.
+永远不要接受另一半.
+只是不要急躁.
+至少给它时间安顿下来.
+时间表: 117768
+发布时间:2024年11月5日
+乐视 (2):大聚会 (54),艰难的经历 (5),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Hollywood Hills Vampires
+LSD
+by
+Muse
+Citation:   Muse. &quot;The Hollywood Hills Vampires: An Experience with LSD (exp117768)&quot;.
+Erowid.org
+. Nov 5, 2024. erowid.org/exp/117768
+DOSE:
+T+ 0:00
+0.5 tablets
+oral
+LSD
+(edible / food)
+T+ 0:45
+0.5 tablets
+oral
+LSD
+(edible / food)
+BODY WEIGHT:
+120 lb
+I had gone to California to visit a friend.  While there, she told me we were going to this party around 10:30 and it was gonna be a blast because it included all the people she had made friends with at Burning Man. I had never been to burning man so I was excited to meet everyone.
+We get to the party and my friend pops a roll but I didn’t want anything. I wasn’t feeling the vibe and I didn’t know anyone there enough to feel comfortable rolling with them.  About an hour into the party my friend tells me she can get me some LSD if I want. I have tripped a lot back in my day so I was like “ok sure”.  At least on LSD, with strangers, I wouldn’t be begging to be massaged and I could hold my ground better.
+At least on LSD, with strangers, I wouldn’t be begging to be massaged and I could hold my ground better.
+She takes me to this guy that seemed to remind me of Gandalf. He was a very interesting looking older gentleman with a fancy fedora and a leather jacket. He looked like a modern Gandalf.  The only thing he had were Sweetie’s candy, dosed.  He took one look at me, and probably saw I was skinny and petite and said, “YOU DON’T DO MORE THAN HALF! YOU UNDERSTAND?”
+And I said “Yeah okay…”
+And I remember he said something like “NO I&#x27;M NOT KIDDING.  This is super powerful. Just take half.”
+I grabbed the candy, broke it in half in front of him, then stuffed the rest in my pocket.
+I chewed the candy and went to walk around.
+About 45 minutes later I still didn’t feel anything so I decided to pop the other half in.  I hate that I am so impatient sometimes.
+Right after I took the rest, the whole thing kicked in at once like a slap in the face.
+At first it was really interesting, I spoke to an autistic guy on the roof (not a hallucination) and we played chess on a life size board (I think?).  We had a long conversation about things I don’t remember. I just remember the conversation was really deep and interesting.
+I left the roof and went to find my friend. She was on the back porch talking to some girl who sounded like a gossip. When I looked at her mouth in the light it looked like black green sludge was dribbling out. I could see her teeth were all black and gross. I pulled my friend as aside and asked her what the black-green sludge was and she looked at me like I had told her the weirdest thing ever and asked “who?” I pointed inconspicuously to the girl. My friend laughed and said I was just tripping and she didn’t have any black sludge. (Months later I found out that girl was a huge shit talker so I wasn’t that far off.)
+Next, I started noticing that if I really concentrated, I could see people’s complete soul timeline. Since the inception of the creation of their soul to now. I could see some people were foxes before, and others were horses before. Of course, it helps that these people were from burning man and some of them were wearing Fox tails and horse tails, so this is why I was probably seeing this, but it was a fun hallucination guessing all the animals nonetheless.
+I got bored of being outside in the patio, and I went inside and at first it was pretty cool. Some dude came up to me and had a green jacket talking to me and he had no shirt underneath and I could swear that he was an elf. I felt like if I was in the middle of Lord of the Rings. Everybody had some sort of ties to either elves, fairies, foxes, deer, horses or wizards. The old man had come back around and he was straight up Gandalf now. At this point, there was no doubt in my mind who this man represented. He eyed me and I smiled and waved.  He left soon after. I have never been an LOTR fan. That’s what makes this so funny.
+You could tell he really cares about the substances he gives people and he feels personally responsible for having given that to me that night.  I felt kind of safe because I knew he wouldn’t have given me something bad. But I didn’t heed his warning.
+I end up in the bathroom because I had my monthly female issue (I will leave it at that. I’m sure everybody understands. This will make sense later, which is why I am including it in the story.  If not, I would spare you the extra details.) I go to the mirror and I remember looking at myself and thinking “wow I am a queen. I am an Egyptian queen.”  And I could see myself, and I was glowing an aura like an opalescent rainbow. It was beautiful.
+But this is where the good part ends. Now begins the weirdness...
+I leave the bathroom and the music in the living room is being played on a huge music system and a DJ is playing really crazy deep dark house, and it kept saying “You can’t touch me” or something to that effect.  They had this red light on and everyone was dancing.  It was so hot and everyone was rolling and sweating. It was suffocating me. I tried to dance but suddenly I freaked out. I felt like I was in hell. The song suddenly peaked and the person screamed that phrase I can’t remember now and I panicked. Somehow I tied it into the fact that I was at a “burning man” party and it all came together.  These people were demons and I was dancing with demons in hell. I had to leave.
+I stepped outside the side door, and the air was cool, and whereas before there was a hellish red light, here, there was cool air and a blue light. (Is it just me or does the universe just somehow always make these weird things happen when you’re on LSD on purpose to freak you out.) I was now transported to the gates of heaven. To my left there were stairs which I took to be the stairway to Heaven. (Thanks Led Zeppelin.) On my right sat a few chairs. I knew then and there, I had reached heaven, and I had to wait on those chairs for my relatives. I sat down to wait, and it occurred to me I was 3000 miles away and there’s no way in hell anyone I  know was going to come here.  This wasn’t heaven. I was tripping. I tried to make sense of the trip in my head and where I had just been going. I just knew I liked the outside cool air.
+People came outside and saw me, and soon I had a crowd gathering.  This annoyed me, but everyone was being very thoughtful and respectful towards me. One girl (I learned later is a firefighter in a deer tail) tried to help me breathe because she said I was hyperventilating.  I thanked her and tried to pretend to breathe slower.
+Some other girl came outside (and this is what I mean about the bizarre coincidences) so one girl comes outside and said “You are the queen bee.  We are here for you”. I had no clue what that meant, but I knew it had to do with me being a queen, or so I thought.  She probably meant that anything I needed she would be there for me, but I was on a trip so I didn’t get it. So then my friend comes out, and she usually has red hair since I have known her, but for some reason, she was on some black hair kick and on this day she looked like a dark entity to me. I didn’t say anything but in my head I started questioning our friendship, and everything I had known of her and I started wondering if she had lured me here.
+Then this guys comes out talking to some girl who was making the strangest faces and talking really weird. (My friend told me later she was just on alcohol, but she just looked distorted and broken somehow.) They are talking and she asks him loudly for everyone to hear,  “Who is the prettiest here?” (he guy (the one that had been talking me up before) looks straight at me and points at me and says in the most drama school manner I have ever seen “why, the PUREST of course.” (My friend later confirmed this was true but was so confused why this was so weird. She said he liked me.) To me this meant what I had suspected all along:
+THIS WAS A NEST OF VAMPIRES AND I HAD BEEN LURED HERE ON THE FULL MOON ON MY PERIOD SO THEY COULD SUCK MY BLOOD BECAUSE I AM AN O NEGATIVE AND I HAVE GOOD BLOOD.
+I got up and ran out of the house. Coincidentally, AGAIN, there were gargoyles in front of this house. I can’t even make this shit up. Do you see how crazy this all is? It’s almost planned.  I can’t even be upset at my own conclusions looking back.
+I walked out very intent on walking home until I remembered, “FUCK I AM 3000 miles away.”
+I kept trying to get my head to think straight.  I must have looked insane. I was hunched over by bushes in the street. When people came by, I would pretend to walk around, but I would go back to sitting on the curb, or hiding in bushes, depending on the people that came out of the party. Some people asked if I was alright, and I said “yes, fine. Just go.” At this point, I wanted this trip to end so badly, but I didn’t know how to get out of it.
+My next bright idea was that if I waited until the sun came up, the vampires would lose their power and their plan would be foiled. So I waited. And waited. I waited until I couldn’t wait anymore. I was cold, I wanted a shower and I wanted a bed. I had now been tripping about 7-9 hours and I was still hallucinating seeing random colorful patters everywhere and not thinking straight, but at least the worst was over.  The light had started to come up over the horizon, and I knew it was my chance to get the address for my friend&#x27;s house, so I ran inside thinking I was going to have to fight off vampires— but no.  Everyone was just relaxing and coming down off their rolls.
+I found my friend, and finally convinced her to come home because she definitely didn’t want to. I was like “give me the address or come with me but I&#x27;m leaving.” She didn’t get why I was being so weird, but she finally agreed and we walked out and as I passed the gargoyles, I felt I had won against the vampires.
+In my mind it had all come together;  The fact I am O negative, I had my period, it was the full moon and the comment about my purity. That comment was the last straw because I thought for sure it meant they could smell my blood type.
+It was so weird. I will admit, looking back it is one of the most interesting and funny trips I have ever had. I was able to keep semi-control because I had already experienced tripping at least 30 other times when I was younger. I have come to understand myself on trips.
+And yet, it was a lot harder than normal to keep reign on my head, because it was a higher does than I had ever taken, apart from the Flying Pyramids but that is a whole other insane story and almost 20 years before, so I digress. It can’t really compare. I was already way older here, with years of meditation under my belt, and years of experience. But I suspect if I would not have had this advantage, I could have had a break in my sanity. It was really too strong for my body size. At such a high dose, I could not gather my thoughts enough to think rationally and realize vampires just didn’t exist.
+At such a high dose, I could not gather my thoughts enough to think rationally and realize vampires just didn’t exist.
+And the gods of LSD really do love messing with me, and setting up all the domino pieces so perfectly to then watch me come tumbling through.
+I mean the queen bee? After I had thought that in the bathroom? Then the lights, the song, the gargoyles, the fact I am O Negative.  I mean it was so well laid out. So bravo universe….you fooled my dumb ass again.  Bravo.  *slow clap*
+I confirmed with my friend, and everything I had heard was accurate. She just couldn’t understand what I had taken such offense to. I did tell her later everything I had thought about her so I had to apologize for thinking she was a demon but she is great, and she laughed.
+Then I took a shower when I got home. The last little bits of patterns came through the tiles in the bathroom and they breathed and danced. I tried to sleep, but the patterns in my eyes wouldn’t let me. Or so I thought. I woke up 8-9 hours later, perfectly fine.
+This stuff was clean, clean, clean. I will give it that.
+Be safe out there and remember to always question all your weird thoughts when tripping.
+And NEVER EVER TAKE THE OTHER HALF. Just don’t be impatient. Give it time to settle in first at least.
+Exp Year: 2015
+ExpID: 117768
+Gender: Female
+Age at time of experience: 40
+Published: Nov 5, 2024
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2) : Large Party (54), Difficult Experiences (5), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

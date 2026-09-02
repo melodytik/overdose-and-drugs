@@ -1,0 +1,167 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>漂浮式水箱 - 埃罗伊德飞行 - &quot;只是太快了&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/floatation-tank.html'>← 漂浮舱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>漂浮式水箱 - 埃罗伊德飞行 - &quot;只是太快了&quot;</h1>
+<div class='sub-title'>Floatation Tank - Erowid Exp - &#x27;Just Went Too Quickly&#x27;</div>
+<div class='meta'>作者：BlinkStefaans Citation · 日期：Oct 24, 2006 · <a href='https://erowid.org/experiences/exp.php?ID=56783' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>经过所有者向我解释浮动水箱的绳索, 我去洗.
+淋浴后,我塞上耳朵,爬进去.
+水的体温和他们描述的完全相同.
+我关上了门,着黑色的空虚.
+我漂浮的水箱相当大,大约2米×2米,
+开始我的手臂在我的身边, 但这只会使我的子更加硬,
+这就像一个魅力.
+但这更像是一个分散注意力而不是一个帮助.
+音乐停了下来,一切都黑暗而安静.
+这是一种非常奇怪的感觉,没有重量,没有声音,也没有视觉.
+开始很难停下来, 脑子里充满了很多想法.
+我强烈推任何类型的专注冥想,
+我觉得自己正处于梦境状态, 虽然这种状态非常温和,
+在这个阶段, 我觉得我被吸引到我的梦想,
+这部分并没有持续太久.
+我不记得发生了什么事, 但突然我的时间结束了,
+音乐开始的时候, 我很困惑,
+我离开这间房间后的后果就立即开始.
+我感觉到我的整个身体都放松了.
+我走出房间,走到花园里,给自己倒了一杯水,
+我从来没有注意到细节, 但在漂浮之后, 似乎世界爆炸了细节, 鸟在远处飞翔, 风吹过树木,
+我真的会推给任何人.
+只是一个注意事项:第二天我醒来时胃痛持续了一整天.
+首先我以为是我吃的东西, 但在谷歌搜索之后,
+过度接触埃普森盐可能会导致腹.
+对于有脏问题的人来说,不建议接触.
+我真的很推这次体验,
+时间表: 56783
+浮动水箱 (369): 宿醉 / 几天后 (46),第一次 (2),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Just Went Too Quickly
+Floatation Tank
+by
+BlinkStefaans
+Citation:   BlinkStefaans. &quot;Just Went Too Quickly: An Experience with Floatation Tank (exp56783)&quot;.
+Erowid.org
+. Oct 24, 2006. erowid.org/exp/56783
+BODY WEIGHT:
+67 kg
+It was the start of the weekend and I made a booking at a spa to see if the Floatation tank hype was all that. My mindset was non-biased and open. After the owner explained to me the ropes of the Floatation tank, I went to take a shower.
+After the shower I plugged my ears and climbed in. The water was body temperature and precisely like they described. I closed the door behind me and stared into the pitch black void. The tank I was floating in was quite large, about 2m X 2m, so I floated with my arms stretched out. At first my arm was at my side but that only made my neck stiffer so I decided to stretch them out. This worked like a charm.
+For the first 10 minutes they played soft instrumental music to calm you, but it was more a distraction then an aid. The music stopped end everything was dark and quiet. This was a very weird feeling, no weight, no sound and no vision.
+At first it was really difficult to just switch off, my mind was racing with a lot of thoughts. I would strongly recommend any type of focus meditation as this helped me to focus my experience on just relaxing. After my thoughts were made quiet, it felt as if I went into a dream like state, this state was extremely mild, but it was there. During this stage it felt that I was pulled into my dream while still awake. This part did not last too long. At this point I cannot remember what happened, but all of a sudden my hour was done and the music started playing again, it was time to get out.
+When the music started I was much disoriented, this quickly returned back to normal the moment I took a shower.
+The aftereffects kick in immediately when I left the room. My whole body felt relaxed beyond words. I stepped out of the room and walked to the garden, poured me a glass of water and just admired the view. Usually I never notice details, but after the float it seemed that the world exploded with fine details, birds flying in the distance, the wind blowing through the trees and various other sensations that I totally forgot I had. I would truly recommend this to anyone.
+Just a note of caution: The next day I woke up with an upset stomach and it lasted for most of the day. At first I thought it was something I ate, but after asking Google I came across some Epsom salt facts (This is the salty solution in the float tank in which you float). An overexposure to Epsom salt can cause dihorrea. Epsom salt exposure is not recommended for people with kidney problems.
+Besides this I would truly recommend this experience and will definitely try it again.
+Exp Year: 2006
+ExpID: 56783
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Oct 24, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Floatation Tank (369) : Hangover / Days After (46), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

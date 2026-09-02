@@ -1,0 +1,391 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>花和花 - 花旅行 - &quot;旅行之旅&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/h-b-woodrose.html'>← H.B. Woodrose</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>花和花 - 花旅行 - &quot;旅行之旅&quot;</h1>
+<div class='sub-title'>H.B. Woodrose &amp; Aloe Vera - Erowid Exp - &#x27;The Trip of Trips&#x27;</div>
+<div class='meta'>作者：BnJ Citation · 日期：Aug 3, 2026 · <a href='https://erowid.org/experiences/exp.php?ID=92363' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>旅行之旅
+现在,
+木和花
+美国
+引用来自BnJ.
+&quot;旅行之旅:与H.
+木和花 (截止92363) &quot;
+我开始说这是我一生中最重要的事件.
+我开始这次旅行的目的是让种子们向我展示他们为什么会这么,
+生命的目的是什么?
+种子到达了, 但我不得不等待一天才能做任何事情, 因为那天晚上我要去派对,
+我一直在喝酒,并留在那里过夜, 想要负责任和这样的.
+我开车回家第二天早上.
+我确保在聚会上早点停止吃东西, 于是我至少有10个小时的空腹,
+我拿出了四个种子,它们看起来像小棕色巧克力片.
+我和他们坐在一起, 想知道我的旅行会是什么样子, 要求他们对我好,
+我原本打算把它们变成粉末,
+所以我尝试了第二个最好的东西, 一个软肉机!
+我试图将它们推向尘埃, 这绝对不起作用,
+我把它们放进足够多的水中, 让它们浸泡30分钟.
+我试着每隔10分钟左右它们.
+我刷牙,冲口, 一个接一个地开始种子.
+现在它们变得柔软了很多,
+几乎完全像吠叫和小便.
+但同时我确实觉得这对这次旅行来说是一个非常必要的方面.
+他们应该受到尊重, 如果他们要给我一生的时间,
+我再次刷牙,以消除味道.
+我开始演奏摇滚乐队,
+我想要忙碌自己,让我的思想分散,
+我想要尽可能长时间保持身体状态, 让血液继续,
+这反过来又会导致.
+我想要尽可能地延长它.
+T+1小时
+鼓弹变得越来越难, 尤其是按低音踏板,
+我开始感觉到我的身体已经被镇静.
+我有一种轻微的恶心.
+我想要尽可能长时间保持恶心.
+如果我尽可能地坚持不吐, 植物就不会让我在后来的努力中停滞不前.
+时间+2小时
+我放弃了摇滚乐队, 只是很难集中精力.
+我发现我的思想一直在随机地流浪.
+我会在一瞬间离开,然后回来,
+我开始感到困惑; 只是我的心灵开始与我的身体分离.
+我会发现自己从厨房里拿东西, 走到半路时, 忘记自己为什么要去厨房,
+虽然有点丧,
+恶心也在7 (10是一个清洗) 在这个点.
+我发现自己抱着肚子,双腿都抽筋,
+我手上的静脉已经变得很细了.
+试着说服自己这只是血管收缩, 我没有犯错,
+我躺在我的背上,并开始通过我的胃呼吸,它确实有帮助,并带来我的恶心稳定的6跳到8一瞬间每现在然后.
+我很感激她在这里安慰我, 她很温柔.
+T + 2 小时 30 分钟
+我的恶心现在是9和我在清洗的边缘.
+我从床上站起来,走进厨房.
+我打算从外面的中切出一片叶.
+大多数人都知道, 在日晒伤或新鲜切伤时,
+你也可以把叶子切成片,
+它对你的胃有很好的作用, 它有助于氧化你的血液 (如使呼吸更有效).
+我切掉了一片长达我的手臂的叶子,
+我开始把叶子切成片, 看到它有多珍贵又美丽,
+它的一侧有很多小.
+我欣赏它,就好像我是一个小孩子.
+我慢慢地把它切成片.
+如果人们多花一点时间, 能在所做的任何事情上都感受到一种普遍的幸福感.
+我觉得我在5分钟的时间内建立了这种联系,
+我在几秒钟内会有几百种想法.
+我感恩了这片叶子,然后吃了,
+我感恩了这片叶子,然后吃了,
+我去浴室看镜子, 笑着说我的瞳孔有多大, 我几乎看不到虹膜的颜色.
+我站在那里笑着自己好5分钟,我不能保持一个正确的脸,甚至不能让自己眉.
+T+3小时
+我是高兴的, 我在旅行中升起.
+我没有感觉高,但绝对.
+我的思想更加清晰. 混乱已经消退,
+我想看斯科特朝圣者,然后把它打开我的电脑.
+我已经做了30分钟了, 坐得不直了.
+我的身体正在融化.
+如果我把头放在手上, 手就会慢慢融化,
+我决定躺下,专注于呼吸.
+我离开了斯科特·皮尔格里姆的演奏,
+已经有所帮助, 我的静脉不再稀疏;
+T+4小时
+一切都是波而来的.
+另一波浪潮之前, 恶心会慢慢地回来,
+我无法形容我感受到的高兴.
+我觉得无论我在床上移动到哪个位置,
+我融入我的床上.
+我发现自己在脑海中看着这部电影,
+这就像我坐在屏幕前看着它.
+我喜欢这部电影的信息,
+影片结束后, 我在床上舒服地化了一下,
+很容易进入冥想状态.
+我开眼睛,只是观察我的房间.
+似乎更大,更宽,或我似乎更小.
+我的房间也变得更加明亮,
+我开始感觉到新的,清新的.
+我心里想,人们怎么会有这么多规则来规范冥想.
+你需要如何坐在这些位置和你有什么.
+我觉得只要你舒服,有意识,就能冥想.
+只是一个存在.
+我看着我的心,或者我应该说自我开始失去自己,慢慢地溶解,试图坚持,坚持不相关的想法,试图获得控制,让我害怕一些东西,甚至死亡.
+让我害怕某种东西会让我获得控制, 即使它会让我受苦; 痛苦比自我死亡更好.
+通过这样做, 秘密保证它的存在不会结束.
+** T+5小时峰值 **
+我只能继续说大家都说的,
+我感觉到的一切都是纯粹的天堂,绝对的幸福,高兴,
+我还能感觉到它在波浪中来回.
+我享受着每一分钟,每一秒钟,每半秒钟,每一个连续的时刻.
+我对自己提出了我最初想要回答的问题,
+我得到了最简单的答案.
+爱是什么意思
+怎么可能所有的生命,宇宙中的一切, 曾经发生的一切都归结为一个四字词.
+这很简单.
+我试图反驳争论,但我不能.
+我试图反对,但我不能.
+我只是知道.
+一切都是出于爱, 一切都是出于爱, 一切都是爱.
+爱是上帝,上帝就是爱.
+这真是太荒谬了, 怎么可能是最复杂的东西,
+我不需要理解,但这是真的,我知道.
+在我内心深处我知道.
+哈哈, 我真的很惊!
+我们都生活在思想,自我中.
+它正在慢慢地吞我们所有人.
+渴望越来越多, 永远不会满足.
+我意识到这也是文明的必要部分,
+我们都应该克服自我.
+既然每个人都有自我, 没有善恶, 没有错误.
+我也意识到我们所有人总是过度分析一切.
+我们所能做的最好的事情就是过好自己的生活,
+最简单的东西是最珍贵的.
+我对所学到的完全满意, 我觉得我一直都知道,
+并且这个星球上的每一个人都&quot;忘记了&quot;,
+他们只需要记住.
+一切都处于完美的秩序,
+即使看似不顺序的事情也是顺序的一部分.
+我走进客厅, 滚到地板上, 感觉很棒.
+我可以感觉到每一根地毯的丝在每一英寸的皮肤.
+我躺在我的狗旁边哭了.
+我脸上流着快乐的眼.
+我在那一刻处于世界之上,
+我可以在地板上着我的狗,抚摸她,然后完全满足.
+我只是在做.
+我再次成为一个孩子!
+我已经重生了.
+T+7小时
+我还很高兴, 一个朋友回家,
+我不想让他们知道我在,并保持从他们的眼睛.
+我眼睛的瞳孔仍然很大.
+很难保持冷静, 我只是想走来走去,
+我知道他们会去睡觉一点.
+我希望与他们分享每一点信息, 我学到的一切,
+我仍然觉得旅行很沉重, 不希望他们担心我.
+他们在20分钟后就睡着了,
+我现在饿了,去了,开始吃午餐-able.
+我只能吃一半,然后我很.
+我认为我们都吃得太多,我们吃得比我们需要的多,
+我花了好几个小时躺在地板上,摸地毯,我的衣服,
+对于我来说,一切都是新的.
+我终于在凌晨2点左右睡着了, 大约在吃了种子后的11个小时.
+我睡得无梦, 清晨六点左右醒来, 感觉很清爽.
+我显然还有一种后光.
+我准备上班时,她给我看了一盒音乐盒,
+她说她决定在前一天晚上停下来,
+开始让我流,这是一个简单的装置.
+它是巧妙地制作的.
+这是一个床,有圣诞老人条款和小姐们的条款睡在里面.
+但随着时间的推移, 推动头部的部分已经破裂.
+这首歌听起来很美.
+这对我的旅行来说是个完美的结局,
+我在旅行后8个月写了这篇文章, 我可以说这篇文章还在我的脑海中, 它确实对我和我的生活产生了深刻的影响.
+我在旅行后8个月写了这篇文章, 我可以说这篇文章还在我的脑海中, 它确实对我和我的生活产生了深刻的影响.
+我觉得这是我一生中最重要的事件.
+我不是一个有信仰的人,
+之前我经历了5年的抑郁, 讨厌生活,
+我们都成长,工作,死去.
+这是一个非常淡的前景,
+我甚至在不同的时间试图自杀,但没有成功.
+我试过每一种可用的药物, 没有一款效果, 一次又一次的副作用,
+后来我又去阅读了关于这些种子的另一篇经历,
+我觉得人类制造的药物和化学物质是原始的和机械的.
+这就是为什么人类制造的药物总是让人觉得有些东西缺失.
+我从来没有这样快乐过.
+我觉得这是一个唯一需要的旅行.
+我不再有理由再犯错, 因为我现在知道我想要和需要知道的一切.
+如果我再做一次, 就会对工厂和我自己不尊重.
+这是我的旅行之旅.
+4种子大小像巧克力片改变了我对生活的看法.
+其他:
+2026年8月3日发布
+现在,
+伍德罗斯 (26):第一次 (2),组合 (3),烂的经历 (4),抑郁症 (15),治疗意图或结果 (49),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Trip of Trips
+H.B. Woodrose &amp; Aloe Vera
+by
+BnJ
+Citation:   BnJ. &quot;The Trip of Trips: An Experience with H.B. Woodrose &amp; Aloe Vera (exp92363)&quot;.
+Erowid.org
+. Aug 3, 2026. erowid.org/exp/92363
+DOSE:
+T+ 0:00
+4 seeds
+oral
+H.B. Woodrose
+(dried)
+T+ 2:30
+1 leaf
+oral
+Aloes
+(fresh)
+BODY WEIGHT:
+120 lb
+I start this out with saying this was the most significant event in my entire life.
+I went into this trip with intent of having the Seeds show me what all the fuss over them was about, and to ask the typical questions, Why are we here? What is the purpose of life? and I most certainly got my answer.
+My seeds arrived, but I had to wait for a day before I could do anything as I was going to a party later that night, and didn&#x27;t want to be around a bunch of people not knowing I was tripping. I had been drinking, and stayed the night there, wanting to be responsible and such. I drove home the following morning. I made sure to stop eating food at the party early so I had at least 10 hours worth of empty stomach going into my trip the following day.
+I pulled out my 4 seeds, they looked liked tiny brown chocolate chips. I sat with them wondering how my trip was going to be, asking them to be nice to me, and telling them my fears of a bad trip.
+I was originally going to turn them into powder, but I didn&#x27;t have a coffee grinder or a mortar &amp; pestle. So I tried the next best thing, a meat tenderizer! I was trying to push them down into dust, and that most certainly did not work, they were to hard, and I did not want to hammer them and pieces fly everywhere. So I put them in enough water to cover them up, and I let them soak for 30 minutes. I tried to stir them every 10 minutes or so.
+T + 0:00
+It is 3:00 PM I brushed my teeth and rinsed my mouth and I start chewing the seeds up one by one. They are a lot softer now, and oh do they taste wretched. Pretty much exactly like bark and piss. Most definitely not pleasant, but at the same time I do feel this was a much needed aspect for the trip. They deserved respect and if they were going to give me the time of my life, I better suck it up for a few minutes chewing them up. I brushed my teeth again to get the taste out.
+I started playing rock band, drumming my way through songs. I wanted to keep myself busy and my mind distracted as it started to build up. I wanted to try and be physical for as long as I could, to keep the blood pumping as I read that there is a chemical in them that causes vasoconstriction of your veins. Which in turn can lead to cramps. I wanted to prolong it as long as possible.
+T + 1 Hour
+Drumming starts to get harder, especially pushing the bass pedal because my leg starts to feel tight and a minor cramp starts in my calf. And I am beginning to feel my body become sedated. A slight nausea has set in. My goal was to try and hold the nausea in for as long as possible. Sort of like a &#x27;you reap what you sow&#x27; in a tripping sense, where if I held out as long as was possible not throwing up, the plant would not leave me hanging in my efforts later.
+T + 2 Hour
+I give up rock band, it was just getting to hard to focus on. I kept finding my mind wandering to random things. I would space and come back a moment later, completely out of rhythm with the song. I felt the beginning of confusion; just the beginning of my mind feeling separate from my body.
+I would catch myself getting up to go get something from the kitchen, get half way there and not remember why I was going to the kitchen, and head back to my room, get to my room and remember why I was going to the kitchen and head back. It was sort of frustrating, but a little laugh in itself.
+Nausea is also at like a 7 (10 being a purge) at this point. I find myself clutching my stomach, both my legs are cramping, and I am hunched over as I walk. The veins on top of my hand are getting pretty thin. I am trying to keep a straight head and sort of battle with my ego, trying to convince myself it is just the vasoconstriction, I didn&#x27;t make a mistake and I am not going to die.
+I lay down on my back and start to breathe through my stomach, it does help and brings my nausea to a steady 6 jumping to an 8 for a moment every now and then. My dog lays down on the bed with me, and I am so grateful she is there to comfort me, she is so soft.
+T + 2 Hours 30 Minutes
+My nausea is now a 9 and I am on the verge of giving in to a purge. I get up from my bed and go into the kitchen. I plan on cutting an Aloe Vera leaf from a pot I have outside. Most people know of using the Aloe Vera juice from a fresh cut leaf on a sun burn, or a fresh cut. You can also filet the leaf and eat the meaty part. It is really good for your stomach, and it helps oxygenate your blood (Like making a breath more efficient). I cut off a leaf the length of my hand, and am thankful I have the plant to provide me its benefits. I start to filet the leaf, and am sort of giggling at how precious and beautiful it is. All its little spikes on its side. I admire it as if I am a little kid. I filet it slowly.
+I have thoughts about how everyone rushes throughout everything they do, and if people would just take a little bit more time, be present in whatever it is they are doing a sense of general well being is there. I feel like I made this connection in a 5 minute time span, but it had only been less than a minute. I am having hundreds of thoughts in seconds.
+I thank the leaf and eat it, and instantly start to feel the nausea subside.
+I thank the leaf and eat it, and instantly start to feel the nausea subside.
+I go to the bathroom and look in the mirror and burst out laughing at how HUGE my pupils are, I can barely see the color in my iris. I stand there and laugh at myself for a good 5 minutes, I can&#x27;t keep a straight face and can&#x27;t even bring myself to make a frown.
+T + 3 Hours
+I am Euphoric, and I am rising in the trip. I don&#x27;t feel high, but definitely trippy. My mind is more clear. the confusion has subsided and the nausea is down to a 1.
+I want to watch Scott Pilgrim and turn it on my computer. I get about 30 minutes into it and I can&#x27;t really sit up straight. My body is melting. If I rest my head on my hands then my hands slowly start to melt and I find myself sinking out of my chair. I decide to lay down and focus on my breath. I leave Scott Pilgrim playing, but I am not watching it I am just listening.
+The Aloe Vera has helped, and my veins are not thin anymore; cramping is gone.
+T + 4 Hours
+Everything was coming in waves. When on the part before another wave my nausea would slowly creep back in, then a wave would hit the nausea would disappear and I would become very Blissful. Words can not describe the Euphoria I feel. If I move in my bed I find that I get completely comfortable in whatever position I move into instantly. I melt into my bed. Scott Pilgrim is still playing, and I notice that I am watching the movie in my mind&#x27;s eye, my third eye, without actually watching it. It is like I am actually sitting in front of the screen watching it. I loved the message of the movie and it fit most beautifully into my trip.
+The movie ends, and I try a little bit of meditation in my comfortably melted state on my bed. It is ridiculously easy to get into a meditative state. I kept my eyes open and just observed my room. It seemed somehow bigger, more spacious, or I seemed smaller. My room was also brighter and I had left a corner lamp on. I was starting to feel new, refreshed.
+I thought to myself how people have all these rules on how you are supposed to meditate. How you need to sit in these positions and what have you. I felt that you could be upside down with a leg over your head and you could meditate just as long as you were comfortable, present and aware. Just Being.
+I watched my mind or I should say the Ego began to lose itself and slowly dissolve and try to hold on, cling to irrelevant thoughts and try to gain control, to make me fear something even death. By making me be afraid of something it would gain control, even though it would make me suffer; suffering was better than the Ego dying. By doing that it would secretly insure its existence was not going to end.
+** T + 5 Hours Peak **
+I will just go ahead and say what everyone says, and that is the few words available to describe will not do the following justice.
+Everything I felt was pure Heaven, absolute Bliss, Euphoria and it just kept building and rising. I still felt it coming and going in waves. I was enjoying every minute, every second, every half second, every continuous moment. I wondered to myself the questions I had originally wanted answered coming into the trip, so I asked.
+&#x27;Why are we here&#x27; I got the most simple of all answers back. &#x27;LOVE.&#x27;
+How could all life, everything in this universe, everything that has ever happened boil down to a 4 letter word. It was so SIMPLE. I tried to counter argument and I couldn&#x27;t. I tried to reason against it and I couldn&#x27;t. I just knew.
+Everything was made from Love, everything is made of Love, and everything is Love. Love is God; God is Love. It was ridiculous how could the most complicated of all things, this whole freaking Universe, the reason behind it all be so simple. I didn&#x27;t need to understand it, but it was true, and I knew it. Deep down in to my core I knew it.
+Hahaha my mind was truly blown!
+We all live from the mind, the Ego. And it is slowly eating away at all of us. Desiring more and more, never ever satisfied. I then realized that this too was also a needed part of civilization, part of the plan so to say. We are all meant to overcome ego. And that since every single person has Ego there was no good/bad there is no wrong.
+I also realized that we all utterly analyze everything way to much. The best thing that we could all ever do was just live our life, just do what we do, and just be. The simplest of things are the most precious.
+I was completely satisfied with what I had learned and felt that I had always known all a long, I had just forgotten. And that everyone on this planet has just &#x27;forgotten&#x27;, they had the veils pulled over themselves. They just simply needed to remember.
+Everything is in perfect order, and it cannot be not in order. Even things that seem out of order are part of the order.
+I went off into my living room, and rolled onto the floor, it felt magnificent. I could feel every strand of carpet on ever inch of my skin. I laid next to my dog and I cried. I had freaking tears of joy rolling down my face. That moment I was top of the world, I was in complete Bliss, Pure Euphoria. I could of spent Eternity their on the floor staring at my dog and petting her and be completely satisfied. I was just being.
+I was a kid all over again! I had been reborn.
+T + 7 Hours
+I was still euphoric, and a friend came home, L. I didn&#x27;t want them to know I was tripping, and kept from looking at their eyes. My pupils were still enormous. It was sort of hard to stay composed, I just wanted to walk about and giggle at everything. I knew they were going to go sleep in a little bit. I wanted to share every bit of information with them, everything I had learned, but I just couldn&#x27;t bring myself to do it, that they wouldn&#x27;t understand me in my current state. I still felt heavy into the trip and didn&#x27;t want them to worry about me. They went to sleep after about 20 minutes and I was relieved.
+I was hungry now and went and started to eat a lunch-able. I could only eat about half of it then I was full. I thought about how we all eat way to much, we eat way more than we need to and that mindfully eating allowed me to eat less and end up being full at the same time.
+I spent a good hour or two more just laying on the floor, feeling the carpet, my clothes, I even licked my bed cover at one point it felt so odd. Everything was new to me.
+I ended up falling asleep around 2:00 AM, roughly 11 hours after I ate the Seeds. I had a dreamless sleep and woke up early in the morning around 6 and felt refreshed. I clearly still had an afterglow going on.
+L was getting ready for work, and she showed me this music box she bought for a dollar from a little thrift store. She said had just decided to stop the previous night, but forgot to show me last night.
+It started to bring me to tears, it was such a simple contraption. It was made ingeniously. and probably 50 years old. It was a bed and had Santa clause and Misses clause sleeping in it. When you wound it up their heads were supposed to slowly rock in bed, but over time the piece that pushed the heads had broken down. The song it played was beautiful. It was a perfect close to my trip, and a solid reinforcement of enjoying the simple things.
+I wrote this 8 months after the trip, and can say it is still fresh in my mind, and it did have a profound effect on me and my life.
+I wrote this 8 months after the trip, and can say it is still fresh in my mind, and it did have a profound effect on me and my life.
+I feel like this was the most significant event in my entire life. I was not a religious person going into this, but definitely came out of it spiritual.
+Beforehand I had been through a 5 year depression and had just hated life, I felt like, what was the point of it all? We all grow up, we work, we die. It was a very bleak outlook, and felt so pointless. I had even brought myself to try unsuccessfully to end my life at different times. I tried every damn medication available and nothing worked, I dealt with side effect after side effect, eventually taking drug to counter the effects of another drug, all prescribed by different doctors.
+I had also later on gone to read another experience about these seeds from an author named Inf1nity on this site who wrote their experience &#x27;The Final Trip&#x27; which I was astonished to find they had mirrored most the same conclusions I would come to 7 years after theirs.
+I feel like man made drugs and chemicals are crude and mechanical. They lack the love that is inside plants and that is why man made drugs always feel like something is missing. I am Depression free and haven&#x27;t been happier.
+I feel like it was a one and only needed Trip. That I have no reason to trip ever again because I now know everything I wanted and needed to know. That doing it again would just be disrespectful to the plant and myself. This was my Trip of Trips.
+4 Seeds the size of chocolate chips changed my entire outlook on life.
+Exp Year: 2010
+ExpID: 92363
+Gender: Male
+Age at time of experience: 20
+Published: Aug 3, 2026
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+H.B. Woodrose (26) : First Times (2), Combinations (3), Glowing Experiences (4), Depression (15), Therapeutic Intent or Outcome (49), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

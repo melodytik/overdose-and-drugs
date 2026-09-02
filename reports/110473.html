@@ -1,0 +1,383 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲基胺 - 虫 - &quot;至少是有趣的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methiopropamine.html'>← Methiopropamine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲基胺 - 虫 - &quot;至少是有趣的&quot;</h1>
+<div class='sub-title'>Methiopropamine - Erowid Exp - &#x27;Interesting to Say the Least&#x27;</div>
+<div class='meta'>作者：Pleb Citation · 日期：Jun 22, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=110473' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>药物背景:
+为了澄清,过去两年我对物质的&quot;使用&quot;是不存在的.
+我会列出我几年前使用过的物质.
+这里是我经历过的一些事情:
+,阿片类药物 (各种形状和大小),甲基,安非他命 (也包括各种&quot;医疗&quot;安非他命),胺,圣彼得罗,梅斯卡林提取物),烟草,可卡因,我相信还有更多,但你得到了图片.
+没有人知道.
+我没有在经验报告中使用之前权衡任何东西, 我提前道歉.
+(警告:眼球的物质是非常危险的, 不推.
+[Erowid的注意事项:
+两个相同体积的粉末样本 (即使是相同的化学物质) 不一定重量相同.
+因此,眼球测量是一种不准确且可能危险的测量方法,特别是对于非常少量的活性物质.
+看看
+这篇文章是关于测量剂量的重要性
+没有.
+唯一确定的是使用的物质总量大约是
+它们是575毫克的MPA (Methiopropamine).
+我根据第二天留下的MPA数量计算出这个数量.
+另外,所有时间均为近似,不包括我讨论的发病时间.
+我确实坚信我很不耐烦, 当考虑物质在重复剂量之间的影响在经验报告.
+我不愿意试图复制这种经历,
+如果我决定再次使用这种物质,我相信我服用了太多,并将致力于我在本报告中提到的&quot;舒适区&quot;.
+感谢您的考虑.
+享受自己的生活.
+设置:
+我最近从一个有声望的供应商那里订购了1000毫克的MPA,
+我收到了一个通知, 包裹可以取回所以我做任何逻辑物质爱好者会做什么.
+我在工作中午休息,赶到邮局,拿起包裹,赶回家.
+我吃了一小时的午餐.
+我只剩下半个小时,
+这就是一切开始的地方...
+我撕开我的包裹并获得了MPA.
+我把它带到我的办公桌上,从我的钱包里拿出一张卡片,
+我创建了两个细的英寸长线,大约.
+一个是50毫克, 另一个是留下的, 因为我不想过度做 (必须做爱).
+它烧得很厉害,味道很像化学品.
+但比基他命和可卡因还要糟糕 (在我看来,
+0:05 - 我觉得自己是假药, 不敢去上班,
+0:10 - 我开始感到温暖, 在温和的意义上.
+我在车里坐着,脑子里想着什么.
+这种感觉远远不够.
+一个放松的安非他命般的声, 带着微小的高兴感.
+我也感觉到高度的警觉和随机的想法在我的脑海中流传.
+工作是十分钟的车程.
+0:15 - 我没有驾驶困难, 感觉我可能吸气太少.
+轻微的高兴感只是刺激了我想要的感觉.
+我的心率略有增加, 我的思想仍处于四处.
+我到达工作,从0:10到0:20的感觉完全相同.
+我越来越失望,
+我现在已经注意到这种影响完全消退了,
+我有点兴奋要做更多的MPA,
+5点 - 效果绝对没有留下任何痕迹.
+我现在离开工作,准备加油,然后直接回家.
+我注意到MPA唯一的作用是消灭了我的食欲.
+现在已经是下午五点了,
+5:30 - 我走到我的办公桌,把另一个线放在原来的我留下来的线旁边,然后把它们都吹进去 (大约3分钟).
+这种药物
+我用了两个鼻孔 (每行一个) 然后躺在床上.
+5:45 - 我注意到第一行的效果相同,
+我走回我的办公桌, 铺出另外两条线, 吹出两条线 (大约
+这种药物
+6:00 - 我现在已经找到了MPA的舒适区 (~150mg).
+这种高兴情绪也不是过度的,
+我的心跳已经显著增加,
+我的一个朋友在网上贴了一个视频,
+这段视频的意义非常奇怪.
+看到一个漂亮的女性做一些轻微的性行为, 我感到非常兴奋.
+对于如此微不足道的事情,
+这让我开始自慰.
+我已经知道,我很无能.
+尽管如此,我还是很兴奋,
+虽然MPA的效果没有增加或减少,
+我会这样做.
+一条线,比我原来的线稍厚一点,充气 (75毫克).
+烧伤仍然很烦人,但我已经习惯了.
+我做完排队后立即进入淋浴.
+6:50 - 我注意到这个剂量比其他剂量更快.
+我感觉很好.
+这种高兴情绪的波,
+我心跳也加快了,
+淋浴中的水感觉很正常, 但我确实比平时更热.
+我还是发现自己渴望更多的MPA.
+7:05 - - 我很高兴能做更多.
+我没有注意到任何过度感觉的冷与空调是不寻常的淋浴.
+现在我干了,还有两行时间.
+像原版一样薄. 吸入两种 ((100毫克).
+躺在床上
+(这已经成为一种习惯了.
+7:10 - 我觉得我可能已经跨越了我的舒适区.
+我绝对没有负面的感觉.
+我感觉很好.
+而前两行只是放大了高.
+我只是问自己为什么..
+为什么你需要更多,你觉得很好...
+我很快就改变了自己的想法,
+悲伤是夸张的, 就像我当时的基本情绪一样.
+我有点不知所措
+7:20 - 女朋友打电话.
+她不知道我在使用MPA (不要评判我),
+我注意到,试图沉溺于谈话, 我的喉是和干燥.
+我发现很少有尬的时刻 (如果有的话,
+我也发现自己对她解释的情况非常同情.
+我感觉MPA的效果已经开始消失.
+我不知道是因为我在电话中所说的内容,还是因为物质消失.
+现在,我会忽略我的立即考虑,并继续重新剂量.
+8:22 - 一行,英寸长,厚. 吸气 (75毫克).
+燃烧是可以承受的.
+躺在床上.
+8:30 - 我的情绪已经恢复到原来的状态,
+我认为与电话对话分散我的注意力保持我的思想如何高.
+我感觉很好.
+我的手有点湿,眼睛的瞳孔也扩大了.
+我觉得我的皮肤上有一层薄薄的油膜.
+我对自己很担心, 因为我仍然渴望更多的MPA.
+我觉得自己在批评自己的行为和想法.
+想要重新服用可卡因的欲望并不像在线之间渴望可卡因那么糟糕.
+为了保持这种快乐感, 我想要更多.
+9:30 - - 感觉开始再次减弱,至少这就是我已经说服自己.
+一个线.
+只有几英寸长.
+很厚的
+烧伤的感觉很糟糕.
+在床上.
+9:35 - - 开始的时间仍然很快.
+我立刻感到欣慰, 因为我重新获得了我渴望的愉快.
+但现在我不得不质疑自己的行为.
+我觉得自己陷入困境.
+我没有做任何安非他命相关的事情,
+我只是感觉到一种相当大的高兴感, 心率加快, 喉开始疼,
+过去的4个半小时,
+我回家没有做任何事情.
+我觉得自己不具生产力,
+我决定放弃今晚使用MPA.
+我从上次更新后一直在玩游戏,
+我认为这会让我保持很长一段时间.
+我只是认为MPA的感觉已经消失了.
+我似乎已经降到了基本水平&quot;高&quot;,如果你愿意,
+我还没有想再服用.
+我现在已经躺下了,希望能睡觉一下.
+尽管如此,此时此刻,我感到非常兴奋.
+这是唯一没有消失的感觉.
+仍然无法自慰.
+我已经在谷歌搜索中迷路了.
+感觉已经低于基本水平.
+我仍然有电线, 完全没有睡眠,
+我感觉到MPA的持续效应,
+我仍然有点困惑, 拼命想睡觉.
+喉发,还有轻微的头痛.
+~20:00 - 我睡着了.
+结束经验.
+开始:吸气后5-10分钟.
+使用的MPA总量:575mg (在整个经验中使用了50mg和75mg线)
+我在几个小时后醒来 - - 下午2点,
+除了这些外,所有其他效果都消失了.
+我不再觉得MPA排除了它对我的食欲的影响.
+摘要:
+总的来说,MPA是一个有趣的物质.
+我觉得它不是我迄今为止所经历过的任何物质的替代品.
+尽管它是甲基胺的衍生品, 我仍然认为它与甲基胺和其他处方安非他命相差不多.
+我买了1000毫克的物质,
+还剩下425毫克.
+我很快就会再次使用它 (舒适区!!).
+我不会再买它,除非朋友或类似的人劝我.
+似乎它可能会造成一些麻烦如果带进我的生活在定期基础上考虑到它明显的急性上品质.
+我注意到的唯一直接缺点是轻微的头痛,喉疼痛,
+除此之外, 海洋保护区对于休用途有很大的价值 (我认为一定要适度使用).
+感谢您花时间阅读我的报告.
+期待更多!
+其他:
+甲基胺 (545):单独 (16),回顾 / 总结 (11),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Interesting to Say the Least
+Methiopropamine
+by
+Pleb
+Citation:   Pleb. &quot;Interesting to Say the Least: An Experience with Methiopropamine (exp110473)&quot;.
+Erowid.org
+. Jun 22, 2017. erowid.org/exp/110473
+DOSE:
+T+ 0:00
+50 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 5:30
+100 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 5:45
+100 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 6:45
+75 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 7:05
+100 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 8:22
+75 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 9:30
+75 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+BODY WEIGHT:
+165 lb
+Substance Background:
+For clarification my substance &#x27;use&#x27; over the past two years has been inexistent. However, the substances I will list here are things I used years ago. Here&#x27;s a quick list of things I&#x27;ve experienced:
+LSD,1p-LSD,Shrooms,Opiates(all shapes and sizes),(meth)amphetamine(also various &#x27;medical&#x27; amphetamines),Ketamine,San Pedro(Mescaline Extract),Tobacco,cocaine, and I&#x27;m sure there are more but you get the picture.
+!!DISCLAIMER!!
+I did not weigh out anything before use in this experience report and I apologize for that in advance. (WARNING: Eyeballing substances is extremely dangerous and not recommended.)
+[Erowid Note: 
+Two samples of powder (even of the same chemical) with equivalent volumes won&#x27;t necessarily weigh the same. For this reason, eyeballing is an inaccurate and potentially dangerous method of measuring, particularly for substances that are active in very small amounts.
+See
+this article on The Importance of Measured Doses
+.]
+The only thing I know for sure is that the total amount of substance used was approx. 575mg of MPA (Methiopropamine). I have calculated this amount based on the amount of MPA I had left the following day. Also, all times are approximate excluding the onset durations I discuss. I do strongly believe I was very impatient when considering the substance&#x27;s effects between re-doses in this experience report. I do not condone attempting to replicate this experience per the dosage I was taking. I believe I took too much and will be aiming for my &#x27;comfort zone&#x27; as mentioned in this report if I decide to use this substance again. Thank you for your consideration. Enjoy.
+Setting:
+I had recently ordered 1000mg of MPA from a reputable vendor and was pretty stoked to try it. I received a notification that the package was available for pick-up so I did what any logical substance enthusiast would do. I took my lunch break at work, raced to the post office, picked up the package, and raced home. I had an hour lunch. So I was sitting with about 30 minutes until I needed to head back. This is where it all began...
+0:00 - I ripped open my package and procured the MPA. I took it over to my desk, grabbed a card from my wallet, and dipped into the bag twice. I created two thin inch long lines, approx. 100mg total, insufflated one (50mg) and left the other because I didn&#x27;t want to over do it (gotta love work). It burned pretty bad and tasted very chem-like. Not as bad as Meth but much worse than Ketamine and Cocaine (neither of which really burn at all in my opinion).
+0:05  - I feel placebo and am hesitant to leave for work not knowing how intense it may make me feel.
+0:10  - I begin to feel warm, in a temperate sense. My mind is racing as I&#x27;m getting into my car. The feeling is far from over bearing. A relaxing amphetamine-like buzz with the slightest bit of euphoria. I also feel a high level of alertness and random thoughts running through my head. Work is a ten minute drive.
+0:15 - I&#x27;m having no difficulty driving and feel as if I may insufflated too little. The mild feeling of euphoria merely tickled the feeling I was looking for. My heart rate is slightly increased and my mind is still all over the place.
+0:20 - I arrive at work, the feeling from 0:10 to 0:20 was exactly the same. I am becoming more disappointed that I had not insufflated the other line.
+1:30 - I have now noticed the effects completely subsiding and I&#x27;m just my normal self. A bit excited to do more MPA, but that&#x27;s my &#x27;bored and don&#x27;t have a life&#x27; talking versus feeling the need to re-dose.
+5:00 - Effects are most definitely gone without a trace. I&#x27;m leaving work now, about to get gas, and then heading straight home. The only thing I do notice the MPA did was kill my appetite. On top of skipping breakfast, it was now 5:00PM and I am not the least bit hungry.
+5:30 - I walk to my desk, lay out another line beside the original one I had left behind and  insufflated both of them (approx. 100mg). The burn was no less than the first time, I used both of my nostrils (one per line) then laid down on my bed.
+5:45 - I notice the same effect from the first line with little difference. I walk back to my desk and lay out another two lines and insufflated both (approx. 100mg).
+6:00 - I have now found my comfort zone for MPA(~150mg). The euphoria is, again, not over bearing but quite subtle and relaxing. My heartrate has now increased significantly and my mind is racing. A mate of mine tagged me in a video on the internet so I checked it out. The significance of that video is quite odd. Upon seeing an attractive female doing something mildly sexual, I felt very aroused. Much more than usual about something so minimal. This (it gets weird) prompted me to masturbate. To which I learned I am very unable. But still, very aroused, more so mentally than physically.
+6:45 - The effects of the MPA have neither increased nor decreased, I however have the urge to re-dose. So I will. One line, a little thicker than my original lines, insufflated (75mg). The burn is still annoying but I&#x27;ve gotten used to it at this point. After doing the line I immediately get into the shower.
+6:50 - I notice the onset from this dose was faster than the others. I feel good. The euphoria was coming in waves that felt glorious. My heart rate was increased and it feels exhilarating to be alive. The water in the shower felt normal but I did take it hotter than usual. Again, none of these feelings are too much and I still found myself longing for more MPA..
+7:05 - I&#x27;m excited to do more. I didn&#x27;t notice any exaggerated feeling of being cold with the air conditioner on which is unusual coming out of the shower. I&#x27;m dry now, time for two more lines. Thin like the originals.  insufflated both(100mg). Lay on the bed. (It becomes a routine).
+7:10 - I feel as if I may have stepped/completely jumped over my comfort zone. By no means do I feel anything negative. I feel great. And the previous two lines only amplified the high. I just question myself why.. Why did you need more, you felt fine... I quickly change my train of thought as it made me feel sad. The sadness was exaggerated as were most of my basic emotions at this point. I&#x27;m slightly overwhelmed.
+7:20 - Girlfriend calls. She doesn&#x27;t know I&#x27;m on MPA (don&#x27;t judge me) and I actually had no trouble hiding it. I noticed, upon trying to indulge in conversation, my throat was rasp and dry. Oher than that I found very few moments of awkwardness (and if any they were short lived).  I also find myself being very empathetic to the situations she is explaining to me.
+8:20 - Off the phone with my girl and am feeling that the effects of the MPA have began to fade. I don&#x27;t know if it&#x27;s the concentration I had to apply to my conversation on the phone or if it&#x27;s the actual substance fading. For now, I will ignore my immediate consideration and proceed to re-dose.
+8:22 - One line, inch long, thick. insufflated (75mg). Burn is more bearable. Lay back in bed.
+8:30 - My mood is back to where it was, if not more intense. I guess distracting myself with the phone conversation kept my mind off how high I was. I feel good. My hands have gotten a bit clammy and my pupils are now dilated. I feel as if there is a thin film of oil developing over my skin. I&#x27;m far from dissatisfied, I&#x27;m just overwhelmed and concerned with myself because I still crave more MPA. Again, the exaggerated emotions kick in and I feel guilty for criticizing my actions and thoughts. The desire to re-dose is not as bad as a cocaine craving between lines. I  just feel acute fear of coming down between my waves of euphoria and to maintain said euphoria, I want more.
+9:30 - The feelings are beginning to subside again, at least that&#x27;s what I&#x27;ve convinced myself.. One line. Inch long. Thick. Insufflated(75mg). Burn felt pretty bad on his one. Bed.
+9:35 - The onset was still quick. I feel immediately relived that I regained the wonderful level of euphoria I longed for. But I can&#x27;t help but question my own behaviors at this point. I feel stuck. I wasn&#x27;t doing anything amphetamine related like cleaning or picking at something. Among the typical wired/alertness and racing thoughts you feel from other amphetamines, I simply feel a substantial level of euphoria, increased heart rate, throat beginning to become sore, and still very sexually aroused. The past ~4.5 hours have literally been spent laying in my bed. I got home and did nothing. I feel unproductive and a little concerned that this was going to turn into an all night deal. I&#x27;m making the decision to throw in the towel and stop using MPA for the night.
+10:30 - I&#x27;ve been playing games since my last update and it&#x27;s distracted me from the feeling of the MPA fading. I feel a lot more wired coming down and I do believe this is going to keep me up for quite some time.
+12:00 - I only thought the feeling of the MPA had faded. I seemed to have gotten down to a base level &#x27;high&#x27;, if you will, and I still feel slight waves of euphoria. I haven&#x27;t really had the urge to redose. I&#x27;ve laid down now and am hoping to get some sleep. Still, at this point, I feel very aroused. It&#x27;s the only feeling that hasn&#x27;t faded at all. Still unable to masturbate.
+15:00 - Since the last update I have literally gotten lost on a google search rampage. The feelings have fallen below the base level. I&#x27;m still wired, not sleepy at all, and sexually frustrated.
+19:00 - I feel lingering effects from the MPA that I can compare to an LSD afterglow. I&#x27;m slightly wired still and desperately trying to go to sleep. Throat is full blown sore and I have have a slight headache.
+~20:00 - I fall asleep.
+End Experience.
+Onset Experienced: 5-10 minutes after insufflation.
+Total MPA Used: 575mg (50mg and 75mg lines throughout the experience)
+Duration: ~20hrs
+I woke hours later ~2:00pm with a slight headache and a sore throat. All effects other than those are gone. I no longer feel the MPA excluding the effect it has had on my appetite.
+Summary:
+Overall, MPA was an interesting substance. I feel as if it is not a good substitute for any substance I have experienced thus far. Despite being a derivative of Methamphetamine by structure, I would still deem fairly different from Meth and other prescription amphetamines. Noting that I bought 1000mg of the substance, I still have approx. 425mg left. With that being said I will be using it again in the near future (comfort zone!!). I will not be going out of my way to purchase it again unless prompted by a friend or something of that sort. It seems like it could cause some trouble if brought into my life on a regular basis considering it&#x27;s noticeable acute addicting qualities. The slight headache, sore throat, and desire to re-dose so often are the only immediate cons I noticed. Other than that, MPA has loads of value for recreational use (in moderation and my opinion of course). Thanks for taking the time to read my report. Expect more!
+Exp Year: 2017
+ExpID: 110473
+Gender: Male
+Age at time of experience: 24
+Published: Jun 22, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methiopropamine (545) : Alone (16), Retrospective / Summary (11), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,241 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- P. cubensis 冥想 - &quot;颜色选择游戏&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mushrooms-p-cubensis.html'>← 裸盖菇(古巴光盖伞)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- P. cubensis 冥想 - &quot;颜色选择游戏&quot;</h1>
+<div class='sub-title'>Mushrooms - P. cubensis &amp; Meditation - Erowid Exp - &#x27;Color Choice Game&#x27;</div>
+<div class='meta'>作者：Mel Citation · 日期：Dec 3, 2004 · 剂量：3.5 g · <a href='https://erowid.org/experiences/exp.php?ID=12142' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这不仅仅是关于某一特定事件的报道, 更是对我生命中几次狂喜体验的比较,
+虽然重点在于理论而非药物,
+这就是我如何理解产生的催生性/迷幻/狂喜体验与非化学手段产生的体验,
+我第一次吃是在2000年春天的户外音乐节.
+在禁食12小时后,
+这次旅行的视觉效果非常精彩, 虽然并非令人震惊,
+对于这种反思更为重要的是心理效应.
+主要的线索是抛弃刻板印象.
+我看着人群, 很多人是我认识的, 我看到他们的刻板印象像标题一样显示.
+当这些偏见被明确地向我阐述时,
+我感觉到与所有人之间有着巨大的联系, 仿佛我被允许走出我平时习惯的简化结构,
+这让我深深地感受到爱.
+另外还有一些痛苦的自我反思.
+我感到迷失,不确定自己的道路, 失去对自己内在价值的确定性.
+价值不是基于我自己的天赋或能力, 而是我作为上帝的创造物更为重要的价值.
+这次经历真的让我很激动.
+我不得不认真思考,
+但从根本上讲, 这种经历似乎很熟悉.
+特别是偏见的消失与之前的两次经验相同.
+首先是我在高中时参加的一次非常激烈的修行.
+周末, 我对别人的猜测都消失了, 我对自己内在的价值感也得到了安慰, 就像倒之后一样.
+另一个是社区服务之旅,
+这两种经历的共同点是紧密的社区感和因睡眠不足和体力劳动而带来的高程度的体力压力.
+虽然我看到许多相似之处和这些经验, 我不相信他们基本上相同的性质.
+接下来的一年对我来说是艰难的一年.
+我经常觉得自己与同龄人隔绝,
+我读过阿尔杜斯·赫克斯利的&quot;感知之门&quot;和&quot;天堂与地狱&quot;,
+我也开始与巴巴·拉姆·达斯的作品&quot;Be Here Now&quot;合作, 我被他关于迷幻体验的思考与我自己的思考之间几乎惊人的相似性所吸引.
+到了春天,我打算再种.
+问题在于,这次旅行的结果是非常糟糕的.
+我打算在同一个户外节日里做.
+只有这一次, 我睡得极少, 因为一周的晚上写作,
+经过数小时的禁食之后, 我坚持吃下去 (正如人们的习惯).
+我如何在未知地带游荡,以及如何被关心的旁观者带到床上, 这些细节与这次比较无关,
+我不记得那几个小时的外面世界,
+这一次,效果主要是反射.
+虽然不可能解释非理性思维, 但基本上只能选择绿色,蓝色,白色,
+这些颜色代表着各种各样的面具.
+绿色代表了我现在的自己.
+蓝色代表一种更专制的性格,
+白色代表了一个虚假的神化 - - 一种像上帝一样的冲动.
+我被迫在其中选择,但每次我选择一个我都错了 - - 我可以想象自己躺在床上 (我在实体上做的是 - - 在别人的房间) 试图强行回到我的身体 (我从来没有想过这是一种体外体验,
+我无法做到, 选择阻碍了我.
+我一次又一次地尝试了这三种方法,
+这让我感到无比痛苦 - - 我没有身份证,我不知道我是谁!
+终于我绝望地放弃了选择.
+只有在投降之后, 我才回到了自我 - - 那时我才开始放松,
+我感到非常放松,非常安全,非常快乐.
+遗憾的是, 在那一刻, 我遇到自己被陌生人包围的房间,
+我从来没有像第一次那样反思过这次经历,
+现在回想起来, 选择颜色的关键是我试图坚持自己浅薄的观念.
+这一次我无法放手, 我真的吓坏了自己.
+我认为这可以被认为是一个&quot;坏&quot;的旅程, 但只有在立即不愉快的意义上坏.
+让我意识到的力量存在于一种与人类自我游戏基本不相容的层面,
+到了2001年秋天,
+我很快就会有另一个狂喜的经历.
+我真的开始加强冥想的练习,
+我正在阅读一些托马斯·默顿&quot;,七层山&quot;和一系列文章,和圣
+曾经有一周末, 我和一个小团体在周末背包旅行.
+我们的营地位于山坡上,
+晚上我躺在睡袋里, 仰望星空.
+我开始祷告, 终于有了一种反思冥想的状态,
+尽管身体疲, 我还是睡不着觉,
+我只能在上帝面前思考自己.
+接下来的一天, 我骑着自行车在一些乡村的黑土和石路上 (我们只有一辆车, 用自行车将货车送回我们的终点).
+我在黄金的光中, 登山丘, 飞越山丘,
+这两集只是主要事件的序幕, 那天晚上,
+我感到非常平静, 并且爱上了这个世界, 当我突然从书中抬起头,
+我看着一排书架, 距离似乎延伸.
+在黑暗中回家, 一切都有光.
+我对每一个见到的人都感受到爱的压倒性感觉,
+这种体验与退休和服务项目有很多共同之处, 包括身体疲劳,睡眠不足.
+我当时看到的视觉效果是我的关键.
+现在我意识到,一个更加开明的存在状态的表现有很多途径,
+像圣灵在天主教神学中的表现, 许多礼物但只有一个灵,
+让我感到非常满意,
+首先,我非常惊的是我认识的人经常吃,
+虽然我很亲切地回忆起那一刻, 我却不想经常回顾它.
+我对自己无法保持这种普遍的爱和开放的感觉感到丧.
+我的意思是,我对圣经和其他神学传统的解释, 倾向于表明这种狂喜状态是生命的终结.
+然而我意识到我的日常生活会干扰这种状态.
+在写这篇文章的时候, 我已经有很长一段时间没有过一种狂喜的经历了.
+如果说生活在学习,活动和日常生活中,
+这让我开始质疑我生活的真正目标是什么.
+我面临着一个严峻的挑战:我为谁而活?
+如果不是为了上帝,为谁?
+如果我像以前那样, 在我的文件上写着A.M.D.G (Ad Majorum Dei Glorium-为了更大的上帝的荣耀),
+另一方面,我总是谨慎地对待孤独的质疑 -- 很容易陷入这种模式, 事实上,这在很大程度上使我第一次和第二次旅行之间的冬天变得困难.
+我在生活中继续前进, 试图平衡手段与目的,
+我只能做我现在能做的最好.
+梅尔
+其他:
+冥想 (128),  - P. cubensis (66):各种 (28), 神秘经验 (9), 糟糕的旅行 (6), 回顾 / 总结 (11)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Color Choice Game
+Mushrooms - P. cubensis &amp; Meditation
+by
+Mel
+Citation:   Mel. &quot;Color Choice Game: An Experience with Mushrooms - P. cubensis &amp; Meditation (exp12142)&quot;.
+Erowid.org
+. Dec 3, 2004. erowid.org/exp/12142
+DOSE:
+3.5 g
+oral
+Mushrooms
+(dried)
+BODY WEIGHT:
+150 lb
+I&#x27;m a college student, twenty years old. Rather than a report of a specific incident, this is more of a comparison of several ecstatic experiences in my life, some of which were initiated through mushrooms, and others of which grew out of other circumstances. So, the emphasis is more theoretical than pharmacological -- but I think it has a place here. It is the story of how I came to understand that the entheatogenic/psychedelic/ecstatic experience as generated by mushrooms and as generated by non-chemical means were fundamentally the same.
+I first took mushrooms in the spring of 2000 at an outdoor music festival. The dose was about 1/16th of an ounce dried, eaten in the afternoon after fasting for 12 hours. The visual effects of the trip were pretty nifty, though not overwhelming-haloing, a nifty fractal overlay on the sky, in which airliners left wakes as they flew by. More significant for this reflection were the mental effects. The main thread was a dropping away of stereotypes. When I looked out over the crowds of people, many of whom I knew, I saw my stereotypes of them displayed like captions. When these prejudices were laid out explicitly for me, it was easy to let them drop away. I felt an immense connection to all people, as if I had been allowed to step outside of the structures of simplification that I normally practiced and see that all people are far more alike than they are different. This brought me a profound and swelling sense of love. There was also a bit of painful self-reflection. I felt lost, and unsure about my path, deprived of the certainty of my assumptions about my inherent worth. Yet, as I was coming down I was reassured of my self-worth, a worth not based on any talent or ability of mine, but rather my more essential value as a creation of God.
+This experience really jogged me. I was compelled to think hard, and to write in reflection. But, fundamentally, the experience seemed familiar. In particular the aspect of prejudices dropping away was identical to that of two prior experiences. The first was a very intense retreat I went on in high school. By the end of that week, I felt as free of my assumptions about others and as reassured about my own inherent worth as after tripping. The other was a community service trip in which the aspect of being able to step outside of presumptions was equally present. The common element among these two experiences were a sense of close community and a high degree of physical stress from sleep deprivation and physical work. Although I saw many parallels shrooming and these experiences, I wasn&#x27;t convinced of their basically identical nature.
+The year that followed was a difficult one for me. I often felt isolated from my peers and in general had a pretty rough time of it. I read Aldous Huxely&#x27;s &#x27;Doors of Perception&#x27; and &#x27;Heaven and Hell&#x27; and started to get into C.S. Lewis pretty heavily, &#x27;Screwtape Letters,&#x27; &#x27;Mere Christianity.&#x27; I also started to work with Baba Ram Dass&#x27; &#x27;Be Here Now,&#x27; to which I was drawn by the almost startling similarity between his reflections on the psychedelic experience and my own. When spring came around, I planned on shrooming again.
+Problem was, the actual trip came together in a really bad way. I was going to shroom at the same outdoor festival. Except this time around, I was extremely short on sleep from writing late into the evening for a week, it was raining, and I took 1/8 oz instead of 1/16th. But, heroically/stupidly enough I pressed on and gobbled them down (as was becoming customary) straight, after fasting for several hours. The physical details of how I ended up wandering around to points unknown and more or less being put to bed by concerned bystanders aren&#x27;t terribly relevant to this comparison, because mentally I was on a whole other plane. I don&#x27;t really remember much about the outside world for those few hours, but plenty was going on inside. This time, the effect was mainly reflective. Although it’s really impossible to explain irrational thought, basically it came down to a choice of three colors green, blue, white, and something else.
+These colors represented various masks. Green represented myself as I was presently. Blue represented a more authoritarian nature, more stern, more responsible. White represented a false deification-an impulse to be as God. I was impelled to choose among these, yet every time I chose one I was wrong -- I could envision myself lying on a bed (which I was in physical reality doing -- in someone else’s room) and trying to force my way back into my body (I never thought of this as an out-of-body experience but I guess it was). I couldn’t, the choice was holding me back. I tried all three, again and again -- and each time was rejected. This was immeasurably distressing -- I was caught without an identity -- I didn’t know who I was! Eventually I grew exhausted and gave up the choosing in despair. Only after surrendering was I led back to my self -- this was when I started to come down, though I fell asleep at some point -- no doubt due to all that staying up doing work during the week. I felt very relieved, very safe and very happy. Unfortunately, at that very point I had the experience of coming down in my room surrounded by people I wasn&#x27;t with before, and missing a lot of stuff I had been carrying with me.
+I never really reflected on this experience as I did the first one, I was too caught up in getting myself back together, finding my shit etc. However, in retrospect the gist of the color choice game was me trying to hold onto shallow conceptions of myself. I just couldn&#x27;t let go this time, and I really freaked myself out. I think this could be considered a &#x27;bad&#x27; trip, but only bad in the sense of immediately unpleasant. It gave me a swift kick in the ass -- it made me realize that the power of mushrooms exists on a plane essentially incompatible with standard human ego games and that dispensing of these now and again was a necessary prerequisite for growth.
+The summer passed, and I was back in school again this fall of 2001. Unbeknownst to me, I was soon to have another ecstatic experience. That fall, I really started to ramp up my meditative practice and to take a good look at my life. I was reading some Thomas Merton, &#x27;Seven-Storey Mountain&#x27; and a collection of essays, and St. Augustine&#x27;s &#x27;Confessions.&#x27; One weekend I was out backpacking with a small group for a weekend. We were camped on a small ledge of exposed rock on a shallow hillside over a valley. It was night, and I had retired to my sleeping bag and was looking up at the stars. I started to pray, and ended up having quite a sort of reflective meditation type thing that lasted through most of the night. I couldn&#x27;t fall asleep, despite being physically exhausted, but I didn&#x27;t mind. I was content just to reflect on myself in God&#x27;s presence. The next day, I rode a bike on some rural blacktop and gravel roads (we had one vehicle and were using a bike to shuttle the van back to our end point). It was a beautiful warm fall day, and I had one of the best times of my life zooming down hills and bursting over hillocks in the golden light.
+These two episodes were really just the lead in to the main event, which occurred that evening, as I was reading alone in the library back at campus. I felt very much at peace, and in love with the world, when suddenly I looked up from my book and saw patterns moving on the wall in front of me. I looked to the side down a row of bookshelves, and distance seemed to stretch out. Walking home in the dark, everything had a glow to it. At the same time, I felt an overwhelming feeling of love for everyone I saw, just a heart swelling joy at their existence and their manifestation for me.
+This experience shared many of the same characteristics as the retreat and the service project including, physical strain, sleep deprivation. The visual effects I saw then were the linchpin for me. I now realized that the manifestation of a more enlightened state of being has many pathways, but one fundamental nature. Like the manifestation of the Holy Spirit in Catholic theology, many gifts but one spirit, or the many incarnations of Buddha, or any number of Hindu deities. This realization left me profoundly satisfied, but it also left me a bit disturbed.
+First, it left me profoundly amazed that some people I know can take mushrooms frequently, on the order of every several weeks. For me the experience, as with the other ecstatic moments was such a profound kick in the ass that, although I remembered the moment fondly, I had no desire to revisit it often. Related to this, I became dismayed at my own inability to retain this sense of universal love and openness beyond the duration of a specific experience. I mean, my interpretation of the Bible and other theological traditions would tend to indicate that this ecstatic state is the end of life. Yet I realized that my everyday life interferes with this state. By the time of this writing I haven&#x27;t had an ecstatic experience for quite some time. This doesn’t depress me, if anything living in the world of studies and activities and all the trivialities of everyday life is more immediately enjoyable. It&#x27;s led me to question what sorts of ends I&#x27;m really pointing my life toward. In the right mindset, I&#x27;m seriously challenged by the question, who am I living for? If not for God, for whom? If I were, as I used to, write A.M.D.G (Ad Majorum Dei Glorium-For the Greater Glory of God) on my papers, would it be true?
+On the other hand, I&#x27;m always cautious of solipsistic questioning -- It&#x27;s all too easy to get caught in that kind of mode, in fact that&#x27;s largely what made the winter between my first and second shroom trips difficult. So I move forth in life, trying to balance the means and the end, realizing that I can&#x27;t really figure it all out. I&#x27;ve just got to do the best I can right now.
+Mel
+Exp Year: 2001
+ExpID: 12142
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 3, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Meditation (128), Mushrooms - P. cubensis (66) : Various (28), Mystical Experiences (9), Bad Trips (6), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

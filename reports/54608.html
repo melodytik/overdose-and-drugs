@@ -1,0 +1,307 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>爱洛伊德的故事 - &quot;善良的,坏的,丑的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/doc.html'>← DOC</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>爱洛伊德的故事 - &quot;善良的,坏的,丑的&quot;</h1>
+<div class='sub-title'>DOC - Erowid Exp - &#x27;The Good, the Bad, the Ugly&#x27;</div>
+<div class='meta'>作者：Cirape Citation · 日期：Oct 18, 2006 · 剂量：2 hits · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=54608' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我听说过一些关于DOC的好消息,
+我认为自己是一个经验丰富的使用者,
+之前我使用过:,LSD,Salvia Divinorum,狂喜药,2C-I和5MEO-DMT.
+我从来没有经历过一次&quot;糟糕的旅程&quot;.
+经历的感觉通常是极为积极的,
+但是我不得不说我的DOC经历,
+我不后悔曾经有过这些, 但我相信我会避免再使用这种物质.
+我第一次,我刚刚在一个长期的搬家后抵达了这个城市.
+我心情不是很糟糕, 但搬家让我有点紧张, 担心我是否做出了正确的选择,
+虽然我习惯于每隔几年这样做, 但这一次, 不知为什么,
+我很长一段时间没有使用任何类型的幻觉剂, 当我出现在我的朋友的地方,
+晚上11点左右, (我不确定一片的剂量是多少).
+我通常不会在做其他事情的时候喝酒.
+我和另一位帮助我们搬家的朋友坐下来看俄罗斯电影&quot;夜间警卫&quot;.
+我在整个电影中没有感觉到任何特别的东西 - - 需要很长时间才能让DOC产生明显的效果.
+我不喜欢这部电影, 但主要是因为它看起来有点无聊,
+我没有觉得它可怕或任何东西.
+我们似乎没有感觉到DOC的任何影响 (大约在凌晨1点), 而且我们很累.
+我和我的SO决定继续前进, 打电话给晚上.
+我们得到了保证,人们可以睡觉在DOC.
+我开始感到肌肉抽和, 虽然没有牙磨牙.
+我无法入睡,但我觉得自己已经醒来了,所以我决定试着享受它,
+现在,我知道自己是谁.
+通常,我很自主.
+我喜欢亲人的陪伴, 和人们交谈, 但我通常不需要.
+后来,我所有的忧虑和担忧开始变大.
+我通常在某种影响下, 认出&quot;恶臭思维&quot;的开始, 思考积极的想法,
+我在使用任何原剂之前就已经克服了这种情况,
+...它没有起作用.
+我开始感到越来越糟糕.
+但是我不想叫醒任何人,打扰他们.
+我一直觉得自己对亲人的负担很重.
+我不想让我勃发展的不良旅程让他们失望,
+但我仍然感到很糟糕.
+我周围似乎充满了巨大的负面能量.
+我不太喜欢城市, 而我正处于一个大城市的中心.
+感觉就像我被一场巨大的污秽和消极的风暴所包围,
+我开始担心那个给我DOC的朋友, 不是我想的那个人,
+我对这个想法感到非常丧.
+似乎整个地方充满了他的能量, 但它与城市最糟糕的部分结合,
+我知道我当时的感觉很疯狂. 我知道我当时的感觉很疯狂,
+但感觉就像这样.
+我出去抽烟,让自己冷静下来,
+我常常在抽烟时, 向所有方向祈祷, 说&#x27;我的所有亲戚.&#x27; 这通常给我一种连接的感觉, 我觉得自己是别人的助手, 也得到别人的帮助.
+但令我惊的是,
+我觉得自己几乎被抛弃了.
+我的SO出来了,大约在这个点.
+显然,他醒来了,无法再入睡,
+我试图,一段时间,保持自己,把一个好脸,不污染他的旅行我的坏一个.
+顺便说一句, 在这一切过程中, 我一直有可怕的肌肉和皮肤.
+如果我专注于放松, 它们的强度会减小, 所以我确信其中一部分是精神上的,
+我一直担心如果不小心, 我会把我的SO拖到我陷入的同一个坑里.
+虽然没有这样的运气.
+他花了大概半小时到一个小时 - - 很难说 - -
+我真的感觉不太好, 但我确实感觉到一个巨大的重量从我身上解除, 他帮助我通过最糟糕的, 而不是结束自己&#x27;下&#x27;.
+我是一个吸烟者 (是的,对我来说是不好的).
+虽然每一支香烟都像是吸入纯毒药物,
+这与我在2C-I时试图吸烟时的感觉非常相似,
+每一根烟都是一场梦.
+如果我多吃尼古丁口香糖, 我可能会成功.
+我们躺下来休息一下.
+尽管我仍然有一些身体上的不适和急躁的想法.
+但后来,躺在那里,我们开始拥抱一点,有点一点... 和快乐的身体感觉迅速成为令人惊叹.
+我们没有做完整的性爱, 但即使是强烈的抚摸是如此令人费解的奇妙难以描述.
+我也不再感受到任何心理负面影响.
+闭着眼睛的视觉和幻想是生动的,性感的,极其美丽的.
+我相信我有12次高潮.
+经过几个小时的, 我们终于试图再次入睡.
+虽然我的睡眠不稳定,
+整身都开始感觉像发烧或流感一样.
+我转转了好几个小时,
+虽然我坐在那里感到无聊,身体不舒服,
+我终于找到了我最早的童年记忆.
+这些都是我几十年来没有看过的回忆.
+我记得我的童年非常清晰,
+我还记得我的第一个生日.
+但我却发现一堆旧记忆,
+我重演了我两岁时曾经想过的事情, 因为我的大脑刚开始感知,思考,工作.
+这就像发现一盒旧的,最喜欢的玩具,
+我有一种微弱的感觉, 那些记忆是脆弱的, 如果我太&quot;粗暴&quot;处理它们,
+我觉得通过&quot;阅读&quot;记忆, 某些过程通过删除和重写来读取,
+我也觉得我的脑部的&quot;备份&quot;过程非常好,
+虽然我也有一种感觉, 无法看到所有正在发生的事情, 因为这就像试图看自己的眼睛.
+我深入追溯,深入记忆, 发现各种各样的东西 - - 感觉好像我可以追溯到最初的神经通路形成时,
+我在我的眼睛和耳朵甚至很好地让我的大脑解释它们的数据之前, 发现了一些非常奇怪的感知,
+我记得我学会说话,
+我记得有一段时间, 我有自己的&quot;婴儿语言&quot; - - 我把声音与想法联系起来,
+我毫不怀疑这些都是真实的回忆 - - 我对长期记忆和我似乎接触到它的方式是很熟悉的,
+很不幸的是, 我也最终陷入了一段时间的&quot;循环思维&quot;.
+我曾经经历过一段时间的强迫性行为 - - 在那段时间里,
+我很久以前就从这些小心理陷中解脱出来了, 却碰到了一种感觉像是被封闭的强迫症, 并且花了几个小时在思考同样的想法,
+似乎我以前只能粗略地解决这个问题,
+接下来的几个小时几乎是缓慢的.
+我没有达到基线 (或睡觉!) 直到服用DOC后大约18小时.
+我从其他人那里听说他们有强烈的视觉效果.
+除了我看到的超现实&quot;感觉&quot;之外, 我几乎没有视觉效果 - - 除了复杂的表面似乎变得&quot;简单化&quot;.
+虽然当我试图幻想或想象某种东西时, 结果非常清晰... 比我正常情况下更加清晰,
+我在旅行的大部分时间里, 身体疲,精神疲.
+身体疲不堪, 就像我很久以前患上肺炎一样.
+我从来没有经历过如此严重的体力负荷, 即使醒了很长时间,
+我觉得走得太快, 可能会让我心脏病发作.
+我身体能力也变得不那么好, 动作也很慢,
+很难专注于脑力任务,
+这次旅行的大部分时间都是负面的,
+我相信大部分都是我当时的想法.
+另外一个...
+通常我对这些物质非常尊重,甚至礼貌, 通常是为了扩大我的思想, 而不是仅仅为了娱乐 (虽然工作和乐趣是我共同的,
+我认为我的精神问题, 只是因为第一次, 我没有足够的尊重我正在采取的.
+我就是一个&quot;哈哈!
+我可能会跌倒!
+我把它当作一种药物, 而不是一种扩大思维,帮助或工具.
+我应该更好地知道.
+现在,这药物的物理效应确保我永远不会再服用它.
+我服用了较小的剂量, 再一次, 大约一周后.
+我很开心,但在接下来的几天里, 我身体疲不堪, 第二天早上, 心跳很快, 胸部很痛,
+我现在仍然有点担心, 一周后 - 我仍然觉得我没有完全恢复身体.
+我现在担心,即使我愿意接受这种物质可能带来的心理过山车,
+我很喜欢令人惊叹的高潮和探索我记忆的深处... 作为解终于有一个糟糕的旅行,
+其他:
+DOC (357):小组 (2-9) (17),艰难的经历 (5),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+The Good, the Bad, the Ugly
+DOC
+by
+Cirape
+Citation:   Cirape. &quot;The Good, the Bad, the Ugly: An Experience with DOC (exp54608)&quot;.
+Erowid.org
+. Oct 18, 2006. erowid.org/exp/54608
+DOSE:
+2 hits
+oral
+DOC
+(blotter / tab)
+oral
+Alcohol
+(liquid)
+repeated
+smoked
+Tobacco - Cigarettes
+BODY WEIGHT:
+200 lb
+I&#x27;d heard some good things about DOC, and had been interested in trying it. I consider myself an experienced user of entheogens and other mind-expanding substances, and have had only positive experiences previously.
+Before now, I have used: Psilocybin mushrooms, LSD, Salvia Divinorum, Ecstasy, 2C-I, and 5MEO-DMT.
+I have never, ever, had a &#x27;bad trip.&#x27; I have had experiences that were challenging, but which always resulted in me working something out, or learning something. Normally, my experiences are extremely positive in feel, and very pleasurable throughout.
+But I&#x27;d have to say my DOC experiences, while character-building perhaps, were less-than-glowing. I don&#x27;t regret having had them, but I believe I&#x27;ll refrain from ever using this substance again.
+My first time, I&#x27;d just arrived in town after a long move. I was not in a bad mental state, particularly, but was a bit stressed from the move, and had some worries about whether I&#x27;d made good choices and had chosen well in where to live and what to do with the next year or so of my life. I&#x27;d basically taken a leap of faith, and while I&#x27;m used to doing that every few years, for some reason this time, I had more misgivings than normal.
+I had not done any sort of hallucinogen in a long while, and when I showed up at my friend&#x27;s place, he offered my SO and I some DOC to try. We each took two tabs, at about 11PM (I&#x27;m unsure what the dosage is in a tab). My SO and I had both had one alcoholic drink - I normally do not drink when I&#x27;m going to be doing anything else.
+The friend who gave me the DOC left us for the night, so my SO, another friend who had helped us with the move, and I sat down to watch the Russian film, Nightwatch. I felt nothing in particular through the whole movie - it took a long time for the DOC to take noticeable effect. I didn&#x27;t care for the film, but mostly because it just seemed a little dull and contrived and depressing. I didn&#x27;t find it scary or anything.
+Everyone had been up since early that morning (approx 9AM), and we didn&#x27;t seem to be feeling any effect from the DOC (at about 1AM), and we were tired. Our friend who drove us decided to go to bed (they do not take hallucinogens, anyway), and my SO and I decided to go ahead and call it a night. We&#x27;d been assured that people can sleep on DOC.
+Well... as soon as my SO and friend were asleep, I began to feel lots of muscle twitches and some cramps, though no teeth-grinding. I couldn&#x27;t fall asleep, but I seemed to be coming up, so I decided to try and enjoy it, or see if I could get something out of it.
+Suddenly though, I began to feel incredibly lonely. Normally, I am fairly self-contained. I love the company of my loved ones, and people to talk to, but I usually don&#x27;t _need_ it.
+And then, all of my worries and concerns began to just magnify. Normally, when I&#x27;m under the influence of something, I recognize the beginnings of &#x27;stinkin thinkin&#x27; and either think positive thoughts, or just focus on letting the unpleasant ones wash over me without resistance, clearing my mind and letting the unpleasantness pass me by. This is something I learned to do to combat depression (which I overcame years ago, before doing any entheogens), so it&#x27;s second-nature to me.
+Well... it didn&#x27;t work. I just began to feel worse and worse. But I didn&#x27;t want to wake anyone up and bother them. I&#x27;d been feeling like something of a burden on my loved ones for a while. I didn&#x27;t want to let my burgeoning bad trip bring them down, or inconvenience them.
+But I just continued to feel terrible. My surroundings seemed to be filled with an immense, negative energy. I don&#x27;t really like cities, and I was in the heart of a big one. It felt like I was just surrounded by an immense storm of foulness and negativity, like I was in psychic cesspool.
+I began to worry if the friend who&#x27;d given me the DOC, was not the person I thought - if I&#x27;d misjudged him, or placed my trust in the wrong person. At the same time, I felt incredibly bad for even considering that idea. Then it seemed that the whole place was full of his energy, but that it had combined with all the worst parts of the city, becoming just this towering, raging toxic construct.
+Note: When I say it felt like this, I&#x27;m not implying any actual metaphysical energy necessarily - I know I was tripping balls at this point. But it felt like that.
+I went outside to smoke a cigarette and calm myself, see if I could get centered. Often, when I smoke, I make a short prayer, to all the directions, saying &#x27;all my relations.&#x27; This usually gives me a feeling of connectedness, where I feel like a helper to others, and helped by others.
+But to my surprise, I still felt terrible. I felt almost deserted.
+My SO came out, around that point. Apparently, he&#x27;d woke up, and couldn&#x27;t go back to sleep, and was tripping pretty well. I tried, for a while, to keep to myself, put on a nice face, and not contaminate his trip with my bad one.
+Throughout all this, by the way, I kept having terrible muscle cramps and skin tics. If I concentrated on relaxing, they&#x27;d reduce in intensity, so I&#x27;m fairly sure that part of them was psychosomatic, because I&#x27;d heard it could cause aches and tics, and my bad trip was intensifying them.
+Eventually though, I just had to break down and ask for help - worried, the whole time, that I&#x27;d drag my SO down into the same pit I was in, if I weren&#x27;t careful.
+No such bad luck though.  He spent maybe half an hour to an hour - hard to say - talking me through the bad spot. I didn&#x27;t really feel great, but I did feel an enormous weight lifted from me, and he got me through the worst of it, without ending up &#x27;down&#x27; himself.
+A short note: I&#x27;m a smoker (yeah, yeah, it&#x27;s bad for me). But while on the DOC, every cigarette felt like I was breathing pure, unadulterated poison - but I still craved them intensely. It was very similar to how I feel if I try to smoke while on 2C-I, only more intense. Every smoke was a nightmare. I actually tried to quit smoking again the day after, and if I&#x27;d had more nicotine gum, think I might have succeeded.
+We went to lie down and relax a bit. Things were a lot less terrible from that point, though I still had some physical discomfort and racing thoughts.
+But then, lying there, we started cuddling a little, and kinda fooling around a little bit... and the physical sensations of pleasure rapidly became mind-blowing. We did not have full-on sex, but even just the heavy petting was so mind-numbingly fantastic it&#x27;s hard to describe. During that time, it overwhelmed any negative physical effects (if I was still cramping or ticcing, I could not feel it), and I no longer felt any psychological negatives either. The closed-eye visuals and fantasizing were vivid and erotic and intensely beautiful. I&#x27;m sure I had about twelve orgasms.
+After fooling around for _hours_, we finally tried to nod off again. My SO slept fitfully, but I mostly remained awake. The cramps began to feel like fever or flu cramps all over my entire body. I tossed and turned for hours, and could not getting physically comfortable.
+However, sitting there bored and uncomfortable in body, but no longer really in mind, I decided to just poke around in my brain and see what I could find. I ended up finding a whole slew of my earliest memories as a small child. These were memories I simply hadn&#x27;t looked at in ages - decades.
+As an aside, I remember my early childhood with extraordinary clarity, and always have. I can remember my first birthday.
+But I found a whole pile of old memories that were just waiting to have the dust blown off them. I replayed things that I used to think about when I was maybe two years old, as my brain was just getting the hang of perceiving, thinking, working. It was very much like finding a box of old, favorite toys, that I&#x27;d long outgrown, but remembered fondly. There was a faint feeling that somehow these memories were fragile, and that if I were too &#x27;rough&#x27; in handling them, they&#x27;d become damaged somehow.
+It felt as if, by &#x27;reading&#x27; the memory, that there were processes that read by erasing and then re-writing, so I had to be slightly careful not to let the &#x27;rewrite&#x27; process go poorly. At the same time, there was also an impression that my brain&#x27;s &#x27;backup&#x27; processes were very good at their job, and that I didn&#x27;t need to be paranoid about it.
+It felt a little bit like a &#x27;behind the scenes&#x27; look at some of my brain - though I also had an impression that it was impossible to see everything going on with that, because it would be a little like trying to look into your own eye. :
+I delved way back, much farther into memory, and discovered all sorts of things - it felt as if I could go all the way back almost to when the first neural paths were forming that became my physical consciousness. There were incredibly strange perceptions that I recognized as memories from before my eyes and ears were even good at having their data interpreted by my brain - it was like watching memories of my infant brain building itself, to become a vehicle for consciousness.
+I remembered learning to talk, and to piece ideas together. I remember a time when I sort of had my own &#x27;baby language&#x27; - sounds I attached to ideas, before I learned to necessarily attach the ideas to words that the people around me did.
+I have no major doubt that all of these were real memories - my long term-memory and the way I seem to access it are well-known to me, and these did not feel like the vague &#x27;fantasy&#x27; memories or &#x27;the way I&#x27;d like to remember it&#x27; memories.
+Unfortunately, I also ended up, eventually, getting stuck into a period of &#x27;circling thoughts&#x27; for a while. When I was a young child, I went through a brief period of obsessive-compulsive behavior - where I&#x27;d have to turn a light switch on and off a dozen times before it felt &#x27;right&#x27;... stuff like that. I&#x27;d long ago sort of &#x27;Walled off&#x27; my mind from those little mental traps, but I kind of stumbled on what felt like this little encapsulated bit of obsessive-compulsiveness, and spent some hours just kind of worrying the same thoughts over and over again, until I got a handle on it. It seemed like I&#x27;d only crudely fixed the problem before, but now had an opportunity to fix it more elegantly and completely.
+The next several hours were pretty much just come-down, very slowly. I did not reach baseline (or get to sleep!) until about 18 hours after taking the DOC.
+I&#x27;ve heard from others that they had intense visuals. Other than a very surreal &#x27;feel&#x27; to everything I saw after I came up, I had almost no visuals - except that complex surfaces seemed to become &#x27;simplified.&#x27; Like, if I stared at the dirty concrete out back, it would seem to smooth over, unless I made an effort to look at the way it really looked. I had very few closed-eye visuals, as such, although when I attempted to fantasize, or visualize something it came _very_ clearly... more clearly than is normal for me either on or off a hallucinogen/entheogen.
+I spent most of the day after the main part of the trip feeling strung-out, physically weary, mentally drained. I also felt like my heart was pounding, and physically exhausted - as bad as when I had pneumonia a long time ago. I have _never_ had a body load this severe, even after being awake much longer, or doing more X than I should have (though I only did that once - I&#x27;m careful with stuff like that).
+For a couple days afterwards (even after plenty of sleep, vitamins, decent food and drink), I felt like walking up a flight of stairs too quickly might give me a heart attack. I was physically less able... my movements were sluggish, I could not lift as much as normal - a real pain when moving. It was hard to focus on mental tasks, but not impossible.
+Most of this trip was negative, physically and mentally. I believe though, that most of that was probably the headspace I was in at the time.
+Also... I normally approach these substances with a great deal of respect, even courtesy, and usually with the idea of expanding my mind, rather than solely for entertainment (although work and fun go together for me, and I&#x27;m not against using hallucinogens for pleasure).
+I think that part of my problems, mentally, were simply that for the first time, I didn&#x27;t respect what I was taking enough. I was all &#x27;Ha ha! I&#x27;m gonna trip! Yay!&#x27; I treated it like a drug, not like a mind-expander, helper, or tool. And I ought to know better.
+Now, the physical effects of this drug ensure that I&#x27;ll never take it again. I took a smaller dose, one more time, about a week later. I had a nice time, but for days afterward, I was physically exhausted, and the morning after, my heart was pounding, and my chest was hurting, until I feared that I had damaged my heart. I&#x27;m still a little worried now, a week later - I still feel like I have not fully physically recovered.
+I&#x27;m now concerned that even if I&#x27;m willing to accept the mental roller-coasters possible with this substance, that the physical effects of it on my body might possibly be dangerous and long-lasting. Much as I liked the amazing orgasms and explorations of the deeper areas of my memory... and as cathartic as it was to finally have a bad trip, I don&#x27;t think I&#x27;ll ever use this substance again.
+Exp Year: 2006
+ExpID: 54608
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 18, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOC (357) : Small Group (2-9) (17), Difficult Experiences (5), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

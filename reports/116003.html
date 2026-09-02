@@ -1,0 +1,226 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>马尔特 - 埃洛维德 Exp - &quot;加载屏幕&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/malt.html'>← MALT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>马尔特 - 埃洛维德 Exp - &quot;加载屏幕&quot;</h1>
+<div class='sub-title'>MALT - Erowid Exp - &#x27;Loading Screen&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Jan 8, 2022 · 剂量：50 mg · <a href='https://erowid.org/experiences/exp.php?ID=116003' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我遇到的其他MALT的亲属是5-MeO-MALT和4-HO-MALT.
+虽然5-MeO-MALT已经存在多年,但4-HO-MALT是最近的发展,基本化合物MALT通常非常罕见,直到最近才容易获得.
+奇怪的是,它几乎没有任何体载.
+但最终感觉相当不舒服.
+我对MALT基地的预期并不太清楚.
+我只遇到这种化合物作为烟酸盐.
+虽然似乎是众所周知的, 由于产生刺激性和潜在的有毒无酸, 人们不应该蒸发烟酸,
+几乎任何胺酸蒸发的相盐的合理量都不会产生任何有意义的胺酸无水化物,这会对健康构成任何严重威胁,甚至任何刺激.
+由于烟酸盐的重量, 效力与自由基相比有所下降, 但在我看来,
+虽然最好的有毒的无化物是没有, 我决定自己蒸发这个数量只是这一次没有显著的风险.
+经验的结论在最后.
+总的来说,它持续时间很短,有点温和而无聊,而且令人惊的是,视觉上,与许多基本胺不同.
+总的来说,它持续时间很短,有点温和而无聊,而且令人惊的是,视觉上,与许多基本胺不同.
+虽然这种物质本身并没有带来太多活动,
+对于我来说,这是一个非常短的报告,因为这是一个非常短的经验,我没有太多说.
+,我在油炉管中了水池,然后蒸发了它,
+淡淡的味道, 温和而光滑.
+我花了最后15分钟在,,,化了胺,
+这似乎需要一个相当高的温度真正开始我能够拉几个大命中.
+随着我蒸发它, 效应越来越多, 一些刺激和不适.
+最后,当水池干时, 它就入了.
+我冲向一个临的山峰.
+像一场透的雪崩, 一种突然沉没的感觉.
+我突然出汗,紧张,.
+整个身体都有一种冷却和升温的感觉.
+在天花板上开始出现微弱的视觉效果 - - 漂浮和跳舞的碎形状,
+我闭上眼睛, 看到一个巨大的洞穴,
+这里几乎没有任何运动, 只有漂流,
+眼睛开时, 视觉效果似乎更明显, 它们是玻璃般的, 幽灵般的, 但它们是存在的 - 我凝视着我的天花板,
+叶子,,碎形,半径,它们都在天花板上,,旋转,杂; 微弱而难以辨别,
+这就像一群藻慢慢地漂移,
+这些形态像蒸气一样在它们的漂流中旋转和波动.
+我开始感到有点不舒服 - - 也许我超越了它?
+我感觉寒冷,我只想用毯子包裹自己,拥抱自己,用柔软的东西包裹自己.
+我躺在床上,在海洋的喧中摇摆,海浪的尖峰和泡和喷雾着我的脸,
+我觉得很舒服,我觉得很舒服,这是一种愉快.
+我的思想完全是空白的.
+我不知道该想些什么,我觉得我应该想些什么,
+我不想沉思回忆,思考周围环境,阅读周围的世界,
+没有任何禅宗意义, 有一种焦虑,一种不耐烦,
+我在这个过渡性炼狱中漂流, 直到整个考验能够得到解决,
+也许我不需要思考,也许我不需要参与.
+许多迷幻药会让我有强迫感, 强迫我出去, 消耗精力,
+也许我没有在我的生活中寻求任何东西, 而这已经在这个空间表现出来,
+我已经失去了言语.
+我已经失去了想法.
+我觉得我可能是在浪费我的时间.
+如果我走进MALT的办公室没有问题,
+虽然我的一部分想知道这个化合物能提供什么答案-- 是我的思想只是缺席,还是化合物借给了我的缺席?
+但我别无选择,只能在化学物质通过我的突触流动.
+我看着我的屏幕, 文字正在上升和漂移.
+身体上的不适已被一种更温暖,更舒适的感觉所取代.
+我在床上翻滚, 享受着身体上的柔软感觉.
+猫也在这里, 和他拥抱是另一个温暖和愉悦.
+这似乎已经是经验的下降阶段.
+我的思维流也发生了变化, 从那个空白的缺席变成一种更为熟悉的迷幻状态,
+但一旦它被释放, 神经元就能伸展,呼吸,
+这只是一个温和的怀旧的放松.
+这只是一个温和的怀旧的放松.
+视觉是存在的,但沉默.
+恶心大多已经消退.
+刺激持续时间.
+眼前仍然有偶尔的闪光和闪, 这很好, 一个突出的视觉是我百叶窗上的紫色和绿色条纹和墙上像吉他弦一样的脉动的振动条纹,
+现在大部分的身体感觉已经消失了.
+结论: 马尔特加入了基本胺的神,
+虽然它比许多其他基底胺更具视觉和内观性,但与任何胺的4-HO或4-AcO类似物相比,它仍然白.
+我对马尔特家族的基本特质没有深入了解.
+除了视觉上的, 在如此短的时间内,
+我只能坐下或躺下, 沉迷于思考,
+这是一个简单而新奇的好奇心,
+其他:
+发布时间:2022年1月8日
+马尔特 (855):一个人 (16),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Loading Screen
+MALT
+by
+nervewing
+Citation:   nervewing. &quot;Loading Screen: An Experience with MALT (exp116003)&quot;.
+Erowid.org
+. Jan 8, 2022. erowid.org/exp/116003
+DOSE:
+50 mg
+vaporized
+MALT
+BODY WEIGHT:
+130 lb
+Preface: MALT is the base form of the Methyl-ALlyl Tryptamine family, unsubstituted for pleasure. The allyl group it bears has the distinction of containing a double bond. This is better known in the di-allyl tryptamine family, DALT.
+The other relatives of MALT that I have encountered were 5-MeO-MALT and 4-HO-MALT. While 5-MeO-MALT has been around for many years, 4-HO-MALT is a more recent development, and the base compound MALT has mostly been extremely rare and only become easily available very recently. 4-HO-MALT was a short acting and mild psychedelic that was curiously nearly devoid of any bodyload. 5-MeO-MALT was interesting, intense, and dissociating but ultimately felt pretty uncomfortable. I had little idea what to expect from the base MALT.
+I only encountered this compound as a fumarate salt. While it is seemingly common knowledge that one should never vaporize fumarates due to the formation of irritating and potentially toxic maleic anhydride, I find this risk to be greatly exaggerated. A reasonable amount of almost any vaporized fumarate salt of a tryptamine would not produce a meaningful amount of maleic anhydride that would post any serious threat to health, or even any irritation. There is some loss in potency vs. the freebase due to the weight of the fumarate salt, but this is the only negative effect that holds water in my opinion. While the best amount of toxic maleic anhydride to be exposed to is none, I decided for myself that vaporizing this amount just this one time did not present significant risk.
+There is a conclusion of the experience at the end. Overall it had a very short duration, was somewhat mild and boring, and was surprisingly visual, unlike many base tryptamines.
+Overall it had a very short duration, was somewhat mild and boring, and was surprisingly visual, unlike many base tryptamines.
+My brain mostly did not know what to do with itself, though this substance did not lead itself to much activity beyond just lying around. This is a very short report for me because it was a very short experience, I do not have too much to say.
+T0:00- Melted a puddle in an oil burner pipe and vaporized it, this one isn’t too bad to vaporize. Muted flavor, mild and smooth.
+T0:15- I spent the last 15 minutes nursing and swirling and cooking the melted tryptamine, sucking off the little swirls of vapor. This seems to take a decently high temperature to really get going and I was able to pull a few large hits. Effects crept up as I vaporized it, bits of stimulation and discomfort. At last, when the puddle is finally dry, it crashes in. I hurtle towards a looming peak. It comes down on me like a diaphanous avalanche, a sudden sunken feeling. I am so suddenly sweaty, jittery, and shaky. There is a sensation of cooling and rising all over and across my body.
+Faint visuals begin to display on the ceiling- drifting and dancing fractal forms like the sutures of certain ammonite shells, wriggling and determined lines that wave and drift across its surface, cast in deep violet. I close my eyes and I am greeted by cavernous spaces decorated with large, simple forms in dull colors placed in regular patterns. There is little motion beyond the drifting one might expect from a wide river, there is little light, just a hollow. Visuals do seem to arise more with my eyes open, they are glassy and ghostly but they are present- I gaze at my ceiling and see fronds and palmettos radiating and shooting off into drifting infinities, faint violet and pulsing with stripes of green. The fronds, the sutures, the fractals, the radials, they all lazily drift across the ceiling, bumping, swirling, intermixing; faint and hardly discernible but certainly there. It is like a parade of diatoms slowly drifting by, all of them flowing past and amongst each other, no direction, no intention. The forms swirl and billow in their drifts like vapor.
+T0:20- The intensity peaks more and more, I begin to feel a little uncomfortable- perhaps I’ve overshot it? I feel cold, all I want to do is bundle up with blankets and cuddle up and wrap myself in soft things. I am lying here, splayed out on the bed, tossing in the tumults of the MALT-ocean, the biting crests and froths and sprays of its waves pepper my face, it all adds up to what should be an uncomfortable experience but ultimately, it really isn’t. I feel at ease, I feel comfortable, there is a pleasantry to this.
+My mind is just completely blank. I don’t know what to think about, I feel like I should be thinking about something but I can’t really affix myself to anything. I don’t feel any urge to ponder memories, to consider my surroundings, to read about the wider world around me, I just sit there and exist. Not in any Zen sense, there is an anxiety to it, an impatience, it is like my brain is anxiously waiting for something that it knows deep down will never come. I am adrift in this transitional purgatory until the whole ordeal can be sorted out, my brain rendered to a loading screen replete with some nice imagery like the hold music on a telephone.
+Maybe I don’t need to think, maybe I don’t need to engage. Many psychedelics give me compulsions, a compulsion to go outside, expend energy, better myself- this is just a blank slate. Perhaps I am not seeking anything in my life as it stands, and that has manifested in this space, a mind in an empty room with no purpose. I am at a loss for words. I am at a loss for thoughts. I feel like I am perhaps wasting my time here. If I stroll into MALT’s office with no questions, I will receive no answers. Though a part of me wonders what answers this compound would even have to offer- is it that my mind was simply absent, or that the compound lent itself to my absence? But I have no choice but to linger as the chemical flows through my synapses. I look at my screen and the words are rising and drifting off of it.
+T0:30- The discomfort across my body has given way to a warmer and more soothing sensation. This is nice, I am rolling around on the bed, taking pleasure in the sensation of soft things against my body. The cat is here too and snuggling with him is another warmth and delight. This seems to be the comedown phase of the experience already. My flow of thoughts has changed too, from that blank absence now to a more familiar psychedelic state, in which my mind flows free and builds connections and associations naturally and organically with great articulation and logic, this is a curious thing to meditate on and ponder. That the peak was almost inhibiting, but once its grip had been released, the neurons can stretch and breathe and form something insightful and meaningful with one another.
+T0:40- It is quietly filtering out, it is nothing but a gentle and nostalgic relaxation by this point
+T0:40- It is quietly filtering out, it is nothing but a gentle and nostalgic relaxation by this point
+, visuals are present but muted. Nausea has receded mostly. Stimulation lingers.
+T0:50- There are still occasional visual flashes and flutters, this is nice, one visual that stands out is purple and green stripes on my blinds and pulsing vibrating stripes like guitar strings on the walls, but there is little else. Most of the physical sensations have faded by now.
+T1:30- Back to baseline.
+Conclusion: MALT joins the pantheon of base tryptamines as yet another mild and short-lasting experience. While it is more visual and introspective than many other base tryptamines, it still pales in comparison to any tryptamine’s 4-HO or 4-AcO analogue. I gained little insight into the overarching qualities of the MALT family. Beyond the visual flourish, there was little to be gained from this compound in such a short amount of time. All I could really do was sit or lie in a daze and think, save for the end when a pleasant state of psychedelia settled in, displacing an initial slight discomfort from the initial administration of this compound. This was a simple and novel curiosity and not one I will likely be revisiting except perhaps in combinations with other drugs.
+Exp Year: 2021
+ExpID: 116003
+Gender: Not Specified
+Age at time of experience: 26
+Published: Jan 8, 2022
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MALT (855) : Alone (16), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

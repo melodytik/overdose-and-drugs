@@ -1,0 +1,352 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的&quot;自我调查和重新设置&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tabernanthe-iboga.html'>← 伊博格木</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的&quot;自我调查和重新设置&quot;</h1>
+<div class='sub-title'>Tabernanthe iboga - Erowid Exp - &#x27;Self Inquiry and Resetting&#x27;</div>
+<div class='meta'>作者：Sariputta Citation · 日期：Jul 24, 2015 · <a href='https://erowid.org/experiences/exp.php?ID=104336' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>2014年7月, 我和一位亲密的朋友在苏格兰高地的一个偏远小屋里度过了一周的假期,
+我和我的朋友 (下面叫M) 轮流先去,我做保姆,两天后我们交换了.
+两人之前都没有吃过伊博加.
+接下来主要是我自己的经历, 但我的朋友的经历也包括一些细节.
+我们的剂量是1000毫克的净化化物 (TPA).
+据报道,TPA中含有95%纯的伊波加根皮,其中70%是伊波加因.
+1000毫克的TPA含有665毫克的伊波加因.
+我们的体重大约是75公斤,
+服用伊波加的目的是为了个人发展而不是治疗成,
+背景
+在谈到旅程的细节之前, 需要一些背景信息.
+我们有15年的定期 (通常是每天) 练习, 以及一些较短和较长的密集冥想修行.
+我觉得提及这一点很重要, 因为我相信我们的冥想实践,
+冥想 (我们练习时) 逐渐清理你的内心世界.
+在心理方面,问题,复杂,恐惧,压抑的情绪,心理戏剧,破坏性习惯,
+冥想也是一种无遗憾的生活方式,
+虽然我并不是在暗示我们没有痛苦,
+大部分心理垃圾和情感负担,比如与父母的问题,抑郁症,对他人的敌意等等, 总的来说, 都消失了.
+所以,在精神上处于良好状态, 得到可靠诊所的支持, 需要iboga是什么?
+我们希望得到什么?
+我们的动机主要是好奇心以及对更深层次的灵性洞察的渴望;
+有趣的是,在服用伊博加之前的几个月,
+我得到的答案是, 和平是现在的, 应该被欣赏,
+它继续说:&quot;当成长的活动不再是唯一重要的事情时,这是个人的成熟的一部分&quot; (尼格尔·里奇蒙德, 易清预言).
+我对此的解释是, 我可能不需要服用伊博加,
+但这并没有改变我的决定,
+我觉得这将是一个有趣的实验,
+任何熟悉佛教习俗的人都会知道, 吃伊波加可能是违反了第五条戒律 (训练规则),
+我说可能是因为人们总是认为果不是一种严格的麻醉剂:服用它的目的不是像许多其他药物一样逃避自己,
+我个人更倾向于将其归类为违法行为,
+我还应该提到, 虽然我们之前都没有服用伊博加,
+第一个阶段
+现在就开始旅程吧.
+在上午11:30左右.
+为了避免过早吐的风险, 我会在45分钟后服用另一半剂量, 然后交叉腿坐在地板上冥想, 主要专注于呼吸,
+只有15分钟后, 我才开始感觉到效果 - - 一种强烈的感觉,
+整个第一阶段类似于电池充电:在下一阶段释放活动之前积累能量.
+我几乎可以听到精细调节的发动机在耳朵里声,
+我头顶有强烈的感觉, 仿佛有一只大手握住它,
+我继续冥想,尽管有很多活动 (头,身体,胃部动作,精神活动),
+呼吸变得越来越缓慢,越来越细微, 集中力也随之加深,
+我认为在这个阶段, 我听到更多的话:&quot;你需要开你的心&quot;, 我认为这是一种冥想指导.
+也就是说,为了深化集中精力 (我在过去几年里一直在努力), 心需要开:让身体中随着深度集中精力而产生的愉悦感充分表现和成长.
+这意味着要对自己有温柔,富有同情心的态度,
+我以前没有承认这种情感成分的重要性, 而是强调尽可能长时间不间断地专注于呼吸 (当然这也是需要的).
+听到这些话后, 我又把注意力转移到头顶的强烈感觉, 然后转移到心脏区域,
+这也被看作是白色光线穿过我的身体的形象.
+很难说什么是&quot;真实&quot;什么是假的, 但无论如何, 这是我的经验.
+我不愿意称之为&quot;昆达利尼觉醒&quot;或类似的东西, 也不愿意赋予它超越实际意义,
+我回到了呼吸, 不久之后, 我感觉到一股强烈的幸福浪潮从我的脚开始,
+我认为原因在于我开始研究幸福感, 而不是专注于呼吸,
+这实际上是集中训练中常见的指令:不要将注意力从冥想对象转移到快乐.
+我从来没有经历过一波强烈的快乐,
+现在我正在与恶心和急性肠道移动的急性需求作斗争.
+我告诉M,他带我去所.
+眼睛闭着, 不想引起更多的头和恶心.
+已经过去了1个半小时后的第一个半剂量和45分钟后的第二次.
+我让自己生病了.
+值得注意的是,我能够移动,这也是M的经验.
+我们都同意, 症似乎是对伊博加的副作用的错误描述,
+而是因为头和恶心,
+我知道其他服用更强剂量的人可能会失去自愿使用自己的身体.
+第二阶段
+我回到了我坐的房间,
+很明显充电阶段已经结束,
+根据其他人的报道, 我现在预计会遇到我的恶魔,
+然而,这阶段是所有阶段中最不清楚的.
+我脑海里发生了很多事情, 活动很大,
+这是一个混乱.
+我不再试图保持呼吸的集中, 而是意识到意识本身,
+通过各种方式很容易进入, 例如,只要指导自己一秒钟不去思考.
+在没有思想的空间里, 有什么?
+这不是什么,而是一个空间,一个静止,裸体的意识.
+它与个性,思想,情感,梦想,烦,智力,能力以及我们通常称之为自我的一切都无关.
+它是所有这些事情发生的空间.
+通过一点练习, 可以培养这种意识和空间,
+这并不一定意味着思想自由.
+[其他进入这个状态的点:对当前时刻非常清醒,但不一定是有特定的焦点;倾听沉默;问&quot;我是谁?&quot;而默默地等待答案;凝视不集中,就好像在白日梦中,在几英尺前的某个点,
+然后闭上眼睛,保持放松的视线,意识到那里的空间.
+我写下这一切只是为了给出一个更好的参考点,
+很有趣的是,
+我也感觉到了, 虽然我无法区分这和微妙的, 治愈的能量感觉到当在一个状态的裸意识.
+似乎即使它们不是相同的能量, 至少它们是相容的,
+对于M来说,这一阶段缺乏内容令人惊.
+他重新体验了过去几个月发生的一些事件,
+我自己没有经历任何具体的记忆或特别的问题, 但由于第一阶段是如此强烈,
+我认为我们没有被伊波加打, 没有被一些诚实,严酷的真相显示出来,
+我发现, 伊清是正确的: 没有必要尝试.
+只是希望它能结束, 但无论如何, 除了继续躺在那里和骑它.
+幸运的是,事情再次变得有趣.
+我试图理解&quot;伊博加&quot;是如何工作的 (再次,仍然从一个静止的意识的有利位置).
+我开始思考弗洛伊德的心理学与自我,自我和超自我,
+(对于那些不熟悉这些术语的人来说:自我是我们所有欲望,需要和愿望的部分;超自我是我们的道德指南针,建立在我们学到的对与错,我们认为人们应该如何表现,甚至可能是天生的道德感;而自我则是其他两者之间的调解者
+许多人写道, 关于iboga, 你与你的&quot;高自我&quot;接触,
+有时还建议你去问那些你想找答案的问题,
+我朋友提出了一些具体的问题 (关于未来职业计划的建议和神经问题), 但他没有得到答案,
+我曾想过要问问题, 但最终我选择不问问题,
+我也没有感觉到外面有什么智能可以为我提供信息.
+但如果没有人在那里, 谁会说出难以理解的真相?
+我的假设是,回到弗洛伊德, 它是超自我伊博加带来我们接触.
+大多数人通常会有某种自我否定, 有时会以他们觉得不对的方式行事,
+或许是从工作里偷笔,传谣,对他人抱有仇恨和愤怒,或许是嫉妒,在电视或电脑前花费太多时间,尽管他们知道并觉得他们可以用自己的生活做得更好,或是对亲人的疏忽.
+对于一个上者来说 (我提到的是, 很大一部分人服用果,
+可能会促使某些人表现得比其他情况更糟糕,
+对于大多数人来说,
+在某种程度上,他们知道这不是理想的生活方式, 但短期的刺激,
+自我必须努力使超自我沉默, 让自我占据更大的地位.
+伊博加使旅行者与超自我重新接触, 让它完全被听到,
+我觉得iboga不会告诉你你在某种程度上还不知道的东西,
+超自我可能只是&quot;高自我&quot;的一个方面, 伊博加带来了意识意识; 其他可能的方面也可能是例如更深的直觉感,
+第三阶段
+开始时具有高振幅和高频率, 慢慢地变平和扩展.
+每一波伊博加波的强度都会减弱,
+结果,第三阶段非常愉快:长而缓慢的海浪席卷我,
+之前提到的凉爽的能量现在更有形, 并且不断存在.
+这一阶段也是最有趣,最富有洞察力的一阶段:随着伊博加的强度减弱,
+相比其他药物的效果,
+第三阶段是晚上开始的, 持续了一整晚,
+我对iboga的重置功能有了更清晰的认识,
+对于我来说,这表现为再次体验婴儿意识 - - 尽管幸运的是,我是一个快乐的婴儿.
+我在黑暗中醒着, 一切似乎都是新的,
+那些我认同的自己,天赋,兴趣,能力,记忆,
+我从一个纯粹的意识中看出来, 没有具体的身份,
+如果我选择了, 我可以把这些不同的方面带到我的脑海中, 认出它们,
+看到我的不同自我从整体中分离出来, 进入和离开我的意识,
+一切都是如此.
+我再次感到惊奇,
+无论我只是在观察心灵的运动,还是专注于某件事情,
+奇迹似乎是一种基本的情感, 随着事情变得熟悉, 我们很快就会学会忘记它,
+在感受这种惊奇之时, 我感到感激, 而感激, 爱和同情也离不开.
+这是一个积极的情感螺旋.
+我花了大部分的夜晚在这样度过:清醒和警觉,
+我也花了一些时间去思考.
+由于我没有在第二阶段遇到个人问题,
+我发现有趣的想法更多地与M和我前几天讨论的主题有关.
+其中一个主题是关于限制信念, 我们如何根据信仰来解释和塑造我们的世界,
+伊博加似乎把你带到一个可以重新评估信仰的地方:它们是否有用,
+显然,对于成, 伊波加消除了&#x27;我无法摆脱成&#x27;的信念,
+有了iboga这种信念可以被检查和抛弃;有其他选择,有其他行动方式, 我们不需要被绑在有害的操作模式中,
+我在第一阶段听到的关于开放心灵的指示与此有关:由于对精细状态/幸福情绪的怀疑 (相信某种东西是不可信的) 而对自己施加限制.
+我开始思考人类的潜力, 如果我们不限制自己的信仰.
+这导致了关于施罗丁格的猫和多重宇宙的思考, 实际上创造了我们想要生活的宇宙,
+如果这没有意义,那就没关系了,这只是一个假设.
+在第二天晚上
+终于到了早晨,但没有睡觉,所以我起床吃早餐.
+我认为我会在白天睡觉, 但奇怪的是,
+那天晚上我上床睡觉, 沉睡了.
+经过几个小时左右的时间, 我从深度无意识的睡眠转入梦境.
+梦想正在形成:大多还只是黑暗,
+我明白,作为梦的一部分, 我有任务去做一些事情 (也许是创造梦想),
+我试过,但我知道我没有能力做到这一点.
+随着梦的不愉快和焦虑的增加,
+醒来后, 我感到迷失, 也有一定的恐惧.
+我知道我在前一天吃了伊博加, 但老实说, 我不认识自己.
+我不知道自己是谁.
+我脑海中突然出现了这样一句话:&quot;这里没有人可以反思&quot;,或类似的东西.
+核心意识,赤裸裸的意识, 现身和清醒, 显然还有其他的能力, 因为我可以与自己对话,
+我明白了所有这些自我不同方面对于正常人来说是多么重要.
+没有它们,赤裸裸的意识, 它们所扮演的空间,
+感觉有些不完整.
+我开始担心我可能在玩火,
+我担心这些自我可能已经永远消失了, 我不想从头开始重新学习一切,
+我不想在某种精神病院结束.
+经过过去40个小时的狂欢之后, 我渴望有足够的接地,
+我起身去所, 试图与尸体重新接触.
+站着, 我感觉到身体的重量和感觉.
+感觉很坚实,可以辨认.
+我回到床上,躺下,但仍然感觉很迷失.
+经过一段时间,当我凝视着房间,放松时, 我感觉到其他自我开始重新出现:与我的人际关系相关的自我和所有与之相关的感受,我对学习的兴趣,对外语的了解 - - 总的来说,
+虽然我仍然很震惊,
+现在回想起来, 我认为发生了什么事? 简单地说, 在醒着40个小时后,
+部分思想和部分大脑还在睡觉.
+通常情况下,他们会醒来与其他东西, 但现在他们没有.
+在伊博加
+虽然我遇到一些困难,
+我几乎不得不重新学习如何有技巧地生活和处理问题.
+之前我有策略和处理事物的方法,
+现在,当事情出现时, 我几乎不得不回忆起以前的行为,
+这似乎又是伊博加的重置效应:让我回到习惯性模式之前的位置.
+尽管这种模式往往与熟练的行动有关, 比如注意力或宽容,
+如果您重置,则您重置了所有选项.
+其他:
+冥想 (128), 圣餐馆 (200) 小组 (2-9) (17), 个人准备 (45), 第一次 (2), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Self Inquiry and Resetting
+Tabernanthe iboga
+by
+Sariputta
+Citation:   Sariputta. &quot;Self Inquiry and Resetting: An Experience with Tabernanthe iboga (exp104336)&quot;.
+Erowid.org
+. Jul 24, 2015. erowid.org/exp/104336
+DOSE:
+T+ 0:00
+500 g
+oral
+Tabernanthe iboga
+(extract)
+T+ 0:45
+500 g
+oral
+Tabernanthe iboga
+(extract)
+BODY WEIGHT:
+75 kg
+In July 2014, a close friend and myself took a week off from the world and holed ourselves up in a remote cottage in the Scottish highlands to experience iboga. We took it in turns, with my friend (hereafter called M) going first and me acting as sitter, then two days later switching roles. Neither had taken iboga before. What follows is mostly an account of my own experience but some details from my friend&#x27;s experience are also included.
+Our dose was 1000 mg each of total purified alkaloids (TPA). The TPA was reported to contain 95 % pure iboga rootbark alkaloids, of which 70 % was ibogaine. So 1000 mg TPA contained 665 mg ibogaine. We both weigh roughly 75 kg, give or take a few kilos, meaning a dose of about 8.9 mg/kg ibogaine. Our purpose for taking iboga was personal development rather than treating addiction so the dosage seemed more than adequate: one source that seemed fairly reliable recommended 5 – 8 mg/kg ibogaine.
+Background
+Before going into the details of the journey, some background information is necessary. Both M and I are dedicated practitioners of meditation, primarily within a Theravadan Buddhist tradition, and have about 15 years of a regular (usually daily) practice behind us, as well as a number of intensive meditation retreats, both shorter and longer. I feel it important to mention this as I believe our meditation practice – or rather, the changes in ourselves as a result of the practice – impacted significantly on the kind of iboga experience we had. Meditation (as we practice it) successively cleans up your inner world. In psychological terms, issues, complexes, fears, repressed emotions, mental dramas, destructive habits, are, over time, revealed and subsequently released. Meditation is also a path of living without regret, meaning behaving and acting in ways that are skilfull, leading to outcomes that you can be satisfied with. For me and M, although I am in no way implying that we are free from all suffering – we are both still learning, life today is easier than what it was. Much of the psychological garbage and emotional baggage, such as issues with parents, depressions, antagonism toward others etc., are, on the whole, gone.
+So, being in a good place mentally and having the support of a reliable practice, what was the need for iboga? What were we hoping to gain? Our motivation was largely one of curiosity as well as a desire for deeper spiritual insight; to see if iboga could unlock doors not yet unlocked, unearth something still buried. Interestingly, a few months before taking iboga, I consulted the I Ching to see what it thought about me doing it. The reply I got was that there is peace here and now, and it should be appreciated and allowed to grow, rather than going after bigger and better experiences elsewhere. It continued: “It is part of the maturity of the personal self when the activity of its growth is no longer the only thing that matters” (Nigel Richmond, The I Ching Oracle). My interpretation of this is that it was probably unnecessary for me to take iboga, and doing so may even, in my case, be a sign of spiritual immaturity (that of the insatiable seeker always seeking new highs). This did not alter my decision however, but did make me aware that the desire to try iboga might just have been a play of the ego. In some ways, it brought my expectations down to a more realistic level, and my feeling was that it would be an interesting experiment, if nothing else.
+As a side note, anyone familiar with Buddhist practice will be aware that taking iboga is likely a transgression of the fifth precept (rule of training) that most serious practitioners adhere to – that of refraining from taking intoxicants. I say likely since there&#x27;s always the argument that iboga is not strictly an intoxicant: the purpose of taking it is not to flee from yourself as with many other drugs, but rather to face yourself full on. Personally though, I&#x27;m more inclined to classify it is a transgression, and I was conscious of this in my decision to take iboga. I should also mention that although neither of us had taken iboga before, we have both previous experience of other drugs such as cannabis, psilocybin, LSD and ecstasy.
+First phase
+Now on with the journey itself. At about 11.30 a.m. I took half of the dose mixed with honey and would take the second half 45 minutes later (to prevent the risk of vomiting too early) and sat down cross-legged on the floor to meditate, focusing mainly on the breath but at the same time staying aware of the wider field of awareness as a whole. It only took about 15 minutes before I started feeling the effects – a strong feeling of coming up, or rather, what I would describe as charging up. The whole first phase was akin to a battery charging: a building up of energy before the release of activity of the following phases. I could almost hear the buzzing in my ears of a finely tuned engine revving up, gradually increasing in frequency. I had strong sensations at the top of my head as though a large hand was holding onto it, and the phrase came to me, “Sit very, very still”. I remained with my meditation, which despite all the activity going on (light headedness, tingling bodily sensations, movement in the stomach, mental activity) was surprisingly still. Repeatedly, the breath slowed down and became subtler and subtler, and my concentration deepened along with it, only to be interrupted each time by a heaving in-breath as the body, having a more rapid heartbeat than normal at rest, required more oxygen.
+I think it was around about this stage that I heard some more words: “You need to open your heart”, which I understood as a meditation instruction. That is, in order to deepen concentration (something I have been working more on the last few years), the heart needs to open: allowing fully the pleasantness in the body that follows deep concentration to manifest and grow. This means having a soft, compassionate attitude towards yourself that &#x27;I am also worthy of experiencing bliss and happiness&#x27;. I had not acknowledged the importance of this emotional component before, instead emphasizing mainly a uninterrupted focus on the breath for as long as possible (which also needs to be there of course). Upon hearing those words, I took my attention again to the strong sensations at the top of my head and then to my heart region, at which point I felt a channel opening up through my core from top to bottom. This was also seen as a mental image of white light passing through my body. Quite a clichéd image admittedly, and in retrospect it is difficult to say what was &#x27;real&#x27; and what was contrived, but in any case, this was my experience. I am reluctant to call it a kundalini awakening or anything of that nature, or give it significance beyond what it was since ultimately it was also a transient experience, but I could happily define it, albeit diffusely, as an &#x27;opening&#x27;.
+I returned to the breath and shortly thereafter felt an intense wave of bliss starting from my feet expanding upwards, through my legs and trunk to my navel, at which point it all dissipated. The reason for this I think is that I started examining the bliss instead of maintaining my concentration on the breath, which led to the concentration waning, and the bliss (which is merely a consequence of solid concentration) dying along with it. This is actually a common instruction in concentration training: to not shift focus from the meditation object to the bliss. Having never previously experienced a wave of intense bliss before I was fascinated by it and made a beginner&#x27;s mistake.
+I was unable to return to the same deep concentration and was now battling with increasing nausea and acute need to shift my bowels. I told M this and he led me to the toilet. I walked, taking baby steps with my hand on his shoulder, eyes closed to not invoke more dizziness and nausea. One and a half hours had passed since the first half dose and 45 minutes since the second. Content that the iboga was working, I let myself be sick. Here it is noteworthy that I was able to move around, which was also M&#x27;s experience. Ataxia, we both agreed, seems an incorrect description of iboga&#x27;s side effect of physical difficulties in moving; never did either of us feel that we lost conscious control over our body. Rather, it was the dizziness and nausea that commanded you to be still. However, I understand that others taking stronger doses may experience a loss of voluntary use of their body.
+Second phase
+I returned to the room I had sat in but felt I now needed to lie down. It was clear the charging up phase had ended and a new phase begun. Going by reports of others, it was now I expected to meet my demons, to see clear imagery of past incidents and relive them from other&#x27;s perspective. However, this phase was the most unclear of all phases. Things were happening in my mind, there was a lot of activity, but no clear images, not even very clear concepts or trains of thought. It was all a jumble. I was no longer trying to maintain concentration of the breath but rather an awareness of awareness itself, or put another way, awareness of mind itself (as opposed to the contents of mind). This is a space inside our minds which is quite easily accessed through different means, for example, by just instructing oneself not to think for a second. In the space where there was no thought, what was there? It was not nothing, but rather a space, a stillness, bare awareness. It is a part of our being not connected with personality, thoughts, emotions, dreams, troubles, intellect, capacities and everything else we normally call self. It is the space in which all these things play out. This awareness, this space, can be developed with a little practice so that you can be and rest there instead of being in your thoughts. This does not necessarily mean being thought-free. Thoughts may be present but are experienced as from a distance, as movements of the mind, rather than something to identify with. [Other access points into this state: become very aware of the present moment but not necessarily with a specific focus; listen to silence; ask, “who am I?” and silently await a response; gaze unfocused as though in a daydream at a point a few feet in front of you, and then close your eyes maintaining the relaxed gaze and become aware of the space there.]
+I write all this just to give a better reference point since this state was a consistent element in the rest of my iboga journey and is the ground to insights later revealed. Interestingly, iboga facilitated being in this state. M talked about a cool, benevolent energy at this point in his journey, which I also felt, though I am unable to differentiate this and the subtle, healing energy felt when in a state of bare awareness. It seems that even if they are not the same energies, then they are at least compatible, as maintaining this bare awareness for the remaining day and a half of the journey was relatively easy.
+For M, the lack of content of this phase was surprising. He relived some incidents from the past few months which had been quite turbulent, but nothing from before then, which led him to wonder if the iboga we had bought was not strong enough, or the dose too little. For my part, I did not experience any concrete memories or particular issues of concern, but since the first phase had been so potent I was convinced that there was nothing wrong with the quality of the iboga. I think the reason we weren&#x27;t being slapped around by the iboga, and shown some honest, hard truths, as others generally report, was because we had already been slapped around and seen those truths repeatedly on long meditation retreats. When I realised this, I concluded that the I Ching had been right: it hadn&#x27;t been necessary to try iboga. Since the journey no longer seemed to hold anything of interest, I started to feel some boredom and just wished it to be over, but in any case, there was nothing to do except just continue to lie there and ride it out.
+Luckily, things did get interesting again. As phase two was slowing down and thoughts were becoming more coherent, I was trying to understand how the iboga was working (again, still from the vantage point of a still awareness). I came to think about Freudian psychology with the id, ego and super-ego, and saw how it fitted in appropriately with the effect of iboga. (For those not familiar with these terms: the id is the part of us that houses all our desires, wants and wishes; the super-ego is our moral compass, built on what we&#x27;ve learnt is right and wrong, how we think people should behave, and perhaps even an innate sense of morals; and the ego mediates between the other two, trying to achieve some kind of agreement before allowing oneself to go ahead and act.) Many people write with regard to iboga that you come in contact with your “higher self”, while sometimes it&#x27;s referred to as the “iboga spirit”. It is also sometimes recommended to take questions that you are looking for answers to, and pose them to the higher self or iboga spirit. My friend had some specific questions that he posed (concerning advice on future career plans and a neurological issue) but he received no answers, and did not sense any kind of entity that could provide answers to those kinds of questions. For my part, I had thought about asking questions, but in the end opted for having none, deciding it better to entering into it with a spirit of acceptance for whatever insights might make themselves known. However, I also did not sense any kind of intelligence outside of myself that could provide information had I had questions. But if there&#x27;s no one there – who&#x27;s the one showing difficult truths? My assumption is, returning to Freud again, that it&#x27;s the super-ego iboga brings us in contact with.
+Most people usually have some kind of self-denial going on, behaving at times in ways in which they don&#x27;t really feel is right but do it anyway. It may be stealing pens from work, spreading gossip, holding feelings of hate and anger, or maybe jealousy, towards others, spending too much time in front of the TV or computer though they know and feel they could be doing something much better with their life, or being negligent toward their loved ones. For an addict (which I mention since a large percentage of people who take iboga, do it to free themselves of addiction), there is the denial of repeatedly taking the drug which at some point they may feel they no longer want to do but cannot stop the inner drive to do it. Addiction may be pushing some to behave in worse ways than they otherwise would behave, stealing money to finance the addiction, selling themselves etc. To behave in these ways requires for most people a suppression of the super-ego. On some level they know it&#x27;s not an ideal way to live, but the short-term kick, the voice of the id, pushes them forward to do it. The ego has to work hard to silence the super-ego, allowing the id more precedence. Iboga brings the journeyer back in contact with the super-ego, allowing it to be heard fully, and depending on how the person&#x27;s been living, it&#x27;s going to be more or less unpleasant.
+My impression is that iboga is not going to tell you something you don&#x27;t already know at some level, it&#x27;s just that it&#x27;s going to force you to listen to a voice you&#x27;ve been repressing and give you space to reflect on its words. That said, the super-ego may just be one aspect of the &#x27;higher self&#x27; that iboga brings into conscious awareness; other possible aspects could also be e.g. a deeper sense of intuition, or indeed, bare awareness itself, but these are not necessarily going to give all the answers to life&#x27;s problems either.
+Third phase
+M described the progression of the journey as sine waves that, in the beginning have high amplitude and high frequency, and slowly flatten and broaden out. The intensity of each iboga wave lessens and gets further apart. As a result, the third phase was very pleasant: long, slow waves swept over me, soothing and relaxing. The cool energy previously mentioned was more tangible now and constantly present. This phase was also the most interesting and insightful: as the intensity of the iboga wore off and normal consciousness and thinking re-entered, there was more space for reflection and digestion of information. In comparison with other drugs&#x27; come-downs, it was far from a negative experience.
+The third phase started in the evening and continued the whole night during which I did not sleep at all. It was here I got a clearer sense of iboga&#x27;s reset function - that is, of it cleaning the slate and rewinding the tape. For me, this manifested as experiencing consciousness as a baby again - though thankfully, a happy baby. As I lay awake in the dark, everything seemed new and quite amazing. Aspects of myself – selves which I identify with, talents, interests, faculties, memories – were not directly present but somewhere off in the distance. I was looking out from bare awareness, free of a concrete identity, similar to how I imagine a baby sees the world. If I chose to, I could bring these different aspects of myself to mind and recognise them, but if I let them be then they were somewhere else for the time being. Seeing my different selves disaggregated from the whole, moving into and out of my awareness, was fascinating. As was everything. I felt so much wonder, again, like a baby encountering its new world. Whether I was just observing movements of mind, or if I focused my thoughts on something, it all struck me as wonderful that it worked the way it did. Wonder, it seems, is a basic emotion which we probably learn to forget fairly quickly as things become familiar and we stop looking at things as though for the first time. While feeling this wonder, I felt grateful, and from gratefulness, love and compassion were not far away. It was a positive emotional spiral.
+And that&#x27;s how I spent most of the night: awake and alert, bathed in basic positive emotion. I also took some time to think and reflect. Since I had not had personal issues to contend with in the second phase, there was no reflection on these kinds of things, that is, about seeing wrongdoings and looking to change behaviour. The thoughts which came and which I found interesting enough to go into were connected more with subject matter M and I had discussed the previous days. One of these topics was about limiting beliefs, how we interpret and shape our world due to our beliefs and also place limits on ourselves about what&#x27;s possible in the process. Iboga does seem to take you to a place where you can reassess your beliefs: whether they&#x27;re helpful or not and whether you want to keep them or take a different path. Obviously with addiction, iboga removes the belief that, &#x27;I can&#x27;t get out of addiction&#x27;, but similarly with any psychological issue there may be a belief that, &#x27;that&#x27;s just the way I am, I can&#x27;t help it&#x27;. With iboga such a belief can be examined and dropped; there are other options, there are other ways to act, we don&#x27;t need to be tied into a harmful mode of operation just because we don&#x27;t see how we could be otherwise. In my case, the instruction I&#x27;d heard in the first phase to open my heart is related to this: a limitation placed on myself due to suspicion (belief that something isn&#x27;t to be trusted) of finer states / blissful emotions.
+After contemplating beliefs and the influence they have, I started to wonder just what potential we as humans really have, if we didn&#x27;t limit ourselves in our beliefs. This led to thoughts about Schrödinger&#x27;s cat and multiple universes – in effect, creating the universe we want to live in through choosing to believe in as yet unknowns having a particular outcome. I won&#x27;t go in to this more, so if it doesn&#x27;t make sense, it doesn&#x27;t matter, it was just a hypothesis.
+The night after
+Eventually morning came, but sleep didn&#x27;t, so I got up and had breakfast. I thought I&#x27;d go to bed sometime during the day but strangely enough, as the day went on, the more awake I became. That night I went to bed and fell into a deep sleep. After a couple of hours or so, I was moving out of deep, unconscious sleep into a dream state. The dream was forming: mostly it was still just darkness, but in the centre, some abstract image was being created, though it couldn&#x27;t really form properly. I understood, as part of the dream, that I had a task to do something (perhaps to create the dream) but I wasn&#x27;t capable of doing it. I tried, but knew I didn&#x27;t have the capacity to do it. As the unpleasantness and anxiety of the dream increased and it felt more like a nightmare, I managed to wake myself up. Awake, I felt lost and also a certain amount of fear. I turned on the light and recognised the room I was in, and I knew that I&#x27;d taken iboga the day before last, but to be honest, I didn&#x27;t recognise myself. I didn&#x27;t know who I was. The sentence popped into my head, &#x27;There&#x27;s no one here in which to reflect&#x27;, or something to that nature. The central awareness, the bare awareness, was present and awake, and obviously some other faculties since I could have a dialogue with myself and put on the light and so on, but most other selves – the things I identify with - were not there, not even in the distance as before.
+At that point I understood how important all these different aspects of self are in order to function normally as a human. Without them the bare awareness, the space in which they all play out, has nothing to see itself in, to reflect off of. There was a definite feeling of not being whole. I started to worry that I may have been playing with fire in using iboga to disassemble my mind. Worrying that these selves might have dissolved for good, I didn&#x27;t feel like having to relearn everything from scratch, and have to create new selves again – much as a child does in growing up. And I didn&#x27;t want to end up in some kind of mental institution. After the heady heights of the last 40 or so hours I longed for grounding, something reliable to relate to, even something boring, mundane and grey. I got up, went to the toilet, and tried to reassert contact with the body. Standing, I felt the weight of the body and its sensations. It felt solid and recognisable. I went back to bed and lay down but still otherwise feeling quite lost. Then, after some time, as I stared into the room and relaxed, I felt how other selves started to reappear: the self connected with my relationship and all the feelings associated with that, my interest in my studies, knowledge of a foreign language - in general, a sense of identity, the sense of who &#x27;I&#x27; (the relative I) recognise myself to be. As these parts fell into place, I felt enormous relief, though still quite shaken up by it all. Looking back now, what I think happened was simply that I was so tired after being awake for 40 hours that the selves I couldn&#x27;t access were still sleeping. Parts of the mind and parts of the brain were still asleep. Normally, they&#x27;d wake up along with everything else but now they hadn&#x27;t.
+Post iboga
+Over a month has passed since taking iboga and it&#x27;s mostly been a smooth ride though I have encountered some difficulties in returning to normal life again. It&#x27;s almost like I&#x27;m having to relearn ways of living skillfully and dealing with problems. Previously, I had strategies and ways of dealing with things, based on a learned understanding of what generally works and doesn&#x27;t. Now, as things come up, I almost have to remember how I did before, or I act without reflection, make a mistake and then have to consider how I used to do to not make that kind of mistake. It seems that this is again just the reset effect of iboga: bringing me back to a place prior to habitual patterning. Even though the patterning was often related to skillful action, such as being mindful or being tolerant, iboga doesn&#x27;t necessarily seem to differentiate. If you&#x27;re reset, you&#x27;re reset – all options are open.
+Exp Year: 2014
+ExpID: 104336
+Gender: Male
+Age at time of experience: 37
+Published: Jul 24, 2015
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Meditation (128), Tabernanthe iboga (200) : Small Group (2-9) (17), Personal Preparation (45), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

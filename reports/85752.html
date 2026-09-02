@@ -1,0 +1,262 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉 - 埃罗维德探险 - &#x27;进入精神世界&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/datura.html'>← 曼陀罗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉 - 埃罗维德探险 - &#x27;进入精神世界&#x27;</h1>
+<div class='sub-title'>Datura - Erowid Exp - &#x27;Stepping into the Spirit World&#x27;</div>
+<div class='meta'>作者：Alex Citation · 日期：Feb 20, 2011 · <a href='https://erowid.org/experiences/exp.php?ID=85752' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>对于我来说,重温这一经历有点困难.
+我记得的几个小时是最可怕,最致命的,
+我当时17岁,
+我在一个非常保守的&quot;富裕&quot;家庭长大,
+到了17岁, 我开始经常, 喜欢我发现的新世界.
+我遇见了很多人, 度过了我父母可能会死去的地方,
+我喜欢独立.
+我喜欢认为我知道更好.
+我17岁时, 那些让我接触草的朋友也开始谈论&quot;月亮花&quot;.
+我告诉他们我很想试试, 我们在整个城里搜寻,
+我们找到了一棵植物,
+我不记得那天晚上我吃了多少, 但不是很多.
+我记得很快就回家了, 让自己觉得自己已经开始失灵了.
+我从来没有做过任何事, 除了吸草,所以我甚至不知道这应该做什么,
+这就是我所知道的.
+几个月过去了, 我发现自己在当地湖泊和一些朋友在海上.
+我注意到一些巨大的&quot;月花&quot;植物在附近生长, 仔细观察后,
+我选择了四到五个最大的,
+它们看起来很酷,所以我把它们排在房间里的电视上,
+几天后,我的全家人带着他们的妻子和孩子 (我是最小的) 下来了.
+我们是一个非常亲密的家庭, 所以我们花了一天的时间出去玩,
+我不知道那天晚上会发生什么.
+时间大约是凌晨3点,
+电视上什么都没有, 但很快我又想起了电视上那个刺状的.
+我当时心情很大胆, 不想再一次错误的开始,
+我把两只豆的内容完全清空, 倒了一杯我最喜欢的果汁,
+那天晚上已经过去了6年, 但当我坐在这里回忆起那一天,
+我坐在厨房里几分钟然后记得走下楼到我的卧室.
+我坐在床上等待发生什么事情, 经过10分钟左右的时间,
+我坐起来走进浴室,当我站起来我注意到一个强烈的头感来了我.
+我还记得当时的想法.
+我走进浴室, 尿的冲动非常强烈,
+无论我多么努力,我都无法开始小便.
+我的思想变得越来越模糊.
+我记得每次进入热水, 我都很难不去,
+我认为这是一个天才的想法.
+我开始走出浴室,当我看到自己的反射时,
+不能认出那个看着我的人.
+我坐在那里移动我的脸和感觉它与我的手作为影响来冲洗我越来越快.
+我从来没有感受到过这样的感觉,
+现在我已经开始在家里&#x27;传送&#x27;.
+我完全不记得曾经走来走去,
+我开眼睛, 坐在卧室的镜子里, 越来越困惑,
+我转移到热水浴控制器,并打开它.
+热水浴需要20分钟才能热起来, 我只是记得我突然穿着泳装,
+我记得我很难举起我的腿走路.
+我认为我举起我的腿足够高, 跨过了, 但当我走一步,
+我再试一次,结果是一样的.
+我下身,用双手抬起腿, 突然坐在温水中.
+我终于可以排尿了,
+这就是我开始失去意识的时刻.
+我最好的解释是, 像有人抓住我的子,
+我听到一个奇怪的静态噪音在背景像从电视慢慢消失,我又回到正常.
+这种情况一再发生.
+这更奇怪,因为水和喷气的噪音与静电混在一起,
+这是最可怕的部分.
+我会简要解释我们后院的开支,
+基本上游泳池和热水浴距离房子大约25英尺,
+我们两边的房子被一堵高墙隔开.
+我站在一个我面对房子背向下降和能够看到我们的邻居房子的墙在我最右边 (约50英尺远).
+记住现在是凌晨三点半到四点,
+我记得我看着墙上, 看到一个黑暗的形象出现.
+它更像是一个黑色的影子而不是一个人,它滑过墙上,开始爬到我.
+在墙上出现的第一个形象之后, 还有三个完全一样的形象.
+我跟着他们, 他们滑上, 越过院子,
+然后黑暗...
+现在静态...
+我什么也看不见,但我能听到静电变得越来越大.
+它们会越来越多, 变成热水喷气的声音.
+我抬头看,这些数字都消失了.
+现在黑暗再次...
+这些生物回来了.
+我正在和他们交谈,但我不记得是什么.
+现在静电又在增加,
+我回头看,他们已经走了.
+黑暗又吞了我,这些生物又回来了.
+我突然醒来,发现自己在楼下客厅里,
+我开始走到卧室, 发现灯光亮了.
+&#x27;我没有把它打开&#x27;我对自己说.
+我走进去,我惊地发现全家人都在那里.
+他们都惊地着我.
+爸爸走近我,用严厉的声音说:&#x27;你在做什么?&#x27;我拼命地试图回答:&#x27;什么都没有!&#x27;但是我的嘴巴不通.
+我终于说出了接近&#x27;无&#x27;的东西,他回应说:&#x27;你说得太糟糕了,我甚至不能理解你,现在告诉我你在干什么!&#x27;我大喊&#x27;无!&#x27;然后转向我的床.
+我坐在上面,我躺在她旁边.
+她把手放在我的下面, 感觉到我的心, 我听到她说:&quot;他的心即将跳出他的胸&quot;我害怕, 在我的最后一句话说:&quot;月花, 我拿了月花.
+我指着我的电视.
+我举手喊着&#x27;月花!
+然后是黑暗.
+这是我最后的记忆.
+我突然醒来,发现抱着我.
+我坐在办公室的沙发上, 看到一个人向我冲来,
+让我们安静下来.
+我回来看看自己的手臂.
+在我的肘部附近, 血管上有带,
+我问她发生了什么事, 告诉我我在医院里待了24小时.
+显然他们把我赶到医院后, 我在我的床上昏,
+我打护士和骂人, 他们不得不把我绑在医院床上.
+我开始发作,所以他们给了我这种东西, 应该让你昏倒,
+我全家都在我的房间里, 因为显然在某个时候我走进我姐姐睡觉的房间,
+现在我真的觉得我已经开始进入灵界了, 我看到了真正的灵魂.
+也许他们一直在看着我.
+如果我掉进了水池, 我肯定会淹死.
+如果我走过院子的边缘我会跌到我的死亡.
+我那天晚上没有自杀的事实是一个奇迹.
+&quot;月亮花&quot;,石膏草,或其他什么,是一个可怕的杂草.
+我会像瘟疫一样远离它.
+我真的无法控制自己的身体.
+我可能杀了我的整个家庭,我永远不会记得.
+世界上没有足够的钱让我再次尝试.
+其他:
+2011年2月20日发布</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stepping into the Spirit World
+Datura
+by
+Alex
+Citation:   Alex. &quot;Stepping into the Spirit World: An Experience with Datura (exp85752)&quot;.
+Erowid.org
+. Feb 20, 2011. erowid.org/exp/85752
+DOSE:
+2
+oral
+Datura
+(seeds)
+BODY WEIGHT:
+150 lb
+Re-visiting this experience is somewhat difficult for me. The few hours I remember are some of the most frightening and potentially deadly I&#x27;ve ever had the displeasure of experiencing.
+I was 17 and rebellious. I grew up in a very conservative &#x27;wealthy&#x27; family and by my early teens I found myself experimenting with pot (mostly out of my desperation for friends). By the time I was 17 I was regularly getting stoned and loving this new world I&#x27;d discovered. I was meeting people and spending time in places that my parents would have died had they ever found out about and I loved it. I loved the independence. I loved thinking I knew better.
+By the time I was about 17 the same group of friends that introduced me to pot had started talking about this thing called &#x27;moon flower&#x27;. Desperate to prove myself to these older &#x27;cooler&#x27; guys I told them I&#x27;d love to try it and we went on a search throughout the town to hopefully find some growing. We found a plant and took a few pods to one of the guys home. I don&#x27;t remember how much I took that night but it wasn&#x27;t much. I remember going home pretty soon after and coaxing myself into thinking I was starting to trip out. I&#x27;d never done anything but smoke weed so I didn&#x27;t know what this was even supposed to do but the little information they had given me led me to believe it was some kind of hallucinogen. That&#x27;s literally all I knew about it.
+After that failed night a few months had gone by and I found myself at the local lake with some friends hanging out on the beach. I noticed some gigantic &#x27;moon flower&#x27; plants growing nearby and upon closer inspection, I noticed that there were several huge spiny pods growing all around it. I picked 4 or 5 of the biggest ones and headed home. They looked kind of cool so I lined them on top of the TV in my room and kind of forgot about them.
+A couple days later my entire family came down with their wives and children (I&#x27;m the youngest). We&#x27;re a pretty close family so we spent the day hanging out and just having a good time. Little did I know what was coming that night... It was about 3 in the morning and I was bored with nothing to do. I&#x27;d spent all the time I could on the computer and there was nothing on TV but I soon remembered the spiny pods sitting on top of my television. I was in a pretty daring mood and I didn&#x27;t want another false start so I took 2 of the pods upstairs with me and cut them open in the kitchen. I completely emptied out the contents of both pods and poured a glass of my favorite juice then proceeded to pour the contents into my mouth where I chewed them up to a pulp and swallowed the mush with a few gulps of fruit juice.
+It&#x27;s been 6 years since that night but as I sit here and remember it I&#x27;m actually gagging as I think about it.
+I sat in the kitchen for a few minutes then remember walking downstairs into my bedroom. I sat on the bed waiting for something to happen and after 10 minutes or so had passed I started thinking it must have been another dud pod. I sat up to walk into the bathroom and as I got up I noticed a strong sense of dizziness come over me. &#x27;It&#x27;s working!!&#x27; I remember thinking. I walked into the bathroom with a really strong urge to urinate but as I stood over the toilet I noticed that I couldn&#x27;t go. No matter how hard I tried, I couldn&#x27;t start to pee. By this time the effects were almost doubling every minute or so and my mind was becoming more and more cloudy. I had to pee soooo bad and I remembered that every time I get into hot water I had a hard time NOT going so hey, why not turn on the outside jacuzzi? Genius idea I thought.
+I started walking out of the bathroom and as I caught my reflection on the way out I stopped and stood there staring at myself. Not recognizing the person looking back at me. I sat there moving my face around and feeling it with my hand as the effects came washing over me faster and faster. I&#x27;d never felt anything like this before and I was kind of liking it. By this time I had started to &#x27;teleport&#x27; around the house. I have absolutely no memory of walking around, I just remember appearing in different rooms. I opened my eyes and I was in my bedroom looking into the mirror, getting more and more confused about who was looking back at me. I teleported to the jacuzzi controls and turned it on. The jacuzzi takes a good 20 minutes to heat up but I just remember suddenly being in my swimsuit and trying to walk outside to get into the warm jacuzzi.
+I remember having the hardest time trying to lift my legs to walk by now. I got to the edge of the jacuzzi which has about a 1 foot high ledge to step over and I thought I was lifting my leg high enough to step over the ledge but as I went to take my step I noticed my foot was only a few inches from the ground. I tried again and the same result. I bent down and lifted my leg up with my hands and suddenly I was sitting down in the warm water. I was finally able to urinate and I was just sitting there in a complete daze. This is where I started to pass in and out of consciousness. The best way to explain it is to say it&#x27;s EXACTLY like when someone holds my neck and passes me out and I start coming back from it. I get this weird static noise in the background like from a television that slowly fades away and I’m back to normal again. This started happening over and over again. It was even stranger because the noise of the water and jets mixed in with the static and all blend together.
+This is the scariest part. I&#x27;ll give a brief explanation of the outlay of our backyard to better convey the situation. Basically the pool and jacuzzi sit about 25 feet away from the house and the house faces a steep drop off that looks out over the city. There&#x27;s homes on both sides of ours that are separated by a high brick wall. I was situated in a way that I was facing the house with my back to the drop off and able to see the brick wall to our neighbors house to my far right (about 50 feet away). Remember this is now about 3:30-4:00 in the morning so it&#x27;s pitch dark. I remember looking over at the wall and seeing a dark figure appear. It was more of a black shadow then a person and it slid up over the wall and started crawling over to me. The moment the first figure started over the wall it was followed by 3 others that looked exactly like it. I followed them with my eyes as they slid up and over the yard until they slipped into the water in front of me.
+Then darkness... Now static.. I can&#x27;t see anything but I can hear the static getting louder and louder. It&#x27;s building up more and more until it morphs into the sound of the jacuzzi jets. I look up and the figures are gone. Now darkness again... The beings are back. I&#x27;m talking to them but I don&#x27;t remember what about. Now the static is building up again until it morphs into the jets. I look back up and they&#x27;re gone. Darkness swallows me again and the beings are back.
+Then suddenly I come back to and I&#x27;m in the house, standing in the downstairs living room dripping wet. I start walking to my bedroom and I notice the light is turned on. &#x27;I didn&#x27;t leave it turned on&#x27; I think to myself. I walk in and to my absolute horror my entire family is there. They&#x27;re all staring at me with looks of disgust and surprise. My dad approaches me and in a demanding voice says: &#x27;WHAT ARE YOU ON!&#x27; I desperately try to answer &#x27;Nothing!&#x27; but my mouth won&#x27;t work. I finally get something close to &#x27;nothing&#x27; out and he answers back: &#x27;You&#x27;re slurring your words so badly I can&#x27;t even understand you, now tell me what you&#x27;re on!&#x27; I scream back &#x27;NOTHING!&#x27; and turn to my bed. My mom is sitting on it and I lay down next to her. She places her hand underneath me to feel my heart and I hear her say: &#x27;His heart is about to beat out of his chest&#x27; I get scared and in my final words utter: &#x27;moon flower, I took moon flower&#x27;. They ask in confusion what &#x27;moon flower&#x27; is and I point to my TV. I raise my hand and yell &#x27;MOON FLOWER!&#x27; as I point at the pods on my TV. Then darkness.
+That was my last memory. Suddenly I wake up and my mom is holding me. I&#x27;m sitting on the couch in the office and I see a figure charging toward me, I start batting at it with my hands and screaming and my mom holds me down and says &#x27;Alex, it&#x27;s just a hallucination. Settle down&#x27;. I come back to and look at my arm. There&#x27;s a bandage over my veins near my elbow and a hospital ID tag around my wrist. I ask what&#x27;s going on and my mom tells me I&#x27;ve been in the hospital for the last 24 hours.
+Apparently they rushed me to the hospital after I passed out on my bed and I went crazy when I got there. I was punching the nurses and swearing at everyone so they had to restrain me on my hospital bed. I started to seizure so they gave me this stuff that&#x27;s supposed to knock you out but it didn&#x27;t work until they gave me 10x more then what&#x27;s normally required. My entire family really was in my room because apparently at some point I walked into the room my sister was sleeping in and mumbled some gibberish so she went to my parents and woke them up which woke everyone else up and they all wanted to see what was going on.
+To this day I honestly think I was starting to cross over to the spirit world and I was looking at actual spirits. Maybe they were looking over me. If I had fallen into the pool I would have unquestionably drowned. If I had walked over the edge of the yard I would have fallen to my death. The fact I didn&#x27;t kill myself that night is a total miracle.
+&#x27;Moon flower&#x27;, Jipsum weed, or whatever, is a terrible weed. I will stay away from it like the plague. I literally had no control over my body once it kicked in. I could have murdered my entire family and I would never remember it. There isn&#x27;t enough money in the world to make me try it again.
+Exp Year: 2004
+ExpID: 85752
+Gender: Male
+Age at time of experience: 17
+Published: Feb 20, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : Mystical Experiences (9), Families (41), Entities / Beings (37), Difficult Experiences (5), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

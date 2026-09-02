@@ -1,0 +1,230 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>对于TMA的客观反应</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tma.html'>← TMA</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>对于TMA的客观反应</h1>
+<div class='sub-title'>TMA - Erowid Exp - &#x27;Not Completely Pleasant [Objective Response to TMA]&#x27;</div>
+<div class='meta'>作者：Alexander Shulgin From Shulgin Archives C · 日期：Sep 9, 2011 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=92424' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>主题: 格拉迪斯,休,欧文
+观察者:亚历山大·舒尔金
+没有服用抗药物.
+美国
+[来自&quot;第2页&quot;的文字]
+美国
+它们是主体.
+格莱迪斯 - 剂量140毫克2. 0毫克/ 千克/ 休 - 剂量135毫克1. 7毫克/ 千克/ 欧文 - 剂量140毫克1. 8毫克/ 千克
+在所有受试者身上, 明显的恶心迹象,
+药效可比于梅斯卡林的2至3倍重量,表明药效是梅斯卡林的2-3倍.
+美国
+主题:格拉迪斯 (剂量140毫克2.0毫克/公斤)
+药物服用后短时间的恶心持续约0.8至1.1小时后,受试者似乎心情良好.
+对于一个普通的笑话,
+能够准确地处理一个问题.
+在2点左右,不得不离开实验室与一位访客简短地交谈 - 没有经历过与他交谈的不足.
+似乎没有缺乏协调或保护自己免受交通.
+乘坐汽车时, 显然会有点幽闭恐惧症,
+发现他可以完全迷失在其中.
+躺在地板上,他的头在毯子下.
+报告说与它有着高兴的关联 (闭眼幻觉),但可以随时自愿与其他受试者交谈.
+发表声明说,如果我有更多的药物,我可以有高潮的音乐. (斯特拉文斯基:春天的仪式)
+随后的肖邦钢琴研究和巴赫教会管弦乐似乎同样令人愉快.
+如果他想听音乐,他会对别人的谈话感到非常火.
+他唯一的攻击性症状就是声高呼求&#x27;闭嘴,或者去别的房间,
+他很少想吃东西, 似乎很少有色彩或运动合成.
+在5小时离开对象, 在那个时候他肯定是退出药物效应.
+据他的报告,在8点钟基本上没有任何剩余的效果,尽管他抱怨 (像他的妻子一样) 第二天他心情很不好,很容易生气.
+他的一般印象是他的剂量具有相当于300或350毫克梅斯卡林的&quot;药物效应&quot;,但绝对不是400毫克 (即
+这种药物的强度是梅斯卡林的2 - 2 1/2倍).
+他似乎无动于衷, 说这很有趣, 但更喜欢梅斯卡林.
+主题:Hugh [剂量135毫克1.7毫克/公斤]
+几乎没有恶心反应这个主体几乎相同的剂量药物.
+(对梅斯卡林的效应非常敏感).
+在1个半小时后,用光学刺激器进行实验,生成棕树叶和摇摆树的 (闭眼) 图案.
+陷入了笑话讲述的角色 (有点糟糕的笑话,他告诉非常好,然而).
+他似乎有点轻,并以异常外向的方式回答问题.
+在1英里的步行中,他非常清楚像梅斯卡林一样的感知,并评论了他 (假定) 坐在鸟类的行为上哲学化的能力 (他是一个观鸟者).
+他认为他能记住他们的行为, 因为他可以将其与自己的行为联系起来,
+他对自己的新个性有客观的观察能力感到惊, 发现它的各个组成部分可以分别分析.
+在3个半小时 (在音乐实验期间) 他变得非常 (和令人火) 喋喋不休.
+他会讨论语言的起源,它们是如何从人们的环境需求中衍生出来的,也许未知起源的语言可以通过关联基本单词或词干和地理地形要求来追溯.
+还有很多这样的哲学迷思.
+他偶尔会陷入一个深沉的梦想,从他会出现充满谈话,说话一段时间强烈 - 撤退到他的思想.
+没有任何行动障碍 - - 他会在房间里漫步.
+在音乐中,他躺在地板上,把眼睛着天花板 (一个双纹理的表面) 并发现其中的交织运动.
+他反复描述自己的性格是分裂和暴露的, 他觉得他可以最清楚地理解他的心理结构.
+他评论说这种药物的精神使用将是有趣的.
+到了5点12分, 他觉得自己可以开车去旧金山.
+他没有任何可指定的副作用,
+没有气.
+他总的印象是,这种药物并不完全令人愉快,
+他会再次尝试药物只有一个特定的原因.
+然而,它确实重申了他的观点,
+主题: 欧文[剂量140毫克1.8毫克/公斤]
+服用药物后没有恶心.
+患者最初在使用素时出现中度严重的恶心,但在随后的每次试验中恶心的程度都会下降.
+他很高兴, 欣赏当前的笑话说得比它应得的更多.
+虽然他走了1英里, 似乎很累,
+在这三名受试者中, 他似乎表现出最少的药物作用.
+这次乘车没有引起任何异常的评论或反应.
+他选择安静地躺下,观察他相信,但不确定,他看到的形状和模式.
+他似乎更感兴趣的是我对他的反应的反应, 并没有选择忽视我的存在.
+我在四小时时刻离开他, 在那个时候他似乎从他曾经的少数症状中退出.
+接下来的一天没有任何后果报告, 他的一般记忆是药物的极轻效应.
+他对药物的重新试验漠不关心, 他认为药物的小效果不应浪费一天.
+其他:
+TMA (553):小组 (2-9) (17),二手报告 (42),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Not Completely Pleasant [Objective Response to TMA]
+TMA
+by
+Alexander Shulgin
+From
+Shulgin Archives Collection
+Citation:   Alexander Shulgin. &quot;Not Completely Pleasant [Objective Response to TMA]: An Experience with TMA (exp92424)&quot;.
+Erowid.org
+. Sep 9, 2011. erowid.org/exp/92424
+DOSE:
+oral
+TMA
+[This report originally appeared as handwritten notes in Book 1, pages 9-12 of the Shulgin Lab Books.]
+Objective Response to TMA
+Date: 4/22/60
+Subjects: Gladys, Hugh, Irving
+Observer: Alexander Shulgin
+DOSE see page 2. no antiametic administered.
+_______________________
+[TEXT FROM &#x27;PAGE 2&#x27;]
+4/22/60.       Subjects.   Gladys - dose 140 mg  2.0 mg/Kg  / Hugh  - dose 135 mg  1.7 mg/Kg / Irving - dose 140 mg  1.8 mg/Kg
+In all subjects - distinct evidence of some nausea - comparable perhaps to equi-weight doses of Mescaline. Druggedness comparable to from 2 to 3 times this wt. dose of Mescaline-indicating a pharmacological potency of 2-3 times.
+_______________________
+SUBJECT: Gladys [dose 140 mg  2.0 mg/Kg]
+After a short period of nausea lasting from about 0.8 to 1.1 hrs after the administration of the drug, the subject seemed to be in a good mood. There was some tendency to over-appreciate an average joke. Coordination seemed essentially normal - able to work a problem accurately on a slide rule. At about 2 hrs, had to leave the laboratory to talk with a visitor briefly - experienced no insufficiencies in talking with him. At 2.5 hrs took a long walk (about a mile) and seemed to lack no coordination or ability to protect himself from traffic. Riding in a car evidenced some claustrophobia and loss of accurate distance estimation. At 3.5 hrs found listening to music extremely enjoyable, and found he could lose himself completely in it. Would lie on the floor with his head under a blanket. Reported a euphoric association with it (eyes-closed hallucinations) but could talk to the other subjects voluntarily at any time. Made the statement &#x27;If I had a little more of this drug, I could have an orgasm to that music.&#x27; (Stravinsky: Rites of Spring). Subsequent Chopin Piano Études and Bach Church Organ music seemed equally pleasurable.
+He would become very irritated at the conversation of others if he wished to attend to the music. This vocalized request to &#x27;shut up or go into another room if you want to talk&#x27; was his only aggressive symptom.
+He had very little desire to eat, seemed to have very little mescaline-like color or motion synthesis. Left the subject at 5 hrs, at which time he was definitely withdrawing from the drugs effect. By his report there were essentially no remaining effects at 8 hrs, though he complained (as did his wife) that he was in a grouchy and irritable mood the next day.
+His general impression was that his dosage was with a &#x27;drugged effect&#x27; equivalent to 300 or 350 mg of Mescaline but definitely not as much as 400 mg (i.e. 2 - 2 1/2 times the potency of mescaline). When asked if he would like to repeat the experience he seemed indifferent, saying that it was interesting but preferred mescaline.
+SUBJECT: Hugh [dose 135 mg  1.7 mg/Kg]
+There was very nearly no nausea response of this subject to his nearly-equal dose of the drug. (Subjective is exceptionally sensitive to the emetic effect of mescaline). At 1 1/2 hours experimented with the photic stimulator, generating (eyes-closed) patterns of palm-leaves and swaying trees. Became somewhat talkative, fell into a role of joke-telling (somewhat poor jokes, which he told very well, however). He seemed a little light-headed and responded in an unusually out-going manner to questions.
+During the 1-mile walk he was quite aware of the mescaline-like perception and commented on his (presumed) ability to sit and philosophize upon the behavior of birds (he is a bird-watcher). He felt that he would be able to remember their behavior because he could correlate it to his own, and thus better understand it. He was struck with his capacity to observe his new personality objectively, and found the various components of it to be separately analyzable.
+At 3 1/2 hrs (during the music experiment) he became extremely (and annoyingly) talkative. He would discuss the origins of languages, how they are derived from the environmental needs of the people, and that perhaps languages of unknown origins could be traced by correlating basic words or word-stems, and the geographical terrain requirements. And many more such philosophical meanderings.
+He would occasionally fall into a deep reverie, from which he would emerge full of conversation, talk for a while intensely - the retreat to his thoughts. There was no impairment of mobility - he would wander around the room. During the music, he lay on the floor and kept his eyes fixed on the ceiling (a tweedy-textured surface) and found interwoven motion in it.
+Repeatedly his self-description would return to the fact that his personality was divided and exposed, that he felt he could understand his psychic structure most clearly. He commented that the psychiatric use of the drug would be interesting to pursue.
+At 5hrs accompanied the subject back to his car, and at 5 1.2 hrs, he felt capable of driving to San Francisco. He had no assignable after effects except for a slight stomach-ache the following day. No grouchiness.
+His general impression was that the drug was not completely pleasant, as it allowed him a too intimate view of himself. He would try the drug again only for a specific reason. However, it did reiterate his opinion that it had value in psychiatry.
+SUBJECT: Irving [dose 140 mg  1.8 mg/Kg]
+There was no nausea experienced after taking the drug. Subject had, initially, with mescaline, moderately severe nausea, which decreased on each subsequent trial. At about 1 1/2 hrs he got quite happy, appreciating the current joke telling more than it deserved. The 1 mile walk seemed to fatigue him, but there was no apparent physical lack of coordination. Of the three subjects, he seemed to show the least drugged effect. The car ride evoked no unusual comment or reaction.
+While the music was in effect he chose to quietly lie down and observe the stroboscope, in which he believed, but was not sure, he saw shapes and patterns. He seemed to be more interested in my reaction to his reactions, and did not choose to ignore my presence.
+I left him at the 4 hour point, at which time time he seemed to be withdrawing from what few symptoms he ever had.
+The following day there was no report of any after-effect, and, his general memory was of an extremely light effect from the drug. He was indifferent concerning a re-trial of the drug, felt that the little effect it had didn&#x27;t warrant wasting a day.
+Exp Year: 1960
+ExpID: 92424
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Sep 9, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+TMA (553) : Small Group (2-9) (17), Second Hand Report (42), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

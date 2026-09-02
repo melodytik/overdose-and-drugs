@@ -1,0 +1,253 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>抗抑郁药,抗偏头痛药</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mdpv.html'>← MDPV(浴盐)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>抗抑郁药,抗偏头痛药</h1>
+<div class='sub-title'>MDPV (&#x27;Ivory Wave&#x27;) - Erowid Exp - &#x27;Antidepressant, Anti-migraine&#x27;</div>
+<div class='meta'>作者：Sinnlos Citation · 日期：Jul 28, 2011 · <a href='https://erowid.org/experiences/exp.php?ID=90851' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我有很多工作要做,
+我患有轻微的抑郁症, 当它发生时, 我发现自己变得无情,
+我不能集中在这种状态.
+没有任何与任何人互动的愿望.
+我没有性欲,也没有性欲.
+尽管如此, 我还是拒绝服用抗抑郁药,
+我多年来使用过可卡因,大麻,酒精,阿片类药物,类药物,类药物,LSD,类药物和类药,
+这些药物会导致非理性行为, 躁狂,
+我曾经服用过香药, 几周之久,
+我觉得有时需要自行治疗.
+我不是那种喜欢被&quot;搞&quot;的吸毒者.
+对于我来说,娱乐用途是最小的.
+我很少服用药物, 很少对任何药物产生严重的中毒.
+我喜欢小小的声, 但我讨厌把自己扔进另一个现实.
+这只是我.
+我就是这样的用户.
+如果您是个沉重的,大胆的用户,
+这不是一种极端心理的药物.
+我认为MDPV是一个不错的候选人.
+根据我做过的研究, 我决定在最小的剂量与严格的纪律,
+即使如此,也不能长期使用小剂量.
+我是对的!
+它的效果和预期一样,
+据说卖方是在伯利兹, 但当信封来自匈牙利时,
+我订购了200毫克, 但有2for1特别当我打开包装有2包象牙波和一个&quot;Sextacy&quot;,
+知道这种药物在小剂量时非常有效, 没有适当的剂量,
+这仍然不是很明智, 你永远不应该&quot;眼球&quot;粉末药物, 特别是MDPV.
+我做了一条线, 估计不到5毫克,
+时间是下午12点.
+我想在办公室冒险之前在家试试.
+我想要一个试驾.
+我感觉到了第一种效应.
+我觉得咖啡因和警觉.
+我可以感觉到轻微的高兴感,
+这很奇怪.
+如果我不专注于某一特定的活动,
+我注意到我心情很好,
+没有感觉过度快乐,
+没有中毒的感觉.
+这就是人们在MDPV中所说的&quot;清醒&quot;刺激.
+我可以处理复杂的任务和互动,
+我感觉到药物,但我没有感觉,如果这有任何意义.
+我花了很多时间在各种任务上,
+这些任务并不特别愉快,
+似乎可以消除某些任务所带来的无聊感.
+现在我也能感觉到身体上的影响.
+那些曾经服用过甲基,伪或SSRI/NDRI的人,
+这种&quot;&quot;的感觉.
+虽然是轻微的,但确实存在.
+如果您曾经服用过偏头痛药, 您就会知道, 血清激素水平上升的感觉是什么. 肌肉有点,
+虽然我饿了,但我可以很容易地忽略饥饿.
+虽然没有显著的高兴感,
+总体上是一个很好的心情.
+在T+3时,它已经消失了.
+我认为这可能是著名的机的开始.
+我心情恢复正常, 但刺激作用仍然很强.
+这就是MDPV陷很多人... 人们重新注射以获得那种高兴感, 但它没有效果, 它只增加和延长刺激.
+我已经决定在任何情况下都不会在同一天再服用.
+我仍然充满活力,
+我还在眼球后面感到空虚,
+强烈的自慰剂效果...自慰两次, 之后与妻子发生性关系...对于一个38岁的年轻人来说,
+这种不舒服的感觉持续了比提升情绪的时间更长.
+睡觉仍然是不可能的.
+虽然我并没有过度高,
+在气体疼痛和消化不良的感觉的形式出现了一些肠道障碍.
+我头痛的感觉像是咖啡因戒断的轻微头痛.
+一些乙氨基照顾了它.
+现在我觉得药物已经离开了我的系统.
+基本上是基线.
+我觉得自己很,
+由于头痛有所恢复, 他又服用了乙氨基.
+去睡觉了
+睡得很好,但比平常更短.
+奇怪的梦想
+经历给我留下了一些基本的观察,
+这完全不像可卡因.
+虽然可卡因会刺激系统, 但它的寿命更短.
+可卡因可以让我醉.
+我需要在清醒的人身边保持清醒.
+虽然MDPV带来了极少的高兴感,
+虽然可卡因不能让人清醒,
+最有趣的是, 我没有头痛.
+我常常患上偏头痛, 其中一个引发偏头痛的原因是天气从低压阴云转变为高压晴天.
+当天气变得那样的时候,我会躺下.
+这就是天气的样子,天气曾经是多云的,
+虽然当我起床时感受到头痛的第一种阴影,
+它可能会减少神经,
+我必须看看.
+在这种血清激素感受方面,MDPV的效果与治疗偏头痛的Imitrex或Zolmitriptan效果相似.
+很长一段时间以来,
+对于那些不喜欢抗抑郁药的人来说,
+自治医疗是一项冒险的业务,
+这种药物被滥用... 发现,再剂量,成和过度使用.
+MDPV应小剂量服用,绝不在24小时内再服用.
+它们不应该被用来搞或聚会.
+在我看来,MDPV是一种&quot;工作&quot;药物,
+用它负责任地.
+时间表: 90851
+MDPV (377):健康益处 (32),抑郁症 (15),一般 (1),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Antidepressant, Anti-migraine
+MDPV (&#x27;Ivory Wave&#x27;)
+by
+Sinnlos
+Citation:   Sinnlos. &quot;Antidepressant, Anti-migraine: An Experience with MDPV (&#x27;Ivory Wave&#x27;) (exp90851)&quot;.
+Erowid.org
+. Jul 28, 2011. erowid.org/exp/90851
+DOSE:
+1 bump
+insufflated
+MDPV
+(powder / crystals)
+BODY WEIGHT:
+165 lb
+I have been actively looking for a good legal stimulant drug for a long time because..well..as with many of us approaching middle age in the early 21st century, I hate my job but am stuck in it for the time being. When I hate my job, I have no motivation to do the work. And I have plenty of work to do, all of which I have been having difficultly finding the energy for.
+I suffer from mild depression, and when it occurs I find myself becoming emotionless, unstimulated by anything, and I find my attention span shrinking to absolutely nil. I cannot concentrate in this state. I become socially withdrawn without any desire to interact with anyone. My libido vanishes and I have no sexual desire.
+Despite this, I have refused to take anti-depressants because I have seen too many people become messed up from them. I have done cocaine, weed, alcohol, opiates, benzos, scopalamine, LSD, mushrooms and salvia over the years, but nothing frightens me more than the scrips like Prozac or Celexa which are designed to therapeutically mess with your serotonin and dopergenic systems. These drugs cause irrational behavior, mania, and can lead to suicidal ideation..frankly, I would rather be depressed. I took Chantix once for a few weeks and it scared the shit out of me more than any illegal drug or drug combo I have taken.
+That being said, I have felt the need to self medicate to get me through sometimes. I am not the kind of drug user who likes to get &#x27;Fucked up&#x27;. Recreational use for me is minimal. I take drugs in small doses and rarely become severely intoxicated on anything. I like small buzzes, but I hate throwing myself into an alternate reality. That&#x27;s just me. That&#x27;s the type of user I am. I will say this: if you are a heavy, daredevil user, MDPV may just be your downfall. It&#x27;s not a drug for the extreme psychonaut.
+I thought MDPV was a good candidate. Based on the research I had done, I determined that in minimal doses with strict discipline against redosing, it would produce sufficient stimulation to provide some motivation at the office and some improved mood. Even then, small dose use should not be done long term. And I was right! It worked as intended and had some other benefits as well.
+Once my research was done I found an online vendor of &#x27;Ivory Wave&#x27; and placed my order. Supposedly the vendor was in Belize but when it came the envelope originated in Hungary..I would advise finding a proper source with better provenance. I ordered 200mg, but there was a 2for1 special and when I opened the package there were 2 packets of Ivory Wave and one of &#x27;Sextacy&#x27;, which is basically the same thing.
+Knowing that this drug is very active at small doses and not having a proper scale, I deferred to the general principle of taking a miniscule amount and working my way up. This is still not very wise and you should never &#x27;eyeball&#x27; powder drugs, especially MDPV. I made a line that I estimated to be less than 5mg and snorted it. It was 12pm. I wanted to try it at home before risking it at the office. I wanted a test drive.
+T+5: I was feeling the first effects. I felt caffeinated and alert.
+T+30: I could feel a slight euphoria and had a tendency to wander from activity to activity. It was strange. If I was not focused on a particular activity, restlessness would set in but if I was actively engaged in it, I could focus on it.
+T+1 hour: I noticed I was in a rather good mood, which is a bit strange for me. I felt happy without feeling TOO HAPPY like on MDMA or cocaine. There was no sense of intoxication. This is the &#x27;clear headed&#x27; stimulation people talk about with MDPV. I could handle complex tasks and interactions without seeming messed up to those watching. I felt the drug, but I did not feel stoned, if that makes any sense.
+T+2: I had spent time on various tasks and was able to focus on all of them. These were tasks that were not particularly enjoyable such as chores and work on my lap top. MDPV seemed to remove the sense of tedium that can come with some tasks. At this point I could feel the physical effects too. Those of you who have ever taken meth, pseudoephedrine or an SSRI/NDRI will know the feeling of emptyness behind the eyeballs. That &#x27;tweaky&#x27; feeling. It was mild, but it was there. If you have ever taken a migraine med you know what it feels like to have increased serotonin levels..tweaky feeling, weird sensations in my muscles, vague and mild nausea but nothing to worry about. Although I was hungry, I could ignore the hunger pretty easily.
+T+3= While there was no significant euphoria, there was some at the start. A generally good mood. By T+3 it was gone. I thought this may be the start of the famous crash. My mood went back to a normal one, but the stimulant effects were still going strong. This is where MDPV traps alot of people...people redose to get that euphoria back but it doesn&#x27;t work, it only increases and extends the stimulation. I had already decided I would NOT under any circumstances, redose the same day. I was still energized and able to focus on tasks. I was still empty behind the eyeballs with that tweaky feeling. Strong aphrodisiac effects..masturbated twice, had sex with the wife afterwards..no small feat for a 38 year old!!
+T+9: That tweaky feeling persisted much longer than the mood lift. There was a pleasant afterglow of a kind and sleep was still out of the question. While not hyper, I was definately awake and would remain that way. There was some intestinal disturbance in the form of gassy pains and a feeling of indigestion. I had a headache which felt like a mild caffeine withdrawal headache. Some acetominophen took care of it.
+T+12: Now it felt like the drug had left my system. Pretty much at baseline. The tweaky feeling was gone and I was drowsy. Took another acetominophen as the headache came back a little. Went to bed. Slept well, but shorter than usual. Strange dreams.
+The experience left me with some basic observations, take them as you will.
+This is nothing like cocaine. Cocaine has a much stronger euphoria and while it stimulates the system, it is much more short lived. Cocaine can intoxicate me. I can feel stoned on it and need to &#x27;maintain&#x27; around sober people. MDPV provides minimal euphoria if any, but the stimulation effect goes on for a long time. MDPV provides a good mood but with a clear head, which cocaine does not.
+Most interestingly, I did not have a migraine. This is noteworthy because I suffer from them frequently, and one of the migraine triggers I have is the transition of weather from low pressure cloudiness to high pressure clear skies. When the weather goes that way I will be laid out. Well, that was what the weather was..it had been cloudy and then it moved to a hot, clear and dry state. While I felt the first tinges of migraine when I got up that day, MDPV seem to eliminate them and stave off the headache. It may reduce the neuropeptides that are involved in serotonin reuptake that cause migraines? I will have to see. The effects of MDPV in terms of that serotonin feeling were similar to the effects of Imitrex or Zolmitriptan taken for migraine.
+For the first time in a long time, I felt motivated and alert. This will be a useful substance for a depressed person who hates anti-depressants. Self-medication is a risky business, but at the end of the day so is Big-pharma. MDPV experiences are rife with abuse of this drug...feinding, redosing, addiction, and overuse. MDPV should be taken in small doses and NEVER redosed within 24 hours. It should not be used for getting fucked up or partying. MDPV, in my opinion, is a &#x27;work&#x27; drug like coffee.
+Use it responsibly.
+Exp Year: 2011
+ExpID: 90851
+Gender: Male
+Age at time of experience: 38
+Published: Jul 28, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDPV (377) : Health Benefits (32), Depression (15), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

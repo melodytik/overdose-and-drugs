@@ -1,0 +1,301 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉 - 埃罗维德 探险 - &#x27;达图拉的诱惑者&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tropane-plants.html'>← 托烷类植物</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉 - 埃罗维德 探险 - &#x27;达图拉的诱惑者&#x27;</h1>
+<div class='sub-title'>Datura - Erowid Exp - &#x27;Datura the Temptress&#x27;</div>
+<div class='meta'>作者：Abdul Rahman Citation · 日期：Jun 14, 2000 · <a href='https://erowid.org/experiences/exp.php?ID=1825' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>诱惑女达图拉
+达图拉
+阿卜杜勒·拉赫曼
+&quot;诱惑女达图拉:与达图拉的经历 (终1825) &quot;
+在口服
+达图拉
+(种子)
+我在四个月内一直在寻找大草.
+我看过几百张照片, 读过许多关于这棵难以捉摸的植物的文章,
+我每天经过一家旅馆的热水浴时,
+于是我决定仔细看看, 我是一个快乐的露营者!
+在山丘前面的巨大的树,
+在顶部站着母亲,像一个美丽的女人.
+植物的存在如此强大,
+我不得不回去,所以我打算在那天晚上骑自行车, 跳过,
+但她找到了我, 给我这个诱惑.
+几个月过去了,这些种子就坐在我的办公桌上, 直到有一天,
+我们聊了整晚,我忍不住提起达图拉.
+他说他听说过它, 很长一段时间以来一直想服用它.
+他坚持说他已经准备好了.
+&#x27;来吧,我们来做吧!
+我们去了厨房,在家里的咖啡机里了3/4匙种子,然后把它装进我们的背包里, 准备那天晚上去露营.
+我们在黄昏时到达,安顿下来,点火,祷告,然后在不告诉朋友的情况下把种子倒下.
+史蒂芬,旅行的孩子,我走了一步走在泥路, 跑过田野的中心.
+我们非常关注种子对我们的影响.
+我仔细地听着.
+接下来会发生什么?
+她的存在开始感觉到大约100码的道路.
+我们坐在路中间, 感觉世界从我们 (自我) 的控制中滑落.
+我们凝视着遥远的火焰, 世界变得如此奇怪,
+我问斯蒂芬是怎么来的,他说&#x27;我正在下.&#x27;我想我跟着他 (我们在一起,不想离开他) 和他坐了几分钟,甚至没有意识到.
+我开始有点妄想.
+我们走回营地,坐在一块木头上.
+我们的嘴巴变得如此干燥,我们每人至少喝了2升水,没有决心.
+他低声对我说:&quot;你好吗?
+我们都吟,感到非常害怕,孤独和后悔.
+我哥哥离开了,回家了,我非常想和他一起离开,
+我不想死.
+我倒在草地附近的一个沟里,
+我曾经认识的世界正在消失.
+星星繁多,我觉得自己正在死去.
+我不得不小便,所以我试图站起来,我的腿感觉像凝,我倒在一些岩石和倒下,开始哭泣.
+我试图爬行, 但这也太难了.
+我把这个尸体扔到车上,试图尿尿,但我不能,我很痛苦.
+我回到我的沟,躺在那里,试图躺下尿尿...
+我放弃了.
+一首老Bob Dylan的曲子在夜空中响起,
+这首歌非常安慰,
+我惊地发现车灯在牧场周围的树上反射.
+我急忙走到车里关掉音乐, 恐惧地说出车来了.
+我在火旁躺下,
+现在我朋友们已经知道了一些东西. 记住这一点真是令人毛骨然.
+我被告知,在接下来的几个小时里, 他们看着我试图从&quot;妄想&quot;中理解物理世界.
+我像一个小孩子,一个洞穴人或什么.
+我试图说话,但这一切都出于混乱在其他语言.
+他们有点担心.
+他们告诉我我一直走在这个木板甲板的东西进入一个湿的溪床. 他们发现我在那里的和担心拉我.
+我一直在流浪回溪床倒在甲板上. 凌晨四点左右, 他们把我拉出来,
+我认为每个人都睡觉了, 因为我走到泥路上,
+我感觉充满活力, 现在我可以控制自己的身体,
+我找到了斯蒂芬,他让我坐下来,开始报告一些非常令人不安的东西,晚上有非常邪恶的感觉.
+他对我说:&#x27;我不知道该怎么做,我不想这样做.&#x27; 他向我展示了他的黑色长指甲,他的脸非常老,毛 (像狼人).
+我告诉他一切都会好起来的,不要担心,这只是个梦.
+我知道这不是虽然我看到他,他被她占有.
+我逃跑了.
+我开始目睹精神世界,最黑暗的现实, 幽灵般的生物无处不在,
+我一直跑着跑, 跳过刺线进入一片杂草的田野,
+我几乎飞了下来, 跌得很厉害.
+我醒来的时候,在田间看到一道光.
+在这个时候,我被控制了.
+我被拉到球场的中心,
+有七个男孩和女孩穿着黑色衣服,黑头发,和桶皮.
+他们都被诱惑,基本上是和植物做爱.
+他们围绕着烂的达图拉植物跳舞.
+她是,活着的
+我左边有一个很高很瘦的男孩/女孩, 他/她似乎是植物灵 (领导者).
+他们都停止跳舞,Datura/她着我的眼睛,摇了摇头.
+我搞了,我知道.
+我跑得很快,走向森林.
+他/她送一个其他 (诱惑者) 后我.
+我试图跳过这条刺,但我被抓住了,我伤了自己.
+我转过身来,那个被诱惑的人, 停在黑暗中.
+我觉得他想和我一起逃离这个邪恶的生活.
+我说过来吧,走吧...她会杀了你,走吧!
+他停下来,就好像有什么东西迫使他摇头说不,不.
+我跳过了电线,跑上山,穿过了葡萄树,棘,只是穿过我跳下另一边.
+我被某种东西拦住,把我的头拉上山脊.
+有一个诱惑者, 她是为了我的生命.
+她能够进行转换和传输.
+我非常害怕.
+我穿过树林,我不得不避开两个黑美洲虎.
+这就是她,她是如此如此诡诈和邪恶.
+我来到高速公路上,当时正是黎明.
+我一直在逃避她.
+她是如此巧, 她有这种力量消散, 向路边, 只是消失, 留下只有轻微可见的能量粒子,
+接下来的一个小时我都在恐惧中奔跑.
+我必须证明自己的力量,
+她会给我提供权力,毒品,女孩等等.
+她坐在路标上,她的腿在后面交叉.
+&quot;这是怎么说的?&quot;她测试我的力量到最后.
+这真是太邪恶了!
+我记得跑,汽车旋转为了避免我,我想我在路上.
+我不敢进入森林, 他们在黑暗的地区有太多的力量.
+我可以在远处听到他们的恶性笑声.
+每当一辆车转时,她就会向地面鞠躬.
+我很害怕和疲.
+我不知道我在哪里,但我必须快速离开那里.
+我试图向交通信号他们试图得到我.
+一位女士停下来,告诉我进去.
+她知道有什么不对.
+她说她把我带到另一个镇的警长局.
+后来发现她是一位心理学家.
+她发现了恐怖.
+大多数人都不接&quot;疯子&quot;.
+我非常幸运.
+我去警察局, 她告诉警长我很困惑,
+我告诉警察,我被邪恶的孩子们跟着,他们想牺牲我.
+他问我有没有吸过毒品.
+我说不,因为它是真实的,我已经忘记了达图拉,只记得我前一天抽的大麻叶.
+除此之外,他不会相信我如果我告诉他我做了.
+但是他知道.
+他们打电话给我的母亲和兄弟,他们来接我.
+植物给我留下了奇怪的力量, 我很快就会失去.
+顺便说一下,我被告知警察去检查了那个地区.
+他们实际上是在实体世界的邪教成员中寻找.
+他们非常好.
+植物是个非常有用的老师, 但也致命的, 我不知道它值得冒险.
+我是如此脱水我的桃体出血.
+一个警察进来,给我倒了一杯泡水.
+这是最好的,我品尝每一滴.
+我把一杯水扔在地上,当我看下去,它已经消失了.
+也有很多幻觉发生.
+这可能是很难区分真正的教训和中毒的后果.
+我回家,喝了一些水,休息了很久.
+几个月来,我一直很孤独.
+接下来的一周,
+第二天我去了朋友的家.
+他告诉我他在露营地看到的东西 (他当时还清醒).
+他说他目睹了斯蒂芬 (另一个诱导的) 变得真老了.
+他像狗一样毛,很明显他说.
+他描述了发生在他身上的事情,
+接下来的一周, 我去图书馆研究更多关于达图拉的资料.
+一本书说,人们常常会梦见人变成狼.
+这太奇怪了!
+这让我很害怕.
+请不要把这当作一个有趣的故事.
+我感觉自己孤独了很长一段时间 (一年后我还在恢复).
+我必须告知人们达图拉的致命性.
+她会把你骗死.
+如果你死了,你可能会有更多的问题不仅仅是一个尸体, 她会削弱你到交出你的灵魂给她.
+请注意,请采取更多的预防措施.
+达图拉 (15):第一次 (2),糟糕的旅行 (6),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Datura the Temptress
+Datura
+by
+Abdul Rahman
+Citation:   Abdul Rahman. &quot;Datura the Temptress: An Experience with Datura (exp1825)&quot;.
+Erowid.org
+. Jun 14, 2000. erowid.org/exp/1825
+DOSE:
+0.75 tsp
+oral
+Datura
+(seeds)
+For four months I searched obsessively for datura stramonium (jimson weed). I had looked at hundreds of pictures and read many articles on the elusive plant, but it wasn&#x27;t until one day when I was coming home from work that it caught my eye. Something had been drawing my attention to a motel&#x27;s Jacuzzi each day as I passed by, but I had no idea what it was. One day I figured out that I don&#x27;t usually notice something so intensely, so I decided to look a little closer-boy was I a happy camper! There she was-a huge juniper bush mounted like a shrine in front of a mound with at least 15 datura plants. At the top stood the mother, like a beautiful woman. It really freaked me out, the plant had such a powerful presence. I had to go back, so I planned to go that night on my bicycle and hop the fence to grab a portion of the treasure. This was probably a bad thing to do (crossing a fence to steal datura plants), but she found me and presented me with this temptation.
+Months passed and the seeds just sat in my desk-until one day when I met this kid travelling through town. We spent the night talking and I just couldn&#x27;t resist bringing up the subject of the DATURA. He said that he had heard of it and had wanted to take it for a long time. His eagerness to test the plant made him seem a bit naive, but he insisted that he was ready. &#x27;Come on dude lets do it! It&#x27;ll turn out good and we will learn a lot.&#x27; We went to the kitchen and ground 3/4 tsp. of the seeds in the family coffee grinder for each of us, then packed it into our knapsacks for the camping trip which was planned for that night.
+We arrived at dusk and settled down, lit a fire, prayed, and downed the poulticed seeds without telling our friends. Stephen, the travelling kid, and I took a walk down the dirt road that ran through the center of the field. We were extremely attentive to how the seeds were affecting us. I listened closely. What would happen next? Her presence began be felt about 100 yards down the road. We sat in the middle of the road and felt the world slipping from our control (ego). We gazed at the distant fire the world become so eerie the voices and lives of our friends seemed another world away. I asked Stephen how it was coming, he said &#x27;I&#x27;m taking a crap.&#x27; I guess I followed him (we were in this together and didn&#x27;t want to leave him) and sat with him for a few minutes and didn&#x27;t even realize it. I was becoming a little delirious.
+We walked back to the camp site and sat down on a log. Our mouths became so dry, we chugged at least 2 quarts of water each, no resolve. We both lay down in concern &#x27;are you alright?&#x27; he whispered to me. We were both moaning and felt very scared, lonely and regretful. My brother left and went home, I wanted to leave with him so badly, but this was my choice and I said not a word and examined my life. I didn&#x27;t want to die. I stumbled off to a ditch near the pasture so I could lie down.
+The world I once knew was disappearing. The stars multiplied, I felt like I was dying. I had to piss so I tried to get up, my legs felt gell like, I stumbled on some rocks and fell back down and began crying. I then pulled my self back to the campsite (20 Yards away) were the car was parked I tried to crawl but it was too difficult also. I flopped this body against the car and tried to pee but I couldn&#x27;t, I was in pain. I got back to my ditch and lay there and tried to pee lying down... I gave up. An old bob dylan tune was echoed into the night sky from s car stereo. The song was very comforting &#x27;one too many mornings&#x27;.
+I was startled when I noticed car lights reflecting on the trees around the pasture. I moved myself quickly to the car to turn of the music and uttered in fear that a car was coming. The guys were expecting some folks, so I lay down next to the fire. At this point the delirium really set in and my friends knew something nowIt is so creepy remembering this. I was told that for the next couple hours they watched me trying to grasp the physical world from the &#x27;delusional&#x27;. I was like a little kid, a cave man or something. I was trying to talk but it all came out so jumbled in some other language. The guys became a little concerned. They told me that I kept walking off this wooden deck-like thing into a soggy creek bed. they found me there mangled and pulled me out with concern. I kept wandering back to the creek bed stumbling off the deck into it. around 4:00 a.m they pulled me out and stood me up and I kept peeing on myself, it was so relieving.
+I suppose everyone went to bed or something cause I wandered off to the dirt road, the one that goes through the pasture. I felt energized and had control of my body now, still delirious. I had found stephen, he sat me down and began to inform of something very unnerving, the night had a very evil feeling as it was. He said &#x27;man I don&#x27;t know what to do, I don&#x27;t want this.&#x27; He showed me his dark long fingernails, his face was very old and hairy (werewolf-like). I flipped out, I told him it was going to be okay and not to worry, it was just a bad dream. I knew this wasn&#x27;t though I saw him, he was being possessed by her.
+I ran for my life. I had begun to witness the spirit world, the darkest reality, ghost like beings were everywhere, it sickened me. I ran and ran, hopped a barbed-wire fence into a weedy field and ran around the perimeter trying to avoid stepping on snakes. I was almost flying I fell really hard at one point. When I got up I saw a glow in the middle of the field. I was controlled at this point. I was pulled to the center of the field where I witnessed some demonic action. There were seven guys and girls dressed in dark clothes, black hair, and pail skin. They were all enticed basically making love with the plant. They danced around the glowing datura plant. She was, alive. There was one guy/girl to my left that was very tall and thin he/she seemed to be the plant spirit (the leader).
+They all quit dancing, Datura/she stared into my eyes and shook her head. I messed up and I knew it. I ran so quick towards the woods. He/she sent one of the others (enticed ones) after me. I tried to hop this barbed fence, but I was caught and I cut myself. I turned around and the enticed one, he stopped still in the darkness. I felt as if he wanted to run with me and get away from this evil life. I said come on dude, lets go... she&#x27;ll kill you, come on! He stopped, and it was if something forced him to shake his head saying no, no. I hopped the wire and ran up the hill tore through vines, briar, just tearing through I leeped down the other side. Something stopped me and pulled my head up towards the ridge. There was the temptress, and she was after my life. She was capable of transformation and teleportation. I was so scared. I tore through the woods, I had to avoid two black jaguars. It was her, she is so so tricky and evil.
+I came to the highway and it was about dawn at this point. I kept running from her. She was so tricky she had this power to dissipate, bow into the side of the road and just vanish, leaving only slightly noticeable energy particles, she could move about so quickly like this. I spent the next hour running in terror. I had to prove my strength and that I wasn&#x27;t going to give in. She would offer me things like power and drugs, girls, etc. She sat on top of a road sign with her/his legs crossed behind. &#x27;What does this say&#x27;? she tested my strength to the end. SO WICKED! I remember running, cars were swirving in order to avoid me, I guess I was in the road. I didn&#x27;t dare go into the woods, they had too much power in the darker areas. I could here their evil laughter in the distance. She/he would bow into the ground every time a car would come around the corner. I was so scared and tired. I didnt know where I was but I had to get out of there quickly.
+I tried signaling to the traffic that they were trying to get me. A lady pulled over and told me to get in. She knew something was wrong. I was to confused she said she took me to a sherrif&#x27;s station in another town. It turned out she was a psychologist. She spotted the terror. Most folks don&#x27;t pick up &#x27;crazed&#x27; people. I was extremely blessed. I went to the station she told the sherrif that I was confused and seemed very disturbed. I told the cop that I was being followed by evil kids that wanted to sacrifice me. He asked me if I had done any drugs. I said no because It was real, I had forgotten about the datura and only remembered the cannabis leaf I smoked the day before. Besides he wouldn&#x27;t have believed me if I told him that I did. But he knew. They called my mother and brother. they came and got me. The plant left me with strange powers that I was soon to lose as I came down. By the way, I was informed that the cops went to check out that area. They actually looked in the cult members in the physical world. It was very kind of them.
+The plant is a very useful teacher, but also deadly, I don&#x27;t know that it is worth the risk. I was so dehydrated my tonsils were bleeding. A cop came in and poured me a styrofoam cup of water. My it was the best, I savored every drop. I dropped the cup of water on the floor, when I looked down It was gone. There are many delusional things that happen also. It may be hard to distinguish the true lessons from the effects of poisoning. I got home, drank some water, took a long rest. It left me very lonely for months. My eyes were unable to focus for the following week. I went to my friend&#x27;s house the next day. I had to find out what happened. before describing anything on my part, he told me what he witnessed at the campsight(he was sober). He said he witnessed stephen(the other induced one) become real old looking. He was hairy like a dog and it was clear he said. He described exactly what happened to him and what I witnessed. The following week I went to the library to research more about Datura. A book read that it is common to have &#x27;dreams&#x27; involving lycanthropy (turning of man to wolf). How bizzare! This freaked me out.
+Please don&#x27;t take this with a grain of salt or as an entertaining story. It was such a nightmare, I felt so lonely for so long (still recovering a year later). I must inform people of the deadliness of the datura. She will trick you into death. And if you die, you may have more problems than just a dead body, she will have weakened you to the point of surrendering your soul to her. Watch out and please take much precaution brothers, sisters.
+Exp Year:
+ExpID: 1825
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 14, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : First Times (2), Bad Trips (6), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

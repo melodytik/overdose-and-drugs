@@ -1,0 +1,248 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>B. muricata和4-HO-MET - 虫 Exp - 在电路板周围叫</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/banisteriopsis-muricata.html'>← Banisteriopsis muricata</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>B. muricata和4-HO-MET - 虫 Exp - 在电路板周围叫</h1>
+<div class='sub-title'>B. muricata &amp; 4-HO-MET - Erowid Exp - &#x27;Whizzing Around A Circuitboard&#x27;</div>
+<div class='meta'>作者：PsilocybeChild Citation · 日期：May 23, 2016 · 剂量：125 g · <a href='https://erowid.org/experiences/exp.php?ID=101270' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>旅行报告:
+凝结的茶 125g B.
+子 + 28mg 4-HO-MET 子
+我对各种各样的物质非常有经验,
+喝了几杯酒回家, 喝了一杯高大的泉水,
+喝了一杯木茶.
+称重了4-HO-MET,把它扔在舌头后面,并把它冲下来.
+开始整理房间.
+经过一点我需要躺下.
+关掉灯光,关闭笔记本电脑,
+我已经离开了.
+我的记忆是模糊的.
+我记得我在周围,
+我模糊地记得我在日本的地铁上跳出来?
+看到彩虹色的日本字母从一个站着的女性身上出来.
+或许是她的想法?
+或是一种沟通.
+在周围再次声.
+这感觉温暖而高兴, 不冷而机械.
+我还听到声和点击声,
+在某个时候, 我看到很多外星语言的符号.
+这些都是非常优雅和简单的.
+几乎像西藏语言的精致, 但不那么复杂.
+像一个没有那么曲线的,光滑的版本:
+我记得有时在这个场景中移除心灵, 看到我的房间是灰色的,
+我记得有一次躺在床上, 感觉像女灵/女灵躺在我上面,
+我听起来就像是蛇.
+这似乎是&#x27;他们的&#x27;语言.
+听到这些&quot;ssss&quot;的声音, 听起来就像一门语言.
+我发出这些声音时, 感觉我的体验更加烂,
+对于我来说是无法翻译的 - - 语言,等等.
+这让我觉得我的灵魂动物是蛇.
+我曾经想过我的前女友,
+我发现自己独自一人,
+在暴的海上,
+偷走了我爱的唯一一个女孩,
+让她深深地淹死在我的内心.
+我已经和她在一起八年了.
+现在是海洛因上, 又回到了前任.
+我看到了她头骨的形象.
+我认为头骨意味着:错误的路径,恶魔;成,压抑的心理,情感问题,
+看到这张照片, 我心里感到紧张.
+我曾试图指导她,多次向她伸出援手,
+我告诉她我已经足够远的路上与她,甚至内射海洛因, 看到这里没有什么剩下的,
+我希望她可以吃素,使用药物,
+成为健康和无毒的人.
+现在我必须专注于自己.
+后来我看到更多的美丽外星人的头骨.
+我心里又有点紧张, 仿佛说这些符号,
+对于我来说, 心脏空间中的感觉, 根本不能归因于所说的物质.
+我最近在读一本关于阿尤尔韦达的书, 书中讲述了不同的感觉和情绪与身体的不同器官有关, 例如悲伤和悲伤与肺, 心脏 (以及肺) 是悲伤和悲伤的所在地.
+经历了我多年来最糟糕的,虽然短暂的抑郁症, 我发现上述信息是真的.
+尤其是在负面/悲伤的时刻.
+我开始下来.
+在视觉中发生的灰色视觉之外, (前后) 一切都是美丽的.
+它让我想起了我在电脑上使用的Linux,
+这就像是新意识.
+我可以听到和看到令人惊叹的增强程度.
+但这些路径并没有让人感到疲.
+它们似乎增强了我的视力.
+调整并追踪到它们的源头.
+几乎就像&quot;终结者2&quot;中的他的视觉扫描和阅读一切像计算机一样.
+它让我想起了那个, 但更有机, 生物增强,
+但视觉和听觉的增强仍然存在.
+我也会看着东西, 比如说在电脑上, 听到多个不同的声音, 和个性评论我正在看的东西.
+它们持续了一段时间, 充满幽默,
+这些都是不同的方言,比如非洲裔美国人,澳大利亚人.
+在工作之前至少要睡一,两,三个小时.
+结果证明是徒劳的.
+旅行结束后, 我犯了一个错误,
+无法让我的大脑足够安静以后睡觉.
+我在此之前曾经经经历过几天的抑郁.
+让我充满活力, 准备好迎接我的日子.
+我希望它能更加清晰, 让我能够更好地理解我的经历.
+我一直想试试这种组合.
+如果巫师说&quot;巴尼斯特里奥普西斯&quot;是洞穴,而DMT是光,
+我觉得它应该是我最后一个最好的MAOi来源 - - B. muricata而不是或其他东西.
+我认为这两个空间背后的智能很高兴见到你.
+其他:
+发布时间:2016年5月23日
+4-HO-MET (436),Banisteriopsis muricata (743):一个人 (16),实体/生物 (37),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Whizzing Around A Circuitboard
+B. muricata &amp; 4-HO-MET
+by
+PsilocybeChild
+Citation:   PsilocybeChild. &quot;Whizzing Around A Circuitboard: An Experience with B. muricata &amp; 4-HO-MET (exp101270)&quot;.
+Erowid.org
+. May 23, 2016. erowid.org/exp/101270
+DOSE:
+125 g
+oral
+Banisteriopsis muricata
+(tea)
+28 mg
+oral
+4-HO-MET
+(powder / crystals)
+BODY WEIGHT:
+132 lb
+Trip Report:
+Condensed tea of 125g B. Muricata + 28mg 4-HO-MET
+I am very experienced with all manner of substances especially psychedelics, well known and not.
+Came home from having a few drinks, chugged a tall glass of spring water to try and flush alcohol from system.
+Drank the muricata tea. Weighed out the 4-HO-MET, threw it on back of tongue and washed it down. Started straightening up room. After a little I needed to lay down. Turned off lights and closed my laptop, and put on Mindfold. And I was gone.
+My memory is hazy. I remember whizzing around what felt like a circuit board. I vaguely remember popping out on like a subway in japan? And seeing rainbow colored Japanese lettering coming out of one particular standing female. Perhaps her thoughts? Or a communication.
+Whizzing around again. This felt warm and euphoric, not cold and mechanical. During this I was also listening to buzzing and clicking, like a hard drive or something.
+At one point I was seeing lots of alien language symbols. These were very sleek and uncomplex. Almost like Tibetan language in the sleekness but less complex. Kind of like a much less curvy, sleek version of this tilde: ~ .
+I remember at times removing the Mindfold in the middle of this and seeing my room as shades of grey with everything shuttering and a membrane of complex geometric patterning over everything.
+I remember at one point lying in bed and feeling like female spirit/spirits were lying on top of me and kissing/licking my neck?
+At one point I was making ssssss sounds like a snake. And this felt like &#x27;their&#x27; language. The ssss sounds had such dimension to them and felt as if it was an entire language. I felt as I made these sounds, my experience glowed as if more information flowed through me. Tho untranslatable to me- the language, ect. It made me feel as though my spirit animal was a snake.
+At one point I reflected on my ex-girlfriend who&#x27;d best be described by the Cure lyrics:
+I found myself alone alone alone,
+Above a raging sea,
+That stole the only girl I loved,
+And drowned her deep inside of me.
+A girl that I have been on and off a million times with with for over 8 years. Who is now addicted to heroin and back with an old ex. I saw images of her with a skull over her. I consider the skull to mean: wrong path, demon; addiction, repressed psychological, emotional issues, defenses from opening up blockages and releasing addiction, bad energy, sickness, bad spirits. While seeing this image I felt strain in my heart. I have tried to guide her, reached out to her many times, even accompanied her on that road, rather than judging it from an outside, unknowing, experienced perspective. I have told her I have been far enough down the road with her, even shot heroin, and see that there&#x27;s not much left to see here, and that would she take my hand and go back with me? I would like her to veganize her diet, work with medicines, like Iboga, Ayahuasca, Peyote, Kambo, etc. To become healthy and free of addiction. But it proves futile and I must now focus on myself.
+A bit later I saw more skulls which were very beautiful and alien. Upon reflecting on them I felt strain in my heart again, as if to say these symbols, skulls, come from darkness and I should pull back, not lose myself in that direction/distraction.
+[FYI the feelings in my heart-space, to me, are not at all attributable to the said substances. I have been reading a book lately on Ayurveda which talks about different feelings and emotions being correlated with different organs of the body. e.g. grief and sadness with the lungs, and the heart (as well as the lungs) the abode of grief and sadness.
+After experiencing one of the worst, albeit short, bouts of depression I have in years, I find the above information to be true. And have recently been feeling sensations of the heart, especially at times of negative/sad thoughts.]
+I began to come down.
+Outside of the greyscale vision that occurred in the midst of visions, (before and after) everything was beautiful. It reminded me of how I have Linux on my computer and it looks very streamlined and sleek and aesthetic compared to windows. This was like putting on a new consciousness. An alien insect/reptile consciousness where I could hear and see to an amazingly enhanced degree. Crazy trails, but the trails did not feel debilitating at all. They seemed to enhance my vision. Honing in and tracing lights back to their sources.
+Almost like in Terminator 2 how his vision scans and reads everything like a computer. It reminded me of that but more organic and enhanced in a biological way, like the eyesight of a hawk.
+The trip had begun to fade quickly, but enhanced senses of sight and hearing remained. I would also look at things, say on my computer, and hear multiple different voices, and personalities commenting on what I was looking at. These lasted a while and were very humorous and felt very separate from my own consciousness. These were in different dialects, like African-american, Australian.
+After a while I tried to get at least one, two, three, hours in of sleep before work. Which proved futile. I had made the mistake of drinking some organic coffee and guayusa well after the trip as well as doing an enema with them. And could not silence my brain enough for sleep after.
+I had been in a slump of depression for days beforehand. But all in all a very easy and positive experience that left me glowing and ready to take on my days. Just wish it was a bit more lucid and that I was able to make more sense of what I experienced.
+4-HO-MET is one of, if not my favorite psychedelic, and I&#x27;d been wanting to try this combination for a while. If the shamans say the Banisteriopsis is the cave and the DMT is the light, I replaced the DMT tryptamine with the 4-HO-MET tryptamine for my light source. And felt it was deserving of the last of my best MAOi source - B. muricata rather than rue or something.
+I think the intelligences behind the 2 spaces were glad to meet.
+Exp Year: 2013
+ExpID: 101270
+Gender: Male
+Age at time of experience: 24
+Published: May 23, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-HO-MET (436), Banisteriopsis muricata (743) : Alone (16), Entities / Beings (37), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

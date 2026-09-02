@@ -1,0 +1,165 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>卢平 - 埃罗维德 - 好吧</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/nootka-lupine.html'>← Nootka Lupine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>卢平 - 埃罗维德 - 好吧</h1>
+<div class='sub-title'>Nootka Lupine - Erowid Exp - &#x27;NahHuhWellOkay&#x27;</div>
+<div class='meta'>作者：CrackerJack Citation · 日期：Dec 22, 2011 · 剂量：5 bowls · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=94173' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>玻璃分子是手工制作的!
+得到一个艺术玻璃分子.
+(选择咖啡因,DMT,多巴胺,乙醇,胺,MDMA,
+素,THC,或西洛素)
+,好了
+诺特卡卢平
+饼干
+引用来自:
+&quot;NahHuhWellOkay:与努特卡·卢平的经历 (截至94173) &quot;
+美国
+我在南加利福尼亚长大了, 我尝试了你能想到的一切, 大麻,酸,,地狱,晨光,,可乐,2C-E,DOB,沙维亚,DMT,
+这是我第七次做&quot;地狱的&quot;, 顺便说一下,
+我已经无家可归四个月了, 没有足够的草.
+我看了Erowid上的Nootka Loopine, 我读了报告, 有一天我在自然小径上看到鲜明的紫色花和叶子,
+我把所有的叶子都拔掉了,然后把所有的紫色花都拿走了,
+我把树叶和花干掉了,
+几天后我坐下来和我的小Binger和包装3个脂肪碗在快速的连续. 虽然第二次击中后我只是fellike我的眼睛想打开一点宽,和下一个击中...
+我抽了两个碗,我没有真正的感觉高,但我知道我不是清醒的,当我试图想我意识到我是相当散乱的. 最终我起身走来走去,和一些朋友出去玩,几乎忘记我是高,但我肯定不是清醒的
+这是一种奇怪的感觉.
+总的来说,它是一种轻微刺激的药物,
+我确实吸了毒,但它甚至不值得与任何东西相比,找到其他东西.
+不适用 (38), 自然/户外 (23), 准备/食谱 (30), 第一次 (2), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+NahHuhWellOkay
+Nootka Lupine
+by
+CrackerJack
+Citation:   CrackerJack. &quot;NahHuhWellOkay: An Experience with Nootka Lupine (exp94173)&quot;.
+Erowid.org
+. Dec 22, 2011. erowid.org/exp/94173
+DOSE:
+5 bowls
+smoked
+Nootka Lupine
+(plant material)
+BODY WEIGHT:
+155 lb
+So, i grew up in Southern California and ive tried just about everything you can think of, weed, acid, shrooms, hells bells, morning glories, meth, coke, 2C-E, DOB,salvia, DMT, and more so ive done my fair share. ive always been kindof lightweight but never one of the guys whos trippin out for no reason and despite some crazy ass trips i can only say ive had one bad trip, and that was the seventh time i did hells bells, btw that shit is not for the sane or weak minded.
+On to the nootka, id been homeless for about 4 months and never had enough weed. Id seen nootka loopine on erowid and id read the report, one day i saw the unmistakeable purple flowers and leaves on a nature trail so i grabbed the whole plant. I pulled all the leaves off and kinda de-stemmed it, then i took all the purple flowers and put them by themselves. I dried the leaves and flowers and chucked everything else. A few days later i sat down with my little binger and packed 3 fat bowls in quick succession. although after the second hit i just fellike my eyes wanted to open up a little wider, and the next hit...a bit wider, and after that wider still until i felt like my eyebrows were about to climb off my head. i could easily close my eyes but it just felt comfortable to have them wide open looking all around like i was cracked out. i smoked 2 more bowls and, I didnt really feel high, but i knew i wasnt sober and when i tried to think i realized i was pretty scatterbrained. eventually i got up and walked around, went to hang out with some friends and pretty much forgot i was high, but i was definitely not sober, it was a strange feel.
+All in all it was a mildly stimulating, barely euphoric drug. I definitely got high, but its not worth even comparing to anything find something else.
+Exp Year: 2011
+ExpID: 94173
+Gender: Male
+Age at time of experience: 19
+Published: Dec 22, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Nootka Lupine (271) : Not Applicable (38), Nature / Outdoors (23), Preparation / Recipes (30), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

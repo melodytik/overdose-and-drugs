@@ -1,0 +1,244 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>德米特 - 埃罗伊德的 - &quot;突然间 尤根&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/zz-psychedelics-2021-jh.html'>← zz Psychedelics - 2021 JH</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>德米特 - 埃罗伊德的 - &quot;突然间 尤根&quot;</h1>
+<div class='sub-title'>DMT - Erowid Exp - &#x27;And Suddenly Yugen&#x27;</div>
+<div class='meta'>作者：Another human Citation · 日期：Nov 30, 2017 · 剂量：40 mg · <a href='https://erowid.org/experiences/exp.php?ID=99695' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我写这篇经历概要大约两年后发生,所以我相信有一些小细节已经消失了.
+我会尽我所能回忆起那天下午的事件.
+在外面微微下雨,太阳穿过云层.
+在冬季和春季之间.
+在空气中有一种微妙的新开端.
+我走到朋友家的路上,
+我被两个朋友迎接,一个是男,一个是女.
+我和他们一起走到他们的房间,
+我坐在床边, 紧张地着我期待的.
+我的朋友B可以看到我很紧张.
+我们花了接下来的20分钟讨论我的焦虑和期望.
+我知道我想要从经历中得到什么,
+我想要看到某种客观性; 我觉得自己正从内心漂移,
+我最近开始感觉与家人越来越疏远,
+我是无神论者, 没有信仰或不信任何神或死后生命, 所以这引发了许多无法回答的问题, 使我感到不安.
+我想要感受到更多的联系,
+这就是DMT的出现.
+我想要感受到更多的联系,
+这就是DMT的出现.
+我的朋友B知道如何从Mimosa hostilis根皮粉中提取DMT, 他教我如何做.
+我们在前一天做了一次抽取,所以我确切地知道这个DMT来自哪里.
+这消除了我可能怀疑的任何怀疑.
+在学会如何提取它之前, 我做了关于这种物质的研究, 阅读经验报告.
+我希望尽可能准备好.
+无论我知道多少, 这仍将是激烈和惊人的.
+我朋友B问我是否准备好了.
+我告诉他我已经准备好了.
+他把一个非常小的大麻芽放在碗的底部,
+他告诉我他会拿着碗,为我点燃它, 这让我更加放心.
+我把我的嘴放在管道上, 他把打火机放在水晶附近.
+他非常小心不要烧任何东西,
+我填充了管道,并吸入.
+味道和气味是古老的.
+塑料般的味道遍及我的整个身体.
+尽管这对我来说是陌生,我再一次受到了打击.
+这一特殊的打击使事情变得更加激动:物体变得更加充满活力,物质轻微地脉动,空气中的电子声变得比正常大得多.
+我花了大约20秒的时间让它化.
+我坐在那里, 我注意到那个已经看过的景象开始融入每一个时刻.
+我觉得某些人类的东西开始解体.
+我不知怎的接受了第三次也是最后一次击中,
+电子声变得更加响亮,
+这种强烈的振动夺走了我的自由意志,
+起初,这些外来感觉让我有点害怕,
+我很快就忘记了自己的感受,
+我慢慢地环顾房间, 看着物体相互折叠.
+我从来没有见过的颜色像电流一样流动.
+黄金,绿色,红色, 和未知的地球色彩组合正在向我介绍自己.
+我决定躺下闭上眼睛.
+我的思维图表向我展示了它与物质有关,
+我看着无数的自我接的物体交织在一起,
+这是一个古老而美丽的模式,
+我很想知道为什么我会经历这种情况.
+接下来发生的事情是我预料不到的.
+这仍然不是一个初学者可以心理准备的东西.
+这些自我结的图案开始变成人类的形状.
+三个生物从无限中出现, 似乎就在我面前.
+现在回想起来,
+它们仍然保留了我心灵景观的几种特质:它们仍然彼此相邻 (尽管它们似乎是一个更高的维度),
+我还记得他们最初的形状:宽而快乐的笑容,黑色的眼睛,
+但这种原始形式很快就被我的思想所能理解的形式所取代:家庭.
+我看到了我母亲的脸,我的继父的脸,还有我叔叔的脸.
+他们无言地告诉我, 他们无条件地爱我,
+让我知道一切都没事了.
+一旦我与我的经历和平, 他们折叠回我的mindscape.
+我感觉到DMT放松了它的控制,
+我立刻想起自己吸入了DMT.
+我的清醒的思想开始升起, 我可以很清楚地看到事情.
+我在激动中, 忙地阅读过去的五分钟,
+我开始分析我在&quot;旅行&quot;期间的每一个感觉,
+虽然这场经历在发生时感觉很陌生,但回来后,我无法摆脱熟悉的感觉.
+感觉好像我以前曾经经历过,
+我对当时的经历做出了一些结论,
+我觉得人类的体验部分是由内源的DMT制造的.
+我吸入了DMT蒸汽, 就像在转动我的感知频率.
+我听到的微妙声是空气颗粒碰撞和合时发出的声音.
+我觉得人类进化了, 无法听到声音,
+我得出的另一个结论是, 我们的大脑被编程为接受特定的输入,
+通过这种逻辑, 当我吸入DMT时, 我正在重新编程我的大脑, 使它使用不同的能量作为输入:
+在我看来,我与之互动的生物是人类心理的构造,
+这也解释了为什么几乎所有经历DMT的人都与某种智慧实体有联系.
+我总结了我的经历:春天初,我去朋友家,与他讨论我担心的感受,回顾我脑海中的目标 (想要变得更有意识,与重要的事情联系起来),在几分钟的时间内拍摄了3次大片,物体变形折叠,颜色变得更加强烈,
+自由意志被解体, 声占据了一切, 紧张不可避免地消退了, 看到人类心灵的美丽, 见证并与3个神秘的智慧生物互动,
+我意识到我需要珍惜每一刻的经历.
+总的来说是非常积极和非常激烈的经历,
+我认为我有这样一个积极的经历的原因是DMT是非常纯净的 (我的朋友B和我提取的白色晶体),天气是有希望的,我的朋友是安静和成熟的,
+我知道有一天我会再次使用DMT,
+其他:
+家庭 (41),实体/生物 (37),导游/护理 (39),第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+And Suddenly Yugen
+DMT
+by
+Another human
+Citation:   Another human. &quot;And Suddenly Yugen: An Experience with DMT (exp99695)&quot;.
+Erowid.org
+. Nov 30, 2017. erowid.org/exp/99695
+DOSE:
+40 mg
+smoked
+DMT
+(powder / crystals)
+smoked
+Cannabis
+BODY WEIGHT:
+160 lb
+I am writing this experience outline approximately two years after it happened, so I am sure there are a few minor details that have faded since then. I will, however, do my best to recollect as much of that afternoon as I can.
+It was lightly drizzling outside, sun creeping through the clouds. Stereotypical day between winter and spring. There was a subtle undertone of new beginnings in the air. The smell of petrichor as I walked up to my friends house set the mood for what was to come.
+I am greeted by two of my buddies, one male and one female. I walk with them to their room, in which resides a large tank of healthy and beautiful freshwater fish. I sit down on the side of the bed, nervously shaking for what I was anticipating. My friend, B, could see I was nervous. We spent the next twenty minutes discussing my anxieties and my expectations. I knew what I wanted to get out of the experience, and I knew WHY I wanted these things. I wanted to see some sort of objectivity; I felt as though I was drifting from my core, and needed some sort of knowledge that would assist me in becoming a better person. I had recently begun feeling more distant from family, and was beginning to have a sort of existential crisis. I was an atheist and had no belief or disbelief in any deity or afterlife, so it raised many unanswerable questions that would make me feel uneasy. I wanted to feel more connected, so I decided to do some inward exploring. This is where DMT came into the picture.
+I wanted to feel more connected, so I decided to do some inward exploring. This is where DMT came into the picture.
+My friend B knew how to extract DMT from Mimosa hostilis root-bark powder, and taught me how to do it. We did a pull/batch the day before, so I knew exactly where this particular DMT came from. This got rid of any suspicion I could have possibly had. Before learning how to extract it, I did research on the substance and read experience reports. I wanted to go into this as over prepared as possible. Little did I know, it would not matter how much I knew about it, it would still be just as intense and flabbergasting.
+Back to the side of the bed: my friend B asks if I am ready. I tell him I&#x27;m as ready as I think I&#x27;ll ever be. He puts a very small cannabis bud at the bottom of the bowl, and delicately sets the white powdered crystal on top. He informs me that he will be holding the bowl and lighting it for me, which puts me even more at ease. I put my mouth up to the pipe, and he puts the lighter near the crystals. He is very careful not to burn anything, just melt and vaporize. I fill up the pipe, and inhale. The taste and smell are ancient. The plastic-like taste runs through my whole body.
+As alien as this is to me, I take another hit. This particular hit kicked things up a few notches: objects became more vibrant, matter was lightly pulsating, and this electronic hum in the air became significantly louder than normal. I had to take about 20 seconds to let it marinade. As I sit there, I notice that déjà vu was starting to blend with every moment. I felt as though certain human things were starting to dissolve. I somehow took my third and last hit, and B withdrew to give me room to lay down.
+The electronic hum became even more loud, as though it&#x27;s always there and we are conditioned to not notice it. This strong vibration took away my sense of free will, which was a magnificent thing to observe. At first, these alien feelings made me a bit scared, made me want to undo what I did. But I quickly forgot about my feelings, and became fascinated with what was happening all around me. I looked around the room slowly, watching objects fold in and out of each other. Colors I had never seen in this room were flowing like electricity. Golds, greens, reds, and unknown combinations of earthly colors were introducing themselves to me. I soon became overwhelmed, and decided to lie down and close my eyes.
+My mindscape revealed itself to me to be related to matter, as it was folding in and out of itself in various dimensions. I watched infinite self-tessellating objects intertwine and glow gold and red. It was an ancient and beautiful pattern that I will never forget. At this point I wondered why I was experiencing this.
+What happened next is something I half-expected. I had read up on DMT experiences and knew many, if not most people, have interactions with beings. It was still not something a first-timer can mentally prepare for. These self-tessellating patterns began morphing into hominid shapes. Three beings appeared out of the infinity, what felt like right in front of me. In retrospect, it was INSIDE of me. They still retained several qualities of my mindscape: they were still tessellated next to each other (even though they seemed to be of a higher dimension), and their “faces” were taking the form of something my mind could understand. I still remember their original forms: wide and happy grins, pitch black eyes, short bodies made of a seemingly unknown energy to me. But this original form soon became replaced with what my mind could make sense of: family. I saw my mothers face, my stepfathers face, and my uncles face. They were, without words, telling me they loved me unconditionally, and were happy to see me. It felt as though they were happily humming into my brain, trying to soothe me and let me know everything was alright.
+Once I came to peace with my experience, they folded back into my mindscape. I felt the DMT loosen its grip, and I opened my eyes. Once I saw my friends B and L, I instantly remembered that I had inhaled DMT. My sober mind started to rise, and I could see things very clearly. I was shaking with excitement, and was rushing through my previous 5 minutes so I could remember as much as I could. I started analyzing every feeling I had during my “trip”, and tried to make sense of everything. As alien as the experience felt WHILE it was happening, I could not shake the sense of familiarity once I came back. It felt like I had been there before, a long, LONG time ago.
+I had come to a few conclusions about my experience at the time, conclusions that I still cannot shake. I felt as though the human condition/experience is partially created/monitored by endogenous DMT. When I inhaled the DMT vapor, I was figuratively turning the frequency dial on my perception. The subtle hum that I heard after the first hit was the sound air particles make when they collide and comingle. I felt as though humans had evolved to not hear the sound since it serves no purpose other than a minor annoyance. Another conclusion I came to was that our brains are programmed to take in certain input and turn that into a perceivable reality. By that logic, when I inhaled DMT I was reprogramming my brain to use different energy as input: energy coming from within instead of from the outside world. In my opinion, the beings I interacted with were a construct of the human psyche, possibly ancient. This would also explain why almost everyone who experiences DMT has contact with some sort of sapient entity.
+This is where I will wrap up my experience in a nutshell: beginning of spring, went to friends house, discussed my apprehensive feelings with him, went over my goals in my head (wanting to become more aware and connected with things that matter), took 3 large hits in a time span of a few minutes, objects morphed and folded, colors became more intense, déjà vu became more frequent, free will dissolved, humming took over everything, nervousness inevitably subsided, saw the beauty of the human mind, witnessed and interacted with 3 mysterious sapient beings that communicated without spoken words, perceived them as family, realized how loving and awesome my family is, realized how complex the universe really is and how I need to be at peace with not knowing most things, and realized how I need to value this moment to moment experience.
+Overall a very positive and very intense experience, and was my only time using DMT. I think the reason I had such a positive experience was a combination of the DMT being very pure (white crystals extracted by my friend B and myself), the weather being promising, my friends being quiet and mature, and my willingness to learn what I could from such a bizarre experience. I know I will use DMT again some day, but only when the circumstance presents itself in a proper fashion.
+Exp Year: 2011
+ExpID: 99695
+Gender: Male
+Age at time of experience: 19
+Published: Nov 30, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DMT (18) : Families (41), Entities / Beings (37), Guides / Sitters (39), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

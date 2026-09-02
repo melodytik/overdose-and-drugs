@@ -1,0 +1,330 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>, 2C-B 和大麻 - 埃罗伊德 - &quot;成为一个 Marionette&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dmxe.html'>← DMXE</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>, 2C-B 和大麻 - 埃罗伊德 - &quot;成为一个 Marionette&quot;</h1>
+<div class='sub-title'>DMXE, Ketamine, 2C-B &amp; Cannabis - Erowid Exp - &#x27;Becoming a Marionette&#x27;</div>
+<div class='meta'>作者：Etazhi Citation · 日期：Apr 15, 2026 · <a href='https://erowid.org/experiences/exp.php?ID=116023' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>[Erowid的注意事项:
+本报告所描述的剂量非常高,可能超出Erowid的&quot;重量&quot;范围,并可能造成严重的健康风险或导致不必要的极端效应.
+有时报告的极高剂量是错误而不是实际使用的剂量.
+现在我意识到我的大部分胺已经被切断,所以剂量确实是未知的,
+其他剂量如dmxe是准确的
+在过去的一年里, 我发现很难做到这一点.
+我以为我已经失去了魔力.
+但在这次经历中,我基本上设定了两条路线:
+如果我不k洞我脱离离分离器只要我可能去.
+至少还有几个月的时间,直到9月的生日.
+如果我做了K洞, 我会等到我的耐受性恢复,
+只有为了Khole.
+在这个经历中,
+我以前去过的地方, 忘记了它在视觉上和全 Khole 一样有趣.
+也许让我一直追逐Khole的原因, 是它是我有史以来最深刻的幻觉状态.
+虽然它与其他作品相比并不是特别令人高兴, 脱离也不是总是最好的效果 (尤其是下降),
+我在16岁的时候 (也许15岁) 在新的一年里, 我吃了4片酸 (低于400ug) 我有一个疯狂的dxm托利或者更确切地说dxm失去了它的魔力,
+不管怎样,我正在看一些太空节目?
+也许是因为我做了黑镜或是因为我做了黑镜.
+我表哥一直在向我展示一些东西.
+我没有衡量我的剂量我只是买了20袋,尽可能多的.
+我买了半克,最后嗅了大量的半克, 留下了一条不错的线.
+这就是我爱上胺的时刻.
+电视上的场景呈现出非常精彩的太空动画, 就好像我刚刚进入洞里,
+我转过身来,看着各个方向.
+我仍然可以看到所有的行星和星星.
+我知道我在幻觉中, 因为我保持着清醒的状态.
+但我的上帝细节是高清,我可以看到它比我的实际视力更好.
+我甚至在房间里移动, 他们的角度与我的视角相符.
+这绝对是美丽的幻觉感觉半小时但持续不到3分钟.
+这时我爱上了幻觉状态, 并且在下降过程中我对自己进行了自我审问,
+我不再贩卖和偷窃, 成为一个遵守法律的公民, 不是因为我需要遵守法律, 而是因为我需要改变坏的习惯.
+(我现在通过做一些有意义的激进主义工作来表达我对权威的蔑视.
+不是通过成为一个的青少年叛乱原型.
+随着疫情的蔓延, 我开始使用多种药物, 最终又开始服用3cl pcp,3mep pce,3ho pce,o pce,Hexen,Etiz,Flualp,25e-nboh,DOC,各种胺和lysergamide RC.
+尤其是因为PCP在心理上造成了很大的伤害.
+我在清醒时变得疯狂, 基本上保持了这样一年, 直到几个月前.
+在过去的几个月里,
+在过去的两年里, 我从来没有服用过正常量的迷幻药,
+半个片子和1克, 由于某种原因感觉更强烈,
+这有点像当你躁狂和经历的事情更强烈.
+这种感觉加上迷幻效应.
+不舒服.
+无论如何,我想我会从我的旅行报告开始.
+我在回家省份之前已经有了一个星期的假期.
+我决定使用胺, 取决于结果.
+在此之前,我决定尝试DMXE是否可以在2C-B上进行洞穴.
+0:00 - 吃2C-B
+0:22 - 开始感觉效应,我记得检查时钟在这里.
+0:40 - 感觉有点,认为这是一个通常的10毫克剂量.
+我估计只有20毫克以下.
+我抽了大麻,并称重了DMXE
+0:53 - 终于有足够的勇气, 只是铁路DMXE作为性是有点的子在我的过敏骑鼻膜
+0:58 - 得到一个电话从我的祖母, awwww该死的.
+我很难和祖母说话, 制定计划,
+我告诉她工作的机会和我回家的计划.
+我问她来接我的时候, 我说得不好,
+我很受损,刺激不是明显的,但可以察觉.
+时间变得有点模糊, 从1:43结束的电话通话, 到3:11结束,
+1:43以后的时间:
+我在想我忘了做一些任务 (哈哈哈阿莫-我很抱歉),
+她最终只告诉我去睡觉, 因为她已经习惯了我清醒时的躁狂发作.
+所以她通常把我送到自己的房间,然后给我一根烟草睡觉.
+幸运的是我没有遇到任何麻烦,第二天早上她甚至没有提到任何事情,
+无论如何,我开始进入我通常的疯狂的思维模式, 我是一个弥赛亚,
+我开始进入我通常的疯狂思维模式, 我是一个弥赛亚,
+我最近在读巴库宁和克罗普托金,
+我终于吸了更多的烟, 总的来说我只记得在我的房间里散步, 在我的笔记本里写很多东西,
+但是我仍然没有整理我的衣, 因为当然我不会,
+我在3点11分左右下来检查时间.
+奇怪的是,一旦我抽出时间, 计算出我有多困难, 就像一个开关.
+接下来是2C-B的纯粹迷幻.
+我没有注意到2C-B太多,所以我在峰值的开始.
+有点突然和令人厌恶但没有什么我不能处理.
+只是一种新奇的效果
+时间3点11分 - - 停用DMXE, 倒掉我最后一克胺.
+决定这就是它.
+如果没有发生任何事情, 我会休息一会.
+如果它确实有效, 那么我会感激,
+我最多会一个月做一次.
+我只会在特殊场合使用.
+现在或永远不能控制我的使用.
+2C-B具有刺激性, 这加上常见的鼻腔扩张,
+几乎可以在四次嗅探中嗅出整个线.
+接下来的两个滴下来.
+我有一个小小的线不超过100毫克.
+我把我最喜欢的歌曲放上这些旅行, 因为它是怀旧的从我的青少年时代,
+我像火车一样被击中,时间变得毫无意义,所以我不会保持时间,直到经历结束
+我没有进入洞, 但它是最接近一个可以在过去.
+一旦K击中歌词开始以某种方式maKe绝对的意义和一切都发生了他们应该.
+我开始做奇怪的自动动作,
+房间及其所有内容开始向内旋转到中心点,
+我只能通过其他感官感知到自己在房间里,
+似乎来自墙壁的回声和声音.
+虽然这是一个外来语言,
+我自动的动作变得越来越自动, 直到我只是一个观察者,
+我已经成为一个木偶在Khole边缘的奇点.
+唯一能解释的就是, 霍尔是黑洞的奇点,
+似乎我处于事件地平线, 但不是奇点,
+没有任何东西能像Khole那样完全分解.
+经历持续了所有但一个半小时.
+下次我花时间, 但在我的损害状态我忘记了确切的时间, 并没有写下来.
+4:30开始到8:50.
+没有什么值得注意的,
+我期待着把这不像药物, 而更像是精选场合的迷幻体验.
+我还在努力成为一名教师, 努力为本学期做好准备.
+但如果我能进入,我会得到资金的照顾. 只是时间问题,
+我越来越少有时间进行实验.
+我真的很期待能做一些更深入的记录.
+我一直在储蓄去西班牙和阿姆斯特丹去派对, 因为加拿大城市只能让你高,
+我计划更好地记录和研究我国无法获得的和其它化学物质
+我计划建立一个标准的RC测试程序, 然后测试尽可能多的化学品, 并确定剂量和定位程序以及试剂和溶剂的结果.
+主要对纪录Diso,Psychs和一些刺激和病原体感兴趣.
+如果我完成了这项工作, 我还打算重复一个盲目测试,
+无论如何,谢谢你阅读,如果你关心.
+这不是一个笑话.
+我在感觉时就能识别PCP狂热.
+其他:
+2C-B (52),DMXE (926),胺 (31):组合 (3),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+Becoming a Marionette
+DMXE, Ketamine, 2C-B &amp; Cannabis
+by
+Etazhi
+Citation:   Etazhi. &quot;Becoming a Marionette: An Experience with DMXE, Ketamine, 2C-B &amp; Cannabis (exp116023)&quot;.
+Erowid.org
+. Apr 15, 2026. erowid.org/exp/116023
+DOSE:
+T+ 0:00
+10 - 20 mg
+oral
+2C-B
+T+ 0:53
+200 mg
+insufflated
+DMXE
+T+ 3:11
+4 lines
+insufflated
+Ketamine
+T+ 0:00
+repeated
+smoked
+Cannabis
+BODY WEIGHT:
+102 kg
+[Erowid Note: 
+The dose described in this report is very high, potentially beyond Erowid&#x27;s &#x27;heavy&#x27; range, and could pose serious health risks or result in unwanted, extreme effects. Sometimes extremely high doses reported are errors rather than actual doses used.]
+An edit: I realize now alot of my ketamine has been cut so the dosage is truly unknown but I&#x27;m too lazy and stoned to edit out the part where it says 1 gram of ketamine, this isnt the dosage. Other doses like dmxe was accurate though
+So to preface I use lots of ketamine and for the last year have found it hard to k hole. I thought I had honestly lost the magic. But during this experience I had basically set two routes:
+If I dont k hole I&#x27;m off dissociatives as long as I can possibly go. Minimum a few months until my birthday in september.
+If I do k hole I&#x27;ll wait until my tolerance resets and never use ketamine recreationally ever again. Only for khole&#x27;s.
+I did in this experience end up right at the edge of a khole. A place I&#x27;ve been before and honestly forgot was just as interesting visually as the full khole.
+Perhaps what keeps me chasing the khole is the fact it is the most profound hallucinatory state I&#x27;ve ever been in. Its not particularly euphoric compared to others nor is the dissociation always a preferable effect (especially the comedown) but my god were the visuals the most beautiful things I&#x27;ve ever seen.
+When I was 16 (maybe 15) on new years I took 4 tabs of acid (under 400ug tho) and I had a mad dxm tolly or rather dxm lost its magic but that hadnt mattered for ketamine.
+Anyways I was watching some space show? Maybe it was smt to do w black mirror or smt. Idk my cousin was showing me stuff.
+I didnt weigh my doses I just bought 20 bags and snuffed as much as I could. I had bought a half gram this time and I ended up sniffing a great amount of the half gram leaving a decent line left.
+Here is where I fell in love with ketamine.
+The scene on the TV showed really well rendered space cinematics so like I had just entered the hole as the scene played and the planets and stars left the TV slowly entering the room and filling it. I turned around me looking all directions. I could see all the planets and stars still. All completely convincing yet I knew I was hallucinating due to a pretty lucid state being retained. But my god the detail was HD, I could see it better than my actual vision. I even moved around the room and their angles corrosponded to my perspective. It was absolutely beautiful and the hallucination had felt like a half hour but lasted less than 3 minutes.
+Thats when I fell in love with that hallucinatory state, as well as on the comedown I had a very introspective self interrogation that ended up being the start of me getting out of crime.
+I had stopped dealing and doing petty theft and generally became a more law abiding citizen, not out of some need to conform but a need to change my bad and self destructive habits. (I now express my disdain against authority by doing activism work and shit that means something. Not by being an edgey teen rebel archetype.)
+Anyways fast foreward to recently with the whole pandemic I had slipped into a relapse w many drugs and ended up taking drugs like 3 cl pcp, 3 mep pce, 3 ho pce, o pce, Hexen, etiz, flualp, 25e-nboh, DOC, Various tryptamines and lysergamide RC&#x27;s. I had, especially with the PCP&#x27;s done quite alot of harm psychologically. I became manic when sober, and essentially stayed that way for a year until a few months ago. Then for the last few months I&#x27;ve been anxious in general.
+In the last 2 years I havent taken psychedelics in even common amounts because of my mania and anxiety. Half tabs and 1 gram for some reason felt more intense, but the visuals or effects werent stronger. Its sort of like when your manic and experience things a little more intensely. Its like that compounded onto the psychedelic effects. Wasnt comfortable.
+Anyways I guess I&#x27;ll begin with my trip report.
+It was my week off before I left to my home province. I had decided to do that aforementioned thing w ketamine depending on the outcome.
+Before that however I decided I&#x27;d try if DMXE is possible to hole while on 2C-B.
+0:00 - Eat the 2C-B
+0:22 - begin feeling effects, I remember checking the clock here.
+0:40 - Feel sort of trippy, think this is a usual 10mg dose. It does get stronger however and I estimate it to be just under 20mg. I smoke weed and weigh out the DMXE
+0:53 - Finally muster up enough courage just to rail the DMXE as the causticity is a bit of a bitch w my allergy ridden nasal membranes
+0:58 - get a call from my grandma, awwww fuck.
+From 0:58 - 1:43: I am just barely managing to talk to my grandma and make plans and explain my day. I told her of jobs offers and my plan to come home. When I ask her to pick me up I slur my words and can barely get the word out. I am very impaired, the stimulation is not overt but noticable.
+Time gets a bit iffy from the end of the phone call at 1:43 in until 3:11 when I remember the next time I took the time, within that window I was too manic to check the time.
+1:43 onwards:
+I am running around thinking I forgot to do tasks (hahahaha amo- I&#x27;m sorry) like replant my moms new houseplant or something. She ended up just telling me to go to bed as she was used to my manic episodes when sober. So she just usually sent me to my room and gave me a joint to go to sleep.
+Thankfully I didnt get in trouble at all, she didnt even mention anything the next morning but the anxiety and guilt of lying to my mother still played into my experience I think
+Anyways I start going into my usual manic pattern of thinking I am a messiah and meant to bring my wealth of knowledge about activism topics
+I start going into my usual manic pattern of thinking I am a messiah and meant to bring my wealth of knowledge about activism topics
+I was recently reading like Baukunin and kroptokin thinking I was some genius for finding these authors on my own.
+I ended up smoking more and overall I just remember pacing in my room, writing alot of stuff in my notebook, then like cleaning my room? But still not organizing my dressers because of course I wouldnt, not even when I&#x27;m stimmed up on a pcp like disso (Fuck sakes)
+I come down enough around 3:11 in and check the time. Strangely as soon as I took the time and added up how hard I was in, it was like a switch. One moment I was taking the time while disso&#x27;d out on DMXE but then the next moment it was pure psychedelia from the 2C-B. I hadnt noticed the 2C-B too much so I was at the peak&#x27;s beggining. A bit sudden and off-putting but nothing I couldnt handle. Just a novel effect
+3:11 - off DMXE and pour out my last gram of ketamine.
+Decide that this is it. If nothing happens I&#x27;m gonna take a long long tolerance break. If it does work then I&#x27;m going to be grateful and never use such a sacrement for recreation. At most I&#x27;ll do it once a month. Preferably I&#x27;ll get it down to just special occasions.
+Figure that since I&#x27;m becoming older its now or never to get my usage under control.
+3:26 - the 2C-B has its stim properties so this compounded with the usual nasal dialation of psychs like LSD and Shrooms that allow me to take massive keta doses.
+Sniff almost the entire gram line in four sniffs. The first two I let drip then the next two drip. I had a tiny tiny line left no more than 100mg.
+I put on my favourite song for these trips since it was nostalgic of a time from my teen years when everything wasnt so shitty.
+I get smacked like a train and time becomes meaningless so I dont keep time until the experience ends
+I didnt enter the hole but it was as close as one could get before going over.
+As soon as the k hit the lyrics began to somehow maKe absolute sense and that all things were happening as they should be. I began doing strange automatic movements influenced by an unknown force.
+The room and all its contents began swirling inwards to a central point until it became a solid mass at a point. I could only realize I was in my room through other senses like touch and sound. The sound however got overridden by echoes and voices seemingly coming from the walls.
+A foreign alien language yet I understood exactly what it said.
+My automatic movements became more and more automatic until I was simply an observer to my own limbs being controlled by an unknown force that was also puppeteering all other things such as the visuals and the music and my sensations and movements all in sync.
+I had become a marionette in the singularity of the edge of the khole. The only way I can explain it is like the khole is a black hole&#x27;s singularity and the sober reality is outside the event horizon. It was like I was in the event horizon but not the singularity where time is half broken, physics still somewhat work. And shit isnt completely broken down like the khole does.
+The experience lasted all but an hour and a half.
+~4:30: experience ends, next time I took time but in my impaired state I forgot the exact time and didnt write it down.
+4:30 onwards until 8:50. Nothing much of note but just the comedown experience.
+I look forward to treating this less like a drug and more like a psychedelic experience meant for select occasions.
+I&#x27;m also working on my carreer as a teacher and am trying to get everything sorted out for the semster. But I&#x27;ll get the funding taken care of if I get in its just a matter of time really since I&#x27;m likely to get into the post sec program.
+As such I&#x27;m getting less and less time to experiment. Something that I&#x27;m actually looking forward to do and record more in depth.
+I&#x27;ve been saving up to go to spain and amsterdam to party since Canadian cities can only get you so high unless its meth and fent haha.
+My plan is to more properly record and research dissos and other chems not available in my country
+My plan is to establish a standard procedure for RC testing and then test as many chems as I can and establish doses and titration procedures as well as reagent results and solvents.
+Mostly interested in documenting Disso&#x27;s, Psychs and Some stims and Empathogens.
+If I finish this I also plan on repeating a blind test for analouges w my friends that I lost the data and write up for :(((.
+Anyways thanks for reading if you cared.
+DMXE MANIA IT AINT NO JOKE. I RECOGNIZE PCP MANIA WHEN I FEEL IT. (same w mxipr)
+Exp Year: 2021
+ExpID: 116023
+Gender: Not Specified
+Age at time of experience: 20
+Published: Apr 15, 2026
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-B (52), DMXE (926), Ketamine (31) : Combinations (3), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

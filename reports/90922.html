@@ -1,0 +1,666 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾哈瓦斯卡 - 艾罗维德的药物 - &quot;天空鸟的声&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/huasca-group.html'>← Huasca Group</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾哈瓦斯卡 - 艾罗维德的药物 - &quot;天空鸟的声&quot;</h1>
+<div class='sub-title'>Ayahuasca - Erowid Exp - &#x27;The Din of Celestial Birds&#x27;</div>
+<div class='meta'>作者：Ithica Citation · 日期：Jun 21, 2011 · <a href='https://erowid.org/experiences/exp.php?ID=90922' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我在戈阿开始了迷人而美丽的阿雅瓦斯卡之旅,
+梦幻般的光,仪式和夜间访问灵界.
+在仪式前5天, 我去见了一位法国巫师.
+的房子装饰着水晶, 充满了香.
+她是一位穿着白色衣服的中年女性,
+我们在她的花园里谈论我想要尝试阿雅华斯卡的目的,
+她几乎怀疑地询问我的意图;她提醒我,这不是轻易的!
+我很快就会有三晚的恋情, 在花园里闪闪发光的露水,
+她说:&quot;这是一个迹象.
+让我们回到她的问题.
+我从阿雅华斯卡那里得到了什么?
+我很难完全坦率地对她说话, 因为事实上, 我生活中有无数方面迫切需要帮助和指导.
+所有对未来的恐惧和生活中的拒绝;死亡,丧,精神动荡,无休止的自我毁灭.
+我从小就渴望得到某种迹象,某种暗示...任何东西...!!...
+我已经病了很长一段时间, 诚实地说, 我是因为绝望而求助于植物,
+最后,我忽略了细节, 总结说我患有临床抑郁症已经15年了, 需要力量和灵感.
+接下来的几天将会发生的事情,
+我坚持严格的植物饮食9天 (前4天,整体3天,后2天);没有盐,糖,香料,肉,乳制品,酒精,麻醉品或任何药物.
+没有操,没有自慰.
+毕竟,阿亚瓦斯卡是一种嫉妒的品味!
+我是她的,只有她的.
+没有社交活动, 没有阅读,互联网等的污染.
+让J为我做饭,练习放松技巧,每天对J为我做饭的平淡食物做出可怜的选择.
+到了第三天, 我对周围的一切都变得极度敏感,
+虽然我的身体已经变得虚弱,
+经过四天的节食, 我连续参加了三次仪式.
+每一天的仪式都包括早午餐,然后禁食和最低限度的饮用水,直到第二天.
+每个视觉都按时间顺序记录.
+没有一个人能让我这么做
+与鸟儿一起旅行
+我们在阳台上举行仪式,
+我坐在一个白色的床上沉浸在的声音.
+我们在开始之前等待完全的黑暗.
+她用燃烧的来清理我们周围的空间, 吹出林烟草的烟雾,
+她把烟吹在我身上,在我的手上,并指示我把烟吹到我的脸上.
+我闻到了水的味道.
+我很害怕.
+我特别焦虑, 因为在8天前,
+我当时还不知道禁药2周的规则; 或者说,
+我不太关心可能会造成的生理反应和健康影响, 而是因为我没有为此经历做好准备,
+另一方面坚持严格的安全规则和对葡萄树的尊重.
+如果我承认我在5天前服用了一剂西巴姆, 她会禁止我接受这一切.
+但那天晚上我有了异象,
+我吞下了苦药,我们等了一两个小时.
+她唱着一首&quot;伊卡罗&quot;,
+我眼周围迅速跳舞相当长一段时间, 但不多.
+我已经开始失去希望了,
+我那天晚上喝了三杯小杯, 第二天我们认为这对我来说太多了.
+但我绝望地想看到,她不确定这批药的强度.
+我的夜晚的记忆是相当混乱和模糊; 愿景变得更加清晰, 但从来没有达到清晰度, 他们在接下来的夜晚来.
+一个迫在眉的美洲虎既诱人又有点可怕,因为它无休止地移动,把自己向我和上面.
+后来我发现这些动物是她在Icaro期间特别呼唤的.
+我清洗了无数次,有时非常暴力...
+这都是清洁过程的一部分.
+我在身体上了, 脑子也变得像一样, 无法理解我的想法.
+总而言之,我脑子里一片, 身体崩了,
+我终于爬到卧室, 很高兴已经摆脱了院子里的蚊子的烦.
+我不能在巫师的命令下坐起来.
+找到去所的路从来没有这么困难.
+我从每一个口吐出液体, 房间里旋转着最美丽的, 虹彩, 天空的鸟.
+我开始过度呼吸, 叫; 这确实太多,
+艾莉亚告诉我放松和控制它但我过她的声音和房间里的一切真实从我的脑海中.
+这些生物围绕着我跳舞飞翔了好几个小时,
+我笑着歇斯底里,在狂喜和恶心....护士与伤口重复,慢动作,振动来自内外..... trrrriipppppp-pppppppiiiggg, wwwwwiiiiiithhhhh theee bbiiiiiiiiirrrrrrrrrdddssss和wwwhhhatttttthhheeeeee ffffffffffffuckKKKKK!!旋转在我的脑海中.
+没有什么重要.
+这就像在卡通片中.
+但在视觉上,我的上帝,它是美丽的.
+我终于陷入了一种扭曲的睡眠,
+晚上两点,我们要去看看.
+所有的想法都是野兽的猎物
+我一整天都处于昏迷状态, 身体似乎又又痛苦,
+尽管这些幻象令人惊叹, 我深思如果今晚只是重演这一场戏,
+身体上, 我不太能忍受那些不眠的夜晚和禁食.
+现在我到达的焦虑已经减少了.
+另外还有一位来自柏林的参与者,
+他很礼貌,无害,安静,
+我们在花园里等了几个小时,
+让我有点焦虑.
+我在印度的第一次降雨.
+我们被迫进入室内开始仪式.
+我和A. 坐在床上, 德国人对面我们在床上.
+这是一个相当奇怪的,稍微令人不安的设置, 但没有选择.
+暴风雨在外面持续; 强烈的闪电给了这个人威胁的阴影.
+德国人开始动,吐,喘息和.
+另一方面,我似乎很正常.
+药物还没有起到任何作用.
+德国人打出第一波波,
+他站起来, 过度兴奋, 席, 吐, 以恶魔般的语气席,
+我希望他能坐下来闭嘴.
+巫师试图用更多的和来镇静他, 但这只会激起他的愤怒.
+他走来走去, 变得越来越愤怒和逼人.
+他嘲笑她,抵制她的歌曲和烟雾,
+这就是恐惧的开始.
+一个.
+他可能真的是个精神病患者, 我看到了我们处境的脆弱性,
+2. 在
+我自己也会在某个时候上来, 我最不想看到这个令人厌恶的,无法控制的男人.
+幸运的是,他最终走了, 倒在夜里, 很大程度上是他自己的愚蠢对他的福祉.
+我感到非常宽慰!
+但他留下的空气污染了一些不愉快和可怕的东西.
+身体上, 我感觉自己很直观,
+我很想知道他的行为是否完全禁止药物产生任何影响.
+我感到疲和失望,
+接下来的好半个小时, 疯狂的航行通过和净化房间的烟和歌曲.
+她的巨大的烟斗.
+她就像一只困难的白蝙蝠 - - 在黑暗中盲目地飞翔, 绝望地想清除刚刚污染的房子.
+我明白她想做什么,但我也希望她停止.
+由于某种原因,
+我躺在床上了.
+她问我是否还好.
+我说是的,但我害怕他会回来.
+我觉得很奇怪... 虽然视觉上什么也没发生.
+仍然有一种不愉快的氛围.
+感觉好像他还在那里.
+她为我唱了另一首歌, 但我们大部分时间都沉默着,
+我很疲.
+当她离开我的夜晚, 幻象来了洪水,
+嘲弄,荒谬和图形.
+只是我很清楚这不是梦.
+我被无数的龙访问, 在各种形式和伪装.
+有些是威胁性的,令人厌恶的,有时是扭曲的,扭曲的生物的漫画.
+它们发出尖的尖叫声, 而突然扭曲和变形成为更令人反感,更扭曲的形象.
+他们是故意试图吓我.
+我知道这是他们的意图, 我尽力不屈服于恐惧.
+整个时间都紧紧抓住床.
+有时空气充满了史前爬行动物鸟扬和威胁.
+有时鸟类是机械的.
+有时美丽.
+在某个时刻,
+或许是一种惩罚?
+我可以看到自己,我的背部,从上面.
+我记得当时想到这张图像能制造出何等奇妙的艺术品.
+房间里周围的头部爆炸成血淋淋的碎片.
+在房间里我上面的风扇似乎活着和邪恶.
+墙壁正在呼吸.
+让我知道它的存在. 现在,我知道它在哪里.
+视觉变得稍微温和在一个时刻, 当我被带到一些古老的山脉和梦幻般的颜色.
+白色的丝龙在土地上滑行, 保护里面的生物.
+他们向我展示了他们的家, 并告诉我死后有一天会再次欢迎我.
+他们说这是来世的一个选择.
+在一个看似毫无意义的世界里尖叫着.
+我看到了他们几乎无害. 现在,
+尽管如此,可怕的图像留在我身上直到我睡着了.
+首先我很害怕,然后我想我已经习惯了他们.
+但它从来没有在任何时候接近愉快,因为它是前一天晚上.
+灵魂的目的很明确, 只是要折磨我,
+第二天早上,A和我聊了聊.
+这就是那个男人的坏能量被释放出来, 透到空气和我们的视觉.
+药物揭示了人们的真实性格,
+在仪式之前,他曾与她谈到令人不安的梦想,他想阻止这些梦想,其中许多涉及三头龙.
+我猜这可以解释它们来自哪里.
+尽管它很荒谬, 这是多年来第一次我真的害怕,
+我再也没有梦了.
+晚上三点钟,我们要去看.
+这是我一生中最激烈,最愉快,最有洞察力的夜晚.
+这里有三个主要的视觉.
+视觉一 - 独自一人,活着
+我很快就开始有生动的,具体的幻象.
+首先是女性身影, 舞蹈或用头发和手动做出节奏, 诱人的手势.
+她身后有个圆形的蓝色的灯光.
+我记得自己对此感到有点不安,
+我进入了一个扭曲的空间,
+总是有某种人类或人类般的存在感,
+有些是男性,有些是女性.
+一些玩具或小丑.
+有些只是轮,或是隐藏在物体后面.
+宝宝或巨人娃娃的下半身以一种非常可怕的方式漂浮在我的头上.
+没有人知道我在哪里.
+一个巨大的建筑物, 似乎有很多微型, 几乎看不见的实体 (精灵?小丑?
+我能听到他们的声音,
+我知道他们对我在那里的存在非常感兴趣. 我知道他们对我的存在非常感兴趣.
+他们正在看,讨论,探测我与他们的机器,检查... 审查.
+我渴望他们的神秘无稽之谈消失, 终于他们消失了.
+让我们回到人类,或是人形.
+大多数时候,人形形象被遮蔽,或者隐藏了他们的脸.
+它们往往是不祥的.
+他们转身向我转身, 刻意隐藏自己或自己的身份.
+他们是可怕的,灰色和禁止.
+他们的脸被撕裂, 机械肉体正在解体.
+他们的脸是空洞的,严厉的.
+我开始觉得自己不是害怕,而是极度不受欢迎.
+在此之后, 一个主导的, 沉默的角色出现了,
+我们在一个暗淡的隐蔽空间, 没有其他人.
+形象是男性的,就像一个人形在各种图画姿势.
+他沉默,没有表达.
+他的脸也模糊了.
+通过一些未知的机制, 他向我传达了一些简单的事实:
+我在地下世界,我没有受到欢迎.
+他知道这就是我一直渴望看到的地方;
+他向我展示,是的,这是真实的,这是灵魂漫游的地方,
+这是一个黑暗,压迫的领域无名,无面影.
+眼开始从我的脸上流下来, 因为他一再重复我不应该在这里.
+他告诉我回归我的生活.
+他告诉我停止寻求安慰和逃避他们的世界.
+这不是我的时间.
+我无法忍受他的丧言语,
+对于另一面,我对这一切的黑暗感到悲伤.
+我向他求我需要帮助.
+我觉得自己很软弱,生活让我很累.
+我求帮助和力量, 像我从来没有做过.
+然后发生了一些变化.
+但更轻,更舒适的光线开始浴我们周围的空间.
+他似乎仍然有一段时间,在沉思的姿势,和一种宁静的感觉设置在我们身上.
+没有人说话了,
+他摆在我面前,过了一会儿举起手臂,把他的发光的手放在我的心上.
+我开始感觉到一个令人难以置信的热潮通过我的胸部区域;
+我们保持这样一段时间, 我觉得一波的和平降临在我身上.
+随着时间的推移, 形象和围绕我们的空间开始消失, 我再次陷入黑暗.
+第一个波已经结束.
+视觉2 - 如此长久,孤独
+我已经平静下来了.
+艾又问我没事, 我说是的.
+她再次招呼我,我坐在她面前.
+身体和精神都比前两天晚上更为平静.
+我可以感觉到药物舒适地坐在我里面,
+她唱了第二首歌曲,这首歌的声音与之前的歌曲完全不同.
+她把烟雾吹到我的手和额头上,
+然后我等了一会儿.
+大气迅速转变.
+蓝色和绿色的光,水的色调照亮了我周围的空间.
+一种宁静和平静的感觉主宰了一切.
+逐渐出现半透明的水下生物, 优雅地漂浮,
+有些鱼类或水母,有些虫, 有时它们是植物,
+很快,我被沉浸在一个充满生命的空间中,
+我无法用言语来形容我所看到的,
+我哭了我是在天堂!
+很快她清除了仪式用品,离开我一个人在房间里晚上.
+我正在抬头望着灯光.
+在我上面有植物和海洋生物, 包围着我在这个迷人的奇迹之地.
+我看到了我可以最准确地描述的形状, 一部分是男性, 一部分是生物.
+他有美丽的干和肌肉,流的四肢.
+他的头大部分时间都被遮蔽, 没有明显的面部特征.
+有时有昆虫,有时还有额外的腿, 推动他穿越空间.
+他有时会展现巨大的翅膀.
+他是美丽的,滑过我,背后和绕通过植物生活.
+我意识到他不仅仅是我视觉上要欣赏的景象,
+他会游得更近我,俯视我, 刻意曲并展现他细而肌肉丰富的翅膀,
+他还有一条子的尾巴, 确实有子形状,
+他从来没有威胁过任何人.
+他游到我的下半身,
+他靠近我的性,我被一个巨大的惊喜感觉到自己很快地兴奋.
+他开始触摸和抚摸我,
+我从来没有经历过最强烈的高潮,
+我从来没有触摸过自己.
+最有趣的是我能感觉到他在我的皮肤上,在我内心,
+我心脏收缩强烈且持续了10到20分钟,
+我从来没有经历过多次性高潮的乐趣.
+这就是我一生中最棒的性爱之夜.
+我在整个过程中都处于震惊和狂喜之中.
+我心里不敢相信这是真的发生了 (这是可能的吗?
+我身体对他的每一次触摸和动作都反应过敏.
+震动和收缩非常强烈.
+任何能量或他的一部分, 存在于我里面, 持续进入我里面,
+感觉有些东西进入了我,
+我感觉自己像一个.
+有时我想知道我的身体是否会受到冲击... 但我并不在乎;
+在我们在操的时候, 我看到一些结构/建筑/寺也许在远处在他身后,
+我能感觉到它通过他进入我的身体.
+他会把我 (和自己!) 疲尽,然后游走一点,或滑动在我身边,在床上滚在我旁边玩,做出疲劳的手势,伸展他的刺和尾巴,或漂浮和亲吻我的脸温柔.
+有时他设法让自己的一部分仍然在我里面; 也许有触手或延伸生物的部分,
+他从来没有离开我的视线,也没有忽视我的性.
+他会和我交流一点.
+永远不是用言语,而是用手势.
+他似乎在告诉我, 通过我对他的行为的身体反应, 他确实是非常真实的...
+他告诉我我是他唯一的孩子, 我所得到的爱是我坚持禁欲饮食并尊重葡萄树的奖励.
+我试图问他一些有趣的问题;
+你的名字是什么?
+我会再见到你吗?
+似乎暗示我可以记住,并通过他的刺指他.
+他告诉我我们可能会再次见面,但很可能不会.
+这很可能是一次性的遭遇,礼物,一个值得享受和记住的夜晚.
+他是一个精神世界的情人,并认真地我的那天晚上.
+我应该享受,但不能抓住.
+我们在一个小时内做爱了好几次.
+他从来没有离开我的视线.
+他终于爱着抱着我,
+我感觉到他非常爱我, 能感觉到他的亲近,
+随后,水下生物又开始在我们周围出现,
+我在狂喜的性交后的幸福中.
+愿景3 - 野生动物分析
+查看
+这是在前面的异象之后立即发生的.
+如果我认为没有什么能胜过以前的经历,
+我的灵魂情人留在我身边一段时间, 用我从未见过的爱洗我.
+后来他然消失了.
+他的本质仍然存在, 转变为其他东西.
+没有什么比现象更奇怪的.
+我发现自己沉睡地躺在猫头的柔软翅膀里.
+它们的羽毛围绕着我的皮肤.
+动物不断繁殖; 生物在不间断的流中相互涌现.
+种种以后, 变形成为彼此的速度和优雅.
+这是一个鸟类的奇迹之地; ,,猫头,大白色神秘鸟,水下飞翔的鸟.
+那里有放牧的鹿,,大猫,小猫,狗,海豚,海生物,
+它们看起来像是动画草图,
+有时我会单独与他们互动, 但他们作为一个团队,
+我在最快乐的状态我有史以来.
+这是我个人的理想.
+这就像回到一个孩子,
+我感觉到从他们那里发出的绝对的接受感和我从未见过的爱.
+我觉得自己永远不会孤独.
+谈话
+它们不仅仅是为了取悦我的眼睛.
+我也很快意识到他们有意识和口才.
+我可以与他们进行非常连贯的对话.
+动物会以漫画般的笑容,或转过头来,或敲打脚,或表现出他们的特征来表示赞同等等......
+最令人惊的不是他们的外表 (视觉呈现令人惊), 而是我们之间发生的实际对话.
+我们深入讨论了第一视觉拒绝给我答案的问题.
+他们回答了我可能想到的每一个问题,
+我必须回来生活,我必须接受它,和死亡.
+我必须停止不断逃离生活, 因为这是宝贵的,
+他们再次向我保证死亡并不是终结; 死亡之后的生活是非常真实的,
+在死亡中我会回来与他们再次团聚.
+我也能看到我爱的人......这样,我可以追随和拥抱生命,直到最后.
+我向他们询问我母亲即将进行的手术.
+他们回答说,从长远来看,
+接下来我问他们关于我父亲的情况,
+它们不会在不久的将来消失,
+我会活得更长, 尽管我抗议.
+我会没事的
+我开始想问他们关于我生活中的各种事情... 很快他们让我沉默, 并且得出结论,
+这将是悲剧.
+我会失去我目前最亲爱的人,
+但我会变得比以前更强大.
+他们告诉我要长大,
+他们愤怒地谴责我离开这个世界.
+他们告诉我不要自私.
+他们提醒我一些朋友爱我,
+他们让我向他们发誓, 我永远不会, 永远不会自杀.
+他们站在我的胸前, 严地看着我, 我答应了,
+我是真心的
+我问他们我是否应该有孩子, 哺乳动物点了点头, 欢喜地起, 鸟类欢呼地飞起, 一只老虎把子伸到我的脸上,
+当然可以!
+毕竟我是在和大自然交谈.
+我问他们关于我的艺术/职业生涯, 他们热情地告诉我继续创作,
+让自己努力.
+走得更远,没有任何疑问.
+我向他们询问关于养动物的情况.
+他们并不反对这项活动,
+我向他们道歉, 承诺不再这样做.
+我问他们关于B.为什么我没有听说过他2个月.
+他们说要忘记他, 我们将不再交叉道路.
+保持清晰,继续前进.
+我问J. 他们说告诉他同样不要放弃工作和生活.
+坚持他的工作, 即使他的目前项目将是徒劳的.
+我问那些曾经背叛过我的人,
+他们说;M.忘记子,让它走.
+只是坚持下去.
+她不想搞你,这些东西只是需要推和追逐.
+我问:如果上帝存在,为什么没有更多的人有这样的经历.
+为什么这样的事情没有被分享呢?
+他们回答说,很多人都有类似的经历.
+我意识到那天晚上我经历过的事情可能很难向大多数人讲述,
+我问我是否应该把我的故事告诉朋友,
+他们说我可以随心所欲地分享,
+我应该鼓励那些需要保证的人.
+我会完全谦卑地向他们表示感谢, 感谢他们给予我的帮助.
+我一生都渴望这一天, 在绝对的喜悦的眼中, 我问他们为什么我...?
+为什么要向我显露自己?
+他们的答案是:因为我已经问 (求) 葡萄树在完全诚的力量.
+现在是什么时候?
+她知道我正在经历这种经历吗?
+我必须在第二天早上告诉她一切 (我脸红了,无法想象这样做!).
+是的,她知道!他们回答说:&quot;她派我们来找你......我通过他们一遍又一遍地感谢她.
+我会永远感激.
+我问如果明天来了,如果我还记得这个,他们,每一个细节,每一个答案.
+我问和求不要让任何部分的晚上逃离我的记忆.
+一只猫抬起头来向我, 按着他的额头对着我的,
+他们说他们一直和我在一起.
+永远都会在我里面, 即使我再也看不到他们,
+我可以向他们寻求指导,当我呼唤他们时,他们会听我的.
+他们提醒我,对于所有我几个小时以来一直在问的问题, 他们耐心地回答,
+听到
+两次我听到声音, 听觉, 而不是心灵感应,
+我还在和一只老虎说话.
+我暂时没有什么可以问的, 玩地问他告诉我一个秘密.
+他跳到看起来像某种建筑物, 起他的爪子, 直接指着看起来像一个行星,
+我试着猜测他的意思.
+你是从那里来的?
+我看到和听到烟花的爆炸声.
+,,,,,,,
+我意识到我可以听到微弱的音乐, 我最初认为来自外面的某个地方.
+后来我意识到这是极不可能的.
+这所房子很偏远, 必须是凌晨四点或五点左右.
+我意识到音乐是从房间里,和我的右边.
+某种神,放牧与它的后面给我.
+感觉到
+我可以感觉到他们.
+像第二次视觉一样,他们通过直接的身体接触和触觉,以及再次的性唤醒证实了他们的存在:
+举例一:经过长时间的激烈对话,我说我需要抽烟,问是否可以.
+我一直躺在背上, 担心改变姿势会影响我对他们的看法.
+我想确保他们不会离开.
+这当然是说!
+没有烟!
+我感觉到某种哺乳动物把头靠在我的背上,
+小鸟在我的手指上,而我吸烟和思考进一步的问题问他们.
+第二个例子:鸟儿们在我的周围滑翔, 快乐地飞翔.
+我问他们关于我多年来失败的天体投影尝试.
+我问他们是否有可能.
+如果他们能帮助我在我的实践.
+我很嫉妒, 很高兴能脱离我的肉体,
+我认为这主要是为了我的安全.
+条件并不完全正统.
+虽然我还在背上翻转,放松肌肉,
+我比平时更快地达到那种轻微的振动状态.
+我能感觉到鸟儿在推进,拉动,并试图抬起我.
+我感觉到一只大白鸟飞过我的干,
+我感觉到背上有一种明显的抬起感觉.
+在我决定停止之前,
+我宁愿利用我的时间与他们交谈.
+第三个例子:性.
+我在一旁躺着, 在一些老虎中间.
+我认为我自己已经变得有点猫.
+一个开始操我, 再一次强烈的高潮来了.
+举例四:夜晚渐渐进入早晨, 我可以感觉到这些幻象逐渐变得不太清晰.
+我很累,但拒绝睡觉只要他们留下来.
+即使我几乎看不到他们, 每次我问他们是否还在那里,
+虽然速度较慢,而且更柔软.
+我会把手伸出来,闭上眼睛, 感觉到有人在抚摸或着它.
+这是一段充满启示的好几个小时, 持续的问题, 持续的答案和保证.
+我常常为陈词滥调的问话或重复问题而道歉,
+我也为装备道歉, 和我尝过的蛋糕的最小的slither一个下午.
+他们承认我对他们的态度是真诚而严的.
+我答应在那天晚上我们所谈到的每一件事上都会守口如瓶,
+我问他们是否可以在我们的最后一晚和J.一起喝酒.
+他终于耐心地为我做饭,给我吃饭,
+在每一次夜间约会后, 送我下车, 接我回来.
+我常常很气,很隐秘;简而言之,我是一个很糟糕的伴侣.
+他们允许我喝酒.
+他们和我在一起,或者我和他们在一起, 直到最后一刻.
+我常常想,如果能和他们一起睡觉,
+感谢他们,告诉他们我现在还好, 明天早上我再也见不到他们,
+他们试图让我放松,让我入睡.
+尽管如此,我还是时不时地检查一下,
+每次他们回应, 我都会笑,
+这种情况持续了一段时间.
+到了早晨,我刚刚醒来.
+没有恐惧,也没有悲伤.
+其他:
+2011年6月21日发布
+艾哈瓦斯卡 (8):性讨论 (14),实体/生物 (37),导游/保姆 (39),多日经验 (13),治疗意图或结果 (49),一般 (1),团体仪式 (21)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Din of Celestial Birds
+Ayahuasca
+by
+Ithica
+Citation:   Ithica. &quot;The Din of Celestial Birds: An Experience with Ayahuasca (exp90922)&quot;.
+Erowid.org
+. Jun 21, 2011. erowid.org/exp/90922
+DOSE:
+repeated
+oral
+Ayahuasca
+BODY WEIGHT:
+55 kg
+I started my enchanting and beautiful affair with ayahuasca in Goa; which was to mark a very magical end to my sojourn in India.  Visionary splendour, ceremonies and nocturnal visits to the realm of spirits.
+5 days prior to the ceremonies, I visited a French shaman – A.  A.’s house was adorned with crystals and infused with the aroma of sage.   She was a middle aged lady clad in mostly white, who had spent 18 months learning from the plants in the Peruvian jungle.  We talked in her garden about my purpose for wanting to try ayahuasca and what I&#x27;d hoped to get out of it.  She questioned me almost suspiciously about my intent; this was not something to take lightly she reminded me! The DMT-containing plant I was to soon have a 3-night affair with glistened with dew in the garden, and majestic birds of striking colour I&#x27;d not noticed in India before began to swoop down into the garden and display themselves to us. “That is a sign, you know”, she said.
+Back to her question. What had I hoped from ayahuasca...? It was difficult to be absolutely frank with her; for in truth there are endless areas of my life I desperately need help and guidance with.  All fears of the future and rejections at life; death, dejection, mental turmoil, the endless self destruction.  Also my desperation since childhood for some indication, inkling... anything...!!... that yes, there is something more to existence than what appears.... I had been sick for a long time, and the honest truth is that I resorted to the plant out of desperation for help and strength.
+In the end, I omitted the details and summed up to her that I&#x27;d been suffering from clinical depression for over 15 years; and needed strength and inspiration. What was to proceed the following days could not have come close to what I could have hoped for.
+I adhered strictly to the plant diet for 9 days (4 prior, 3 throughout, 2 after); no salt, sugar, spice, meat, dairy, alcohol, narcotics or medication of any kind. No fucking, no masturbation. Ayahuasca, after all, has a jealous streak! I am to be hers and hers only. No social interactions, no tainting of the mind with reading, internet etc.. I spent my days drawing and attempting to rest my mind, letting J. cook for me, practising relaxation techniques and picking miserably at the bland food J. cooked for me each day. By day 3 I was hyper sensitive to all around me, and feared venturing too far from the garden. I was physically weakened, but my awareness of my environment had reached startling heights. After 4 days of dieting, I partook in 3 consecutive ceremonies.  Each day of the ceremony involved an early lunch, then fasting and minimal water intake until the next day.  Each one and its visions are documented in chronological order.
+***************NIGHT ONE******************
+Tripping with the Birds
+We performed the ceremony on the balcony overlooking the garden. I sat on a white mattress immersed by the sound of crickets. We waited for complete darkness before commencing. She cleaned the space around us with burning sage, and blowing the smoke of jungle tobacco imbued in aguardiente. She blew smoke on me, on my hands, and instructed me to spread it on my face. To feed the spirits...I could smell rosewater. I was, um pretty scared.
+I was particularly anxious because I had been chasing the dragon on a bender some 8 days prior. I wasn&#x27;t at the time aware of the 2 week drug abstinence rule; or rather, I subconsciously decided to make an exception here. I was less concerned with the possible physiological reactions and health affects it might have resulted in, than the possibility that the plant might deprive me of any help and visuals at all for not preparing myself wholeheartedly for the experience!! A., on the other hand adhered to draconian rules of safety and respect for the vine. Had I confessed I even took one diazepam 5 days earlier, she would have forbid me the entire experience.
+But visions came that night; and my god, it was fucking beautiful. I swallowed the bitter medicine, and we waited for an hour or two. She sang an icaro; beckoning the spirits and we waited some more. Faint luminous visual of squiggles danced rapidly around my eyelids for quite some time, but amounted to not much. My hopes were beginning to dampen; I must see more than this!! I drank three small cups that night, which we concluded the next day was a little too much for me. But I was desperate to see... , and she wasn&#x27;t sure on the strength of this batch of medicine.
+My memories of the night are pretty muddled and hazy; the visions became clearer but never attained the clarity they did on the following nights to come. On the balcony I was visited by an anaconda, pretty little birds galore, and a looming jaguar which was both seductive and a little frightening as it endlessly moved and pawed itself towards and above me. I later discovered that these animals she specifically called for me during the icaro.
+I purged numerous times, sometimes quite violently... All part of the cleansing process. I became physically paralysed, and my mind turned to mush; my thought incomprehensive. In summary; I was tripping my brains out and my body went into some kind of meltdown whilst I enjoyed the visual spectacle. I eventually managed to crawl to the bedroom, happy to be relieved from the annoyances of garden mosquitoes. I couldn&#x27;t sit up at the shaman&#x27;s command. Finding my way to the bathroom has never been so difficult. I was spewing out liquids from every orifice and the room was swirling with the most beautiful, iridescent, celestial birds. I began to hyperventilate, and to cackle; it was indeed too much and nothing was making sense. A. told me to relax and control it but I was filtering her voice and everything real in the room from my mind. The creatures danced and flitted around me for hours of what seems like pure silliness. I was hysterically grinning, in ecstasy and nausea.... nurse with wound on repeat, in slow motion, vibrations coming from within and outside..... “trrrriipppppp-pppppppiiiggg, wwwwwiiiiiithhhhh theee bbiiiiiiiiirrrrrrrrrdddddssss” and “wwwhhhatttttttthhheeeeeee ffffffffffffffuuccckKKKKK!!” spinning through my head. Nothing meant much. It was like being in a cartoon. But visually, my god, it was beautiful. I fell eventually into some sort of distorted sleep, physically exhausted.
+***************NIGHT TWO******************
+All thoughts are prey to some beast
+I spent the day in a stupor; my body seemed to be both languid and suffering, in some sort of resentment for the purging and what I&#x27;d sent through its channels the night before. As stunning as the visions were, I contemplated that if tonight was simply a repeat of the spectacle I probably will not hold out till the third ceremony. Physically, I wasn&#x27;t coping all that well with the sleepless nights and the fasting.
+I arrived, however, with much less anxiety this time. There was an extra participant; a guy from Berlin who was also having his first ayahuasca experience. He was polite, inoffensive and quiet, but I had no interest in making conversation. We waited for a couple of hours in the garden for the distant chanting of some Indian festival to cease. The waiting got me slightly anxious. Upon cessation, a storm broke out...odd....first rainfall in my entire stay in India. The sky flashed and roared relentlessly and we were forced indoors to start the ceremony.
+A. and I were sat on the bed, with the German opposite us on a mattress. It was a rather strange, slightly unsettling set up, but there was no choice. We drank, and as we waited in silence the storm persisted outside; violent flashes of lightning giving the guy menacing shadows. Upon start of the first icaros, the German started stirring, retching, huffing and heaving. I, on the other hand, seem to be pretty much normal.
+A little while later and I&#x27;ve yet to experience any effect of the medicine. The German hits his first wave and goes somewhat nuts. He gets up, overexcited, hissing and spitting, hissing in demonic tones, claiming he is a warrior, that ayahuasca is confirming it...blablabla. He&#x27;s a pain in the fucking arse and I wish he&#x27;d sit down and shut up. The shaman tries to sedate him with some more sage and icaro, but that just provokes him more. He strides around, becoming increasingly irate and aggressive. He mocks her, resists her songs and her smoke, and the atmosphere gets even more menacing and intense. From thereon the fear began.
+1.	Maybe he is actually skizo...and the vulnerability of our situation becomes apparent to me; uncontrollable, angry man, coming up on the biggest trip of his life, with two scantily clad women in a random house in remote Goa.
+2.	I will be coming up at some point myself and the last thing I want is to have this disgusting, uncontrollable man in my face.
+Fortunately, he eventually fucked off and stumbled into the night, much to his own stupidity towards his well being. I am extremely relieved! But he left the air tainted with something unpleasant and eerie. Physically, I&#x27;m feeling straight as fuck, and slightest hint of nausea had vanished with the drama, as had any emerging visuals. I wondered if his act totally prohibited the medicine from taking any effect at all. I was feeling drained, and disappointed, but still rather unsettled by the event.
+A. spent the next good half an hour frantically sailing through and purifying the rooms with smoke and song. Huff puff huff with her gigantic pipe. She was like a white bat in distress - fluttering about blindly in the pitch darkness, desperate to cleanse her house of the filth that had just contaminated it. I understood what she was trying to do but I also wished that she&#x27;d stop. Everything started to feel a little too much for some reason. I laid transfixed on the bed.
+After a while she rejoined me and asked if I was alright. I said yes, but that I am scared he will come back. I felt weird... though nothing much was happening visually. There&#x27;s still an unpleasant vibe in the air. It very much felt as though he&#x27;s still there. She sang to me another icaro, but we mostly sit in silence and I sort of just want to go to sleep. I was fucking exhausted.
+When she left me for the night, the visions came in floods, as if they had been waiting to prey on me on my lonesome.... and OH MY... were they fucking relentless. Taunting, grotesque and graphic. Genuinely frightening in a nightmarish sense; except I was very aware that this was no dream. I was visited by countless dragons, in various forms and guises. Some were menacing… disgusting and sometimes they were comical caricatures of distorted, twisted creatures. They let out high pitched screeches whilst abruptly twisting and disfiguring into more revolting, more distorted figurations.  They were attempting to purposefully scare me. I knew that was their intent, and I tried my hardest to not give into the fear. All the while clutching onto the bed. Sometimes the air was filled with prehistoric reptilian birds soaring and threatening.
+Sometimes birds were mechanical. Sometimes beautiful. At one point they were picking at and devouring me. Some sort of punishment, perhaps....? I could see myself; my back, up from above.  Sparrows and birds of prey were feasting on me, shredding my tendons, and I remember thinking at the time what a wondrous piece of art this image could make.
+At one point there were colossal apocalyptic horses, with heads exploding into bloodied bits around the room. The fan above me in the room appeared alive and maleficent.  The walls breathing. The little green night light to the left of my bed was some slithering, hissing serpent, constantly letting me know of its presence.
+The visions grew slightly kinder at one point when I was brought to some ancient landscape of mountains and dreamy colours. White, silky dragons glided through the lands and protected the creatures within. They showed me their home, and told me I&#x27;d be welcomed again after death one day. They said this was one option of the afterlife.
+And thence the sinister scaly caricatures returned, snapping their jaws, flaunting their deformities, and screeching in what seemed a world devoid of meaning. They came, and they came back again until it became some sort of comical spectacle and I could see they were more or less harmless.
+Still, the ghastly imagery stayed with me till I fell asleep. At first I was terrified, then I supposed I became accustomed to them. But it was never at any point near pleasant, as it had been the previous night. The spirits were there with the clear purpose to torment me, and were not interested in any sort of communication or reason.
+The next morning A. and I talked. It was the guy&#x27;s bad energy which had been released, and which had infiltrated the air and our visions. The medicine reveals the true character of people, and their essence can be seen by others in their presence. Previous to the ceremonies he had talked to her of disturbing dreams which he wanted to stop; many involving three headed dragons.  I guess this would explain where they came from. For all its grotesqueness, it&#x27;d been the first time in years since I&#x27;d been truly scared as if living the most vivid of nightmares. And I never have nightmares anymore.
+***************NIGHT THREE******************
+This was by far the most intense, pleasureable and insightful night; of my entire fucking life. It was composed of three main visions.
+Vision 1 - Alone, alive
+Relatively quickly I started having vivid, specific visions. The first was the silhouette of a female figure, dancing or making rhythmic, seductive gestures with her hair and hands. There were little circular blue spotlights behind her. This was the first time a human presence became apparent and I remember feeling slightly uneasy about it – wishing her away.
+I then entered some warped space in which I seemed to be floating around randomly. There were angular, futuristic structures which I&#x27;d passed, and always the sense of some human or human-ish presence either visible or just round the corner. Some were male, some female. Some toy or clown like. Some were simply outlines, or invisible behind objects. A baby, or giant doll’s lower body floated past my head in a VERY eerie manner. As its head passed by it cracked a grin at me.
+Once a large structure, holding what seemed like numerous miniature, near invisible entities (elves? clowns? tiny toy people?) moved nearer and nearer to my face. I could hear them, and their undecipherable chatterings. They had tools with them which I could hear grinding and buzzing away, a bit like being at the dentist… I knew that they were very interested in my being there. They were looking, discussing, probing me with their machinery, inspecting... scrutinising. The shrill sound of them and their examinations of my face was very disconcerting and I longed for their cryptic nonsense to fade, and eventually they did.
+Back to humans, or mannequins. Most of the time the human-esque figures were shadowed, or had their faces hidden. Often they were ominous. They rotated and turned away from me, and deliberately kept themselves or their identity out of sight. On a couple of occasions I saw in detail their facial features, and they were ghastly, grey and forbidding. Their cheeks torn, with disintegrating, mechanical flesh.  Their faces hollow and stern. I was beginning to feel not frightened, but extremely unwelcomed.
+From this, one predominant, silent figure emerged and stayed for quite some time. We were in some dimly lit secluded space, and there was no one else. The figure was masculine, and like a mannequin positioned in various figure drawing poses. He was silent and devoid of expression. His face was also blurred. Through some unknown mechanism he communicated some simple facts to me:
+I was in the underworld, and I was not welcomed there. He knew this is what/where I&#x27;d longed to see since forever; and here it was. He was showing me that, yes... it was real; That this is where the spirits roam, and where I do not belong and am not wanted. It was a dark, oppressive realm of nameless, faceless shadows.
+Tears began to stream down my face as he repeated again and again I was not to be here. He told me to return to life where I do belong. He told me to stop seeking solace and escapism in their world. It wasn&#x27;t my time. I couldn&#x27;t hold back my tears and disappointment at his words of discouragement.  As for the other side; I was saddened by the darkness of it all.  I pleaded to him I needed help. That I was weak, that I was finding life exhausting. I begged and begged for help and strength like I had never done before.
+And then something shifted. The figure remained silent, but a lighter, more comforting light began to bathe the space around us. He seemed to remain still for some time, in a contemplative pose, and a sense of tranquility set upon us. The talking stopped, as did my crying. He hovered in front of me, and after a while raised an arm and put his glowing hand upon my heart. I began to feel an incredible warmth rush through my chest area; stemming from him and infiltrating my insides. We remained like this for sometime, and I felt a surge of peace come over me. After some time the figure and the space enclosing us began to fade away and I was once again in darkness. The first wave was over.
+Vision 2 - So long, lonesome
+I had calmed down. A. asked again if I was alright, and I said yes. She beckoned me again and I sat in front of her. I felt far more physically and mentally composed than I&#x27;d been on the previous two nights. I could feel the medicine sitting comfortably within me, and the nausea was fading away. She sang a second icaro; this one sounding very different to any of the previous ones. She sucked and blew smoke on my hands and my forehead, and lovingly spread it around my body. Then I waited a short while.
+The atmosphere rapidly transformed. Luminous, aqueous hues of blues and turquoises lit the space all around me.  A sense of tranquility and serenity presided over everything. Gradually silhouettes of translucent underwater creatures emerged and gracefully floated, swirled and danced around me....maybe even dancing for me. Some fish, or jellyfish, some amoeba-esque, sometimes they were plants, swaying iridescent tendrils. Soon I was immersed in a space rich with life, and it was absolutely astonishingly beautiful. I cannot use words to come close to describe what I saw, or how I felt, but I had tears of joy this time. A. asked if I was happy; I cried I was in heaven!! She laughed to herself and said that made her happy, and soon after she cleared the ceremonial paraphernalia and left me alone in the room for the night.
+I was looking up – towards the light. There were plants and marine life above me, enclosing me in this luscious wonderland. I saw the form of what I can most accurately describe as part male human figure and part creature. He had a beautifully formed torso and muscular, streamlined limbs.  His head was most of the time shadowed and lacked distinct facial features. There were sometimes insectian, extra legs sometime, propelling him through the space. Sometimes he displayed outstretched giant dragonfly wings. He was beautiful and glided above me, behind and winding through the plant life. There was something distinctly seductive in his movements and I realised that he was not simply some spectacle I was to enjoy visually, but that he was taking an interest in me and my presence. He&#x27;d swim closer to me, looking down over me, purposefully flexing and displaying his slender and muscular wings, and showing off his form, strength and beauty. He also had a tail of a scorpion, which was definitely phallic-like, and he&#x27;d sometimes contract this forcefully into view. There was a emanating sense of pride and power, but he was never once menacing.
+He swam to the lower part of my body and frolicked around the bottom of the bed. He got closer towards my sex and I was taken by enormous surprise to feel myself getting very quickly aroused. He began to touch and caress me, and suddenly I could feel him inside me. This sent waves of the most intense orgasms I have ever experienced, coursing through my entire body.  I never once touched or fondled myself.   What was most interesting about this was that I could literally feel him on my skin, and inside me, and that the climaxes were very real, and that didn&#x27;t stop. I was contracting strongly and continuously for 10, 20 minutes, and on and off for maybe an hour. Never before had I the pleasure of experiencing multiple orgasms. And here it was; the best fuck and night of my life.
+I was pretty much in shock and in utter ecstasy throughout. Mentally in disbelief that this was happening (was it possible?!?!).  Physically my body was responding hyper-sensitively to his every touch and movement.
+The vibrations and contractions were incredibly intense. Whatever energy or part of him that was inside me, and kept coming inside me felt VERY real, taking entire control of my body. There was a genuine sensation of something entering me and leaving itself there. I felt, quite literally, like a puppet. Sometimes I wondered if my body was going into shock... but I didn&#x27;t have a care; I&#x27;d never before felt such ongoing pleasure.
+At one whilst we were fucking, I saw some kind of structure/edifice/temple perhaps in the distance behind him, which was somehow connected to him. It had this golden, blinding, light pouring out of it – and which I could feel entering me through him.
+He would exhaust me (and himself!), then swim a little away, or glide around me, rolling on the bed next to me playfully, making gestures of tiredness, flexing his sting and tail, or float up and kiss my face tenderly. Sometimes he&#x27;d managed to keep a part of himself still inside me; perhaps with tentacles or extended creature bits, and I&#x27;d climax on command. He never once left my sight nor neglected my sex.
+He would communicate a little to me. Never in words, but in gestures. He seemed to be telling me, by showing me in my physical responses to his actions, that he was, indeed, very real... that all the spirits I had seen ARE real, and not simply a hallucination. He told me that I was his and his only, and that the physical love I was receiving was some sort of reward for adhering to the sexual abstinence of the diet and maintaining respect for the vine.
+I attempted asking him a few playful questions;
+&#x27;What is your name?....
+Will I ever see you again?&#x27;
+To the first he was rather secretive, and showed off his scorpion tail again, seemingly implying I could remember and refer to him by his sting. He told me that we might meet again, but most probably not. That this was likely a one off encounter; a gift; a night to enjoy and remember. That he was a lover of the spirit world, and attentively mine for that night. That I should enjoy but not grasp.
+We made love several times, in the course of maybe an hour. He never left my sight. At the end he embraced me lovingly and lay down next to me. I felt incredibly loved, and could feel him against my skin, and his presence tenderly enveloping me all around. Then underwater creatures started to re-emerge around us, displaying all their splendour. I was in ecstatic post-coital bliss.
+Vision 3 - Wildlife analysis
+SEE
+This followed on immediately from the preceding vision. If I&#x27;d thought nothing could top the previous experience; I was about to be proven very wrong. My spirit lover stayed with me for a short while, bathing me with a love I&#x27;d never known. He then discreetly faded from sight.  His essence lingered though, and was transformed into something else. Something nothing short of phenomenal. From being embraced in his arms, I found myself sleepily lying within the soft wings of owls. Their feathers closed around my skin underneath me.
+What manifested was a continuous flourish of animals; creatures pouring out of one another in a unbroken stream.  Species after species; metamorphosing into one another with such speed and grace.   It was an avian wonderland; toucans, parrots, owls, large white mystical birds, underwater soaring birds.  There were grazing deer, ocelots, large cats, pussy cats, canines, dolphins, sea creatures, amongst many, many others.   They looked like animated sketches, though sometimes they’d transform into very realistic 3D visions.  Some took a more prominent role than others, sometimes I interacted with them individually, but collectively they acted and spoke to me as one single entity.
+I was in the happiest state I had EVER been in.  It was my personal utopia.  It was like reverting to a child, and to have your fantasy dreams come true.  I felt an absolute feeling of acceptance and a love I’ve never known emanating from them.  I felt as if I’d never feel alone again.
+TALK
+Again; they were not there simply to please my eyes.  I also very quickly I realised that they were conscious and articulate.  I could converse very coherently with them.    First they communicated mostly in gestures; animals would smile cartoonish, or turn their heads, or stamp their hooves or display their splendid features in approval etc….And then later in words, telepathically.
+What was the most astonishing was not so much their appearances (as overwhelming as their visual presentation was), but the actual dialogue which took place between us.  We discussed in depth the issues that vision 1 refused me answers too.  They answered every question I could possibly think of to ask, about – well, pretty much everything; from the significant to trite.
+** They said what the others had said before; that I MUST return to life, and that I must accept both it, and death.  That I must stop the constant escapism from living, for it is precious, and not pointless.
+** They re-assured me that death is not the end; that the afterlife was very real, as they the spirits were. That in death I will return and be reunited with them again.  My own personal paradise, in which I could also see my loved ones…..Thus to follow and embrace life until the very end.
+**  I asked them about my mother’s upcoming operation.  They replied that in the long run she will be alright.  I asked them next about my father, and they gave a similar response ;- he will be ok.  They won’t vanish in the near future, but they will die one day.  And I will outlive them, against all my protests.  And I will be okay. I began to want to ask them about various in my life… and soon they hushed me and concluded that they will not disclose every person’s fate to me. That there will be tragedies. That I will lose people who are currently dear to me – that is life!  But that I will be much stronger than I’ve ever though I could be.
+**  They told me to grow old, and to stay with and support my parents till the end.   They condemned furiously my thoughts of leaving the world before them.   They told me to stop being selfish.  They reminded me of certain friends who love me and who I should not betray.  The made me promise to them that I shall never, ever take my own life.  They stood on my chest and looked down upon me in all seriousness, and I promised, and I cried, and I promised again. And I meant it.
+** I asked them if I should have children, to which mammals nodded and reared in joy, and birds soared up in jubilation, and a tiger stretched his neck to my face and grinned approvingly.  Of course!  I was speaking to Nature, after all.
+** I asked them about my art/career…. to which they enthusiastically told me to carry on creating and being close to nature. To exert myself.  To go further, and have no doubts about it.
+**I asked them about taxidermy.  They didn’t disapprove of the activity, but said that it was definitely not right to shoot birds for that purpose.  To which I apologised and promised I wouldn’t do it again.
+** I asked them about B. and why I hadn’t heard from him in 2 months. They said to forget him, and that we will no longer cross paths.  Steer clear and move on.
+** I asked about J. – they said to tell him likewise not to give up on work nor life.  To pursue forcefully with his work, even though his current project will be a futile one.
+** I asked about people who had betrayed me in the past, or whose honestly I was currently questioning.  They said; M. – forget the cunt and let go.  C. – just persist. She isn’t out to fuck you over, these things just need pushing and chasing.
+** I asked; if God exists, why haven’t more people had such experiences.  Why wasn’t such a thing shared?!  They replied that plenty of people have had similar encounters.  I realised then how difficult it might be to relay what I had experienced that night to most people, and never mind convincingly.   I asked if I should tell my story to friends – how much I wanted to tell those I loved what I had seen, and what I was told!!!  They said that I am free to share as I please, but many will not believe me.   But that where I can, I should encourage those in need of assurance.
+** A couple of times when I took a moment to reflect on the scope of what I was experiencing, I’d break down in total humility and gratitude to them for what they were giving and helping me with. I’ve been longing all my life for this day, and in tears of absolute joy I asked them why me…?  Why reveal themselves to me?  Their answer; because I had asked (begged!) the vine in complete earnest for strength.
+** How about A.?  Did she know that I was having this experience?   Would I have to recall everything to her the next morning (I blushed and couldn’t envision doing so!).  “Yes she knows!” they replied; “she sent us to you….”   I thanked her over and over through them.  I would be forever grateful.
+** I asked if when tomorrow came if I’d still remember this, them, every detail, every answer.  I asked and pleaded to not let any part of the evening escape my memory.  A cat brought its head up towards mine, and pressed its forehead against mine and reassured me that I wouldn’t.
+** They said that they have always been with me.  And shall always remain within me; even if I can no longer see them… I will NEVER be alone. I will be able to seek guidance from them, and that they will hear me when I call to them. They reminded me that for all the questions I had been bombarding them with for hours, and which they patiently answered, and re-answered; most of the time I already knew the reply.
+HEAR
+On two occasions I heard sounds, aurally, rather than telepathically as I had been communicating with the animals.
+** At some I was talking to a tiger.  I had temporarily run out of things to ask, and playfully asked him to tell me a secret.  He bounces up onto what looks like some type of edifice and erects his paw and points directly to something which looked like a planet, or something in space.  I try and guess at what he means.  “Did you come from there?”.  He dances and grins and I see and HEAR the explosions of fireworks.  Bang.bang.BANG.
+**  Later on in the conversation when I was feeling far more relaxed, I realised I could hear faint music, which I at first assumed was coming from outside somewhere.  Then I realised that that was highly improbable.  The house was very remote, and it must have been around 4 or 5 am.  On closer attention I realised the music was from in the room, and to my right.  I looked closely and could see its source in the distance; some kind of god-elk, grazing with its rear to me.
+FEEL
+I could feel them.  As with vision 2, they confirmed their existence several times by direct physical contact and the sense of touch, as well as again sexual arousal:
+Example 1:  After a lengthy period of intense dialogue, I said I needed to have a cigarette and asked if that was alright.  I had been lying on my back the entire time, and was worried that by changing my posture to smoke would affect my visions of them.  I wanted to make sure they wouldn’t go away. The said of course! Smoke!  And I could feel some mammal pushing its head against my back, pushing me up to sitting position. Upon sitting and lighting up, the animals flitted around me, and small birds perched on my fingers whilst I smoked and pondered on further questions to ask them.
+Example 2:  Birds were gliding up and around me, soaring joyously.  I asked them about my failed astral projection attempts over the years. I asked them if it would ever be possible.  And if they could help me in my practises. I was jealous and exclaimed how much I would love to detach from my physical self and join them in their ethereal realm that very moment.  For a while they were hesitant, I think primarily for my safety.  Conditions were not exactly orthodox.  Still,  I rolled over and onto my back and relaxed my muscles but didn’t go through the proper thorough relaxation exercises.  I reached that buzzing, slight vibrational state much quicker than usual.  I could sense the birds propelling and pulling and attempting to lift me up.  I could feel one large white bird, fly through my torso, and integrated itself with my spine. Its wings spread open and my back arched, and I felt a definite lifting sensation along my back. It stayed like this for quite a while, before I decided to stop.  I’d rather make use of my time with them talking.
+Example 3:  Sexual.  At one point I was lying, languidly among some tigers.  I think I myself had become somewhat feline.   One began to fuck me, and once again the strong orgasms came.
+Example 4:  As the night progressed to morning, I could feel the visions slowly becoming less lucid.   I was very tired but refused to go to sleep as long as they remained.  Even when I could barely see them, every time I asked if they were still there they would reaffirm their presence with telepathy and touch.   Though slower, and softer.  I would hold out my hand in exhaustion, eyes shut, and feel something caressing or pawing in it.
+It was a good couple of hours of revelation, of continuous questions, and constant answers and reassurance.   I often apologised for asking trite questions, or for being repetitive, but they responded with love and patience.  I also apologised for the gear, and the tiniest slither of cake I tasted one afternoon.  The apologies were accepted, and they acknowledged the overall earnest and seriousness in my approach.
+I promised to keep my word on everything we talked about that evening, and also that I’d adhere to the diet for another day or two out of gratitude.  I asked them if it’d be alright to have a beer with J. though, on our last night. He had, after all patiently cooked and fed and looked after me throughout the entire experience.  Dropping me off and picking me up after each nocturnal rendezvous.  I was often irritable and reticent; in short I was pretty rubbish company.  They granted me the beer.
+They stayed with me, or I with them, until the very last moment.  Many times I thought how wonderful it would be to fall into sleep with them, their love all around me.  One or two times I told them I was going to sleep, and thanked them and told them I would be alright now, and in the morning when I would no longer see them I would still be strong. They tried to relax and usher me into slumber. Still from time to time, I could not but help keep checking if they were there.   And each time they responded, I lit up with a smile, knowing I’d never allow myself to fade out with them around me.  This went on for a while.  And then it was morning, and I had just awoken.  And there was neither fear nor sadness.
+Exp Year: 2010
+ExpID: 90922
+Gender: Female
+Age at time of experience: 28
+Published: Jun 21, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Ayahuasca (8) : Sex Discussion (14), Entities / Beings (37), Guides / Sitters (39), Multi-Day Experience (13), Therapeutic Intent or Outcome (49), General (1), Group Ceremony (21)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

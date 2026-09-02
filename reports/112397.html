@@ -1,0 +1,433 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>德米特和加 - 埃罗伊德的故事 - &quot;高山低空窒息&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/changa.html'>← Changa</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>德米特和加 - 埃罗伊德的故事 - &quot;高山低空窒息&quot;</h1>
+<div class='sub-title'>DMT &amp; Changa - Erowid Exp - &#x27;Alpenglow Asphyxiation&#x27;</div>
+<div class='meta'>作者：Kai The Orb Woman Citation · 日期：Sep 24, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=112397' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我应该说我没有在情感上或精神上为这次旅行做好准备.
+我不想以期望来破坏这段经历 (至少我这样告诉自己.
+我只是惰而已.
+报告中的细节最多是模糊的.
+经过多年随身携带这些物质, 我随便决定现在是试用它们的最佳时机.
+虽然我更喜欢分离剂,
+对于这些类型的药物, 我大部分经验都来自于无数的研究化学物质.
+我从来没有吃过,
+我个人觉得很难&quot;放弃&quot;在迷幻药时, 除了离散药 (因此我对它们的强烈亲和).
+尽管如此,在一个美丽的星期天下午,
+我和我的合作伙伴Anatoli Smorin一起建造了一台&quot;机器&quot;,
+这种子是从一个刚从南美洲回来的个人那里获得的.
+据报道,它包括Banisteriopsis caapi和N,N-DMT.
+我相信供应商的说法, 并没有让第三方测试该物质.
+这里是一个美丽的20英土地, 靠近我最喜欢的山脉, 在我称之为家的小镇.
+我在果园里靠在果树上放松, 开始我的体验.
+我把138毫克的加放进碗里, 用普通的火把点燃它.
+我深吸了一口气,
+作为一个不再吸草的人, 我发现吸烟的身体行为是非常痛苦的.
+我的肺部燃烧,我咳一切.
+亚纳托利嘲笑我,鼓励我再一次.
+我再次吸入, 这次试图尽可能长时间地屏住呼吸.
+吸烟是痛苦和愚蠢的, 我不喜欢它.
+但这一次我设法让它停留在里面更长一段时间.
+我立刻发现自己的视野发生了变化.
+我看到风轻轻地绕在树叶上, 留下色的痕迹.
+视觉效果是柔和而温柔的
+在远处听到一首风声.
+这里永远是多么美好.
+我看到风轻轻地绕在树叶上, 留下色的痕迹.
+视觉效果是柔和而温柔的
+在远处听到一首风声.
+这里永远是多么美好.
+37毫克的DMT已经融化到&quot;机器&quot;中.
+我抓住塑料管, 让他蒸发材料,
+我真的要吸DMT吗?
+我发现这是一个极端的星期日活动.
+显然,我不是一个教会的个人.
+我吸入和咳.
+我再次吸入,这次是阿纳托利温柔地告诉我继续保持, 继续保持一秒钟.
+我一次又一次地吸入.
+我不确定我受到了多少击球,
+在一切变黑之前, 我短暂地闻到一股烧伤的气味.
+立刻我的世界变得更狭窄.
+果树和温暖的夏季风已经消失了.
+我甚至不确定我是否还有身体.
+然而,我觉得我无法呼吸.
+无论我身体的剩余部分是什么,都不起作用.
+我必须强迫自己吸入空气.
+我是一个空虚.
+我什么也看不到,什么也感觉不到,除了我的呼吸不足.
+我闭上眼睛,还是一直闭着?
+我已经不确定了.
+我是一个空虚.
+我什么也看不到,什么也感觉不到,除了我的呼吸不足.
+我闭上眼睛,还是一直闭着?
+我已经不确定了.
+我试图说服自己,如果我能让它,
+这样我就可以享受这段经历.
+但是我不能.
+我不能放弃这个简单的拯救生命的任务.
+如果我这样做,我知道我不会做.
+我会窒息,永远迷失在这个虚空中, 这种光和空气的真空.
+我看到的是黑暗.
+每一次吸入都非常困难.
+似乎我的肺部已经不能自行工作了.
+它们不记得如何膨胀和收缩.
+我充满了对空气的原始需求,
+我正在溺水, 绝望地试图把我的头保持在我看不见或触摸的水面上.
+我开始恐慌了.
+我觉得我在过度呼吸.
+一个想法浮动到我的意识.
+这就是在太空中死去的感觉吗?
+我怎么能远离家乡?
+想到这个想法就消失了.
+呼吸,只是继续试图呼吸.
+感觉好像我正在把胸部推向外面,
+我必须强迫它膨胀, 让空气进入.
+除了我需要继续呼吸之外, 没有时间,地球或其他任何东西.
+没有其他存在或曾经存在或将永远存在.
+只有黑暗和窒息.
+除了肺部和胸腔之外, 我对自己的身体没有其他意识.
+我已经失去脊柱,头骨和神经系统.
+唯一能听到的声音是我绝望的喘息声.
+我正在打一场我知道我不能赢的战斗.
+我只能希望我能被带到一个远离这里的地方.
+在有色的地方.
+呼吸,呼吸,呼吸
+我开眼睛,一切都结束了.
+我又回到我温柔的色彩.
+草地和树木上仍然有一些轻微的碎片, 但没有一个视觉图像是明显或紧迫的.
+我觉得好像只有几秒钟过去了.
+经历让我有些困惑.
+发生了什么事?
+我感到平静,然而我呼吸很沉重.
+我胸部和食道有轻微的烧伤,
+我转向阿纳托利,告诉他我想再试一次.
+不久之后.
+现在
+我们没有任何更多的DMT在水晶形式, 但我们有更多的Changa.
+我们决定休息一下, 在房子前面重新聚在一起,
+我反思自己刚刚经历的经历.
+虽然这只是几分钟前的事, 但记忆却模糊.
+像是我的大脑试图保护我的创伤事件.
+然而,我又有个奇怪的欲望,
+虽然这只是几分钟前的事, 但记忆却模糊.
+像是我的大脑试图保护我的创伤事件.
+然而,我又有个奇怪的欲望,
+如果我有第二次机会, 我知道我可以飞.
+现在我有机会退后一步, 我对药物的强度和时间效果感到惊.
+我没有准备好从零英里到100英里.
+这就像我第一次骑过过山车的记忆.
+我觉得我已经准备好了, 但没有什么能让我准备好迎接第一个跌落,
+在那一刻, 我被迫屈服于重力,
+我曾经读过DMT的快速和强度,
+我和阿纳托利在房子前面重新聚会.
+在多个山脉的背景下, 天空充满了鲜,鲜的色彩.
+我对周围的美丽充满敬畏.
+我可以说今晚的阿尔卑斯山将是壮观的.
+亚纳托利把151毫克的加放进碗里.
+我们的谈话是轻松的.
+我们想起我们能看到的山脉, 住在这样一个地区是多么幸运.
+现在我们已经知道.
+我点燃了,然后吸入.
+我能把烟吸入大约5秒钟,
+我似乎还没有学会如何屏住呼吸!
+他通常讨厌DMT的味道.
+我没有任何味道, 但第一次我注意到这味道是多么明显.
+它有刺痛,尖,有点不愉快,
+眼前开始出现一些光线.
+对于他们来说,山脉似乎有着难以形容的深度.
+它们是沉默的,
+我很高兴有他们在我身边.
+我抬头看,发现天空上有一片云.
+这里充满了色彩.
+我觉得自己就像蒙内画画,
+每种颜色都融入其旁边的颜色,
+我又吸了一口.
+亚纳托利口头数到十, 确保我这次能够长时间的屏住呼吸.
+我扎,但成功了.
+立刻,我的视力发生了变化.
+我听到一个声,好像一个蜜蜂在我的头周围旋转.
+我失去了山脉和云的视线.
+我的世界已经升级为亚历克斯·格雷!
+红色和黑色的碎片在我的视野中爆炸.
+实际上我看到的一切都被这些碎形所取代.
+每个人都有微笑的脸.
+虽然它们是大胆的,但它们并不吓人.
+无论我看哪里, 微笑的碎形都着我.
+他们以某种方式消耗了我的视力, 接管我看到的一切.
+我越看,它们就越变成三维.
+现在我的视觉世界正在解构和重组,
+现在我的视觉世界正在解构和重组,
+我意识到这不是我进入的第一个球体.
+我第一次体验到球体主义是用高剂量的N-乙烯胺.
+我不再听到,看到或感觉到周围的正常世界.
+尽管如此, 碎形仍然以愚蠢的笑容向我微笑.
+微笑虽然友好,但几乎是疯狂的.
+它们的数量是如此之多.
+我又开始沉重地呼吸.
+一个思想从前抚摸我的思想.
+如果我不强迫自己呼吸,
+我可以放弃这种观念,
+经过几次深呼吸和一秒钟的适应, 我意识到我很好.
+这让我获得了无与伦比的视觉效果.
+这些碎片破裂, 揭示了山脉的尺寸,深度和颜色.
+每个山峰都与其旁边的山峰一起跳舞和移动.
+两层,而不是三层,四层的山脉在我面前.
+我怎么还没有注意到这个!
+我对天空中的这些巨石的爱情每秒都在增长.
+我不再在距离他们几英里的地方, 而是在他们的基地.
+随着日落,它们的颜色从灰色到蓝色到紫色, 一直在跳舞和移动.
+每一座山峰都随着旁边的山峰无地摇, 伴随着我无法听到的隐藏的节奏.
+我从他们的动作中看出他们很乐观,
+我觉得这是一首富有风格的歌曲,
+我笑着想我再也不能以同样的方式看待这些山.
+我不知怎么说服自己抬头看,
+尽管太阳还在升起, 我看不到真正的星星,
+它们的旋转速度缓慢,
+他们没有忙,也没有其他目的,
+它们的边缘相互连接,
+我慢慢回到我的莫奈世界.
+太阳完全落在山脉后面, 天空爆发了粉红色,蓝色,色和紫色的色彩.
+我深深地呼吸, 让自己重新融入这个时刻.
+我非常感激能在这里.
+见证这个日落.
+得到来自宇宙的礼物.
+我不记得我最后一次感到如此平静.
+我不记得我最后一次感到如此平静.
+阿尔卑斯山之旅已经开始了.
+我所处的山谷变得寂静, 仿佛每一个生物都意识到从白天慢慢转变为夜晚.
+温度也因此下降.
+我第一次注意到两匹马在牧场上放牧.
+我以前见过这些马, 它们的主人是我亲爱的朋友.
+虽然这些马通常很冷静,
+他们不让我抚摸他们,
+希望他们能享受开放的牧场.
+我们都知道几周后, 草地将被覆盖.
+在这里,夏天是短暂的,冬天是快速的.
+但现在,我们都享受着这天气.
+两匹马转过身去, 再次开始放牧.
+现在我的视觉恢复到原来的状态.
+让我感到平静.
+生活似乎非常容易.
+我知道明天会有所变化,
+晚上剩下的时间都在烧烤,吃饭,和阿纳托利一起笑.
+我没有感觉到和DMT的任何不良影响.
+我心情很轻松和轻松的晚上剩下的.
+我有正常的食欲, 没有问题入睡.
+我醒来时觉得已经休息好了, 准备好迎接新的一天.
+虽然整个体验不到一个小时,
+尽管如此, 无论如何,
+尽管我有呼吸问题,
+我从来没有把这次旅行归类为糟糕或不愉快的.
+对于我来说,这是第一次,
+我也很享受.
+我从来没有把这次旅行归类为糟糕或不愉快的.
+对于我来说,这是第一次,
+我也很享受.
+我特别喜欢的是身体负担很小.
+这是除了解离剂外, 让我能够超越自己的极限,
+任何类型的身体高发送我直接在沙发上的球.
+我终于可以放手了.
+我发现DMT在强度和迅速发作的程度上是非常独特的.
+我还没有找到其他这种类别的物质的剂量,
+这包括使用50毫克以上的4-AcO-DMT与氧化物和大麻等推进剂相结合的探索.
+这些经历的视觉强度并没有让我感受到今天的惊天动地的冒险.
+我觉得这些物质的可能性几乎没有出现.
+我还要走很多英里, 我迫不及待地想看看这段旅程会带我到哪里.
+没有任何其他资产
+发布时间:2018年9月24日
+长 (816), 德米特 (18):小团体 (2-9) (17),导游/保姆 (39),自然/户外 (23), 烂的体验 (4), 组合 (3), 第一次 (2), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Alpenglow Asphyxiation
+DMT &amp; Changa
+by
+Kai The Orb Woman
+Citation:   Kai The Orb Woman. &quot;Alpenglow Asphyxiation: An Experience with DMT &amp; Changa (exp112397)&quot;.
+Erowid.org
+. Sep 24, 2018. erowid.org/exp/112397
+DOSE:
+T+ 0:00
+138 mg
+smoked
+Changa
+T+ 0:05
+37 mg
+vaporized
+DMT
+(powder / crystals)
+T+ 0:27
+repeated
+smoked
+Changa
+BODY WEIGHT:
+125 lb
+I should start off by saying that I did not emotionally or mentally prepare for this trip in anyway. This was my first time using DMT and changa and I didn’t want to spoil the experience with expectations (or at least that’s what I told myself. More than likely, I was just lazy). I had read a few DMT experience reports in the past, so I broadly knew what was going to happen. But it had been over 6 months since I read any of those reports and the details were hazy at best. After having carried the substances around with me for years, I casually decided now was the perfect time to try them.
+While I drastically prefer dissociatives, I’m no stranger to tryptamines or phenethylamines. With these classes of drugs, most of my experience stems from a myriad of research chemicals. I have never done mushrooms and have only tripped on LSD a couple of times. I personally find it very difficult to ‘let go’ while on psychedelics, with the exception of dissociatives (thus my strong affinity towards them). Nevertheless, on a beautiful Sunday afternoon, I decided DMT was right for me.
+My partner, Anatoli Smorin, and I built a ‘The Machine’ to smoke the crystal DMT while the changa was loaded into a simple glass bowl. The changa was sourced from an individual who had recently returned from South America. It was reported to consist of Banisteriopsis caapi and N,N-DMT. I took the vendor for their word and did not have a third party test the substance. The setting for this is a beautiful 20acre property tucked up against my favorite mountain range in a town I call Home. I relaxed against an apple tree in the orchard and began my experience.
+T 00:00
+I pack 138 mg of changa in the bowl and light it with a normal bic lighter. I take one deep inhale and attempt to hold my breath. As someone who no longer smokes weed, I find the physical act of smoking to be quite painful. My lungs burn and I cough everything out. Anatoli laughs at me and encourages me to take another hit.
+T 00:03
+I inhale again, this time trying to hold my breath for as long as possible. Smoking is painful and stupid and I don’t enjoy any of it. But this time I manage to keep it in for a little bit longer. Instantly, I find my field of vision changing. I see the wind gently tangling with the leaves, leaving pastel trails in its wake. The visuals are soft and gentle. A wind chime sings in the distance. How nice it would be to stay here forever.
+I see the wind gently tangling with the leaves, leaving pastel trails in its wake. The visuals are soft and gentle. A wind chime sings in the distance. How nice it would be to stay here forever.
+T 00:05
+37 mg of DMT has been melted into the ‘The Machine’. Anatoli holds one end while I grab onto the plastic tubing that we have installed as a mouthpiece to allow Anatoli to vaporize the material while I focus on inhaling. Am I really about to smoke DMT? All of the sudden, I find this to be quite an extreme Sunday activity. Clearly, I am not a church going individual. I inhale and cough. I inhale again, this time with Anatoli gently telling me to keep holding it, keep holding it for one more second.
+T 00:06
+I inhale again and again. I’m not sure how many hits I take, but I eventually shake my head to signal that I’m done. I briefly smell a burnt smell before everything goes dark.
+T 00:07
+Instantly my world narrows. Gone are the apple trees and warm summer breeze. I’m not sure I even have a physical body anymore. And yet, I feel as if I can’t breathe. Whatever is left of my body isn’t functioning. I curl up on myself and have to physically force myself to take in gulps of air. I’m in a void. I see nothing, feel nothing, beyond my lack of breath. I squeeze my eyes shut, or have they been shut the whole time? I’m not sure anymore.
+I’m in a void. I see nothing, feel nothing, beyond my lack of breath. I squeeze my eyes shut, or have they been shut the whole time? I’m not sure anymore.
+I logically try to tell myself that my body will naturally take over if I can only allow it. Then I can enjoy this experience. But I can’t. I can’t let go of this simple, lifesaving task. If I do, I know I won’t make it. I’ll suffocate and forever be lost in this void, this vacuum of light and air.
+All I see is blackness. Each inhale is remarkably difficult.  It’s as if my lungs no longer work on their own. They don’t remember how to expand and contract. I’m filled with this primal need for air and yet somehow I can’t seem to get enough. I’m drowning, desperately trying to keep my head above some body of water that I can’t see or touch. I’m starting to panic. I think I’m hyperventilating.
+A thought floats into my consciousness. Is this what it’s like to die in space? How have I managed to travel so far from home?
+As quickly as the thought comes, it’s gone. Breathe, just keep trying to breathe. It feels as if I’m pushing my chest outwards, from inside my body. I have to physically force it to expand, to allow in air. There is no such thing as time or Earth or anything else except my need to keep breathing. Nothing else exists or has existed or will ever exist again. There is only blackness and asphyxiation.
+Beyond my lungs and chest cavity, I have no other awareness of my body. My spine, skull, and nervous system are gone. The only sounds I can hear are my desperate gasps. I’m fighting a battle I know I cannot win. I can only hope that I will be transported somewhere away from here. Somewhere with color. Breathe, breathe, breathe…
+T 00:09
+I open my eyes and it’s over. I’m back to my gentle pastel visuals. Some light fractals remain on the grass and trees, but none of the visuals are overt or pressing. I feel as if only seconds have passed. I’m slightly disoriented from the experience. What just happened? I feel calm, yet I’m breathing heavily. There’s a slight burning in my chest and esophagus from the smoke but no other body load or sensations. I turn to Anatoli and tell him I want to try it again. Soon. Now.
+T 00:10
+We don’t have any more DMT in crystal form, but we have more changa. We make the decision to take a small break and regroup at the front of the property to watch the sunset over the surrounding mountains.
+T 00:15
+I ruminate on the experience I just had.  Even though it happened only moments ago, the memory feels hazy. Like a traumatic event my brain is trying to protect me from.  And yet, I have this strange desire to do it again.
+Even though it happened only moments ago, the memory feels hazy. Like a traumatic event my brain is trying to protect me from.  And yet, I have this strange desire to do it again.
+Like I’ve only scratched the surface and if given a second chance, I know I could fly.
+Now that I’ve had a moment to take a step back, I’m flabbergasted by the intensity and timeframe of the drug’s effects. Going from 0mph to 100mph is not something I was prepared for. It’s like my memory of riding a roller coaster for the first time. I think I’m ready but nothing has prepared me for the first initial drop, where my stomach lurches into my throat and I feel as if I’m free falling. It’s in that moment that I’m forced to surrender to gravity, or DMT, in this instance. So, yes, I had read about the quickness and intensity of DMT, but experiencing it is something else entirely.
+T 00:25
+Anatoli and I reconvene at the front of the property. There’s a magnificent sunset happening, with bright, vibrant colors filling the sky, against a backdrop of multiple mountain ranges. I’m filled with a sense of awe at the beauty around me. I can tell the alpenglow will be spectacular tonight. Anatoli packs 151 mg of changa into the bowl. Our conversation is light and easy. We reflect on the different mountain ranges we can see and how lucky we are to live in such an area.
+T00:27
+I light the changa and inhale. I’m able to hold the smoke in for roughly 5 seconds before I cough it out. Seems like I still haven’t learned how to hold my breath! Anatoli comments that he usually hates the taste of DMT. I don’t taste anything, but for the first time I notice how distinct the smell is. It’s pungent and sharp and slightly unpleasant; it smells synthetic, as if we are burning plastic.
+Some light visuals start to unfold before me. The mountain ranges seem to hold an indescribable amount of depth to them. They are silent yet ever looming in the distance. They are my witness to this experience and I’m happy to have their presence near me. I look up and notice the single cloud in the sky. It’s filled with layers of color. I feel as if I’m in a Monet painting, my vision taken over with texture and bold brushstrokes. Every color blends into the one next to it, creating movement between everything, despite an actual lack of activity.
+T 00:30
+I take another inhale of changa. Anatoli verbally counts to 10 to make sure I hold my breath long enough this time. I struggle but succeed. Instantly, my vision shifts. I hear a buzzing, as if a bee where circling around my head. I lose sight of the mountains and the cloud. Fuck Monet, my world has been upgraded to Alex Grey! Red and black fractals explode into my vision. Literally everything I see is replaced by these fractals. And each has a smiling face. While they are bold and present, they are not frightening. Everywhere I look, the smiling fractals stare back at me. They’ve somehow consumed my eyesight, taking over everything I see. The more I look, the more 3-D they become. My visual world is now deconstructing and rearranging to form a red and black fractal orb around me.
+My visual world is now deconstructing and rearranging to form a red and black fractal orb around me.
+I realize this is not the first orb I have been in. The first time I experienced orb-ism was on a very high dose of N-Ethylnorketamine. As I sit in the center of this ball, I no longer hear, see, or feel the normal world around me. And yet, the fractals continue to smile at me with their goofy grins. The smiles, while friendly, are almost manic. And there’s so so so many of them.
+I’m breathing heavily again. A thought from before caresses my mind. If I don’t force myself to breath, I’ll stop breathing altogether. However, unlike before, I’m able to let go of this notion and simply enjoy the experience for what it is. After a few deep breathes and a second of acclimation, I realize I’m fine.
+This realization rewards me unparalleled visuals. The fractals break apart to reveal the mountains, which have grown in size, depth, and color. Each peak dances and shifts with the peaks next to it. There’s two layers, no three layers, no four layers of mountains in front of me. How have I never noticed this before! My love for these giant rocks in the sky grows with each passing second. I’m no longer miles away from them, but right at their base. As the sun continues to set, their colors shift from grey to blue to purple, all the while dancing and moving. Each peak seamlessly shimmies and shakes with the peak next to it, to some hidden beat I cannot hear. I can tell from their movements that it’s upbeat and I catch myself bobbing my head along. I get the feeling that it’s some kind of funk song, with a killer saxophone solo. I laugh and think that I’ll never be able to look at these mountains in the same way.
+I somehow convince myself to look upwards and see the stars above me. Even though the sun is still up, and I can’t see the actual stars, I can see thousands of rotating octagons formed of a shimmering golden color. Their rotations are slow and lackadaisical. They have no hurry and no other purpose than to simply exist as they are. Their edges connect to one another, creating a web of shifting light in the baby blue sky.
+T 00:34
+The more intense visuals fade and I’m slowly brought back to my world of Monet. The sun is fully behind the mountains and the sky erupts with hues of pink, blue, orange, and purple. I take a deep breath, to reground myself in this moment in time. I’m so incredibly thankful to be here. To witness this sunset. To be given such a gift from the universe. I can’t remember the last time I have felt so peaceful.
+I can’t remember the last time I have felt so peaceful.
+T 00:36
+The alpenglow has begun. The valley I’m in becomes silent, as if every being is acknowledging the slow shift from daytime to nighttime. The temperature drops in response.
+T 00:37
+I notice for the first time two horses grazing in their pastures. I’ve met these horses before and their owner is my dear friend. While usually very standoffish, these horses instantly greet me as I walk to the fence separating us. They don’t let me pet them but they look at me as I softly speak to them. I wish them a good evening and hope they’re enjoying their open pasture. We both know in a couple of weeks the grass will be covered in frost. Summers are fleeting here and winters come in swiftly. But for now, we all enjoy this easy weather. I murmur a final goodbye and with that, both horses turn away and start grazing again.
+T 00:45
+My visuals are back to baseline now. I’m left with a sense of calm. Life seems unusually easy. I’m aware that this will shift by tomorrow, but for now I appreciate the feeling and welcome it with open arms.
+T 00:45+
+The rest of the evening is spent with grilling, eating, and laughing with Anatoli. I don’t feel any adverse effects from the changa and DMT. My mood is light and easy going for the rest of the night. I have a normal appetite and have no issues falling asleep. I wake up feeling rested and ready for the day.
+While the whole experience took less than an hour, there seemed to be two juxtaposing sides – one filled with blackness and a lack of air and the other consumed by color and an awe of nature. Yet, somehow, it felt comfortable to bounce from one to another. Even with my breathing issues, I immediately wanted to go further and deeper. Even in the world of darkness, I never once classified my trip as bad or unpleasant. For the first time, a tryptamine had knocked me on my ass –physically, emotionally, and visually. And I enjoyed it.
+Even in the world of darkness, I never once classified my trip as bad or unpleasant. For the first time, a tryptamine had knocked me on my ass –physically, emotionally, and visually. And I enjoyed it.
+An aspect I particularly enjoyed was the very little body load I experienced. Outside of dissociatives, this was the first chemical that allowed me to push my limits without being hindered by my dislike of a body high. Any type of body high sends me directly into a ball on the couch. Finally, I was able to let go.
+I found DMT to be very unique in intensity and quickness of onset. The visuals were very tryptamine in nature but I have yet to find a dosage in other substances of this class that provided comparable intensity. This includes exploration with 4-AcO-DMT in the 50+mg range in combination with agents of propulsion, such as nitrous oxide and cannabis. While obviously intense in their own manner, the visual intensity of these experiences did not hold a flame to the earth shattering adventure I had today.
+I feel as if I barely scratched the surface of possibilities with these substances. I have many more miles to go and I can’t wait to see where the journey takes me.
+Exp Year: 2018
+ExpID: 112397
+Gender: Female
+Age at time of experience: 25
+Published: Sep 24, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Changa (816), DMT (18) : Small Group (2-9) (17), Guides / Sitters (39), Nature / Outdoors (23), Glowing Experiences (4), Combinations (3), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,210 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;一个有趣的夜晚变成了一场灾难&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/1-4-butanediol.html'>← 1,4-丁二醇</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;一个有趣的夜晚变成了一场灾难&quot;</h1>
+<div class='sub-title'>1,4 Butanediol, LSD &amp; Alprazolam - Erowid Exp - &#x27;A Night of Fun Turns Into a Disaster&#x27;</div>
+<div class='meta'>作者：Dan Citation · 日期：Dec 3, 2003 · <a href='https://erowid.org/experiences/exp.php?ID=28853' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>吸入剂</span></h2>
+<div class='body'>这是一个有趣的夜晚开始.
+感恩节之后的晚上,
+我们在这个漫长的周末习惯于服用精神药物作为一种解脱工作和学校的单调,
+星期五晚上,我服用了21毫克的阿克萨克斯药,
+大约半小时后,我们用了LSD,我打了3次.
+晚上是有趣和丰富的事件.
+我们聊了好几个小时,
+我觉得我应该用最强大的镇静剂结束我的旅程,
+通常,2.5-3毫升的这种东西会让你入睡状态.
+由于使用了LSD, 我过度补偿,
+我一口就开始喝了3毫升.
+经过一段时间,它开始起作用,
+半小时后, 我又服用了一剂强药.
+一个小时后,又一个,一个半小时后,又一个.
+我记得的最后一件事是极度的疲劳感落在我身上,然后睡觉在我身上.
+我醒来时感到痛苦.
+医生和护士把我拉到床上.
+他们给我插了一个导管, 我手臂上有静脉注射.
+我有一个呼吸管在我的头上,我害怕.
+我再次昏倒了.
+医生把我倒在肚子上, 我又昏了.
+终于在初次服药8小时后醒来, 发现发生了什么事.
+我女朋友在中午醒来时发现我在自己的吐中窒息.
+她说我总是把头往后倾斜,吐,
+如果她没有打911的电话, 我不认为我会在这里写这个警告.
+GHB,GBL,1,4B,它们都非常非常危险.
+虽然它们可能很有趣, 但它们极大地影响了你的判断力.
+如果您现在正在读这篇文章, 想, , 我真是个白痴,
+我曾经认为我知道一切关于毒品, 我永远不会过量服用,
+唯一我知道的是, 药物你永远不会真正知道,
+时间表: 28853
+医院 (36), 过量服用 (29), 列车事故和旅行事故 (7)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+A Night of Fun Turns Into a Disaster
+1,4 Butanediol, LSD &amp; Alprazolam
+by
+Dan
+Citation:   Dan. &quot;A Night of Fun Turns Into a Disaster: An Experience with 1,4 Butanediol, LSD &amp; Alprazolam (exp28853)&quot;.
+Erowid.org
+. Dec 3, 2003. erowid.org/exp/28853
+DOSE:
+T+ 0:00
+2.0 mg
+oral
+Pharms - Alprazolam
+(pill / tablet)
+T+ 0:30
+3 hits
+oral
+LSD
+(blotter / tab)
+T+ 2:00
+1 hit
+oral
+LSD
+(blotter / tab)
+T+ 5:00
+1 hit
+oral
+LSD
+(blotter / tab)
+T+ 7:00
+1 hit
+oral
+LSD
+(blotter / tab)
+T+ 8:00
+3.0 ml
+oral
+1,4-Butanediol
+(liquid)
+T+ 9:00
+3.0 ml
+oral
+1,4-Butanediol
+(liquid)
+T+ 10:00
+3.0 ml
+oral
+1,4-Butanediol
+(liquid)
+BODY WEIGHT:
+220 lb
+It started off a fun night.  The night after thanksgiving, the day of &#x27;unlearning&#x27; for my friends and I.  We traditionally dosed on psychedellics on this long weekend as a sort of release from the monotony of work and school that never seems to end.
+Friday night, I took 2 1mg xanax pills just to ease myself off into the trip.  About half an hour later, we dosed on the LSD, I took 3 hits.  The night was fun and eventful.  We talked for hours about the past, the future, our plans and our relationship with one another.  But as the night drew on, and more LSD was consumed, I felt that I should bring my trip to a proper ending with the most powerful sedative I had, 1,4 butanediol.  Normally, 2.5-3mls of this stuff will put you in a sleepy state.  Being on LSD, I overcompensated, perhaps a little too much.  I started off taking down 3mls in one gulp.  After a little while, it began to work, but nothing too noticeable.  So about half an hour later, I took another strong dose.  An hour later, another, and then an hour and a half later, yet another.  The last thing I remember was an extreme feeling of fatigue fall over me, and then sleep was upon me.
+I awoke in pain.  I was fighting to get up and doctors and nurses held me down to a bed.  They were sticking a catheter in me, and I had an IV in my arm.  I had a breathing tube around my head and I was scared.  I passed out again.  I woke up later, and puked all over myself, the doctors turned me on my stomach, and again, I passed out.  Finally,  I woke up 8 hours after I had initially dosed, and found out what had happened.
+At around noon time, my girlfriend awoke to me choking on my own vomit.  She said I kept tilting my head back and puking and I made this sick sort of gargling sound.  If she hadn&#x27;t called 911, I don&#x27;t think I would be here writing this warning.  GHB, GBL, 1,4 B, they&#x27;re all very very dangerous.  While they can be fun, they impair your judgement tremendously.  And if you&#x27;re reading this now and thinking, hah, what an idiot, that would never happen to me, think again, because I used to say that.  I used to think I knew everything about drugs, and I would never OD and I would never get sick.  Well, the only thing I know is that you never truly know with drugs, because once they are in you, they are in control.
+Exp Year: 2003
+ExpID: 28853
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 3, 2003
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2), 1,4-Butanediol (51) : Hospital (36), Overdose (29), Train Wrecks &amp; Trip Disasters (7)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

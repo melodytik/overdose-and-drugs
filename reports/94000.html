@@ -1,0 +1,195 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - 实现无限</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mushrooms-p-cyanescens.html'>← 裸盖菇(- P. cyanescens)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - 实现无限</h1>
+<div class='sub-title'>Mushrooms - P. cyanescens - Erowid Exp - &#x27;Realizing Infinity&#x27;</div>
+<div class='meta'>作者：Franks Citation · 日期：Jan 16, 2014 · 剂量：4 g · <a href='https://erowid.org/experiences/exp.php?ID=94000' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我16岁第二次吃时,
+我还不太熟悉 (我的第一次旅行是低剂量的),
+我认为这就像是大麻的高, 有更多的视觉.
+无论如何,我设法找到了大约4克的鱼和几克的水.
+那天我没有上学,在家里吃了,在早上,我自己.
+在20分钟之内, 视觉/脑力操已经变得令人丧.
+经过大约45分钟的时间,
+我记得我坐在那里被我自己的吐的疯狂旋转的碎形图案所迷住,
+几分钟看起来像几个小时.
+我开始担心.
+我相信这次谈话就像是&quot;吃,太多,需要帮助&quot;
+朋友说他对迷幻药没有任何经验, 回想起来,
+他认为大麻会让我下降, 所以他基本上一直强迫我吸,
+我记得那些为了钱而愿意降低自己的人 (用子掉自己的牙,打架等等) 感到很可怕.
+我甚至忘记自己吃过, 想起那天早上醒来时,
+我不知道自己是谁或是什么.
+我对自己和生活在这个世界的所有概念都被抹去了.
+时间似乎不再是线性的,更是循环的,
+&quot;我&quot;就是空虚,而空虚就是一切,无穷无尽.
+这只是我记得的.
+整个时间里, 我的&#x27;朋友&#x27;基本上都在嘲笑我,
+他说我在经历自我死亡的整个过程中,
+我不需要说我不再是他的朋友了.
+经过四个小时 (感觉像是永恒) 我开始下来.
+对于我来说, 这种感觉只能与从监狱出来的感觉相提并论.
+让人感到宽慰和快乐.
+旅程的其余部分是平淡无奇的.
+经过7-8个小时, 我恢复正常,
+我花了很长时间才忘记这次旅行.
+很长一段时间后, 只是想着吃香会让我感到焦虑, , 汗水, 心跳等等.
+经过多年的自我审视和反思, 我可以说这次旅行确实变得更好.
+我从那时起就多次旅行了,
+我发现自己变得更加开放和慈悲.
+我不再关心我们在社交生活,职业和社会中所玩的竞争游戏.
+我对大自然的欣赏更深.
+在那次旅行之前, 我是一个不健康的,压抑的,抑郁的,不安全的,困惑的基督徒, 还没有学会如何真正享受生活.
+虽然我现在也经历了艰难的时刻 (我现在肯定还在经历),
+现在我更喜欢静静, 练习正念.
+我开始认真关注自己的健康, 不再吃快餐/加工垃圾食品, 更喜欢新鲜, 整体, 最好是有机食品.
+我还经常炼身体,练习哈塔和智功.
+我感觉自己活得更有活力.
+对于一个超重的16岁, 有自杀倾向的孩子,
+我将永远把视为一种神圣的植物,
+我永远感激这一经历.
+其他:
+- P. cyanescens (67):小组 (2-9) (17),不好的旅行 (6),困难的经历 (5),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Realizing Infinity
+Mushrooms - P. cyanescens
+by
+Franks
+Citation:   Franks. &quot;Realizing Infinity: An Experience with Mushrooms - P. cyanescens (exp94000)&quot;.
+Erowid.org
+. Jan 16, 2014. erowid.org/exp/94000
+DOSE:
+4 g
+oral
+Mushrooms - P. cyanescens
+(plant material)
+repeated
+smoked
+AM-2201
+(plant material)
+BODY WEIGHT:
+165 lb
+The second time I ever did mushrooms when I was 16 I had a terrifying experience. I wasn&#x27;t very familiar with mushies yet (my first trip was a low dose of cubes) so I didn&#x27;t really know the respect that a high dose of psychedelics demands. Hell I figured it would just be like being high on cannabis with more visuals. Anyways, somehow I managed to come up on around 4 grams of Cyans and a few grams of some dank.
+I skipped school that day and ate them at home, in the morning, by myself. Within twenty minutes the visuals/mindfuck was already becoming overwhelming. At about 45 minutes in I puked up a small portion of the shrooms. I remember sitting there being mesmerized by the insane swirling fractal patterns of my own vomit that seemed to stretch out into infinity. Minutes seemed like hours. Around that time I called a friend over because I was becoming worried. I believe the conversation went like &#x27;ate shrooms,... too much,... need help..&#x27;
+Said friend had no experience with psychedelics and looking back it was a mistake calling him over, shoulda just rode it out alone. He thought weed would bring me down so he basically kept forcing me to take bong rips which had the opposite effect of relaxing me. He thought it would be funny to put on a &#x27;Bum Fights&#x27; DVD and I just remember feeling so horrible for those people who were willing to degrade themselves for money (ripping their own teeth out with pliers, fighting, etc..) Terrible thing to watch while tripping balls.
+I eventually had forgotten I had even eaten the mushrooms and thought that I just woke up that morning completely insane. Around this time &#x27;ego death&#x27; set in and &#x27;I&#x27; had no idea who or what &#x27;I&#x27; was. All concepts of myself and the world I lived in were wiped clean. Time no longer seemed linear and was more cyclic in its nature, reminiscent of a single point (the eternal present). &#x27;I&#x27; was the void and that was all there is, infinite voidness. This is only from what I can remember.
+This whole time my &#x27;friend&#x27; was basically laughing at me and looking at me like I was crazy. He said the whole time I was experiencing my ego death I was &#x27;curled up on my bed mumbling incoherent nonsense&#x27; (word salad). Needless to say Im not friends with him anymore. After around 4 hours (which felt like an eternity) I began coming down. That feeling of realizing that I was coming down can only (for me) be compared to what its like to be released from jail. Relief and ecstactic joy. The rest of the trip was unremarkable. 7-8 hours in I was baseline, but still very shooken up.
+It took along time for me to get over that trip. For awhile after words just thinking about taking mushies would send me into a full blown anxiety attack, trembling, cold sweats, heart palpitations etc.. Eventually I was able to intergrate that experience and after years of introspection and reflection I can say that that trip definitely changed for the better.
+I have taken many trips since then but nowadays I mostly just smoke the herb (medical patient) and trip a few times a year.
+Some positive changes I&#x27;ve noticed from that trip (and psychedelics in general) is I find my self much more open and compassionate. I no longer care about the competetive games many of us play in our social lives, careers, and society in general. I have a much deeper appreciation for nature. Before that trip I was a unhealthy, repressed, depressed, insecure, confused Christian who had not yet to learn how to truly enjoy life.
+Not saying I don&#x27;t have hard times now (I most definately still do) but everything seems less serious. I prefer stillness and silence now and practice mindfulness. I have taken a serious interest in my health and no longer eat fast food/processed garbage and prefer fresh, whole and preferably organic foods. I also excercise regularly and practice hatha yoga and qi gong. I feel so much more vibrant and alive. Quite the change from an overweigth 16 year old with suicidal tendencies.
+I will always regard the mushroom for what it is, a sacred teacher plant that deserves respect. I am forever thankful for that experience.
+Exp Year: 2007
+ExpID: 94000
+Gender: Male
+Age at time of experience: 16
+Published: Jan 16, 2014
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms - P. cyanescens (67) : Small Group (2-9) (17), Bad Trips (6), Difficult Experiences (5), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

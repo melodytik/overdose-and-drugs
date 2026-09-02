@@ -1,0 +1,221 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>和片 - 埃罗伊德的故事 - &quot;实现不可能&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/opium.html'>← 鸦片</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>和片 - 埃罗伊德的故事 - &quot;实现不可能&quot;</h1>
+<div class='sub-title'>Crack &amp; Opium - Erowid Exp - &#x27;Achieving the Impossible&#x27;</div>
+<div class='meta'>作者：jay t Citation · 日期：Aug 17, 2004 · <a href='https://erowid.org/experiences/exp.php?ID=8355' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>美国
+我总是喜欢上菜, 往往容易被人迷住,
+只有在过去的一年里, 我才开始对抗我的许多成,
+我做好了几个月, 但最近我已经复发上方.
+对于像我这样具有上性的人来说, 这是一个非常糟糕的消息, 因为许多成,
+根据这个规则, 在我复发的那天晚上, 我注定要吸入大约3.5克可卡因,
+让我感到宽慰和困惑的是,
+这是一个典型的夏天晚上;凉爽,明亮,安静.
+我和一个好朋友去音乐会, 后座有冰酒.
+这将是一个有趣的夜晚.
+我们甚至没有打算进去,
+我们走来走去, 喝酒, 观察那些以&#x27;嬉皮&#x27;为主的群众; 巨大的, 破烂的子,
+不幸的是,这些人大多是富裕的,有钱的郊区居民,
+我和我的朋友开始寻找毒品,
+事实上他们找到了我们.
+几分钟之内, 我获得了一克漂亮的哈希奇, 一些臭臭的片 (很可能是合成的),
+焦炭看起来很好,至少对于这个地区,它由大约十几个小岩石组成,
+它有一个微弱的黄色色调, 意思是至少从我的经验,
+朋友告诉我他厌倦了人们给他的垃圾可卡 (主要是在聚会上) 他想吸点可卡.
+他选择我作为他的教练, 因为我有丰富的产品经验, 他告诉我,
+所以我要证明他错了.
+他还说我永远不会让可卡因持续超过一晚, 我相信.
+我还没有用一克看起来像一个&quot;钥匙撞击&quot;的数量做过, 今晚为什么会有所不同?
+虽然它的重量很好,但看起来真的很微小.
+我们离开了彩色的群众, 坐着我的车回到我的家,
+时间大约是凌晨2点, 我们都渴望打开可乐,
+我坐在地下室里, 只有照着我,
+我的朋友只是坐在那里, 专注地看着我开始神圣的仪式的命中.
+我打开了其中一半, 宣布另一半现在要走了,
+我的朋友只是看着我刺地不相信并告诉我这不会发生.
+我把开放的袋子平,让大约4块石头和一些粉末落在桌子上.
+他非常感兴趣地看着我用瓶盖粉碎石头, 然后把它们堆成六个单独的堆.
+我已经准备好了我的工具包,
+我把一滴水放到子上,然后加热一下,
+我们没有说话五分钟,悬疑使我们沉默.
+我看着可卡因落入水中,
+我又加热,直到水溶解了一半,
+虽然我一直被告知可乐和水不能混合.
+我慢慢加热, 谨慎不要烧掉任何东西.
+我注意到它已经切了糖类, 因为糖果的气味和轻微的色的边缘的岩石我做了.
+我心碎了,因为我害怕它不会煮得好,就像其他很多时候的糖了我的计划.
+我很高兴地看到混合物大声爆裂, 脱离子, 结晶成一个脆脆的, 清的黄色水池.
+我立即用一分钱把它出来, 因为它是剩余的糖, 我等待它硬化.
+我知道我做得对, 因为我的产品大约是我开始的岩石的大小的四分之一,
+我把它放在我的屏幕管,并把碗给我的朋友.
+我看着石头消失, 留下一点黑色的糖残.
+他坐在沙发上慢慢点头.
+他的脸从微笑转变为惊,
+他的眼睛闭了,他的手臂了.
+他只能发出一个单音节的吟,
+尽管他显然很高兴, 我还没有开始自己的石头.
+根据我过去的经验, 我应该已经完成了,
+我开始用自己的石头, 听他描述这比使用可卡因的其他方法要好得多,
+吸是浪费时间的,
+我把它扔进管子里,抽烟.
+血液涌入我的耳朵, 我的静脉充满了可卡因, 我能感觉到它在我里面; 我的嘴唇,牙,嘴,喉和肺部都麻木了, 无感觉,
+终于我感觉到火箭的速度减慢了,停了下来,
+我看了看时钟;25分钟已经过去了.
+这对可卡因来说是非常好的, 更不用说是可卡因了.
+现在我的朋友想要另一个命中,所以我准备它,并给他.
+为了让他更好地享受他第一次吸真正的可卡因.
+我拿了最后一只, 立刻了子, 感觉可卡因通过舌头的薄膜燃烧, 也进入了我的血液.
+我们开始抽片, 以使我们更加平静地下来.
+总共花了大约一个小时; 现在是凌晨3点, 我只能想到睡觉.
+让我震惊的是,直到第二天我才想到剩下的半克,
+我从来没有一个人做过这件事.
+我不知道我怎么做到,或者我是否能再做一次,
+我只是告诉自己冷酷的真相; 我是一个吸毒者,
+如果我能把它延长几天, 我会在下一个薪水时几乎没有任何不适.
+我还能让片持续同样长时间, 大麻和大麻5天,
+我是否只是在成长中成长,
+只有时间才能证明.
+现在我只能自豪地说我是个有意志的吸毒者.
+其他:
+(82),  (63):成和习惯 (10), 准备/食谱 (30), 小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Achieving the Impossible
+Crack &amp; Opium
+by
+jay t
+Citation:   jay t. &quot;Achieving the Impossible: An Experience with Crack &amp; Opium (exp8355)&quot;.
+Erowid.org
+. Aug 17, 2004. erowid.org/exp/8355
+DOSE:
+T+ 0:00
+2 hits
+smoked
+Crack
+T+ 1:00
+smoked
+Opium
+BODY WEIGHT:
+190 lb
+I&#x27;ve always been a fan of uppers, with the tendency to get too easily carried away and occasionally binge for days on end.  Only in the last year have I come to grips with my many addictions, including marijuana, alcohol, opiates, benzodiazepenes, amphetamines and of course cocaine.  I was doing well for a few months, but very recently I&#x27;ve relapsed on uppers.  That&#x27;s very bad news for someone with a personality as addictive as mine, because  many addictions, no matter how long  repressed, start up right where you were when you left off.  So according to this rule, on the night I relapsed I was destined to do about 3.5 grams of cocaine, smoked or sniffed.  To my relief and bewilderment, my prediction couldn&#x27;t have been more wrong.
+It was a typical summer evening; cool, clear, and tranquil.  I was on my way to a concert with a good buddy of mine, a case of beer on ice in the back seat.  It was going to be a fun night.  To tell you the truth, we didn&#x27;t even plan on going inside; we elected to party in the parking lot all night instead.  We walked around drinking and observing the predominantly &#x27;hippie&#x27; crowd; huge, ragged pants, hemp adornments with bulky glass beads, long and unwashed clumps of hair that they ignorantly refer to as &#x27;dreddies,&#x27; or dreadlocks.  Unfortunately most of these people were well-off, money-conscious suburbanites simply masquerading as carefree and generous souls.  My friend and I began looking for drugs, and too easily found them.  Actually they found us.  Within minutes I had scored a gram of beautiful hash, some stinky opium (most likely synthetic), 1/8 oz. of fine Vermont sinsemilla, and -most importantly- a gram of nice cocaine.
+The coke looked good, at least for this region; it consisted of about a dozen small rocks, whick were fairly hard and seemed gritty and oily.  It had a faint yellowish tint, meaning at least from my experience that it was cut by less idiots and may possibly yield some good rocks for smoking.  A few weeks earlier, my friend had told me that he was sick of the garbage coke that people were giving him (mostly at parties) and he wanted to smoke crack.  He chose me as his instructor because of my vast experience with the product, and he told me that my stories of &#x27;rocket ship&#x27; highs and boundless, godlike energy sounded too good to be true.  So I was going to prove him wrong.  He also stated that i would never make the cocaine last more than a night, which I believed.  So far i hadn&#x27;t done it with amounts that made a gram look like a &#x27;key bump,&#x27; so why was tonight going to be any different?  The gram, though it weighed out fine, really was looking miniscule.
+We left the tie-dyed masses and returned to my house in my car, both fairly drunk by now.  It was about 2 am and we were both dying to crack open the coke and get cooking.  Sitting in my basement, illuminated only by candles, excitement seemed to rush buzz around me like a static charge.  My friend just sat there, watching intently as i began the sacred ritual of cooking up the hits.  I opened one of the two half grams and announced that the other half was going away now, and would be back tomorrow night.  My friend just looked at me in snide disbelief and told me it wouldn&#x27;t happen.  I flattened the open bag and let about 4 rocks and some powder fall onto the table.  He watched me with keen interest as I crushed the rocks with a bottle cap and then worked them into 6 separate piles.  I had already gathered my tool kit, which consisted of a spoon, a tiny bit of baking soda, and a glass of water.  I put a drop of water on the spoon and heated it briefly, after which I added one of the small piles on the table before me.
+We hadn&#x27;t spoken for a good five minutes, the suspense rendering us silent. I watched as the cocaine fell into the water and sunk to the bottom, clouding the water.  I then proceeded to heat it until about half of the water dissolved, and quickly added a tiny sprinkle of baking soda.  The concoction bubbled up and seemed to be mixed, although I&#x27;ve always been told that coke and water don&#x27;t mix.  I heated it slowly, careful not to burn any of it off.  I noticed that it had been cut with a type of sugar, because of the caramel odor and slight browning of the edges of the rock I was making.  My heart fell because I was afraid it wouldn&#x27;t cook right, like many other times the sugar had foiled my plans.  But it wasn&#x27;t a big cut, so I was delighted as the mixture made a loud pop, separating itself from the spoon, and crystallized into a brittle, clear-yellow puddle.  I immediately scraped it out with a penny, it being gummy from the remaining sugar, and i waited for it to harden.  I knew I&#x27;d done it right because my product was about 1/4 the size of the rock I&#x27;d started with, meaning many other cuts had boiled off or evaporated.
+Picking the rock off the penny, I put it in my screen-pipe and handed the bowl to my friend.  I was rewarded with a familiar sizzle as I watched the rock disappear, leaving a tiny bit of black residue from the sugar.  The bulk of it had evaporated and entered his lungs, and he sat back on the couch with a slow nod.  His face went from smiling to wonder as he exhaled and the hit fully entered his bloodstream.  His eyes closed and his arms went limp.  All he could muster was one monosyllabic groan, lasting about 3 seconds.  I was strangely calm and hadn&#x27;t even begun cooking my own rock yet, despite his obvious euphoria.  Judging by all of my past experiences, I should have finished the gram already and been on the way to my dealer with another 50 bucks.  I started on my own rock, listening to him describe how much better this was than any other method of using coke and how stupid are people who snort it?  That is one subject I agree on; snorting coke is a waste and gets me less jammed.
+When I had finished making my hit I threw it in the pipe and smoked.  Blood rushed to my ears, my veins were pulsing with cocaine, I could feel it inside of me; my lips, teeth, mouth, throat and lungs were all numb, sensationless, and the rocket ship I was tied to took off; I was soaring up, up, and up.  Eventually I could feel the rocket slow down and stop, at which point I could feel myself lazily descending back down to earth like a feather.  I looked at the clock; 25 minutes had passed.  That&#x27;s extremely good for cocaine, let alone crack.  By now my friend wanted another hit, so I prepared it and gave it to him.  I then proceeded to give him two more in a row, sacrificing one of my hits so he could better enjoy his first time smoking real coke.  I took the last one and immediately licked the spoon clean, feeling the cocaine burning through the thin membrane of my tongue and entering my bloodstream as well.  I then packed up the kit and we proceeded to smoke some opium to bring us down more peacefully.
+The total elapsed time was about an hour; it was 3 am and all I could think about was sleep.  Shockingly I didn&#x27;t even think about the other half gram until the next day, and even then I only smoked half of it.  It was gone the day after, having lasted arguably 3 days; and I didn&#x27;t once do it alone.  I don&#x27;t know how I did it or if I could ever do it again, but i successfully made a single gram last for days- and I&#x27;m no lightweight.  All I did was show myself the cold truth; I am a drug addict, and my mind has to be altered every waking moment of my life.  To use all of my coke in one night would cause a need for more all too soon, whereas if i could stretch it out for a few days I&#x27;d make it to my next paycheck with little or no discomfort.  I was also able to make the opium last the same amound of time and the hash and pot 5 days, all three of which are records for me.  Have I just matured in my addictions, or am I finally kicking them on my own accord?  I guess only time will tell.  For now I&#x27;ll just have to pride myself as a very will-powered crackhead.
+Exp Year: 2001
+ExpID: 8355
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 17, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Crack (82), Opium (63) : Addiction &amp; Habituation (10), Preparation / Recipes (30), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

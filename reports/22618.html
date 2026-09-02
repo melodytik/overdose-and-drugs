@@ -1,0 +1,263 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>5-MeO-DiPT和氧化物 - 脑外探险 - &quot;穿越头脑空间和时间&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/5-meo-dipt.html'>← 5-MeO-DiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>5-MeO-DiPT和氧化物 - 脑外探险 - &quot;穿越头脑空间和时间&quot;</h1>
+<div class='sub-title'>5-MeO-DiPT &amp; Nitrous Oxide - Erowid Exp - &#x27;Traveling thru Headspace and Time&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Jun 18, 2006 · 剂量：17 mg · <a href='https://erowid.org/experiences/exp.php?ID=22618' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我听到的大部分报道, 从一个&#x27;朋友的朋友&#x27;让我得出结论说狐纯粹是娱乐,
+我在写这篇文章时大笑.
+设置将是我的家,周六晚上与几个朋友.
+我几乎可以称之为女性版本的自己, M, 一年前曾经尝试过13毫克的&quot;狐&quot;,
+朋友们会轻轻地喝酒, 抽几次气,
+剂量按尺度计量,每剂17毫克,放入镜头杯中,并加上根酒.
+这东西的味道可怕.
+奇怪的是,我们正在讨论20个,
+我把17滴伏特加加在杯子里, 试着看粉末是否足够溶解,
+没有溶解的晶体,所以它不是.
+更多的实验是为了在这个部门.
+经过15分钟的时间,
+我在下午吃了一顿大小的零食,
+这感觉就像高品质酸的出现.
+毒品抓住了我们的本质, 起了我们,
+药物在晚上缓慢地减弱.
+第一个小时的特点是强烈的酸性高.
+视觉效果几乎与我们两人的酸相同.
+除了缺少&quot;幽灵&quot; (看墙上的紫色斑点,转过身去,仍然看到它,但不需要最初的刺激).
+在那个时刻, 身体的能量仍然占主导地位.
+我的身体是旋转的, 但我的思想是酸的.
+一切都, 像一个轻微的Mdma感觉没有精神高.
+整个晚上我们都被精神困扰,甚至没有想到拿出我的滚动玩具.
+音乐是非常棒的, 混杂的乐器的狂热节奏是混乱的,
+音乐的质量很好, 我也同意这一点,
+工具证明有趣的...
+我们离开客厅和我的五位客人,
+我认为我的朋友们有点失望, 但M和我都需要进入我们自己的个人头脑空间,
+在这种剂量下,向内聚焦是非常愉快的.
+我和M会躺在我的床上, 裸体度过夜晚,
+很难以文字形式进行交流.
+我决定离开清醒群众的原因在于, 当我吸时,
+我会吟不堪, 随着音乐的节奏而扭动.
+旅行前的某首歌曲的深度或情感感受到的程度就增加了十倍.
+我把这种效果比作我在心理上成为一个色情明星, 不停地在我的虚弱的身体上打死我.
+在最初的1.5小时后, 酸性兴奋开始占主导地位.
+身体的能量一直存在, 并将持续到7个多小时,
+我还在喝着很棒的酸,
+的
+在一个双人气球中, 墙上的黑白布洛克海报上的白色部分开始显示所有曾经让我笑过的人的脸.
+他们的脸出现的数字越高,和更大,我目前与他们有更密切的关系.
+他们都在笑.
+我开始回忆起,大约在2-5分钟的时间里, 我一生中每一次笑的每一刻,
+我甚至不像在记住他们, 我在重温他们;
+很难思考,但它发生了.
+我开始疯狂地笑了5到10分钟.
+我停下来是因为M开始发出噪音,
+在此之后, 我甚至不用费心去解释.
+视觉是非常沉重的, 天花板风扇灯泡变成眼球和看着我在我的旅程.
+我着他们时, 他们并没有消失.
+感官是超意识,比任何我做过的药物.
+我听到每一滴水, 我听到落在上.
+我知道我听到的,如果我不看,看到凝固,我会被诅咒.
+,我认为这真的发生了.
+没有像酸一样的共感, 但有东西可以弥补.
+光非常存在.
+有时被一些东西打开.
+一种皮肤的味道.
+一个朋友的声音的高度和语气说再见
+我的朋友们身边无处不在.
+实际上,M告诉我第二天她在我的脸上感受到一个蓝紫色的光环.
+每当我想到自己的光环时,
+这是我最喜欢的颜色.
+奇怪的是她看到了我没有告诉她这个想法.
+我们决定看一下时钟, 想着要早点上床睡觉, 因为太阳会升起.
+我们估计在5点到6点.
+在这个时候是1:40.
+完全扭曲时间.
+几个小时后,
+在另一场双人气球的过程中,
+我确实有高潮,但显然只是在我的脑海里.
+我真的不知道我是否已经射精了.
+我很惊地发现我甚至没有勃起.
+我告诉M说这次高潮都是我脑海里的, 不管是不是发生在身体上,
+我有类似的经历,我想让她为这份报告描述.
+这是她自己的话:
+我也经历过类似的经历,我很棒的同事把一个三重气球递给我,告诉我这将是&#x27;为我&#x27;.
+生命和地球的基本方法变得鲜明明.
+只有他的手碰到的地方, 我的身体突然不再存在.
+终于我们开始做爱了, 当我来的时候, 似乎我的思想被抛入了一个闪闪发光的水晶球的中心,
+! !
+我终于在早上8点左右睡觉了.
+没有睡觉,我只有2小时.
+我在11点做了一顿丰盛的早餐,
+我不想吃完她的盘子.
+总的来说,这是我迄今为止最好的旅行之一.
+旅程的精彩之处在于我们没有想到会有这样的经历.
+这种药物有可能替代我的酸, 考虑到它在过去的一两年里是不可能找到的,
+唯一的小副作用是胃部有点紧张,有些恶心.
+我吃了我祖父的抗抗腹药,
+我没有经历过这种情况,
+我在13岁时给其他两名女性注射了药物,
+他们把它描述为纯粹的娱乐和非常好的社交环境.
+这就是他们第一次尝试过的迷幻药,
+其他:
+5-MeO-DiPT (57),氧化 (40),OBE (332):组合 (3),第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Traveling thru Headspace and Time
+5-MeO-DiPT &amp; Nitrous Oxide
+by
+Indigo
+Citation:   Indigo. &quot;Traveling thru Headspace and Time: An Experience with 5-MeO-DiPT &amp; Nitrous Oxide (exp22618)&quot;.
+Erowid.org
+. Jun 18, 2006. erowid.org/exp/22618
+DOSE:
+17 mg
+oral
+5-MeO-DiPT
+(powder / crystals)
+repeated
+inhaled
+Nitrous Oxide
+(gas)
+BODY WEIGHT:
+180 lb
+Most of the reports I&#x27;ve heard, from a &#x27;friend of a friends&#x27; led me to the conclusion that fox was purely recreational, something like a low dose of Mdma with a slight psychedelic kick. I&#x27;m laughing out loud as I write that.
+The setting would be my home, Saturday night with a few friends over. Tripping buddy for the night would be who I would call almost the female version of myself, M, who tried foxy before about a year earlier at 13 mgs and got the recreational, tingly effect. Friends would be drinking lightly and popping a couple hits of nitrous, there to watch us guinea pigs experiment.
+Doses were measure by scale, 17 mgs each, put into shot glasses and topped with rootbeer. The stuff tastes horrible. The funny thing is we were debating 20 because of the expected recreational nature of this drug. Both of us are heavily experienced with acid and other mind-altering substances. On a side note, I added 17 drops of vodka to my glass to see if the powder was soluble enough to make a solution where 1 drop= 1mg foxy. There were undisolved crystals remaining, so it is not. More experimentation is in order in this department.
+After about 15 minutes, M, who hadn&#x27;t eaten since breakfast, began to trip. I had eaten a large snack in the afternoon, so it took me about 25 minutes. It felt like the come-up of high grade acid. The drug grabbed us by the essence our very being, picked us up and threw us into a beautifully chaotic ball of psychedelic sweet lovin&#x27;. Peak came on very fast, then the drug tapered off ever so slowly thru the night.
+The first hour was characterized by an intense acid like high. Visuals were almost identical to acid for both of us. With the exception of the lack of &#x27;ghosts&#x27; (look at a purple spot on the wall, turn away and see it still, but without needing that initial stimuli). Dominating further still for that hour was the body energy. My body was spun, but my mind was tripping off of acid. Everything was tingly, like a slight Mdma feeling without the mental high. During the entire night we were too caught up in the mental and didn&#x27;t even think of getting my rolling toys out. Music was fucking amazing, misc. rave beats from a stereo were chaotic, the unexpected jumps and twists provided entertainment. M declared music had a brassy quality on which I agree, and distorted on a low level. Tool proved interesting…
+We left the living room and my five guests; introspective psychedelic fun was in store. I think my friends were a little disappointed, but M and I both need to get into our own individual head space, it was hard to begin transcending with nearly sober people around. At this dosage inward focusing is extremely enjoyable. M and I would lay on my bed for the rest of the night naked, minus bathroom breaks. We did not have conversation for hours, internal dialogue transpiring was hard to communicate in words form.
+Also aiding in my decision to leave the sober crowd was the fact that when I did nitrous, the body energy and the psychedelic pleasure mind-fuck took over my whole, catapulting me into intense full body exploding bursts of astronomic pleasure. I would moan uncontrollably and writhe around perfectly to the beat of whatever music was playing. The deeper the meaning or amount of emotion felt personally by a particular tune before this trip was multiplied 10 fold. I compared this effect to my mental self being a porn star and just relentlessly pounding the living hell out of my weak little physical self.
+The acid like high begins to dominate after about the first 1.5 hours. The body energy was there, and would be until 7+ hours, to a lesser and lesser extent. I was tripping my ass off of great acid but I had a great body high as well. Wow.
+During one double balloon, the white parts in the black and white bjork poster on my wall began to show the faces of all the people that had ever made me laugh. The higher the number their face appeared, and larger, the closer relationship I presently had with them. They were all laughing. I then begin to recall, in a period of about 2-5 minutes, EVERY moment I had every laughed and why in my life time, one by one. It wasn’t even like I was remembering them, I was reliving them; each was so intensely hilarious. Hard to ponder but it happened. This of course made me start laughing maniacally for another 5-10 minutes. I only stopped because M started making noises, which snapped me back into the real world.
+Had a one or two OOBE’s during nitrous after this, won’t even bother trying to explain them here.
+Visuals were very heavy, ceiling fan bulbs turned into eyeballs and watched me on my journey. They did NOT go away when I stared straight at them.
+Senses were hyper aware, more so than any drug I&#x27;ve done. When a candle broke and spilled on glass a few feet away, I heard every drop, I heard the wax spilling down the candle. I knew what I heard and I&#x27;ll be damned if I didn&#x27;t look at the candle and see the wax solidifying. Wow, that really did happen I thought.
+No synesthesia (tasting sounds, hearing colors) to the extent of acid, but something to make up for it. Auras very much present. At some times keyed by something. A smell of skin. The pitch and tone of a friend&#x27;s voice saying goodbye. Warmth was everywhere in my friends. M actually told me the day after that she had experienced a blue purple aura in my face. Whenever I trip off the thought of my own aura, this is the color I feel. This is my favorite color. Odd that she saw that in me without telling her about that idea.
+We decided to look at a clock, thinking that we better get to bed soon because the sun is going to come up. We estimated 5-6am. It was 1:40 at this time. Complete and utter time distortion.
+Another couple hours later, a little more lucid at this point:
+In the middle of doing another double balloon, M began to give me oral sex, totally unexpected. I did orgasm, only in my head though apparently. When the nitrous wore off I honestly did not know if I had ejaculated or not. I was VERY surprised to find out that I hadn&#x27;t even achieved an erection. I told M that this orgasm was all in my head, and regardless of whether or not it happened physically, it happened mentally, the only place it really mattered.
+M had a similar experience, I thought I’d let her describe it for this report. These are her own words:
+“I had much the same experience; my wonderful counterpart handed me a triple balloon and told me that this was going to be &#x27;for me&#x27;. As I hit the balloon, my mind slid towards non-existence, and the basic methods of life and earth became vividly clear. When he began teasing me, my body suddenly ceased to exist except for the places his hands came into contact with. Eventually, we began having sex, and when I came, it seemed as if my mind had been cast into the center of a sparkling crystal ball, and I observed refracting light and rainbows everywhere. Yow.”
+I managed to finally get some sleep at about 8 am. M did not sleep, and I for only 2 hours. I made a large breakfast at 11, and was able to eat no problem. M did not want to finish her plate.
+All in all this was one of my best trips thus far. What added on to the trip a lot is that we were not expecting anywhere close to this experience.
+This drug has the potential to replace acid for me, considering the fact that it is f*#@ing impossible to find within the last year or two, even in the bay area California.
+One more thing, the only minor side effect I had was a little stomach tightness, queasy kinda. This happened the first hour, and I took one of my grandpa’s prescription anti-cramping anti- diarrhea pills that I had lying around and it never came back. M didn’t experience this, neither did two other friends that I dosed at 13 mgs a few days prior.
+The other two females I dosed at 13 went clubbing and had a great time. They described it as purely recreational and very good for a social setting. This is the first psychedelic they’ve tried, and were not uncomfortable in any way.
+Exp Year: 2003
+ExpID: 22618
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 18, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+5-MeO-DiPT (57), Nitrous Oxide (40), OBE (332) : Combinations (3), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

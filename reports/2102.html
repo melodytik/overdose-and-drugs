@@ -1,0 +1,196 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>烟 - 爱洛伊德的故事 - 霍比特人和</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mde.html'>← MDE(亚甲二氧基乙基安非他明)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>烟 - 爱洛伊德的故事 - 霍比特人和</h1>
+<div class='sub-title'>MDE &amp; Smoked Mushrooms - Erowid Exp - &#x27;Hobbits and Toads&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jun 25, 2000 · <a href='https://erowid.org/experiences/exp.php?ID=2102' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>好吧,这是一个小故事给大家,一些时间回到大约三四年前我有一个最深刻的视觉体验有史以来,我的一个最好的朋友已经掌握了大量的非常纯粹的MDE,我已经建立了这种心理障碍
+由于最近有报道说有些人死于MDA和MDM, 经过两个月的观看, 我两个最好的朋友每周末都会放弃这种东西,
+试图克服我的恐惧, 我决定参与探索灵魂和宇宙.
+那是一个星期五晚上大约10点左右,我和我的两个朋友每一个空所以金生,并填充了大约10个他们边缘与微弱的白色粉末,我吃了第一个大约100毫克的和感觉什么45分钟,我的两个朋友已经感觉到它堆,我在另一方面已经可以感觉到什么真的
+我开始非常生气没有真正的效果很明显,决定再拿一个帽子.
+大约在12点我们叫出租车,就像我们走出我的朋友大花园和出租车它了我在股.我翻转出租车的前灯是盲目的,有巨大的彩虹圆圈围绕着他们我看着天空和敬畏.
+试图表现得很酷. 好吧,在俱乐部15分钟后,我突然发现自己基线.
+我只能把这种感觉描述为快乐. 我完全忙, 能感觉到这种令人惊叹的温暖的感觉流过我的系统
+,我的什么圆圈周围的一切彩虹圆圈即使在点燃香烟的火焰产生的视觉彩虹,无论如何它突然醒来我检查自己在镜子里
+但不是很糟糕只是E-ing非常非常强烈. 这是我第一次记得当我到浴室我惊于我的瞳孔的大小.
+我去所打尿,做一次检查和大便,我的瞳孔太大了,我甚至可以从镜像中看到我自己的瞳孔,我喜欢的东西,开始玩,直到我从这个高度看起来很奇怪,然后迅速离开了所.
+恐慌之后,我回到我的朋友那里,他们问我怎么样,我笑了,说好了,虽然我有点紧张,这些极端的聊的攻击开始成为一个问题.我带着我亲爱的朋友G走了,我们出去抽烟.
+他告诉我不要担心这是正常的. 他说触摸他的所以我做了和该死的他太糟糕了不是那么糟糕,但很糟糕.
+因为我很难把它放在一起. 从压倒性的强大美丽清洁的感觉,
+我们回到了家,D的房子,我们去了客厅,把门视频. 在电影的开始,它是可以忍受的,但我发现它是太快的明亮,而不是我需要什么我得到一个大毛毯,出去,躺在阳光床上,看着星星,他们是惊人的至少说,
+我以为这是大麻,开始吸入大口气. 呼出后,我口中有一种异国情调.
+我发现通过吸烟冷却它停止了我的下巴的,所以我继续吸烟,直到没有超过大约八个值得,我把冷却下来,几乎立即我被吹走我觉得我的心率上升一点,在我的脸上
+无论如何,突然间,这个薄薄的植物在一个中复活了,生长了这个棕色的小罩杯像头. 我转过身,感觉到泡在我的脸和手臂周围爆炸,我的第一反应是触摸这个植物.
+只是当我在几英寸的它的小罩杯的头移动它从一边到另一边与明确的不要你敢碰我感觉到它我认为该死的发生在这里,坐起来突然我看到运动在我的眼睛的一边,转身看到一个霍比特人类型
+我完全惊不已,不敢呼唤朋友们沉浸在电影中,我向霍比特人挥手,他也挥手回来,对我说了一些完全陌生的语言,笑了笑,然后缩小成一个20厘米左右的生物,
+我检查了我的心脏,是肯定的它仍然跳动,看起来在树上它充满了数百个这些小生物的轮跳跃和摇动树叶当我再次看下去大约三个英尺从我看到雄性霍比特人
+她说的语言和前面的语言一样,或类似的东西. 挥手给我两次,做了缩小的行为,然后飞向树上.
+它们以惊人的速度爬上树木.
+我问他能不能看到他们,他不能,这让我感到有点绝望和非常孤独虽然不害怕
+我在外面坐着,他的手臂围着我的背部摩擦,而我继续翻转在完全陌生的现实我在所有突然大约10英尺到我的右边我看到这两个大大约计算机鼠标的大小明亮的白在黑暗中跳跃留下痕迹在他们跳跃我开始翻转问如果g可以看到他们再次他不能
+我走到青的地方, 就在我走近的时候,它们就消失了. 更奇怪的是,在它们消失的地方,
+非常黑暗,所以我不知道我怎么在黑暗中找到一包潮湿的纸张,
+我很困惑,非常渴望回到家里似乎接地我一些什么和谢天谢地所以我完全,我有困难倒一杯水我走进客厅,坐在沙发上感觉很棒和联合g滚动更好
+六个小时后醒来, 汗水, 但没有真正的宿醉除了试图弄清楚该死的发生了什么,
+幸运的是,我幸存下来了. 我一直在努力寻找这些霍比特人.
+时间表: 2102
+(39),MDE (35):各种 (28),组合 (3),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Hobbits and Toads
+MDE &amp; Smoked Mushrooms
+by
+Tree
+Citation:   Tree. &quot;Hobbits and Toads: An Experience with MDE &amp; Smoked Mushrooms (exp2102)&quot;.
+Erowid.org
+. Jun 25, 2000. erowid.org/exp/2102
+DOSE:
+T+ 0:00
+100 mg
+oral
+MDE
+(capsule)
+T+ 1:30
+100 mg
+oral
+MDE
+(capsule)
+T+ 2:45
+100 mg
+oral
+MDE
+(capsule)
+T+ 0:59
+8 hits
+smoked
+Mushrooms
+BODY WEIGHT:
+160 lb
+ok here is a little tale for you all, some time back around three or four years ago i had one of the most profound visual experiences ever, one of my best friends had got hold of a large amount of very pure mdea, i had built up this psycic barrier in my being that i was never going to take E or it´s grandfather, mother, brother or uncle for that matter due to all the recent reports of people dying from mda and mdma, well after two months of watching my two best friends flip off this shit every weekend and after various reports from other trippers that this was truly the best, cleanest and most potent e type substance anyone had ever tried, after thinking about it for some time and trying to overpower my fears i decided to partake in a little exploring of the soul and the cosmos.
+It was a friday evening around 10 pm or so me and my two friends each empty so gingseng caps and filled about 10 of them to the brim with the slightly off white powder, i ate the first cap about 100mg´s and felt nothing for 45 minutes by which my two friends were already feeling it heaps, i on the other had could feel nothing really but both my friends pupils were quickly getting massive and by t+90 mins they were so large that only a hairline of iris was present it looked kind of of sinister but not evil i was getting really pissed off that no real effects very noticeable and decided to take another cap.
+At around 12:am we called a taxi and just as we walked out of my friends large garden and out to the taxi bam it kicked me in the ass. i was flipping the taxis headlights were blinding and had huge rainbow circles around them i looking up in to the sky and was in awe. i was saying wow and my friends were telling me to shut the fuck up and get in to the cab which i did. i jumped in the front and tried to act cool. well, 15 minutes after being in the club i suddenly found myself baseline. i could not understand it at all a 20 minute amazing rush, what?, so foolish me i ate another 100mg cap making it number three
+well things got interesting. i was straight back up in another ten minutes and boy did i stay there. i can only describe the feeling as bliss. i was rushing totally and could feel this amazing warm feeling flowing through my system, in the midst of flipping out from the lights oh my what circles were around everything rainbow circles even when lighting a cigarette the flame produced a visual rainbow, anyways it suddenly dawned on me to check myself out in the mirror i was feeling totally fucked but not badly just E-ing very very strongly. it was my first time remember when i got to the bathroom i was amazed at the size of my pupils. huge does not do it justice. they were very nearly all pupil. i mean there was a hairline of iris still remaining but only just. i went back out and bought some apple juice and continued dancing for about two hours or so...it felt like more. i went to the bathroom for a piss and general check up and shit my pupils were so huge that i could actually see myself reflected in my own pupil from the mirror image something i liked and started playing with until i got a weird look from this high and quickly left the bathroom.
+well after my fright i went back to where my friends were and they asked how i was doing i laughed and said ok although i was somewhat rather nervous about these attacks of extreme jaw chattering that were starting to become a problem. i took my dear friend g away and we went outside to smoke a joint. i told him i was freaking out about my jaw and told him to touch it, fucking hell he said but told me not to worry it´s normal. he said touch his so i did and fucking hell his was bad too not as bad but bad enough. by this time i was sooo very out of it that i decided that i wanted to leave and be somewhere much more chill because i was having trouble keeping it together. from the overwhelmingly powerful beautiful clean sensations that were coming in rushes on top of the rushes it was so very intense but completely manageable in terms of paranoia and fear and so forth every thing was beautiful colors lights people music touch taste clothes all of it but too bright and loud.
+We returned home to d´s house were we went into the living room and put on the doors video. at the start of the film it was bearable but i found it to be too fast to bright and not what i needed i got a large furry blanket and went outside and lay down on the sun bed ,looking up at the stars they were amazing to say the least, well after about 20 minutes g came outside with a chillum and said get in to this i thought it was hash and started takin in big puffs after exhaling there was the most alien taste in my mouth i cant describe it almost silky but not pleasant tasting i ask what the fuck is that and was told mushrooms, well i said i cant feel anything he went back inside and return with a full bowl leaving the chillum with me i found that by smoking the chill it stopped the shuddering of my jaw and so i continued smoking it until the was no more about eight big hits worth, i put the chill down and almost instantly i was blown away i felt my heart rate go up slightly and all around my face and everywhere was this fine web like almost transparent film like a dimensional barrier of some sort(not that i have seen a dimensional barrier or anything) anyway all of a sudden this thin plant in a pot came to life and grew this brown tiny hooded like head i flipped at this and could feel bubbles exploding around my face and arms, my first reaction was to touch this plant being but just as i got within inches of it´s little hooded head it moved it from side to side with a definite don&#x27;t you darn touch me feel about it i thought what the fuck is going on here and sat up all of a sudden i saw movement in the side of my eye and turned to see a hobbit type being around 100cm tall standing at the base of the tree to my left around 10 foot away.
+I was completely awe struck and did not dare call out to by friends absorbed in the film i waved to the hobbit thing and he waved back and spoke some totally alien language to me smiled and then shrunk into a being of about 20 cms i mean tiny and took off up into the tree my jaw and heart were racing this was so incredibly unbelievable that i thought perhaps i had died. I checked my heart and was positive it was still beating, looking up in to the tree it was full of the silhouettes of hundreds of these little beings jumping and shaking the foliage when i looked down again about three feet from where i saw the male hobbit the was a female one sitting in the grass i waved to her as well and said don&#x27;t be afraid she spoke the same tongue as the previous one or something very similar waved at me twice and did the shrinking act and took off into the tree´s i was totally flipping by this point and went into the house and got g who came out into the overgrown garden and sat down with me i could see hundreds of this tiny shapes jumping and climbing through the trees at incredible speeds. I asked g if he could see them and he could not which made me feel slightly desperate and very alone although not afraid, g sat outside with his arm around me rubbing my back while i continued to flip at the totally alien reality i was in all off a sudden about 10 feet to my right i saw these two large about the size of a computer mouse bright white toads jumping in the darkness leaving trails behind them as they jumped i started flipping asking if g could see them once again he could not well i got up and went over to where the toads were and just as i approached they vanished even more strange was the fact that in the spot from where they had vanished was a packet of joint papers i could not believe this and picked them up it was about 5 am or maybe later and very dark so i don&#x27;t know how the hell i found a damp packet of papers in the dark where two seconds before there were bight white toads jumping.
+Well i was thoroughly confused and very thirsty walking back into the house seemed to ground me some what and thankfully so i was so completely tripping that i was having trouble pouring a glass of water i went into the living room and sat down the couch felt amazing and the joint g rolled was even better well i finally came down around 700 am and was glad too i feel asleep and woke up six hours later sweating but with no real hangover except trying to work out what the fuck had happened, well just recently during a lsd trip i suddenly thought about that perhaps the dmt tryptamines were made active when i smoked the mushrooms causing this very rapid and intense visual experience,or maybe it was a combination of the two substances i don&#x27;t know.
+Well i survived that first e trip and have searched long and hard for those hobbits but sadly so i have yet had the luck of meeting them again. maybe one day.
+Exp Year: 2000
+ExpID: 2102
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Jun 25, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms (39), MDE (35) : Various (28), Combinations (3), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

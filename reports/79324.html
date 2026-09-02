@@ -1,0 +1,207 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>布福 - 体外 - &quot;布福接触&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bufotenin.html'>← 蟾毒色胺</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>布福 - 体外 - &quot;布福接触&quot;</h1>
+<div class='sub-title'>Bufotenin - Erowid Exp - &#x27;Bufotenine Encounter&#x27;</div>
+<div class='meta'>作者：crystal toad Citation · 日期：Oct 29, 2011 · 剂量：15 mg · <a href='https://erowid.org/experiences/exp.php?ID=79324' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我把15毫克粘的棕色丁树脂放进管子里,
+它很容易和干净地蒸发,热的烟雾带有印和布丁特有的鱼类胺气味.
+预计会有时间把灯关掉,然后安静下来 - - 通常布福因的效果不如DMT快.
+房间被两个照亮, 哈罗德·布德的&quot;珍珠&quot;的氛围完成了亲密的感觉.
+开始时, 脑后和子里就像刺一样强烈的刺痛, 迅速地向下移动,
+虽然这感觉有些不愉快, 但并没有让我感到很痛苦.
+我认为这些效应是由于bufotenin的 serotonergic属性由引入的5-基组到DMT分子.
+我知道接下来会发生什么,
+但在10到20秒之后, 消失了.
+虽然我很熟悉这次经历的各个阶段,
+由于我独自一人,我意识到有关该物质的文献是模两可的,这并没有帮助我.
+由于它的结构与血清素相似, 效果是相当的身体, 有时有报道需要医疗干预的情况.
+我在有意识地呼吸, 却没有感觉到氧气进入.
+我知道我很快就会进入三胺的空间.
+墙壁和天花板变成黄黄的黄油,我在那里.
+很难定义这个地方与我的正常感知有何不同, 因为视野上没有变形的色流或碎形图案叠加,
+这种缺席,加上耳和一种期待或威胁的感觉,
+我注意到图片变成了通向其他世界的窗户, 书架上的银袋散发着外星人的冷酷恶意.
+我被一张照片所困扰,
+我不知道我的视力是否暂时受损了.
+我认为我的思维能力也受到类似的削弱.
+另一张新森林的道格拉斯树的黑白照片也显得极简,
+其他房间里的一切看起来相当正常,如果一个小卡通像,然后紫色闪电开始!
+我从来没有遇到过任何其他迷幻药.
+这似乎有某种感知,或者也许只是诱惑和让人想起奥林匹克运动,其中轻的年轻女性旋转流带.
+我记得我应该闭上眼睛!
+我眼中的视野立刻充满了快速变形的图案, 有机形式,
+似乎随机的间隔, 词或短语会叠加在这些模式像潜意识闪卡.
+这似乎没有意义,也没有连续性.
+在另一个空间, 有闪的图像,
+随着经历的发展, 他们似乎逐渐意识到我的存在.
+他们偶尔会用手指刺伤我, 穿透我们两个世界的隔.
+这就像用立体镜眼镜看3D电影, 怪物突然从屏幕上突发出来,
+随着耳的减弱, 视觉也开始消失.
+我打开我的眼睛,但只有微弱的投影的eidetic图像到天花板和闪电似乎失去他们的电压.
+我开始进入一种特征在布福体验的后期阶段的高兴状态,
+我感觉到一个闪闪发光的窗,轻微拉动,超越它存在的另一个世界如此生动,进入它我似乎步入另一个连贯的现实.
+它们的舞蹈在我心中唤起了最奇妙的敬畏和高兴的感觉.
+就像闪的火焰,仔细研究,似乎有感觉生活的感知.
+在布福丁世界, 似乎很少有人怀疑我是在外星生物的存在.
+我似乎终于突破了经验的另一个阶段,
+她似乎试图通过曲线和颜色的数学来沟通,
+这种效果是美味的,迷人的, 但不幸的是,
+我感到惊和幸运.
+视力逐渐消失, 取而代之的是昏昏欲睡,
+整个体验, 到目前为止, 花了大约三十分钟.
+其他:
+布丁 (62): 实体/生物 (37), 一般 (1), 单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Bufotenine Encounter
+Bufotenin
+by
+crystal toad
+Citation:   crystal toad. &quot;Bufotenine Encounter: An Experience with Bufotenin (exp79324)&quot;.
+Erowid.org
+. Oct 29, 2011. erowid.org/exp/79324
+DOSE:
+15 mg
+smoked
+Bufotenin
+(tar / resin)
+BODY WEIGHT:
+150 lb
+I weighed out 15mg of sticky, brown bufotenin resin and placed it in the pipe, playing the flame from a lighter over the tiny bead of material. It vaporised easily and cleanly, the hot smoke pungent with indole and the fishy amine aroma characteristic of bufotenin.
+There was time to turn off the light and settle back in anticipation - typically bufotenin isn’t as fast as DMT. The room was illuminated with two candles and the ambience of Harold Budd’s ‘The Pearl’ completed the sense of intimacy.
+It began with an intense prickling – like stinging nettles in the back of my head and neck, moving rapidly down my arms and culminating in persistent pins and needles in my hands.
+Gradually this was replaced by a strong tingling in my face, which was vaguely unpleasant but not distressingly so. These effects I assumed to be due to bufotenin’s serotonergic properties resulting from the introduction of the 5-hydroxy group into the DMT molecule.
+I knew what was coming next and braced myself for the nausea to hit my stomach. It built in waves but, after ten or twenty seconds, passed away.
+Although I was familiar with the unfolding stages of the experience, the intensity was beyond anything I’d yet experienced and I was having some trouble adapting. This wasn’t helped by the fact that I was alone and my awareness that the literature is ambiguous about this substance. Because of its structural similarity to serotonin the effects are quite physical and there have been occasional reports of situations requiring medical intervention. I was breathing consciously but somehow it didn’t feel as though the oxygen was getting in.
+The tinnitus began – not the rasping screech of a high DMT dose but I knew I would imminently be sliding into the tryptamine space. The walls and ceiling turned butter yellow and I was there.
+It’s very hard to define how this place differs from my normal perception as there were no morphing colour streams or fractal patterns superimposed on the visual field as one might encounter with psilocybin or LSD. This absence, combined with the tinnitus and a sense of expectancy or threat, made the feeling tone more DMT than psilocybin.
+Looking around the room I noticed that pictures became windows into other worlds and a silver bag on the bookcase radiated the cold malevolence of an alien presence.
+I was disturbed by a picture showing a snowy avenue of trees which seemed conceptually reduced to vertical black sticks against a white background. My brain seemed unable to comprehend the detail of complexity and I wondered if my vision was temporarily impaired.
+My ability to think coherently seemed to be similarly truncated.
+Another black and white photo of Douglas firs in the New Forest also appeared minimalistic but here, at least, my attention was caught by its three-dimensionality and a clump of bushes in the corner of the picture was gyrating wildly in multiple dimensions. Everything else in the room looked fairly normal, if a little cartoon like, and then the purple lightning began!
+I’ve never encountered anything like this on any other psychedelic. A vivid, sinuous electric- purple lightning which seemed somehow sentient, or perhaps simply seductive and reminiscent of that Olympic sport in which lithe young women gyrate with streaming ribbons.
+At this point I remembered I should be closing my eyes!
+On doing so, my visual field was immediately filled with rapidly metamorphosing patterns – organic forms, largely contained within the simpler geometries of swirling Lissajous patterns and rotating Platonic solids, intermittently permeated by discharges of the purple lightning.
+At apparently random intervals words or phrases would be superimposed on these patterns like subliminal flash cards. There seemed neither sense nor continuity to this.
+In yet another space there were flashed images, brief vignettes of startling lucidity. These were always of unknown people who, as the experience unfolded, seemed to gradually become aware of my presence. Like unruly teenagers they would occasionally tease me by stabbing at me with their fingers, penetrating the veil that separated our two worlds. The effect was similar to watching a 3D film with stereoscopic glasses, in which the monster suddenly lunges out of the screen and involuntarily you gasp and draw back.
+Regrettably this phase of the experience was too brief and as the tinnitus diminished, so the visions began to fade. I opened my eyes but there was only the faintest projection of eidetic imagery onto the ceiling and the lightning flashes seemed to be losing their voltage.
+I began to enter the euphoric state that characterises the late stage of the bufotenin experience and once again closed my eyes. I perceived a shimmering curtain, slightly drawn, beyond which existed another world so vivid, that on entering into it I seemed to be stepping into another coherent reality.
+This space was inhabited by gyrating ribbons in shades of scarlet and purple and their dancing evoked in me the most marvellous sensations of awe and euphoria. As with a flickering candle flame, carefully studied, there seemed a sense of living sentience.
+In the bufotenin world, there seemed little doubt that I was in the presence of an alien entity. I seemed to have finally broken through into another phase of the experience, facilitated by the increased dose.
+That the entity was female seemed self evident and she seemed to be trying to communicate through the mathematics of curves and colour, sinuously interwoven into choreography. The effect was luscious, entrancing but, unfortunately, ultimately meaningless to me. I felt awed and blessed.
+Slowly the vision faded, to be replaced by the sleepiness which appears to be a distinctive and unusual feature of bufotenin intoxication, rare amongst the tryptamines, and no doubt an effect of its serotonergic tendencies.
+The whole experience, to this point, had taken about thirty minutes.
+Exp Year: 2009
+ExpID: 79324
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 29, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Bufotenin (62) : Entities / Beings (37), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

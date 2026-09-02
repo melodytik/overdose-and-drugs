@@ -1,0 +1,308 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>欧罗伊德&quot;黑暗的女主人&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dopr.html'>← DOPR</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>欧罗伊德&quot;黑暗的女主人&quot;</h1>
+<div class='sub-title'>DOPr - Erowid Exp - &#x27;Dark Mistress&#x27;</div>
+<div class='meta'>作者：Buzz Lightbeer From Bluelight Collection · 日期：Sep 7, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=113541' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>过去的一年里, 我深深地爱上了迷幻药物,
+在过去的几个月里, 我已经成功地掌握了一些稀有品和传奇的迷幻药.
+没有太多思考之后, 我选择了DOPr作为我的 (迷幻) 夏季的开端.
+由于DOC是我目前唯一有经验的其他类型的迷幻安非他命,
+天气绝对完美, 温度为28°C~82°F,
+我们决定在一个小时外的森林里散步.
+这将是他第一次使用DOx化学物质.
+我不得不承认我在经历中没有做任何笔记,我现在为这份报告而感到遗憾,
+清晨7点45分, 清晨2点:醒来,洗,吃早餐, 准备剂量.
+这将是我们每个人的5毫克, 我对这个剂量非常有信心.
+我读过一些关于这种剂量的+++经验,
+据报道, 我预计这将是一场极其梦幻般 (几乎催眠) 和舒适的DOC体验.
+我遇到了我的朋友, 我们几乎立即服用了.
+我以前在伏特加中溶解过, 所以用量很简单,
+我们的剂量可能会偏差0.5毫克.
+我头有点, 唾液也在积累,
+虽然我身体已经开始感到紧张,
+我们在森林的入口处开始步行,
+T+0:45 - 基本上和以前一样, 强度并没有增加.
+我问S感觉如何, 他告诉我他什么都不感觉.
+他还指出我对这样的警报可能更敏感.
+闭上眼睛, 专注于正在发生的事情,
+虽然一切感觉比以前有点模糊.
+我确实注意到一种微弱的身体感觉,
+其余的身体是透明的, 血管没有收缩或不适.
+我们正在享受这个美丽的地点和天气.
+不同于DOC没有多余的能量,相反, 我觉得有点惰
+不同于DOC没有多余的能量,相反, 我觉得有点惰
+所以我建议我们坐下来放松一下,
+我很担心我带来的食物量很少.
+我觉得很奇怪, 因为他和我服用了相同的剂量.
+也许这一切都即将到来.
+虽然我自己也仅仅是A+,
+他的瞳孔完全没有扩张,
+我们开始担心它,我想知道我是否搞了剂量,
+他从我溶解的瓶子里取出相同的量.
+我开始明白人们对这种药物的催眠和梦幻的感觉是什么意思.
+这与我尝试过的任何其他迷幻药不同.
+我们已经放弃了对S的希望.
+对于我来说,事情已经真正开始了.
+我觉得没有任何活力,建议我们再坐下来.
+它们的外观大多让人想起DOC, 经典的螺旋形,
+我没有注意到任何极端明亮的颜色,
+试图向S描述这些迷幻药品时, 我告诉他我被一个黑魔女所魔化.
+实际上我主要是寻找一个合适的措辞,后来我会意识到催眠会是点.
+我被这位黑色女士毒药, 花了很多时间闭着眼睛,
+虽然我不是很累,但我总是深思熟虑,
+感觉就像一个黑色的女士, 不断用一根无形的绳索把我的想法拉出来,
+完全没有任何身体负担肯定有助于这种感觉.
+我发现它是一个非常有趣的状态来探索,
+我也感觉到自己在情感上是有根的, 直到现在我从来没有发现自己是非常高兴或快乐, 或笑得很大.
+我对自己的状态和所处所处的情况感到满意.
+除了视觉外, 它不可能比 DOC 更远.
+我们已经离开了另一个地方,
+对于S来说很糟糕, 但他怀疑他感觉有点偏离基线,
+我主要为他感到难过, 因为他不得不听我整天都在谈论生活.
+我相信这是经验的高峰, 虽然很难说, 因为这种药物的强度似乎是波而来的,
+迄今为止, 我对这种药物感到相当失望,
+心理效应总是存在, 但有时我觉得它真的减弱了.
+实际上并非如此, 主要是因为周围的环境或我的注意力被某件事所分散.
+现在我们几乎回到了火车站, 很难找到路, 这主要是我的错, 因为我认识我们去过的地方, 我总是说,
+我告诉我的朋友, 我已经尝到了DOPr的功效,
+终于我们说再见了, 我走了很长的路回家.
+我记得乘坐火车, 几分钟后我意识到我不知道我坐的是什么火车,
+幸运的是,我的自动驾驶员是正确的,
+这种遗忘的现象似乎是药物所引起的,
+没有其他类似的真实事件, 但我很确定这将是更普遍的高剂量.
+这也是一个很好的提醒,
+我只知道我一直沉浸在思想中.
+由于我还没有得到满足, 并且感觉我还有很多东西要从中得到,
+我真的很想探索这个州的最大限度,
+我没有太多工作, 下次最好全力以赴.
+我花了几个小时与朋友们聊天.
+我应该学会不这样做, 我会迷失在谈话中,
+我感觉到我的头上有一片巨大的云, 被更轻的云取代.
+我知道效果已经开始减弱了,
+实际上我一整天都在烦, 但现在最严重了.
+我真的想把它推高一点, 我称重40毫克的4-AcO-DMT, 这肯定会给我提供一个情感和美丽的体验.
+我带着耳机和一些非常棒的环境专辑前往附近的公园.
+我很难找到一个好地方, 因为不知为什么,
+一个可怕的皮衣男拒绝让我一个人, 所以我跑了,
+最终我坐在某个地方, 大约40分钟后就出现了,
+只有当我看到树木曲, 草原立时, 我才知道它开始起作用.
+我在草地上躺着,迷失在音乐中,
+我的大脑感觉如此健康, 思想正在超速运行,
+我每次服用高剂量精神素时都会有这种感觉
+没有.
+现在我的胃已经达到惊人的速度, 我试着回家睡觉.
+我试着把注意力集中在其他事情上,
+我把这封信寄给了一个朋友,
+她很微妙,但总是坚持不, 旋转和梦想在它的方式.
+准备好全程沉浸在思想中, 它绝对不像DOC那样过于高兴,
+我花了一天深深地思考一切,这很好.
+我觉得我还会有一段时间, 下次我肯定会全力以赴.
+其他报道让国防部感到高兴,
+实际上感觉很黑暗, 不是令人担忧的感觉,
+我只是满足于存在和思考.
+这是一个长期的, 它仍然非常存在,
+我不想浪费我最后一颗埃蒂索拉姆.
+我也没有真正享受自己在这个时候,我的胃已经过去了,但我很难这疲和寻找有趣的事情做,我尝试了一系列的事情,但我的兴趣总是很快消失.
+我很高兴能够说我能够克服我的疲劳,我特别在DOC上学会了这一点,取得了很好的结果.
+我现在感觉不那么无聊, 但我真的觉得我需要在外面.
+我只是坐在椅子上或躺在床上.
+我决定乘坐早班火车飞回家.
+现在我可以说是A+了.
+我花了好几个小时才离开我的房间,
+外面还很温暖, 这是一个美好的开始.
+我放上了一些更容易跳舞的专辑, 也正是这样我回家,
+终于睡觉了, 影响几乎完全消失了.
+醒来时感觉很新鲜, 我还能感觉到微微的暗示,
+结论:我必须道歉,
+我在脑海中已经有了这次旅行的时间表,
+我仍然不理解S怎么没有, 这肯定有助于最初的失望感, 下次我肯定会带来备用药物.
+我很高兴在这个梦幻状态中炼我的大脑.
+我很高兴我能尝试这种罕见且非常独特的迷幻药.
+整个催眠和梦幻般的氛围在整个过程中非常存在,
+身体上我觉得这很无害,很轻松,
+我很高兴我没有再服用任何DOPR因为我会浪费它
+我很高兴我没有再服用任何DOPR因为我会浪费它
+也许没有增加太多的强度.
+我觉得它会真正闪耀, 只要你买一张车票,
+对于大多数人来说, 这似乎已经相当激烈了, 而6毫克之前已经被描述为&quot;太多&quot;.
+至于我,我很快就会回来.
+时间表: 113541
+发布时间:2019年9月7日
+公共服务部 (691):第一次 (2), 其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Dark Mistress
+DOPr
+by
+Buzz Lightbeer
+From
+Bluelight Collection
+Citation:   Buzz Lightbeer. &quot;Dark Mistress: An Experience with DOPr (exp113541)&quot;.
+Erowid.org
+. Sep 7, 2019. erowid.org/exp/113541
+DOSE:
+T+ 0:00
+5 mg
+oral
+DOPR
+(liquid)
+T+ 13:00
+40 mg
+oral
+4-AcO-DMT
+BODY WEIGHT:
+71 kg
+Over the last year I’ve really grown to love psychedelics deeply, both taking &amp; collecting them. These last few months I’ve managed to get my hands on quite a few rarities and legendary psychedelics. After not that much contemplating I landed on DOPr being the one to mark the start of my (psychedelic) summer.
+My only other experience with a DOx is DOC, a compound that I absolutely love, and I feel like I need average or slightly above average dosages for psychedelics. Since DOC is the only other psychedelic amphetamine I have experience with for now so I&#x27;ll try to draw some comparisons here and there.
+It was the day after a month of finals (so no tolerance) and the weather was absolutely perfect, a pleasant 28°C ~ 82°F with a slight breeze of wind. I asked a friend (who I’ll call S) to participate and we decided to go trip in the forest about an hour away. It would be the first time for him with a DOx chemical.
+I have to admit I didn’t take much if any notes during the experience, I kind of regret it now for the sake of this report, but I’ll try to guide you through my perception of that Wednesday either way.
+7:45am – T-2:00: Woke up, took a shower, at a little breakfast, and prepared the doses. These would be 5mg for each of us, a dose I was pretty confident about. I had read about a couple of +++ experiences on this dose, but I didn’t expect it to be too intense. From the reports I kind of expected it to be an extremely dreamy (almost hypnotic) and comfortable DOC experience.
+9:45am - T+0:00: Met my friend, and we dosed pretty much immediately. I had dissolved it before in vodka, so dosing was easy and fairly accurate, assuming my scale was correct the first time. Our dosages could’ve been off by 0.5mg.
+T+0:25 - My head feels a little fuzzy and I’m building up some saliva, typical for phenethylamines for me. On DOC my body would start to feel tense already, but no bodily feeling was noted. We’re at the entrance of the forest and start walking, we don’t really have a plan at all, hopefully go chill in a while.
+T+0:45 - Much of the same as beforehand, hasn’t increased much in intensity. When I ask S how he’s feeling, he tells me he doesn’t feel anything at all. Although he also notes that I may be more sensitive to alerts like this. I have the tendency to dream away during the conversations, closing my eyes and focusing on what is happening feels good.
+T+1:00 - Still a very slow come up, everything feels a little fuzzier than before though. I do notice a very slight bodily feeling that I would compare to DOC but much less apparent and intense, it’s energy coming from my stomach up to my torso. For the rest it feels very physically transparent, no vasoconstriction or uncomfortableness at all. In the meantime conversation has been flowing freely and we we&#x27;re enjoying this beautiful location and weather.
+T+2:00 - 2 hours after dosing, still not much has changed, my vision has become a little blurry and things seem to be breathing. Unlike DOC there is no excess energy, on the contrary, I feel a little lethargic
+Unlike DOC there is no excess energy, on the contrary, I feel a little lethargic
+, so I propose we sit down and chill for a bit while I put on some music. I got hungry already by this point, and was worried about the small amount of food I brought with me. S still isn’t noticing any effects, which I found strange, because he took the same dosage as me. Maybe it was still all about to arrive. I was still barely at a + myself, but we had read about the very slow come ups.
+T+3:00 – Things are still developing at a snail’s pace, and S still isn’t feeling anything. His pupils also aren’t dilated at all, contrary to mine. We start to get a little worried about it, and I wonder if I somehow fucked up the dosing, but I’m sure I didn’t. He took the same amount from the same bottle I dissolved it in. I start to see what people mean with the hypnotic and dreamy vibe of this drug. It’s unlike any other psychedelic I have tried.
+T+4:00 – We have kind of given up hope that something is still going to happen for S. As for me, things have really started by now. I don’t feel energized at all and propose we go sit down again. OEVs are mostly reminiscent of DOC, the classical spirals, and everything looks very crisp. I didn’t notice any extreme bright colors, like the ultra-green that I always associate with DOC. When attempting to describe the psychedelia to S, I said to him that I felt enchanted by a dark sorceress. Actually I was mostly searching for an appropriate wording, later I’d realize that hypnotized would be spot on. Me, being drugged by this dark lady, spent a lot of time with my eyes either closed or half closed. Not that I was tired, but I was constantly deep in thought, which felt very natural and easy. It felt like it was this exact dark lady, constantly pulling more thoughts out of me with an invisible rope, with each pull feeling like a gentle and smooth wave. It was very chill and laid back, not a feeling I associate a lot with being 4-5 hours into a DOx trip, and the complete absence of a bodyload certainly helped with this.
+By then, I found it a very interesting state to explore, but it wasn’t very intense by any means. I also felt emotionally grounded, up until now I never found myself being extraordinarily euphoric or happy, or laughing very much. I was mostly content about going with the flow of my state and the place I was in. Apart from the visuals it couldn’t have been further off from DOC.
+T+5:00 – We have left our other spot since then, and are on the way home. Sucks for S, but he suspects he feels slightly off baseline, probably more like the effect of 1-2mg. I mostly feel bad for him because he has had to listen to me yapping about life all day.
+I believe this is the peak point of the experience, although it’s hard to say because the intensity of this drug seems to come in waves, I do know that I never went above a ++.
+T+6:00 – Up until now I’ve been pretty disappointed in the drug, but mostly because of the intensity. Not at one point did I really feel like I was in for a ride, the psychedelic effects were always present, but there were times that it felt like it had really diminished. Of course, this was not really the case, and mostly because of my surroundings or me being distracted by something.
+T+8:00 – We’re almost back at the train station now, we have had a hard time finding the way, which was mostly my fault because I recognized the places we went to and I was always saying, “we need to go there, best part of the forest for sure!!” Which eventually made it so we made some really stupid circles.
+By this time I wasn’t really satisfied with what I got from the drug, I told my friend that I had gotten a taste of what DOPr was capable off, but I was only able to get my foot in the door, not enough! Eventually we said our goodbyes and I made my long way home. I remember taking a train, but after a couple of minutes realizing that I had no idea what train I was on, and that I wasn’t thinking at all. Luckily, my autopilot was right and I was on my way. This amnesic aspect is something that seems domestic to the drug, but also a consequence of just being so deep in thought. No other real occurrences like this one were noted, but I’m pretty sure this would be much more prevalent on higher dosages. It was also a good reminder that I was still tripping pretty hard and it apart from the visuals it hadn’t really slowed down much.
+T+10:00 - Going home was easy and hard to recall much about it, all I know is that I was lost deep in thought the whole way through. Due to me not being satisfied just yet, and feeling like I had so much more to get out of it, I spent the whole way back thinking about redosing a couple of milligrams. It was my day, and I really wanted to explore this state to the absolute max, and I was by no means tired. Once I got home I eventually decided not to go for it, I don’t have much too work with, and it was much better to just go all out next time.
+T+12:00 – I had spent the hours before just talking and talking with friends. I should really learn not to do this, I get so lost in conversations and what to say, and time flies by like it’s nothing. At one point I felt a major cloud on my head lifting, and being replaced by this much lighter one. I knew effects were starting to diminish now, 12 hours after ingestion. Talking about ingestion, my stomach did hurt by this point, it had been annoying me all day actually but now the cramps were at its worst.
+T+13:00 – I really wanted to push it up a notch and I weighed out 40mg of 4-AcO-DMT, which would certainly provide me with an emotional and beautiful experience. I made my way to a nearby park with my headphones and some really great ambient albums. I had a hard time finding a good spot because for some reason there were lots of drunk screaming students there, and I discovered it was a meeting place for gay people. Some terribly frightening guy in leather refused to leave me alone so I just made a run for it, I was a little scared to get assaulted.
+Eventually I just sat down somewhere, and it came up in about 40 minutes, but it was actually quite hard to differentiate the effects from DOPr initially. It was only until I saw the trees warping and all of the grass standing clearly upright I knew it was taking effect. I had an amazing time lying in the grass and getting lost in the music. My brain felt so healthy and thoughts were going through at hyperspeed, a feeling that I experience every time on higher dosages of psilacetin
+thoughts were going through at hyperspeed, a feeling that I experience every time on higher dosages of psilacetin
+.
+T+14:00 – My stomach cramps got to an almost alarming rate by now and I tried making my way home to my bed. I tried focusing on other things by talking to friends, and thinking about the trip. I sent this to a friend, which describes my whole feeling of the trip very well:
+“She&#x27;s very subtle but always persistent, swirling and dreamy in it&#x27;s ways. Prepare to be wrapped in thought the whole way through, and it&#x27;s in no way overly euphoric like DOC but it&#x27;s a devilish mistress always leading me on. I have spent the day deep in thought about everything, it was nice. You will get the whole mischievous woman image, it&#x27;s a great drug, I&#x27;m still wrapped around in it and I feel like I will be for a while, next time I&#x27;m going all out for sure.”
+Other reports made DOPr seem very euphoric, for me it was the contrary. It felt quite dark actually, not in a worrying sense or something, but more the whole vibe the experience gave off. I was content just being and thinking.
+T+16:00 – This is one for the long haul, it was still very present, and I was getting tired. Sleeping would’ve been pretty much impossible, and I didn’t want to waste my last etizolam on it. I was also not really enjoying myself anymore at this time, my stomach cramps had passed, but I was having a hard time being this tired and finding interesting things to do, I tried a range of things but my interest always disappeared quickly.
+T+18:00 – I’m glad to be able to say I was able to push past my fatigue, something I’ve especially learnt to do on DOC with great results. I don’t feel as bored right now, but I really felt like I needed to be outside. My small room was killing me and I was just sitting on my chair or lying in my bed. I decided to make the leap home (to my parents) by taking an early train. I’d say I was at a + by now.
+T+20:00 – It took ages for me to finally leave my room, I think I spent almost an hour searching for my phone. It was still warm outside and it was the very start of a beautiful day.
+T+22:00 – My whole journey home was very enjoyable, I put on smooth and more danceable albums and that is exactly how I went home, while still being lost in thought.
+T+23:00 – Finally went to sleep, the effects had almost completely dissipated by now.
+T+30:00 – Woke up very refreshed, I could still feel the slightest hints, but these disappeared through the day.
+Conclusions: I do have to apologize for not taking more notes during the trip. I kind of have a timeline in my head of the trip, but I wish I’d have had some of my then trippy thoughts to share with you guys. I still don’t understand how S didn’t trip at all, this certainly contributed to the initial feeling of disappointment, next time I’m bringing back-up drugs with this guy for sure. But when looking back at the whole trip, I had a great time flexing my brains the whole way through in this dreamy state. It was a beautiful day, where I mainly enjoyed being and thinking, and I&#x27;m glad I got to try out such a rare and incredibly unique psychedelic. The whole hypnotizing and dreamy vibe is very much present throughout and stays with you the whole time. Physically it felt really harmless and easy and I didn&#x27;t feel the slightest form of stimulation.
+I’m glad I didn’t redose any DOPr because I would’ve just wasted it
+I’m glad I didn’t redose any DOPr because I would’ve just wasted it
+and prolonged the duration by another 10-15 hours probably without adding much intensity. My interest has been sparked though, I feel like it’ll really shine once you’ve got no other way than to just buy a ticket for the ride and be in it for at least 20 hours. I wouldn’t recommend jumping in higher than 5mg, if it’s your first time, seeing as for most people this already seems to be quite intense, and 6mg has been described as ‘too much’ before.
+As for me, I’ll be back for DOPr, soon.
+Exp Year: 2019
+ExpID: 113541
+Gender: Male
+Age at time of experience: 22
+Published: Sep 7, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOPR (691) : First Times (2), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

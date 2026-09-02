@@ -1,0 +1,265 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>咖啡和咖啡因 - 埃罗维德的 探险 - &#x27;通过屋顶&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tapentadol.html'>← 他喷他多</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>咖啡和咖啡因 - 埃罗维德的 探险 - &#x27;通过屋顶&#x27;</h1>
+<div class='sub-title'>Tapentadol, Coffee &amp; Caffeine - Erowid Exp - &#x27;Through the Roof&#x27;</div>
+<div class='meta'>作者：Luis A Citation · 日期：Jun 15, 2023 · <a href='https://erowid.org/experiences/exp.php?ID=115020' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这是在2020年4月.
+我正在经历一段时间的特拉马多尔戒断 (我在2019年5月至2020年2月期间几乎每天服用,剂量大于400毫克),并出现了一些抑郁症症状.
+我喜欢它的效果, 而且它比特拉马多尔更快,
+因为我知道我的包裹会到来.
+午餐后 (轻微) 我去我的包裹.
+在我的城市,那天非常炎热.
+幸运的是, 邮局离我家只有几米,
+现在是下午5点, 我将服用我的第一剂,
+我使用了&quot;微波/冷&quot;方法 (我磨碎了药片, 了3-5分钟, 再放在冷里5分钟).
+我把粉末扔进一杯没有糖的苏打水里,
+我使用的药丸 (Palexis Retard) 非常硬,
+我觉得100毫克对我来说是个小剂量,所以我再吃100毫克的药.
+这次我用牙打破它,然后它.
+但你必须有一些经验药, 因为药片很容易粘在牙上.
+我对自己说,也许由于我对特拉马多尔的耐受性和经验,
+我已经感觉到&quot;一些东西&quot;.
+我没有任何焦虑或担忧.
+在那个时候,我不在乎任何事情.
+感觉真的很好, 但我仍然期待一点高兴感,
+我把它放进嘴里,开始它.
+喝咖啡 (1杯) 和一杯可乐.
+我估计大约有70毫克咖啡因.
+我发现咖啡因在每天少量摄入时 (不超过200-300毫克) 非常令人高兴.
+这种咖啡的味道很好,
+我开始感觉到腿部有点,麻木和恶心,
+但是,现在我不在乎任何事情,我感觉太好了担心小恶心.
+我已经感受到阿片类药物所带来的高兴感,
+我的视力开始变得有点模糊,
+虽然这几乎总是发生在我服用阿片类药物时 (尤其是当我服用过多时).
+我从来没有用过特拉马多尔或其他阿片类药物.
+我完全没有任何担忧, 视力很模糊 (我很难查看手机通知),
+我父亲几乎每天都来看我, 他注意到我有&quot;某种东西&quot;.
+我觉得一个醉酒的感觉, 但与高兴.
+酒精几乎从来没有让我高兴,只是恶心.
+这种药物确实比特拉马多尔更令人高兴, 但也更具镇静性.
+我不想跑马拉松,也不想做一些小事.
+我仍然觉得身体有点重, 喝醉的感觉还在.
+此外,我现在很难写这份报告,字母和文字变得混,因为我写在纸上 (老式),我很难操纵笔.
+另外,有时我会感到空白,
+也许这是我唯一不准备就绪且有点烦人的副作用.
+我一直和父亲交谈,他住在离我几个房子远的地方, 虽然我很想和他说话,
+他知道我过去曾滥用过特拉马多尔药物,
+我感觉到高兴的冲击 (它们来来去去).
+这不是像TramadolTapentadol&gt;ODSMT这样的&quot;平坦&quot;高.
+这种情况更为可变, 但它的峰值是巨大的.
+我的心情是通过屋顶,我觉得一切都很棒.
+我想拥抱每一个人.
+我突然开始笑了.
+我的心情是通过屋顶,我觉得一切都很棒.
+我想拥抱每一个人.
+我突然开始笑了.
+迄今为止, 我真的很喜欢这种药物.
+我仍然很难说话和写作, 但随着我感受到的高兴,
+我只感觉到这种感觉在使用代代因和开始服用特拉马多尔 (第一到第二个月) 时.
+我开始感觉到我腿部的某些不自发的动作, 也许我的耐受性剂量太高.
+但对我来说似乎不严重, 因为我从来没有发作,
+我觉得自己已经喝醉了.
+这感觉更干净没有淫荡.
+我认为塔达尔正在达到顶峰.
+这种情绪更加稳定,
+我开始感觉非常安静, 但高兴, 我开始点头,
+不幸的是,恶心也会有点回来.
+我不认为我吐像在Tramadol但现在我认为这是100%的Tapentadol的副作用.
+我感觉到我的身体 (肚子,腿,手臂) 都.
+我一直喜欢这种效果,
+我认为我在塔达尔效应的顶峰.
+这是一种巨大的,高兴的,令人欣喜的幸福感.
+语已经消失了, 我可以说话更正确,
+我会说,塔达尔的效果是相当快速的,
+现在我觉得这些效应正在减弱,
+虽然口完全消失, 头还在点头,
+现在我可以说, 快乐感绝对消失了,
+虽然我的心情是令人难以置信的,我感觉比昨天好得多.
+这是一个伟大的经验.
+我认为我会在以后再做一次,但这次可能是用更低的剂量 (200毫克?).
+我会和我的朋友们聊一下.
+总的来说, 在这些经历发生前几天, 我有点丧 (我很想念服用特拉马多尔药物),
+奇怪的是,现在我感觉有点像特拉马多尔一样的刺激.
+尽管这一切可能是我完全消失的抑郁症的结果, 感谢塔达尔.
+其他:
+发布时间:2023年6月15日
+咖啡因 (11),塔潘塔多尔 (495),咖啡 (173):单独 (16),治疗意图或结果 (49),家庭 (41),健康益处 (32),烂的经验 (4),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Through the Roof
+Tapentadol, Coffee &amp; Caffeine
+by
+Luis A
+Citation:   Luis A. &quot;Through the Roof: An Experience with Tapentadol, Coffee &amp; Caffeine (exp115020)&quot;.
+Erowid.org
+. Jun 15, 2023. erowid.org/exp/115020
+DOSE:
+T+ 0:00
+100 mg
+oral
+Tapentadol
+(ground / crushed)
+T+ 0:15
+100 mg
+oral
+Tapentadol
+(ground / crushed)
+T+ 0:30
+100 mg
+oral
+Tapentadol
+(ground / crushed)
+T+ 0:35
+1 cup
+oral
+Coffee
+T+ 0:35
+1 glass
+oral
+Caffeine
+BODY WEIGHT:
+120 lb
+This was in April 2020. I was going through a small withdrawal from tramadol (I took it between May 2019 and February 2020, almost daily and in doses &gt;400 mg.) and some symptoms of depression.
+I have only had experiences with codeine, tramadol, buprenorphine (patches), and tapentadol. Tapentadol had only taken it once before but only in small doses and I liked its effects plus it hits much faster than tramadol and I saw a good deal from one of my vendors so I said why not.
+The day before I was very excited and very happy, since I knew that my package with the tapentadol would arrive. After lunch (lightly) I went for my package. It was a very hot day in my city. Luckily, the postal service is a couple of meters from my house, so in 10 minutes I had the tapentadol in my hands.
+It&#x27;s 5 PM and I will take my first dose and will redose, according to how I feel.
+T + 0: 00: I take my first dose: one 100 mg pill. I used the &quot;microwave / freezer&quot; method (I ground the pill and &quot;cooked&quot; it for 3-5 minutes and put it in the freezer for another 5 minutes). I threw the powder into a glass with unsweetened soda and drank it. The pills I used (Palexis Retard) are tremendously hard, so I needed a hammer to grind them down (I&#x27;m not lying at all).
+T + 0: 15: I think 100 mg are somewhat a little dose for my tolerance, so I take another pill of 100 mg. This time I just break it with my teeth and chew it. They don&#x27;t have that horrible taste of tramadol, but you have to have some experience chewing pills, since the tablets can easily get stuck on your teeth. I told myself; maybe due to my tolerance and experiences with tramadol I wouldn&#x27;t feel 100 mg much.
+T + 0: 30: Wow. I&#x27;m already feeling &quot;something&quot;. A sense of calm is coming to me and I don&#x27;t feel any anxiety or worry. I don&#x27;t care about anything at the time. It feels really good, but I&#x27;m still expecting a bit of euphoria so I&#x27;m going to find the blister and take out another 100 mg pill. I put it in my mouth and start chewing it.
+At this point, I give a little &quot;boost&quot; to the effects of tapentadol, drinking some coffee (1 cup) and a glass of Coke. I estimate about 70 mg. of caffeine. I find caffeine very euphoric when I consume it in small doses daily (no more than 200-300mg). For this reason, this coffee tasted delicious and its aroma is spectacular (I am definitely already feeling a bit of the euphoria of tapentadol).
+T + 0: 40: I am beginning to feel a little tickling in my legs, a feeling of numbness and a little nausea that may have been a product of the coffee and Coca-Cola mix or the tapentadol (hard to tell). But, right now I don&#x27;t care about anything, I&#x27;m feeling too good to worry about a little nausea. Definitely at this time I would say that I already feel that euphoria that opioids cause and tremendous happiness with full well-being.
+T + 0: 45: Hell. My vision is starting to get a bit cloudy but I still feel fine. I also notice some stuttering when speaking, although this almost always happens to me with opioids (especially when I have taken a little too much).
+T + 0: 55: My limbs feel a bit heavy, I have never really experienced this before with tramadol or any other opioid. I am completely without any worries, my vision is quite blurry (it&#x27;s difficult for me to check the cell phone notifications) and my euphoria is still growing.
+Unfortunately the stuttering is still present and when talking to my father (who comes to visit me almost every day), he notices that I am on &quot;something&quot;. I feel a drunken sensation but with euphoria. Alcohol almost never give me euphoria, just nausea. It&#x27;s weird to put it into words but this drug is definitely more euphoric than tramadol, but more sedative as well. I don&#x27;t feel like going out for a marathon or doing chores like tramadol.
+T + 1: 10: My body still feels somewhat heavy and the feeling of being drunk continues. In addition, now I am having a hard time writing this report, the words and letters are getting confused and since I am writing it on paper (a la old school) I have a hard time maneuvering the pencil. Also, sometimes I go blank and ideas come out of my head. Perhaps this is the only side effect that I catch off guard and somewhat annoying.
+I continue to talk to my father, who lives a couple of houses from mine and tried not to talk to him much, despite wanting to do so, since I am stuttering a bit much and he knows me very well, he knows that when stuttering is a sign that I am taking some narcotic. He has known about my abuse of tramadol in the past and he is not a pro-drug person, so I will try to hide my stuttering as much as possible.
+T + 1: 15: I&#x27;m feeling bumps of euphoria (they come and go). It&#x27;s not a &quot;flat&quot; high like the TramadolTapentadol&gt;ODSMT. This is more variable, but its peaks are tremendous. My mood is through the roof and I feel like everything is wonderful. I would like to hug everyone. I start laughing out of nowhere.
+My mood is through the roof and I feel like everything is wonderful. I would like to hug everyone. I start laughing out of nowhere.
+So far, I really like this drug.
+Finally, the nausea from the beginning completely disappears and I still have a hard time speaking and writing a bit but with the euphoria I feel, all this does not matter to me.
+T + 1:40: My legs and extremities start to itch quite a bit, I only felt this with codeine and at the beginning of my consumption of tramadol (first to second month).
+I am beginning to feel certain involuntary movements of my legs, perhaps the dose for my tolerance was too high. But it doesn&#x27;t seem serious to me since I have never had a seizure, not even when I have taken heroic doses of tramadol (&gt;1000 mg.).
+T + 1: 50: My drunken feeling gives way to a feeling of being high on drugs. It&#x27;s feel more clean without sluttering. I think tapentadol is reaching its peak. The euphoria is much more stable and it feels great.
+I start to feel very sedated, but euphoric, I started nodding as I had very few times before (only about three times with tramadol and in high doses). Unfortunately, the nausea also comes back a bit. I don&#x27;t think I&#x27;m throwing up like on tramadol but now I think it&#x27;s a 100% tapentadol&#x27;s side effect.
+T + 2: 10: I feel itchy all over my body (belly, legs, arms). I&#x27;ve always liked this effect, because it feels so good when I scratch it. I think I&#x27;m at the peak of tapentadol effects. A huge, euphoric and nodding well-being. My stutter is gone and I can speak more correctly, writing is still difficult but it is because I am nodding mostly.
+T + 3: 00: Definitely, I would say that the effect of tapentadol is quite fast and at 1.30-2.30 hours I feel the peak of the euphoric drug effects. Now I feel these effects are waning, but I still feel somewhat sedated and despite the caffeine I drank at the beginning of this report.
+There is no stutter at all and the nodding still exists, but the euphoria is slightly wearing off.
+T + 5: 00: Ok. Now I would say that the euphoria is definitely gone and the effects of the tapentadol are almost gone. Although my mood is incredible and I feel much better than yesterday for example. It was a great experience. I think I will do it again later but maybe this time with a lower dose (200 mg?).
+I&#x27;m going to talk a bit with my friends.
+In general, the days before these experiences I was a bit depressed (I missed being on tramadol a lot) but the tapentadol raised my mood a lot (not missing tramadol at all by the way) and, now that I am not so sedated, it&#x27;s making me want to talk to everyone and do many things.
+Strangely, now I am feeling a bit of the stimulation like the tramadol one. Although it may all be the result of my depression completely disappearing thanks to tapentadol.
+Exp Year: 2020
+ExpID: 115020
+Gender: Male
+Age at time of experience: 30
+Published: Jun 15, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Caffeine (11), Tapentadol (495), Coffee (173) : Alone (16), Therapeutic Intent or Outcome (49), Families (41), Health Benefits (32), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

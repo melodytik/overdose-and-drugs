@@ -1,0 +1,227 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我第一次去A&amp;E&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bzp.html'>← 苄基哌嗪</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我第一次去A&amp;E&quot;</h1>
+<div class='sub-title'>BZP &amp; Amphetamines (Sold as MDA) - Erowid Exp - &#x27;My First Trip to A &amp; E&#x27;</div>
+<div class='meta'>作者：Waggle Dance Citation · 日期：Aug 8, 2009 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=76648' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>之前我的朋友L一直在吸毒, 我也一直在吸毒大约一年半, 她向我介绍了好品质的胺, 麻醉药, 麻醉药,2C-B,2C-T-7, 2C-B飞, 2C-I,4HO-MiPT和各种.
+我们有广泛的狂欢感测试套件, 用在所有药物和MDMA粉中.
+我们的药物大多是从一个经销商购买的,
+我试图说的是,我们通常非常谨慎,而这次的经历就是当你放弃质量控制时会发生什么的例子.
+我们试过一些含有MDEA而不是MDMA的药,
+我们很想尝试MDA, 因为它应该是更迷幻的 (自那时起我有了它) 而迷幻是我们喜欢的药物.
+我们买了一小袋纯粉末 (不是从我们常见的经销商).
+我们没有立即对粉末进行测试.
+事件发生后,我们都无法找到一个令人满意的解释.
+背景:我们俩都工作.
+我刚刚在一个新公司工作, 只有一个月, 我已经离开了那个地狱.
+我很喜欢她的工作, 所以我们都在一个好的心态来星期五晚上, 这似乎是一个很好的机会,
+为了消化食物, 我们都能在早餐时消耗大量卡路里, 整理房子,
+由于它是粉末形式, 我们讨论是否要用凝盖,
+除非你的手指像香肠一样,
+这味道很糟糕,但不是吗?
+虽然等待上来我们搬进我的房间和L打破了她的床做一些伸展,
+我当时在阅读角色扮演理论, 我在网上翻页,
+随着谈话变得更加热烈, 思想流动更快,
+虽然我是一个相当健壮的家伙, 而L很苗条.
+我不得不说这感觉很好.
+我感到非常放松,舒适, 有创意的路径在我的大脑中像疯狂一样发射.
+躺在床上深呼吸是一件很棒的事情.
+我们都决定我们很喜欢MDA,
+我没有心情去旋转自己, 但我们出去了, 她可以旋转, 我看着和继续和她说话.
+然后我头痛了.
+非常突然的发作,就像一个开关被翻过来.
+我说我需要躺一下.
+我想继续说话,所以我们去了她的房间,躺在她的床上.
+我从未有过这样的头痛,
+我觉得我的大脑被挤压了.
+五分钟后出现了&quot;事故与紧急情况&quot;的字眼.
+我们决定如果30分钟内情况没有好转,
+在那三十分钟内, 我试着让灯光低, 关灯, 播放舒缓的音乐, 在后台安静地播放音乐,
+半小时后,我开始发,而L却很害怕.
+现在是时候去医院了.
+她试图打电话叫出租车, 但所有公司都告诉她,
+幸运的是,在这个时候 (大约凌晨1点) 公共汽车仍然经常运行.
+我真的不确定我能做到.
+每一步都像子撞进我的头骨.
+我认为我可能已经了一些关于叫救护车但像一个天主的礼物黑色出租车出现.
+星期六早上1点的A&amp;E不是很有趣.
+我相信我和L是唯一没有酒精相关伤害的人.
+我身后的人似乎已经昏倒了, 尿到自己身上,
+我用我们从家里带来的湿巾遮住光灯,
+经过几分钟的时间,
+我很肯定,因为我不是一个一直在喝酒,一直在打架的人,
+我真的很感激那位接待员.
+护士问了很多问题, 我们给他物质的名称,
+我向他提供了我们所采用的粉末样品, 但他说他们没有设备来测试它.
+他回来说他们没有任何关于MDA的信息,
+这是一家大型的英格兰市中心医院, 他们对娱乐性药物和可能的副作用的了解似乎相当有限.
+从此以后,我被视为王室成员.
+我被带到一个私人房间, 在我的静脉里插了一个巨大的针头 (以防他们需要它),
+我甚至不知道它可以达到那么高.
+有趣的新词进入了一般话语,
+另一种选择是面对我下一步可能是死亡的事实.
+我认为这让护士们有点吓坏了, 那些头部即将爆炸的病人不应该偶尔从他们的胎儿姿势中浮出水面,
+她与我分享了一份关于狂喜药的信息传单.
+我不知道其中一些有趣的东西, 还有一些我确信是完全错误的, 但总的来说,
+我不应该看到它,直到我更好,可以劝告.
+半小时后, 显然我的血压不会自行调整,
+几分钟后, 我的偏头痛突然消失,
+我不得不离开我的私人房间和重要的机器.
+他们把L赶出医院,
+我当然无法入睡, 夜与夜间护士们聊天, 谈论狂喜测试套件,
+我礼貌地说我前一天晚上看过这份传单, 请让我出院,
+幸运的是, 没有人像我那样致命, 终于有人通过狂喜测试套件进行了检查.
+没有狂喜.
+所以有人把它送到实验室.
+很多BZP和一个小速度.
+我以前对这种药物没有兴趣.
+现在我像瘟疫一样避开他们.
+我相信在写这篇文章的时候,
+为了充分揭露, 我应该提及几个月后,
+我还应该提到, 在接下来的几年里, 我一直在服用MDMA,MDEA,LSD,2C-B,和 (最终) 真正的MDA,
+已使用的证券
+头痛 (154): 里面有什么东西?
+(26), 卫生问题 (27), 小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>My First Trip to A &amp; E
+BZP &amp; Amphetamines (Sold as MDA)
+by
+Waggle Dance
+Citation:   Waggle Dance. &quot;My First Trip to A &amp; E: An Experience with BZP &amp; Amphetamines (Sold as MDA) (exp76648)&quot;.
+Erowid.org
+. Aug 8, 2009. erowid.org/exp/76648
+DOSE:
+oral
+BZP
+(powder / crystals)
+BODY WEIGHT:
+98 kg
+A bit of background, prior to this experience my friend L had been taking drugs recreationally for several years, I had been recreationally taking drugs for about a year and a half and she had introduced me to good quality samples of ketamine, MDMA, MDEA, 2C-B, 2C-T-7, 2C-B fly, 2C-I, 4HO-MiPT and various strains of mushrooms.  The research chemicals were always procured directly from pharmaceutical companies, the mushrooms were home grown by one of my friends and we had an extensive ecstasy testing kit we applied to all pills and MDMA powder. Our pills were mostly bought from one dealer who L had come to trust for quality over the course of years. The point I’m trying to make here is that we were usually extremely cautious and this experience is an example of what can happen when you let your quality control slip.
+A month or so before this experience we had tried some pills containing MDEA instead of MDMA and had found MDEA to be a more psychedelic experience. We were curious to try MDA as it was supposed to be more psychedelic still (since then I have had it and it is) and the psychedelic is what we liked in our drugs. A bit of digging around found a source for MDA and we bought a small bag of it in pure powder form (not from our usual dealer). Now crucially at this point for some reason we did not immediately test the powder. After the event neither of us has been able to come to a satisfactory explanation as to why.
+The background: Both of us worked. My job at the time was quite depressing but things were looking up as I’d just been accepted at a new company and was working my notice, only a month and I was out of that hellhole.  L enjoyed her job so we were both in a good frame of mind come Friday night and it seemed an excellent opportunity to experiment with the psychedelic aspects of MDA in the comfort of our house. We went through our usual ecstasy ritual of an early supper so we’d both have lots of calories free for the burning, tidying the house, watching a little light telly and reading a bit till eleven to allow time for digestion.
+As it was in powder form we discussed whether to gelcap it up but came down in favour of just licking a finger and dabbing. Not an exact science but unless you have fingers like sausages and roll it around like you’re trying to batter your finger you’re not going to do yourself any harm. It tasted awful but doesn’t it always? Whilst waiting to come up we moved into my room and L broke out her yoga mat to do some stretches as she was getting RSI related back pain at the time. I was doing a lot of reading on roleplaying theory at the time so I was on the web pulling up pages and discussing the ideas with L. Within 45 minutes we both knew we were up as the conversation became more animated and the ideas flowed faster. We were both on a similar level from the same dose even though I am quite a portly chap and L is quite slim.
+And I have to say it felt good. I felt very relaxed, at ease and creative pathways were firing in my brain like crazy. Just lying on my bed and breathing deeply felt fantastic. We both decided we quite liked MDA and it was time for another dab. Feeling full of energy L suggested moving out into the cul-de-sac we live on to spin some poi, I wasn’t quite in the mood for spinning myself but we went out so she could spin and I watched and carried on talking to her.
+Then I got the headache. Very sudden onset, like a switch had been flipped. I excused myself and said I had to go lie down for a bit. L wanted to keep talking so we went to her room and lay on her bed. I had never had a headache like this one, my first thought was “so this is what a migraine feels like”. It was unbearable; it felt like my brain was being squeezed. After 5 minutes the words “Accident &amp; Emergency” came up. We decided if things hadn’t alleviated in 30 minutes we’d get a taxi there. In those thirty minutes L tried having the lights low, having the lights off, playing soothing music, playing music quietly in the background and wrapping a damp towel round my head. By 30 minutes I was writhing and L was scared. It was time to make the dreaded trip to the hospital.
+L tried to phone for a taxi but was told by all the companies she tried that they didn’t collect at that time on a Friday night. We live really close to a major bus route that fortunately would still have been running at this time (about 1 in the morning) quite regularly. But as I stumbled down the road towards it I honestly wasn’t sure I could make it. Every step I took was like a hammer blow inside my skull. I think I might have mumbled something about calling an ambulance but like a gift from god a black cab appeared.
+A&amp;E one o’clock Saturday morning is not fun. I believe me and L were the only non alcohol-related-injury people in there. The guy behind me seemed to have passed out and pissed himself, across from me a group of chav girls were alternately bursting into tears and screeching at each other and in the corner a younger guy was shouting angrily at an unconscious person on a trolley. I curled up on a plastic chair, blocked out the fluorescent lights with a damp towel we’d brought from home and whimpered a lot. After a few minutes L went and had a quiet word with the staff about how much pain I was in. I am pretty sure that seeing I wasn’t someone who’d been-drinking-been-fighting they bumped me up the queue to see a doctor. To that person on reception, I’m really grateful.
+The nurse asked a bunch of questions and we gave him name of substance, approximate time of ingestions and symptoms. L offered him a sample of the powder we’d taken, but he said they had no facilities to test it with. He then went away to check what info they had on MDA and came back to say they had no information on MDA at all just the umbrella term ecstasy. In retrospect I was a bit shocked, this was a large inner-city hospital in England and their knowledge on recreational drugs and possible side effects seemed quite limited.
+From this point on I was treated like royalty. I was whisked off to a private room, had an enormous needle shoved in my vein (just in case they would need it), hooked up to a machine that went ping and was told my blood pressure was 250 over 150 which certainly explained the headache. I didn’t even know it could go that high. Interesting new words entered the general discourse, words like ‘possibility of a brain haemorrhage’. I must observe at this point my mood was quite jovial; the alternative would have been to confront the fact that the next step along in my condition was probably death. I think it freaked the nurses out a bit, patients whose heads are about to explode shouldn’t occasionally surface from their whimpering foetal positions to earnestly enquire what that machine there does, or what that number means or make jokes about having an aneurism.
+At some point L was given an information leaflet on ecstasy which she shared with me. It had some interesting things I didn’t know in it and a couple of things I’m certain were totally wrong but on the whole it was a good read till a nurse saw me looking at it and took it off me. I wasn’t supposed to see it ‘til I was better and could be admonished. After another half hour it became apparent my blood pressure wasn’t going to sort itself out so they gave me a pill they usually give to people having heart attacks. A couple of minutes later my migraine switched off as suddenly as it had switched on and my blood pressure bottomed out.
+Unfortunately this meant I had to leave my swish private room and important looking bits of machinery. They kicked L out of the hospital and put me in a dorm for observation overnight. I of course couldn’t sleep, and passed the time chatting to the night sisters about ecstasy testing kits, common sense precautions and how great they thought their GPs were because they could get opiates by the bucket load for period pain no questions asked. The next morning a doctor waved the information leaflet at me and I politely stated I’d seen it the night before and could I please just be discharged so I could tell my friend I was alright.
+In the following weeks several other people had suspicious experiences with that dealer’s MDA (non as near fatal as mine fortunately) and someone finally ran it through an ecstasy testing kit. No ecstasy. So someone sent it to a lab. A lot of BZP and a little speed. I wasn’t interested in piperazines before. Now I’m avoiding them like the plague. At the time of writing I believe BZP is still being sold as a legal high in some countries.
+In the interests of full disclosure I should mention that several months after the incident both my parents were diagnosed with hypertension and are now on medication for it. I should also mention that in the following years I have continued to take MDMA, MDEA, LSD, 2C-B, mushrooms and (eventually) actual MDA all without incident.
+Exp Year: 2007
+ExpID: 76648
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 8, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+BZP (101), MDA (34), Migraines (154) : What Was in That? (26), Health Problems (27), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

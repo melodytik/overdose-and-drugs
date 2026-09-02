@@ -1,0 +1,498 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- &quot;舒适的麻木&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dopr.html'>← DOPR</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- &quot;舒适的麻木&quot;</h1>
+<div class='sub-title'>DOPR - Erowid Exp - &#x27;Comfortably Numb&#x27;</div>
+<div class='meta'>作者：Pfaffffed Citation · 日期：Jan 5, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115040' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>首次使用 - 服2.5毫克口服 - 舒适无声
+警告: 过长的旅行报告如下.
+我把它全部包括在内, 而不是削减它,
+谁知道什么是重要的?
+设置:
+我今天早上6点20分醒来时心情很好.
+我在前一天炼和徒步旅行,
+我的朋友一直在谈论采取DOC,所以我决定加入DOPr.
+那是一个流行病期间的冬季湿星期六,
+我已经完成了一个富有成效的星期,
+我只想完成一些银行业务和游戏, 但这些可以等.
+生命是美好的,家是安静和安全的.
+背景:
+我已经服用了几十种RC和经典的迷幻药在几十年,
+我从迷幻药中得到了很多价值, 透过这些年,
+最近我对使用它们来解决冲突,生活问题和过去的创伤感兴趣较少, 而是为了娱乐或了解它们的独特特质,
+长期,深度,有承诺的戒毒对我来说并不特别吸引,
+今天似乎是最后进入DOPr的好日子.
+我预计不会有耐受性, 之前两三周有过一个温和的5-MeO-MiPT体验.
+其他药物方面, 两天前晚上, 我用了380毫克的法尼布特.
+我发现当它真正开始起作用时, 已经培养的嗜睡被诱导失眠所取代,
+我最终喝了相当多的酒精才能入睡.
+我有时会从GHB中得到同样的矛盾刺激,
+喝了两天之后, 我的肠道仍然有点炎症.
+昨天晚上8点我只喝了咖啡和2.5毫克的Delta-8THC.
+那些影响早已消退,
+我觉得我应该有很好的状态来正确地测试它.
+报告:
+7:07 我用四分之一杯桃汁口服.
+我还服用大约3.5克酸来避免副作用.
+我已经吃了至少八个小时了,
+我将在七点半左右吃早餐.
+虽然我很喜欢咖啡因,
+7:10出于某种原因, 我收到了警报.
+我预计这将在一个小时后发生.
+这引发了一段焦虑的时刻, 很久以前我在水中溶解它以进行体积测量时就担心了.
+7:27还没有吃早餐 - - 现在就去吃吧.
+虽然我知道我的血糖很低, 我仍然感觉到与乙胺警报相关的微弱雾气.
+虽然可能是安慰剂,但我仍然记不起像体积计量剂量这样的常见 (对我来说) 短语.
+7:50 完成事情变得越来越困难.
+虽然我还没有达到我希望的水平, 但它比我想象的要远.
+我只能吃半个花生和果三明治,
+我认为我已经跨越了门, 但它又飞回去.
+我朋友 (在DOC) 只能吃一些谷物早餐由于药物胃不稳定.
+它们也比预期的要快一些,
+在过去,它一直在饮汁.
+他们认为这种差异可能是他们后来遇到困难的一个因素.
+8:20 发展一些轻微的张力.
+8:52 强度继续慢慢增长.
+我花了一个小时在浴室里浴.
+尽管在旅程开始时服用了一些,
+我也有一些腹, 但我很确定这与DOPR无关,
+我从来没有从迷幻药中获得过.
+总的来说,到目前为止它对我的身体非常温柔.
+现在还没有不安或刺激.
+它们的效果都非常微妙,
+我所感受到的部分是微妙的体质感觉, 让我知道我改变了,
+让我想闭上眼睛好像我终于准备好睡觉了.
+总的来说,我喜欢它到目前为止,
+我吃了一些食物之后结束.
+在此之后,
+我不确定目前为什么,
+我对DOC的值剂量是可怜的 (我在这里是少数人), 但这感觉不像削弱.
+这种轻和清晰的思维难以形容, 就好像我的认知的一面是异常新鲜和清晰,
+我认为这是最有趣的一个方面.
+唯一看起来相似的东西是乙烯三胺.
+奇怪的是,我也很好奇要根据我听说过的描述来探索甲胺.
+九点五分 我的朋友有恶心的严重波.
+我很惊地看到他们忙坐在浴室地板上,
+我给他们带来一些结晶的生, 按照他们的要求, 和他们坐在一起,
+我注意到一些不典型的东西,
+我希望表现出同情心, 尽我所能支持他们,
+情感上, 我觉得我更愿意做别的事,
+我注意到这些冲动充满好奇心和兴趣,
+我坐在冷暗的地板上, 发现有点OEV活动 - - 表面的线条和边缘好像被加厚了.
+我认为这可能是接近峰值.
+我得到了明显的几何CEV, 六角细胞的网像形和三维平面的形看起来像猫舌的显微镜.
+我只注意到其中的几个人,
+在这个阶段, 独特的清晰性消失了,
+我指的是我在日常认知中使用的工作概念, 开始把自己分解成其组成部分,
+什么是&quot;爱&quot;或&quot;热&quot;或&quot;疼痛&quot;?
+这种事情.
+但它不那么粗和粗, 不那么有侵略性的中性.
+它们更柔软.
+这就是2C-P的样子?
+这就是它让我想起的.
+我不期望它与2C-P相似, 只是因为它有相同数量的甲基连接在一起.
+虽然DOeT听起来不像2C-E,而DOM听起来不像2C-D (我认为它更像是4-HO-DiPT),
+性生活不是很好.
+我觉得自己已经远离了世界.
+我明白人们可能会把这种感觉描述为离散的感觉.
+这不是我能想到的词, 但有一种与经验脱的品质,
+我每天都在思考这个问题.
+虽然我体内确实有一些感觉让我意识到我服用了迷幻药物,
+奇怪的是,虽然性,感情亲密,甚至触觉都没有增强 (甚至可能已经减弱),
+想想看看
+我发现我想要活跃,而不是休息.
+它有着更高层次的心理活动,
+如果我试图放弃, 我的脑子会在背景中发现一些它觉得有点烦人的经历,
+这不是DOC的不安,也不是5-MeO-MET的焦虑,也不是4-AcO-EPT的身体焦虑感,
+这几乎是抗抑郁药.
+我常常会感受到一种内在的情绪疼痛,
+我认为这是一个特异性的反应, 可能与为什么释放剂使我忧郁而不是高兴有关.
+今天的治疗过程中, 我没有感受到血清的疼痛.
+我还记得自己曾经经历过这样的经历.
+这与其余的经验相符, 经验不是我拥有, 而是我通过代理来拥有,
+我认为我可能只是刚刚上来.
+而且,我可能已经再次发展性欲了?
+我有第二次高潮, 之后我完全失去对性爱追求的兴趣.
+我决定喝一些气, 希望能轻松进入峰值.
+我不打算深入讨论,
+我似乎也开始有点食欲 (或至少意识到我应该并且想吃东西) 很奇怪在任何我接近高峰的迷幻药上.
+这种材料更像DOC和DOM, 而不是不同.
+这些迷幻安非他命在脑海中如此接近.
+11:20 我在气后得到一些微妙的OEV.
+现在我想我已经达到顶峰了.
+我终于在相当长的时间内吸收了异常多的气.
+尽管如此, 我认为我总体的血清NO2水平远低于平常, 因为我从来没有昏,
+尽管如此, 我却遇到了旅程中唯一不舒服的部分.
+我不知道这是因为气极大地增加了强度,
+我倾向于认为这是前者, 因为我在气之前很舒服,
+我认为这只是短期内对我来说是一个糟糕的状态组合,或者最初的正面气体验产生了减少的回报,
+我确实从和DOPR的组合中得到了一些令人难忘的见解.
+第一个洞察力很难传达,
+签名具有现实性, 但这种现实性与原始材料不一定有很大关系.
+牛和一个人的个人&quot;柏拉图的牛理想之间有一些联系, 但这种联系很松散.
+东西与事物的概念之间的关系很松散.
+这很正常,但难以传达的内容与形而上学有关,比如药用植物的&quot;签名&quot;,花与花精的关系,或者一个人与人们对他/她的投影.
+第二个洞察是不请自来的,不愉快的, 但涉及到我祖先中那些可怕的人, 以及我继承他们的可怕性的方式,
+像所有的人一样, 他们不是单一的,
+我反思我行为可能伤害了多少人, 也可能有多少人受益.
+让我远离, 看到我曾经做过一些可恶的事情, 让我有了一定的亲密感和专注,
+虽然这并不好玩,但我看到艾特并不是一件坏事.
+所以,是的,这种材料确实有潜力深入和洞察力如果你工作在它, 但它似乎没有真正借自己给它, 也没有自发提供太多,
+我并没有用它来探我的心理.
+但没有动力去做.
+我认为我必须有明确的意图,一个计划, 也许与它有强烈的先前关系以此方式使用它.
+我不知道2C-P是否也是同样的, 因为我没有发现2C-E在这种情况下有用,
+我不得不接受我确实饿了,所以我吃了另一半的三明治,
+我和朋友一起去散步. 我和朋友一起去散步.
+听音乐和呆在室内太多了,
+我想要享受阳光,看着低云在蓝天飞行.
+我的朋友享受着丰富的色彩和, 但我只能看到一些视觉上的增加,
+如果我的朋友不想回来, 我可能会走路,走路,走路,
+现在我又回到了室内,
+我也不是在谈论丰富的旋律音乐, 我只是在听曲和视频游戏的配乐.
+音乐没有增强, 我只是沉浸在舒适和满足中.
+这不是阿片类药物.
+这更像是睡眠的满足感.
+如果音乐没有突然结束, 我可能会在那个空间里呆很长时间.
+从此, 旅行的高原被这种舒适的感觉标志着.
+我认为这是合法的, 但可能只是我意识的奇怪和一点的身体负荷.
+我完全满足于躺下,让生活过去.
+这是一个固定的++.
+我很强烈地改变了, 但不像很多迷幻药,
+我可以把它打开,假装它在很多人可以的方式, 而我通常不能.
+至少我有信心尝试这个.
+我的朋友似乎有气体不适的问题.
+他们坚持认为除了之前的恶心和现在的气体 (他们最近总是有气体问题) 他们正在度过一段美好的时光.
+我在散步时有一些气体压力,
+从我的角度看他们的头部空间是有趣的.
+但基因似乎比基因更能做到这一点.
+虽然DOC并不完全浅,但相比之下,
+我不想轻蔑地说这是一个很好的空间,
+这更深入, 但它没有同样的强烈的经验的欣赏.
+没有色彩和, 在这种剂量下,
+这可能相当于我的1.5毫克DOC体验, 我所看到的只是药物的灰度结构,
+我知道这将是对剂量增加的挑战,
+你知道我说DOC,DOM,和DOPr比他们不同更相似吗?
+我现在不支持这一点.
+我认为安非他命清晰度的质量早些时候已经被表达出来了 (基本上在整个定义DOM).
+现在没有看到.
+这种材料的特质显现出来,
+这种材料的特质显现出来,
+这种差异变得明显.
+这比DOM或DOC更接近2C-E (我多年来没有吃过,
+这样更容易接近, 不太需要面对, 不管好坏.
+我有点困惑, 很难画出这个空间的轮,
+这种东西令人着迷.
+这是一件独一无二的事.
+没有真正的音乐增强也很奇怪.
+我喜欢它,它很好,但它常常在后台,很容易被忽视.
+我也很惊这对身体有多温和.
+我觉得很放松,没有任何压力.
+虽然我喜欢马尔和梅斯卡林, 但当高原的尾部出现时,
+另一个奇怪的是,峰值非常短,可能是1.5-2小时.
+我没有很好地跟踪它 (因为我处于高峰期, 边界还不清楚,
+我也注意到我感觉自己很口.
+我通常不是一个在迷幻药上的凯西,
+3:30 我发现自己从闭眼的&quot;幻象&quot;中退缩,
+我会闭上眼睛,看到性理想化的裸体体 (这些体只是在智力上被认定为性感, 而不是在内心感受到性感),
+这几乎像催眠蛋.
+视觉效果不像一般的CEV, 它们更能代表事物,
+它们更像是图像,就像在梦中一样,
+我与乙烯三胺相关联, 这种感觉不道德/妄想,
+像我朋友之前在浴室的地板上受苦一样,
+虽然我仍然选择缩在他们的身边, 为他们提供安慰,
+这对我来说是不寻常的,
+只是后来,当我在PIHKAL中发送链接, 给朋友评论它的剂量和持续时间时, 我查看了舒尔金斯的经验报告.
+我惊地发现,
+我的朋友仍然有气体不适.
+,胡,生和也没有帮助.
+他们不想尝试酒精,
+我建议姿势对气体, 这允许他们通过一点.
+他们回顾了他们如何感激他们把融入了自己的生活,
+4:30 - - 感觉有时还很冷,但当我有轻薄的毯子时就好.
+我很高兴能保证自己温暖.
+惊的是,我刚刚吃了三块深盘披萨,
+这是什么类型的迷幻药?
+我也没有恶心在这个剂量.
+我真的认为这将是值得在更高的剂量.
+我现在知道这是轻端, 但强端是可怕的和一个地狱的承诺.
+我不敢想象我能长时间如此努力地倒, 但至少这次的体力不那么累.
+这一次的经历又带来了安慰.
+欧洲电子商务公司的催眠效果比其他任何东西都更强.
+我的朋友现在有部紧张的问题.
+尽管他们一直坚持自己没事,
+虽然头部空间很好, 但处理所有副作用变得很累,
+他们要求我给他们一个子来胎,
+他们在晚餐时服用1毫克的埃蒂索拉姆, 20分钟后感觉好转.
+一个小时后, 似乎它已经彻底摧毁了他们的旅程,
+我认为这会让他们放松一下, 但他们基本上可以在那之后度过一天的余生.
+我对我的朋友有点丧, 因为他们当天早些时候提到他们非常重视DOC,
+这是他们的第三次经历.
+让他们能完全投入到日常生活和所有活动中, 而不会在接下来的一周里被拖入反.
+但视觉效果无法被屏蔽, 这阻碍了他们享受活动.
+这一水平再次是完美的, 但副作用是交易的破坏者.
+五点 - 很有趣!
+肌肉疼痛和疲劳开始重新出现.
+通常, 迷幻药会让我对自己的身体疾病产生高度意识.
+这种材料用舒适的感觉取代了我身体对不舒服的反.
+我不会把它比作解离药或阿片类药物,
+在高原上,天气非常淡.
+现在看起来像, 打哈欠一堆.
+如果在这种剂量下大部分时间都是这样, 那么我对更高剂量不那么害怕.
+尤其是如果我在一小时左右的时间里分隔起始剂量以消除峰值的混乱.
+我有部和肌肉紧张,但并不坏.
+我只是很惊, 考虑到我有.
+我再服用一克.
+尽管有披萨, 我还是饿了,
+七点:这个高原是模糊的无处之地, 没有内容.
+现在我们可以看到
+似乎DOPr也不是我对DOx快速代谢的例外.
+我和朋友一起打牌, 仍然在打哈欠, 疲倦.
+我想试着睡觉,但我不认为这是可能的. [回想起来,可能是.] 我脑海里有一种奇怪的,紧张的感觉,
+虽然这并不烦人,但我想知道这是否预示着晚些时候头痛或宿醉.
+我需要一些鱼油.
+我觉得我足够清醒与朋友聊天, 在线玩战略游戏.
+我通常不会这么做,因为我太害羞了.
+只是现在几乎没有头脑空间了.
+我没有喝酒,因为: (a) 可能没有意义, (b) 明天为什么会觉得很糟糕, (c)
+这场比赛顺利进行.
+我犯了一些错误, 提醒我我还在倒,
+我很累,准备睡觉, 只是在思考是否要服用子或试着睡得自然.
+我肯定觉得我可以,但我不断地感到寒,提醒我,
+我决定妥协:我服用125毫克的克洛纳佐拉姆,
+我睡着了,只要我的头撞到枕头,所以本佐完全不必要.
+我可能早点睡觉了.
+我很早就醒来了, 没有钟,
+在6:45起床.
+我脑子里有一种微妙的怪异感, 就像昨晚一样.
+感觉有点像一个宿醉,有点像头痛.
+咖啡因禁食?
+部的紧张?
+过度使用气?
+我仍然感觉非常微妙地改变, 但它可能只是残留物.
+谁知道呢?
+咖啡使我的头痛大多消失,
+由于戴着面具,
+我可能是因为空腹喝了几口黑咖啡,
+我试图打睡, 但被非常微弱的催眠图像阻碍.
+我猜我身体里还有一个线索.
+我的可怕的头部感觉已经决定表现为头痛.
+两小时后, 一种补充剂也对我有所帮助.
+咖啡没有.
+我终于吃了一些纳普罗森, 效果很好,
+总结:
+我很惊,
+在拍摄过程中,空间的主观感觉与DOC和DOM非常相似,
+我也注意到我有智力驱使我参与活动, 而不是只是躺着,
+在高峰期和平原期,
+在高峰期和平原期,
+我觉得DOM或DOC不是那么刺激,
+我花了很长一段时间用毯子包裹, 躲避寒冷,
+我确实认为这将是有趣的尝试在更高的剂量.
+我不确定这种药物是否适合我,
+如果我要做这么长时间, 我会欣赏这种人造的舒适,梦想的距离,
+我不感兴趣 DOB 这样的东西, 因为我相信我会留下一个完整的残骸.
+我对延长高原的强度不那么担心,
+我可以看到它是非常丰富,丰富,深入,特别的 (可能会加载更多的视觉) 在更高的剂量 (在3-5mg之间.
+我不喜欢分离, 因为我不想在听到一堆可信的小谎言之后,
+像EPT这样的东西可能适度好,
+这是一件好事,但我对此不予评判.
+我希望它能在更高的剂量下自行开放,
+尤其是现在我看到有很多其他肉袋在接受DOPr时也做出了同样的反应.
+其他:
+公共公共事务部 (691):一般性 (1),性讨论 (14),第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Comfortably Numb
+DOPR
+by
+Pfaffffed
+Citation:   Pfaffffed. &quot;Comfortably Numb: An Experience with DOPR (exp115040)&quot;.
+Erowid.org
+. Jan 5, 2021. erowid.org/exp/115040
+DOSE:
+T+ 0:00
+2.5 mg
+oral
+DOPR
+T+ 3:43
+repeated
+inhaled
+Nitrous Oxide
+T+ 15:53
+125 ug
+oral
+Clonazolam
+BODY WEIGHT:
+145 lb
+DOPr - First time - 2.5mg orally - Comfortably Numb
+WARNING: Excessively long trip report follows. I included it all instead of trimming it down, because there’s just not a lot of info on this one. Who knows what’s important?
+SET:
+I woke up this morning at 6:20am in a good mood. I had exercised and gone hiking the day before, and my body was tired but not sore. My friend had been talking about taking DOC, so I decided to join with DOPr. It was a wet winter Saturday during a pandemic, so I had no place to be. I had finished out a productive week, and there wasn’t much on my to-do list. The only thing I wanted to accomplish was some banking stuff and some gaming, but those could wait. Life was good, home was quiet and safe–when could there be a better time to explore this compound for the first time?
+BACKGROUND:
+I have taken dozens of RC and classical psychedelics over a couple decades, although I’ve rarely pushed the dosages to the heavy level. I got a lot of value out of psychedelics in terms of insight, perspective, healing, and peace over the years. Recently, I’ve been less interested in using them to work through conflict, life issues, and past trauma, instead using them for either recreation or to gain insight into their unique qualities so that there might be some more data points for SAR research into developing new psychiatric treatments. The idea of taking a long-lasting, deep, and committing DOx hasn’t been particularly appealing to me for a while, but I worked to create the circumstances in my life so that it might work out for me. I knocked DOM and DOF (sort of) off the list earlier this year, and today seemed like the day to finally get into DOPr.
+I expected no tolerance, having had a modest 5-MeO-MiPT experience two or three weeks prior. In terms of other drugs, two nights before, I had had 380mg of phenibut FAA sublingually. I found that when it really started kicking in, the sleepiness that it had been fostered was replaced with induced insomnia and a real sharpening of my thought. I ended up drinking quite a bit of alcohol to be able to sleep. I sometimes get the same paradoxical stimulation from GHB and reliably get it from kava kava. Two days after drinking alcohol, my guts are still slightly inflamed from the alcohol.
+Yesterday, I only had coffee and 2.5mg of delta-8 THC at 8pm. Those effects have long since worn off, and they were subtle by the time I fell asleep. I feel like I should be in pretty good shape to test this out properly.
+REPORT:
+7:07 I take orally it in a quarter cup of cherry juice. I also take about 3.5g of magnesium malate to stave off side effects. I have not eaten in at least eight hours, so it should be absorbed quickly. I’m going to eat breakfast around 7:30. Even though I’m a heavy caffeine user, I’m opting to skip all forms of caffeine today.
+7:10 Astonishingly for some reason, I get an alert. I expected that to happen after about an hour. This prompts a moment of anxiety, where I worry that long ago when I did the math to dissolve it in water for volumetric dosing.
+7:27 Still haven’t had breakfast - going to do that now. My hands are cold (it’s winter, yeah, but it’s warm inside.) While I know that my blood sugar is low, I am still feeling that very faint fogginess that I associate with phenethylamine alerts. While likely placebo, it’s still funny that I can’t remember common (to me) phrases like volumetric dosing.
+7:50 Getting harder to accomplish things. I’m not as far along as I would be with DOC, but it’s further along than I thought it would be. I could only eat about half of a peanut butter and jelly sandwich for breakfast with some milk, and I didn’t have any caffeine. For a brief second, I thought that I crossed the threshold into onset, but it flitted back away. My friend (on DOC) could only eat some cereal for breakfast due to an unsettled stomach from the drug. They are also coming up a bit faster than they expected, probably due to the overnight fasting and taking their dose in a single shot. In the past, it’s been sipped over time in orange juice. They attribute this difference as a likely factor in the difficulties they went through later.
+8:20 Developing some mild jaw tension.
+8:52 The intensity continues to slowly grow. I spent an hour in the bathroom taking a languorous shower. Despite taking some magnesium at the start of the trip, I noticed some faint neck, shoulder, and jaw tension. I also have some diarrhea, but I’m pretty sure that had nothing to do with DOPr and everything to do with prior gut inflammation. I never get the runs from psychedelics. All in all, it’s been incredibly gentle on my body so far. There’s not restlessness or stimulation yet. The effects are all very subtle, a +/- venturing on a +. What I do feel is partly some subtle somatic stuff to let me know that I’m altered, a fuzzy buzziness under the skin of my face, scalp, and neck. There’s some of that inward push that impersonates fatigue, making me want to close my eyes as if I were finally ready to go to sleep. All in all, I like it so far and I think it holds promise. The brief and very subtly anxious part of the comeup was incredibly brief, ending after I ate some food.
+After that, it’s been back to committed clear sailing. I wonder if a threshold dose of this might not have some utility, although I’m not exactly sure what for in this moment. Threshold doses of DOC were miserable for me (I’m in the minority here,) but this doesn’t feel as debilitating. There’s a lightness and mental clarity to this that is hard to describe, as though one aspect of my cognition is unusually fresh and clear while the rest is clouded by nondescript psychedelia. This aspect of the DOPr is one of the most interesting to me. I wish I had prior experience with 2C-P to compare it to. The only things that seem similar to me are the ethylpropyltryptamines. Weirdly, I’m also curious to explore the diethyltryptamines now based on how I’ve heard them described.
+9:05 My friend has a bad wave of nausea. They don’t usually get nausea from psychedelics, so I was surprised to see them rush to sit fetal next to the toilet on the cold tile of the bathroom floor. I bring them some crystalized ginger at their request, and sit with them for what feels like 10-20 minutes. I notice something atypical for me either sober or on psychedelics: I don’t feel any empathy for them. Sure, I want to act compassionately and do what I can to support them, but I do this out of duty and moral obligation rather than visceral emotion. Emotionally, I feel like I would really rather be doing something else, and my rational mind tries to get me to a justification that will excuse this inexcusable behavior. I note these impulses with curiousity and interest, and then do not act upon them. While I sit on the cold, dark floor, I notice a hint of OEV activity–the lines and edges of surfaces seem to pop as if they were bolded.
+10:30 I think this is likely the peak approaching. I’m getting distinct geometric CEVs, nets of hexagonal cells like honecomb and three dimensional planes made of cones that look like a microscopic view of a cat tongue. I only notice a few of these before they either stop or I entirely screen them out for the rest of the trip. At this stage, the unique clarity disappears and it becomes more straightforwardly psycholytic. By psycholytic, I mean that working concepts that I use in every day cognition start to disassemble themselves into their component parts, becoming unrecognizeable. What is “love” or “hot” or “pain” anyway? That kind of thing. It reminds me a LOT of 2C-E, but less abrasive and raw, less aggressively neutral. It’s softer. Again, is this what 2C-P is like? That’s what it reminds me of. Mind you, I say this without any expectation of this resembling 2C-P just because it’s got the same number of methyls strung together in the same spot. DOeT doesn’t sound at all like 2C-E and DOM is nothing like 2C-D (I think it’s more like 4-HO-DiPT,) but this does sound like how others have described 2C-P.
+Sex wasn’t great. That clear, cerebral feeling left me feeling removed somehow. I can see how people might describe this as dissociative feeling. It wouldn’t be the word that comes to mind for me, but there’s a certain quality of disengagement with experience while there’s a greater engagement with the imagined platonic ideal of the experience. That theme recurs throughout the day for me. While there are definitely some sensations in the body that alert me to the fact that I’ve taken a psychedelic, it’s not as pronounced as most other psychedelics. Strangely, while neither sex nor emotional intimacy nor even general tactile sensation were enhanced (and may have been diminished,) my attention to the experience of kissing was dramatically enhanced. Go figure.
+I’m finding that I want to be active, not lounge. It’s got a higher order mental activity thing that’s getting prioritized over other functions. If I try to zone out, my mind actively identified experiences in the background that it finds mildly annoying and draws my attention to them in an effort to get my up and engaged. This isn’t the restlessness of a DOC comeup or the anxiousness of 5-MeO-MET or the somatic sensation of anxiety of 4-AcO-EPT; it’s just my mind prodding me to stay actively engaged in life, interested. It’s almost antidepressant in this way. [Post-peak, this disappears.]
+On psychedelic comeups, I often get a visceral experience of emotional pain that I associate with serotonin binding. I think this is an idiosyncratic response, probably connected to why serotonin releasers make me melancholy instead of euphoric. During the comeup today, I didn’t experience serotonergic pain. Instead, I had a vivid “memory” of the times where I have experienced it before. This falls into line with much of the rest of the experience, where instead of having the experience, I instead have it by proxy, disconnected as a memory, platonic ideal, or hypnogogic blip/episode.
+I think I may only just be coming up now. Also, I may be developing a libido again already?
+10:50 I have a second orgasm, after which I lose embodied interest in erotic pursuits completely for the rest of the experience. I decide to have some nitrous, hoping to ease into the peak. I don’t intend to go hard and deep, but just lubricate things a bit. I also seem to be developing a bit of an appetite already (or at least an awareness that I should and would like to eat.) Very strange on any psychedelic on which I’m approaching peak.
+This material feels more similar to DOC and DOM than it feels different. Fascinating how these psychedelic amphetamines are so close in headspace.
+11:20 I’m getting some subtle OEVs after the nitrous. Now I think I’m peaking.
+[Addendum: I ended up sucking down an unusual amount of nitrous over a decent length of time. That said, I think that I kept my overall serum NO2 levels much lower than usual, as I never blacked out or had my typical profound reassembling of reality post-disintegration experiences that I associate with it. That said, I emerged into the only uncomfortable part of the trip. I can’t tell if this was because the nitrous dramatically increased the intensity to a point that wasn’t comfortable for me or if that was just the peak. I’m inclined to think that it was the former, as I was comfortable before nitrous and was similarly comfortable eventually post-peak. I think it just proved to be a poor mix of states for me in the short term, or that the initial positive nitrous experience produced diminishing returns as I kept returning to it.
+That said, I did have quite a bit of actual memorable insight from the combination of nitrous and DOPr. The first insight is hard to convey, but was basically that people assign signatures to things. The signatures have a reality, but that reality doesn’t necessarily have much to do with the source material. There is some connection between an individual cow and a person’s individual &quot;Platonic ideal of a cow, but the connection is pretty loose. The relationship between the thing and the idea of the thing is pretty loose. This is pretty normal stuff, but the difficult to convey stuff had to do with the metaphysics around things like the “signature” of a medicinal plant, the relationship between a flower and a flower essence, or a person and people’s projection of that person. The second insight was unasked for and unpleasant, but dealt with the monstrous people in my ancestry, and the ways I have inherited their monstrousity, the ways in which those traits manifested differently in me and the ways in which those ancestors poisoned the lives of so many people through those toxic traits. And yet like all people they were not monolithic, and were capable of things like tenderness and love. I reflected on the lives I may have harmed through my behavior and the ways in which I may have been of benefit. Using the experience’s inherent detachment with the dissociative quality of nitrous oxide gave me the distance to see some of the ways that I have been abominable with a degree of intimacy and focus that I would have not otherwise been able to endure without flinching away. It wasn’t fun, but it wasn’t a bad thing for me to see eiter. So yes, this material does have the potential for depth and insight if you work at it, but it didn’t really seem to lend itself to it nor offer it up spontaneously much either, and I gave it plenty of space to do so. I didn’t use it to actively pry into my psyche, though. It had the clarity to enable that, but it didn’t have the push to. I think I would have to come to this with clear intent, a plan, and maybe a storng prior relationship with it to use it in that way. I wonder if 2C-P is the same way, because I didn’t find 2C-E to be useful in this way despite it’s clear depth.]
+12:24 I had to accept that I was legitimately hungry, so I ate the other half of my sandwich along with some ice cold orange slices and a cup of milk. Still swimming and discombobulated either from the peak or the nitrous aftermath, I go for a walk with my friend. Listening to music and hanging out indoors was too much, and the rain had let up. I wanted to enjoy some sunshine and watch some low clouds race across the blue sky. My friend was enjoying rich color saturation, but I was getting nothing but some increased visual definition, the popping of the border definite of things like tree limbs against the sky. If my friend hadn’t wanted to return, I probably would have walked and walked and walked, as it was refreshing and helped keep my head balanced and clearer.
+Now that I’ve returned indoors, I’m completely immersed in the music while laying on the couch. I’m not talking about rich, melodic music either–I’m just listening to chip tunes and video game soundtracks. The music isn’t enhanced–I’m just sinking into comfort and contentment. This isn’t an opioid contentment. It’s more like the contentment of sleep. I honestly can’t remember much from this period, and would probably have stayed in that space for a long time if the music hadn’t ended abruptly. From this point on, the plateau of the trip was marked by this feeling of comfort. My only discomfort was that of a mild chilliness, which I thought was legitimate, but was probably just a quirk of my awareness and a bit of shivery bodyload. No longer was I feeling the pressure to do different things–I was absolutely content to just lay down and let life pass by. This is a solid ++. I’m quite strongly altered, but unlike a lot of psychedelics, I think I could pull it together to function passably for a short period during an emergency if I needed to. I can sort of turn it on, fake it in a way a lot of people can while tripping that I usually can’t. Or at least I have the confidence to try with this.
+My friend seems to be having some trouble with gas discomfort. They’re insisting that other than the nausea earlier and the gas now (they’ve been having gas issues generally lately) that they’re having a great time. I had some gas pressure earlier on my walk, but I was able to pass it when I got home and laid down. Seeing their headspace from my perspective is interesting. DOC is another one that has a lot of overlap with its 2C-sibling, but the halogens seem to do that more than the alkyls. While DOC isn’t exactly shallow, the space seems shallow and hedonistic by comparison. I don’t mean that disparagingly–it’s a nice space, and it certainly looks a lot more fun to me from where I’m at than this one. This is deeper, but it doesn’t have the same intense appreciation of experience. There’s no color saturation, not really a lot going on visually at this dosage. This might be the equivalent of my 1.5mg DOC experience, where all I saw was the greyscale architecture of the drug, all of the intensity with none of the unique flair. I recognize that this would be challegning at double the dose, but also amazing, akin to mushrooms but looooong.
+You know how I said that DOC, DOM, and DOPr were more similar than they were different on the comeup? I don’t stand by that now. I think the amphetamine clarity quality was pronounced earlier (and basically defined DOM throughout). That’s nowhere to be seen now. Once I reached peak and plateau, the character of this material came out
+Once I reached peak and plateau, the character of this material came out
+and the difference became pronounced. This is much closer to 2C-E (which I haven’t had in years, so take that with a grain of salt) than DOM or DOC, and even that’s not a great example. This is more approachable, less confronting for better or for worse. I am a little flummoxed by how difficult it is to really paint the contours of this space, and I have had plenty of time to get a feel for it already. Fascinating stuff that way. It’s unique.
+It’s also weird that there’s no real music enhancement. I like it and it’s nice, but it’s often in the background, easy to ignore. I’m also amazed by how gentle this is on the body. I feel relaxed, not taxed at all. As much as I like MAL and mescaline, they can be exhausting by the time the tail end of the plateau comes around. Also strange, the peak was quite short, maybe 1.5-2hrs. I didn’t keep good track of it (because I was peaking and the boundary wasn’t known yet or easy to define on the first go around.) Also because it may possibly have been unsettled by nitrous, which is distinctly possibly, but would be a first.
+I’m also noticing that I’m feeling pretty garrulous. I’m not usually a chatty Cathy on psychedelics, but I am watching myself drone on about various topics in a way that seems pushed not my stimulation but instead simply by the desire to share and communicate.
+3:30 I found myself retreating from my closed eye “visions” as if they were nightmarish even when they were pleasing. I would close my eyes and see sexually idealized nude torsos (which were only intellectually identified as erotic rather than viscerally felt as such,) only to be jolted out of them, snapping my eyes open. It’s almost like hypnic jerks. The visuals aren’t like usual CEVs somehow–they’re more representative of things and more like fully fleshed images rather than actual “seen” imagery behind my closed eyelids. They’re more the idea of images, as if in a dream, yet without feeling dream-like. That said, there is a dreamy dissociated comfort that I associate with the ethylpropyltryptamines, the kind that feels immoral/delusional in that it’s detached it is. As with when my friend was suffering on the bathroom floor earlier, they are now curled up on the bed, miserable with gas discomfort. While I still choose to curl up against them to provide them with comfort, I can’t help but feel a mild annoyance that I can’t just continue basking in being as I had been. This is unusual for me in any state, and faintly alarming. It’s not what I want from a psychedelic. [Funny, this isn’t at all what I expected from this material based on all of the recent reports I’d read–only later when I was sending a link to its entry in PIHKAL to remark to a friend on its dosage and duration did I look through the Shulgins’ experience reports. I was shocked to see how comparable they were with my evaluation.]
+My friend is still having gas discomfort. Hinga shtak, peppermint, ginger, and magnesium haven’t helped. They don’t want to try alcohol, understandably. I recommend yoga poses for gas, which allow them to pass a little bit. They reflect on how grateful they are that they incorporated yoga into their life, and all of the myriad ways that it has helped them.
+4:30 - Still feeling chilly off and on, but fine when I have a light blanket. It’s not unpleasant, but I’m glad that I can make sure that I’m warm. Astonishingly, I just ate three pieces of deep dish pizza without difficulty. What kind of amphetamine psychedelic is this? I have had NO nausea at this dosage either.
+I really do think that this would be worthwhile at a higher dosage. I now know that this is the light end, but the strong end is daunting and a hell of a commitment. I can’t imagine tripping that hard for that long, but at least this one doesn’t feel physically taxing. Once again, this experience is marked by comfort. The CEVs continue to be more hypnogogic than anything else.
+My friend is now having trouble with neck tension. Despite having maintained that they were fine throughout, they decide that they’ve had enough. While the headspace had been fine, dealing with all the side effects was getting tiresome and they were feeling foggy. They asked me for a benzo to abort, which they have always refused in the past. They took 1mg of etizolam with their dinner, and started feeling much better twenty minutes later. Within an hour, it seemed like it functionally killed their trip–a surprising result in a etiz/DOx matchup. I thought it would just take the edge off, but they basically were able to go about the rest of their day afterwards.
+I’m a little bummed for my friend, as they mentioned earlier in the day how much they valued DOC and what a valuable material it had come to become for them. This was their third experience. The first at 2mg was great, allowing them to be fully engaged in their day and all of their activities without getting dragged into rumination over the coming week. 2.5mg was fun, but the visuals couldn’t be screened out, which got in the way of their enjoyment of activities. This level was once again perfect, but the side effects were a deal breaker.
+5:00 - Funny! Now that the drug is in decline, the muscle soreness and fatigue that I started the day with is starting to reappear. Normally, psychedelics make me hyper-aware of my physical ailments. This material supplanted feedback from my body about its discomfort with feelings of comfort. I wouldn’t compare it to a dissociative or an opioid, but I could see how someone might.
+6:45 - Decline isn’t as slow as I thought. The plateau has been very light. I’ve just been at a + for hours now it seems like, yawning a bunch. If the majority of the duration at this dosage is this, then I’m less intimidated by a higher dose. The plateau might actually be manageable, especially if I stagger the starting dose over the course of an hour or so to smoothe out the confusion of the peak.
+I’ve got neck and muscle tension, but it’s not bad. I’m just surprised, given the magnesium I had. I take another gram.
+I’m also starving despite the pizza, so I eat some weird leftover jello casserole from Thanksgiving.
+7:00 This plateau is nebulous nowhere country with no content. A decided +. It seems that DOPr is no exception to my fast metabolism for DOx.
+9:15 I’m playing cards with friends, still yawning and tired. I want to try to sleep, but I don’t think that’s likely. [In retrospect, it might have been.] I have a weird, strung out feeling in my head, like there’s one channel in the audio file that’s gritty and distorted while the rest are clear. It’s not bothersome, but I wonder if this portends a headache or hangover later. I take some fish oil for it. I feel sober enough to chance chat with friends, playing an online strategy game. I wouldn’t normally dare this–too self-conscious when tripping. It’s just that there’s barely any headspace anymore. I haven’t had any alcohol because: (a) there’s probably no point and (b) why feel like shit tomorrow and (c) saving up for a benzo for sleep if I need it.
+11:00 The game went fine. Made a few mistakes to alert me to the fact that I’m still tripping, but nothing out of character with my normal behavior that anyone else would notice. I’m tired and ready for bed–just debating whether or not I want to take a benzo or try to sleep au naturel. I sure feel like I can, but I keep getting chills, reminding me that DOPr is still kicking around in there somewhere. I decide on a compromise: I take 125ug of clonazolam and head directly to bed to see if I can sleep before it kicks in.
+6:20am I fell asleep as soon as my head hit the pillow, so the benzo was completely unnecessary. I might have been able to sleep much earlier. I woke bright and early without an alarm, but after checking my phone, I resolve to go back to bed.
+6:45am Wake up again. Subtle grotty feeling in my head, same as last night. Feels a little like a hangover, a little like a headache. Caffeine withdrawal? Residual neck tension? Excessive nitrous use? I still feel very subtly altered, but it could just be the benzo residue. Who knows?
+Coffee made my headache go away mostly, but I only got a few sips before I was whisked outside to go grocery shopping. It recurred later thanks to wearing a mask. I felt vaguely hungover, possibly because of the few sips of black coffee I had on an empty stomach, then skipping breakfast until late.
+12pm I try to nap, but was thwarted by very faint hypnagogic imagery. I guess there’s just a hint left in my system. My grotty head feeling has decided to manifest as a headache. A kratom threshold dose helped my mild discomfort a bit, as did a booster a couple hours later. Coffee didn’t. I finally took some naproxen sodium, which did the trick, leaving me in a happy and productive state for the rest of the day.
+SUMMARY:
+I was surprised at the lack of stimulation from DOPr. It was faintly apparent during the comeup, where the subjective sense of the space was extremely similar to that of DOC and DOM, with only a faint hint of its true character. I also noticed an intellectual push to be involved in activities rather than simply laying about, but there were no somatic or emotional stimmy sensations. During the peak and plateau, there was no stimulation to speak of, frankly less than almost any other psychedelic.
+During the peak and plateau, there was no stimulation to speak of, frankly less than almost any other psychedelic.
+I didn’t find DOM or DOC to be all that stimulating, but this experience was marked by comfort. I spent a lot of it wrapped in a blanket to stave off the chill while cuddling with a cat in a sunbeam, watching the clouds pass in the sky.
+I do think this would be interesting to try at a higher dose. I’m not sure if this drug is my cup of tea now that I see it as having a bot of a detached, hynagogic, emotionally distant and artificially comfortable character to it. That said, I would appreciate that artificial comfort, dream distance, and transparent ease in the body if I were to take something this long. I have no interest in things like DOB, because I’m sure I would be left a total wreck afterwards. Now that I know that a good chunk of the duration is just empty nothing at 2.5mg, I am less anxious about the intensity of the extended plateau–it might actually be pretty manageable and rewarding. I could see this being really full, rich, deep, and special (and probably loads more visual) at a higher dosage (somewhere between 3-5mg.) I just don’t know if I want to listen to what it wants to tell me. I’m not big on dissociatives because I don’t want to have to try to piece reality back together after being told a bunch of believeable sweet little lies. Things like EPT might be nice in moderation, but DOPr is not exactly…moderate.
+It’s nice stuff, but I’m witholding judgment on it. I hope it opens itself up at a higher dose, but I’m not in a hurry to find out. I think that I had enough of a taste to get a good feel for it, especially now that I see that there are plenty of other flesh sacks that responded the same way when introduced to DOPr.
+Exp Year: 2020
+ExpID: 115040
+Gender: Male
+Age at time of experience: Not Given
+Published: Jan 5, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOPR (691) : General (1), Sex Discussion (14), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

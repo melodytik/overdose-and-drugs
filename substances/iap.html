@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>IAP</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>IAP</h1>
+<div class='sub-title'>IAP</div>
+<div class='meta'>药理类别：综合 · 未指明</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 低</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>状态不明或属研究化学品，缺乏系统安全性数据，需个案查询最新管制目录。Erowid 上收录 16 篇体验报告（本页已译部分）。常见给药途径：口服。报告中出现的剂量：50 mg、25 mg、45 mg、20 mg、200 mg。报告类型分布：IAP(9)、Combinations(4)、First Times(3)。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（16 篇）</h2>
+<div class='item'><h3><a href='../reports/27688.html'>国际投资计划 - 埃罗维德 期货 - &quot;国际投资计划的运行总结&quot;</a></h3><div class='meta'>Oct 26, 2003</div><div class='ov'>总的来说,效果似乎持续10-12小时.</div></div>
+<div class='item'><h3><a href='../reports/27171.html'>艾洛伊德的经历 - &quot;绝对不是MDMA&quot;</a></h3><div class='meta'>Oct 17, 2003</div><div class='ov'>首先,我想坦率地说 - - 在我看来,这种物质与MDMA截然不同. 我第一次参加时速赛跑, 这是一个严重的错误... 下一个站 - 失望. 我读了一些关于IAP的评论,一些经验报告,以及一篇关于实验的论文, 我认为这篇论…</div></div>
+<div class='item'><h3><a href='../reports/25477.html'>酒精和大麻 - 埃罗伊德的经验 - &#x27;令人惊但长&#x27;</a></h3><div class='meta'>Jul 21, 2003 · 剂量 25 mg</div><div class='ov'>上午3点47分 刚刚服用了大约25毫克的内脏抗胰岛素. 上午4点12分 得到相当好的头部高兴感. 不是真正的快速,但高兴. 鼻子 感觉有些刺痛. 音乐的高兴. 我不知道它会如何影响我的DXM旅行, 似乎增加了对话的流动,…</div></div>
+<div class='item'><h3><a href='../reports/37779.html'>IAP和2C-I - 埃洛伊德的使用 - &quot;奥卡拉混合1&quot;.</a></h3><div class='meta'>Oct 28, 2004 · 剂量 45 mg</div><div class='ov'>我和两个朋友进行了一次实验. 如果我们摄入正常数量的IAP, 然后逐渐减少2cI的剂量, 这样我们可以保持剂量小, 他们仍然会充足的活跃. 时间大约是晚上8点半, 我的囊被撕裂和破坏. 我很快就开始感觉到, 头几个小时很…</div></div>
+<div class='item'><h3><a href='../reports/32814.html'>IAP - Erowid Exp - &quot;超级抗抑郁药&quot;</a></h3><div class='meta'>Mar 19, 2006 · 剂量 50 mg</div><div class='ov'>让我渴望通过化学物质获得快乐. 现在, 我记得那个小袋子的IAP我已经获得了一些时间以前,但的做. 我很快在网上阅读了很多关于IAP,剂量,时间表等信息, 我在我的天平上切了一条50毫克的线 (我的天平无用) 并继续吸入…</div></div>
+<div class='item'><h3><a href='../reports/29239.html'>IAP - Erowid Exp - &#x27;令人愉快,不值得重复&#x27;</a></h3><div class='meta'>Dec 15, 2003</div><div class='ov'>但不能用作MDMA的替代品, 也不值得重复.</div></div>
+<div class='item'><h3><a href='../reports/24668.html'>IAP - 埃罗伊德 Exp - &quot;好人先生&quot;</a></h3><div class='meta'>Jul 10, 2003 · 剂量 50 mg</div><div class='ov'>总的来说,我不得不把IAP列为我做过的最好的药物之一,</div></div>
+<div class='item'><h3><a href='../reports/28260.html'>&quot;阅读和看电视变得更加吸引人&quot;</a></h3><div class='meta'>Dec 15, 2003 · 剂量 20 mg</div><div class='ov'>这可能是值得探索的IAP/.</div></div>
+<div class='item'><h3><a href='../reports/51405.html'>IAP - Erowid Exp - &quot;轻微的社会滑效应&quot;</a></h3><div class='meta'>Mar 27, 2006</div><div class='ov'>我刚刚花了最后一个小时快乐地阅读一篇科学文章. 到目前为止,</div></div>
+<div class='item'><h3><a href='../reports/28232.html'>美国药物局和大麻 - 埃罗维德的经验 - &quot;绝对是独一无二的物质&quot;</a></h3><div class='meta'>Dec 15, 2003</div><div class='ov'>我预计鼻腔通道是相当有效的, 但不建议开始过高的剂量,</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 16 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

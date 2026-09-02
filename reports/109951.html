@@ -1,0 +1,286 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - &quot;在集体无意识博物馆&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mushrooms-p-cubensis.html'>← 裸盖菇(古巴光盖伞)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - &quot;在集体无意识博物馆&quot;</h1>
+<div class='sub-title'>Mushrooms - P. cubensis - Erowid Exp - &#x27;At the Museum of the Collective Unconscious&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：May 10, 2020 · 剂量：5 g · <a href='https://erowid.org/experiences/exp.php?ID=109951' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>医生
+汉斯卡尔·莱努纳是20世纪德国心理学治疗的先驱,他区分了精神分裂 (思维溶解) 和精神分裂 (思维表现) 的经验.
+这两种精神状态都是由幻觉性物质产生的, 它们之间的关键区别在于剂量.
+低剂量和中剂量的幻觉剂会产生精神变化体验,
+此外,在精神分析体验中,受试者与外部世界接触,与注意力向内转移时的迷幻状态形成鲜明对比.
+我有五到八次精神过敏的经历 - - 两次LSD和几次旅行,
+我对幻觉剂的实验大多是在朋友们的狂欢节上进行的,
+我也曾经用过十几次的MDMA,
+随着我对幻觉剂的经验不断增长, 我对高剂量和精神幻觉的好奇心也越来越大.
+我是个谨慎的吸毒者,
+现在的时机似乎是正确的, 因为最近的生活很棒,
+是时候面对宇宙了.
+我非常尊重迷幻药, 因此我做了大量的研究,
+我做了大量的研究,
+经过一些辩论, 我决定遵循约翰霍普金斯医院开发的西治疗方案,
+我是一个神经科学家和一个怀疑论者,
+在约翰·霍普金斯医院的诊断中, 被试服用30毫克的psilocybin, 相当于大约5克干的Psilocybe cubensis,
+这种环境催化了对体验本身的内心旅程.
+这次旅行的目的并不是为了治愈创伤,
+而是出于纯粹的科学好奇心, 想让我内心的怀疑者体验神秘.
+我有一个很好的朋友, 他是一位经验丰富的心理辅导员,
+我没有想到会有什么问题,
+故事发生在一个乡下朋友的家里.
+为了熟悉这所房子, 我和我的导游在前一天晚上住在这里.
+幸运的是有一个超级漂亮的床和凉爽的壁炉在客厅的中间, 完美的设置!
+晚上我们聊了好些关于生活的事,
+我吃了, 在早上10点左右.
+我把眼罩戴上,躺在沙发上,开启音乐,等待旅程开始.
+我感到不安,有点焦虑,
+视觉效果很快出现,大约20分钟后, 我开始看到多彩的线条组织成非形象和几何形状.
+视觉变得更加复杂, 线条和网格开始变成面孔,
+视觉是生动的, 但也感觉微弱与黑暗的背景在同一时间.
+身体的负荷也很高, 整个身体紧张, 肌肉.
+旅行的强度迅速增加, 我知道我在骑.
+我内心的声音试图对正在发生的事情发表评论.
+然而,这种评论很快就消失了,因为它无法跟上&quot;经验的速度&quot;.
+很快我的大脑就开始用&quot;纯粹的思想&quot;和感觉来构思这些视觉, 而不是用文字或其他语言构造.
+如果这听起来很奇怪,
+我的大脑已经开始用&quot;纯粹的思想&quot;和感觉来构思这些视觉, 而不是用文字或其他语言构造.
+如果这听起来很奇怪,
+但不是以一种不舒服的方式.
+我很快就忘记了最初的紧张感,
+我还记得阿兹特克人的&quot;摩天大楼城市&quot;,
+这里也有非常强烈的实体存在的感觉.
+我记得当时我在想,或者感觉到, 也许是我,
+经历了大约2个小时, 我问导游喝茶,
+我坐在沙发的边缘附近, 我感觉到火的温暖在我的脸上 - - 沙发是火炉旁边的木头燃烧,当突然我的导游把热杯茶放在我的手.
+感觉就像一个陌生人在深夜帮助我,
+我对他感到感激.
+坐在火旁休息的感觉一直伴随着我.
+我发现身体负荷已经减轻,
+看到强度不会再升高,
+音乐对这次旅行产生了巨大的影响,
+我听到的配乐是由一位音乐家朋友为此而编制的.
+这是一个不寻常的自然记录,钢琴,小提琴,唱歌,合唱和民间音乐的混合.
+这不是一组曲目, 而是一个不断变化的环境&quot;音景&quot;.
+每次音乐变化, 我的心情,感受和视觉也会变化.
+每次我创作音乐, 我都会体验到不同类型的情感:悲伤,爱,失去,感激等等.
+我感觉到我正在经历的是来自一个普遍共享的记忆和经验的池.
+感觉就像在&quot;集体无意识博物馆&quot;的展览中.
+我与所有过去,现在和未来的生物有着强烈的团结感,
+我从个人角度体验了众所周知的精神洞察力,
+我从博物馆爬上山顶, 只是看了一小部分的藏品.
+我感到很荣幸能在那里.
+这是一件宏伟的事.
+我注意到博物馆可能是永恒的,
+吃后大约4个小时,
+吃后大约4个小时,
+视觉转变变慢了, 我能够再次表达我的想法.
+我意识到我在一天的强度是多么疲,它感觉很好只是躺在沙发上,听音乐.
+我开始想起过去和现在的回忆.
+这种经历变得非常传记,
+我主要想的是我如何遇到我的妻子.
+我意识到,当我的女儿长大了,
+不知道为什么,但我真的希望她知道.
+我意识到我几乎不知道我的父母是如何相遇的.
+我很想知道更多关于他们作为年轻人的爱情.
+我答应自己会问他们.
+那些温暖的想法和感受充满了我的身体.
+虽然这并不是经历中最令人丧的时刻,
+我认为高峰期之后的治疗潜力最大.
+我还处于迷幻状态, 自我也被打破了, 但强度已经降低到我可以表达我的想法,
+我把眼罩脱下,坐在火旁, 看着家人的照片.
+感觉这段旅程的结局很合适.
+我还有一些轻微的后果, 但我们带着我的导游走到附近的树林里, 谈论我经历了什么.
+最终的时间.
+在结束之前,我想谈谈如何应对这次旅行的强度.
+基于这次旅行的有限经验, 我相信最好的方式来应对压倒性的激烈时刻是&quot;坚持这次旅行&quot;,
+如果一个人坚持经历,新的感觉很快就会压倒一个人,
+另一方面,如果一个人以强度行事, 他就会意识到有些东西是错的,
+然后一个会.
+我不确定&quot;坚持旅程&quot;的座右铭是否适用于所有人,
+精神幻觉体验的一个关键组成部分是它们的不可言喻性,
+我对这次旅行的记忆不完整,
+心理药物改变了我们对日常现实的一些基本要素的看法,
+我遵循的约翰霍普金斯疗法旨在增加健康和产生精神体验,
+旅行并没有让我成为素食主义者或开始冥想.
+更多的同情心, 减少对不该担心的事情的担忧.
+我觉得自从那时起, 感觉更轻松, 更轻松 - - 这种品质, 对于我分析性的人来说, 确实很有用处!
+我写这句话时, 旅行仅仅两周,
+我完全同意莱纳对心理和迷幻体验的区分.
+剂量无疑是关键因素, 但可能更重要的是, 没有不断地受到外部刺激的轰炸 (比如你在音乐节和和朋友一起旅行) 时,
+这种方式可以充分关注经验,
+我也喜欢过精神分裂的经历,
+征服本尼维斯山和珠穆朗玛峰既有乐趣和意义,
+总而言之,我对我的工作非常满意
+尤其是考虑到
+我已经投入了大量的时间和精力.
+通过
+我完全专注于这次旅行,
+结果是个人的和有意义的经验, 我可以使用作为资源后我的
+让我们回归共识的现实.
+已使用的证券
+发布时间:2020年5月10日
+- P. cubensis (66):发光体验 (4),神秘体验 (9),音乐讨论 (22),导游/保姆 (39),治疗意图或结果 (49),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+At the Museum of the Collective Unconscious
+Mushrooms - P. cubensis
+by
+steak307
+Citation:   steak307. &quot;At the Museum of the Collective Unconscious: An Experience with Mushrooms - P. cubensis (exp109951)&quot;.
+Erowid.org
+. May 10, 2020. erowid.org/exp/109951
+DOSE:
+5 g
+oral
+Mushrooms - P. cubensis
+(dried)
+BODY WEIGHT:
+80 kg
+Dr. Hanscarl Leuner, the XXth century German pioneer of psychedelic therapies, distinguished between psycholytic (‘mind-dissolving’) and psychedelic (‘mind-manifesting’) experiences. Both mental states are produced by hallucinogenic substances, the key difference between them is the dose. Low and medium doses of hallucinogens produce psycholytic experiences, while the full-fledged psychedelic state occurs on high doses. Additionally, during psycholytic experiences the subject is engaged with the outside world, in contrast with the psychedelic state when attention is directed inwards.
+Using Leuner’s distinction I have 5-8 psycholytic experiences under my belt - two LSD and a handful of shroom trips -, but no true psychedelic experience. For the most part my experiments with hallucinogens took place at trance festivals with friends, where the setting promoted fun experiences, not inner voyages. I have also done MDMA about a dozen times, but I do not consider that to be a psychedelic.
+As my experience with hallucinogens grew, so did my curiosity about high doses and THE psychedelic state of mind. I am a cautious drug user and only recently I have started to feel the confidence to go for a high dose. The timing felt right, because life has been great recently, most importantly my wonderful daughter was born a few months ago. It was time to meet the Universe one-on-one.
+I have a high respect for psychedelics, therefore I did a good amount of research how to go about my first heavy dose.
+I did a good amount of research how to go about my first heavy dose.
+After some debate I decided to follow the psilocybin protocol developed at Johns Hopkins hospital to produce spiritual peak experiences. I am a neuroscientist and a skeptic, hence a scientific protocol has much more appeal to me than a spiritual or shamanistic ritual. In the Johns Hopkins protocol the subject takes 30mg of psilocybin, that is roughly equivalent to 5g of dried Psilocybe cubensis mushroom, and then listens to a musical program while lying on a couch with eyeshades. This setting catalyses an inner journey focused on the experience itself. As for the purpose of the trip, it was not to heal trauma, ‘find myself’ or anything like that. Rather the motivation was pure scientific curiosity and the desire to expose my inner skeptic to a mystical experience.
+I have a good friend who is an experienced psy-helper and I asked him to be there as a sober guide. I did not expect anything to go wrong, but I knew his presence would give me an extra peace of mind. The setting was at friend’s house out in the countryside. With my guide we stayed there the night before to get acquainted with the house. Luckily there was a super nice tripping couch and cool fireplace in the middle of the living room, perfect setting! In the evening we had a good chat about life and went to bed early. The next morning I had a light breakfast and took the mushroom around 10:00 in the morning.
+As soon as I finished the shrooms, I put on the eyeshade, laid down on the couch, started the music and waited for the trip to begin. I felt uneasy and a bit anxious at this point, like before an important exam, hoping it will all go well. The first visuals arrived quickly, in about 20 mins, I started to see colorful filaments organizing themselves into non-figurative and geometric shapes. The visions got more complex rapidly, the lines and grids started to morph into faces and Mandelbrot set like objects. The visuals were vivid, yet also felt faint against the dark background at the same time. The body load was high during the come up as well, my entire body was tense, my muscles were flexing. The intensity of trip was increasing swiftly, I knew I was in for a ride.
+At this stage a narrative was still present in my mind, my inner voice tried to comment on what is happening. However this commentary was quickly fading, because it could not keep up with the ‘speed of the experience’. Soon my brain has started to conceptualise the visions with ‘pure thoughts’ and feelings rather than words or other language constructs. If it sounds strange that’s because it was strange,
+my brain has started to conceptualise the visions with ‘pure thoughts’ and feelings rather than words or other language constructs. If it sounds strange that’s because it was strange,
+but not in an uncomfortable manner.
+The initial nervousness quickly disappeared or rather I forgot about it as my mind was too occupied with the visual patterns the mushroom presented. One outstanding visual I can recall was an Aztec ‘skyscraper city’ that felt 1/2/3/4 dimensional at the same time. Here there was also a very strong feeling of the presence of entities. I remember thinking, or rather feeling, that maybe it is me who is the entity visiting the trip of another being.
+Roughly 2 hours into the experience I asked my guide for a tea, so I sat up, but kept the eyeshades and the headphone on. As I was sitting near the edge of the sofa I felt the warmth of the fire on my face - the couch was was next to the fireplace where wood was burning -, when suddenly my guide put the hot cup of tea into my hands. It felt like a stranger just helped me in the middle of the night while I am journeying across a prehistoric winter landscape. I felt grateful to him. This feeling of being a wanderer, resting next to a campfire stayed with me as long as I was sitting. While I was sipping my tea I have noticed that the body load diminished and I am near peak. It was reassuring to notice that the intensity is not going to escalate much more.
+The music had a huge impact on the trip as it was my only external stimulation. The soundtrack I was listening to was put together by a musician friend for this purpose. It is an unusual mixture of nature recordings, piano, violin, singing, choir and folk music. It&#x27;s not a set of tracks, rather it is a continuously morphing ambient ‘soundscape’.
+Every time the music was changing so did my mood, feelings and visions. With each new composition of the music I experienced a different archetype of an emotion: sadness, love, loss, gratitude, etc. I sensed as if what I am experiencing is coming from a universally shared pool of memories and experiences. It felt like I am seeing an exhibition at the ‘Museum of the Collective Unconscious’. I had a strong sense of unity with all past, present and future beings who deposited the content of their minds to the collective unconscious. For this timeless moment in the Museum I experienced from a personal perspective the well known spiritual insight that all is one. For most of the peak I was ascending through the Museum, having a look at a small fraction of its vast collection. I felt honored to be there. It was majestic.
+At some point I have noticed that the Museum might be timeless, but my stay there won&#x27;t be. Roughly 4 hours after eating the shrooms I felt that I am past peak.
+Roughly 4 hours after eating the shrooms I felt that I am past peak.
+I was still tripping, but my body has calmed down, the vision morphing got slower and I was able to verbalise my thoughts again. I realised how exhausted I am from the intensity of the day, it felt real good just lying still on the couch, listening to the music.
+Old and recent memories have started flooding my mind. The experience became very biographical, like watching a movie of my life. I was thinking mostly about how I have met my wife. I realised that when my daughter is going to be old enough I would like to tell her the story of how I have fallen in love with her mother. Not sure why, but I would really like her to know. As I was daydreaming about this I realised that I barely know anything about how my parents met. I would be curious to know more about them as young people in love. I promised myself that I will ask them about it.
+These sort of warm thoughts and feelings have filled my body. This was not the trippiest episode of the experience, but probably the merriest. Retrospectively I think this after the peak period has the most therapeutic potential. At this stage I was still in a psychedelic state with a broken ego, but the intensity has decreased to a level that I could verbalise my thoughts and relate the experience to my life.
+Near the end of the trip, while the music was still playing, I took off the eyeshades, sat next to the fire and started to look at family photos. Felt like a fitting end to this journey. About 6.5 hours after ingestion I still had some minor effects, but we took a walk with my guide to the nearby woods to talk about what I have been through. The End.
+Before concluding I would like to make a comment about handling the intensity of the trip. Based on the limited experience of this one trip, I am convinced that the best way to deal with overwhelmingly intense moments is to ‘stay with the trip’, do not try to escape. At such a high dose the trip changes rapidly, hence if one stays with the experience, new feelings will overwhelm one soon and quickly forget what was bothersome. On the other hand if one acts on the intensity one acknowledges something is off and this puts one into a ‘am I going to have a bad trip?’ mindset. And then one will. I am not sure if the motto ‘stay with the trip’ works universally, but it worked great for me.
+One key component of psychedelic experiences is their ineffability, hence do not take the descriptions of my visions and experiences too literally. My memory of the trip is incomplete and even the bits I can remember are feelings and intuitions, not words. The whole point of psychedelics is that they change how we perceive some fundamental elements of everyday reality, like time and the self, hence language is of limited use to describe what is going on.
+The John Hopkins protocol I followed was designed to increase well being and to produce spiritual experiences, so did that happen? Well, the trip did not turn me into a vegan or motivated me to start meditating. What I feel though is a better appreciation of the little things, more empathy and getting less worried about things that I should not worry about. I feel more at ease and lighter since - qualities that my analytic personality can certainly use! As I am writing this sentence, only two weeks has passed since the trip, so not sure if these effects will be long lasting.
+To return to the first paragraph of this writing, I completely agree with Leuner’s distinction of psycholytic and psychedelic experiences. The dose is certainly a key component, but maybe even more importantly it is different to trip without constantly being bombarded with external stimuli (like when you are at a music festival and tripping with friends). This way full attention is given to the experience and as a result it is much more intense, personal and meaningful.  Do not get me wrong, I am still fond of psycholytic experiences as well, already looking forward to my next one. There can be pleasure and meaning in conquering both Ben Nevis and Mount Everest, but no question that climbing these two mountains is a very different experience.
+In summary, I am very pleased with my
+inner journey, especially given the
+time and the effort I put into the preparation. By giving
+my full attention to the trip,
+the result was a personal and meaningful experience that I can use as a resource after my
+return to consensual reality.
+Exp Year: 2017
+ExpID: 109951
+Gender: Male
+Age at time of experience: 29
+Published: May 10, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms - P. cubensis (66) : Glowing Experiences (4), Mystical Experiences (9), Music Discussion (22), Guides / Sitters (39), Therapeutic Intent or Outcome (49), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

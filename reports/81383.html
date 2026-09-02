@@ -1,0 +1,327 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>布鲁格曼西亚 (达图拉树) - 埃罗伊德 Exp - &quot;被女神所占有&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/brugmansia.html'>← 木本曼陀罗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>布鲁格曼西亚 (达图拉树) - 埃罗伊德 Exp - &quot;被女神所占有&quot;</h1>
+<div class='sub-title'>Brugmansia (Tree Datura) - Erowid Exp - &#x27;Possessed by the Goddess&#x27;</div>
+<div class='meta'>作者：the Goddess&#x27; Follow · 日期：Jul 15, 2010 · <a href='https://erowid.org/experiences/exp.php?ID=81383' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我开始寻找这种植物. 现在,我知道,
+经过几个月的搜索, 我终于找到了一棵布鲁格曼西亚树.
+我第一次测试是用一半大的双白花.
+我用花泡在热水中30分钟, 出植物材料, 添加蜂蜜和.
+我经历了轻微而愉快的效果.
+我觉得自己很轻,很浮动,充满活力,
+我非常喜欢我的测试茶, 我决定尽快做一个大剂量.
+我发现了另一棵树, 也是布鲁格曼西亚,
+我带了大约6或7朵花进行实验, 以及一些叶子.
+我现在只能嘲笑自己的愚蠢......知道我以为在去俱乐部的路上喝达图拉茶会很有趣.
+这真是太棒了!
+我最好的朋友亚历克斯,我自己,还有三位朋友那天晚上要去俱乐部.
+我觉得这会很有趣, 像我一样, 不知道发生了什么事.
+我选择了三朵花和两个小叶子作为茶.
+我知道的太少了.
+这似乎是一个相当安全的剂量.
+其中一朵花还在芽, 非常绿和新鲜.
+我把所有的植物材料切碎, 煮了30分钟, 然后让它一小时.
+我把鲜花出来,加上糖和汁,最终得到了大约8司的茶.
+亚历克斯在晚上8点接我, 我在10分钟内喝完8司的茶.
+茶很好吃, 我对这次体验感到兴奋,
+晚上8点半, 我们与其他三个朋友在他们的家附近的咖啡馆见面,
+我越来越高.
+我走出车来问候我的朋友, 我觉得我在地面上两英尺.
+亚历克斯说我的瞳孔很大,
+我在路上跌倒,行走也很困难.
+我开始有点担心,
+这不是不愉快的, 但它的不可预测性开始让我害怕.
+然后是口干...,可怕的口干.
+我的嘴唇粘在牙上,我几乎不能说话,这太糟糕了.
+亚历克斯带我去一家咖啡店喝一杯水.
+我倒进来,看起来更醉了,笑着,变得更疯狂了.
+我们都坐上车,开车去洛杉矶.
+我喝了一口水,没有什么好处,我开始感到恶心,
+我觉得自己要吐了,我试着把窗户倒下,但我的手似乎不起作用.
+我听到人们问我问题, 但当我试图回答一堆低沉的胡说八道,
+然后我吐.
+我穿的衣服都被涂抹了.
+幸运的是只有花茶和水... 但现在车上的每个人都很丧和担心.
+亚历克斯一直问我是否可以去俱乐部, 我认为我试着说&#x27;是&#x27;在一开始,
+在梦中的谈话中眼.
+很多人试图安慰我,告诉我一切都好,不要担心等.
+但我觉得我着疯狂的大眼睛和胡说八道.
+所以,亚历克斯,作为一个好朋友,让每个人都转身,虽然我们几乎在洛杉矶,
+如果我真的能到达俱乐部或任何公共场所,
+我不记得很多回车.
+我主要记得我试图说话,
+我觉得这次旅行对我来说可能是非常愉快的,
+没有人问过我的问题.
+接下来我记得我们跟其他朋友说再见,
+亚历克斯把我带到后座,
+从此开始,事情变得非常奇怪.
+我躺在后座,他试图带我回家, 整段时间都在打电话给朋友和家人, 想知道他是否需要带我去医院,
+他后来告诉我我以为我是在和我的男朋友说话,
+我记得我坐在后座上, 疯狂地每隔几分钟就翻查我的钱包, 寻找我的香烟.
+他一直告诉我睡觉,我会听一会儿,然后回来.
+他说我在整个车程里都在着, 我也试图打开门几次.
+我还记得有时会感到不舒服的身体疼痛,
+我很好奇, 很容易被迷住...... 虽然没有记忆是令人丧的.
+他会试图和我说话,
+他告诉我我一直在说, &#x27;这是一个新的服装亚历克斯?
+我真的很喜欢它!&quot;一遍又一遍,即使他没有穿任何我没有看到几次之前.
+我们回到了我家.
+他把我从后座拉出来,我几乎不能走到门口.
+我被吐茶覆盖, 抱怨自己很冷.
+他报告说当他试图让我跟随他时, 我变得非常好斗,
+他试图让我清醒,然后带我进去... 当然这并没有发生.
+我假装阅读报纸,把它倒置,
+他试图和我说话看看我有多连贯, 我似乎知道他是谁,我是谁,
+他决定把我带进去.
+他用我的钥匙试图打开门.
+我记得他一直问我如何解锁, 试图让我帮助他,
+我开始笑, 完全没有疼痛,
+我在第二天头上有一块和一些伤, 但没有疼痛或严重的伤害.
+他终于打开了门,让我进来.
+我一直撞到家具,墙壁,摔倒,
+我认为我可以在家人面前喝醉,
+我认为我表现得相当清醒, 但显然这不是其他人看到的.
+倒到我的卧室是我记得那天晚上最后一件事.
+我第二天早上9点左右醒来,
+我仍然不确定是谁给我穿衣服,
+我觉得奇怪的清新和清醒, 但与扭曲的视力和奇怪的...轻度....或混乱我,
+亚历克斯给我打电话说,&#x27;你知道昨晚发生了什么吗?&#x27;
+很奇怪的是我醒来时失忆,
+亚历克斯报告说我似乎已经完全疯了, 他担心我很重病.
+他说我的眼睛会得到这个可怕的空白的表情, 我可以着他,
+他还抱怨我尿在后座!
+! 没有!
+我不记得,但知道更多关于达图拉这并不让我感到惊.
+亚历克斯告诉我,一旦我们进入我的房子他必须向我父亲解释我有什么问题.
+他们试图让我躲在母亲面前, 把我关在房间里, 说我在里面和亚历克斯聊天.
+我父亲从来没有听说过这种植物,
+在那之后,亚历克斯把我交给了我父亲照顾,
+我还记得那天晚上的一些失落的记忆,
+我记得在家里,打开冰箱的门, 看到里面充满了冰冷可乐.
+我认为我和我说过话, 但我不确定这是真的.
+我爸爸说我看起来像一个正在经历DTs的酒者,
+我记得有一次我打开浴和水槽,
+第二天早上我打开浴室的柜, 发现一堆我的内衣和被塞进去.
+我还记得我在镜子里看着自己, 疯狂地笑着着我那大眼睛,
+我永远不会忘记我眼中的表情, 这真的不是我,
+虽然我真的希望我能更多地了解我在妄想期间所经历的事情.
+遗憾的是,我没有准备好我的旅行.
+我希望有一位指导者能看着我,帮助我在旅途中,
+无论如何,第二天我去上班,感觉很好,但整天很奇怪.
+我感觉到一种奇怪的力量和兴奋,
+我不认为我有死亡的危险过多的毒药, 虽然我确实认为剂量太大.
+我也试图跳出一辆正在行驶的汽车, 却不知道自己在做什么.
+虽然像许多其他人一样, 我不认为我会完全恢复到我婚前的状态.
+我在旅行后的一周内,
+我感到非常丧,担心我可能无法完全康复.
+我的精神能力似乎已经回来了.
+两天后我的视力恢复正常.
+之后我变得比以往任何时候都更自由.
+经历了多年的焦虑和抑郁症 (用Prozak治疗), 我觉得真正体验这种妄想状态,
+旅行后我也变得更强大,
+我和男朋友经历了艰难的时刻, 在旅行结束后,
+在那次旅行之后, 我对女神达图拉的痴迷变得更加强烈.
+我的梦想充满了她,比以往任何时候都更加生动和真实.
+我经常觉得无法在梦中求助, 因为没有声音.
+我在梦中说话比以往任何时候都多, 但在梦中我不再沉默,
+有时很难区分什么是梦,什么是真实的,
+我从那时起就尝试使用达图拉,特别是吉姆森草,
+我吃了20粒种子, 造成了不舒服的重身,
+20种种子是个不错的剂量, 因为我只经历了一段较短的时间的中度妄想效应.
+我在吃完种子30分钟后就开始变得和怪异, 躺在床上,
+我觉得后续效果有点像,
+我更喜欢后果, 而不是旅行本身,
+后来我又做了另一种茶, 这次用一朵花和一片叶子.
+我只喝了一半杯子之前奇怪的恐惧和痛苦的身体高设置.
+后来我睡着了, 没有幻觉,
+然而,目前我不再喝茶和其他消耗方法, 因为这种力量对我的身体来说太强大了.
+我正在尝试第二瓶飞行膏, 衣草油,碎花叶,花和种子,
+产生兴奋,动和那种&quot;达图拉&quot;的怪异感.
+现在,我只试验很小剂量的达图拉.
+我希望有一天能再次体验完整的妄想,
+我已经尽可能地研究了这种植物的各个方面, 历史,科学和神话都很有趣,
+我看到很多关于达图拉的坏话和恐惧, 但我猜我是为数不多的爱上她的人之一...我喜欢她的气味,花朵,美丽,力量,醉酒......她的灵魂是梦境的灵魂,
+我相信如果她打电话给你, 你可能无法抗拒.
+对于我来说,做达图拉就像被她所占有.
+对于任何想尝试的人, 我唯一的建议是, 尊重她,
+爱她,也许她会赋予你她的力量, 虐待她,她可能会杀了你.
+开始用非常小的剂量, 在跳进之前, 工作你的方式到不同的水平...
+已使用的证券
+布鲁格曼西亚 (84):回顾 / 总结 (11),困难的经历 (5),过量服用 (29),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Possessed by the Goddess
+Brugmansia (Tree Datura)
+by
+Delight
+Citation:   Delight. &quot;Possessed by the Goddess: An Experience with Brugmansia (Tree Datura) (exp81383)&quot;.
+Erowid.org
+. Jul 15, 2010. erowid.org/exp/81383
+DOSE:
+3 flowers
+oral
+Brugmansia
+(tea)
+2 leaves
+oral
+Brugmansia
+(tea)
+BODY WEIGHT:
+110 lb
+After my boyfriend told me about his long ago datura trip and the mystical spiky seed pods I began my own search for the plant. I did a decent amount of research in the beginning (hardly enough), and after several months of searching finally located a brugmansia tree. My first test was with half of a large double white flower.
+I made a test tea out of the flower by steeping the flower in hot water for 30 minutes, straining out the plant material, and adding honey and lemon to taste. I experienced mild and mostly enjoyable effects. I felt light and floaty, I had a lot of energy and my thoughts seemed to be moving all around, for lack of a better description, plus dry mouth.
+I enjoyed my test tea so much, that I decided to do a larger dose as soon as I could. A few weeks past before I found another tree, also brugmansia, but of the yellow/golden and single flower variety. I took about 6 or 7 flowers to experiment with, as well as a few leaves.
+Although I was reasonably experienced with drugs (regular cannabis smoker, lover of MDMA, pursuer of magic mushrooms and dabbler in acid...not to mention a taste for the opiate family), I really underestimated the power of the moonflower.
+I can only laugh at my own stupidity now....knowing that I thought it would be &#x27;fun&#x27; to drink datura tea on my way to a club. Yikes!
+My best friend Alex, myself, and three other friends were going clubbing that evening. Everyone else in the party was going to get drunk and I thought it would be fun to be delirious...My besty Alex barely knew what Datura was, and like I, was not expecting what happened.
+That evening, I choose three flowers and two small leaves for my tea. WAY way too much, little did I know. It seemed like a reasonably safe dose. One of the flowers was still budding, very green and fresh. I chopped all the plant material up and boiled it for 30 minutes, then let it sit for about an hour. I strained out the flowers, added sugar and lemon juice and ended up with about 8 oz. of tea.
+Alex picked me up at 8 pm and I drank the entire 8 oz. of tea within 10 minutes. The tea was tasty and I felt excited about the experience, expecting something more like acid or mushrooms.....hehe, silly girl I was....
+8:30 pm, we meet up with our other three friends at a coffee shop near their homes so we can all ride down to LA in one car. I am getting higher and higher by the minute. I step out of the car to greet my friends and I feel like I&#x27;m two feet above the ground.
+Alex comments that my pupils are huge and I seem very high. I&#x27;m stumbling around and having trouble walking. I begin to grow slightly concerned, never having felt this disorientated or strange before on anything. It&#x27;s not unpleasant, but the unpredictability of it starts to frighten me.
+Then the dry mouth....oh, the horrible dry mouth. My lips were sticking to my gums and I could barely talk it was so bad. Alex takes me into a coffee shop to get a glass of water. I stumble in, looking drunker, laughing, and becoming more out of it.
+We all get in the car and start to drive down to LA. I sip my water, it&#x27;s not helping and I begin to feel nauseated but I keep drinking. I think I&#x27;m going to vomit and I try to roll down the window but my hand won&#x27;t seem to work. I feel almost like I&#x27;m underwater, and I hear people asking me questions but when I try to answer a bunch of low mumbled nonsense comes out, and I&#x27;m started to get frightened.
+Then I puke. All over my clothes. Thankfully it was just flower tea and water...but now everyone in the car is upset and worried. Alex keeps asking me if I can go to club and I think I try to say &#x27;yes&#x27; at first, but then admit that &#x27;no, I can&#x27;t &#x27;....and I&#x27;m beginning to loose moments of consciousness. Blinking in and out of dream conversations. I&#x27;m afraid because I know the people in the car are unhappy....many of them try to comfort me and tell me it&#x27;s fine, don&#x27;t worry, etc. But I feel I&#x27;m staring with crazy wide eyes and babbling nonsenses.
+So, Alex, being a good friend, has everyone turn around, although we are nearly in LA, and drive back so he can take care of me. I&#x27;m sure I would have been arrested or taken to the hospital had I actually made it to the club or any public place.
+I don&#x27;t remember much of the drive back. I mostly remember trying to talk and not being able to speak up and feeling confused and worried. I feel that the trip could have been immensely enjoyable for me, had I done in an appropriate setting, but with a bunch of anxious friends who know nothing about datura, it was pretty stressful, mostly because everyone seemed quite upset at me! (Not that I blame them...I did puke all over and kept trying to answer questions that no one had asked).
+Anyway, next thing I remember is saying goodbye to our other friends as they got into their own cars and headed down to the club. Alex ushered me into the backseat and told me to sleep. Things got pretty weird from this point on. I&#x27;m laying in the backseat while he tries to drive me home, the whole time making phone calls to friends and family trying to figure out if he needs to take me to the hospital or what, I&#x27;m totally unaware that he&#x27;s on the phone because I&#x27;m busy having conversations of my own. He later told me I thought I was talking to my boyfriend and at one point he said I seemed to think I was conversing with the gods.
+I remember sitting up frantically in the backseat and searching through my purse every few minutes, looking for my cigarettes. He kept telling me to sleep and I would listen for a bit, then get back up. He says that I mumbled to myself the entire drive, that I tried to open the door several times as well. I also remember the uncomfortable bodily pain and whimpering in fear at some points, mostly in the onset of the trip.
+However, I also remember feeling like a child, everything was new for the first time, I was curious and easily fascinated....it was frustrating to have no memory though. He would try to talk to me and mid sentence I would stop and completely forget what was going on. He told me that I kept saying, &#x27;Is that a new outfit Alex? I really like it!&#x27; over and over, even though he wasn&#x27;t wearing anything I hadn&#x27;t seen several times before.
+At what I believe to be about 10:30 pm we arrive back at my house. He pulls me out of the backseat and I can barely walk up to my door. I&#x27;m covered in vomit tea and complaining that I&#x27;m very cold. He reports that I got very belligerent when he tried to get me to follow him and that at one point I shouted obscenities at him....although I don&#x27;t recall that part.
+The next thing I remember is that we are sitting on the bench outside my front door and he&#x27;s trying to get me to sober up before he takes me inside...which of course is not happening in the least bit. I pretend to read the newspaper, holding it upside down but examining it closely and with interest. He tries to talk to me to see how coherent I am, and I seem to know who he is and who I am, but little else, including the fact that I&#x27;ve had datura.
+About 11 pm he realizes that I am far from sobering up and decides to bite the bullet and take me inside. The lock on my door sticks so he struggles with my key trying to unlock the door. I remember that he kept asking me how to unlock it and trying to get me to help him, at one point I stood up from the bench to try to unlock the door myself, but fell flat on my back against the cement. Then I started laughing, feeling no pain at all, and climbed back up on the bench. I had a bump on my head the next day and some bruises, but no pain or serious injuries.
+He finally got the door open and took me in. I kept bumping into furniture, walls, falling over and slurring nonsensical words. I thought I could pass for drunk in front of my family and get to my bed and pass out. I thought I was acting reasonably sober, but apparently that&#x27;s not what everyone else saw.
+Stumbling to my bedroom was the last thing I actively remembered that night.
+I woke up at about 9 am the next morning, in my bed, dressed in different clothing. I&#x27;m still not sure who dressed me, apparently I managed to do it in my stupor. I was wearing a t-shirt and biker shorts. I awoke feeling oddly refreshed and awake, but with distorted vision and an odd...lightness....or confusion about me, but it was not unpleasant at all.
+Alex called me saying, &#x27;Do you even know what happened last night?&#x27; and filled me in on some of the missing memories. It was very strange to wake up with amnesia, having never blacked out at all before. Alex reported that I seemed to have gone totally insane and he was worried I was seriously ill. He said that my eyes would get this scary blank look and I could stare right at him and think I was talking to someone or something else...
+He also complained that I peed in the backseat! Oops! I don&#x27;t remember that, but knowing more about datura it doesn&#x27;t surprise me at all now. Alex told me that once we got into my house he had to explain to my dad what was wrong with me. They tried to hide me from my mom, putting me in my room and saying that I was in there talking to Alex all night. Alex explained what datura was to my father who had never heard of such a plant, and they looked it up on the Internet. After that, Alex left me in my dad&#x27;s care and went home.
+Some of the missing memories from that night came back to me, things that I thought were dreams. I remember wandering around the house and opening the fridge door and seeing it full of cans of ice cold coke. I thought I talked to my mom at one point, but I&#x27;m not sure if this was real. My dad said that I looked like an alcoholic going through DTs and that it was &#x27;really scary&#x27;, and he said that he had to keep telling me to go back to my room because I would wander out talking to myself and inanimate objects, and I kept moving things around the house.
+At one point I remember turning on the bathtub and the sink and forgetting about them...I kept taking objects from my bedroom into the bathroom. And the next morning when I opened the bathroom cupboard I found a bunch of my underwear and stockings stuffed in there.
+I also remember looking at myself in the mirror and laughing manically into my weird blankly dilated eyes and talking to my reflection, not really knowing that it wasn&#x27;t another person. I&#x27;ll never forget the look in my eyes, it really didn&#x27;t seem to be me, but it was...it was my unconscious mind, free through the power of datura, peeking back at me from behind my big black pupils.
+I guess at some point I must have gotten into bed and truly fell asleep....although I really wish I knew more about what I experienced during my delirium. Sadly,  I didn&#x27;t have my trip set up right. I wish I had had a guide who wanted to watch and help me on my journey, as well as report what I was saying and seeing.
+Anyway, the next day I went into work just fine, and felt quite good but strange all day. I felt an odd sense of power and excitement, and happiness that I wasn&#x27;t hurt. I don&#x27;t believe I was in danger of dying from too much poison, although I do think the dose was too large. However, my delirium presented a strong danger that I could be killed by walking into traffic or in some other unwitting way (I did try to jump out of a moving car without knowing what I was doing).
+Ultimately, it took me about a week or so to return to &#x27;normal&#x27;, although like many others, I don&#x27;t think I will ever fully return to my pre-datura state. My short term memory was very impaired for most of the week following my trip and my concentration was shot. I felt very ditsy and worried that I might not fully recover. My mental capacities do seem to have returned for the most part now. My vision returned to normal in about two days.
+After that I have been a freer person than I ever was before. Having struggled with anxiety and depression for years (treating it with prozac), I feel that truly experiencing that delirious state may have actually helped relax my mind in some way I don&#x27;t fully understand. I became stronger and far less passive after my trip as well. I was going through a hard time with my boyfriend, and after the trip awoke feeling more in love with him than ever, and the feeling has remained.
+I became even more obsessed with the goddess datura after that trip. My dreams are filled with her and are more vivid and real then ever before. Before datura I did sleep walk occasionally and talk in my sleep often, but I often felt unable to call out for help in my dreams, having no voice. After doing datura, I talk in my sleep more than ever, but I am no longer silenced in my dreams, I can even shout out in my dreams now. Sometimes it&#x27;s harder to distinguish what was a dream and what really happened, as the lines are certainly blurrier.
+I have since experimented with datura, jimson weed in particular, several more times at much much lighter doses. I ate 20 seeds, which produced an uncomfortably heavy body, strange illogical fear and some very interesting delusions. The 20 seeds was an alright dose, because I only experienced a moderately delusional effect for a shorter time range. I started getting mumbly and weird about 30 minutes after consuming the seeds, laid down into bed and started going in and out of dreams....had a conversation with my friend Alex, who had moved to San Fransisco by then, and kept dropping my imaginary cigarette into the blankets. The after effects almost felt kind of mushroomy to me, in that jerky colorful sort of way. I enjoyed the after effects more than the actual trip, which at the time had that gripping fear.
+Some time later I made another tea, this time using one flower and one leaf. I only drank half the cup before the strange fear and painful body high set in. Then I fell asleep, no hallucinations that I recall that time. However, for now I&#x27;m foregoing tea and other consumable methods, as the power is just too profound for my body.
+Currently, I&#x27;m experimenting with my second jar of flying ointment, made from lavender oil, ground datura leaves, flowers and seeds, all boiled in candle wax until frothy, then strained and let to cool. So far I&#x27;ve only rubbed very small amounts of it into my wrists and temples, producing excitement, shaking and that sort of datura weirdness. For now, I only experiment with very small doses of datura. One day I hope to experience full delirium again, with the presence of a guide to help me get the most from my trip and remain safe. I&#x27;ve been doing as much research into every area of this plant as possible, the history, science and mythology are fascinating, and I strongly recommend that everyone research all areas before beginning experimentation.
+I see a lot of bad talk and fear about datura, but I guess I&#x27;m one of the few people who have fallen in love with her...I love the smell, the flowers, the beauty, the power, the intoxication....her very spirit is the spirit of the dream realm, of the delirious mind, of the untamed brain stem, our primitive thoughts given control of our bodies.
+As it&#x27;s been said before, it&#x27;s not recreational, it&#x27;s not traditionally &#x27;fun&#x27;, it can be painful and frightening, but I do believe if she calls to you, you may not be able to resist. Doing datura, to me, is like being possessed by her.
+The only advice I have for anyone looking to try it is, respect her, more than you think you should, or she may put the fear in you like you&#x27;ve never known before. Love her and perhaps she&#x27;ll imbue you with some of her power, treat her poorly and she may kill you. Start at really small doses, work your way up to different levels before you jump in...and never do it alone, you might need help when she takes over.
+Exp Year: 2009
+ExpID: 81383
+Gender: Female
+Age at time of experience: 23
+Published: Jul 15, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Brugmansia (84) : Retrospective / Summary (11), Difficult Experiences (5), Overdose (29), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

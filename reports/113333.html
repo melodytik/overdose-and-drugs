@@ -1,0 +1,363 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的&quot;奢华可能是最好的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-malt.html'>← 4-AcO-MALT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的&quot;奢华可能是最好的&quot;</h1>
+<div class='sub-title'>4-AcO-MALT - Erowid Exp - &#x27;Luxurious Probably Says It Best&#x27;</div>
+<div class='meta'>作者：Kaleida Citation · 日期：Jul 31, 2019 · 剂量：100 mg · <a href='https://erowid.org/experiences/exp.php?ID=113333' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>大麻
+(植物材料)
+[Erowid的注意事项:
+本报告所描述的剂量非常高,可能超出Erowid的&quot;重量&quot;范围,并可能造成严重的健康风险或导致不必要的极端效应.
+有时报告的极高剂量是错误而不是实际使用的剂量.
+[这份旅行报告是从多个身份的角度写的.
+以下希腊字母已被改为保护无辜者.
+这份旅行报告是由卡帕撰写的.
+这是我们第四次服用4-AcO-MALT, 前三次是25毫克,50毫克和75毫克,
+虽然我们对这个分子的初步实验显示,在相同的剂量下,它是相当温和的,通常我们会完全被大多数其他4-替代N-甲基胺激素所摧毁,
+我们的25和50毫克剂量有自己的旅行报告确实让我们想起了结构上相似的4-HO-MPT,
+德尔塔实际上是大约一年前拍摄的, 经历了非常有意义的经历, 不是完全的, 但有意义的自我丧失感觉,
+但它还没有完全在门我们完全在寻找虽然新,然后我们没有错误的怀疑之前,它可以开始向我们展示更多当终于采取了足够远.
+这就是为什么我们现在要服用这100毫克的剂量,
+我们以前的精神药物使用经验包括DMT,MET,MPT,EPT,MiPT,DiPT,MALT,DALT,Psilocybe cubensis,4-HO-MET,4-HO-DET,4-HO-MPT,4-HO-EPT,4-HO-DPT,4-HO-MiPT,4-HO-DiPT,4-HO-McPT,4-AcO-DMT,4-AcO-MET,4-AcO-DET,4-AcO-MALT,4-AcO-DALT,5-HO-DMT,5-MeO-MiPT,5-MeO-EiPT,5-MeO-DALT,Ipomo三色,神经乱,LSD,E-LAD,AL-LAD,1P-LSD,2C-C,2C-C,2B-C,2C-C-I,2C-C-C,
+,4C-D,米里斯蒂卡香水,还有MDMA.
+我们最近的旅程是在四天前开始的, 在两天半前结束的, 用3毫升的Myristica fragran 精油,
+我们当时并没有跟踪它, 但我们认为德尔塔是第一个在早上醒来前面的人.
+她 (或是其他任何人) 走进浴室, 立刻注意到我们的腿在,
+感觉越来越强烈,她不确定该怎么做,所以她吃完饭,然后坐在沙发上一分钟, 感觉更加平静,
+这里发生了什么?
+我只能说,多年来,我们曾经服用了90毫克2C-I, 而在实际使用之前,
+刺的是,这次旅行非常轻松, 几乎没有任何体力刺激,
+经历了这个小阶段, 实际上是让Delta怀疑她是否想接受4-AcO-MALT,
+德尔塔航空公司准备了一碗大麻供我们晚些时候抽.
+我给我们100毫克的4-AcO-MALT口服, 吃一些饼干来洗掉相当不愉快的味道.
+接下来我们去所洗, 等待效果快速到来.
+很快就开始注意到心理视觉图像的快速闪光, 非常类似于我们过去的许多次,
+很难记住是否有其他事情发生在此之间,
+我们完全被一种性感的迷幻过载所压倒, 这可能是迄今为止我们尝试过的任何东西中最相似的,
+我们看到手摸着我们的身体,同时感觉到皮肤的敏感性, 它们触发了我们进入一种纯粹的幸福和自信的状态,
+以及为什么我们愚蠢地在公寓里服用如此高的剂量,
+虽然在很多情况下, 吟是很好的, 但仍远远没有达到我们所需要的强度,
+我们甚至注意到我们的眼睛在快速前后动, 发送大量复杂的视觉标记物到我们所能看到的每一个地方,
+除此之外,还值得注意的是,虽然在较低剂量下已经有了一些令人期待的美观效果,但这次的药物确实达到&quot;DMT&quot;强度的地步,
+让我们感觉到有性感的手.
+类似于我们对较低剂量的感觉, 视觉风格特别提醒我们很多其他合成不对称的4-替代N-甲基胺,
+但另一方面,它显然缺乏我们在这些东西上往往会注意到的&quot;额外&quot;结构化的视觉元素, 与或4-AcO-DMT相比,
+尤其是4-AcO-DMT.
+此外,虽然我不想说我们所有人太自信了,但我们确实觉得视觉风格可能至少像4-AcO-DMT一样复杂,我确实觉得更有信心说它至少比类似的风格更复杂
+另外,正如和4-AcO-DMT在高剂量时让我想起DMT的外观,
+我在此时再次清洗, 想想这可能不会再发生,
+如果我们在淋浴时完全放松, 我们就不会有这种冲动.
+紧张的情绪似乎突然升级, 之后我们感觉好了很多.
+尽管我当时的笔记只包含时间和&#x27;清除&#x27;一词,
+我们的眼睛仍然像疯子一样,
+现在是时候把这东西推到超速!
+事实上,这让我们变得更激情, 我们不得不回到卧室自慰,
+我想要尝试亲自体验这种释放, 但Delta被触发出来, 我们一直在努力,
+为了记录我们写的关于这件事的笔记也不是很容易破译, 我们真的被这个东西击中.
+我们在卧室结束了, 关于它的笔记肯定是更加可读的,
+达尔塔现在感觉很棒, 经历了高潮之后, 放开了高潮的感觉, 放上了音乐, 感觉到高兴, 仍然非常性感的快乐在她身上蔓延,
+她还写了一份关于这件事的笔记,
+现在我又回来了, 听更多的音乐, 享受乐趣,
+这次旅行让我有了非常特别的情感,同时也是浪漫的, 并且总体上表达了我的情感,
+然而,这也并没有对我们来说与相似.
+笔记的第一部分也几乎难以阅读,
+现在我又吸了一口大麻, 继续下去!
+这使得德尔塔再次开始和我来回交换,
+我们还在脑海中想象着我们身穿奢华的性爱服装, 感觉像我们吃和4-AcO-DMT时所感受到的壮观感,
+德尔塔认为这些是最性感的幻觉, 我也很喜欢它们,
+我仍然觉得自己想要或需要这样的东西, 让这次旅行在我们的高峰之后变得难忘,
+我们决定练习一点更多的三角形, 进入我们离散的内心世界.
+她仍然无法像我们中的一些人那样完全沉浸, 但这是一项有趣的练习,
+我们越是练习自己去做,就越怀疑 (在某种程度上我们已经做了) 参与其中的机制,可能是分离性身份障碍的一部分,
+让我们更怀疑的是,当我们有意识地进入内部时, 我们会看到一个不断变化的心理视觉图像, 随之而来的是一张重复的图像,
+我们过去的强烈胺体验中, 我们一段时间没有做过太多, 不是因为我们也很难识别或与我们的离散症状和内部结构互动,
+尽管我们喜欢把它们推到很远的地方, 但我们也总是有这种在花图像中重复出现的面孔
+这让我们有很多事情要思考,
+另外,这张纸条也包含了一些字体错误,
+德尔塔公司演了一些沙尼亚·吐温 (Shania Twain) 的歌曲.
+我觉得自己像个女人!&quot;) 但是我心情很自信, 我开始跳舞, 看着我,
+曾经在听比利·乔尔的&quot;Uptown Girl&quot;时,
+我不会详细说明, 但我们有很多感受,
+不知为什么, 解离性认同障碍中的变异, 总的来说和任何两个人一样不同,
+另外,我们在内部的行为与与他人相处的行为没有什么不同, 即使在同一个身体里,
+德尔塔可能是双性恋, 但她仍在试图理解她对这一切的感受,
+现在我只能说这件事, 但这就是你需要知道的,
+我只能说,4-AcO-MALT对我们探索内心的联系感和增强我们的沟通有很大帮助,
+让我提醒你, 泽塔在出门时, 也说自己很高兴, 很高兴,
+这封信中还有另一个打字错误.
+随着我们处理这些东西, 演奏不同的音乐, 一点点来回切换 (记下我演奏比·麦克费林的&quot;Don&#x27;t Worry, Be Happy&quot;和泽塔演奏火车的&quot;Hey, Soul Sister&quot;),
+接下来我们就会被震撼,
+接下来我又在前面, 但现在实际上是达尔塔和兰巴达之间的内心对话.
+他们讨论的是Lambda看来更像是一个&quot;思考&quot;的精神探险家, 他特别被那些分析性和深度的精神类药物所吸引,
+德尔塔似乎更喜欢&quot;感觉&quot;的精神飞行员, 似乎更喜欢那些只会引起感觉和/或情感的幻觉,
+我们刚刚开始真正理解和记录我们对某些药物的偏好和欲望的差异.
+他们之间有一种平静的感觉, 因为他们开始对自己的欲望和需要感到更舒服, 并接受他们对另一个人感到满意,
+很高兴我们两人能一起走, 尤其是后者, 德尔塔有另一个释放的情绪, 她不能忍受让我脸红, 我们最终感觉更多的联系.
+加入了我们之前从未听过但喜欢的爱丽丝·默顿的&quot;无根&quot;曲.
+让更多的能量和我们已经经历过的一切, 我想要听一些更平静的东西,
+让其他平静的相关音乐从那里播放.
+我们花了一些时间专注于内心的交流和自我审视, 总体来说,我们正在处理我们的事情,
+开放眼睛的视觉效果在寻找它们时仍然很明显, 但我们没有真正注意到它们,
+身体仍然感觉很棒,也很高兴, 感觉几乎是太多了,
+我们还记得除了最初的清洗, 如果我们更准备好完全放弃这一切的第一波,
+不同的角色在播放不同歌曲 (&quot;Everybody Talks&quot;由Neon Trees, &quot;Death of a Bachelor&quot;由Panic!
+现在Zeta在外面想着一个朋友经常为那些只喝酒的人举办派对, 我们在那里的经历更好,
+她很可能主要是想到这个, 因为同一个朋友今天晚些时候会来和我们在一起,
+我们又吸了一口大麻, 在我,Zeta和Delta之间又有了一次内在的联系...
+我们并没有真正注意到它是什么, 但回想起来, 我认为它主要是情感的事情,
+我在此之后不久也注意到一个单一的生理效应:尿量增加,我们尿得很多,
+然而,与我们过去使用的强效4替代型胺剂相比,
+我记得在这个时候,我们真的开始思考, 实际上已经过了多少时间,
+在我们意识到我们分裂的状态或意识到我们特定的内在身份之前, 我也开始认识到我的一些个人行为可能在我们过去的迷幻体验中发挥了作用,
+我非常期待再次与这些分子合作, 现在我已经了解了这个观点,
+现在还有一些重要的几何图像, 但它们大多只是心灵的可视化, 不是在外部世界,
+在这个时候,
+我也注意到,如果我们停止寻找它们, 我们也会有更多的外在视觉, 但我们有太多的清洁能量来思考和感受,
+T+2:33 - 德尔塔被No Doubt的&quot;Don&#x27;t Speak&quot;触发到前面,并指出她仍然感觉很棒,但现在更具反思性和冷静,与以前相比,这种状态更为微妙,尽管仍然很重要.
+她去看了一张我们和朋友的旧照片, 发现我们在整体上还在倒,
+她还有一个更个人化的内在体验, 基于她所看到的具体图片, 她也会说药物确实增强了她的体验,
+我在沙发上坐着的时候练习了更多的内心世界, 我注意到我仍然带着一些迷幻的创造力和高兴感,
+我们还在同一时间又一次吸食大麻.
+虽然我们在卧室迷失在自己的思想我开始有一个性幻想,我想象的达尔塔是我的伴侣,这导致达尔塔开始经历一个离散状态,最终允许她推到一些更完全过去的&quot;花&quot;我们的内心世界,她说它仍然不是100%生动和沉浸,但最终比没有.
+她把它比作我们睡觉时的状态, 有时我们会看到梦境的场景, 但大多是模糊的雾,
+她说这基本上是她当时感知内心世界的方式, 而通常这对她来说只是模糊或遥远的视觉.
+她从自己的角度来体验性幻想, 然后在内心世界里度过一点时间,
+她非常喜欢内心的自由感和感觉,
+她只走了几十秒钟, 但像往常一样,
+她还指出,当她非常接近身体时, 她觉得身体的呼吸非常缓慢,
+她对这种经历所带来的时间感知扩展感到着迷,但她也指出,她认为其中一部分只是与事实有关,至少有一些时间概念在内心世界中总体上是缺席的,此外,记忆在某种程度上是短暂的,就像你从梦中回来后的梦或旅行一样.
+对于我来说, 梦想达达达达的高潮是非常棒的, 让我感到非常自由和揭示,
+我非常感激这一事实, 特别高兴,
+现在的强度已经开始显著下降, 虽然感觉不太快,
+我喜欢在床上休息几分钟, 沉思我们当前的状态, 当我着窗时,
+我又去打大麻了,但是烟斗中的屏幕变得非常紧密,我最终总共打了两次半,只是想把它全部打完,这也结束了碗.
+我还把这些东西都放在后面, 准备好我们的朋友 (她不吸烟) 晚些时候来喝酒,
+她通常是主动清理我们的公寓, 在我们的朋友到来之前, 她似乎最喜欢我们中的任何一个, 在后台这样做.
+因为我们 (她) 忙着清理,
+我不记得我们在清洗过程中有任何重大损害, 我们还在服用药物,
+泽塔吃了一碗麦片, 意识到我们今天了两次, 一整天只吃了几块饼干,
+尽管我们后来喝了很多酒, 这可能是一个很好的决定!
+我回到外面,冲入淋浴, 洗, 在漫长的早晨之后重新开始.
+达尔塔和我有了一些更好的内在沟通, 当我们如此内心专注时, 很明显仍然有一些性感的心理可视化
+虽然显然比以前更不激烈或明显.
+我们还看到一些更强烈的视觉效果, 每次持续几秒钟, 伴随着我们的开关,
+现在我们已经正式安排了与朋友的计划,
+戴尔塔出门, 写下一条记载, 旅行似乎已经结束,
+戴尔塔一直在听SISTAR (尤其是&quot;ALONE&quot;歌曲) 和BLACKPINK的歌曲,并指出她现在觉得在音乐中移动时确实有比平常更多的能量,但同时也感觉相当放松,在移动时,她大部分时间都坐在沙发上.
+让相关的音乐播放, 当Delta出来时, 我开始为我们的另一个朋友写短信,
+她在发短信给他,我回来,注意到她在打很多随机的EDM歌曲和奇怪的音乐视频,
+我只是让他们继续玩,然后在T+6:15从烟酒碗里再打一次,
+音乐继续播放之后,它很快就转向了一个我们从未听说过的名为Goldfish的乐队,但Zeta和我最终真的很喜欢他们的歌曲和音乐录像 (Delta和其他一些人也在此之后开始进入他们),并注意到听&quot;Get Busy Living&quot;&quot;,Fort Knox&quot;&quot;,We Come Together&quot;和&quot;Talk to Me&quot;
+现在我们已经听了很多了!
+现在我们真的在我们的朋友到来之前抽完烟了.
+我们放上金鱼的歌曲&quot;一百万次观看&quot;并喜欢它, 然后&quot;女人是魔鬼&quot;, 但之后我们暂时停止尝试新音乐,
+在此时,Rho替换了我们的朋友的到来,并指出她正式在路上,所以我们在此时已经完成了笔记.
+只是为了纪录我们还肯定感觉到4-AcO-DMT的某种东西,
+我们和朋友一起喝酒时度过了美好时光, 像我们平时一样进行了一些非常深刻的对话,
+我当然不会详细介绍, 因为这是私人事务!
+但我会说,我们确实觉得4-AcO-MALT仍然有增强效果,
+我们也用了不到三瓶的葡萄酒我们两个与我们 (系统) 喝了比她多一点.
+德尔塔出门时发现我们的朋友已经离开了,她现在要在睡前抽一碗大麻.
+她在T+14:49时指出,她感到极度高和醉酒, 但没有写任何其他东西,
+我们在午夜的T+19:11醒来,
+我们也带着一碗大麻, 我认为我们在这一点上吸了几次,
+我们终于在床上转转,直到T+25:23, 因为我们不想起床, 因为我们躺在床上时仍然感觉很好,
+我们从前一天的疲肯定有点累, 但从来没有感觉到任何不适, 事实上我们总体上还是很好,
+这种感觉比我们通常会从一杯或两杯酒中得到的感觉更强烈,
+我不能说什么是真正的原因是我们从来没有真正的宿醉, 特别是我们喝了多少 (这通常会让我们相当体面的宿醉) 和我们几乎没有吃什么事实上整天,
+无论是什么原因,我都不会抱怨!
+总的来说似乎有一个共识在这里, 4-AcO-MALT的效果让我们最 4-AcO-DMT 和,精神,身体,和视觉,相比大多数其他 4-替代的胺,
+本身确实仍然有一些特别 (但不完全) 的表面成分, 它们更像一些合成的4-替代胺,
+尽管它显然具有相同的感觉, 特别是与特定的性效应有关. 尽管它显然具有相同的感觉,
+但同时也错误地认为我们不认为它有潜力证明自己不仅仅是这样.
+现在她觉得4-AcO-MALT可能是她最喜欢的新迷幻药,
+她之前在4-HO-MPT上有过她最好的心理经验,所以这对她来说不是一个很大的飞跃,她说她认为她更喜欢4-AcO-MALT,
+并且在经历之后仍然存在, 随着视觉效果似乎开始变得特别疯狂,
+她还想指出,她觉得 (回想起来,我必须同意) 经验的重要部分,尤其是峰值,也与我们25毫克2C-C最愉快的经验相似,
+我个人认为这次旅行是 4-AcO-MALT 是神奇的,非常自由和洞察力,并没有反对探索它更深入,但我不确定我会说,这是我最喜欢的在同一个水平,但我还在试图弄清楚我喜欢什么在某种程度上比我想她
+在这里也有一些人比我更积极地思考了这个问题.
+我仍然认为DOB之旅是非常非常酷的, 比如和这次之旅在很多方面非常不同,
+我很高兴能开始自己思考这些问题, 了解我自己的偏好在哪里, 而那些最积极地与我分享这段经历的人,
+我可以更多地谈论我对这种经历的想法和感受, 但我觉得我不想在药物记录历史的这个早期,
+希望大家都能阅读到目前为止, 希望大家都觉得这篇文章有教训或有趣,
+时间表: 113333
+发布时间:2019年7月31日
+4-AcO-MALT (802):一般 (1),组合 (3),烂的经验 (4),音乐讨论 (22),性讨论 (14),各种 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Luxurious Probably Says It Best
+4-AcO-MALT
+by
+Kaleida
+Citation:   Kaleida. &quot;Luxurious Probably Says It Best: An Experience with 4-AcO-MALT (exp113333)&quot;.
+Erowid.org
+. Jul 31, 2019. erowid.org/exp/113333
+DOSE:
+100 mg
+oral
+4-AcO-MALT
+repeated
+oral
+Alcohol - Beer/Wine
+(liquid)
+repeated
+smoked
+Cannabis
+(plant material)
+[Erowid Note: 
+The dose described in this report is very high, potentially beyond Erowid&#x27;s &#x27;heavy&#x27; range, and could pose serious health risks or result in unwanted, extreme effects. Sometimes extremely high doses reported are errors rather than actual doses used.]
+[This trip report is written from a multiple-identity perspective.]
+The following Greek letters have been changed to protect the innocent. This trip report is written by Kappa.
+This was our fourth time taking 4-AcO-MALT, our first three times being at 25, 50, and 75 mg, and this one finally being our push to 100 mg. While our initial experiments with this molecule showed to be pretty mild at the same sort of dosages that would usually has us totally blasted on most other 4-substituted N-methyltryptamines, we had never yet given up hope that when pushed far enough it might just end up being fully active in that way and comparable in strength to all the other particularly good ones, so we kept pushing. Our 25 and 50 mg dosages which have their own trip reports did remind us a lot of the structurally similar 4-HO-MPT but more muted in a lot of ways or again really just weaker by weight, but 75 mg is where we felt we were really starting to see some more of its potential. Delta actually took it around a year or so ago and had a very significant and meaningful experience with not complete but significant ego loss sensations and some significant abstract but still more complex and structured visionary hallucinations and open eye geometries starting to form, but it still wasn&#x27;t quite at the threshold we were completely looking for though new then that we were not wrong to suspect before that it could start to show us more when just finally taken far enough. That is what brought us to take this 100 mg dosage now, which Delta actually planned out but I was the one that ultimate made us go all the way with it.
+Our previous experience with psychedelics includes DMT, MET, MPT, EPT, MiPT, DiPT, MALT, DALT, Psilocybe cubensis, 4-HO-MET, 4-HO-DET, 4-HO-MPT, 4-HO-EPT, 4-HO-DPT, 4-HO-MiPT, 4-HO-DiPT, 4-HO-McPT, 4-AcO-DMT, 4-AcO-MET, 4-AcO-DET, 4-AcO-MALT, 4-AcO-DALT, 5-HO-DMT, 5-MeO-MiPT, 5-MeO-EiPT, 5-MeO-DALT, Ipomoea tricolor, Argyreia nervosa, LSD, ETH-LAD, AL-LAD, 1P-LSD, 2C-C, 2C-B, 2C-I, 2C-E, DOC, DOB, 4C-D, Myristica fragrans, and MDMA. Our most recent trip was started four days before this and ended two and a half days before this on 3 mL of Myristica fragrans essential oil, which we assumed would produce some tolerance but were willing to risk it because of our upcoming abstinence, and honestly we couldn&#x27;t really determine whether or not there was any significant tolerance playing a role in the experience we achieved.
+We didn&#x27;t actually keep track of it at the time, but we think Delta is the one who first woke up fronting in the morning. She (or whoever) went to the bathroom and immediately noticed that our legs were shaking as if we had just taken a high dosage of a 4-substituted tryptamine, the way they always do and very recognizably that. The feeling built and she wasn&#x27;t really sure what to make of it, so she finished up and then went and sat on the couch for a minute feeling calmer, but then suddenly our stomach lurched and she ran to sink and puked our guts out much like we often do on tryptamines. What&#x27;s going on here? All I can say is that many years we once took 90 mg of 2C-I and before actually doing it, as soon as we looked down at it and contemplated it our body started shaking violently like we were suddenly coming up on the speediest trip of our life, and we had to wait a bit to be comfortable dosing. Ironically, the trip was extremely relaxed with almost no physical stimulation at all, but something interesting to think about. Going through this little phase is actually what made Delta doubt that she wanted to take the 4-AcO-MALT at all though, but I came out and said I was still up for it, and it was decided that we could still go ahead with it anyway if I wanted to be the one mostly guiding it.
+T+0:00 Delta finishes preparing a bowl of marijuana for us to smoke later. I dose us with 100 mg of 4-AcO-MALT orally and eat some crackers to wash down the pretty unenjoyable taste. Afterwards we go to the bathroom and get in the shower while waiting for the effect to probably quickly come on. While we are in there at first we were just going about our usual business but soon started to notice fast flashes of mental visual imagery that is very similar to many of the past times we&#x27;ve had particularly powerful 4-substituted tryptamines coming on, and especially on 4-HO-MPT and 4-HO-EPT superficially. From there it is hard to remember if anything else really happened in between that and when it suddenly escalated like crazy, and that did happen very quickly afterwards either way.
+Delta and I were frequently switching back and forth between one another without trying to and we were being completely overwhelmed by an erotic psychedelic overload that was probably by far the most similar of anything we&#x27;ve tried so far to 4-AcO-DMT except with a bit different of an aesthetic style and much more directly sexual and overwhelmingly euphoric. We had hallucinations of hands groping us all over our body and simultaneously felt a skin sensitivity that they were triggering that was pushing into a state of pure bliss and confidence and filling us with urges to scream in ecstasy at the top of our lungs, as well as self-deprecating thoughts about why we stupidly took this high of a dosage at our apartment where we kind of needed to remain inconspicuous. We let out some moans that would have been nice in a lot of cases but still weren&#x27;t nearly at the level of intensity we felt the need to let out, and the stifling at a little bit of tension to the experience, though it was still felt absolutely amazing. We even noticed at this our eyes were shaking quickly back and forth and sending tons of complex visual tracers all over everything we could see, something is something that hasn&#x27;t really happened for us and basically any psychedelic (aside from the less visual version on MDMA) since the first time we took psilocybin mushrooms, and were tripping similarly hard to this.
+Aside from this it&#x27;s also worth noting that whereas there were again already some promises of nice visuals at lower dosages, this one really hit that point where they suddenly take on a &quot;DMT-like&quot; intensity like a lot of tryptamines and especially the N-methyl ones do, where a crazy amount of visual sensory overload just sort of exploded out at us, simultaneously to the sexy hands starting to feel us up. Similarly to how we had felt about lower dosages, the visual style specifically reminded us a lot of other synthetic asymmetrical 4-substituted N-methyltryptamines, like 4-HO-MET and 4-HO-MPT especially as well as 4-HO-MiPT, in the sort of color scheme they used and the more &quot;technological&quot; rather than &quot;organic&quot; vibe we often get from them in some ways, but on the other hand very notably lacked most of the &quot;extra&quot; structured visual elements we tend to notice on those things compared to mushrooms or 4-AcO-DMT which we usually relate more to lysergamides or phenethylamines, and overall, in visuals in this case but really just alike most other aspects of the trip too, it really did remind us more of that &quot;classical&quot; mushroom style of trip, and again more especially 4-AcO-DMT. Furthermore, while I don&#x27;t want to say anything for all of us too confidently yet, we do feel that the visual style may be at least as complex as 4-AcO-DMT&#x27;s in this way for us, and I do feel more confident in saying that it&#x27;s at least more complex than the similar style on the 4-HO-MET, 4-HO-MPT, and 4-HO-MiPT, even if not having all the same other elements they do. Additionally, in the same ways that mushrooms and 4-AcO-DMT remind me of DMT visuals at higher dosages, I would say the 4-AcO-MALT visual style had a very strong superficial resemblance to that produced my MALT in an number of ways.
+T+0:33 - I purged again at this point, was thinking maybe it wouldn&#x27;t happen again after it did before the trip but no luck. Notably however, I feel it&#x27;s decently likely we wouldn&#x27;t have ever had the urge to if we had felt comfortable completely letting go into our euphoric instincts in the shower. The tension that not doing that caused kind of stayed with us to this point where it seemed to suddenly escalate, and after that we felt much better again. Also, despite my note I took at this time containing nothing but the timestamp and the word &#x27;purge&#x27; there were still multiple typos. Our eyes were still shaking like crazy and visuals were erupting everywhere at the time.
+T+0:45 - I took our first hit off the bong at this point, time to kick this thing into overdrive! It actually made us even hornier so fast that we were compelled to go back into the bedroom and masturbate because the fact that we hadn&#x27;t been able to completely let go during the initial wave of the peak was still kind of killing us. I wanted to try to experience this release myself but Delta got triggered out for it and we&#x27;ve been working on just going with the flow of her switches so she stayed out for the climax. For the record the note we wrote about going to do this also was not easy to decipher, we&#x27;re really being slammed by this thing.
+T+1:02 - We finished up in the bedroom, and our note about it was definitely more legible again though still not totally back to our norm. Delta was feeling fantastic now after having the orgasm free up the peak trip feeling and putting on some music and was feeling the euphoric and still very sexy bliss spread throughout her to the point where she felt she was feeling a little too good and was ready to switch back in for a while, so I came back out. She also wrote a note about it still containing a few typos.
+T+1:13 - I&#x27;m back out and listening to more music myself and having a blast, currently &quot;Primadonna&quot; by Marina and the Diamonds on &quot;Lovefool&quot; by The Cardigans. This trip has me in a very specific often erotic but also romantic and just generally emotionally expressive and mindset that I really like, it makes me feel plugged into my true inner self and confidence in a way that few things often do. However, this is also not still not unlike mushrooms for us. The first part of this note was also almost illegible, definitely a wave of intensity coming back for me.
+T+1:15 - I took another hit of marijuana at this point, keep it going! It caused Delta to start switching back and forth with me again and we both came out to do a lot of very energetic and expressive and sensual dancing, which was tons of fun as always. There were also visions rolling through our minds of us dressed up in luxurious erotic clothing that had a sense of grandeur similar to what we experience on mushrooms and 4-AcO-DMT more so than anything else except this and a few other tryptamines so far, but again this was still more overtly sexual and creative in that particular way than that. Delta thinks these are honestly the best sexy psychedelic visions, and I am enjoying them too though I&#x27;m not yet sure if I would make that claim though it&#x27;s mostly a matter of aesthetic preference in this case, but she is also still feeling more generally orgasmic about it all because she actually did experience an orgasm while fronting, and I&#x27;m still kind of feeling like I want or need something like that myself to really make this trip fully memorable after our reserved peak, but I am still having a fantastic time nonetheless.
+T+1:23 - While still listening to music (currently &quot;I Need A Hero&quot; by Bonnie Tyler) we decided to practice a bit more Delta going into our dissociative inner world. She still wasn&#x27;t able to get as completely immersed as some of us have but it was a fun exercise nonetheless that also mixed well with the psychedelic state, and was actually quite revealing in this way. The more we have practiced going in there on our own as of late the more we have suspected (and we already did to some degree) that the mechanism involved in it and possibly part of dissociative identity disorder in general overlaps with the &quot;breakthrough&quot; mechanisms produced by powerful hallucinogenic drugs like tryptamine psychedelics, and something that had been making us suspect this more so than anything is that when we consciously go inside, we have a transforming mental visual image that accompanies it of a repeating image of our faces (of our inner/alter bodies) arranged like chrysanthemum petals that becomes &quot;closer&quot; to us as it gets more vivid and then suddenly bursts, and then whoever was going in is inside. In our past strong tryptamine experiences which we haven&#x27;t done too many of in a while, not since we also had a harder time recognizing or interacting with our dissociative symptoms and inner structures and didn&#x27;t understand them for what they were, we also always had a lot of trouble achieving a complete &quot;breakthrough&quot; dose with these psychedelic tryptamines even though we liked to push them far, but was also always had these sort of repeating faces in flower petal images appear throughout the visuals on those experiences too.... This has given us a lot to think about that we are still working through as of my typing this. Also, this note also contained a couple typos, but they were no more in any of the remaining notes.
+T+1:33 - Delta put on some Shania Twain (&quot;Man! I Feel Like a Woman!&quot;) but I am in such a confident mood that I get triggered out for it and start dancing, and watching me pushes Delta to another breaking point of bliss and our imaginations start going very wild together in our shared headspace.... Zeta actually came out and wrote a note about it while listening to &quot;Uptown Girl&quot; by Billy Joel because we were a little distracted at the time. I won&#x27;t go too much into detail but there are a lot of feelings Delta and I are still trying to work through here and this was directly related to that.... In case you don&#x27;t know, alters in dissociative identity disorder, for whatever reason I could not possibly tell you, can be as different as any two other people in their general... qualities, I guess; for example, we have right-handers and left-handers, and we have heterosexuals, homosexuals, bisexuals, and asexuals, and much more.... Furthermore, the way we act internally is not different from the way we act with other people, and even being in the same body doesn&#x27;t always get in the way of that as much as you might think. So something we are working through right is that I am very confidently at least homosexual whereas Delta is maybe bisexual but she&#x27;s still trying to understand her feelings about it all and explore the close bond we have at the same time.... That&#x27;s all I&#x27;ll say about that for now but it&#x27;s all you really need to know for the sake of understanding what&#x27;s going on in this report anyway. I will just say that the 4-AcO-MALT helped a lot with us exploring our inner feelings of connection and enhancing our communication, for mainly the same sort of reasons it had been making us so euphoric and confident and just happy in the first place. Also, just for the record, Zeta also made a note about being super bubbly and euphoric at this point when she was out, so that seems to be the general sentiment throughout about the trip so far!
+T+1:45 - I was wrong.... There&#x27;s one more typo in this note. There&#x27;s a little bit of switching back and forth going on as we work through this stuff and play different music (made notes of me putting on &quot;Don&#x27;t Worry, Be Happy&quot; by Bobby McFerrin and Zeta putting on &quot;Hey, Soul Sister&quot; by Train) and Zeta takes out next bong hit at this point. Afterwards we are kind of shaken out of our communication and move back out and on to the next phase of the trip. Next I am at the front again but there is now actually an inner conversation going on between Delta and Lambda. They are discussing the observation that Lambda seeings to be more of a &quot;thinking&quot; psychonaut who is particularly captivated by psychedelics that are analytical and deep but grounded and generally longer-lasting for the sake of being able to get the most thought out on it, whereas Delta seems like more a &quot;feeling&quot; psychonaut is seems more drawn to psychedelics which just cause an explosion of sensation and/or emotion and likes to get about as far out as humanly possible at least a lot of the time but also doesn&#x27;t mind a shorter-lasting experience as long as it gives her a lot to reflect on after the fact, and also how the close observations between our recent trip on DOB and now on the 4-AcO-MALT really helped them to be able to narrow that time quite easily as we&#x27;re really just started to truly understand and make record of the differences in some of our drug preferences and desires. There is a sense of finding some peace between them as they start to grow more comfortable of their own wants and needs and accepting that they&#x27;re happy with the other being whatever kind of psychonaut they want as long as they get to be their own kind as well. I tell them I&#x27;m glad we both kinds and will happily go along for the ride for either but especially the latter, and Delta has another release emotions that she can&#x27;t stand to keep in that makes me blush and we end up feeling bonded some more. :) The song &quot;Crazy&quot; by Gnarls Barkley came on at some point too which we much enjoyed and made a note of.
+T+1:52 - Delta and I have been switching to dance and sing to some more music that we&#x27;ve just been letting randomly play on YouTube, including one we hadn&#x27;t heard before but liked called &quot;No Roots&quot; by Alice Merton. After letting out more of our energy and everything else we had already been going through I wanted to listen something a little calmer for a bit, so I put on &quot;Feel It Still&quot; by Portugal. The Man and let other calmer related music play from there. While just chilling on the couch I believe we spent some time focusing on more inner communication and introspection and just sort of working through our shit in general, a very nice and lucid and contemplative sort of state, and there are still lots of sexy and colorful mental visualizations going along with it all internally. Open eye visuals are still present clearly when looking for them but we haven&#x27;t really been noticing them when not thinking about them for a while, but they&#x27;re enough that the TV screen starts immediately warping with pretty colors even if not too heavily when we do look. The body still feels fantastic and euphoric too in that was that feels like it&#x27;s almost too much, yet at this same time just isn&#x27;t and it&#x27;s really nearly perfect in that way, though it was definitely becoming a bit subtler at this point, but not disappointingly so. There also notably still hasn&#x27;t been any body load throughout any of this that we can recall aside from the purge at the beginning which again we don&#x27;t even think might&#x27;ve happened if we had just been more prepared to fully let go for the first wave of it all.
+T+2:08 - Different alters have been coming out to listen to a bunch of different songs as they played (&quot;Everybody Talks&quot; by Neon Trees, &quot;Death of a Bachelor&quot; by Panic! At The Disco, and &quot;Welcome to the Black Parade&quot; by My Chemical Romance were all noted) and now Zeta is out thinking about how a friend of ours has often thrown parties for people who mostly just drink alcohol and the better experiences we&#x27;ve had there first taking 4-substituted tryptamines in the morning and then drinking during the afterglow. She&#x27;s most likely mainly thinking about this because this same friend is going to be coming over to hang out with us later in the day and we&#x27;re actually planning to have our last alcohol experience before our extended drug break and perhaps ever today with her after this, so it&#x27;s highly relevant to our current situation.
+T+2:15 - We take another hit of marijuana and have another bonding moment internally between myself, Zeta, and Delta.... We didn&#x27;t really make note of exactly what it was though but in retrospect I think it was mostly an emotional thing and they seem to agree, this drug was definitely good at giving us moments like that. I did also make note shortly after this point of one single physiological effect after all: increased urine output, we were peeing a lot, and more than we would from just all the smoking or taking some other psychedelics too. However, it was a totally normal amount of it compared to pretty much most or all of our past powerful 4-substituted tryptamine experiences.
+T+2:20 - I made a note that at this point we really started thinking about just how much time had actually passed and what time it was now for really the first time throughout the experience. I also noted at this point that I&#x27;m starting to recognize how some of my personal behaviors may have played a role in our past psychedelic experiences before we were aware of our dissociative condition or recognized our specific inner identities consciously, and it&#x27;s giving me a whole lot to think about in that sense.... I very much look forward to working with a lot of these molecules again now that I have and understand this perspective, and for more reasons that just this too!
+T+2:25 - At this point there are still some significant geometric visuals going but they are mostly now just mental visualizations, not in the external world or really what you would call closed eye visuals exactly either, and they actually remind me a lot of the kind of thing we would see on 50 mg of methoxetamine, but less vivid though also still with more psychedelic color and complexity, just a bit at this point. I also note though that we&#x27;d honestly probably still have more external visuals too if we ever stopped to look for them but just have too much clean energy for thinking as well as feeling to really be focusing on much else at the moment.
+T+2:33 - Delta is triggered out to the front by &quot;Don&#x27;t Speak&quot; by No Doubt and notes that she is feeling awesome still but much more reflective and chilled now, the state is much more subtle compared to before despite still being significant. She went and looked at an old picture of us with a friend and noticed how much we were clearly still tripping overall when actually paying attention to it when our friend&#x27;s face started changing into strange sizes and shapes almost immediately and kind of surprised us with how active things still were. She also had a more personal internal experience based on this specific picture she was looking at that she also would say was definitely enhanced by the drug, but for her sake I will keep the description of the actual experience private.
+T+2:45 - I practiced going into our inner world a little more while I was still just sitting on the couch and noticed that I definitely still carried a little bit of the psychedelic creativity and euphoria in there with me, so we went to go meditate especially for Delta to see if she could bring it out herself more. We also took another hit of marijuana exactly at this timestamp.
+T+2:59 - While we were in the bedroom getting lost in our own minds I started having a sexual fantasy where I imagined Delta as my partner and this caused Delta to start experiencing a dissociative state that finally allows her to push somewhat more completely past the &quot;chrysanthemum&quot; of our inner world where she says it was still not 100% vivid and immersive but finally more so than not. She compares it to a state we get when falling asleep when very high sometimes where we will see a dream scene form but most it will be a blurry haze except for one or two specific details that we focus our attention on which appear with complete lifelike vividness even more so than a regular non-lucid dream would, she says that is essentially how she was perceiving the inner world at the time whereas normally it was just all like a blurry or distant vision to her. She experiences the sexual fantasy from her own perspective and then spends a little time in the inner world doing the same kind of things we usually do in there, mostly just relaxing with simple pleasures. She very much enjoys the sense of freedom and sensations the inner world provides but is still unable to stay in for all that long and pops back out not that long afterwards. She&#x27;s only been gone maybe a couple dozen seconds but as usual, the alter coming out seems to have experienced some time dilation and she swears it must have been at least a few minutes. She also notes that when she was very close to the body she felt as if it was breathing very slow, but it suddenly sped up significantly as soon as she snapped all the way back in. She is fascinated by the dilation of the perception of time this experience provides but also notes that she thinks part of it simply relates to the fact that at least some of the concept of time is just sort of absent in general in the inner world, and furthermore the fact that the memories are somewhat fleeting like a dream or trip after you return from it.
+As for me, the orgasm I achieved by fantasizing about Delta was fantastic and felt incredibly freeing and revealing, and notably it did finally bump me up to that level of &quot;full satisfaction&quot; I felt that I had been missing from the trip before but that Delta had been able to get from her own orgasm after we both first felt the need to somewhat repress ourselves, and I was very grateful for that fact and just especially happy even more so than I already was from this point on.
+T+3:05 - I&#x27;m definitely feeling like the trippy state is still going but starting to decline noticeably in intensity now, not too rapid-feeling in the moment but still quick compared to a lot of longer-acting psychedelics. I like down on our bed for a few minutes to just sort of relax and contemplate our current state and when staring at the window blinds I can see there are still modest but obvious open eye visuals going in the form of colorful auras and tracers and slight distortions similar in presentation to many other 4-substituted tryptamines.
+T+3:15 - I went to hit the marijuana again but the screen in the bong was getting very packed and tight and I ended up taking around two and half hits total just trying to get it all through, which also finished the bowl. I also put all of that stuff away afterwards to prepare for our friend (who doesn&#x27;t smoke it) coming over later in the day to drink, mostly because we weren&#x27;t sure when she was coming over yet and didn&#x27;t want to be too high for it if it was soon.
+T+3:21 - Zeta came out a bit for the sake up cleaning up our apartment, which she is usually the one taking the initiative to do, before our friend arrived and put on some American Dad!, which she seems to like the most of any of us, in the background while doing so. Because we were (she was) busy cleaning, we weren&#x27;t taking notes for a little while. I will say though that I don&#x27;t recall us having any significant impairment during the cleaning, we were still on the drug for sure but definitely pretty cleared up already for what it was, and we were feeling pretty happy and refreshed by this point, as well as still good and energized in the body.
+T+4:23 - Zeta has a bowl of cereal after realizing that we have puked twice today and eaten nothing but a few crackers all day and it&#x27;s already past noon. It ended up being the only thing we ate for literally the entire rest of the day even through all the drinking we did later so it was probably a pretty good call!
+T+4:36 - I come back out and hop in the shower to get cleaned off and reset after our long trippy morning. While we were in there Zeta did a little inner world practice where she also achieved a bit greater immersion and Delta and I had some more nice inner communications, and when we were so inwardly focused it was quite clear that there were still some of the sexy mental visualizations that had accompanied the heavier tripping earlier running through our minds still pretty strongly, though definitely less intense or obvious than before still. We also had a few bursts of stronger visuals again for few a second or two each accompanying our switches, something that seems to happen with certain but not all types of hallucinogenic effects even just within the psychedelic realm.
+T+5:15 - We have now officially set up the plans with our friend for a couple more hours from now, so I load us another bowl of marijuana and put on some music again. Delta comes out and makes a note of that the trip definitely seems mostly over by now but she&#x27;s waiting to see what effect smoking has on it.
+T+5:31 - Delta has been listening to the groups SISTAR (particularly the song &quot;ALONE&quot;) and BLACKPINK and notes that she now feels that she definitely does have more energy than normal still while moving to music but at the same time is still feeling fairly relaxed too, and while she is moving she is still sitting on the couch for most of it.
+T+5:45 - I put on &quot;❤&quot; by Savant and let the related music play as Delta came out and started working on a text to another friend of ours to just let him know a little bit about how our 4-AcO-MALT has gone and is still going just a bit.
+T+6:13 - She finished texting him at this point and I came back out, and made note of the fact that while she was distracted typing a lot of random EDM songs with strange music videos had been playing in the background and I was really just starting to notice them now. I just let them keep playing and went to take another hit off the bong bowl at T+6:15 which finished it, and then I loaded another half bowl of a few more hits. When the music kept playing after this it quickly switched to a group called Goldfish that we had never heard of, but Zeta and I actually really ended up liking their songs and music videos (Delta and some of the others have started getting into them more after this moment too) and made note of listening to &quot;Get Busy Living&quot;, &quot;Fort Knox&quot;, &quot;We Come Together&quot;, and &quot;Talk to Me&quot; at this time, all of which we have listened to a lot now already!
+T+6:30 - I finished that half bowl and now we really are done smoking before our friend arrives. We put on the song &quot;One Million Views&quot; by Goldfish and love it, and then &quot;Woman&#x27;s a Devil&quot; too, but after that we stop trying out new music for the time being and just let some of these songs replay for a while while we contemplate how the day has gone so far, enjoy the ligering psychedelic trip and high, and prepare for our friend to arrive and get shitfaced.
+T+7:13 - At this point Rho switched out for our friend&#x27;s arrival and notes that she is officially on her way so we&#x27;re done taking notes at this point. For the record we were also still definitely feeling something from the 4-AcO-DMT at this point, but it felt mostly just a wonderful afterglow combined with just a tiny amount of a trailing bodily euphoria.
+We had a great time drinking with our friend and had some very deep conversations as we normally do that were usually lighthearted but also somewhat challenging, we tend to get a lot more out of drinking with her than we do with anyone else which is why we wanted to drink with her specifically for possibly our last alcohol experience ever in the first place. I&#x27;m not going to go much into it of course because it&#x27;s private! But I will say that we definitely felt like the 4-AcO-MALT was still having an enhancing effect the way that past 4-substituted tryptamine experiences have accented our experiences of drinking at her parties, and we really just felt fantastic overall all night. We also went through just under three bottles of wine between the two of us with us (the system) drinking a good bit more than she did.
+T+14:15ish - Delta comes out and notes that our friend has left and she is now going to smoke a bowl of marijuana before going to bed. At T+14:49 she notes that she feels extremely high and drunk but doesn&#x27;t write anything else, and that&#x27;s the last note before she (we) ended up falling asleep on the couch.
+We woke up there at T+19:11 at the middle of the night and picked ourselves up to move over to bed. We had a bowl of marijuana in there with us too that I think we took a couple hits of at this time but I can&#x27;t remember much else about it. We ended up staying in bed tossing and turning until T+25:23 because we didn&#x27;t want to get up because we still felt pretty good while lying in bed and figured that would not be the case for very long once we actually got up. However, while we waited to the whole day from the moment we did finally get up, a hangover never actually arrived; we were a little exhausted from the previous day for sure but never felt any discomfort of any kind, and in fact we still felt quite good overall as it we were largely still just in a nice psychedelic afterglow, and had a lingering alcohol-like feeling of the kind we would normally expect to get from having maybe one or two drinks tops, noticeable but still actually more nice than not even on its own. I can&#x27;t possibly speak as to what the actual reason was that we never really got hungover, especially after how much we drank (that much would normally have us pretty decently hungover) and the fact that we ate almost nothing the entire day, but we definitely liked to think throughout the following day that the 4-AcO-MALT may have had a very positive impact on it all, and I&#x27;m not complaining about it either way no matter what did cause it!
+Overall there seems to be a consensus in here that the effect of the 4-AcO-MALT reminds us the most of 4-AcO-DMT and mushrooms, mentally, physically, and visually, by comparison to most other 4-substituted tryptamines and really just tryptamines and psychedelics in general, but at the same time relative to 4-AcO-DMT and mushrooms themselves definitely still does have some particularly (but not exclusively) superficial components that are more similar to some of the synthetic 4-substituted tryptamines, especially the ones that for us have an extra erotic vibe like 4-HO-MPT and 4-HO-MiPT, but importantly whereas those two by comparison again have strong feelings we tend to relate to LSD and phenethylamines, the 4-AcO-MALT seemed to do it with much closer to a &quot;pure&quot; &quot;tryptamine-like&quot; style as we would recognize it like what the DMT-based molecules produce, despite how much that very same vibe it definitely seemed to have and especially with respect to specifically sexual effects. It would not be wrong to suggest that we basically thought of it as a less potent but also sexier 4-AcO-DMT, but at the same time it would be wrong to suggest that we don&#x27;t think it has the potential to prove itself to be more than &quot;just&quot; that.
+Delta, who is still excited about the revelations she feels she had about her own psychedelic desires as a result of this trip, currently feels that 4-AcO-MALT may be her new favorite psychedelic, or that it at least has the very high potential to be so if it consistently produces these kinds of experiences for us. She had previously had her best personal psychedelic experience on 4-HO-MPT so it wasn&#x27;t a very big leap for her, and she says that she thinks she prefers the 4-AcO-MALT even more so specifically for its focus on the more mushroom-like emotional and sensory overload compared to the more LSD-like cognitive space that has also drawn some of us more to 4-HO-MPT and remain there even after this experience instead, along with the fact that the visuals seemed to be starting to get particularly crazy in a way that reminded her of 4-AcO-DMT and that seems to tickle her aesthetic fancy the most. She also would like to note that she felt (and in retrospect I would have to agree) that significant parts of the experience and especially the peak were also similar to our most euphoric experience on 2C-C at 25 mg, which we also feel to have some obvious mushroom-like elements despite some other very obvious differences. Personally, I thought the trip was 4-AcO-MALT was fabulous and very freeing and insightful and have nothing against exploring it more deeply, but I&#x27;m not sure I would say yet that it was my favorite on the same level as that, but I&#x27;m still kind of trying to figure out what I like to some extent more so than I think she and some others in here are who had been thinking about it more actively for longer than I have. I still think the DOB trip was very, very cool for example and very different from this one in a lot of if not most ways, but I would have a hard time picking between them at the moment in terms of saying which one was truly more useful or enjoyable, if such a thing could really even be said! But I am very excited to start thinking about these things more myself and figure out where my own preferences lie in the way that the others who most actively shared this experience with me were using to further figure out for themselves.
+I could speak more about my thoughts and feelings about this experience but feel that I&#x27;d rather not dilute the direct documentation of the drug&#x27;s effects at this point so early in its recorded history and especially given that it&#x27;s already filtered through our rather less common life experiences, so I will end my descriptions of it here. I thank you all for reading this far if you&#x27;ve made it and hope you found it informative or entertaining and enjoy the rest of your day as well! :)
+Exp Year: 2019
+ExpID: 113333
+Gender: Female
+Age at time of experience: 28
+Published: Jul 31, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-MALT (802) : General (1), Combinations (3), Glowing Experiences (4), Music Discussion (22), Sex Discussion (14), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

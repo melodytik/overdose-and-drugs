@@ -1,0 +1,250 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的&quot;教训&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/amt.html'>← AMT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的&quot;教训&quot;</h1>
+<div class='sub-title'>AMT - Erowid Exp - &#x27;Lessons Learned&#x27;</div>
+<div class='meta'>作者：Wounded Explorer Citation · 日期：Aug 10, 2008 · <a href='https://erowid.org/experiences/exp.php?ID=67674' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这一事件发生在一个月前.
+我当时23岁.
+我是一名男性,除了焦虑症之外,
+这是我第一次使用AMT, 但在此之前我尝试过2C-I,4-AcO-DMT,5-MeO-DMT,唾液,晨光种子,DXM,胺,大麻和茶.
+我经常喝酒.
+我没有服用任何处方药.
+我第一次尝试AMT时犯了几个错误.
+第一个可能是对幻觉药物进行实验.
+我知道这意味着在迷幻体验中恐慌的可能性更大.
+我第二个错误是信任一个我以前有过问题的供应商.
+这位供应商以囊形式出售他的研究化学品.
+他曾经向我出售了一粒囊,
+卖家向我保证他的囊将来会被适当地称重,
+我第三个错误是试了一剂相当高的药物.
+经历开始前, 有两个因素使我感到焦虑:第一, 我读过AMT造成的死亡.
+我总是担心如果我失去意识会发生什么.
+那是一个星期六.
+我早上9点左右醒来.
+我那天早上吃的很少,
+在下午1:45
+据供应商说, 囊中含有大约50毫克的AMT.
+后来我看到我的公寓的地毯开始闪.
+我在使用迷幻药时经常看到的第一个幻觉.
+我坐了一把舒适的椅子, 闭上眼睛, 面对着一个明亮的窗户.
+这通常能帮助我看到视觉图像, 但在这种情况下, 我只能看到一个模糊的网格,
+我坐在椅子上,闭上眼睛,几个小时.
+我把我的腿拉到椅子上,交叉他们.
+我很快就开始对身体的感觉感到困惑.
+我能感觉到我的身体的某些部位对着椅子的压力:脚跟,脚跟,膝盖,膝盖,肘部,肘部,
+我把双手放在一起,把手指交叉.
+我能感觉到每一只手的感觉, 但我无法辨别哪只手的感觉,
+我终于感觉到自己从椅子上起.
+眼睛开让我回到了现实, 但也增加了我一直存在的恶心.
+我再次闭上眼睛,
+我在椅子上开始感到非常寒冷.
+我决定躺在床上,
+我关掉灯光,闭上眼睛,
+当我打开我的眼睛我可以看到它快速闪大约一秒钟.
+心理药物会让我想起一些关于感知的问题, 比如有时我的幻觉是如此微弱, 我不确定它们是真实的还是我在想象,
+没有外部刺激可以测量, 没有客观的方法来判断哪一种是什么, 如果我不能区分, 也没有主观的方法.
+那些有同感觉的人看到颜色却知道它们不是真实的,
+我在清醒的时候也会想到这些问题, 但我倾向于认为它们是碎的,愚蠢的,
+尽管我意识到这些声音来自我自己的大脑,
+我听到我的内心的独白消失,然后又回来,
+我注意到自己正在大汗淋,
+现在,我的想法开始变得非常黑暗.
+如果我的经历开始变得令人不快, 就没有办法逃脱, 随着AMT的持续时间,
+我闭上眼睛,希望能再次获得浮动的感觉.
+经过几分钟的思考,
+我曾想过自慰, 但是我意识到这会增加我的脉和血压,
+为了判断危险, 我摸到子,
+很难找到自己的脉,
+我开始相信自己正在死去.
+我试图把我的思想转向更快乐的想法, 几次深呼吸试图平静下来,
+我试图说服自己死是可以的,
+没有成功;我想活下去.
+我决定要去找医生.
+在晚上九点半左右
+我走到我的床上, 藏着我的毒品, 拿出我所有的毒品,
+然后我拨打了911.
+我很难把我的想法表达成文字,
+警方在医护人员之前到达.
+洗掉我的药物也是一个错误.
+警方可以拿走他们发现的证据,
+我把标签上的药物放在所旁边的露天.
+我还把我的卧桌抽打开,
+警方查获了所有这些证据.
+我很担心可能会面临的法律麻烦,
+医生测量了我的血压和脉, 报告说血压很高.
+我决定坐上救护车,让医生带我去医院.
+医院的护士们很友好,当他们跟我说话时,我会笑,
+他们检查了我的血压和脉数小时,
+医院叫出租车送我去那里.
+我在午夜左右到达排毒中心.
+设施被锁定, 他们通过内部通话与我说话之前他们让我进来.
+电话里的声音很混乱,
+我觉得这是AMT的影响.
+为了抑制我的焦虑, 一位女士给了我两片洛拉泽.
+我躺在床上试图睡觉,但不能.
+我感觉自己在高速移动.
+第二天早上,一个清除毒素的员工叫我吃早餐.
+我吃了早餐, 环顾房间, 想看看地板或天花板是否有扭曲.
+我不能,所以我要求在上午9:30左右离开排毒.
+他们让我和一个心理咨询师简短地交谈,
+我开始怀疑自己是否还在AMT的影响之下.
+我决定我没有必要负起使用毒品的责任,
+几个小时后我仍然不确定AMT是否完全离开了我的系统.
+我闭上眼睛,静静地坐着,
+我再次看到地毯闪闪发光, 微弱的彩虹圆充满我的视野.
+这持续了几分钟.
+自从这次经历以来, 我再也没有使用过任何迷幻药物.
+我从来没有被起诉过.
+其他:
+列车事故和旅程灾难 (7),性讨论 (14),艰难经历 (5),孤独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Lessons Learned
+AMT
+by
+Wounded Explorer
+Citation:   Wounded Explorer. &quot;Lessons Learned: An Experience with AMT (exp67674)&quot;.
+Erowid.org
+. Aug 10, 2008. erowid.org/exp/67674
+DOSE:
+T+ 0:00
+50 mg
+oral
+AMT
+(capsule)
+T+ 10:15
+2 tablets
+oral
+Pharms - Lorazepam
+BODY WEIGHT:
+132 lb
+This event occurred about a month ago. At that time, I was 23. I am a male, and healthy aside from an anxiety disorder. This was my first experience with AMT, but prior to this experience I had tried 2C-I, 4-AcO-DMT, 5-MeO-DMT, saliva, morning glory seeds, DXM, ketamine, cannabis, and poppyhead tea. I frequently use alcohol. I do not take any prescription medications.
+I made several mistakes when I decided to try AMT for the first time. The first was probably experimenting with psychedelics at all. My anxiety has been a problem for a while, and I knew that meant it was more likely I would panic during a psychedelic experience. My second mistake was in trusting a vendor I had had problems with before. This vendor sold his research chemicals in capsules. On a previous occasion, he sold me one capsule which contained a much larger amount of the active substance than it was supposed to. The vendor assured me his capsules would be properly weighed in the future, but instead of trusting him I should have broken open the capsules and weighed the substance myself. My third mistake was trying a fairly high dose on my first experience with a drug.
+There were two factors which contributed to my anxiety before the experience began: First, I had read of deaths caused by AMT. Second, I was alone, and even though I am usually alone when using psychoactives, I am always worried about what would happen if I became unconscious.
+It was a Saturday. I woke up around 9:00 a.m. I ate very little that morning to avoid vomiting should I become nauseous during my AMT experience. At 1:45 p.m. I swallowed a capsule which, according to the vendor, contained about 50mg of AMT.
+Some time later, I saw the carpet of my apartment begin to shimmer. This is often the first hallucination I see when I use a psychedelic. I sat back in a comfortable chair and closed my eyes, facing a window with a bright light. This usually helps me see visuals, but in this case I could only see a faint grid full of concentric rainbow-colored circles, which I could see with open eyes as well.
+I sat in my chair, eyes closed, for hours. I pulled my legs up into the chair and crossed them. I soon became confused bout the sensations I was receiving from my body. I could feel pressure from parts of my body against the chair: heel, heel, knee, knee, elbow, elbow, but I could not discern which sensation was coming from which body part. I brought my hands together and interlocked my fingers. I could feel a sensation from each hand, but I couldn’t tell which sensation was coming from which hand, and I couldn’t tell they were touching each other. I eventually felt myself lifting out of the chair. Opening my eyes snapped me back to reality, but it also increased my nausea, which had been present the whole time. I closed my eyes again and once again lost track of the sensations in my body.
+While I was in the chair I began to feel very cold. Eventually it became too much for me and I decided to lie in my bed under the covers. I turned out the lights and closed my eyes but did not experience any more mix-ups of body parts. There was a faint light coming through the window, and when I opened my eyes I could see it rapidly flashing for about a second. My thoughts fell into a loop which repeated for hours: “Psychedelics bring to mind some questions about perception, like sometimes my hallucinations are so faint, I’m not sure if they’re real or if I’m imagining them, but then I realize, what’s the difference? Seeing a color and imagining it uses the same part of the brain, and with no external stimulus to measure, there is no objective way to tell which one it is, and if I can’t tell the difference, there is no subjective way, either. People with synesthesia see colors but know they aren’t real, and have a hard time explaining whether they see the colors or are just imagining them. I think about these questions when I’m sober, too, but I tend to think they’re trivial and silly and psychedelics make them seem important.”
+Eventually my thoughts started to become cluttered with other voices, and even though I realized they were coming from my own brain, they seemed to be external. I heard my inner monologue fade out and snap back in several times, which I found a little disconcerting, but at this point I was still quite calm.
+I noticed I was sweating heavily so I left my bed and went back to the chair. It was at this point that my thoughts took a decidedly dark turn. First, it occurred to me that if my experience started to become unpleasant there would be no way to escape it, and with the duration of AMT I would probably be stuck with the experience for hours. I closed my eyes and hoped to attain the floating sensation again. After a few minutes I wondered what it would be like to have an orgasm while in this state. I thought about masturbating, but I realized this would increase my pulse and blood pressure and I worried it might be dangerous if combined with the stimulant effects of AMT. I reached up to my neck to feel my pulse so I could make a judgment about the danger. It was difficult to find my pulse, but when I did I realized it was quite rapid. I started to believe I was dying. I tried to turn my thoughts to happier ideas and took several deep breaths to try to calm down, but I kept returning to the idea that I was about to die. I then attempted to convince myself that it was OK to die, and that it might be an interesting experience. That did not work; I wanted to live. I decided that I should seek medical attention.
+At around 9:30 p.m. I went to my nightstand, where I hide my drugs, and pulled out all the scheduled substances I had, including the AMT, and flushed them down the toilet. I then dialed 911. I found it difficult to form my thoughts into words so I could speak to the operator, but I was nevertheless able to tell him my address and what the problem was.
+The police arrived before the medics did. I did not deal with the police well; I knew that they could not search me or enter my apartment without permission but I let them in anyway. Flushing my drugs was also a mistake. The police can take evidence they find “in plain view,” and this was a rule I knew. I left the labeled containers for my scheduled substances in the open next to the toilet. I also left my nightstand drawer open, which contained paraphernalia and several substances that were potential analogues. The police seized all this evidence. I was anxious about the legal troubles I might face, but I found talking to the police and medics very pleasant, even amusing.
+The medics took my blood pressure and pulse and reported that it was pretty high. I decided to get into the ambulance and let the medics take me to the hospital. At the hospital, the nurses were friendly, and I grinned when they talked to me, even when they were expressing serious concerns about my drug use. They monitored my blood pressure and pulse for a few hours and took a urine sample. A nurse convinced me to go to a detox place on the north side of town and the hospital called a cab to send me there.
+I arrived at detox at around midnight. The facility was locked and they talked to me though an intercom before they let me in. The voice in the intercom was very garbled and it was difficult to tell what they were saying. I feel this was an effect of the AMT. A woman at detox gave me two tablets of lorazepam in hopes of curbing my anxiety. I lied on the bed and tried to sleep but could not. I had severe vertigo, feeling myself moving sideways at high speed.
+The next morning, a worker at detox called me to breakfast. I ate breakfast and looked around the room to see if I saw any distortions in the floor or ceiling. I could not, so I asked to leave detox at around 9:30 a.m. They had me speak briefly with a counselor and let me call a cab to go home. It was hard to understand the voice on the phone, and I started to wonder if I was still under the effects of AMT.
+When I arrived at my apartment, I decided I did not have the responsibility necessary to use drugs and flushed the remaining research chemicals I had in my freezer. Several hours later I was still not sure if the AMT had completely left my system. I closed my eyes and sat still to see if I could feel the sensations of my body mix up, and indeed I had a hard time discerning which sensation came from which body part. That evening at around 7:00 I once again saw my carpet shimmering and faint rainbow circles fill my vision. This lasted several minutes.
+I have not used any psychedelics since this experience. No legal charges were ever filed against me.
+Exp Year: 2007
+ExpID: 67674
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 10, 2008
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+AMT (7) : Train Wrecks &amp; Trip Disasters (7), Sex Discussion (14), Difficult Experiences (5), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

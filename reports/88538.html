@@ -1,0 +1,238 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - &quot;个人精神疗法&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mushrooms-p-cyanescens.html'>← 裸盖菇(- P. cyanescens)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - &quot;个人精神疗法&quot;</h1>
+<div class='sub-title'>Mushrooms - P. cyanescens - Erowid Exp - &#x27;Personal Psilocybin Psychotherapy&#x27;</div>
+<div class='meta'>作者：Robert M Bodley Citation · 日期：Jun 29, 2011 · 剂量：10 g · <a href='https://erowid.org/experiences/exp.php?ID=88538' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>现在回想起来, 很难确定我对含有素的娱乐性使用是如何变成更深层次的心理治疗,
+首先我觉得我必须给你一个脑海中的图像我们正在消耗的真菌, 我们是我和我的兄弟迈克尔.
+我从来没有遇到过任何困难,这些&#x27;旅程&#x27;非常迷幻,充满了对生命的热爱和给予我们生命的星球,
+作为旅程的一部分, 我们在试图达到我们从麦肯纳兄弟等作家所读到的意识的精神状态时,
+我们不想跟随古老的沙曼仪式, 因为它们都被污染了,
+我们已经知道在psilocin的影响下, 当我们闭上眼睛放松时,
+经过多次尝试改变剂量和设置, 我们意识到这很容易通过在绝对黑暗中设置旅行来实现,
+它们始终是几何旋转的,超级演变的,复杂度不断增加的图案, 在绝对黑暗中达到顶峰的20分钟后,
+如果我们幻觉到一片草地, 那么它是由我们在生活中见过的每一片草组成的.
+约40分钟后, 消耗超过10克新鲜的Psilocybe cyanescens (根据Stamets和Wasson的说法, 最强效的物种之一) 在绝对黑暗中,
+无论我是否愿意, 我都被迫从每个人的角度重温这些事件. 很多时候我试图抵制并避免重温这些经历,
+在每一次旅行的第一小时, 我都会经历这些回忆, 直到我接受回忆,
+在我生命中的这段时间 (25) 我是一个非常愤怒的人,对社会充满敌意,我觉得这个社会忽视了我,迫害了我,因为它让我变成了这样的人,我有很多怨恨,被诊断为恐惧农村的人,
+由于我的精神状况, 在几年前因争5英而被刺伤后,
+我是一个典型的例子,建议避免使用迷幻药的人类,但我一直在使用迷幻药娱乐自从我拿起我的第一个LSD抹纸在我的14岁生日,这次旅行是单独的,因为我的朋友购买普通的纸片,
+无论是双重浸泡还是没有, 没有什么区别, 我沉浸在一个意识最终陷入深度睡眠, 然后第二天去上学,
+现在我意识到我有问题, 没有希望能够接受定期的心理治疗, 所以我决定,
+只是一个足够健康的停止破坏我的迷幻体验.
+我们设置了一个舒适的黑暗房间的场景,每个人都消耗了10克的,如常在20分钟内开始产生效果,20分钟后,几何图案开始演变,它们形成了固体幻觉.
+景观是由金属灰色网络的绳子像纤维和每现在然后我可以看到看起来像透明的玻璃圆顶结构或泡在表面,这些轻轻地发光.
+我经过这些有时会成群的发光泡,然后看到远处看起来像火焰,当它们进入前景时,它们与发光泡相似,但以代表危险的颜色耀,给了我一种压倒性的恐惧和恐惧感,当我接近它们时,起初我很快试图避免这些愤怒的泡.
+几乎成功了, 但避免其中一个我被吸引到感觉像引力场的另一个愤怒的泡,
+这段记忆与我看过的任何电影一样生动, 在我脑海中,
+记忆不是一个好.
+我在房间里像一个漂浮的摄像机, 准备出去玩, 姐姐的父亲要照顾我们,
+我和哥哥坐在沙发上看电视, 希望事情不会发生, 但我们已经互相看了几次,
+他变得越来越生气, 他开始攻击我的妹妹, 粗暴地处理她, 她开始哭泣, 我的母亲像任何母亲看到她的孩子被虐待,
+我母亲在战斗中失去了优势, 这又变成了现在熟悉的场景, 他猛烈地殴打她,
+视野变得模糊,然后回到现在的无处不在我的卧室,我和我哥哥躺在我们的床上睡着了,有一系列的响亮的轰炸唤醒我们这是我的妹妹的父亲他已经被警方释放,并通过打破前门强行进入房子,恐惧和恐怖是最大的水平我又9岁
+无助的担心他会杀死我们所有人, 再一次令人眼花乱的纳米闪光无法忍受的白色光, 我又回到灰色的滚动景观这次没有控制和下面我在炎热的泡的记忆我刚刚重生,
+我像重力一样被吸引到最接近的气泡中.
+在这个泡中, 我是侵略者, 统治着学校的游乐场, 加强我在学校最艰难的地位,
+意识到我的愤怒和侵略源于我在过去五年里无数次的无助感,
+纳米闪光又一次, 似乎是几个小时的时间, 实际上是几分钟, 每次都在景观上出现不同的发光泡,
+每次我都从受害者的角度经历自己的侵略, 其中一个甚至是我的兄弟迈克尔, 他的视角从我们生命中的每一个时刻闪过,
+我也在想,如果我是那个受害者, 可能与他们当时对我的行为非常相似.
+这次旅程虽然本身很创伤, 是一条美好的道路的开端, 在后面的分析中, 我意识到灰色的景观是我的潜意识大脑,
+那些火色的气泡是我带着芯片或精神复杂感的创伤事件, 它们影响着我的生活和生活中的任何人.
+我错过了一些有价值的生命教训, 那些教训本来会对我有好处,
+在接下来的几周里, 我几乎连续地分析了这段经历, 尤其是注意到我没有觉得有必要在任何我参与的社会环境中以侵略性地统治,
+我觉得我已经解决了个性障碍的主要部分, 吃了太多的真菌, 我想相信,
+也许我以为自己已经摆脱了愤怒和恐惧的控制.
+接下来的6个月里, 我们至少每隔2周就会出差一次, 直到今天, 我们总是隔几周的时间来反思和欣赏之前的经历.
+每次我带着深刻的自我意识和启示回来, 每次旅行我都会重新体验至少一个火热的气泡记忆和相关的闪耀的气泡,
+每次我们到达那个点, 我不再去参观灰色的景观, 而是被呈现给一个纯粹的快乐和满足的迷幻,
+经过6个月的时间, 我的人格障碍不再明显, 我爱的人和爱我的人都在评论我的人格的变化, 我注意到他们都在我身边花更多时间,
+现在问题仍然存在,我26岁,没有工作或体面的资格,陷入了&quot;失业福利陷&quot;,基本上我找不到一份工作,
+我把这些想法推到我的脑海里,
+经过大约一个月的时间, 我们决定再一次光奇遇, 期待近期旅行的迷幻乐观, 我毫不犹地投入其中,
+在灯光的中心, 我坐着, 双腿交叉, 双臂折叠,
+其中一个声音是个孩子,我很快就认出了自己,大约8岁,另一个声音是我的成年自我,但我的声音很轻松,几乎是善良的,给人一种伟大的智慧的印象,
+我现在相信我声音的善良智慧版本是我8岁时想成为的人.
+我8岁的我不高兴,走进了光圈,站得很自信,大胆地像黄铜一样,光线从一个圆转向一个角落,我坐在那个角落的同一个位置,
+&quot;所以这是它?
+这就是你从生活中得到的吗?
+成为最好的人, 梦想和承诺, 你做了什么?
+现在我们有了足够的钱来照顾全家,
+你甚至还没有履行你的诺言,
+八岁的我向后移动, 没有走出灯光,
+他们决定我不再有个性障碍, 没有理由继续处于这种没有前景的失业状态,
+他们决定我必须回到学校, 拿到计算机资格证明我不再是精神缺陷和让自己看起来在纸上就业.
+我8岁的我和我善良的成年声音也决定我不应该吸烟,因为它会杀死我,因为我患有喘,他们俩都笑了笑,我甚至开始吸烟,首先提醒对方我画的禁烟标志在我的卧室墙上,当我不让任何人在我的房间里吸烟时,笑声消失了
+我再次进入了迷幻, 感觉好像几个月, 实际上是20分钟的旅行,
+在接下来的几周里, 我反思了这件事, 和我哥哥谈了这件事, 我们都笑了, 关于魔术和人类大脑的疯狂,
+他将写出一次旅行报告, 详细解释他对Pyschedelic的解释,
+大约一个月后,我们决定再去一次旅行, 碎形形成固体幻觉的瞬间, 我被我的8岁的自我呈现给我, 问我做了什么来实现我们就我的就业能力达成的协议,
+他答应我,只要我什么都不做, 他就会继续折磨我每次使用迷幻药物,
+我答应如果他让我独自一人在那里,然后享受旅程的第二天,我会去失业福利办公室,看看他们有什么帮助让人在我的情况下回到工作,8岁的我对这个承诺感到满意,让我进入精神狂热的自我自由的和所有它包含的幸福
+他警告我,如果我不现这个承诺,
+第二天我分析了8岁的门卫的经历, 感觉我的潜意识决心要折磨我,
+作为一个成熟的学生, 每天8个小时, 每周5天, 只有一门课程, 学习成为思科计算机技术人员,
+我从大学毕业后就为乳腺癌运动,地球之友,BNS电信,英国航空公司,T-Mobile公司工作了. 目前我在英国一家顶级公司工作,
+我认为如果我在现实生活中做, 他就不会入我的另类现实来教育我.
+如今我的旅行是纯粹的迷幻快乐, 如果我的意识时不时地错过了现实生活中的经验,
+我听说过很多次, 读到更多的, 如果你在你的生活中遇到困难时刻, 你应该避免迷幻体验,
+时间表: 88538
+2011年6月29日发布
+- P. cyanescens (67):小组 (2-9) (17),治疗意图或结果 (49),健康益处 (32),困难的经验 (5)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Personal Psilocybin Psychotherapy
+Mushrooms - P. cyanescens
+by
+Robert M Bodley
+Citation:   Robert M Bodley. &quot;Personal Psilocybin Psychotherapy: An Experience with Mushrooms - P. cyanescens (exp88538)&quot;.
+Erowid.org
+. Jun 29, 2011. erowid.org/exp/88538
+DOSE:
+10 g
+oral
+Mushrooms - P. cyanescens
+(fresh)
+BODY WEIGHT:
+205 lb
+Psilocybin Psychotherapy
+When thinking back it is hard to place exactly where my recreational use of Psilocybin-containing fungi became less recreation and more deep personal psychotherapy, it was more a pattern that emerged over repeated use and my determination to enjoy the experiences regardless of the hard times I was having just before peaking.
+First I feel I must give you a mental image of the scenarios we were consuming the fungi, we being me and my brother Michael. In recreational settings like the countryside in daylight I never experienced any difficulties, the &#x27;trips&#x27; were very psychedelic and filled with a love of life and the planet that gave us this life, returning with profound realisations on the Universe and our place in it as tiny as it is. The problems came in settings which promoted internalisation, retrospective reflection and internal analysis as part of the trip, we stumbled upon these as we attempted to reach the spiritual states of consciousness we had both read about from authors like the McKenna brothers.
+We did not want to follow Shamanic rituals of old as they had all been polluted when the practitioners attempted to conform as Christianity tried to purge the planet of all other religions especially those involving sacrements which helped them contact God or enter a spirit world.
+We already knew that under the influence of Psilocin visual patterns could be seen on the mind&#x27;s eye when we closed our eyes and relaxed, we wanted to see if these visuals could overwhelm the visual cortex with eyes open. After many different attempts changing dosage and settings we realised this was easily achieved by setting the trips in absolute darkness so that we could not tell a difference between eyes open or shut, the results were mind blowing and the visuals became projected and external often making us reach out to touch them. They would always start as geometric revolving, ultra evolving patterns of ever increasing complexity and after about 20 minutes peaking in absolute darkness the patterns became solid, fully formed hallucinations created from the stored imagery in our subconcious minds. If we hallucinated a field of grass this was made up from a selection of every  blade of grass we had ever seen in life if it needed be.
+Approximately forty minutes after consuming anywhere above 10 grams of fresh Psilocybe cyanescens (one of the most potent species according to Stamets and Wasson) in absolute darkness is where my difficulties were occurring, these manifested themselves in me being forced to relive traumatic experiences and episodes of my life in graphic first, second and third person detail, by this I mean I was forced to relive these episode from the perspective of everyone involved regardless of whether or not I wanted to. many times I tried to resist and avoid reliving these experiences as I believed I had survived them as best as anyone could and did not want to revisit any of them. So time and time again each trip the first hour I suffered these trips down memory lane and until I submitted to the recall I was not allowed any of the euphoria and enjoyment parts of the trip, it was starting to put me off psychedelics as I felt I needed to build up the mental energy to go through a traumatic part of my past before getting any fun and enlightenment.
+During this time in my life (25) I was a very angry person with a lot of hostility towards a society I felt had neglected me and persecuted me for the person it had made me become, I had a lot of resentment and was diagnosed as Agoraphobic with misanthropic tendancies, I had no job and was on incapacity benefits due to my mental condition after being stabbed in the stomach a few years earlier in an argument over £5. I was a typical example of the type of person recommended to avoid psychedelic use but I had been using psychedelics recreationally since I took my first LSD blotter on my 14th birthday, this trip was done alone due to my friends buying pieces of ordinary paper with something drawn on it, mine was a full blown experience of a &#x27;Double Dipped Purple Ohm&#x27; or at least that was the sales patter. Whether it was double dipped or not made no difference, I submerged into the one consciousness eventually dropping into a deep sleep and then attending school the next day as if nothing had happened, anyway I have completely digressed but this was the absolute start of my psychedelic journey which is far from over now aged 35.
+Back to the psychotherapy tripping, by now I realised I had issues and there was no hope of affording regular psychotherapy so I decided instead of trying to avoid and resist the analysis of my previous traumas that I should give in to the visions and see if I can see why these events from my life were causing me such problems, this was not out of a desire to have a healthy mind but just one healthy enough to stop spoiling my psychedelic experiences.
+We set the scene of a darkened room in comfort and consumed 10 grams of Cyanescens each, the fungi as usual started having an effect within 20 minutes and 20 minutes after that the geometrics patterns started to evolve, as they formed into solid hallucinations I was presented with what at first I thought was a landscape of rolling hills and I was flying above this at a very low altitude, the landscape was made up of a metalic grey network of rope like fibers and every now and then I could see what looked like clear glass dome structures or bubbles on the surface, these glowed gently. As I passed these glowing bubbles which were sometimes in groups I would then come to what in the distance looked like fires and as they entered to the foreground they were similar to the glowing bubbles but emblazened in colours representative of danger and gave me an overwhealming sense of fear and dread as I came closer to them, at first I quickly tried to avoid these angry looking bubbles and was almost successful but avoiding one of them I was drawn into what felt like the gravitational field of another one of these angry bubbles, there was a blinding nano-flash of immense white light and the landscape was gone.
+The light faded and I was in a memory of my own from the age of around 9 years old, this memory was as vivid as any movie I have ever watched being played out on my minds eye in the absolute darkness which we had set the trip. The memory was not a good one. As perspectives go in this situation I was like a floating camera in the room and my mother was getting ready for a night out, we were going to be babysat by my sisters father, he was not happy about this and was getting hostile and aggressive towards my mother and us. Me and my brother are sitting on the sofa trying to watch tv hoping things were&#x27;nt going to kick off but we had already given each other several knowing looks, my sister is getting dressed in her night clothes for bed by her father whilst he is arguing with my mother. As he got angrier he started aggressively dressing my sister and roughly handling her and she started to cry, my mother as any mother would seeing her child being abused attacked him grabbing him by the hair screaming &#x27;you fucking bastard hurt my bairn ....&#x27; and hitting him with everything she had, I grabbed my sister and me, Michael and Diane cuddled together to protect each other on the other side of the room as my mother lost the upper hand in the fight and it again turned into the now familiar scene of him beating her viciously, someone somewhere must have heard this happening again and called the police who dragged him out of the house and arrested him.
+The view blurs into a nothingness then back in now situated in my bedroom and me and my brother are lying in our beds asleep, there is a series of loud bangs waking us up it is my sisters father he has been let out by the police and is forcing entry into the house by smashing in the front door, the fear and terror is at maximum levels I am again 9 years old and helpless worried he is going to kill us all, again a blinding nano-flash of unbearable white light and I am back in the grey rolling landscape this time without control and below me in the fiery bubble of the memory I had just relived, the colours and intensity of it are fading and the bubble itself melts into the landscape and can not be seen, nearby there are several of the glowing bubbles and I am instantly drawn like gravity into the nearest one. In this bubble it is me who is the agressor dominating the school playground reinforcing my status as hardest in the school by starting fights with anyone who thought they should have that status and anyone I thought might present a threat to my status.
+Realisation washed over me like a bucket of cold water over my head that my anger and agression was born out of the helplessness I had felt in the numerous occasions over the 5 years at the hands of my sisters father the aggresor at home. Again the nano-flash and what felt like hours was flicking past which in reality were in minutes each time entering different glowing bubbles on the landscape, each one I am older and older reinforcing the lesson with example after example of where my aggression and hostility had stopped me getting the most out of a situation, this continues until I am in memories from just a few days earlier when I was being aggressive to others, each time I am experiencing my own aggression from the victims perspective, one of them even being my brother Michael, his perspective felt from everytime in our lives flash remembered in a flick of a second, the continued upset of how all he wanted was for us to be good brothers and not be afraid of me loosing it, I&#x27;m also forming thoughts if I had been that victim probably very similar to what they actually did about me at the time.
+This trip altho quite traumatic in itself was the start of the good path, in post analysis I realised the grey landscape was my subconcious brain and the further I travelled through it, the further back in my memory I was going, the visual effect was very simlilar to a helicopter flying low over a terrain of rolling hills and fields but soundless apart from a constant background low resonance hum common to me in large psilocybin doses, the fiery coloured bubbles were traumatic episodes in which I had carried a chip or picked up a mental complex from and to this day they were effecting my life and anyone in it, the glowing bubbles were events where I had missed valuable life lessons which would have done me good due to the warped defensive perspectives I had formulated from the bad times.
+Over the next couple of weeks I analysed the experience almost continuously especially noticing that I did not feel the need to agressively dominate any social situation I was a part of plus the resulting internal peace I was feeling from letting this anger go and realising through my entire life as a defensive measure I was making sure I was the aggressive one who people should fear, could I have really solved a major part of my personality disorder by eating too many fungi, it felt like I had and I wanted to believe but I was sceptical and wondered if it would last and if at all even real. Maybe I&#x27;d imagined I was free from my anger and fear from controlling me.
+I was keen for my next experience this time eager to revisit the grey landscape and its memory bubbles and the lessons contained within each one, over the next 6 months we were tripping at least every 2 weeks, we always still to this day keep several weeks between trips for reflection and appreciation of the previous experience. Each time I was returning with profound self awareness and revelations, each trip I would relive a at least one fiery bubble memories and the related glowing bubbles before being allowed access into what we started to call &#x27;The Psychedelic Soup of All Knowledge&#x27; simply the blissfull period when you are comfortable peaking on a &#x27;good trip&#x27;.  This continued for me almost every 2 weeks each time we tripped to the point where I no longer got to visit the grey landscape and was instead presented with a psychedelic soup of sheer bliss and contentment, occasionally I went straight to the Psy-soup and in retrospect I realise these were times when I was still absorbing the knowledge from the previous session.
+After about 6 months of this my personality disorders were non apparant and the people in my life I love and who loved me all were remarking on the changes for the better in my personality and I noticed that all of them were spending more time around me, they seemed more relaxed in my presence and we all started to get to know me and each other properly.
+Now then the problem still exists that I am 26 with no job or decent qualifications and in the &#x27;incapacity benefits trap&#x27; basically I can not get a job that pays enough to have me in the same situation I am in financially once the benefits are removed and I have no idea of how to get myself out of it, on top of this I have been out of work for over 5 years due to major psychological problems and on paper I look unemployable, I push these thoughts to the back of my mind and try to make the most of life for what it is.
+It is about a month after this and we decide to have another Cyanescens adventure and expecting the psychedelic euphoria of recent trips I dive in without hesitation in the belief that i had learnt all the lessons to learn, as the fractal geometrics formed into solid hallucinations I am presented with a spotlight circle shone from above and in the centre of this light I am sitting legs crossed and arms folded looking down into my lap, at the edges of the spotlight range there are the vague shapes of people standing around me at the light perimeter in a complete circle and 2 voices can be heard. One of the voices is a child who I soon recognise to be myself around 8 years old and the other voice is my adult self but the tone of my voice is relaxed, almost benevolent and giving an impression of great wisdom, the 2 voices of my child self and my benevolent adult self are discussing my current situation in life, what little I have achieved and what I am capable of (I believe now the benevolent wise version of my voice is the person I thought I would grow up to be when I was 8). My 8 year old self is not happy and steps into the circle of light standing very confidently bold as brass, the light changes from a circle to a corner and I am sitting in same position in that corner and the 8 year old me has me boxed in, he said
+&#x27;So then is this it? Is this all you are getting for us from life? What happened to being the best, the big dreams and promises you made when you were me? What happened to getting a great job and having enough money to look after all the family so we are not as poor? You never even kept your promise to drive your nanna up the big hill on your motorbike, you havent even got a motor bike licence!!!&#x27;
+The 8 year old me moved backwards without walking out of the light laughing at me. The conversation took up again between the benevolent adult voice of me and the 8 year old me, they decided that as I no longer had the obstacles of the personality disorder I had no reason to still be in this situation all jobless with no prospects and they proceded to decide for me what must be done to solve it. They decided I had to go back to school and get computer qualifications proving I was no longer the mental defective and making myself look employable on paper. My 8 year old me and the benevolent adult voice of me also decided that I should not smoke tobacco as it was going to kill me being an asthmatic, they both laughed together at the fact I even started smoking in the first place reminding each other of the no smoking signs I drew for my bedroom wall and when I would not let anyone in my room who was smoking, the laughing faded and I entered the psychedelic soup again in sheer bliss, what felt like months had actually been about 20 minutes of the trip and I was still peaking beautifully.
+Over the next couple of weeks I reflected on this, talked about it with my brother and we both laughed about the madness of the magic mushroom and the human brain and whether any of this had any real baring on us and if the changes were permanent or just imagined, my brother not being a metal defective had been regularly dissolved into the bliss of the psychedelic soup, hopefully he will write up a trip report sometime and explain fully his interpretation of pyschedelic soup and the variety of ways he has birthed into it as his ego dissolved.
+About a month after this trip we decided to trip again, the instant the fractals formed into solid hallucinations I was presented with my 8 year old self asking me what I had done to impliment the changes we had agreed on regarding my employability, as I had done nothing I knew I could not lie to him so shamefully admitted I had done nothing, he promised me then that as long as I done nothing he would continue to torment me every time I used psychedelics instead of letting me enter the psychedelic soup. I promised if he left me alone there and then to enjoy the trip that the day after the trip I would go to the Incapacity Benefits Office and see about what help they had for getting people in my situation back into work, the 8 year old me was satisfied with this promise and allowed me access to the psychedelic ego free euphoria of the soup and all the bliss it contains but warned me if I did not keep this promise he would be much worse next time.
+The next day I was analysing the experience with the 8 year old gate keeper partially feeling like my subconcious was determined to torture me and out of sheer desire not to have my psychedelic experiences ruined in this way I went to the Incapacity Benefits Office, they were delighted at my enthusiasm and before I left the office I was signed up to go to college and live on campus for a year  for 8 hrs per day 5 days a week as a mature student with just 1 subject learning to be a Cisco PC Tech, just for clarification I have never smoked tobacco again, whilst at college on night times I was able to study and get NVQ  level 1,2 +3 in English and Maths to repair my neglected GCSE results. Since leaving college I have worked for The Breast Cancer Campaign, Friends of the Earth, BNS Telecom, British Airways, T-Mobile and currently I am with one of Britains top companies and the only person I occasionally get angry with is myself at specific times when I know I am doing something the 8 year old me would be kicking my arse about, I figure if I do it in reality he won&#x27;t gatecrash my alternate realities to educate me.
+These days my trips are sheer psychedelic bliss and every now and then if my conscious mind misses a life lesson from the experiences in my reality I always catch the missed lesson in the next psychedelic episode delivered always before the pleasure and comfort of the peak.
+I have heard it said many times and read it even more that if you are having difficult times in your life you should avoid the psychedelic experience as anyone who reads this will understand I don&#x27;t follow that belief and any time I am in a situation I cannot solve in a conscious state I take the problem into a heavy psychedelic state for an alternate perspective.
+Exp Year: 2003
+ExpID: 88538
+Gender: Male
+Age at time of experience: 27
+Published: Jun 29, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms - P. cyanescens (67) : Small Group (2-9) (17), Therapeutic Intent or Outcome (49), Health Benefits (32), Difficult Experiences (5)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

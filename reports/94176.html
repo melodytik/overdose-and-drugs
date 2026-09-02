@@ -1,0 +1,193 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>鱼 - 鱼 - 鱼</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mdpv.html'>← MDPV(浴盐)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>鱼 - 鱼 - 鱼</h1>
+<div class='sub-title'>MDPV (Bath Salts) - Erowid Exp - &#x27;Spinning Wild&#x27;</div>
+<div class='meta'>作者：Neveragain Citation · 日期：Mar 1, 2012 · 剂量：50 mg · <a href='https://erowid.org/experiences/exp.php?ID=94176' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我是一名19岁的男性, 经验丰富的MDMA,,可卡因,安非他命,2c-e,2c-b,dmt,lsd,胺,香料产品,大麻,
+在故事上.
+我拿了一瓶500毫克的&quot;浴盐&quot;.
+品牌名为&quot;八个球&quot;.
+我不得不去看望我的,所以我决定在她的城市里测试这个新物质.
+我到达她的房子,安顿下来,决定去散步.
+走到公园,坐在树后, 确保没有人看到.
+后来我在经历中发现,
+我不确定这个混合物中究竟有多少MDPV,
+[Erowid的注意事项:
+两个相同体积的粉末样本 (即使是相同的化学物质) 不一定重量相同.
+因此,眼球测量是一种不准确且可能危险的测量方法,特别是对于非常少量的活性物质.
+看看
+这篇文章是关于测量剂量的重要性
+没有.
+经历了1.5到3分钟的冒险, 感觉好像我吸入了我一生中最大的可卡因剂量.
+我走来走去, 经历了我一生中最伟大的高兴.
+很容易切断氧化.
+虽然可能比MDMA更令人高兴,
+我渐渐觉得自己有毒了.
+这种情况很快发展成极度恶心,
+我发现在MDPV中喝水或吃东西是非常不愉快的.
+我在街上唱歌,听着我的音乐, 打电话告诉朋友我感觉很棒,
+试图性关系, 但心跳太快了,
+幸运的是,我母亲已经睡着了,
+时间+3.5小时.
+随着时间的推移, 这种高兴感逐渐消失,
+眼睛不能闭上超过3秒.
+我躺在床上, 恨我的生活, 不能睡到大约T+10.5小时.
+这是一个可怕的代价,
+如果我再试一次, 我需要阿尔普拉佐拉姆或迪亚泽巴姆来再次尝试以努力入睡.
+我不认为这是一个好主意.
+我将远离这种物质, 因为未来的冒险让我了好几天,
+我本应该做更多的研究, 但当时我有不可战胜的复杂.
+我几乎在网上搜索了所有其他东西.
+安全第一!
+我认为我应该在医院或服用抗焦虑药物.
+无论如何,我想分享我的经历,并警告人们.
+安全的旅行!
+其他:
+药物使用情况 (377):多种 (28),过量服用 (29),成和习惯性 (10),困难经历 (5),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Spinning Wild
+MDPV (Bath Salts)
+by
+Neveragain
+Citation:   Neveragain. &quot;Spinning Wild: An Experience with MDPV (Bath Salts) (exp94176)&quot;.
+Erowid.org
+. Mar 1, 2012. erowid.org/exp/94176
+DOSE:
+50 mg
+insufflated
+MDPV
+(powder / crystals)
+BODY WEIGHT:
+145 lb
+I am a 19 year old male, with experience in mdma, mushrooms, cocaine, amphetamines, 2c-e, 2c-b, dmt, lsd, ketamine, spice products, marijuana, and various pills.
+Onto the story. I picked up a 500 milligram vial of &#x27;bath salts&#x27;. Brand name &#x27;Eight Ballz&#x27;.
+I had to visit my mom, so i decided i would test out this new substance while in her town. I got to her house, settled down, and decided to go with a walk. Went to a park and settled down behind some trees, making sure nobody would see. I dumped out a very large line, as i later found out in later experiences. Not sure how much mdpv was actually in this particular blend, but I cut it out and insufflated it.
+[Erowid Note: 
+Two samples of powder (even of the same chemical) with equivalent volumes won&#x27;t necessarily weigh the same. For this reason, eyeballing is an inaccurate and potentially dangerous method of measuring, particularly for substances that are active in very small amounts.
+See
+this article on The Importance of Measured Doses
+.]
+Very little burn, and within 30 seconds, felt a rushing, 1.5-3 minutes into my adventure, felt as if I had insufflated the largest dose of cocaine in my entire life. I walked around, experiencing one of the greatest euphorias of my life. Easily cutting out oxycodone. Possibly a tiny bit more euphoric than MDMA, but far too speedy, (in my opinion). I progressively felt as if I had poisoned myself.
+This soon progressed to extreme nausea, leading to me dry heaving in the middle of the street. Shortly after drinking a small amount of water (drinking or eating anything is extremely unpleasant on MDPV, I have found.) Soon after this episode, I calmed down enough for the euphoria to shine brightly again. I was singing in the streets to my music playing, talked to a friend on the phone about how amazing I felt, and visited an old girlfriend. Attempted sexual relations, but heart was racing far too fast, and I knew it would be extrememly dangerous, so I decided on returning home.
+Fortunately my mother was asleep, so I slipped into my room quietly and attempted sleep. T+3.5 hours.
+As time went on, the euphoria dissipated and left me feeling empty and depressed. Eyes unable to close for more than 3 seconds top. So I laid in my bed, hating my life, unable to sleep until approximately T+10.5 hours. A horrific price to pay for astounding euphoria and joy. Would need alprazolam or diazepam to attempt again in an effort to sleep if I were to try again. I do not believe it is a good idea.
+I&#x27;m going to stay away from this substance, as future adventures left me fiending for days, giving in multiple times and staying up for 2 days, combining this with marijuana, cigarettes, MDMA, and alcohol. Should have researched more, but I had an invincibility complex at the time. I research on just about everything else online. Safety first people! Do not attempt to experience anything like this as I believe I should have been in the hospital or taking anxiolitics.
+Anyways, just thought I would share with and warn people of my experience. Safe tripping! &lt;3
+Exp Year: 2011
+ExpID: 94176
+Gender: Male
+Age at time of experience: 19
+Published: Mar 1, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDPV (377) : Various (28), Overdose (29), Addiction &amp; Habituation (10), Difficult Experiences (5), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

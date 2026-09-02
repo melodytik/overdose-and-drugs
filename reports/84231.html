@@ -1,0 +1,256 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>华斯卡酒 (B. caapi &amp; M. tenuiflora) - 埃罗伊德实验 - &quot;实现和经验教训&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mimosa-spp.html'>← Mimosa spp.</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>华斯卡酒 (B. caapi &amp; M. tenuiflora) - 埃罗伊德实验 - &quot;实现和经验教训&quot;</h1>
+<div class='sub-title'>Huasca Brew (B. caapi &amp; M. tenuiflora) - Erowid Exp - &#x27;Realisations and Lessons Learnt&#x27;</div>
+<div class='meta'>作者：zingdoozer Citation · 日期：May 5, 2016 · 剂量：50 g · <a href='https://erowid.org/experiences/exp.php?ID=84231' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我今天做了我的第一个梦.
+45克麦肯娜红色和4克1. 5%的米莫萨霍斯蒂利斯根皮粉.
+我在两个住所之间移动, 错误地把葡萄交给了错误的住所.
+我不得不放弃每天三小时的时间,
+使用过的 (我猜是没有的), 造仅6小时,
+但这对我来说是非常有意义的.
+没有失败之旅.
+你每次都会得到教训.
+目标并不是真正的倒 (虽然有些人可能也会喜欢,
+我开始做一些太阳礼拜, 五星座的较小的驱逐仪式 (用于清除外观和驱逐邪灵和能量), 中间柱, 六套pranayama (的呼吸) 和一个sudarshan kriya (的).
+我开始喝了半个小时的caapi,
+半个小时后吃了米莫萨.
+在此之后, 我留下了几分钟,
+味道并不像我想象的那么糟糕.
+像是阿尤尔韦达的药物 (我认为是).
+我觉得还为时过早, 于是把它吞回去.
+虽然20分钟后我认为可能是时间 - - 所以我清洗.
+现在回想起来,可能还太早了.
+从准备中学到的教训:
+我应该提前制造酒 (但情况不可避免),超过三天和一天的沉.
+我应该把一切安排好,喝酒等待, 而不是喝酒,
+没有动我的头 - - 这绝对是恶心的秘方.
+我不应该为或不钢而过分焦虑,
+我不应该为此而过分压力自己.
+艾亚母亲不是那么严厉的情妇,当我们投入工作时, 她是慷慨的,
+这次旅行:
+在一个词.
+很漂亮的
+闭眼的视觉, 但强如我可能会想.
+我一直想象着一个像狂欢节/马戏团的氛围,
+我感觉到一个温暖和很多爱.
+梦的强度大大下降 (这让我意识到,
+峰值持续近一个半小时,
+我能感觉到玛德拉艾亚, 她的爱是无比的.
+旅行结束时,她说再见,我离开了,之后我没有感觉到她的存在.
+学到的经验:
+这是爱.
+在一个词.
+爱和接受是关键.
+这让我明白我们需要无条件的爱.
+第一步是爱和接受自己.
+(我已经爱自己太多了,所以不需要太多的帮助)
+人们没有意识到自己有多美丽.
+每个人都是一位奇妙,神奇,美丽的人.
+他们自欺欺人,
+爱情的关键是接受, 而不是抱有微不足道的怨恨.
+世界欺骗了我们走向爱的第一步.
+接受和放弃我们如此珍惜的怨恨.
+如果你真诚地接受和开放, 另一方别无选择, 只能与你结合, 因为他们能感受到无条件的爱,
+我有一个亲密的人, 最近关系很紧张.
+我能感觉到它带来的负面能量,
+她没有接受我试图让事情变得正确的建议.
+但回想起来, 这根本不是她.
+她发现我不想真正解决问题.
+她是对的,我确实有自己的微不足道,微不足道的怨恨,
+这些怨恨,我意识到,造成了很多伤害.
+我们失去一天,一周,一年,一子的时间, 没有给予和接受别人的爱.
+我意识到我也在生活中这样做.
+我关闭了自己, 因为我坚持着我珍贵的怨恨.
+他们都是美丽的人, 如果我向他们开放,
+我意识到,在向他人表达爱心时, 可能会有困难,可能会有障碍.
+我们的社会对过路人的爱情极为封闭.
+但这并不意味着我们停止.
+如果我们真诚地表现出爱心,
+如果我们有疑虑或不安全感, 它们会显现出来,
+我认为这里的教训是放弃好坏的期望.
+只是给予温暖.
+我意识到我们身边有这些墙壁, 我们不允许别人爱我们,
+害怕受伤,痛苦.
+但我们又欺骗了自己.
+我们会受到伤害, 但这是美好的教训的一部分.
+沿途我们体验到爱的高度.
+我们所要做的就是打破我们的壁垒,
+我有这样的视觉, 我用开的双臂走路, 我觉得我的右胸暴露在刀刺或类似的东西,
+未来可能会有刀刺,也可能不会.
+尽管我有恐惧,
+如果我让自己错过某人,如果我告诉某人我爱他们,
+我爱的墙壁除了伤害我自己之外没有伤害任何人.
+(我喜欢认为我的行为和感受充满了爱,
+不接受他人,抱着怨恨,不向爱开心扉,害怕向陌生人表达爱心,
+收到美妙的教训 - - 下一步是采取行动
+没有任何其他信息
+华斯卡酒 (268), 香 (169), 苗木 (74):一个人 (16), 烂的体验 (4)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Realisations and Lessons Learnt
+Huasca Brew (B. caapi &amp; M. tenuiflora)
+by
+zingdoozer
+Citation:   zingdoozer. &quot;Realisations and Lessons Learnt: An Experience with Huasca Brew (B. caapi &amp; M. tenuiflora) (exp84231)&quot;.
+Erowid.org
+. May 5, 2016. erowid.org/exp/84231
+DOSE:
+50 g
+oral
+Banisteriopsis caapi
+(extract)
+4 g
+oral
+Mimosa tenuiflora
+(extract)
+BODY WEIGHT:
+175 lb
+I had my first dream today. 45g McKenna red caapi and 4g 1.5% mimosa hostilis root bark powder.
+I move between two residences and had the vine delivered to the wrong one by mistake. So I had to forgo my three hours each day, plus a day of decanting plan.
+Used aluminium (which I suppose is a no no), brewed it for only 6 hours, might have purged a bit too early. But it made perfect sense to me on my dream. There is NO dud trip. You learn lessons every time. The goals isn&#x27;t really to trip (though a fair few people might like that too, and I might too ), but to learn lessons and continue evolving.
+I started by doing some sun salutations, the lesser banishing ritual of the pentagram (for auric cleansing and banishing evil spirits and energies), the middle pillar, six pranayama (yogic breathing) sets and a sudarshan kriya (a yoga asana). I then started sipping the caapi over a half hour, and kept stirring the last acid boil. Had the mimosa around a half hour later. Stayed for a few minutes after, and kept the purge bucket by my side.
+The taste was not as bad as I thought. Something like an ayurvedic medicine (which I suppose it is ).
+So when I was setting up my music, I got a rush of vomit and swallowed it back, thinking it was too early. However twenty minutes later I thought it might be time - so I purged. In retrospect it might have been too early.
+Lessons learnt from the prep:
+I should make the brew in advance (but circumstances were unavoidable), over three days and a day of decanting.
+I should set everything up and have the brew and wait, not have the brew, set things up and get overly nauseous in the process.
+No moving my head - sure-fire recipe for nausea. (having said that, the nausea and the purge were really enjoyable.)
+I shouldn&#x27;t get too fussed about aluminium or stainless steel, or brewing in a hurry - lessons will be learnt anyway. Sure, it will be better with stainless steel, a three day boil and decant - but I shouldn&#x27;t stress myself out too much over it. Madre Aya isn&#x27;t such a harsh mistress, she is generous when we put the work in, but wont penalise us with the mickey mouse resentments she herself is trying to purge us of.
+The trip:
+In one word. Beautiful.
+Closed eye visuals, but as strong as I might&#x27;ve thought.
+I had visions of a carnival/circus atmosphere and kept seeing a face that looked like the joker on a pack of cards.
+I felt a warmth and a lot of love.
+Had my purge, and the intensity of the dream dropped tremendously (which makes me realise that maybe I purged too early).
+Peak lasted close to an hour and a half, and tailed off after.
+I could feel Madre Aya, and there was a lot of love from her. Near the end of the trip she says Bye, I&#x27;m leaving and I didn&#x27;t feel her presence after.
+Lessons learnt:
+Love. In one word.
+Love and acceptance are key.
+It showed me that I/we need to love unconditionally.
+And the first step is to love and accept ourselves. (I love myself a little too much already, so didn&#x27;t need much help with this)
+And that people don&#x27;t realise how absolutely beautiful they are. Every one of them is a wonderful, magical, beautiful human being. And they cheat themselves by not realising it.
+The key to love is acceptance and not holding onto mickey mouse trivial resentments. A day that we hold that grudge against your spouse, girlfriend, boss, world cheats us out of the first step towards love. Acceptance and dropping our resentments that we so dearly hold onto. And if you are genuinely accepting and open, the other person has no choice but to bond with you because they can feel the unconditional love, and that&#x27;s hard to fake.
+I have someone close to me in my life, with whom the relationship has been stressed recently. I can feel the negative energy from it, when most of the rest of my life seems to be going swimmingly. And I spoke to this person about it, and she didn&#x27;t accept my overture of trying to make things right. But looking back, it wasn&#x27;t her at all. She picked up on me not wanting to Really sort things out. And she was right, I do have my trivial trivial resentments that I hold onto.
+And these resentments, I realise, do so much harm. Because of that we lose a day, a week, a year, a lifetime of not giving and receiving another persons love. And I realise that I do that with my life too. So many people I shut myself off from because I hold onto my precious precious resentments. And they are all beautiful people who would enrich my life if only I opened up to them..
+And with that I realised, that there might be difficulties, there might be obstacles to showing people love. We are a society that is remarkably closed off to affection from passersby. But it doesn&#x27;t mean we stop. And if we are genuinely showing love and wanting to add Value, then the other person picks up on it. If we have out doubts or insecurities, they will show and the other person buys into our unsure Frame. But I guess the lesson there is to let go of expectations good or bad. And just give with warmth.
+I realised that we have these walls around us where we don&#x27;t allow other people to love us or us love them as much as we can. Fearing hurt, pain. But again, we cheat ourselves. We will get hurt, but thats part of the beautiful lesson. Along the way we experience the heights of love. And all we had to do was drop our walls, and be open.
+I had this vision of me walking with open arms, and I feel that my right rib cage is exposed for a knife jab or the like, and the key is to keep walking on. Odds on, there will be a knife jab in future, or there might not. But openness, despite my fears is a start.
+What do I lose if I allow myself to fall head over heels with someone, if I allow myself to miss someone, if I tell someone I love them. My walls to love aren&#x27;t hurting anybody but myself. (I like to think I do act and feel with a lot of love, but the dream shows me how much much more can be done).
+The whole I am better, not accepting others, holding onto resentments, not opening ourselves up to love, feeling too afraid to show love to strangers for fear of how they would react and not trying anyways - isn&#x27;t
+Beautiful lessons learnt - next step is actioning them
+Exp Year: 2010
+ExpID: 84231
+Gender: Male
+Age at time of experience: 32
+Published: May 5, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Huasca Brew (268), Banisteriopsis caapi (169), Mimosa tenuiflora (74) : Alone (16), Glowing Experiences (4)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

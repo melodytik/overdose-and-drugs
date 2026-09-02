@@ -1,0 +1,854 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;英格兰的第一个长舞&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/music.html'>← 音乐</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;英格兰的第一个长舞&quot;</h1>
+<div class='sub-title'>Cacti - columnar &amp; Music - Erowid Exp - &#x27;England&#x27;s First Long Dance&#x27;</div>
+<div class='meta'>作者：psilly Citation · 日期：Jun 2, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=53832' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>10 个
+英国第一个长舞的体验
+圣佩德罗仙人掌
+坐在屋顶上交叉腿
+对于未来的预知,
+一群海在我上面叫和叫
+冲向我的视线,然后向我开火,
+它们的翅膀正好在时间上倾斜, 足以让我们之间有足够的天空
+我眼里没有.
+让我屈服于大自然的力量.
+这是一个令人惊叹的美丽.
+让我们看看未来.
+第二天早上,
+仍然没有确切的位置
+但最接近火车站的详细信息,
+我决定出发.
+在旅途中,我被告知我的目的地
+通过一个非常忙碌的组织者.
+我走到现场,
+农场将在几周内成为一个节日,
+一个标志说&quot;嬉皮士&quot;和一个家伙没有太多的线索
+(他没有自己的过错) 指出入口.
+我发现场地中心的火坑
+问那个工作在那里的人,
+医药仪式将是,他微笑一个伟大的微笑,
+他指向我说:
+在远处有一些忙碌的身体.
+我去问候一些最可爱的人
+我们可能会见面.
+我问的是什么
+我可以帮忙的地方.
+经过一段时间和一些家务
+我注意到中间的火坑里的兄弟
+坐在地面上,半路围着把绳子在
+这将包含舞蹈的圆柱.
+他感到压力,让他的挫折在空气中
+在一个善良,愿意倾听的兄弟的耳朵.
+消防员在这个节日场地有很多事情要做.
+感觉自己被别人的旅行困住了,
+缺乏爱和太大的负担 -
+他的绳子已经从破裂的螺旋圈中掉下来
+消防员需要休息
+我走过来说,我很高兴解开混乱
+继续他的工作,这样他就可以离开,放松和准备.
+他感谢我,接受了,然后去洗.
+我坐下来放松,然后继续,
+结得太多,我呼吁一个帮助的手,
+我们一起结合圆圈.
+一个高线,一个低线,一个中间线,
+一个开放的入口向东.
+一堆土从中央圆形火坑挖出来
+(用石头绘制的六角星)
+在入口外的山丘上,并装饰
+石头,贝,植物,羽毛等等.
+这座山丘是地球的变化器.
+许多小时后,所有人都到了,
+人民的旗 - 他们的祈祷的视觉表现
+留下的事情, 那些可以召唤到他们的生活中去的事情 -
+在仪式的圆圈上挂着.
+最后,一切都准备好了,
+我们坐在毯子上的星星之间,
+主持人坐在他的大胡子和美妙的存在
+在乐器,管道,还有更多...
+一大堆&quot;大男孩的玩具&quot;
+我从来没有见过这样的.
+他开始说话,让每一个字都值得,
+提醒我们为什么要在这里,
+我们的舞蹈不仅仅是为了我们自己.
+要求我们全力以赴,
+我们要抵制偏离的冲动,
+停下来休息 (除非要祷告,或者真的需要).
+我们在接听音乐时要注意别人的音乐.
+在他的特殊的微妙的声音.
+我们每个人通过呼吸把我们的祈祷放在玉米面上
+然后将他们送入火狱.
+让我所有的亲戚一起跳舞,
+为了我在世上的全部,
+我们的存在.
+在巡回中,在地面上敲打的工作人员,
+从心里说话翻译我们的旗 -
+我们在这里的原因.
+现在
+然后将药物传递到周围的圆圈,
+接手,直到每个人都在握住,
+用棍子起来,然后下楼--
+通过紧的牙呼出的空气.
+我们着苦的美丽 -
+很好的药,美味的药!
+我们走出门口,
+一种方式 - 然后是另一种方式,
+我们重新进入,开始跳舞...
+在地球的化核心,
+舞蹈是为了净化,释放.
+在怀疑之后,
+而不是感觉愚蠢的移动这样与所有这些人,
+感觉毫无意义,好像我们所做的事情太荒谬了.
+很快,这条循环的路径,这条螺旋的路径,
+我正在陷入迷幻状态.
+放弃自己的期望和态度.
+放弃思考我知道没有品尝流动 - 现在我是
+通过书页上的字来判断书
+燃烧了封面.
+开放于不可否认的
+现在的可塑现实.
+声,声,各种鼓声...
+在感觉上坐在一起,
+但包括了节奏和形式 -
+音乐的美好之处在于完全接受当下,
+尊重其他声音,并愿意参与.
+有时我像个婴儿一样抱着鼓.
+像一个负担 - - 不确定如果我的本性
+在我跳舞的时候,
+我是否与其他人的声音,灵魂是一体.
+当然这并不重要,不管是什么:它是.
+没有烟雾,没有水,没有温暖,没有休息我的背痛,没有休息.
+我们的烟雾,我们的水,我们的温暖,像蛇一样伸展我的背痛.
+知道休息时间.
+知道所有这些事情
+感觉到它们在我们周围的空间中旋转.
+有时是大圈,有时是小圈.
+有时人们忙,有时人们慢.
+有些歌曲对清洗的反应就像表演对掌声的反应:再一次!
+我走路,跌倒,泡,,吐出我的东西.
+有时我很难发出声音,
+我觉得自己太软弱,太害怕.
+然而,我想要做出贡献,因此我.
+麦斯特罗和他的助手正在唱一首歌,
+外面有阴影在走在绳子上, 我不知道它们是不是灵魂
+我也为他们跳舞,
+很快这首歌就从古老的语言变成了
+我可能只是理解它的意义?
+它直接对我说话.
+(后来我发现,对其他人来说:内外)
+这就是.
+没有.
+现在,我已经知道了.
+这就是.
+没有.
+现在,我已经知道了.
+一遍又一次...
+我在下一轮的比赛中偶然撞到了中心,
+拿起一根在火旁躺着的博德兰, 用我的指开始打它,
+这声音是非常液体和低,我不知道我做了什么,
+我继续跳,不久,其他人开始帮我节奏.
+这就像是黑色的湿的蜘蛛舞,
+一种驱魔.
+我非常感激.
+有时节奏会平静下来,
+麦斯特罗拿起他长长的弓.
+一个口琴吉他像水晶
+在我们的身体,小和
+像现在听到的任何声音一样美丽,
+非常迷人 - -
+我们就像无形绳子上的自由形态,
+旋转的顶部绕着一些音乐的五月.
+我们跳舞时被迷住.
+我们走在狂喜中.
+他兄弟们在艺术的空间持有,
+我们的仪式的,
+和他分享歌曲,
+当能量下降时保持节奏 -
+无论发生什么,我们都会随之而去.
+,船长!
+跳舞,走路,跌倒
+通过痛苦,通过疲劳,通过思维,
+通过巨大的笑容和不言而喻的联系,
+因为这比我更重要.
+我记得的时间比我还记得的多.
+黑暗的天空,月亮的模糊提示
+变得更强壮,就像阳光照亮我们的皮肤一样.
+让安宁的珀色色.
+在这个沉没的圈子里,
+突然抬头看,云已经分开了
+在我们上面.
+我们知道自己的位置.
+看到它.
+感觉一下
+让我们跳.
+恰恰是时候
+一个贝的声音
+嘴唇摇摇欲的便
+变成了笑声!
+暂时没有办法
+但旋转的笑声和泡的快乐
+然后大声喊出来,潮转变:
+&quot;改变方向!&quot;
+现在跳舞祝福.
+发出和调用.
+显现的祈祷.
+有时我觉得自己是火焰的一部分,
+我的肉如灰燃烧的木头.
+我正在走向火焰,
+成为它.
+我将自己献给死亡
+为了更大的利益.
+释放我珍惜的一切
+遇到那珍贵的东西如此遥远,如此近:
+真正重要的是
+以及该怎么办.
+只是一个存在.
+谦卑的服务.
+所有事物的不可动摇的平衡.
+完全成为你自己,
+种植种子并放弃.
+这就是宇宙的完美.
+这种理解,允许,
+其他观点.
+看到生命的旋转,
+有些在前面,有些在后面.
+所有人都是一体.
+所有人都平等.
+我的人民和我在一起,
+他们和无数的朋友,肉身的家庭,精神的家庭,
+随着祝福的流动而相互转化.
+跳舞的目的远不止我们自己.
+在某种程度上,这有助于我.
+一切都改变了.
+一切都是一样的.
+一个兄弟成为我的兄弟,我知道他需要它
+我知道他在这里.
+一位女士成为我的情人,
+我承诺永远爱她.
+这种情绪从我里面涌出...
+我被证明我的爱是真实的,我担心它已经成为姿势,
+没有任何记忆.
+我与家人,朋友,爱人,生活的联系,
+我们的星球,这个宇宙,是强大的.
+已经确认.
+所有的怀疑都被烧毁了.
+圣佩德里托打开了我的心.
+有时,在正确的时间,
+这首歌变成了笑声.
+这笑声就像一个答案,
+这些问题并不重要.
+在与月亮一起跳舞之后
+在旋转的星星下, 无法解释但非常合理
+在天上的形状,
+清晨又开始了 - - 微妙,缓慢.
+给这些美丽的环境带来光和坚实.
+填充夜间强大的空白与不断调整颜色的洗.
+想要的只有一个东西比在地板上失败
+这就是继续前进.
+在等待合适的时机
+当它降临的时候,它是轻易降临的.
+纯粹的解脱,深深的感激吻/吃我
+进入地球母亲.
+我的头压在她的胸前.
+在家.
+在家!
+然后跳动跳动,回到流中...
+美丽的姐妹们跳舞,旋转,
+感性,珍贵,强大,充满爱.
+一个跳舞的机器人,快速动的兄弟
+在地板上扭曲
+随着他对立的侧面重新排列,
+在源头治愈分裂,
+通过压力层堆叠.
+支持他的过程,
+烟雾被吸入和吹去.
+在他身上.
+我们每个人都会得到祝福,
+在烟雾中清洁.
+终于,经过一个看似永恒的美丽的永恒
+他们是丰富的,是优雅的.
+我们结束了长期的舞蹈,
+在雄牛兄弟的爱的眼光下聚集在一起
+他美丽的,充满精神的伴侣,半裸坐着
+在草地上.
+感觉到流浪的风转向
+液体皮肤变成空气.
+感觉寒冷,享受其中的乐趣.
+知道热度很快就会变得强烈.
+我们一个接一个地进入汗水小屋,
+沿着时钟针的方向爬行,直到所有人都进来.
+中心坑是用热石养的,
+门关闭了.
+水和香涌入大气层
+让我们沉浸在蒸汽和汗水中,
+第一个轮的祈祷开始,
+致力于伟大的精神, 西方的祖父母.
+每一次真诚的贡献都伴随着另一声的响起
+在烈火和灼热的蒸气中.
+随着大门的打开, 一股清凉的微风带来了巨大的缓解.
+然后七个热石和北方的祈祷.
+这一循环在东部和南方重复,
+每次热量变得更加强烈,
+圣水凝结在我的喉和嘴里.
+我有时会把头压在地上,
+感谢地球的冷静和冷静,
+让我能够承受我们的祈祷的热度.
+我们走出,闪耀在早晨的光,并排成一排
+对于这两个爱的灵魂 - 宿舍的温柔 -
+在我们子后面倒冷水.
+这是一件令人难以形容的幸福.
+喝一杯可以消渴.
+祈祷被扔进火中,骑着烟草的翅膀
+转变的天堂, 伟大的超越之间.
+在这里和现在.
+听到和知道.
+然后我们笑,微笑和盛宴,
+我们爱大声 - 我们的笑声跳跃!
+人们会带来各种各样的美食,
+我们吃水果,饼干,片,蔬菜和果汁...
+如果天空是一个屋顶我的头会碰到它,
+而是我的感激和喜悦升到无限
+穿过宇宙,回到我身边.
+祝福所有的创造!
+圣洁的药物是有福的!
+我爬进我的睡袋,就像
+在喝酒后十个小时,并陷入
+沉睡了一段时间.
+我们大约在中午醒来,
+现在,团队里的人都在用棍子.
+每个人都开口说出自己的心声
+他们所经历的.
+我感动到哭泣的尖峰
+听到人们的治愈.
+感觉到爱和感激在我的肚子里开花.
+仪式的完美程度超出了想象 - -
+这种信任和开放,乐于共同创造.
+我们祝福我们所有的关系,
+我们心怀感激.
+简单的真相深深地嵌入
+像鸟的闪亮的蛋
+在我们眼中闪.
+这让我想起了我变成了什么.
+太累了,太厌倦了,太远离
+记住,体现:
+存在的奇妙正确性.
+所有人都是家人,一切都好.
+我们迷失,好奇,寻找,奋斗,退缩,
+建造古老记忆中的怪异灵影...
+失去的东西永远不会离开我们,
+我们太沉重和醉酒不知道如何看.
+我们所需要的一切,我们所知道的一切,都围绕着我们.
+它不能写在书中,
+这需要诚实,谦逊和奉献
+成为创造中的有意识伙伴.
+阅读生命的信息,了解大自然的秘密 -
+所有需要的是它带你去的地方.
+我们用拥抱,祝福和微笑告别对方,
+团结的感觉是深刻的.
+这位消防员感谢我前几天帮助他,
+他说他觉得自己像被抓住在蜘蛛网
+(我整天早上都被小蜘蛛覆盖)
+因为我帮助解开了它, 他能够通过它工作.
+他告诉我,如果我没有提供帮助,
+他不能照料火焰,
+(他一整夜都在努力工作)
+如果我遇到麻烦,我可以呼唤六个方向.
+我心中的火也在求助.
+他祝福了我.
+提醒我,帮助别人是很重要的
+谦卑地为更大的利益服务.
+在深处,
+在我的舞蹈的顶峰 - 所有其他都消失了 -
+服务和简单的存在被留下闪耀
+就像是唯一的光.
+我留给你这个光的肯定作为祝福...
+现在,两天后,我的脚疼,好像我伤了脚底.
+我的小腿肌肉硬了,我不得不擦它们松.
+但我又一次醒来,发现存在的荣耀,
+这种逐渐消失的痛苦不是痛苦, 而是一个神圣的身体记忆
+这种最深层次的,最脏的,最崇高的,最纯粹的体验.
+我永远不会忘记这一点.
+我衷心地请你们参加一个舞蹈.
+如果你觉得有必要,如果你有机会.
+我向所有亲戚表示祝福.
+我爱你.
+其他:
+发布时间:2018年6月2日
+音乐 (457),  (10): 团体仪式 (21), 诗歌 (43), 烂的经历 (4), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+England&#x27;s First Long Dance
+Cacti - columnar &amp; Music
+by
+psilly
+Citation:   psilly. &quot;England&#x27;s First Long Dance: An Experience with Cacti - columnar &amp; Music (exp53832)&quot;.
+Erowid.org
+. Jun 2, 2018. erowid.org/exp/53832
+DOSE:
+2 Tbsp
+oral
+Cacti - columnar
+(dried)
+BODY WEIGHT:
+10 st
+An Experience of England&#x27;s First Long Dance
+San Pedro Cactus (Bridgesii) [sic]
+Sitting cross-legged on the roof
+apprehending the future,
+a flurry of gulls squawk and screech above me
+swooping to meet my line of sight and then firing themselves at me,
+tilting their wings just in time to put enough sky between us
+that there is no beak in my eye.
+Haranguing me, humbling me to the power of nature.
+A display of awesome beauty.
+A taste of things to come.
+The next morning,
+still without the exact location
+but with details of the nearest train station,
+I decide to set off.
+Whilst journeying I am informed of my destination
+by a very busied organiser.
+I make my way to the site,
+a farm to be a festival in a few weeks,
+a sign saying &#x27;hippies &gt;&#x27; and a dude without much of a clue
+(thru no fault of his own) point out the way in.
+I find the fire pit in the centre of the site
+and ask the guy working there if he knows where
+the medicine ceremony will be, he smiles a great smile,
+I have a flash of recognition, and he points me toward
+a circle of poles and some busying bodies in the distance.
+I go over and greet some of the loveliest people
+it&#x27;s possible to meet. I ask what&#x27;s going on
+and where I can lend a hand.
+After a time and a few chores
+I notice the brother from the fire pit in the centre
+sitting on the ground, half way around putting string between
+the circle of poles which will contain the dance.
+He is stressing out, letting his frustration out into the air
+and into the kind, willing ear of a listening brother.
+Fireman has a lot to do on this festival site
+and is feeling trapped in the trips of others,
+a lack of love and too big a load -
+The string he was winding has fallen from the broken spool
+into a pool of knotted thread, fireman needs a rest.
+I go over and say I am only to happy to untangle the mess
+and continue on with his job so he can go off, relax and prepare.
+He thanks me, accepts, and goes to take a shower.
+I sit and unwind then continue to wrap,
+the knot gets too much and I call for a helping hand,
+together we finish binding the circle.
+A high line, a low line and one in the middle,
+an entrance left open to the east.
+A pile of earth dug from the central circular fire pit
+(set in a six-pointed star drawn in stones)
+is placed in a mound outside the entrance and decorated
+with beautiful objects - stones, shells, plants, feathers and more...
+This mound is the Earth Alter.
+After many hours all have arrived,
+peoples banners - visual representations of their prayers
+and intentions, things to leave behind, things to call in to their lives -
+have been hung around the ceremonial circle.
+Finally, all is set and all are gathered.
+We sit on blankets between the points of the star,
+Maestro sits with his great beard and wonderful presence
+amongst instruments, pipes, and more...
+A plethora of &#x27;big boys toys&#x27;
+the likes of which I have never seen.
+He begins to speak, making every word count,
+reminding us why we are here,
+that we are dancing for more than just ourselves.
+Asking that we fully commit to seeing the ceremony thru
+to its conclusion, that we resist the urge to wander off,
+to stop and rest (unless to pray or if it&#x27;s really needed).
+That we be mindful of the music of others when we pick up
+a drum, and to be quiet when his special subtle sounds are on.
+We each put our prayers via breath into cornmeal
+and send them into the fire.
+A long dance for all my relations,
+for the totality of my being in the world,
+Our Being.
+Doing the rounds, banging the rattling staff on the ground,
+speaking from the heart to translate our banners -
+our reasons for being here. Now.
+Then the medicine is passed around the circle,
+hand to hand until each is holding,
+stirred with a stick and then down the hatch -
+air exhaled thru clenched teeth.
+We grimace at the bitter beauty -
+good medicine, tasty medicine!
+We go out the door and walk the circumference,
+one way - and then the other,
+We re-enter and start the dance...
+Down into the molten core of the earth,
+dancing to purify, to release.
+After pangs of doubt, not yet feeling the medicine,
+instead feeling the fool for moving like this with all these people,
+feeling futile, as if what we&#x27;re doing is too ridiculous to be real.
+Soon, moving this circle path, this spiral path, brings peace.
+I am slipping into trance.
+Letting go of expectations, of attitude.
+Letting go of thinking I know without tasting the flow - Now I am
+judging the book by licking the words from its pages
+and burning the cover.
+Opening to the undeniable
+malleable reality of the moment.
+Rattles, gongs, all kinds of drums...
+Sitting together on feeling, something higher than,
+yet inclusive of, rhythm and form -
+The goodness of making music is in a total acceptance of the moment,
+respect for other sounds, and a willingness to take part.
+Sometimes I carry a drum like a baby
+like a burden - unsure if my very being
+is playing thru it as I dance
+or if I am simply one with the sounds, with the souls, of others.
+Sure it doesn&#x27;t matter, whatever it is: it is.
+No smoke, no water, no warmth, no rest for my aching back, no respite.
+Our smoke, our water, our warmth, a snake like stretch for my aching back.
+Know respite. Know all these things
+Feel them swirling in the space around us.
+Dancing down, sometimes circle big, sometimes circle small.
+Sometimes people rushing fast, sometimes people slow.
+Some songs respond to purging like performance to applause: Encore!
+I walk and stumble and bubble and burp and spit my shit thru the ropes.
+I sometimes struggle with making sound, the power so great
+that I feel too weak to wield it, too afraid.
+Yet I want to contribute, thus am torn.
+Maestro and his assistant are singing a song,
+Shadows are walking the ropes outside, I don&#x27;t know if they are spirits
+or actual people, I dance for them too, privileged to be doing so.
+Soon the song morphs out of ancient language,
+tho perhaps I am simply understanding its meaning?
+It is speaking directly to me.
+(and, as I later found out, to others: both inside and out)
+&#x27;This. Is-Not. A-Spec-tator-Sport!&#x27;
+&#x27;This. Is-Not. A-Spec-tator-Sport!&#x27;
+over and over...
+I stumble into the centre on my next time round,
+pick up a bodhran laying by the fire and begin hitting it with my thumb,
+the sound is freakishly liquid and low and I don&#x27;t know what I have done,
+I continue beating and soon others are helping me with their rhythms
+and it&#x27;s like some dark wet slimy spider dance done safely.
+A kind of exorcism. I am grateful.
+Sometimes the beat calms,
+Maestro picks up his long stringed bow.
+A mouth harp guitar like crystal water
+in our bodies, little plips and ripples
+as beautiful as any sound heard purely now,
+so incredibly enchanting -
+we&#x27;re like freeform puppets on invisible strings,
+spinning tops winding round some musical maypole.
+We dance entranced. We walk in rapture.
+His brothers in the art of holding space,
+the rudders of our ritual,
+share songs with him and us,
+keep the beat when the energies dip -
+whatever is happening we ride with it -
+AHO Captain!
+Dancing and walking and stumbling
+thru pain, thru tiredness, thru flaking thought,
+thru huge grins and unspoken connections,
+keeping on &#x27;cos this is bigger than me.
+Keeping on thru more than I can recall.
+The sky dark, blurred hints of moon
+growing stronger like a sun shedding skin
+to calm amber orangey pink.
+An echo of sunrise in this sinking circle.
+Suddenly looking up and the clouds have parted for the stars
+above us. We know our place.
+See it. Feel it. Dance it.
+Just when it should
+a conch shell sounds
+then farts as lips falter
+and turns into laughter!
+For a moment there is no way
+but spinning giggles and bubbling joy
+then the shout goes out and the tide turns:
+&#x27;Change Direction!&#x27;
+Dancing now for blessings.
+Sending out and calling in.
+Manifesting prayer.
+Sometime here I feel part of the fire,
+my meat stirring like ashen burning wood.
+I am walking into the fire,
+becoming it.
+Giving myself graciously unto death
+for the greater good.
+Releasing all that I hold dear
+to come across that precious thing so far and so near:
+What really matters
+and what to do with it.
+Just Being.
+Humble Service.
+The unshakable balance of all things.
+The wonder of being totally yourself,
+planting seeds and letting be.
+The perfection of the universe.
+The understanding, allowing,
+of other points of view.
+Seeing the spiral of life,
+some are in front, some are behind. yet
+All are One. All are equal.
+My people here with me their people,
+themselves and countless friends, flesh family, spirit family,
+morphing into and out of each other as the blessings flow.
+Dancing for so much more than ourselves.
+Knowing that in some way, on some level, it helps.
+Everything has changed.
+Everything is the same.
+A brother becomes my brother, I know he needs it
+and I know he is here. A lady becomes my Lover,
+I commit myself all over to loving her forever.
+It is pouring out of me...
+I am shown that my Love is true, I was worried it had become pose,
+empty memory. My connections to family, friends, my love, my life,
+Our planet, this Universe, are strengthened. Confirmed.
+All doubt is burned away.
+Sanpedrito opens my Heart.
+Sometimes, at just the right times,
+The songs turn into laughter. This laughter is like an answer,
+the questions are not important.
+After dancing with the moon
+under spinning stars, inexplicable yet highly reasonable
+configurations in the sky,
+morning starts again - subtle, slow.
+Bringing light and solidity to these beautiful surroundings.
+Filling in nighttimes potent gaps with washes of steady tweaking colour.
+Wanting only one thing more than to flop on the floor
+and that is to keep on moving. Waiting for the right time
+to kneel and pray, when it comes it comes effortlessly -
+Sheer relief, deep gratitude kissing/eating out of me
+into Mother Earth. My head pressed into her bosom.
+Home again. Home a-gain!
+Then jiggedy jig and back into the flow...
+Beautiful Sisters dancing, twirling,
+Sensual, precious, powerful, loving.
+A robot dancing, swift-twitching brother
+twists contorted on the floor
+as his opposite sides realign in winding jerks,
+healing the split at the source and working out
+thru piled on layers of tension. His process supported,
+softened by clouds of smoke sucked and blown
+over and into and out of him.
+A blessing for each of us as we dance into Maestro&#x27;s steady waiting
+and are cleansed in a shower of smoke.
+Finally, after a seeming eternity - A beautiful eternity
+teeming with hard work and grace -
+We finish the long, long dance and move into anew space.
+Gathered together under the loving gaze of a buffalo brother
+and his beautiful, spirit-filled partner, part-stripped and sitting
+on the grass. Feeling the wandering wind turn
+liquid skin into air. Getting a chill and savouring it.
+Knowing the heat will soon be intense.
+We enter the sweat lodge one by one,
+crawling clockwise until all are inside.
+The central pit is fed hot stones,
+the door flaps closed.
+Water and incense rush into the atmosphere
+soaking us in steam and sweat,
+the first round of prayer begins,
+devoted to the Great Spirits, the Grandparents of the West.
+Each heartfelt contribution punctuated with another blast
+of heat and sizzling steam.
+Cool breeze and big relief with the opening of the door.
+Then seven more hot stones and prayers to the North.
+This cycle repeats for East and South,
+each time the heat gets more intense,
+Blessed water condenses in my throat and mouth.
+My head sometimes pressed into the ground,
+thanking the Earth for its calm and cool collectedness,
+making me able to bear the heat of our prayers.
+We exit, shining in the morning light, and line up
+for those two loving souls - tenders of the lodge -
+to pour cool, cool water onto the backs of our necks.
+Unspeakable Bliss.
+Thirst quenching sips.
+Prayers thrown into the fire, riding tobacco wings
+to transformation heaven, the great beyond between.
+Here and Now. Hear and Know.
+And then we laugh and smile and feast,
+we love out loud - our laughter leaps!
+People bring out an astounding range of treats,
+we help ourselves to fruit, biscuits, crisps, vegetables and juice...
+If the sky was a roof my head would&#x27;ve hit it,
+instead my gratitude and joy rises into infinity
+and loops thru the universe back into me.
+Blessed be all creation!
+Blessed be the sacred medicine!
+I crawl into my sleeping bag, something like
+ten hours after drinking, and fall into
+deep sleep for a time.
+We wake around noon and recoup.
+Now the staff is passed around the group
+and each person opens their mouth and speaks from the heart
+of what they experienced.
+I am moved to the cusp of crying
+hearing of peoples healing.
+Feeling the love and gratitude blossom in my belly.
+The ceremony has been perfect beyond imagination -
+The trust and open, willing co-creation.
+We bless all our relations, the entirety of being
+with our humbled gratitude.
+The simple truth nested deep
+like the shiny egg of a phoenix
+glinting in our eyes.
+I am reminded of what I had become
+too tired, too jaded, too distant from
+to keep in mind, to embody:
+The wonderful rightness of being.
+All is family, and all is well.
+We who are lost, wondering, searching, striving, withdrawing,
+building strange effigies to the ghosts of ancient memories...
+What we have lost has never left us - it is up to us to turn and face it.
+We are too heavy and heady to know how to look.
+All we need, all we know, surrounds us.
+It cannot be written in a book, it is too vital - too alive.
+It requires honesty, humbleness and dedication
+to become a conscious partner in creation.
+To read the message of life, to know the secrets of nature -
+All that it takes is where it takes ya.
+We bid each other farewell with hugs, blessings and smiles,
+the sense of solidarity is profound.
+The fireman thanks me for helping him earlier the other day,
+He said that he felt like he was caught up in a spiders web
+(I was covered in little spiders all morning)
+and because I had helped to unravel it he was able to work thru it.
+He told me that if I hadn&#x27;t offered to help him
+he would not have been able to tend the fire
+(which he did diligently all night)
+and that if I ever got in trouble I could call on the six directions
+and the fire in my heart for help. He blessed me.
+I am reminded of the importance of helping others
+and humbly serving the greater good. In the depths,
+at the peaks, of my dancing - all else fell away -
+service and simple being were left shining
+like the only light there is.
+I leave you the affirmation of this light as a blessing...
+Now, two days later, my feet ache like I have bruised my soles.
+My calf muscles stiffen and I have to rub them loose.
+But I have woken up once more to the glory of existence,
+this fading pain is not pain but a blessed physical memory
+of that most deep down and dirty, exalted and pure experience.
+I will never, ever forget it.
+I urge you with all my heart to take part in a dance
+if you ever feel the need and if you ever find the chance.
+Heartbursting blessings to all my relations.
+I Love you.
+Exp Year: 2006
+ExpID: 53832
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Jun 2, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Music (457), Cacti - columnar (10) : Group Ceremony (21), Poetry (43), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

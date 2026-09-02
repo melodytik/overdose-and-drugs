@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>设备</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>设备</h1>
+<div class='sub-title'>Devices</div>
+<div class='meta'>药理类别：综合 · 未指明</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 低</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属非药物体验类（设备、行为、状态等），无化学摄入，风险性质与药物不同。Erowid 上收录 16 篇体验报告（本页已译部分）。常见给药途径：吸入/吸烟。报告中出现的剂量：3.5 mg、4 hits、3.5 hits、1 bowl、300 mg。报告类型分布：Devices(9)、Combinations(7)。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（16 篇）</h2>
+<div class='item'><h3><a href='../reports/115029.html'>- 和克洛米普拉 - 埃洛伊德 - &quot;恐惧的另一面&quot;</a></h3><div class='meta'>Jan 14, 2021 · 剂量 3.5 mg</div><div class='ov'>几周前, 我和我的精神科医生在电话会议上. 我向他介绍了我为自我护理所做的一切, 以及我对精神药物的进一步探索, 我说过我每周六和周二小剂量300毫克,每月大约一次大剂量. 我开始使用一种名为&quot;黄金教师&quot; (GT) 的品…</div></div>
+<div class='item'><h3><a href='../reports/58392.html'>圣 (20倍提取物) 和设备 (心灵) - 埃罗伊德 Exp - &quot;不能把我眼睛&quot;</a></h3><div class='meta'>Jul 3, 2009 · 剂量 4 hits</div><div class='ov'>总而言之,当我考虑了这个问题时,</div></div>
+<div class='item'><h3><a href='../reports/47079.html'>爱洛伊德的&quot;精神情绪觉醒&quot;改变了生活</a></h3><div class='meta'>Mar 22, 2007 · 剂量 3.5 hits</div><div class='ov'>总的来说,这是一个很有趣的晚上, 但有一些东西非常深刻的夜晚的激烈的旅行部分.</div></div>
+<div class='item'><h3><a href='../reports/50482.html'>萨尔维亚神 (6x提取物) 和设备 (Trance DVD) - 埃罗维德 Exp - &#x27;令人难以置信&#x27;</a></h3><div class='meta'>Sep 6, 2007 · 剂量 1 bowl</div><div class='ov'>摆脱你的实物书籍? 您的旧书将在我们的图书馆或支持者中找到一个好的家. 详情 这真是太不可思议了. 萨尔维亚神 (6x提取物) 和装置 (Trance DVD) 拉菲克 引用来自:拉菲克 &quot;令人难以置信:与Salvia …</div></div>
+<div class='item'><h3><a href='../reports/119009.html'>萨尔维亚神器 (脑机器装置之后) - 埃洛伊德 Exp - &quot;感觉绝对没有什么&quot;</a></h3><div class='meta'>Jul 28, 2025</div><div class='ov'>两天前我有一个非常强大的&quot;潘多拉之星&quot;体验. 完全解散自我,找到上帝,感激真正重要的事物. 我今天又做了松果腺激活的潘多拉之星. 在家里也做了几次感官剥夺. 于是在&quot;潘多拉&quot;课结束后, 我从来没有勇气去做这件事. 我已经…</div></div>
+<div class='item'><h3><a href='../reports/117710.html'>胺和思维机器 - 埃罗伊德Exp - &quot;相互加强的效果&quot;</a></h3><div class='meta'>Sep 23, 2024</div><div class='ov'>胺和虚拟现实 总结 报告经验在基他胺的作用下结合虚拟现实眼镜的预测一个梦想机器视频. 健康问题 使用者年龄40岁,身高1.85米,体重91公斤,肤色均. 电压为12/7小时,55ppm. (是的,我有血压计). 正确的分…</div></div>
+<div class='item'><h3><a href='../reports/62217.html'>德克斯姆和思维机器 - 埃罗伊德Exp - &quot;桶卷和愿景&quot;</a></h3><div class='meta'>Aug 28, 2007 · 剂量 300 mg</div><div class='ov'>我是一个轻量级的300毫克几乎把我带到第三高原, 经过一个小时的旅行, 护士让我安顿好 (把我锁在一个小黑暗的房间里, 我把它戴上,并将它放入与设备一起提供的&quot;深度冥想&quot;程序中. 我看到各种各样的方形和明显的几何图案. …</div></div>
+<div class='item'><h3><a href='../reports/63066.html'>设备 (双耳节拍生成器) - 埃罗伊德Exp - &quot;免费训练&quot;</a></h3><div class='meta'>Dec 17, 2007</div><div class='ov'>3.9至4.1赫兹,73分钟+ 我曾经尝试听觉频率, 发现它们有助于克服&quot;晨雾&quot; - - 我在缺乏睡眠时遇到的头空. 帮助调节/水平, 就像正常睡眠一样. 我发现这无论如何都能让头脑清醒. 我刚刚下载了布雷特·洛根的Wi…</div></div>
+<div class='item'><h3><a href='../reports/62675.html'>设备 (脑电波传输MP3) - Erowid Exp - &quot;更像是一个耳模拟器&quot;</a></h3><div class='meta'>Dec 17, 2007</div><div class='ov'>只有16岁, 我对迷幻药的经验很少. 我以前只喝过两瓶硬水 (我觉得声很不愉快), 吸过两次大麻 (两次都让我口水干了).我很少接触任何类型的药物, 但多年来, 我对它们变得非常好奇, 尤其是像LSD和Salvia这样的…</div></div>
+<div class='item'><h3><a href='../reports/65270.html'>设备 - I-Doser - Erowid Exp - &quot;虚拟药物&quot;</a></h3><div class='meta'>Dec 16, 2007</div><div class='ov'>声称使用某些特殊的声音频率让使用者感觉自己几乎在使用任何药物, 非法或其他, 我期待一个安慰剂, 我下载了这个程序, 以及几乎所有的音频文件, 我找到了一个 torrent, 并下载了 (偷了) 程序以及所有音频文件, …</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 16 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

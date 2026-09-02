@@ -1,0 +1,230 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cacti-t-peruvianus.html'>← 秘鲁仙人掌</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - -</h1>
+<div class='sub-title'>Cacti - T. peruvianus - Erowid Exp - &#x27;Gnostic Experience&#x27;</div>
+<div class='meta'>作者：Boogie-dy Citation · 日期：Mar 1, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=61098' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>关于我的背景:
+我是一名42岁的白人男性, 有专业教育, 已婚, 有两个男孩,
+我经常使用迷幻药和大麻在我的十几岁末和二十岁初.
+我从20多岁到30多岁, 经历了12个步骤的计划,
+实际上是一个很好的体验.
+我现在饮酒量适度, 虽然我需要几年的时间来调整我的身体,
+药物:我确实服用20-40毫克的普罗扎克治疗抑郁症/焦虑症,
+在这个实验中需要监测和调整Prozak和Propanolol.
+试吃仙人掌的原因:
+工作,婚姻,父亲等等都给我带来了相当大的麻烦,
+我后来才知道为什么.
+制备和剂量:
+购买了4司的秘鲁火香, 并使用了93%的异醇在一周的时间内进行提取.
+结果的提取物被擦除并卷成10个小球, 大小小小的玉子.
+我估计提取物中含有1000毫克的美斯卡林.
+一半的提取物在星期五上午11:30左右被消耗,另一半在下午12:30左右.
+在星期五下午.
+经验:
+起初的感觉是轻微的恶心和不安,过多的能量和紧张.
+紧张变为恐慌, 恶心变为极度的胃部不适 (可能是酒精类药物) 下午2点.
+恐慌持续了整个体验,
+整个经历中我背部下部有着令人难以忍受的疼痛,
+整个过程中, 除了下午三点左右喝一杯酸奶, 我什么也没吃,
+吃了大约20个小时后, 仙人掌本身的效果就足够了.
+我没有睡近48小时.
+观察到的大脑化学效应包括严重的焦虑和紧张,持续的偏执思想,持续的精神分裂症和/或精神分裂型的听觉和视觉幻觉.
+尤其是在听音乐的时候.
+听到的音乐从下午四点到六点左右, 主要是古老的拉丁萨尔萨,拉丁朗巴,拉丁爵士乐和当代萨尔萨.
+听任何音乐都会让人感到极度疲和不舒服.
+我有强烈的吸烟欲望, 但因为以前的习惯吸烟烟草和大麻, 避免在实验期间吸烟.
+结果可能会是强烈的快乐,增加视觉幻觉,
+我很想在某个时候喝一杯葡萄酒,
+首先,我的胃非常不舒服.
+另一方面, 胃里没有什么东西可以让酒精过快进入血流,
+像我说的,我只吃水和牛奶.
+虽然最强烈的视觉效果 (非常有趣的各种形状的色彩和有机图案,如壁纸) 通常在凌晨2点或3点左右变得可控,但直到凌晨5点或6点左右才完全可控.
+我没有睡整整第二天, 最好在早上7点左右睡1个小时.
+星期天早上
+持续的焦虑和恐慌至少持续了72小时.
+我称之为&quot;认知思想&quot;.
+我坚信整个世界是由邪恶创造的, 存在于邪恶之中, 遍及一切,
+所有可观测的现实实际上都是被生物 (人类,动物,灵魂,鬼魂,魔鬼等) 用来操纵他人以增加他们自己的认知力量的幻觉.
+生命与死亡只是一个复杂的游戏, 灌输恐惧和消耗别人的灵魂,
+我几乎通过认知主义的镜头来回顾我在经历期间的全部世上关系.
+经历了大约17个小时, 我只想让经历结束,
+在我的案例中需要更长的时间, 可能是由于剂量和SSRI在我的血液中存在.
+结论:
+这种经历在精神上和身体上都是令人不安的.
+我确实得出了一个结论:我的日常思维与经历中经历的混乱,偏执和妄想有着显著的相似之处.
+这显然让我更好地了解我日常使用的思维过程,判断,结论和分析有哪些缺陷.
+至少在短期内, 我对妻子,孩子,商业伙伴,朋友和邻居以及我自己的态度有所调整.
+我少喝酒,少吃饭,多和妻子一起睡觉,多打扫房子,多铺床,多在半夜醒来孩子,更努力,更高效地工作,更慢,更安全地开车,
+我不建议任何人使用仙人掌,
+它可能会导致非常混乱的思维,并导致使用者经历类似精神疾病的想法以及音频和视觉幻觉.
+身体上的不适会非常痛苦.
+我很可能很长一段时间再也不会使用仙人掌,
+至少这一次, 让我看到并理解了许多不愉快的特征和行为, 提供了一个参考点来调整我的思维和行为,
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Gnostic Experience
+Cacti - T. peruvianus
+by
+Boogie-dy
+Citation:   Boogie-dy. &quot;Gnostic Experience: An Experience with Cacti - T. peruvianus (exp61098)&quot;.
+Erowid.org
+. Mar 1, 2007. erowid.org/exp/61098
+DOSE:
+T+ 0:00
+40 mg
+oral
+Pharms - Fluoxetine
+(daily)
+T+ 0:00
+40 mg
+oral
+Pharms - Propranolol
+(daily)
+T+ 0:00
+500 mg
+oral
+Cacti - columnar
+(extract)
+T+ 1:00
+500 mg
+oral
+Cacti - columnar
+(extract)
+BODY WEIGHT:
+165 lb
+A bit about my background:
+I&#x27;m a 42 year old white male, professional education, married with two boys, aged 13 months and 2 months.  I frequently used psychedelics and cannabis in my late teens and early twenties.  I spent about 12 years from my mid-twenties to mid-thirties in a 12 step program, completely sober.  A very good experience, actually.  I drink moderate amounts of alcohol these days, though it did take a couple of years to adjust my body and I did drink fairly heavily for a while after leaving sobriety.
+Medications:  I do take prozac between 20-40mg for depression/anxiety, propanolol 40 mg (beta blocker) also for anxiety, adrenaline blocker, and a statin for cholesterol.  The prozac and propanolol needed to be monitored and adjusted during this experiment.
+Reasons for trying cacti:
+I have been having a considerable amount of trouble dealing with work, marriage, fatherhood, etc., and was becoming very bored with work and dissatisfied with myself.  I was later to learn why this was.
+Preparation and dosage:
+4 oz of peruvian torch incense was purchased and 93% isopropyl alcohol was used to perform an extraction over a period of a week.  The resulting extract was scraped and rolled into 10 small balls, the size of small marbles.  I estimate the extract was yielded about 1000mg of mescaline.  1/2 half of extract was consumed about 11:30 a.m. on a Friday morning, the other half at around 12:30 p.m. Friday afternoon.
+The experience:
+Initial feelings were slight nausea and fidgeting, excess energy and nervousness.  The nervousness evolved into panic and the nausea evolved into extreme stomach discomfort (probably the alkoloids) by 2:00 p.m.  The panic lasted for the rest of the experience, as did the stomach discomfort.  I had excruciating pain in my lower back the entire experience, most likely related to stress.
+Other than 1 small glass of yogurt smoothie at about 3:00 p.m., I ate nothing and only drank water and milk for the entire experience.  The cactus itself sufficiently wore off after about 20 hours after ingestion.  I did not sleep however for nearly 48 hours.
+The brain chemistry effects noted include severe anxiety and nervousness, constant paranoid thoughts, and continuous schizophrenal and/or schizotypal audio and visual hallucinations.  I experienced very notable time dilation, especially while listening to music.  Music listened to from between 4:00 p.m. and about 6:00 p.m. consisted mostly of old latin salsa, latin rumba, latin jazz and contemporary salsa.  Because of the time dilation, listening to any music was extremely taxing and uncomfortable.
+I had a recurring strong desire to smoke cigarettes, but because of prior habitual smoking of both tobacco and cannabis, avoided tobacco smoking during the experiment.  The result would likely have been strong euphoria, increased visual hallucinations, and noticeable pain and discomfort to my lungs.
+I would like to have had a glass of wine at some point, but for a variety of reasons chose not to.  First and foremost, my stomach was in extreme discomfort.  Second, I had nothing to eat in my stomach which would cause alcohol to enter my blood stream too fast, either causing a craving for more alcohol or causing dehydration, headaches and stomach cramping.  As stated,  I stuck to water and milk.
+Though the most strong visual effects (which were extremely interesting pastels of various shapes and organic patterns like wall paper) generally became manageable around 2:00 a.m. or 3:00 a.m., effects did not become totally manageable until around 5:00 a.m. or 6:00 a.m.  As previously stated I did not sleep the entire next day and maybe got 1 hour sleep at best around 7:00 a.m. Sunday morning.  Lingering anxiety and panic did not subside for at least 72 hours.
+A very interesting phenomenon experienced is what I&#x27;ll label as gnostic thinking.  I had a very firm belief that the entire world was created by evil and exists as evil, all permeating, the substance of all relationships, animals, persons, clients at work, my family, wife, my sons, even the musicians playing on the CDs I was playing.  All observable reality was really an illusion used by beings (human, animal, spirits, ghosts, devils, etc.) to manipulate others in order to increase their own gnostic power.  Life and death were only a complex game, a means of instilling fear and consuming other&#x27;s souls in order to amass psychic power.
+I nearly reviewed the entirety of my earthly relationships while under the experience through the lens of gnosticism.  For about 17 hours of the experience I wanted the experience to be over, but of course, the cactus extract takes 12-14 hours to metabolize.  In my case in took longer, probably due to the amount of the dose and the presence of an SSRI in my bloodstream.
+Conclusions:
+The experience was mostly mentally and physically uncomfortable and disturbing.  One thing that I did conclude was that a great deal of my regular day to day thinking bore a remarkable resemblance to the disorganized, paranoid and delusional thinking experienced during the experience.  This has obviously given me a better idea of what thought process, judgments, conclusions, and analyses I use on a daily basis that are flawed.  At least for the short term, I&#x27;ve adjusted my attitude towards my wife, children, business partners, friends and neighbors, and of course myself.
+I drink alcohol less, eat less, sleep in bed with my wife more, clean up the house more, make the bed more, wake up in the middle of the night to feed the babies more, work harder and more efficiently, drive slower and safer, and act more respectable towards my co-workers.
+I do not recommend cacti to anyone, especially in high doses, to be used as a euphoric or recreational drug.  It can cause very disorganized thinking and cause the user to experience mental illness-like thoughts as well as audio and visual hallucinations.  The bodily discomfort can be very painful.
+I will likely not use cacti again for a long time, though I cannot say I would never use it again.  It did have the benefit, at least this time, to allow me to see and understand many of my unpleasant characteristics and behaviors so as to provide me a reference point to adjust my thinking and behavior to be less narcissistic and less prey to my own irrational insecurities and fears.
+Exp Year: 2007
+ExpID: 61098
+Gender: Male
+Age at time of experience: Not Given
+Published: Mar 1, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cacti - T. peruvianus (69) : Alone (16), Relationships (44), Health Benefits (32), Difficult Experiences (5), Preparation / Recipes (30), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

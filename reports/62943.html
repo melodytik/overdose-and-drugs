@@ -1,0 +1,176 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>二氧化碳和氧化 - 埃罗伊德的演示 - &#x27;令人惊叹的闭眼视觉&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/carbon-dioxide.html'>← Carbon Dioxide</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>二氧化碳和氧化 - 埃罗伊德的演示 - &#x27;令人惊叹的闭眼视觉&#x27;</h1>
+<div class='sub-title'>Carbon Dioxide &amp; Nitrous Oxide - Erowid Exp - &#x27;Amazing Closed Eye Visuals&#x27;</div>
+<div class='meta'>作者：James McGuigan Citation · 日期：Sep 19, 2007 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=62943' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>呼吸高水平的二氧化碳可能导致呼吸或循环系统衰竭和死亡.
+我从阿尔多斯·哈克斯利在他的书&quot;感知之门/天堂与地狱&quot;中简要提到的二氧化碳的想法中得到了启发.
+虽然哈克斯利使用呼吸口罩和30%的二氧化碳/70%的氧气混合物, 我不得不回落在气球中的二氧化碳鞭子,
+当你屏住呼吸时, 二氧化碳会在肺部积聚.
+身体并没有检测到缺氧, 而是二氧化碳的积累告诉你你急需呼吸.
+肺部的二氧化碳含量足够高, 身体就会开始关闭大脑的某些部位,
+这种关闭导致了迷幻效应, 似乎与赫克斯利关于大脑是镜的理论一致,
+我第一次尝试的是一个气球中的二氧化碳.
+我突然觉得我不能再呼吸了 (好像我的肺已经充满了).
+我在气球上深呼吸,
+这是一种酸性味道,
+身体的第一个反应是恐慌,
+为了让肺部和身体更轻松, 我又拿了一个气球,
+这样更容易吸入和保持.
+身体仍然试图恐慌,
+有了正确的心态和精神集中,
+制造二氧化碳最困难的部分就是让二氧化碳在我的肺里保持足够长的时间.
+我往往会陷入梦幻世界, 梦幻世界从我闭着眼睛的黑暗中形成,
+由于二氧化碳, 在10到20秒的时间里,
+我可以想象我面前的符号和物体, 一个头骨, 一个女神在莲花姿势,
+对于我介绍二氧化碳的其他人来说, 需要相当多的努力和意志力才能将二氧化碳保持在10到20秒以上,
+低于可视化状态所需的二氧化碳的效应可比于快速的上腺素冲击,
+[注意:在理论上,二氧化碳应该是安全的, 因为大脑并没有真正的缺氧,
+根据我最近的二氧化碳实验, 我没有发现任何长期的负面副作用.
+其他:
+二氧化碳 (439),氧化 (40):各种 (28),回顾 / 总结 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Amazing Closed Eye Visuals
+Carbon Dioxide &amp; Nitrous Oxide
+by
+James McGuigan
+Citation:   James McGuigan. &quot;Amazing Closed Eye Visuals: An Experience with Carbon Dioxide &amp; Nitrous Oxide (exp62943)&quot;.
+Erowid.org
+. Sep 19, 2007. erowid.org/exp/62943
+DOSE:
+inhaled
+Carbon Dioxide
+(gas)
+inhaled
+Nitrous Oxide
+(gas)
+[Erowid Warning:  Breathing high levels of CO2 can cause respiratory or circulatory failure and death.]
+I came across the idea to try CO2 from a brief mention by Aldous Huxley in his book &#x27;Doors of Perception / Heaven and Hell&#x27;.
+While Huxley used a breathing mask and a 30% CO2 / 70% Oxygen mix, I had to fall back C02 whippits in a balloon, using a whipped cream dispenser.
+When you hold your breath, carbon dioxide builds up in the lungs. The body does not detect lack of oxygen as such, buy rather the build up of CO2 to tell you that you urgently need to breath. With a high enough level of CO2 in the lungs, the body starts shutting down parts of the brain as an emergency form of protection against lack of of oxygen. It is this shutting down that causes the psychedelic effects, which seems consistant with Huxley&#x27;s theories on the brain being a filter and the historical use of underground CO2 vents for divination.
+My first attempt was a single CO2 whippet in a balloon. As soon as I took my first sip of a breath, I suddenly felt I could not breath in any more (as if my lungs where already full). I breathed fully out and consciously forced myself to breath in on the balloon. It has an acidic taste, comparable to getting bubbles from a fizzy drink up your nose. The body&#x27;s first reaction is to panic, to breath out and then gasp for air.
+To make it easier on the lungs and the body, I took another balloon and filled it 50/50 with CO2 and nitrous oxide (as a mixer). This was easier to breath in and hold. The body still tries to panic though, and possibly hyper-ventilate. With the right frame of mind and mental focus it is possible to mostly calm the body. The most difficult thing about doing CO2 is simply keeping the stuff in my lungs for long enough.
+When doing a nitrous oxide balloon for 2-3 minutes, I tend to fade off into a dream/vision world, which builds up from the darkness of my closed eyes but is always colorless.
+With CO2, within 10-20 seconds I start to fade off not into darkness but into amazing colors and patterns (on a background of intense white light). I could visualize symbols and objects ahead of me, a skull, a goddess in lotus position and even the scene from the Matrix where they load the construct program and the camera flies towards two people in an empty white room.
+For others I have introduced CO2 to, it can take quite alot of effort and willpower to hold in the CO2 in for 10-20+ seconds and most do not get that far. The effects of CO2 below that required for a visionary state are comparable to a quick sharp adrenaline rush, caused by the body suddenly going into panic mode.
+[Note: In theory CO2 should be safe as there is no actual oxygen starvation to the brain, and CO2 does not interact chemically with the brain, but I don&#x27;t know if in the panic to shut the brain down if there is any damage or potential caused. From my own limited and recent CO2 experiments, I have not noticed any long-term negative side effects]
+Exp Year: 2007
+ExpID: 62943
+Gender: Male
+Age at time of experience: Not Given
+Published: Sep 19, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Carbon Dioxide (439), Nitrous Oxide (40) : Various (28), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

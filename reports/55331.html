@@ -1,0 +1,237 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - 完全无语</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cacti-t-peruvianus.html'>← 秘鲁仙人掌</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - 完全无语</h1>
+<div class='sub-title'>Cacti - T. peruvianus - Erowid Exp - &#x27;Utterly Speechless&#x27;</div>
+<div class='meta'>作者：Grimble Crumble Citation · 日期：Aug 14, 2006 · 剂量：25 g · <a href='https://erowid.org/experiences/exp.php?ID=55331' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我从来没有尝试过其他药物, 但从来没有让我如此敬畏.
+我一直在思考如何能写一份报告,
+无论如何,我们三个人都服用了同样的剂量,
+我们决定在一个森林/自然区域做这件事, 这里有很多我们熟悉的小径和河流.
+我们在12:30左右到达那里, 找到了一个开始用药的地方,
+我们每个人都有两袋非常强大的仙人掌粉.
+我只是把他的一个袋子扔进一杯汁里,
+我尝试了他的汁饮料方式, 喝到那种可怕的味道饮料花了更长的时间,
+接下来我又落下来,
+C将他的酒与加托雷德混合并饮用,M再次使用汁方法.
+我们已经冒险父亲进入森林的小径.
+梅斯卡林是如此惊人的谨慎的方式它来了,它只是慢慢地爬过我,
+我注意到的第一件事是我感觉有点醉了,
+我们三个人都在歇斯底里地笑了很长一段时间.
+我们走了大约6米, 到了一片高大的草地上.
+我们都说我们感觉像是环王的霍比特人,
+一个年轻的鹿走过我们.
+我们都对此感到惊,
+虽然这里是自然保护区, 但却是我们镇的中心.
+我们都同意看到鹿是个好兆头,
+这时,事情开始变得更加恶化.
+我们静静地跟着鹿走了一会儿, 讨论它可能在想什么,
+我们决定继续步行.
+我们都在流汗,这一直持续到旅行结束.
+我们走过一条小路, 到了湖边最凉爽的地方.
+树叶形成了一个小的避风港, 没有人能真正看到它,
+在那个地方的对面是一片牛田,
+果园让我们有点不安, 经过这么长时间在森林里看到自然自由生长,
+梅斯卡林的感觉是如此独特,
+头部空间不是模糊的, 而是几乎清的,
+在整个旅程中,我觉得自己是在做梦.
+由于某种原因, 我们都被镇静了, 所以我们决定躺在自己的位置,
+我开始感觉到全身都了,
+太阳把水中的光反射到我们上面的树叶上,
+我看着树木, 看到它们的年龄,
+我深思,这么大的坚强树从一个脆弱的小种子中生长,真是太神奇了. 当我看着闪的灯光,鸟儿的声,昆虫的哨声,凉爽的风吹着叶子,河流在岸边打着,仿佛自然正在为我们演奏一首歌.
+我从来没有参与过这样一个平静,宁静的事情.
+我注意到我手里一直拿着一根棍子, 感觉很好, 所以在旅行的大部分时间里,
+我们开始再次感到冒险,
+一切都是如此美丽的云,天空,在地上灌花的叶子.
+世界是如此奇妙的地方, 而人类正在摧毁它.
+我们一整天都在某些物品上看到和叶的符号,
+我们想回到我们看到鹿的地方看看它是否回来了.
+我们终于到达了那里, 但是在经历了各种不同的路线之后,
+某种力量告诉我们要去哪里, 这很奇怪,
+我觉得我知道成为动物是什么感觉, 我从来没有如此与周围环境协调,
+在我们看到鹿的草地,
+感觉就像坐在热水浴里几分钟后的感觉.
+我闭上眼睛, 看到一个阳光的美丽,温柔的视觉, 发光的颜色, 红色, 色和黄色,
+人们沿着小径走过, 这让我感觉像一个动物,
+我们谈论它是如何,因为没有在调和像我们一样和太忙于思考肤浅的东西,,你得到的想法.
+但我和C觉得好像有什么我们需要再次达到 (有各种各样的时刻我们会达到一些东西,它似乎就像是我们旅程的另一个章节的开始.
+我们不确定是否移动, 我们不舒服地纠了两种想法一段时间,
+很多奇怪的事情都会发生,比如我们在走路时,都会同时停下来,不知道为什么,而且每次都会有一个巨大的蜘蛛网,
+这朵花是我见过的最亮的黄色花, 黄色更深,更丰满.
+很快我意识到我非常渴,有点饿.
+我们都决定步行到附近的汉堡店,
+我们到达文明时, 经历了巨大的文化冲击.
+汽车,人们,一切都令人不安.
+穿过街道是相当艰难的/紧张的, 最后虽然我们得到了很多法式条和水, 然后M的女朋友看不起药物显示后, 他告诉他要做什么, 打架, 这把一个负面的旋转, 我们只是绝望地想回到&quot;点.
+经过一段艰苦的步行, 我们又回到了那个地方,
+经过谈话和饮用水, 我们已经克服了女朋友的问题,
+条的味道完全是狗的, 但想到子或一些果汁的果实听起来高潮.
+酒后我们躺了一会儿, 效果真的变得更强.
+叶子反射的光像一样四处闪过, 我看到紫绿蓝白的蜘蛛网闪,
+我们只是静静地坐在自己的小世界里思考一切似乎很长一段时间 (与大部分旅行相反,
+我们开始了我有史以来最好的,最灵性的,最有洞察力的,最长的,最鼓舞人心的对话,
+我不可能写下我们当时所意识到的一切,
+在这次谈话中,我们都意识到我们找到了我们正在寻找的东西,一天早些时候,我们在小径上有强烈的感觉,我们正在寻找某种东西,但我们只是不知道它是什么,我们觉得梅斯卡林带领我们到某处...我们都同意我们正在寻找的是这种心态,
+我们在旅程开始时花了大量时间.
+很快就开始黑暗了,在看了一整天过去之前,我们新的眼睛我们应该回到停车场,因为那里有灯.
+效应正如它们出现的那样, 非常缓慢地消失,
+我们已经准备好了.
+[Erowid的注意事项:
+驾驶时喝醉,倒,或极度缺乏睡眠是危险和不负责任的, 因为它危害了其他人.
+不要这样做!
+在我父母面前扮演清醒的角色 (虽然我做得很好, 我告诉他们我刚抽了几碗烟,
+洗了个很棒的淋浴,让整个身体发出热的振动 (绝对是令人愉快的),然后躺在我的床上,疲不堪.我的猫走到我身边,坐在我的一边,得非常响亮,我抚摸他,直到我睡着了,我觉得非常接近这个动物,我知道他对我也有同样的感觉.
+我永远不会忘记那次旅行.
+时间表: 55331
+仙桃 - T. peruvianus (69):小组 (2-9) (17),自然/户外 (23),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Utterly Speechless
+Cacti - T. peruvianus
+by
+Grimble Crumble
+Citation:   Grimble Crumble. &quot;Utterly Speechless: An Experience with Cacti - T. peruvianus (exp55331)&quot;.
+Erowid.org
+. Aug 14, 2006. erowid.org/exp/55331
+DOSE:
+25 g
+oral
+Cacti - T. peruvianus
+(ground / crushed)
+BODY WEIGHT:
+163 lb
+Well where to begin? This was my first time with mescaline, I’ve done a number of other substances, but none have ever put me in such awe. Through out this whole experience I kept thinking how I could ever even write a report on it, Ill do my best though.
+Anyway there were 3 of us all on the same dose, me, my brother “M” and his best friend “C”. We decided to do it at this forest/nature area type of place that has all these trails and rivers that we know like the back of our hand. We got there around 12:30 and found a spot to start dosing next to this huge stone thing that had a mushroom and pot leaf logo painted on it. We each had two bags of very potent cacti powder to ingest. “M” simply dumped one of his bags in a cup full of lemon juice and chugged it like nothing… I had a little harder time. I tried his lemon juice drink type of way and took much longer to drink that horrible tasting drink, we then waited a bit to take our second baggies. I wound up parachuting my next little baggy full of powder(multiple parachutes). “C” mixed his with Gatorade and drank it, M did the lemon juice method again. By this time we had ventured father into the trails of the forest.
+Mescaline is so amazingly discreet the way it comes up, it kinda just SLOWLY crawls over me and keeps getting stronger its very gentile with its approach. The first thing I noticed was feeling slightly stoned and I tiny strange feeling in my limbs. C said he needed to go “poop” and all 3 of us laughed hysterically for quite some time about that. We then walked about 20 feet onto this spot with tall grass on it. I looked around at the scenery and it all seemed a bit dreamy, we all commented how we felt like lord of the rings hobbits just venturing around and laughed about that. Then literally right then a young Deer walked by us a little farther up. We were all amazed at this, all the times we’ve been here we’ve never scene anything like a deer. I mean sure it’s a nature area type of place but it is in the middle of our town. We all agreed that seeing the deer was a good omen and the start of a great trip. That’s when things began to escalate more.
+We quietly followed the deer for a while discussing what it could be thinking and how anyone could kill such a beautiful creature just to merely kill it. It eventually trotted out of site and we decided keep walking. We were all sweating quite a bit, this continued all through out the trip. Eventually we went through this trail that led us to one of the coolest spots at that lake. It was right on the side of the river and had these trees that grew outward onto the lake so that the leaves kind of formed a little haven that no one else could really see into and you could sit on the branches (this area was just simply called “the spot” for the rest of the day).
+Across from the spot was a field of cows with orchards behind it. We all marveled at how big the cows were and how amazing nature is, the orchards disturbed us a bit how after all this time in the forest seeing nature grow freely, seeing plants in rows just didn’t seem right. The feel of mescaline is so unique I can’t even describe it. I feel very light &#x27;fluffy&#x27; almost and the headspace is not foggy but crystal clear almost, yet so dreamy at the same time. Through the whole trip I felt like I was in a dream. All of us were pretty sedated for some reason so we decided to lie down in our spot, maybe try to nap. I started feeling chills all over my body and some good euphoria. The sun was reflecting light off the water onto the leaves above us and it created such a cool effect of waving light everywhere. The pure silence of it was amazing, I became very in tune with nature I looked at the trees and saw such age in them and realized how inferior I am to them in that respect. I pondered how amazing it was that such a big strong tree came from a small fragile seed/ While looking at the trippy lights, the sounds of bird chirps, whistling insects, the cool breeze ruffling leaves, and the river slapping on the sides of the banks permeated and punctuated the silence as if nature was playing a song for us.
+In some moments it was the most peaceful serene thing I had ever been apart of. I noticed pretty much the whole time we had been at the spot I had a stick in my hand, and it just felt really good to have that stick so I kept it pretty much throughout most of the trip, almost as if I had a personal relationship with it, this stick was somehow different and special compared to others.
+We began feeling adventurous again so we went out back onto the trails. Everything was so beautiful the clouds the sky, the leaves on the ground that water the flowers. The world is such an amazing place and man is destroying it. We kept seeing the mushroom and pot leaf symbol that was on the stone thing where we dosed painted everywhere on certain items all day long, we thought this was very eerie. We wanted to go back to where we saw the deer to see if it had returned. Eventually we ended up there but only after going all over different routes exploring and marveling all the while commenting about different insights we had.
+It felt like some force was telling us where to go it was very strange, certain paths would just seem to be “right” as if they were radiating a certain kind of energy. I felt like I knew what it was like to be an animal, I had never been so in tune with my surroundings, it was just “right.”
+Back at the grassy spot where we had seen the deer the effects began to pick up even more. I kept getting lighter, the sun felt like it was literally wrapping around my body like that feeling just a few minutes after you sit in a hot tub. We laid down again and when I closed my eyes I saw beautiful gentle closed eye visuals of a sun with radiating colors, red orange and yellow all meshing together like dropping food coloring into water.
+People were walking by on side trails and it made me feel like an animal even more by the fact that we were so close by yet they had no idea we were even there. We talked about how it’s because there not in tune like us and too busy thinking about superficial things blah blah you get the idea. M felt content at this spot but me and C felt as if there was something we needed to reach again (there were all kinds of moments were we would reach something and it would seem as if it was the beginning of another chapter in our trip). C and I felt like there was some goal that needed to be reached, something to be found, however we were so comfortable we weren’t sure whether or not to move, we uncomfortably tangled with both ideas for a while and went back on the trails.
+More odd things happen like we would be walking and all stop at the same time without knowing why and surely enough each time there would be a spider web with a HUGE spider on it right in front of us, every so often we would see a tree that was so amazing and beautiful for any particular reason and marvel at it. I remember seeing a flower on one of the times that was growing around a lot of dead things and this flower was the brightest yellow flower I have ever seen in my life it was such a vivid yellow like the yellow was deeper and fuller. Soon I realized I was extremely thirsty and a bit hungry. All of us decided to walk to a nearby burger place that wasn’t too far. When we got to civilization it was a HUGE culture shock. The cars the people everything, it was kinda disturbing. Crossing the street was pretty hard/nerv racking, finally though we got lots of French fries and water, then M’s girlfriend who looks down on drugs shows up after he told what he was going to be doing, got in a fight and it put a negative spin on everything, we just desperately wanted to get back to “the spot.”
+After what seemed like an exhausting walk we made it back to the spot, by now it probably had to be 5 or 6 and we were very happy to have the water. After talking and drinking water we were over the whole girlfriend thing and it wasn’t depressing us anymore. The fries tasted like complete shit but the thought of an orange or some really juicy fruit sounded orgasmic.
+After drinking we laid down for a bit and the effects really got stronger. The light reflecting on the leaves was going all around like fireflies and I was getting intense pulsating closed eye visuals of purple green blue white spider web flashes with lightning, and chills down my body. We just sat quietly in our own little worlds pondering everything for what seemed to be a long time (contrary to most of the trip which had been very communication enhancing).
+Then after an hour maybe we began the beginning of one of the best, most spiritual, insightful, philosophical, long, inspiring conversations I’ve ever had, ranking above many heavy dosed ecstasy conversations. I could not possibly write all of the things we came to realize then, the only word I can use to describe it is magical. During this conversation we all realized that we had found what we were looking for, how earlier in the day we had the strong feeling on the trails that we were looking for something but we just didn’t know what it was, we felt like the mescaline was leading us somewhere… well we all agreed what we were looking for was this state of mind, that the trails led us to this state of mind and how ironic is it that it came to in &#x27;the spot&#x27; we had spent a ton of time in during the beginning of the trip.
+Soon it was getting dark and after watching a whole day pass by before are eyes we new we should get back to the parking lot because there were lights there. The effects were VERY SLOWLY weaning away just as they had come on but there was still a long way to go. We were really ready to be sober again.
+[Erowid Note: 
+Driving while intoxicated, tripping, or extremely sleep deprived is dangerous and irresponsible because it endangers other people.
+Don&#x27;t do it!
+]
+The rest of the trip involved having to drive home impaired, and playing it sober in front of my parents (pretty tough, I did pretty well though, I told them I just smoked a few bowls they believed me). Took an amazing shower that sent hot vibrations all over (definitely pleasurable), and laid in my bed exhausted. my cat walked up to me sat on my side purring extremely loud, I pet him until I fell asleep and I felt extremely close to this animal and I knew he felt the same about me. finally I drifted into a heavy slumber and woke up fine the next morning
+I will never forget that trip.
+Exp Year: 2006
+ExpID: 55331
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 14, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cacti - T. peruvianus (69) : Small Group (2-9) (17), Nature / Outdoors (23), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

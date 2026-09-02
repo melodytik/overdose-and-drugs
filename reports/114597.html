@@ -1,0 +1,209 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>1cP-LSD - Erowid Exp - 一次完成所有任务</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/1cp-lsd.html'>← 1cP-LSD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>1cP-LSD - Erowid Exp - 一次完成所有任务</h1>
+<div class='sub-title'>1cP-LSD - Erowid Exp - &#x27;Everything at Once&#x27;</div>
+<div class='meta'>作者：RxP Citation · 日期：Jul 22, 2020 · <a href='https://erowid.org/experiences/exp.php?ID=114597' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>其他:
+刚刚决定离开我的旧工作大约5年后, 并决定庆祝通过放弃一些标签.
+我之前曾使用过LSD,
+吃了早晚饭然后了一会儿等我准备好服用.
+于是我决定让这一个人定居一会儿, 走了大约一个小时,
+我发现我的感知有点偏差, 但没有什么大不了的,
+我回家时,除了颜色变得更亮,感知有所不同之外, 我还没有注意到什么,
+几乎在我服用两片药后, 就像一个开关被打开,
+起初,墙壁上的纹理都在移动,
+灯光闪在我的视野里, 类似于当有人在晚上停在我的车道上,
+这一切都非常好笑.
+我可以在祖母的葬礼上, 仍然会被破裂.
+这种情况持续了大约一个小时,
+我决定再去散步,现在是晚上10点11分左右.
+我只是不能再被关起来了.
+我有强烈的冲动继续行动.
+我走出家门,开始在附近散步.
+这是一个夜,在天空中只剩下一点光.
+现在视觉效果已经非常出色.
+充满了我的整个视野.
+我在日记中写道:&quot;运动/转移/呼吸/颜色/模式,
+一切都如此活跃.
+地面有几何图案悬浮和旋转, 树木在生长, 无限地伸向天空,
+在某个时刻, 视觉效果如此强烈, 我甚至不确定自己在走路,
+声音也被改变了.
+我会听到一些东西, 它会在我的脑海中回响,
+我在20分钟后安全返回公寓.
+我的公寓和外面一样疯狂.
+墙上闪闪发光的光线, 桌面上的图案正在旋转,
+这绝对是令人惊叹和美丽的.
+我决定看一些YouTube,
+屏幕上所有的文字都浮起.
+我决定看一些&quot;终结者&quot;片段, 不知道为什么,
+听阿诺德的演唱会真是太好笑了, 每个人的脸都长大,缩小,扭曲.
+看到T-1000真的是令人兴奋,我爱上了它,看到它融化和形真的炸了我的头脑.
+我决定以三片5毫克薄荷和一个小碗的形式服用大麻.
+我开始感到焦虑.
+我洗了个,准备睡觉, 希望草可以帮助我睡觉.
+我认为我很快就会开始下来,
+我试着躺在床上, 睡着了大约一个小时,
+于是我放弃了,大约在凌晨5点起床.
+现在我已经服用了大约11个小时了,
+虽然事情已经有所平静, 但仍有很多事情在发生.
+我得到了我需要的东西, 回家了.
+我做了一些早餐, 因为我已经一段时间没有吃了, 虽然我没有饿,
+视觉几乎消失了, 我的头脑空间也恢复正常了.
+我在40个小时后才睡觉.
+总的来说,这是伟大的.
+唯一显著的负面影响是胃肠道疼痛和紧.
+我不清楚为什么, 但这些东西让我内心憎恨我,
+其他:
+1cP-LSD (906):组合 (3),第一次 (2),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Everything at Once
+1cP-LSD
+by
+RxP
+Citation:   RxP. &quot;Everything at Once: An Experience with 1cP-LSD (exp114597)&quot;.
+Erowid.org
+. Jul 22, 2020. erowid.org/exp/114597
+DOSE:
+T+ 0:00
+100 ug
+oral
+1cP-LSD
+(blotter / tab)
+T+ 0:00
+200 ug
+oral
+1cP-LSD
+(blotter / tab)
+T+ 5:45
+2
+oral
+Cannabis
+(edible / food)
+T+ 5:45
+1 bowl
+smoked
+Cannabis
+BODY WEIGHT:
+210 lb
+Just recently decided to leave my old job after about 5 yrs and decided to celebrate by dropping a few tabs. I have done LSD prior and felt I was fairly well acquainted with the effects.
+Ate an early dinner then lounged around for a bit waiting till I was ready to dose. Dosed 1 tab at 18:15 and decided to let that one settle in for a bit and went for about an hour long walk on this preserve across the street. About half way through my walk I noticed my perception is a bit off, but nothing to major and I wasn&#x27;t sure if it was just placebo or not, so I didn&#x27;t think much of it.
+I arrived back home still not noticing much of anything besides colors being a bit brighter and my perception being slightly different, so I decided to dose 2 more tabs. Almost immediately after I took those two tabs its like a switch was turned on and I knew I was in for a wild ride. It started with the textures on the walls moving and overlaying one another. Lights flashing into and out of my field of vision, similar to how it looks when someone pulls into my driveway at night and I see the headlight beams shoot across the wall. Everything was absolutely hilarious. I could have been at my grandmas funeral and still would of been cracking up. This went on for about an hour then those other tabs started kicking in and turned the dial up to 11.
+I decide to go for another walk, now around 10/11pm. I just couldn&#x27;t stay cooped up anymore. I had this intense urge to keep moving. I leave my house and start walking around my neighborhood. It was twilight out and there was just a spit of light left in the sky. The visuals were absolutely flooring now. Filling my entire field of vision. To quote what I wrote in my journal, &quot;Movement/Shifting/Breathing/Colors/Patterns ALL HAPPENING AT ONCE&quot;. Everything was so alive. The ground had geometric patterns levitating and rotating around one another, the trees were growing and reaching for the sky infinitely, lights and colors would fly around my field of view as if I was at a rave. At one point the visuals were so intense I wasn&#x27;t sure I was even walking on the path, just praying that my muscle memory was working as the path was just a gobbled mess of warping patterns. Sounds were also altered. I would hear something and it would echo across and through my head, but I couldn&#x27;t tell where it had come from because it was so echoic almost as if I was in a church or something.
+I arrived back to my apartment safe and sound after about 20mins. My apartment was equally wild as outside. The carpet looked like a floating fractal plane, light dancing on the walls, and the patterns on my counter tops were rotating and changing in size. It was absolutely amazing and beautiful. It was fairly late so I decided to watch some youtube just to see what it was like. My screen was hard to read and all the text was levitated off the screen. For some reason I decided to watch some Terminator clips, not sure why, but it may have been in my suggestions or something so I just clicked it. Listening to Arnold was hilarious and everyone&#x27;s face was growing, shrinking, and warping. Seeing the T-1000 was REALLY trippy and I was enamored by it, seeing him melt and warp really blew my mind.
+It was about midnight and I decided to take some cannabis in the form of three 5mg mints and a small bowl. This was almost too much and I  was stuck in thought loops and was getting anxious. I took a shower and got ready for bed hoping that the weed would help me sleep. It had been around 7 hours since I initially dosed so I thought I would start coming down soon, boy was I wrong. I get into bed and try to lay there and fall asleep for about an hour I think, but sleep just wasn&#x27;t going to happen. So I gave up and got out of bed at around 5am. At this point it had been about 11 hours since I dosed and I was STILL tripping hard. Mentally I was returning, but visually, while things have calmed down a bit, there was still a lot of stuff happening. At around 6am I decided to drive to the store and just go about my day because I had somethings I needed to pick up and did not anticipate tripping for 12+ hours. The store was mostly empty (thankfully) and I get what I need and return home. I make some breakfast as I hadn&#x27;t eaten in a while and even though I wasn&#x27;t hungry I knew I had to eat. Eventually around 24hrs later visuals are nearly gone and my head space was about normal. I didn&#x27;t end up sleeping until about 40hrs later.
+Overall, it was great. The only notable negatives that I experienced was crazy gastrointestinal pain and jaw clenching. Not sure why, but this stuff made my gut hate me, just constant feeling of bloat and cramping that wouldn&#x27;t go away unless I was standing.
+Exp Year: 2020
+ExpID: 114597
+Gender: Male
+Age at time of experience: 26
+Published: Jul 22, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+1cP-LSD (906) : Combinations (3), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

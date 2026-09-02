@@ -1,0 +1,193 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>混树 (根树皮) - 伊洛伊德 - &quot;奇迹的&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/acacia.html'>← Acacia</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>混树 (根树皮) - 伊洛伊德 - &quot;奇迹的&quot;</h1>
+<div class='sub-title'>Acacia confusa (root bark) - Erowid Exp - &#x27;Formosa Surprise&#x27;</div>
+<div class='meta'>作者：mindbody Citation · 日期：Apr 5, 2012 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=85253' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>作为DMT的来源 (尤其是在阿雅华斯卡食谱中).
+在医学文献中,根树皮中含有大量的DMT和NMT.
+我最近在台湾旅行时, 获得了大量的根皮样本 (我可以在台北龙山寺旁边的巨大的草药市场购买原始根;
+我最初的意图是尝试用不同剂量与叙利亚结合的树皮,
+我觉得有必要在第一次经历之后写一份报告.
+由于对这种植物的研究相对较少, 所以我想先测试没有MAOI的材料,
+我对精神活动没有任何期望.
+而&quot;活性&quot;实际上是一个相当温和的术语!
+在这次第一次试验中, 一把我干燥的根皮片 (磨成大约5大匙纤维粉) 在5个相对较小的 (大约1/2升) 洗水中,
+首先,大约三分之一的酒是在早上空腹喝完的.
+我感到恶心,所以我躺下了.
+大约一个小时后, 令我惊的是, 颜色变得更鲜, 一切变得更可爱, 轻微的高兴感出现, 恶心消失:
+两个龙头从我面前的白色墙壁上向前冲出, 在我的想象中生动而自发地生长.
+我决定冒险喝下剩下的酒.
+接下来的40分钟非常可怕, 似乎持续了几生.
+身体上的危害包括四肢震和运动协调障碍.
+认知/心理方面很难用语言表达,
+- 自我移位:一方面,感觉被控制,另一方面,感觉视觉扭曲跟随我的情绪和意图;
+- 颜色和形状的深刻变化;
+- 严重的麻醉 (肠道的动作转化为儿童的笑声,给你一个想法);
+- 看到色彩纷的网络从我的身体延伸出来 (很像亚历克斯·格雷的画作);
+- 听到无数不说话的玩声音; 听力幻觉 (在听觉幻觉中,但也能控制我的言语器官);
+- 呼吸和表面的旋转 (床单等),有时邀请触摸或亲吻 (我想他们试图和我说话,但我们没有找到一个共同的语言);
+- 认为自己因服用过多的药物而自杀 (或由于奇怪的果副作用);
+我和我周围的人在我的一生中所从事的行为和策略.
+我几乎立即恢复到原来的状态.
+眼扩张仍然存在, 但感知失真完全消失.
+我没有观察到任何重大障碍在身体功能后&quot;硬&quot;结束了.
+也许在第二天稍微疲, 但这可能有很多原因.
+什么可以从中获取?
+我从来没有成功地从更传统的阿雅华斯卡制剂中获得完整的迷幻药物 (用在欧洲购买的成分制成).
+我无法从直接经验中判断这种效果与传统的DMT酒相比.
+我很熟悉psilocybin (以及其他一些天然的迷幻药).
+这次旅行与我的精神病药物旅行有明显的相似之处, 尽管它比较严酷, 且无情, 峰值完全无法控制:
+这,加上峰值的短时间,似乎强烈地表明这些影响是由DMT (或类似的类) 引起的.
+我不会推测根树皮产生的口腔活动的化学性质.
+故事似乎与Mimosa hostilis的故事相似:根皮本身是口服活跃的,
+也许人们不应该太惊.
+我打算继续我的实验,但用更保守的剂量,并在试验之间做适当的安全休息.
+在这个时候, 详细的树皮化学分析可能会很有帮助.
+其他:
+百合树 (77):第一次 (2),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Formosa Surprise
+Acacia confusa (root bark)
+by
+mindbody
+Citation:   mindbody. &quot;Formosa Surprise: An Experience with Acacia confusa (root bark) (exp85253)&quot;.
+Erowid.org
+. Apr 5, 2012. erowid.org/exp/85253
+DOSE:
+oral
+Acacia
+(tea)
+BODY WEIGHT:
+75 kg
+A while ago, I stumbled upon online descriptions of using a Taiwanese acacia species, Acacia confusa (also known as Formosa acacia), as a source of DMT (in particular, in ayahuasca recipes). In medical literature, the root bark has been reported  to contain large amounts of DMT and NMT. On a recent trip to Taiwan, I obtained a large sample of the root bark (I could purchase the raw root at the huge herbal medicine market next to Longshan temple in Taipei; the tree is locally known as hsiang-si-shu, the `thinking-of-each-other tree&#x27;).
+My original intention was to try the bark in combination with Syrian rue in various doses and post a description of my research. However, a big surprise came up once I started, and I feel compelled to write a report after this first experience.
+Because the plant has been researched relatively little, I wanted to test my material without MAOI first to watch for any non-DMT-related adverse effects. I did not have any expectations for psychoactivity. Well, to my surprise, the material turned out to be active without any MAOI, and &#x27;active&#x27; is actually a rather mild term for it!
+For this first trial, a handful of my dried root bark chips (ground to around 5 tablespoons of fibrous powder) was brewed ayahuasca-style in 5 relatively small (around 1/2 liter) washes of water, without any additives.
+First, about 1/3 of my brew was consumed on an empty stomach in the morning. There was some nausea, so I lied down. In about an hour, I noticed to my surprise that colors brightened, everything started to look cuter, mild euphoria emerged and the nausea was gone: a typical low-dose tryptamine signature. At the same time, a lively mental image of two dragon heads charging forth out of the white wall in front of me grew vividly and spontaneously in my imagination. So, because it felt pretty comfortable, I decided to take the risk and drink the rest of the brew.
+About 20 minutes later, it hit me like a wall, and the subsequent 40 minutes were pretty horrifying, lasting, it seemed, for a few life-times. Worrisome physical effects included limb tremor and motor coordination impairment. The cognitive/psychological aspect can hardly be put into words, but here are a few remarks on what&#x27;s been experienced:
+- ego displacement: a sense of being controlled, on the one hand, and a sense that the visual distortions follow my emotions and intentions, on the other hand;
+- profound modifications in colors and shapes;
+- profound synaesthesia (bowel movements translated into sounds of childish giggling, to give you an idea);
+- visions of colorful networks extending out of my body (much in the spirit of Alex Grey&#x27;s paintings);
+- hearing myriads of inarticulate playful voices; glossolalia (in auditory hallucinations, but also gaining control of my speech organs);
+- breathing and swirling of the surfaces (bedding, etc), at times inviting for a touch or a kiss (I guess they were trying to talk to me, but we didn&#x27;t quite find a common language);
+- thoughts that I have killed myself by taking too much (or by bizarre acacia side effects);
+- lightning-speed kaleidoscopic reviews of the behaviors and strategems that I and the people around me have engaged in over the course of my life.
+40 minutes later, a rectal purge followed, after which I returned to the baseline almost immediately. Pupil dilation still persisted at this point, but the perceptual distortions were completely gone. I have not observed any major disturbances in the body function after the &#x27;hard tripping&#x27; was over. Perhaps lightly exhausted for the next day, but that could be for many reasons.
+What to take out of it? I have never succeeded obtaining full-scale psychedelia from more traditional ayahuasca preparations (made from ingredients purchased in Europe). For that reason, I cannot judge from direct experience how the effects compare to the more traditional DMT-based brews. I am well familiar with psilocybin though (and a number of other natural psychedelics). There was a clear resemblance between this trip and my psilocybin voyages, though it was considerably more harsh and relentless, and the peak was completely impossible to control: even body control became quite limited... overall, something like being taken apart, with all the parts staying alive and desperately trying to find each other. This, plus the short duration of the peak, seems to be strongly suggestive that the effects were induced by DMT (or a similar alkaloid).
+I will not speculate on the chemical nature of the oral activity produced by the root bark. The story seems similar to what&#x27;s written about Mimosa hostilis: the root bark is orally active by itself, but the chemical mechanism remains unknown. Acacias are related to mimosas, so perhaps one shouldn&#x27;t be too surprised. (It is also paradoxical that the experience did start, but only lasted for a short while: could it mean that MAO was repressed in the gut, but not elsewhere in the body?) I intend to proceed with my experimentation, but dosing more conservatively and making appropriate safety breaks between my trials. A thorough chemical analysis of the bark could be of great help at this point.
+Exp Year: 2010
+ExpID: 85253
+Gender: Male
+Age at time of experience: 31
+Published: Apr 5, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Acacia (77) : First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

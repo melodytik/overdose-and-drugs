@@ -1,0 +1,190 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>设备 - I-Doser - Erowid Exp - &quot;虚拟药物&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/devices.html'>← 设备</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>设备 - I-Doser - Erowid Exp - &quot;虚拟药物&quot;</h1>
+<div class='sub-title'>Devices - I-Doser - Erowid Exp - &#x27;Virtual Drugs&#x27;</div>
+<div class='meta'>作者：resonance Citation · 日期：Dec 16, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=65270' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>声称使用某些特殊的声音频率让使用者感觉自己几乎在使用任何药物, 非法或其他, 我期待一个安慰剂,
+我下载了这个程序, 以及几乎所有的音频文件,
+我找到了一个 torrent, 并下载了 (偷了) 程序以及所有音频文件,
+我很快就打开了&quot;圣&quot;的文件,听了10%的内容, 感觉不太好, 关闭了, 打开了大麻的文件, 播放了一些 (我忘了多少,
+我只是听我的扬声器, 我只是在试一试,
+无论如何,我走下楼梯,感觉有些奇怪,
+我感到有些不安,有些焦虑,存在感受不好.
+我走进了地下室,躺在沙发上.
+我忘了为什么要去那里 (买一些立体声耳机).
+我躺在沙发上, 开始摇,
+我有着的震, 它们很强烈,
+我觉得我有大麻的效果, 但只有坏的, 偏执,,焦虑,
+我上了客厅,躺在沙发旁边的地板上,
+我告诉她我正在做&quot;双耳脑波疗法&quot;,
+经过一段时间, 我开始稳定呼吸,
+焦虑仍然存在,让我一直到凌晨四点左右.
+我很害怕,非常偏执, 因为我早些时候读了一篇恐怖故事,
+随着我入睡,这种影响慢慢消失.
+我第二天醒来时感觉很好.
+没有耳机,像疯子一样混合剂量,使用强大的剂量,
+于是第二天我决定再试一次,
+我了一下被盗的虚拟毒品, 选择片,
+我戴上耳机,让我的心平稳,并倾听.
+我承认事情有点模糊, 由于这种剂量的强度.
+我把耳机贴在耳边, 着电脑桌上的一张混音带.
+我意识到,在10%左右, 我越来越向前倾斜,
+呼吸变得更深,更慢.
+我很高兴看到你,我很高兴看到你.
+我感到满意, 只是坐在那里, 阅读录音带上忙拼写的歌曲列表.
+时间慢慢停滞, 我只是一个沉重的身体,
+我看到了一包纸牌, 决定这将是我一生中最美妙,最令人放松,最难忘的经历之一,
+拿起卡片走下楼, 摇摆一点, 想着下楼和电视一起放松会有多好.
+我把一些枕头和毯子放在地上,
+我甚至没有打牌.
+我陷入了沉睡/清醒的模糊现实, 没有想到任何事情.
+这真是太棒了.
+我醒来时比平时更疲.
+我假设这个东西可以工作.
+如果我能以负面的态度对待它, 期待它不起作用, 首先有那些暴力的,无法控制的效果,
+我后来读到一些关于片如何降低性欲.
+我当时和女朋友在一起, 确实, 我只是想和她在一起一段时间,
+它使用双耳鼓动 (它是复杂的,基本上是两种频率互相取消, 它们进入头部的每一边, 导致大脑中听到不同的频率) 刺激双耳脑波,
+这真的很酷.
+不是真正的东西, 但更便宜和不同的经验对于那些有兴趣的新方式打开我们的思想.
+迄今为止, 两耳鼓动对健康或心理没有任何负面影响.
+所以我很喜欢它.
+我可能会去做一些片在几分钟.
+享受这种独特技术的新可能性.
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Virtual Drugs
+Devices - I-Doser
+by
+resonance
+Citation:   resonance. &quot;Virtual Drugs: An Experience with Devices - I-Doser (exp65270)&quot;.
+Erowid.org
+. Dec 16, 2007. erowid.org/exp/65270
+When I stumbled across a program called I-Doser which claimed to use certain special sound frequencies to make users feel as though they were on nearly any drug, illicit or otherwise, I expected a placebo, something marketed to bored kids low on cash for real drugs, cashing in on ignorance. I downloaded the program, along with just about all the sound files designed to simulate the most popular drugs, namely coke, weed, salvia, opium, heroin, smart drugs, absinthe, even a cup of French roast coffee. The doses were pretty pricey, usually averaging around $3 per one-use sound file, but I found a torrent and downloaded (stole) the program along with all the sound files, all of them unlimited uses.
+Before doing enough research, I quickly opened up the salvia divinorum file, listened to a good 10% of it, didn&#x27;t feel much, closed it, opened the weed file, played some of it (I forget how much, not more than 25%, probably) then, thinking I couldn&#x27;t feel anything, opened a file called &#x27;Trip&#x27; that had a picture of a mushroom in it and listened to a small section of it. It should be noted that I didn&#x27;t use stereo headphones, which you&#x27;re supposed to, I just listened to my speakers, I was just giving it a try and I didn&#x27;t realize you had to use headphones.
+Anyway, I walked down my stairs and felt kind of weird, like I was a little taller than usual and a little dizzy. I felt kind of uneasy, I had some anxiety, existence hurt. I went into the basement and layed on my couch. I forgot why I went down there (to get some stereo headphones). As I layed on the couch I started to shake, first my legs, then my jaw, then the rest of me. I had sort of spasms of shaking, they were powerful, like I sometimes get when I smoke a little too much weed, due to my incredible light weight. I felt like I had the effects of weed, but only the bad ones, the paranoia, the shaking, the anxiety, and the fear of insanity. I went up to the living room and lied on the floor next to the couch where my mom was watching TV. I lied a little bit and told her I was doing &#x27;Binaural Brainwave Therapy&#x27; I had found online and I had done it wrong so I was getting negative effects. I shook violently, steadied my breathing after a while, then the shaking stopped after a good 15 minutes. The anxiety remained, keeping me awake until about 4 in the morning. I was terrified, very paranoid about a scary story I had read earlier in the day, not thinking clearly. The effects wore off slowly as I fell asleep. I woke up the next day feeling fine.
+I assume I felt this way because I did so much wrong, no headphones, mixing doses like crazy, using powerful doses, not steadying my mind first, all that.
+So, the next day I decided to try again, and to do it right. I browsed through my stolen virtual drugs and selected opium, hoping to train myself and work my way up to heroin. I put on the headphones, steadied my mind, and listened. I admit things get a little fuzzy here due to the strength of this dose. I held the headphones to my ears, staring at a mixtape I had on my computer desk. I realized, at around 10%, I was leaning farther and farther forward until my nose was a few inches from the bottom of the monitor and the tape. Around 25% of the way through time began to slow down, my breathing became deeper and much slower. When I thought of things that would normally make me angsty, I was unconcerned.
+I felt satisfied, satisfied to just sit there and read the hastily scrawled tracklist on the tape. Time eventually slowed to a standstill, and I was nothing but a heavy body full of calming thoughts of cozyness and relaxation. I spied a pack of cards and decided it would be one of the most wonderful and relaxing and memorable experiences of my life to just play solitaire on a comfortable surface and be calm. I finished the dose, heavy, relaxed, unconcerned, and grabbed the cards and walked downstairs, swaying a little and thinking of how great it would be to relax downstairs with the TV. I put some pillows and a blanket on the ground and put on Leno and just stared at the TV, totally relaxed, mumbling slightly to myself and feeling satisfied. I didn&#x27;t even play cards. I fell into that great state of asleep/awake hazy reality and didn&#x27;t think of anything. It was great. Sleep was HEAVY and powerful and I woke up more tired than usual.
+So I assume that this thing works. If I can approach it with the negative attitude that I did, expecting it not to work, and first have those violent, uncontrollable effects, presumably because of my misuse of the program, then have that amazing opium experience, and then to have it again (I did it again today and felt awesome. I read something afterward about how opium reduces sex drive. I was with my girlfriend when I did it, and sure enough, I just kind of wanted to be with her for a while more than to have sex or do anything of that nature) I&#x27;d say the program works.
+It uses binaural beats (it&#x27;s complex, basically two frequencies which cancel each other out as they enter each side of the head, causing a different frequency to be heard in the brain) which stimulate binaural brainwaves, which can cause physical and mental feelings associated with nearly anything, drug or otherwise, when orchestrated in certain orders and volumes. It&#x27;s really cool. Not quite the real thing, but cheaper and a different experience for those interested in new ways of opening our minds. And, so far, no health or psychological effects have been determined negative in relation to use of binaural beats. So I&#x27;m pretty into it. I&#x27;m probably gonna go do some more opium in a few minutes. Enjoy the new possibilities of this unique technology.
+Exp Year: 2007
+ExpID: 65270
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Dec 16, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Devices (302) : Alone (16), First Times (2), Glowing Experiences (4)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

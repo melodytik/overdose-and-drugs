@@ -1,0 +1,248 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>拉姆达和永恒的人</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/lsz.html'>← LSZ</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>拉姆达和永恒的人</h1>
+<div class='sub-title'>LSZ - Erowid Exp - &#x27;Lambda and The Eternals&#x27;</div>
+<div class='meta'>作者：SilentRoller From Bluelight Collection Ci · 日期：Feb 8, 2017 · 剂量：4 hits · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=103198' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这次旅行报告标志着我与LSZ的第二次经历 (我之前的经历是几周前的225ug).
+故事是这样的.
+在去过我的大学城之后, 我决定在一个晴朗的晨光中,
+目的是为了在阳光下度过一场1.5塔的旅行,
+经过一半的早晨观看斯金纳和皮卡德关于他们的LSD手术和&quot;色阳光&quot;酸的纪录片后,
+在正常情况下, 什么都不会发生,
+我决定我的LSZ之旅将继续, 并决定从床单上切断一条4的条.
+我拿起4个标签, 我突然被一种&#x27;勇气&#x27; (或愚蠢) 的感觉所征服,
+我提前为时间的模糊估计道歉.
+我和我的伴侣一起走出门口, 我将称之为&quot;E&quot;.
+之前有人问, 这不是某种尝试&quot;搞自己&quot;或任何类型的,
+我们决定充分利用这美好的天气.
+我开始感觉有点&quot;不适&quot;, 一种神经能量开始在我的身体中流动,
+奇怪的是, 这感觉相当愉快,
+我立即注意到一个轻微的&quot;心脏&quot;开始入我的头脑空间,
+我意识到在过去的10分钟里, 我并没有与E对话, 因为我迷失在自己的思想中,
+走路时我开始感到有点分离, 我告诉E我必须坐下.
+我们决定休息在俯大海的长上,
+我注意到一个轻微的身体负荷开始入作为轻微的子紧张的形式,
+我决定在我的iPod上听一些歌曲 (Santana - Smooth),
+我开始听到我从未想到的音符和节奏; 声乐开始融为一个长长的,连续的吟.
+我从长椅上跳了起来, 电动刺激的波浪包围了我的身体 - - 努力坐着, 我决定慢慢上下路!
+感觉到我很逼, 艾决定把我们带到海边一个更私密的地方.
+中午:现在, 电感正定期冲过我, 极度的高兴感开始积累.
+眼睛着海面, 我笑了起来 (几乎是歇斯底里),
+我觉得这很有趣, 因为我试图向E解释世界被番茄覆盖.
+现在回想起来, 我已经在走向遗忘的路上, 因为OEV已经开始侵入我的视野.
+太阳的光线在天空中呈现彩虹色带,
+我看着E, 他的额头上似乎形成了一个螺旋形,
+桑塔纳专辑的高兴吟让我的身体充满活力,
+我笑了最大的&quot;我被搞了&quot;的笑容,
+我知道我还没有达到经验的顶峰, 但我已经开始失去自我,周围环境和现实的感觉.
+我决定再次听从一位好朋友的建议 (谢谢Si!), 克服我的恐惧,
+视力开始剧烈扭转, 随着方向感的消失, 我开始失去时间和空间的概念
+我开始失去时间和空间的概念
+我一直着E的长椅.
+视力开始像破碎的镜子一样碎裂,
+我决定闭上眼睛, 听到一首令人惊叹的&quot;感恩之死&quot;舞曲,
+感觉内在的平静, 超越了MDMA的平静.
+我放弃了这种平静的感觉,
+我感觉自己在这个时候越来越高,
+现在我只是存在.
+旅行达到一个新的水平, 我觉得我的自我和身体融化为虚无.
+我已成为宇宙的一部分,
+我不确定这是不是某种类型的CEV, 但我下降到可以被看作&#x27;另一个维度&#x27;,
+尽管如此,我还是觉得我需要对自己不那么苛刻,
+我也意识到宇宙比我曾经想象的要深得多, 也许还有一个层次/维度,
+没有自我,没有焦虑, 只是完全平静的存在.
+我现在还不能说我的眼睛是打开还是关闭, 但我确实记得看着E,
+奇怪的是,E也看起来很害怕.
+我突然意识到我可以与E沟通 (或我认为) 没有打开我的嘴.
+我们开始讨论我们所经历的情况以及这如何可能发生.
+我从E的手指尖看到彩虹形状, 他挥手在空中,
+我再次闭上眼睛, 看到成千上万的字母 (用一种神秘的语言) 散落在我的视野中 (就像矩阵代码).
+我注意到&quot;深森林&quot;开始在我的iPod上播放, 整个曲目中那些奇怪的小声音似乎影响了CEV,
+值得注意的是,此时部的紧张程度略有增加,身体的负担在轻微的震和肌肉紧张的形式上变得略显.
+虽然这并不是什么重大的事情, 我觉得这在整个旅程的高峰期都很明显.
+我觉得搬家可以解决这个问题.
+我从来没有忘记过那些激烈而详细的OEV (以及一些CEV).
+我记得看海浪碎成小碎片, 它们会在空气中散发它们自己的光线.
+这是一个美丽的景象,
+我觉得自己就好像在船上, 航行到一个充满明亮黄色光线的地平线,
+我觉得这次的头脑混蛋非常糟糕, 因为我无法在脑海中形成一个句子, 更不用说大声说话了.
+我会开始思考一句话, 然后它会碎成一百万个碎片,
+经过一段时间,我们成功地获得足够的清醒开始我们的航程回家.
+现在回想起来, 这可能是一个愚蠢的想法,
+显然比我自己还要有点平静.
+视觉效果已经开始消退, 随着我开始恢复自我和现实.
+虽然我的腿和背部感觉有点疼,
+在此时, 仍有显著的模式和思想混, 但没有什么是如此严重,
+我决定在后院花园里坐下来看天空中的太阳,
+随着我们的谈话,我对大自然和世界的美丽感受不堪重负
+我对大自然和世界的美丽感受不堪
+我看到了各个花上的微小细节,
+我决定放上一首自制的音乐曲目, 由我们的Si Ingwe,
+我把这首歌放到重复,然后放松下来享受这一切的乐趣.
+我坐在花园里, 试图接受今天的经历.
+我感到丰富,开明和复兴, 因为我觉得不仅解决了一些问题,
+我在墙上留下了一些OEV, 吸烟加剧了这种现象,
+我对自己的生活感到非常满意.
+我对世界有了全新的看法.
+我得到了我来寻找的东西 - - 一个迷幻般的体验,
+这 (在我看来) 使LSZ成为我尝试过的最好的Ergoloid之一 (在我看来比AL更好).
+这是一部精彩而强烈的,令人难以置信的内省的,
+我不太可能再服用这种剂量, 因为我觉得它太重了,
+更多
+俄罗斯
+时间表: 103198
+乐队 (609):神秘体验 (9),自然/户外 (23),音乐讨论 (22),烂的体验 (4),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Lambda and The Eternals
+LSZ
+by
+SilentRoller
+From
+Bluelight Collection
+Citation:   SilentRoller. &quot;Lambda and The Eternals: An Experience with LSZ (exp103198)&quot;.
+Erowid.org
+. Feb 8, 2017. erowid.org/exp/103198
+DOSE:
+4 hits
+LSZ
+(blotter / tab)
+BODY WEIGHT:
+170 lb
+This trip report marks my second experience with LSZ (my previous experience being 225ug a few weeks prior). Whilst I have various experience with AL-LAD (ranging up to 600ug), I can safely say that this will rank as one of the most intense and life-changing psychedelic experiences of my life.
+The story is this. After taking a trip to my university town, I decided to bust out my stash of LSZ one glorious sunny morning. The intention was to have a 1.5 tab trip out in the sunshine, much like my AL-LAD trip report. However, after spending the first half of the morning watching the Skinner and Pickard VICE documentary about their LSD operation &amp; &#x27;orange sunshine&#x27; acid, it put me in a &#x27;yay for psyches mood&#x27;. Under normal circumstances, nothing would of come of this, but then a mate of mine popped round, and informed me he had eaten some AL-LAD. I decided that my LSZ trip was going ahead, and decided to cut off a strip of 4 from the sheet. I picked up the 4 tabs, and I was suddenly overcome with a sense of &#x27;courage&#x27; (or foolishness), and as if on auto-pilot, I placed all 4 in my mouth and swallowed them.
+I apologise in advance for the hazy time estimates.
+11am: Head out the front door with my mate who I shall refer to as &#x27;E&#x27; Feeling a strange sense of &#x27;bring it&#x27; and &#x27;what I have just done&#x27; at the same time. Before anyone asks, this was not some attempt to &#x27;fuck myself up&#x27; or anything of the sort, but rather my desire to experience the higher-levels of tripping, even if it just once. My friend E and I are both in joyous moods, and we decide to make the most of this lovely weather.
+11:30am: Definitely starting to feel a little &#x27;off&#x27;, a a sense of nervous energy starts to ebb over my body, almost like a faint electric current. Oddly, this feels quite pleasurable as I walk briskly along the pavement towards the seafront with E. I notice immediately that a slight &#x27;mind-fuck&#x27; is starting to creep into my headspace, as my thoughts begin to become occasionally scattered as I struggle to maintain an internal monologue with myself. I realise that I haven&#x27;t actually conversed with E in the last 10 minutes as I become lost in my own thoughts, and I suddenly snap out of it, and try to converse with E.
+11:45am: Come-up is starting to smash me in the face, as I start to feel slightly disassociated whilst walking and I tell E I have to sit down. By now, the AL has begun to effect E, and we decide to rest on a bench overlooking the sea as E starts to get a major fit of the giggles. I notice a slight body-load start to creep in as the form of slight neck tension together with some underlying nausea. I decide to listen to a few songs on my Ipod (Santana - Smooth) to try and distract myself from the hard come-up. It is here I realise that music is enhanced to the point of almost being orgasmic, as I start to hear notes and beats that I never thought possible within the song; the vocals begun to merge into one, long, continuous whine. I jumped up from the bench as wave of electric stimulation encapsulated my body - struggling to sit still, I decided to pace up and down the road! Sensing that I was coming up alarmingly hard, E decided to move us to a more private spot on the seafront.
+Midday: By now, the electric sensation was washing over me at regular intervals, as a sense of extreme euphoria started to build. Staring out to sea, I burst out laughing (almost hysterically) as the sea took on a red hue. I found this highly amusing, as I attempted to explain to E that the world was covered in tomato sauce. Looking back, I was already on my way to oblivion at this point, as OEV&#x27;s had begun to invade my visual field. The rays of sunshine arced into rainbow coloured bands across the sky as everything around my started to disintegrate into jello. I looked at E, who appeared to have a spiral forming upon his forehead that radiated with the light from the sun. As I stared at this amazing spectacle, the euphoric whines of Santana&#x27;s album sent pulses of energy through my limbs as the euphoria reached a new level. I grinned the biggest &#x27;I&#x27;m fucked grin&#x27; ever, as I was filled with both extreme fear and extreme euphoria. I knew I hadn&#x27;t even begun to hit the peak of my experience yet, but I was already starting to lose sense of my self, surroundings and reality. Whilst the option of valium was available, I decided to take a good friends advice once more (thanks Si!), and work through my fear and to let go to the experience
+12:30ish:My vision had started to violently twist and turn as my sense of orientation faded; I begun to lose the concept of time and place
+I begun to lose the concept of time and place
+as I remained glued to the bench with E. My vision started to fragment like a smashed mirror as layer upon layer of OEV&#x27;s started to swarm my vision. At this point, I decided to close my eyes, where I was greeted by a spectacular CEV of &#x27;The Grateful Dead&#x27; bears dancing to the guitar solo that was radiating through my headphones. The euphoria was now extreme, with a sense of inner peace that surpasses that of MDMA. I let go to this sense of peace as I felt a tremor pass through my body. I felt myself get higher &amp; higher during this time, but I had lost all capacity to fear or be anxious. Right now I was simply existing.
+1-3pm?: The trip reached a new level as I felt my ego and body dissolve into nothingness. I had become part of the universe, a molecule in which my only purpose was to be. I can&#x27;t be sure if this was some kind of CEV, but I descended into what could be seen as &#x27;another dimension&#x27;, where I was greeted by these mysterious beings (they appeared more like silhouettes) that spoke in a language I couldn&#x27;t comprehend. Despite this, I somehow understood that I needed to be less hard on myself, and make time for myself outside of work commitments. I also gained the realization that the universe is far deeper that I once imagined, and perhaps there is another layer/dimension with some kind of higher being (God, I sound like a right acid-head now!). However, for those brief moments, I felt what it must be like to be God - a person with no ego, no anxiety, but to simply exist in perfect calm.
+I couldn&#x27;t tell by now if my eyes were open or closed, but I do remember looking at E, and hearing his voice within my head. This creeped me the fuck out at first, and strangely, E looked equally as spooked. I suddenly realised that I could communicate with E (or so I thought) without opening my mouth. We entered into fragmented discussions about what we were experiencing, and how this was possible. I saw a rainbow form from the fingertips of E as he waved his hands about in the air, as the wind then swept up the rainbow tracers and scattered them into tiny diamonds that fell from the sky. I closed my eyes once more, was saw thousands of letters (in a mysterious language) scattered throughout my vision (much like the Matrix code). I noticed that &#x27;deep forest&#x27; had started playing on my Ipod, and those weird little voices throughout the track seemed to influence the CEV, as many un-recognizable terms started forming from the letters. It is worth noting that the neck tension had increased slightly at this point, and the body load became slightly noticeable in the form of slight tremors and muscle tension. Whilst it wasn&#x27;t anything significant, I felt that it was noticeable throughout the peak of the trip. However, I feel that moving about could of solved this issue.
+4-6pm?: Throughout this time, I still experienced intense and detailed OEV&#x27;s (and some CEV&#x27;s) that I will never forget. Me and E were still on the same bench, and I remember watching the waves of the sea fragment into small fractals, that would then spread their own small rays of light through the air. This was a beautiful sight, which amused me for quite a while. I then felt as if I was on a ship, simply sailing towards the horizon that was awash with a bright yellow light, although I suddenly snapped back to reality as I realised I was becoming lost in my own head. I found the mindfuck pretty bad at this point, as I was unable to form a sentence in my own head, let alone speak out loud. I would start thinking of a sentence, and then it would fragment into a million pieces as I struggled to understand the meaning of the words I was trying to say. After a while, we managed to gain enough lucidity to begin our voyage back home. In hindsight, this was probably a stupid idea, as the word was still swirling fairly violently, so how I didn&#x27;t get run over I will never know. E however, appeared to be on the downslope of his AL experience, so obviously was a bit more together than myself.
+6-8pm-ish: The visuals were beginning to wane at this point, as I started to regain composure of myself and reality. The bodyload was almost non-existent at this point, although my legs and back felt slightly sore from being sat in one place all day. There was still significant patterning and thought-fuckery at this point, but it was nothing that was so severe that it kept me from functioning. I decided to spend the rest of the trip sitting in the back garden watching the sun in the sky, whilst conversing with E. As we sat talking, I was overcome with a sense of beauty regarding nature and the world
+I was overcome with a sense of beauty regarding nature and the world
+, as I saw all the minuscule details on individual flower petals - a sight that was truly stunning. I decided to put on a homemade music track by our very Si Ingwe, and it literally blew me away, as I heard each beat and note in a clarity which sent euphoric pulses throughout my body, and caused the OEV&#x27;s to resonate to the soundtrack. I stuck the track on repeat, and just laid back and enjoyed the contentment.
+9-10pm:The show was now coming to a close, as I sat in the garden (spliff in hand), trying to come to terms with what I had experienced today. I felt enriched, enlightened and rejuvenated, as I felt I had not only worked through some problems, but been reborn in a rather strange sense, as I had left my old ego behind. A few OEV&#x27;s remained in the form of patterning on walls, which was intensified when smoking a joint, but I managed to fall asleep relatively soundly at around 1am.
+The next day, I felt joy and happiness unlike any I have before. My outlook was extremely positive, and I awoke with a new outlook and view of the world. I got what I came for - a psychedelic experience that will not only stay with me for the rest of my life, but shine a new light on how I view the world. This (in my eyes) makes LSZ one of the finest Ergoloid&#x27;s I have ever tried (better than AL in my opinion). It is beautifully intense, incredible introspective and wonderfully visual. Whilst I am incredibly happy that I bought a massive sheet of this, I would be unlikely to take this dosage again, as I feel it is far too heavy to be considered as a recommended dosage for regular use.
+PLUR
+SR
+Exp Year: 2014
+ExpID: 103198
+Gender: Male
+Age at time of experience: 22
+Published: Feb 8, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSZ (609) : Mystical Experiences (9), Nature / Outdoors (23), Music Discussion (22), Glowing Experiences (4), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

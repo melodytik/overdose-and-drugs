@@ -1,0 +1,384 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/anadenanthera-peregrina.html'>← Anadenanthera peregrina</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- -</h1>
+<div class='sub-title'>Anadenanthera peregrina - Erowid Exp - &#x27;Backroom Yopo&#x27;</div>
+<div class='meta'>作者：North Haverbrook Citation · 日期：Nov 2, 2016 · 剂量：5 seeds · <a href='https://erowid.org/experiences/exp.php?ID=106253' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我拿了大约1司的烟草, 准备成烟草.
+我不知道有多少种子--大概有120种,或更多.
+我扔掉了大约三分之二的种子,
+起初,我只能吸入5行.
+我认为我得到了1/7的袋子, 但它很容易1/14或15的.
+我认为这会减轻影响.
+起初,我认为我已经搞了, 燃烧的yopo.
+我从1司开始,实际上扔掉了大约3/4的子 (不是色或棕色,只是基本上是木炭).
+我有很强烈的想法, 我已经搞了, 搞了Yopo,
+我用一根剪过的吸了它,
+起初我不确定这是假药.
+时间很慢.
+在我真正倒之前大概是15分钟.
+我打喷,擦鼻子,然后坐下来.
+我开始感到胸部有压力,然后头部有压力,
+我给我的朋友发了短信:&quot;我终于成功了&quot;, &quot;我终于要尝试某种形式的DMT&quot; (我已经尝试了一段时间了).
+我知道我不能发短信 (或者不想发),
+我在手机上播放&quot;万天 (工具) &quot;.
+我开始看到有形图案, 首先只是闭上眼睛.
+我一直开眼睛检查它, 看看有多少真的 (在闭眼之外).
+我注意到层地板的图案开始振动,
+门和墙壁有着令人兴奋的纯粹的几何图案.
+我开始有点恶心,
+坦率地说,我吐后的旅行变得更加精彩,
+有趣的事实:在洗手间吐后, 我看着镜子,
+血红,我的眼睛从来没有.
+这些东西定义了血射 (虽然没有伤害或任何东西).
+吐后的3小杯水和棕色物质并没有像预期的那样多.
+我早些时候吃了两条玉米狗,一些热的tamales (糖果), 喝了一大堆水,
+吐也很容易 (几乎就像咳出饮料, 倒下了错误的) 和真的改善我的旅行.
+我可以称之为&quot;撞击&quot;, 虽然它没有伤害.
+这就像一个缓慢的挤压,或拥抱.
+这很难解释.
+这可能是15分钟的吸烟.
+感觉到它时,我立刻想 (或至少希望) 是传说中的&quot;振动&quot;.
+我可能会发短信,甚至打电话给某人, 试图打电话,
+我鼻子 (我一直在鼻子和擦鼻子).
+我觉得这次旅行让我感觉不舒服, 因为我所有的鼻子都是用棕色的野蛮人的碎片成的,
+我看到墙上轻微的几何图案变得更深,
+我知道这听起来很无聊, 但它是惊人的.
+我经历了这些奇怪的景观和世界.
+我看到一些奇怪的东西和很多的眼睛.
+由于这些东西不断移动, 完全不明确, 但在短短几秒钟的思考之后,
+我不确定我喜欢这次旅程多久.
+几次我会短暂地开眼睛, 看看旅程是否在外面继续--这会&quot;重置&quot;我被指出的任何地方,
+我闭上眼睛, 穿过奇怪的旋转道,
+我被带入一个空间 (就像一个永无止境的房间),
+我感觉到一个奇怪的恐惧, 因为第一个人形形象被看到是离开我的右侧.
+我立刻克服了恐惧,
+我意识到他不知道我在看他.
+他发现我的动作, 试图引起我的注意.
+所有这一切都是在一个纯粹的空白的黑暗中.
+这是一个非常苗条和灰白的数字.
+我看不到他的脸.
+很奇怪,因为最近我读到灰色的外星人和DMT相关的遭遇 - - 我不知道这是否影响了这一点,
+我说 (大声) &#x27;你好,我的名字是姓名.
+我说话的时候,还有两个人在他身后出现.
+我不知道如何更好地解释,
+我接着说:&#x27;我希望你们都是好人.&#x27;每次我说话,更多的实体就会在他们身后出现 (以三角形的方式).
+最终,房间完全充满了这些灰色的外星人.
+我说&#x27;我来求智慧,让自己变得更好.
+他们都立刻消失了,
+我感觉到一种平静和善良的冲动, 仿佛它已经知道我的问题,
+我坐下来享受更多的视觉.
+几个星期前, 我经历了一次非常糟糕的2C-I旅行,
+他们感到邪恶, 但他们强迫我进入我的第一个&quot;自我死亡&quot;的经验.
+我正在享受我的旅程当我突然看到手从2C-I旅程,所有冲向我.
+我开眼睛 (我仍然倒着,
+我真的希望我的旅行不会这样结束.
+这会糟糕, 毁掉整个体验.
+我闭上我的眼睛,他们已经消失了.
+我有一个外来想法 (再次,最好的方式来描述它) 我看到的外星人帮助了我,所以我听起来说&#x27;谢谢你.
+我越来越喜欢这次旅行.
+我开始唱&#x27;子&#x27; (工具) 和跳舞在一个非常流动的方式坐着.
+闭上眼睛, 我把自己看成一个有远见的巫师在热烈的仪式中.
+我觉得是因为我大声说话,让人知道我在场.
+我在内心安静地寻求帮助, 其他手, 我觉得是灰色外星人的手,
+我在太空中飞行, 看到这些巨大的健美运动员,
+我很感兴趣 (他们都像在一个活动上曲,
+值得一提的是我是一名业余健美运动员,
+我对此没有感觉不好,
+他伸出他的手, 要求我让他进入我的思想 (再次,我的感受).
+我意识到是他向我展示了这些健美运动员.
+我开始伸出我的手, 但后来退后, 记住一个旅行报告谈论邪恶的实体.
+我说&#x27;我对你一无所知,很抱歉&#x27; (这一次在我的脑海里).
+他开始尖叫和冲向我.
+他突然变成了五,十,二十个巨大的可怕男人,
+我坐着半莲姿势, 开始说&quot;&quot;. 我不知道为什么,
+只是觉得这是正确的事情.
+我觉得自己会&quot;失败&quot; (不管这意味着什么,
+我有了新的信心 (我会立刻感到害怕) 并能够在脑海中说出它们.
+我意识到这是外星人给我的&#x27;智慧&#x27;.
+我走来走去 (整个时间我一直坐着) 在我的外视中看到东西.
+我走路时总是闭上眼睛,
+我看到一个伸出女性的手, 提供指导我到门口.
+虽然我承认我打开我的眼睛打开我要的门.
+我闭上眼睛时有一种奇怪的感觉-- 闭上眼睛时我会有这样的感觉,
+我以为是我的一个朋友,但当我开眼睛时,没有人在那里.
+我通过地板到天花板的镜子, 没有超过一个简短的想法不知何故放置我的意识在这些镜子中的我.
+我会在现实生活中倒一些东西, 然后意识到我在镜子里不存在.
+我决定回到我开始体验的后间.
+我看到一个巨大的机器人脸包围整个房间,
+最好的实例是&quot;我,机器人&quot;中的机器人脸.
+我走进后面的房间, 开始看到机器人的三角形面孔 (眼睛开),
+我突然意识到所有抓住我的手都是这个机器人的手, 不是善恶的, 他决定要抓住我,
+我坐下来, 开始与他进行简短的对话 (眼睛现在闭着),
+我解释了他的手是多么可怕, 经过短暂的讨论,
+我笑着说,这可能不会更好,但给它一个尝试.
+后来,我猜测他是否是某种维持自我死亡的自动机,
+我完全不支持这个理论, 但它仍然很有趣.
+我曾经在高山的下坡上下来.
+很多人说我很疲, 但实际上我感觉好像一根轻微的杂草,
+我有一些有趣的视觉想法, 但没有像以前一样真正的愿景.
+我脑海中有一种想法, 我和我的长期女友, 像外星人一样生活在一个空洞的蓝岩房子里,
+我在思考这个详细的想法时感到过于情绪化 (只是热情和爱的感觉).
+整个旅程大约持续了45分钟, 也许还有15分钟的轻微视觉,
+我在整个经历中完全保持清醒,
+我现在鼻子流水, 稍微, 但红眼已经消失了.
+我绝对会再次这样做.
+五个小时后, 我还能轻微闻到的味道,
+我鼻子有点疼,但感觉跟感冒后一样.
+整体上持续不到一个小时, 后效果对我来说非常好,
+我写的旅行报告在我的落后.
+我在下面的准备文中写的是在我倒下后几个小时 - - 我现在感觉很疲,
+就像我跑了一场马拉松,赢了,并赢得了一个舒适的床.
+期待着一个良好的睡眠.
+材料:
+- 种子
+- 氧化
+- 这是水.
+一个.
+拿起你的yopo种子, 均地散布在一个里. (至少4或5,
+我已经准备好了120+).
+如果您有种子并打算在未来吃, 准备多份是有意义的,
+2. 在
+在尽可能低的热度上煮.
+经常.
+得到某种形式的掩护, 像一个警卫人们使用时做培根.
+种子会在空中飞半英尺,
+人们建议使用中等设置--这可能会让它们快速爆发, 但至少在大量爆发之前,
+如果您工作25岁或以下, 很容易用木把它们分开.
+诚实地说,这一步可能需要10分钟,
+没有人会错过这次的爆发.
+周期性中等热量可以工作低热量并没有切割它.
+3. 没有.
+让种子冷却.
+在它们100%冷却后 (再次,大约10分钟) 打破外.
+你需要棕色和色的内脏,
+有些种子很难脱去外 -- 用指甲捏边缘去脱外.
+你可能会失去一些内在的肉,或者它可能会崩, 但如果你小心你不会失去任何东西.
+这一过程花了我30+分钟, 120+种子的经验下面, 但我不小心烧了很多 (中等热量).
+4. 没有
+拿起你收集的种子肉 (我说肉, 但实际上它就像坚硬的坚果,
+我花了大约10分钟的时间用茶匙的背面把里面的东西完全粉碎了.
+它们已经被加热了 (早些时候),所以它们很容易碎裂.
+如果您决定使用匙,请用碗进行,以避免在匙施加压力时种子在房间里飞行.
+记住,这会让吸入的物质更坚硬, 但对于Yopo来说, 硬度是被大大高估的.
+五个
+眼睛看看你有多少yopo,然后把 1/4的可食用的石灰粉 (氧化) 加入你的yopo.
+超级便宜,而且比更好.
+如果不是更多的话, 28 克可食用的石灰 (9 美元) 就能覆盖 1 司 (120 多种种子, 理论上 30 多个门) 的 yopo.
+一个好主意是用有限量的氧化, 用它轻轻地覆盖碗的底部.
+很少的量--这样,当你滚动你的yopo, 毫无疑问的接触.
+更多的接触=更好的旅行.
+六个
+加入到这个混合物中.
+我的意思是小.
+这是关键.
+我把我的茶匙 (不大于我的指的最后关节,
+如果你的凝固度很薄, 那就太多了.
+如果你的度像新鲜的泥土, 那就太少了.
+你希望持续性就像在雨靴上干泥一样.
+这不是完全泥, 但它不仅仅是潮湿的泥.
+七个
+连接在一起,直到你看不到任何白色,或yopo的碎片.
+我喜欢用我的双手 (就像你用粘土一样) 制成一个球体.
+没有.
+在烤箱安全的碗中压制这个球体并使其平坦.
+在一个碗里做, 因为它会变成粉末一旦它干了.
+我用了10分钟在350华氏度的温度下, 然后拿出来用子把它打破.
+如果没有烤箱,
+这只能干掉它.
+没有.
+拿出你的碗和粉碎.
+我只能用子和手指把它分解, 然后把它放进一个小塑料袋里,
+您可以使用咖啡机, 但您真的不需要.
+十个
+假设4 - 5种子是值/轻量剂量,请回忆混合物中的yopo种子数量,并用剃须刀或利的平面物体画出几条线.
+你可以起一张脆脆的美元票, 但最简单的方法就是拿一根纸或塑料吸管,
+遮住一个鼻孔,排成一行,然后吸气.
+吐可能会发生,
+我可以决定什么时候吐.
+坐在那里感到恶心,然后说,好吧.
+我从来没有控制过恶心.
+吐后, 旅行的强度增加.
+我也吹鼻子后我意识到我开始脚.
+如果我不吹鼻子, 我可能会 (逻辑上) 有更明显的旅行,
+真的没有.
+我感觉像是打喷, 鼻腔有轻微的紧张.
+我不知道所有这些人说它真的很痛苦的情况是什么.
+我害怕针头,这件事是微风.
+其他:
+发布时间:2016年11月2日
+长 (285): 准备/食谱 (30), 实体/生物 (37), 一般 (1), 单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Backroom Yopo
+Anadenanthera peregrina
+by
+North Haverbrook
+Citation:   North Haverbrook. &quot;Backroom Yopo: An Experience with Anadenanthera peregrina (exp106253)&quot;.
+Erowid.org
+. Nov 2, 2016. erowid.org/exp/106253
+DOSE:
+5 seeds
+insufflated
+Anadenanthera peregrina
+(ground / crushed)
+BODY WEIGHT:
+198 lb
+Yopo Trip Report &amp; Preparation
+I took about 1 oz of yopo and prepared it into snuff. No idea how many seeds -- probably a good 120, maybe more. I tossed about 2/3rds of the seeds that I accidentally burned and made a bag of snuff. It started off with snorting 5 lines. I thought I got 1/7th of the bag but it was easily 1/14th or 15th. The Yopo was not completely crushed, which I think lessened the effects. At first, I thought that I had screwed up by burning the yopo. I started with 1 oz and actually threw away maybe 3/4ths of it (not orange or brown, just basically charcoal). I had a strong thought that I had screwed up and messed the yopo up, that none of it was going to work.
+I snorted it with a cut straw and immediately (possibly) felt some physical sensation. I wasn&#x27;t sure at first if it was a placebo. The come up was slow. It was probably 15 minutes before I was really tripping. I sneezed, wiped my nose, and sat back. I began to feel chest pressure, then head pressure, and then a high similar to a couch-lock pot high, but with a totally clear/almost clairvoyant mind. At that point, I texted my buddies -- &#x27;I finally did it,&#x27; and &#x27;I&#x27;m finally going to try some form of DMT&#x27; (I&#x27;ve tried for a while). I knew I wouldn&#x27;t be able to text (or just wouldn&#x27;t want to) so I set it down.
+10,000 days (Tool) was playing on my phone. I started seeing kaleidoscopic patterns, first just with my eyes closed. I kept opening my eyes to check on it, see how many there really were (outside of closed vision). I noticed the laminate floor pattern began to vibrate and look like an old timey red and blue 3D image without the glasses. The door and wall in front of me had interesting and pure geometrical patterns dancing across it. I started feeling a little nauseated, and tried to hold it off as long as I could. Honestly, the trip was enhanced after I vomited, and the vomiting was incredibly manageable.
+Interesting factoid: I looked in the mirror after vomiting in the sink, and my eyes were red as can be. Blood red, and my eyes never are. Not even the pink haze from weed -- these things defined bloodshot (didn&#x27;t hurt or anything though).
+The vomit was 3 subsequent little cups of watery and brown matter and was not as much of a toll as expected. I ate 2 corn dogs, some hot tamales (candy), drank a bunch of water, and had a Jimmy Dean breakfast sandwich earlier in the day. Again, vomiting was easy (almost like coughing up a drink that went down wrong) and really did improve my trip.
+At some point, either during the visions or just before, I felt a weird body sensation that I could feasibly call a &#x27;slam,&#x27; although it didn&#x27;t hurt. It was like a slow acting squeeze, or a hug. It&#x27;s hard to explain. It was probably 15 minutes into snorting the snuff. When I felt it, I immediately thought (or at least hoped) it was the fabled &#x27;vibration.&#x27; It was clearly different from the aforementioned body high. I probably could have texted, or even called someone and attempted a phone call at this point, but there was no reason to and I knew that doing that would&#x27;ve taken away from my trip.
+Around this point I blew my nose (I had been sniffling and wiping it pretty consistently). I think this took away from the trip as all my snot was wrought with brown chunks of yopo, but I didn&#x27;t mind. I saw light geometric patterns on walls that grew deeper, but the real party was when my eyes were closed. I know that sounds boring, but it was amazing.
+I was taken through all these bizarre landscapes and worlds. I saw odd things and lots of eyes. It wasn&#x27;t entirely clear as these things kept shifting around, but I could tell what they were after a few brief seconds of wondering. I&#x27;m not sure how long I was enjoying this journey. A few times I would briefly open up my eyes to see if the journey continued outside -- this would &#x27;reset&#x27; whatever place I was being shown and would take me somewhere else.
+I had my eyes closed and was taken through weird swirling tunnels, and balls of light, and odd interesting doorways. I was brought into a space (like a never ending room) where nothing was colorful, all pitch black (but not scary, it just felt like outer space).
+I felt a weird strike of fear as the first humanoid figure to be seen was off to my right side. I immediately got over my fear and glanced over to him (eyes closed -- I moved my eyes both to the right). I realized that he didn&#x27;t know I was looking at him. I moved my eyes back and then he caught my movement, and tried to get my attention. All of this was in a purely blank space of darkness.
+The figure was very slender and grayish white. I couldn&#x27;t see his face. It was weird because recently I had been reading about grey aliens and DMT related encounters -- I don&#x27;t know if that influenced this, but I knew it was otherworldly and immediately after he got in the center of my view (top half of his face covered in shadow) realized it was a tall and slender Grey. I said (out loud) &#x27;Hello, my name is Firstname Surname.&#x27;
+As I spoke, two more appeared behind him. I don&#x27;t know how to better explain it, but I knew that they were individuals (not just him duplicated). I followed with saying &#x27;I hope you all are good people.&#x27; With each word I spoke, more multiples of entities appeared behind them (in a triangular fashion). Finally, the room was completely filled with these grey aliens. I said &#x27;I come asking for wisdom, to better myself.&#x27;
+They all disappeared immediately, but not in a rude way. I felt a rush of calm and goodness -- like that had already known my question, and we&#x27;re waiting to hear me say it and immediately granted me wisdom, although I didn&#x27;t know what it was. I sat back and enjoyed more visuals.
+A few weeks ago, I had a really bad 2C-I trip where these spinning hands lunged at me and kept trying to grab me and take me. They felt evil, but they forced me into my first &#x27;death of ego&#x27; experience. I was enjoying my yopo trip when all of a sudden I saw the hands from the 2C-I trip, all lunging for me. I opened my eyes (still tripping but not having to face these hands, although I saw them in my peripherals) and said, &#x27;God dammit. I really hope my trip doesn&#x27;t end up like that. That would just suck and ruin this whole experience.&#x27;
+When I closed my eyes back, they were gone. I had a foreign idea (again, best way to describe it) that the aliens I saw helped me, so i audibly said &#x27;Thank you.&#x27;
+I enjoyed the trip more and more. I started singing &#x27;The Pot&#x27; (Tool) and dancing in a very flowy way while sitting down. With my eyes closed, I saw myself as a visionary shaman in a heated ritual. The hands came back, and I felt it was because I was loud and made my presence known. I internally and quietly asked for help and other hands who I felt were the hands of the grey aliens tore away the hands reaching for me.
+Then, I was flying through space, and saw all these colossal sized bodybuilders, the size of planets, with infinite strength. I was enthralled with interest (they were all flexing like at an event, and I was an ant in height/general size compared to them. It&#x27;s worth pointing out that I&#x27;m an amateur bodybuilder, or at least an aspiring one). I didn&#x27;t feel bad in comparison, I was struck with awe.
+I next saw this businessman 10 ft or so above me who stuck out his hand and wanted me to let him come in my mind (again, my feeling). I realized it was him who showed me the bodybuilders. I began to extend my hand but then drew back, remembering a trip report talking about evil entities. I said &#x27;I don&#x27;t know anything about you, sorry.&#x27; (this time in my head). He started screaming and lunging at me. Suddenly he became 5, 10, 20 huge and scary men trying to threaten me and attack me. Instead of freaking out, I had a burst of intuition and sat in the half lotus position and started to say &#x27;Om.&#x27; I&#x27;m not sure why as I don&#x27;t even meditate and only once attempted to in middle school. It just felt like the right thing to do. They got angrier and I felt like I was going to &#x27;lose&#x27; (whatever that meant, just remember a majority of these thoughts are just unprecedented feelings of intuition I randomly had) but I kept my cool and eventually they faded away. A couple times the hands came back, but I had a new confidence (before I would immediately be fearful) and was able to mentally talk them out.
+I recognized that this was the &#x27;wisdom&#x27; that the aliens had given me. I walked around (this entire time I had been sitting down) and saw things in my peripheral vision. I kept closing my eyes when I walked but felt scared when I couldn&#x27;t find the door and feared hitting things. I saw an extended feminine hand that offered to guide me to the door. I felt trusting and extended my hand and made a grasping motion, although admittedly I opened my eyes to open the doors I was going for.
+At one point I got a weird sensation with my eyes closed -- the kind of sensation that I get when my eyes are closed and I think someone is sneaking up on me and is about to punch me in the balls. I thought it was a friend of mine but when I opened my eyes no one was there.
+I passed by floor to ceiling mirrors and without more than a brief thought somehow placed my consciousness in the image of me in these mirrors. I would trip over something in real life and then realize I was not existing in the mirror.
+After walking around the area briefly, I decided to walk back to the back room where I had started my experience. I saw (eyes open) a huge robotic face encompassing the whole room, flashing between it and reality. The best real world example would be the robot&#x27;s face from &#x27;I, Robot&#x27; (the movie).
+I went into the back room and started seeing a triangular pattern of this robot&#x27;s face (open eye), and then a a square pattern of its face. I had a sudden realization that all of the hands grasping for me had been hands of this robot, and were neither evil nor good -- he had decided to try to grasp me and had not thought of any other way than the most efficient.
+I sat down and started to have a brief conservation with him (close eyed now) where I never saw his lips open but instead just knew his answers. I explained how scary his hands were and after a brief discussion he said he would have them &#x27;slither&#x27; instead, and he didn&#x27;t understand why I thought they were scary.
+I laughed and said that probably would not be better, but to give it a try. Later, I speculated if he was some automaton that maintains the death of egos -- but this was a sober thought, and has many holes. I don&#x27;t stand by the theory at all, but it&#x27;s still interesting. I had been on the downward slope of the high and came down. Many people talk about being drained, but I actually felt as good as a light weed buzz for about 30 minutes. I had some interesting visual thoughts while coming down, but no real visions like earlier. I had a thought in my head of my long term girlfriend and I living as alien beings in some hollowed out blue rock house on a bizarre planet -- I had the thought in full detail and color, but it was no true visuals like the earlier trip. It&#x27;s also interesting to point out I felt overly emotional when thinking that detailed thought (just feelings of warmth and love).
+All and all the trip lasted roughly 45 minutes with maybe 15 minutes of light visuals that lasted over, but I wouldn&#x27;t call myself high or buzzed. I was fully coherent during the entire experience but I could not have pretended to not be high around other people without them noticing. I have a runny nose and slightly stinging now, but the red eye is gone. I will absolutely be doing this again.
+-- About 5 hours later, I can still smell yopo lightly but eating food helped me not. My nose feels slightly sore but just as bad as it would after the cold.
+Overall lasted just under an hour, after effects were really nice and relaxing for me and lasted half an hour or so. I wrote the trip report during/right after my comedown. I&#x27;m writing the preparation below several hours after my comedown -- I feel really worn out now, but in a good way. Like I ran a marathon, won, and have earned a cozy bed. Looking forward to a good night&#x27;s rest.
+Materials:
+- Yopo seeds
+- Calcium hydroxide
+- Water
+1. Take your yopo seeds and scatter them evenly in a pan. (minimum of 4 or 5, but honestly if you have a big stock you should go ahead and prepare a good bit of it... I prepared 120+). It makes sense to prepare more than one serving if you have the seeds and plan to partake in the future, just to be efficient.
+2. Cook them stovetop at the lowest heat possible. Stir often. Get some form of cover, like a guard people use when making bacon. The seeds will fly half a foot in the air, and scatter across the room. People have suggested medium settings -- this may pop them faster, but will burn the seeds before all pop, at least in large quantities. If you&#x27;re working 25 or below, it&#x27;s very easy to pick them out with a wooden spoon as they pop. Honestly, this step will probably take 10 minutes, but just stop once they&#x27;re all popped. It is impossible to miss the popping. Periodic medium heat can work low heat isn&#x27;t cutting it.
+3. Allow seeds to cool off the stovetop. After they&#x27;re 100% cool (again, 10 minutes or so) break the shells off. You want to have brown and orange insides that you place on a collection plate. Some seeds are hard to get the shell off -- pinch the edges with your fingernails to get the shell off. You may lose some interior flesh, or it may crumble, but if you&#x27;re careful you won&#x27;t lose anything. This process took me 30+ minutes for 120+ seeds for the experience below, but I accidentally burned a lot (medium heat).
+4. Take the seed flesh you&#x27;ve gathered (I say flesh but really it&#x27;s just like a hard nut, not fleshy at all) and either put it in a coffee grinder or take a small spoon and crush them in a bowl with the back of the spoon. It took me about 10 minutes to completely pulverize the insides with the back of a tea spoon. They&#x27;ve already been heated (earlier), so they crumble really easily. You should do this in a bowl if you decide to use a spoon to avoid seeds from flying around the room when you apply pressure from the spoon. Keep in mind, this will create a harsher material to snort -- but the harshness is grossly overrated for yopo.
+5. Eyeball how much yopo you have and add 1/4th of that amount in edible lime powder (calcium hydroxide) to your yopo.
+Super cheap and better than baking soda. 28 grams of edible lime ($9) would cover 1 oz (120+ seeds, theoretically 30+ threshold trips) of yopo, if not more. A good idea is to take a finite amount of calcium hydroxide and very lightly coat the bottom of your bowl with it. A very small amount -- this way, when you roll your yopo, there&#x27;s no doubt of it coming in contact. More contact = better trip.
+6. Take a VERY small amount of water and add it to this mix. I mean SMALL. This is key. I took my teaspoon (no bigger than the last joint of my thumb, and not deep for a spoon at all) and took basically 2 spoonfuls for the mix. If your consistency is sloshy, that&#x27;s too much. If your consistency is like fresh dirt, that&#x27;s too little. You want the consistently to be something like drying mud on rain-boots. It&#x27;s not totally muddy, but it&#x27;s not just moist dirt.
+7. Knead this together until you can&#x27;t see any more white, or bits of yopo. I like to make it into a sphere with my hands (like you would with clay).
+8. Press this sphere in an oven-safe bowl and flatten it out. Do this in a bowl because it will go into a powder once it dries out. I did about 10 minutes at 350 degrees Fahrenheit, then took it out and broke it up with a spoon. If you don&#x27;t have access to an oven, use another method of drying. All this does is dry it out.
+9. Take out your bowl and crush up the powder. I was just able to break it down with a spoon and my fingers, then I put it in a little plastic baggie and pushed it around. You could use a coffee grinder, but you really don&#x27;t need to.
+10. Assuming 4 - 5 seeds is a threshold/light dose, recall the amount of yopo seeds in your mixture  and set out a few lines with the help of a razor or sharp, flat object. You can roll up a crisp dollar bill, but the easiest thing to do is just to take a paper or plastic straw and cut it down 1/5th in size. Cover one nostril, line up with the yopo, and snort away.
+Vomiting can happen, but is 100% easy and manageable. I was able to decide when I vomited. Sat around feeling queasy and then said, oh all right. I never have that control over queasiness. After vomiting the trip increased in intensity. I also blew my nose after I realized I started to trip. I would probably (logically) have a more pronounced trip if I didn&#x27;t blow my nose, but I couldn&#x27;t deal with the sniffles. The pain from snuffing was not bad at all... Seriously. It felt like I had to sneeze and had a slight tightness in my sinuses. I don&#x27;t know what the deal is with all these people saying it REALLY hurts. I&#x27;m afraid of needles and this thing was a breeze.
+Exp Year: 2013
+ExpID: 106253
+Gender: Male
+Age at time of experience: 19
+Published: Nov 2, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Anadenanthera peregrina (285) : Preparation / Recipes (30), Entities / Beings (37), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

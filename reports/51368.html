@@ -1,0 +1,305 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我的父亲去旅行&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/zz-psychedelics-2021-jh.html'>← zz Psychedelics - 2021 JH</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我的父亲去旅行&quot;</h1>
+<div class='sub-title'>LSD - Erowid Exp - &#x27;My Father Takes A Trip&#x27;</div>
+<div class='meta'>作者：M Rossman Citation · 日期：Mar 9, 2006 · 剂量：1 tablet · <a href='https://erowid.org/experiences/exp.php?ID=51368' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>有一天我父亲告诉我,现在是时候了,几个月后,当我们都准备好了,
+为了准备他死去, 我多年来一直想让他用LSD.
+但哈罗德早在自己的成长,没有我的敦促,这使我双重地高兴分享这个场合.
+我是他的护送和见证, 而不是一个积极的指导.
+通过不频繁的回应, 让他放心我的存在,
+几次我更有指示性, 向他指向更深层次, 当他被困在青春期前的记忆中,
+但基本上,这是他的旅程:他已经设定了它的轮并准备好了,
+我做过的最有效的事情就是写笔记,
+在他跌倒的前一天, 我们一起吃了一顿惰的午餐,
+我点了火,帮助他准备他的空间.
+晚餐时,我们回忆起他多年来看着他的孩子们在他们的迷幻仪式,
+我对他开玩笑说他必须参加著名研究员斯塔尼斯拉夫·格罗夫的研讨会,
+他说研讨会对他来说已经澄清了一些事情,
+我看着他检查他选择的眼罩,耳机,和音乐他编程.
+在那些日子里, 很少的供应和劣质的合成, 找出好的酸,
+他手掌中小蓝色的标签,并探测他再次不确定性和恐惧.
+但他很清楚,我们说古老的乾杯一起:&#x27;
+我喜欢!
+&quot; 在
+他吞下了,我拿出了斧头,带他出去散步, 收集木头--让他的身体运动以休息,
+我们把曼扎尼塔带回来,把它们堆叠在里面,
+我们把他放在眼罩上,把他连接到声音上,并继续下去.
+虽然我带他到一个地方的良好的振动,他自己曾经度过一个夜晚的魔力,我几乎吹它在开始:在我们的散步在寒冷和床我们拖在里面,密集的仍然与冬天的夜晚,他的身体一个寒冷的毯子和的火之外没有消散.
+睡袋,并把他转向他的侧面开放到火化,自己为我的疏忽.
+在这个第一个小时他的意识主要是在他的身体.
+他只能通过耳机听到巴赫, 外面的世界就消失了, 他开始了内心的旅程,
+他不再把神经系统的动和爆发与冷反应混了起来, 接受了我的建议, 停止与神经系统的动和爆发抗争,
+随着身体的放松,
+他耳机里的琴音响&quot;随机而多彩&quot;, 带他走到童年时代的五分钱店,
+感觉他的头发变化,因为他从三个成十三在半小时.
+骨头的颜色和纹理. &quot;和这,他开始体验的品质
+一种物质
+没有.
+首先,它只是这个物质世界的实质.
+他花了很长一段时间在芝加哥11岁, 作为一个游荡的小男孩, 在废渣堆和煤堆中发现了生的铁和碎玻璃,
+一种感觉的材料磨损的磨损,变得薄,油性,无聊;和奇迹的感觉如何贫困他的生活在这些,和如何不庆祝.
+我脱下了他的子, 让他赤身裸体地躺在被子下, 燃起了火焰,
+在大脑皮层,大脑干的爆炸.
+他开始意识到宇宙的肉,并看到这些质的品质作为它的品质,也许从一个潜在的感觉的磨损他自己的物质,他六十一岁的身体.
+他谈到&#x27;现实所构建的磨损,脏,重复使用的材料.&#x27;然而,吸引他的并不是这一切的小怜悯,而是他意识到,这种薄薄的磨损织物&#x27;没有理由存在,除非有人一次把它组合在一起......这一切的原材料必须发生很多事情,才能采取这些形式!&#x27;
+但首先是什么?
+&quot;一定有某种东西,某种明确的目的......&quot;当他想着,他开始感觉到它是&quot;一个晶体智能&quot;.我轻声说&quot;,你是说她的恩典塑造者吗?&quot;没有举起耳机让他听到我,做了一个小欢乐的舞蹈不见了 - - 在他接触,和所有的刺.
+我父亲是终身的无神论者, 马克思主义的唯物主义者,
+我父亲四十年来努力在工会报纸上简单明确地写下工人生活的扎, 现在他仍然是记者, 时不时地打开他遥远的身体的嘴巴, 准确地报道超越,
+后来他大声喊道:&quot;我没有权力这样的奢的概念!
+随着酸的全部影响, 他的冲动继续,
+他开始了解物质的基本特质.
+他认为宇宙是玻璃,晶体和离散, 丽的多叶,
+他还在读出他对自己的感觉,不断地表达着尖的争论,这种单调让他感到难过,因为他意识到&quot;一生的空间有多少被用于事物的角性,硬度和可验证性. &quot;他仍然与芝加哥童年时代的所有碎片金属保持联系 -
+他的意识同时在所有这些层面上运作, 所以他们的隐喻相互反映和透,
+他意识到自己有了新的东西-- 晶体内部的动力,柔软而流的品质-- 他发现自己也是如此.
+&quot;有所有这些分子之间的空间!&quot;&quot;正确!&quot;我喊道.
+&quot;像刺一样,聚集在意义上的积累中&quot;...他品尝了极地质,为它们发明了自己的名字,在咒语中重复了名字:&quot;晶体的角性,蒸汽的绕性;&quot;然后意识到&quot;,有一种感觉,这一切都是制造自己的,所有这些都和
+通过这种对道极的表达, 他超越了这个境界, 进入了一切都重新出现的状态.
+他是所有,知道他直接知道每一个最微弱的能量,使什么是整体的历史.
+留下只有他的最后一个断言的浮标标记他正在探索的深度.
+&quot;让这种能量形成是多么的困难&quot;,他内心的神说,
+他更接近的层面猜测惊:这些形式的自我和世界我们知道几乎是任意的,如果我们放弃了信念或意志的行为,让他们保持他们,会发生什么形状将所有超越&quot;第一个纯洁居住它所有吗?&quot;随着重组进行,他觉得自己成为道教宇宙的万事物;
+感觉到哈罗德的人格的骨头在复杂的纠中重新凝聚起来.
+许多东西又变成了以前那种枯燥无味的角形!
+他哭了.
+现在是干预的时候了.
+我告诉他这都是他的, 他可以选择在骨架上重新建立不同的平衡.
+感觉到它的游戏在什么仍然在很大程度上是角,仍然不是完全温暖,但不知何故不那么乏味和贫困比它在所有的荒地年.
+他对此感到满意.
+&quot;如果我必须有实质,这是我想要它采取的形式,晶体和流动之间的边界.
+他的膀也在那时膨胀,
+我试图让他去尿,他不能; 但很快他的身体的重生已经进步到我认为是时候重新引入他到世界.
+我很高兴地宣布了这件事, 问他准备好了吗, 点亮了, 灭了灯, 脱下了他的耳机和眼罩.
+他认为自己是一块旧的骨头.
+他眼环顾房间, 我递给他一块旧的骨头,让他专注一下--一块鹿角的碎片,
+常见的,碎的俗,向他显露自己是美丽的世界,重量和numinous的品质他已经知道.
+抓住它拙地,像一个新生鸟他固定在它养育.
+他还只是部分存在; 接近中心, 他仍在分化有生命的和无生命的,
+他被他的护身符所吸引, 我把子戴在他的股上,
+云层在遥远的距离上,
+暴雨后的风是冰冷的.
+我们解开了拉链.
+我把我的放在杆上,那个有26英寸内接头的人把他的放在杆下面, 我们一起尿在门廊上 -- 就像我们三十年前在所做的那样,
+尽管如此,我又成为了两个人, 感受到原始的快乐,
+在地球的祝福之后,肉,我们的亲属关系,我们看着日落一会儿,与其平凡的完美,不断变化的;和交换平凡的关于它,品尝他们的意义的新鲜性.
+我试图带他出去散步, 让他更加融入这个世界,
+但他还只是在重新掌控机器, 只是还没有足够的时间让机器独自在地上行走.
+冬季山区的夜晚很早,所以我失去了机会.
+但在骨头和阳光之间,我认为他很好地定位,我引导他回到楼梯.
+六个多小时,直到午夜, 他从高峰体验中回来,
+我离开他的面具,我不再是他的记忆,并很快退出了他的照顾,我祝福他一个成熟的,并扩展简单的桌子的其余部分,为他荣耀,发现地球的美味的水果.
+现在只是他的同伴,我也吃了,说了一些,但主要是离开他自己的内在过程,出去散步的狗为我的借口.
+我有点空虚, 耗尽了几个小时的注意力, 当我回来时, 我把时间花在音乐和我的身体上,
+他不是一个独立的,回顾整合.
+随着他的身体慢慢地代谢药物, 他仍然与原始的融化在微弱的接触;
+晚上他看着大火,我继续火与热燃烧的曼扎尼塔切那天早上.
+他把一个肢体看作是人类的,
+他抱着角形的护身符,在有机的同情心中,他躺着看着火烧着他的肢体,经历了它变成火的变化,在这个过程中认识了自己,感觉到他的物质被生命的过程所使用,孩子变成了一个老人.
+&quot;这是&quot;,他说&quot;,我很惊,我不后悔&quot;,也许改变了对磨损的观点,
+他看到了小壁炉的角形墙壁像寺一样, 观看着里面闪闪发光的颜色跳舞, 吸收它的温暖,
+他回忆起多年来他对它的反应是不必要的和昂贵的,与他的理解和愿望异.
+这使他意识到可能-have-been-but-was-unable,成长打破他们的婚姻;然后对她的爱的身体,仍然在他里面生活.
+他与此扎了一段时间, 接受它的重量, 尚未清晰到没有遗憾的悲伤,
+死了,最后的日志燃烧在高的焦炭,我漂流下在他旁边在睡袋,醒了三个找到他坚定地出来,把一些木头来切割黎明寒冷,又睡着了.
+在太阳升起我发现他走了,在一个冰的世界徒步旅行.
+他回来后, 我们整理了小屋, 收拾了东西,
+我给了他我的笔记本, 我们一路走了80英里, 一页一页地回顾这段经历.
+他已经忘记或压抑了我录制的大部分内容.
+他读了它回来, 不完全但足以接受自己的.
+&quot;一个漂亮的形而上学药物,?&quot;我说,并帮助他整理的进展和关系的不同层次的意识,因为这些笔记揭示了这些,证实从我自己的经验的现实,或至少相对普遍性,他的.
+像往常一样, 在倒后的第二天, 他的身体有点受到了打击,
+我为他提供了一个理解和处理这件事的框架; 我们再次谈论了这对他旧的硬性意味着什么,
+我告诉他我对如何将所有这些融入日常意识的了解很少,
+我只是半小时迟到我的会议,他回家休息.
+评论 (1972,修订)
+爸爸的旅程正如我希望的.
+很大程度上有所贡献:良好的酸,良好的环境,良好的公司和公平的护理.
+但最深刻的贡献是他自己的.
+自从我在1964年做&quot;晨光种子&quot;以来, 他一直接近那些经历了迷幻仪式的人.
+他一直经历着缓慢而痛苦的变化,
+他没有轻率地或迅速地冒险, 他用自己的时间来处理酸,
+我对他没有恐惧,他寻找恐惧,感觉几乎为没有找到它而道歉,我相信他,他准备好了.
+他将如何利用这次经历, 他将如何发展, 我不知道.
+我们开车回家时, 他说:&#x27;我想我再也不想服用酸药了.
+&quot;我把它学习一些.
+我认为我已经学会了.
+我是什么?
+哈罗德对我作为一个陪同他参加这个仪式有着深厚的感情.
+他时不时地对它们进行定制, 我向他表示我理解,
+不是因为害羞, 这不是我们的习惯.
+整个旅程也就像这样, 几乎被认为是平凡的, 特别的,
+尽管我们在安排这件事上很随便,
+帮助我父亲分享我如此珍贵的经验和观点,
+我们没有互相推压, 只是随着时间的推移而参与; 在这里, 多年来慢慢的分享取得了成果.
+我为他高兴,为自己有他作为同行:全程回家它让我欢喜的笑声.
+我不能简单地说出更深层次的事情.
+如何成为他的儿子,然后又是他的父亲, 带领他经历我经历过的事情; 然后又是他的儿子, 在他晚期和痛苦的成长中为我做榜样,
+我感到很幸运, 因为我们的生活和存在如此交织在一起,
+已使用的证券
+小组 (2-9) (17),导游/保姆 (39),家庭 (41),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+My Father Takes A Trip
+LSD
+by
+M Rossman
+Citation:   M Rossman. &quot;My Father Takes A Trip: An Experience with LSD (exp51368)&quot;.
+Erowid.org
+. Mar 9, 2006. erowid.org/exp/51368
+DOSE:
+1 tablet
+oral
+LSD
+One day my father told me it was time, and some months later when we both were ready I took him off to a small cabin in the mountains, to escort him on his first acid trip. For years I had thought about introducing him to LSD later, in preparation for his dying. But Harold came to it sooner in his own growth, without my urging, which made me doubly glad to share the occasion.
+I was more his escort and witness than an active guide. During his trip, I mostly managed the music and gave him the reassurance of my presence by infrequent responses, staying out of the way. A few times I was more directive, pointing him toward a deeper level when he got stuck in pre-pubescent memories on the way up, and suggesting strongly that he had choice about how to reintegrate what he had learned, while coming down. But basically, it was his trip: he had set its contours up and prepared himself, and I just watched it happen. The most active useful thing I did was take notes, which helped him later to connect with his experience.
+The day before he tripped we had a lazy lunch together, and then relaxed for hours as I drove him up to the Sierra to find a place of peace. Night was falling as we got to the cabin; I made a fire, and helped him to prepare his space. Over dinner, we reminisced about the many years he had watched his children at their psychedelic rituals, and how he had come to his own. I teased him a bit about having had to attend a seminar with Stanislav Grof, the noted researcher, to finally give himself permission. He said the seminar had clarified things for him, as it had; and we turned in early.
+In the morning I fed him a good breakfast, laced with extra C and E vitamins to buffer his body against its coming stress; and watched him check out the eyeshade he had chosen, the headphones, and the music he had programmed. To find good acid, in those days of scant supply and shoddy synthesis, had taken me months, for I wanted the best for him. I talked of the search and of the lore of its use again as he held the small blue tab in his palm, and probed him again for uncertainty and fear. But he was clear, and we said the ancient toast together: &#x27;
+L&#x27;chaim!
+&#x27;
+After he swallowed it, I got the axe, and took him out for a walk to gather wood -- to give his body motion to rest on, and to complete his ritual of preparation. We carted the manzanita faggots back, stacked them inside, and said goodbye to the morning. By then the first tremors of strangeness were rising in his blood, and we laid him down with his eyeshade on, wired him up to sound, and got on with it.
+Though I had brought him to a place of good vibes where he himself had spent a night of magic once before, I almost blew it at the start: for between our walk in the cold and the mattress we lugged inside, dense still with winter night, his body took a chill that blankets and the roaring fire beyond did not dispel. It took me an hour to recognize how truly cold he was, insulate him on sleeping-bags, and turn him on his side open to the fire to thaw, kicking myself for my negligence.
+Fighting the clenching of his muscles against the cold kept him down, and for much of this first hour his awareness was mainly in his body. As he lay there blind inside his eyeshade, hearing only Bach through his headphones, the outer world withdrew and he began the inward journey, feeling out the marvelous discreteness of the individual muscles, exploring his nervous system. As he warmed up, he stopped confusing the neuronic twitchings and explosions with cold-reflex, accepted my counsel to stop fighting them, and let them take his body -- which jerked and throbbed for hours, sometimes in violent rhythmic motion.
+As his body let go, he was carried deeper into the experience. The sitar&#x27;s notes in his earphones, &#x27;random and colorful&#x27;, took him to the five-and-dime stores of his childhood to stand before their shelves of a myriad gaudies, and took him into the quality of experience newly minted in exquisite detail, discovered through the eyes of the child still live within him. He wandered out eating chocolate kisses and through other scenes of his youth, feeling his hairline change as he grew from three to thirteen in half an hour.
+&#x27;How little is really your own,&#x27; he said, &#x27;the color and texture of a particular little fragment of bone.&#x27; And with this, he began to experience the qualities of
+substance
+. At first it was simply the substance of this material world. He spent a long time being eleven in Chicago, a young boy out on the prowl, discovering -- in the slag heaps and coal mounds, rusty iron and broken glass, all the detritus of urban earth -- the stuff from which his world was made. Worn rags and boards, a sense of materials wearied by wear, become thin, greasy, dull; and a sense of wonder at how impoverished his life among these had been, and how uncelebrated.
+I took off his pants to leave him naked under the covers, stoked up the fire, urged him to go deeper. Explosions in the cortex, the brain-stem. He began to be aware of the flesh of the universe, and saw these qualities of matter as its qualities, perhaps from an underlying sense of the wear of his own matter, his sixty-one year old frame. He spoke of &#x27;the worn, grimy, re-used material out of which reality is constructed.&#x27; Yet what caught him was not the small pity of it all, but his realization that this thin worn fabric &#x27;has no reason to be, except someone once put it together ... and so much had to happen to the raw material of all this, before it could take these forms!&#x27;
+But what was there in the first place? &#x27;There must have been something, some clarity of purpose .... &#x27; As he wondered, he began actually to feel it as &#x27;a crystallographic intelligence.&#x27; I said softly, &#x27;Is you speaking of her grace the Shaper?&#x27; without lifting his earphones to let him hear me, and did a little dance of glee unseen -- at his making contact, and at all the ironies. My daddy the lifelong atheist, my daddy the Marxist materialist, now plunging headlong through Hegel&#x27;s echo into the true dialectic. My father, who strove for forty years to write simply and clearly of the workingman&#x27;s bread-and-butter struggle in his union newspapers, here a journalist still, opening the mouth of his distant body every now and then to report precisely on transcendence, on &#x27;states of being and of awareness, and their interplay&#x27; in disjointed sentences, lucid and poetic, and elegant with metaphor, so much so that later he cried out, &#x27;I&#x27;m not entitled to such extravagance of concept!&#x27;
+As the full effects of the acid took him, his rush went on, carrying him inward towards the Light. He began to know the qualities which underlie the qualities of substance. He saw the universe as glass, crystalline and discrete, gloriously multifoliate yet unrelenting in its angular quality. This perception was shadowed by personality, for also he was reading out his sense of his own self, a constant expression of sharp edges in argument, whose monotony made him sad as he realized &#x27;how much of the space of a lifetime has been used on the angularity, the hardness and verifiability of things.&#x27; He was still in touch with all the shattered metals of his childhood in Chicago -- indeed, his awareness was working on all these levels simultaneously, so that their metaphors reflected and penetrated each other, making something whole of all the planes of reality, as it is.
+Then he became aware of something new to him -- a dynamic within the crystalline, a soft and flowing quality -- and discovered that he was this too. &#x27;There&#x27;s all this space between molecules!&#x27; &#x27;Right!&#x27; I yelled. &#x27;And something in it!&#x27; &#x27;Right!!&#x27; &#x27;Something strung like embroidery, gathered in accumulations of meaning ...&#x27; He savored the polar qualities, invented his own names for them, repeated the names in incantation: &#x27;the angularity of crystal, the sinuousness of vapor;&#x27; and then realized, &#x27;There&#x27;s a sense in which all this is manufacturing itself, all in a harmony, a quality of tension between them.&#x27; And with this phrasing of the Tao-poles he went beyond, into the state from which all reappears. He was all, knew that he knew directly the total history of each least tendril of the energy that makes what is. Or so I surmised from my own experience, as he was silent for half an hour, leaving only the buoy of his last assertion to mark the depths he was exploring.
+&#x27;How hard it is to make this energy take shape,&#x27; said the god in him, rounding the bend to return. His nearer levels speculated amazed: these forms of self and world we know are almost arbitrary, what would happen if we let go of the belief or act of will that keeps them as they are, what shapes would it all assume beyond &#x27;the first purity that inhabits it all?&#x27; As reintegration proceeded, he felt himself becoming the Ten Thousand Things of the Taoist universe; and then as it went further felt the skeins of Harold&#x27;s personality recondensing in their complex tangles. So much was coming back to be the drab worn angular stuff it had been! He wept.
+It was time to intervene. Lifting his earphone, I told him that it was all his, and that he could choose to remake a different balance in the skeins. He worked at this, and after a time recognized more of the sinuous in what was recondensing, felt its play in what was still largely angular, still not fully warm, but somehow less dull and impoverished than it had been during all the wasteland years.
+And he was happy with it. &#x27;If I have to have substance, this is the form I want it to take, this boundary between the crystalline and the flowing.&#x27; He felt like something stuffed into a sausage or sock, full and bulging oddly. His bladder too was bulging by then, five hours after dropping. I tried to get him to pee, he couldn&#x27;t; but soon his reinhabitation of his body had progressed enough that I judged it time to reintroduce him to the world. I announced it cheerily, checked with him that he was ready, lit a candle, doused the light, and took off his headphones and eye-shade.
+Going up, he had seen himself as an old scrap of bone. As he blinked around the room, I handed him an old scrap of bone to focus on -- a fragment of deer antler, cracked to reveal the core of osseous fibers, delicately and intricately structured for use and from use. The commonplace, the trivial tawdry, revealing itself to him as beautiful-of-the-world, weighted and numinous in the qualities he had come to know. Grasping it clumsily, like a newborn bird he fixated on it for nurture. &#x27;He&#x27; was only partly there yet; toward the center, he was still subdividing the animate and inanimate, and down here at the end of the tendril of energy he saw the fragment both as branch and bone, and as his flesh.
+When he was well-bonded with his talisman, I put pants on his ass, a coat on his back, and levered his stumbling carcass out the door to the porch. Pushed to the distance, the clouds banked a narrow sunset, aglow in dark pastels. The wind was icy after heavy rain. We unzipped. I rested mine on the rail, he of the 26-inch inseam held his underneath it, and we peed off the porch together -- as we did at the toilet thirty years before, but now with the order reversed, his tinkle coming as mine was well along. Even so, I was two again, feeling that primordial pleasure, feeling what he was feeling anew, in yet another vivid flash of contact high.
+After this blessing of the earth, the flesh, our kinship, we watched the sunset for a while, at one with its mundane perfection, ever-changing; and exchanged platitudes about it, savoring the freshness of their meaning. Then I tried to take him out for a walk, to ground him more fully in the world, in his experience as an animal on this planet. But he was still just re-establishing control over his mechanism, and simply wasn&#x27;t enough back in his body yet to make it walk unaided on the ground. Night comes early in the winter mountains, so I lost the chance. But between bone and sun I figured he was well-oriented, and I steered him back up the stairs.
+For six hours more, till midnight, he came down from the peak experience, digesting it -- mostly in silence, self-absorbed. When I removed his mask I stopped being his memory, and soon withdrew from the rest of tending him, after I blessed him with a ripe persimmon and spread the rest of the simple table for him to glory in, discovering earth&#x27;s luscious fruits. Now simply his companion, I ate too, talked a little, but mostly left him to his own inner processes, going out to walk the dog for my excuse. I was a bit spacey and drained myself from the hours of attention, and when I came back I spent my time in the music and my body, beginning to integrate my own experience, as he was integrating his.
+His was not a detached, retrospective integration. As his body slowly metabolized the drug, he was still in tenuous contact with the primal melt within; and all the levels of its substantiation continued to work within his consciousness as it ever so slowly cooled down to what we call normal. For most of the evening he watched the fire, which I continued to stoke with the hot-burning manzanita chopped that morning. One limb in particular he saw as human, a child&#x27;s; felt as his own. Holding the antler talisman, in organic sympathy of wood and flesh he lay and watched the limb being consumed by the fire, lived its changes to ember, knew himself in this, felt his substance used by the process of life, the child becoming an old man. &#x27;It is,&#x27; he said, &#x27;and I&#x27;m surprised, I don&#x27;t regret it,&#x27; with perhaps a changed perspective on the worn, though death had never scared him.
+Infinite in gradations of grey, he saw the small fireplace&#x27;s angled walls as a temple, watched luminous colors dance within, absorbed its warmth, and at last began to cry. &#x27;For the first time I think I understand why Betty wanted a fireplace,&#x27; he said, and recalled all the years he had reacted to it as inessential and expensive, alien to his understandings and desires. This brought him to consciousness of the might-have-been-but-was-unable that grew to break their marriage; and then to the body of love for her that still is live within him. He struggled awhile with this, accepting its weights, not yet clear to a sorrow without regrets, and then moved on, integrating this too.
+The candles died, the last log flared on the high-banked embers, I drifted off snuggled beside him under the sleeping-bag, woke at three to find him soundly out, put on some more wood to cut the dawn chill, and fell asleep again. At sun-up I found him gone, out for a hike in a world crystalline with frost. When he returned, we tidied the cabin and packed, and got the car stuck in the old cattle-grate, had to tear home in record time to get me to a meeting. Once we hit the highway, I gave him my notebook, and for eighty miles we went over the experience page by page. Most of what I&#x27;d recorded, and all the deepest stuff, he had already forgotten or repressed.
+As he read it came back, not fully but enough to accept as his own. &#x27;A pretty metaphysical drug, huh?&#x27; I said, and helped him sort out the progression and relation of the different levels of his consciousness as the notes revealed these, confirming from my own experiences the reality, or at least the relative universality, of his. As is usual the day after tripping, he was somewhat punched out in his body, with a coupled depression of spirit. I offered him a frame to understand and deal with this; and we talked again about what it meant to his old rigidity, to recognize emotional states that couldn&#x27;t be commanded. By the time we hit Berkeley, I had told him what little I know about how to integrate all this in everyday consciousness, about what choices there are. I was only half an hour late to my meeting, and he went home to rest.
+Commentary  (1972,  revised)
+Dad had the kind of trip I&#x27;d hoped for him. Much contributed: good acid, good environment, good company and fair tending. But the deepest contribution was his own. Ever since I did morning-glory seeds in 1964, he&#x27;d been close to people going through psychedelic ritual. All along he had been going through slow and painful changes, to his depths, influenced by his children but in his own way. Venturing nothing rashly or quickly, he came to acid in his own time, prepared by some slowly-growing sense of inner certainty. I had no fear for him; he searched himself for fear, felt almost apologetic at not finding it, and I believed him, he was ready. What he will do with the experience, where he&#x27;ll go from it, I have no idea. While we were driving home he said, &#x27;I think I won&#x27;t want to take acid again.&#x27; I asked why. &#x27;I took it to learn something. I think I&#x27;ve learned it.&#x27;
+And what of me? Harold had deep feelings about my being the one escorting him in this initiation. He bespoke them now and then, I signaled that I understood, and we let it go at that. Not out of shyness, which isn&#x27;t our custom. Rather, the whole trip was like that, almost accepted as mundane, special but sandwiched in between our other schedules of special and busy things, nothing to make a fuss over. Still I have my feelings about it, however casual we were in making the arrangements. What a high honor, to help my father come to share experience and perspective so precious to me! We do not push each other but attend over time; and here many years of slow sharing came to a fruit. I was glad for him, and for myself in having him as fellow-traveler: all the way home it moved me to delighted laughter.
+The deeper things I can&#x27;t say compactly. How it is to be his son and then in turn his father in leading him through things I have grown through; and then again his son, as he models for me in his late and painful growing what it is to be his age and still alive -- all this at once, endlessly and joyfully reflexed into itself, who I am who he is. How fortunate I feel that it has worked out so, with our lives and beings thus intertwined, a closeness that has fed and not imprisoned, ongoing and so rare.
+Exp Year: 1972
+ExpID: 51368
+Gender: Male
+Age at time of experience: Not Given
+Published: Mar 9, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2) : Small Group (2-9) (17), Guides / Sitters (39), Families (41), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

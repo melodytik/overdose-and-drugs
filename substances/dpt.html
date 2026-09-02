@@ -1,0 +1,115 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>DPT</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>DPT</h1>
+<div class='sub-title'>DPT</div>
+<div class='meta'>药理类别：致幻剂</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span></span><span class='mv'>4 · 强</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span></span><span class='mv'>5 · 极强</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li>快速进入的强烈视觉与听觉改变、情绪放大、意识状态剧烈变化；</li></ul></div>
+</div>
+<div class='brief'><div class='sec risk'><span class='k'>【风险提示】</span> 本页 69 篇报告属 C 类（列管）。起效快、强度高，心理冲击大（惊恐、失控感）。生理上心率血压明显升高。与其他色胺类一样，与 MAOI/SSRI 同用有血清素综合征风险。</div>
+<div class='sec'><span class='k'>【作用特点】</span> 二丙基色胺（DPT），色胺类致幻剂，结构与 DMT 类似但作用时间更长。注射/鼻腔 5–15 分钟起效，持续 2–4 小时；口服需配合 MAOI。</div>
+<div class='sec'><span class='k'>【常见剂量与途径】</span> 报告剂量为 30 / 50 / 100 / 150 mg，途径以吸入与直肠为主（口服需 MAOI 增效）。</div>
+<div class='sec'><span class='k'>【他人报告中的体验（含负面）】</span> 快速进入的强烈视觉与听觉改变、情绪放大、意识状态剧烈变化；本页报告强调其强度与不可预测性。</div></div>
+<h2 class='block'>他人经历报告（182 篇）</h2>
+<div class='item'><h3><a href='../reports/92869.html'>德普特 - 埃罗维德 Exp - &quot;过程和无限的统一&quot;</a></h3><div class='meta'>Sep 21, 2011 · 剂量 150 mg</div><div class='ov'>我第一次和迄今为止唯一的经历是8个月前. 我最初有点受伤, 但我相信我已经学会了经历的意义, 我现在正在接受海洛因戒毒治疗, 在那里我被鼓励回顾我生活中发生的一些事情, 曾经有一天晚上, 我和我的朋友, 他做了很多露西和…</div></div>
+<div class='item'><h3><a href='../reports/79163.html'>德普特 - 埃罗维德 Exp - &quot;倒退第二秒&quot;</a></h3><div class='meta'>Jul 15, 2009 · 剂量 55 mg</div><div class='ov'>太阳比我想要的更低, 当55毫克的二三胺沉浸在我的皮肤下. 没有问题,因为时间很快就会发生两次. 我会在计划中的时间离开公园, 我在东部白松树林或其他类似的树林中使用了DPT五次, 它们的绿色金树群在蓝色的天空中摇, 有…</div></div>
+<div class='item'><h3><a href='../reports/30698.html'>DPT和大麻 - 埃罗伊德Exp - &quot;心理 (通过针头的眼睛) &quot;</a></h3><div class='meta'>Sep 20, 2005</div><div class='ov'>一个死亡的梦 花花码头 我把手紧紧握在我的手上. 我了自己的大脑 粉碎了我的耻辱 我的运行器官岩石. 快速酒的传说 我知道我已经在这里 在梦中封闭 在现场的内部 进行自己的内战. 微型商场 时钟在墙上运行 我的眼睛看不见…</div></div>
+<div class='item'><h3><a href='../reports/104735.html'>德普特 - 埃罗伊德探险 - &quot;一个令人心碎的经历&quot;</a></h3><div class='meta'>Dec 29, 2015 · 剂量 30 mg</div><div class='ov'>总的来说,我的DPT经历是深入的,</div></div>
+<div class='item'><h3><a href='../reports/100230.html'>DPT和胺 - 埃罗伊德Exp - &quot;事件信息奇点&quot;</a></h3><div class='meta'>May 21, 2013</div><div class='ov'>介绍: 这可能是我有史以来最奇怪,最奇怪的迷幻体验. 但在其他方面肯定是最恐怖的. 我开始晚上随意计划与凯他胺有一个相当普通的夜晚. 我非常熟悉解散体验的领域, 它们本身从来没有给我带来任何重大痛苦. 晚上纯粹的K&#x27;d部…</div></div>
+<div class='item'><h3><a href='../reports/8097.html'>现在,我已经知道了.</a></h3><div class='meta'>Feb 10, 2002 · 剂量 100 mg</div><div class='ov'>虽然你会学到很多关于自己的东西, 我还是不建议任何人重复我经历过的经历.</div></div>
+<div class='item'><h3><a href='../reports/3411.html'>- 艾洛伊德 - &quot;该死的强大的三胺&quot;</a></h3><div class='meta'>Oct 22, 2000 · 剂量 100 mg</div><div class='ov'>DPT (21):各种 (28),自然/户外 (23),艰难的经历 (5),回顾/总结 (11)</div></div>
+<div class='item'><h3><a href='../reports/80854.html'>通过地狱进行净化</a></h3><div class='meta'>Nov 14, 2009</div><div class='ov'>通过地狱进行净化; 一个共享的经验100mg灌气DPT. 通过一位朋友获得了这种罕见而神秘的物质, 它吸引了我的兴趣, 因为它是纽约真正的内心光教会的中心圣礼, 我给了一些朋友, 剩下200毫克. 我和妹妹决定分开这笔钱…</div></div>
+<div class='item'><h3><a href='../reports/47513.html'>DPT (IV) - 艾洛伊德的使用 - &quot;血管内恐怖&quot;</a></h3><div class='meta'>Nov 13, 2005 · 剂量 55 mg</div><div class='ov'>我试图不做任何愚蠢的事情, 但总的来说我认为自己很幸运.</div></div>
+<div class='item'><h3><a href='../reports/27242.html'>&quot;DPT是可怕的&quot;</a></h3><div class='meta'>Oct 1, 2003 · 剂量 50 mg</div><div class='ov'>所以今天我决定试试DPT. 我之前没有使用过DPT, 其他只有使用LSD,和2CB的精神药物. 我预计会有惊人的体验, 接下来是我立即的反思. 我在下午5点42分注入了50毫克. 我预计会有可怕的烧伤和滴液, 根据我对这…</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 182 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

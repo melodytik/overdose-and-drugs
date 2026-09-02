@@ -1,0 +1,292 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>25C-NBOMe - Erowid Exp - &quot;错误计算时间循环的破坏&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/25c-nbome.html'>← 25C-NBOMe</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>25C-NBOMe - Erowid Exp - &quot;错误计算时间循环的破坏&quot;</h1>
+<div class='sub-title'>25C-NBOMe - Erowid Exp - &#x27;Miscalculation Time Loop of Destruction &#x27;</div>
+<div class='meta'>作者：Psychedelaholic Citation · 日期：Jan 10, 2012 · 途径：鼻腔 · <a href='https://erowid.org/experiences/exp.php?ID=94108' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>在过去24小时内服用的药物:前一天晚上服用两杯酒,每天服用0.35mg普拉米醇治疗RLS
+之前的迷幻药物经验:
+: 2C-B,2C-C,2C-D,2C-E,2C-I,2C-P + 2C-T2,DOM,DOI,梅斯卡林,MDMA,MDA,MDE
+三:LSD,LSA,,DMT,5-MeO-AMT,AMT,DiPT,5-MeO-DiPT,4-HO-MET
+其他:龙,阿曼尼塔斯,萨尔维亚,阿亚华斯卡
+也非常有经验的许多阿片类药物,,分离剂,刺激剂,随机药物等.
+我在星期六早上为第二天做准备,
+我有5毫克的药物, 倒入另一个瓶子, 测量出4.5毫克,
+其他瓶子里几乎没有任何东西, 所以我们可以假定只有500ug.
+这显然是愚蠢的, 假设是所有搞的母亲, 但没关系.
+我在周日醒来, 放入我的鼻子, 半个在每个鼻孔中, 中午.
+我立即注意到轻微燃烧和强烈的味道,我没有预期从这样一个小量的材料.
+这让我立刻意识到,
+在不到一分钟的时间里,
+厨房开始旋转,一切变得非常多彩,
+这变得比我预期的要强烈得多.
+无论我做什么, 我都无法摆脱它.
+我试图安慰自己,试图平静下来, 但随着我的世界变得越来越混乱,
+身体上的高潮非常强烈,有点像高剂量的5-MeO-DiPT,
+这有2CT2的感觉, 但更强烈.
+十五分钟后, 我开始失去了主意.
+我倒在楼上, 站在浴室的镜子里.
+恐慌的形成和视觉增强.
+我走进我的女朋友还在睡觉的卧室告诉她发生了什么.
+我只能通过扭曲的面部表情和疯狂的手势表达我日益增长的恐惧.
+我意识到我真的不需要吓她, 因为我知道她会担心,
+不幸的是,我没有能力做到这一点.
+我地走到浴室的&quot;安全&quot;处.
+我不确定她是否担心.
+她问我感觉如何,我在看什么,但我无法回答.
+然后出现了第一个问题.
+我觉得自己在尿尿, 这对于一些吸毒者来说是很常见的.
+我站在那里感到羞愧和尬,
+我坐在浴边,试图弄清楚发生了什么.
+我突然想起她的姐姐要来接东西,
+我必须保持尊严和冷静.
+我试图表现得好像什么都没有发生,然后试图表现得很高尚和礼貌.
+这段旅程现在看起来很愚蠢, 但它就像我试图成为一个贵族的女人.
+试图成为所有高尚但同时认为我在无处不在尿.
+我被困在旅行的第一个思想/时间循环中.
+试图表现得很好,试图抓住实际发生的事情,试图让自己平静下来,
+我的头脑和思想一直在旋转.
+只是被我的女朋友打断, 告诉我来躺在床上.
+这时的视觉效果与服用500毫克LSD后几小时的效果相似.
+变形,能量线,彩虹的颜色, 疯狂的图案到处,
+感官幻觉和视觉幻觉一样强烈.
+我进入卧室,躺下.
+我不知道我会在接下来的3个小时内离开床.
+我躺在床上充满色彩, 仍在战斗着那永恒的恐惧和恐慌.
+我女朋友试图让我放心, 但此时我已经失去了自我意识,
+我又陷入了另一个循环, 试图弄清楚我是否处于危险之中.
+我试图弄清楚是否会变得更糟,是否会造成永久的伤害,是否会永远有这种感觉,
+我不停地想,我可能不小心把更多的东西倒在自己身上, 当我试图问我的女朋友时,
+这种情况持续了很长一段时间,
+卧室就像一个奢华的帐,
+旅行的这部分是可以处理的.
+我觉得好像我在一个节日,
+虽然这并没有持续很长时间.
+每次我女朋友笑, 我都无法弄清楚她是在嘲笑我,
+她的妹妹来了,她告诉我不要大声说话,因为她不想让她知道我被搞了.
+我开始觉得事情正在急剧下降.
+甚至可能危及生命.
+我以为我的女朋友正在安排救护车来接我,
+某些想法会让我得出这样的结论:我确实即将被带走,
+我感觉到我的思想在旋转, 努力阻止不断重复的循环.
+我认为我应该问我的女朋友如果我有任何危险, 但后来认为我不应该因为它可能会担心她.
+于是我决定自己去找出答案, 却意识到我并没有读过很多关于这个问题的文章,
+我试图评估呼吸和心率等情况.
+我开始想象自己在自己的骨头里感觉到,
+我会问我的女朋友我是否好,
+人们对我感到丧,觉得这很有趣或同情.
+它进一步扩展到循环中形成的额外部分, 最终人们会说些什么或让我想些什么,
+图片和文字总是带我到一个不可避免的序列.
+无论我怎么想, 我总是被卷入一个循环.
+我尝试了很多心理技巧,
+这就开始形成一个非常庞大而复杂的多层次序列,
+思考循环成为我试图弄清楚自己是否处于危险的关键, 试图达到我认为会告诉我的终点,
+人们现在可以看到我在思考这个过程,
+似乎人们鼓励我走得更远, 仿佛这是世界纪录的尝试,
+随着我继续工作,
+我现在认为对面的房子里的人不知何故都在看,
+随着我通过循环, 开始变得更加复杂,
+我听到人们在某个时刻大笑, 仿佛他们已经看着我做了几周,
+时间扭曲是疯狂的旅行感觉好像我已经经历了几年.
+我觉得自己正被一个大玩笑所吸引.
+一个是某种游戏,我不完全记得.
+另一个原因是人们故意说话,
+文字和图片循环不断地回归到同一个可怕的图像.
+这就像人们都在欺骗我.
+然后事情开始变得非常,非常恶心.
+循环似乎破坏了人们的生活, 这种想法与我在做某种可怕的事情交织在一起, 如此羞辱和恶心,
+我完全脱离了,走出了房间,我躺在地上被数百人扔垃圾.
+医护车,警察车和我父亲都在旋转.
+这种形象在很长一段时间内依然存在.
+虽然有些人仍然讨厌我, 其他人却支持我,
+我脑子里有很多不同的声音.
+我听到我的女朋友说她讨厌我,
+我不认为她甚至在房子里.
+我现在已经开始恢复了自我.
+图像或随机的东西一直飞过我,
+现在我必须忍受它.
+循环恢复了,但我现在可以观看和被它逗乐.
+她曾经打电话给我的一个朋友,
+我模糊地记得我下楼的时候,他就在那里.
+虽然我还在着子, 但我还是想向他解释我的旅行.
+我一直记得的循环开始对我有意义.
+这是一个巨大的循环, 持续了很多年, 贯穿了我的整个生活.
+人们对我说过的老话似乎变成了有意义的短语,
+我试图向我的朋友解释这次旅行.
+他说某些话, 我觉得我知道他会说他们为了让我说一些回应.
+我以为他说的是:&quot;我听说它是这么好,
+似乎我重复序列是众所周知的, 但他只听说过.
+图像在房间中滚动,墙壁消失,整个序列被转移到我自己和周围环境.
+事情开始好转.
+现在它变得非常有趣, 完全不令人害怕.
+接下来的几个小时,
+吸了一些胺,抽了一些大麻,然后出去散步.
+买了一些胺,喝了一些酒.
+我现在处于漂亮的颜色领域,
+我绝对疲不堪.
+奇怪的是,我在旅行中没有感到恶心或吐.
+我会说这是我做过的最强烈的迷幻药.
+虽然我预计它,我只是躺在床上,骑风暴它可能不会是如此的创伤.
+现在回想起来, 这是一次可怕的旅程,
+我可能不会再接受,
+现在我很高兴回想起那个疯狂的日子,
+我已经忘记了很多事情,
+但总结一下, 这是一个完全惊和惊的混合体.
+我从未有过如此强烈的自我损失, 并且从未完全脱离除了诸如胺或DXM之类的东西.
+我有时会担心自己是否呼吸足够多, 保持足够的水分,
+虽然我已经下来足够适当喝一杯水这是一个令人难以置信的感觉的缓解和感激.
+其他:
+25C-NBOMe (540):孤独 (16),过量服用 (29),实体/生物 (37),火车残骸和旅程灾难 (7),艰难经历 (5)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Miscalculation Time Loop of Destruction
+25C-NBOMe
+by
+Psychedelaholic
+Citation:   Psychedelaholic. &quot;Miscalculation Time Loop of Destruction: An Experience with 25C-NBOMe (exp94108)&quot;.
+Erowid.org
+. Jan 10, 2012. erowid.org/exp/94108
+DOSE:
+insufflated
+25C-NBOMe
+(liquid)
+BODY WEIGHT:
+73 kg
+ROA:Liquid Insufflation
+Setting: Home
+Drugs taken in past 24hours: A couple of ciders the night before and 0.35mg pramipexole taken daily for RLS
+Previous psychedelics experience:
+Phens: 2C-B, 2C-C, 2C-D, 2C-E, 2C-I, 2C-P + 2C-T2, DOM, DOI, Mescaline, MDMA, MDA, MDE
+Trypts: LSD, LSA, Shrooms, DMT, 5-MeO-AMT, AMT, DiPT, 5-MeO-DiPT, 4-HO-MET
+Others: Bromodragonfly, amanitas, salvia, ayahuasca
+Also very experienced with lots of opiates, benzos, dissociatives, stims, random pharms etc.
+I prepared a solution of what I thought was going to be 500ug of 25C-NBOMe or as I like to call it Boom on Saturday morning in preparation for the next day.  I had what was meant to be 5mg and upon pouring it into another vial measured it to be 4.5mg so figured I had 500ug left in the other vial.  Their was barely anything in the other vial so it seemed fair enough to presume there was only 500ug.  Obviously this was stupid as presumption is the mother of all fuck ups but never mind.
+I woke up on the Sunday and dropped the solution up my nose, half in each nostril, at midday.  I instantly noticed a slight burning and a strong taste which I was not expecting at all from such a small amount of material.  This instantly made me realise it must be much more.  It started to take hold in less than a minute.  The kitchen started to swirl around, everything became very colourful, but the intensity increased exponentially.  It became way, way more intense than I had expected very very quickly.  Panic started to take hold and no matter what I did I could not shake it off.  I tried to reassure myself and tried to calm down but as my world started to become more and more chaotic and as I started to completely lose myself I found this impossible to do.
+The body high was very strong, somewhat like high dose of 5-MeO-DiPT but not as unbearable.  It had a 2CT2 feel about it but much stronger.  Within 15 minutes I started to lose the plot.  I stumbled upstairs and stood looking into the mirror in the bathroom.  Panic building and visuals intensifying.  I went into the bedroom where my girlfriend was still asleep to tell her what was happening.  However I was unable to speak but could only convey my increasing dread by contorted facial expressions and manic hand gestures.  I then realised I really needed to not freak her out as I knew she would start to worry if she realised I was out of my depth.  Unfortunately it was not within my ability to do this.  I stumbled away to the &#x27;safety&#x27; of the bathroom.  I was unsure whether she was worried or not.  She asked how it felt and what I was seeing but I couldn&#x27;t answer.
+Then the first problematic situation arose.  I felt like I was pissing myself which is a fairly common thing for some people on psychedelics.  I stood there feeling ashamed and embarassed but not really sure whether I was or not.  I sat on the edge of the bath trying to figure out what the fuck was going on.  I suddenly remembered her sister was coming over to pick something up and for some reason thought she was already there.  I then got it into my head that I had to retain my dignity and composure.  I sat trying to act like nothing was going on, then trying to act all posh and polite.  This part of the trip seems so stupid now but it was like I was trying to be an aristocratic woman.  Trying to be all posh but at the same time thinking I was pissing everywhere.
+I got caught in the first thought/time loop of the trip.  Trying to act ok, trying to grip onto what was actually happening, trying to calm myself down and doing separate things for each of these.  Round and round my head and thoughts went.  Only to be interupted by my girlfriend telling me to come and lie down in the bed.  The visuals by this point were similar to a couple of hours into a 500ug LSD trip.  Morphing, energy lines, rainbows of colour, crazy patterns everywhere but coupled with a very strong body trip.  Sensory hallucinations were as strong as the visual ones.  I got into the bedroom and laid down.  Unbeknownst to me I would not be able to leave the bed for the next 3 hours.
+I laid down awash with colour and still fighting the ever present dread and panic.  My girlfriend tried to reassure me but by this point I was losing my sense of self, my ego, reality as I knew and loved was being ripped to pieces.  I got caught in another loop trying to work out whether I was in danger or not.  I was trying to work out if it was going to get worse, if I was doing permanent damage, if I was going to feel like this forever and the same time as trying to work out if I was inadvertantly giving myself more.  I kept thinking I might be accidentally pouring more all over myself, and as I tried to ask my girlfriend, my thoughts would go somewhere else, then somewhere else then loop back round to the same question.
+This went on for quite a while until the visuals ramped up.  The bedroom became like a lavish tent, decked out on cushions, drapes and silk.  This part of the trip was ok to deal with.  It felt as if I was at a festival and that everything was in fact as it should be.  This did not last very long though.  Every time my girlfriend laughed I could not work out whether she was laughing at me because I was acting funny, laughing at me because this was all some big joke/conspiracy against me or laughing to reassure me everything was going to be ok. Her sister then came round and she told me to not make any noise as she didn&#x27;t want her to know I was fucked up.  Unfortunately I began to think things were going drastically downhill for me.  Maybe even life threatening.  I thought my girlfriend was arranging an ambulance to come and get me and so started the next loop.
+I looked around the room trying to again work out what was really happening, certain thoughts would bring me to the conclusion I was indeed about to be taken away, but then others squashed these thoughts with others and no matter how hard I tried I couldn&#x27;t figure it out.  I could feel my thoughts circling and struggled to stop the ever repeating loop.  I thought I should just ask my girlfriend if I was in any danger, but then thought I shouldn&#x27;t as it might worry her.  So decided I needed to figure it out myself, but realised I really hadn&#x27;t read much about this, but came to the conclusion I was probably going to be ok.
+I tried to evaluate things like breathing and heart rate. I started to imagine feeling inside my own bones but then started to think I was accidentally pouring more of the drug over me.  Then I would get back to the beginning where I would ask my girlfriend if I was ok and so it repeated.  This then got more complex as external watchers seemed to form and people either got frustrated with me, found it funny or sympathized.  It branched out further to where extra parts of the loop formed in which it would end up with people saying things or making me think things that would set in motion some sort of punchline which visually was making me think of something horrible.  It was pictures in conjunction with words that somehow always brought me to a sequence that was inescapable.  No matter what I tried to think I would always get swept into the loop.  I tried loads of mental tricks to try to avoid ending up at the nasty end.  This then started to create a very large and complex multi-layered sequence which repeated over and over adding a single extra thought step in place.
+Now the thought loop became the key to trying to figure out whether I was in danger, trying to reach the end which I thought would tell me, but also fighting to stay away from the nasty imagery.  People could now see me thinking this process and it quickly became followed worldwide.  It was as if people were cheering me on to go further and further as if it was a world record attempt, but at the same time the whole thing was a joke against me but also something I tried to fight, as every time the sequence started things got worse and the bad parts of the trip started showing.  It was like peoples lives were being ruined as I continued.  I now thought people in the houses opposite were somehow watching which became a repeating theme.  As I went through my loop it began to get more complex adding in extra parts which I had to remember. As I went round I could hear people laughing as I reached certain points as if they had been watching for weeks as I had been doing this and could predict my next actions.  Time distortion was insane over the trip it felt like I had been through several years.
+At the same time as this there was another strand where I felt like there was a massive practical joke being played on me in several ways.  One was some sort of game which I can&#x27;t quite remember.  Another was that people were purposefully saying things so that my mind would go to disgusting images.  Word and picture loops kept coming back to the same horrible image.  It was like people were all tricking me.
+Then things started to get really, really nasty.  The thoughts in which the loop seemed to be wrecking peoples&#x27; lives were interlaced with the thoughts that somehow I was doing something so terrible, so humiliating and disgusting that the whole world thought I was a joke and that I didn&#x27;t deserve to live.  I was completely dissociated and out of the room, I was on the ground outside being pelted with rubbish by hundreds of people.  There were ambulances, police cars and my dad all whirling round.  This image remained for a long time.  However after a while it was as if people understood and whilst some still hated me others were rooting me on to make it through to the other side of this trip.  I had lots of different voices in my head.  At first I could hear my girlfriend saying she hated me and would never have sex with me again but then it started to change, saying if I made it through this and continued going she would love me even more.  By this point I don&#x27;t think she was even in the house.
+I was now starting to get myself back.  Images or really random stuff kept flying through me and transposing over everything but I was more in control.  It was as if I now just had to ride it out.  The loop came back but I could now watch and be amused by it.
+At some point she had called one of my friends to come look after me as she was off to work.  I vaguely remember coming downstairs and then he was there.  I then was sort of sober enough to try to explain my trip to him, although I was still tripping my nuts off.  The loop I had been remembering started to make sense to me.  It turned out to be a giant loop lasting years and years and years that had been running through my whole life.  Old things people had said to me seemed to become punchlines that now only made sense, certain images also seem to now become really significant.  The loop then played out as I was trying to explain the trip to my friend.  As he said certain things, I felt like I knew he was going to say them in order to make me say something back.  I thought he said something like: &#x27;I had heard it was this good but I had to see it for myself&#x27;.  As if me repeating the sequence was known by everyone but he had only heard about it.
+Images rolled across the room, walls disappeared, whole sequences were transposed over myself and my surroundings.  Things started to get much much better.  It was now incredibly fun and not scary at all.  I continued tripping at a much more civilised level for the next few hours.  Did some ketamine, smoked some weed then went for a walk.  Got some more ketamine and drank some cider.  I was now in the realm of pretty colours but nothing else.  I was absolutely exhausted.  Surprisingly I didn&#x27;t feel sick or puke once during the trip.
+I would say it is easily the strongest psychedelic I have done.  The come up was way too fast and the peak much too strong although had I been expecting it and had I simply laid in bed and rode the storm it probably wouldn&#x27;t have been so traumatic.  Having said that looking back it was one hell of a ride and hasn&#x27;t put me off psychedelics or trying new drugs one bit.  I will probably not take it again but only because I know it will never be as insane as this time.  Maybe I will one day but for now I am happy looking back at that crazy day and smiling to myself.
+I have forgotten a lot of it and there is a lot that is impossible to explain.  But to summarize, it was a mixture of being absolutely terrified and completely blown away.  I have never had such a strong degree of ego loss and have never fully dissociated except with things like ketamine or DXM.  There were also issues of worrying about whether I was breathing enough and keeping hydrated enough which I sometimes get although I was so far gone these seemed like very minor things.  Although when I had comedown enough to properly drink a glass of water it was an incredible feeling of relief and gratefulness.
+Exp Year: 2010
+ExpID: 94108
+Gender: Male
+Age at time of experience: 23
+Published: Jan 10, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+25C-NBOMe (540) : Alone (16), Overdose (29), Entities / Beings (37), Train Wrecks &amp; Trip Disasters (7), Difficult Experiences (5)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

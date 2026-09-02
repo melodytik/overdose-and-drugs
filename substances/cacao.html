@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>可可</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>可可</h1>
+<div class='sub-title'>Cacao</div>
+<div class='meta'>药理类别：综合 · 未指明</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 低</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属食品/保健品/草药范畴，日常使用相对常见，但仍需注意剂量与个体耐受差异。Erowid 上收录 18 篇体验报告（本页已译部分）。常见给药途径：口服。报告中出现的剂量：40 g、1.5 g、312 mg、10 g、3.5 g。报告类型分布：Cacao(18)。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（18 篇）</h2>
+<div class='item'><h3><a href='../reports/113913.html'>5-HTP,可可和内醇 - 艾洛伊德 - &quot;非常好&quot;</a></h3><div class='meta'>Dec 25, 2023 · 剂量 1.5 g</div><div class='ov'>总而言之,恶心和吐并不是什么乐趣,</div></div>
+<div class='item'><h3><a href='../reports/113428.html'>可可和大麻 - 埃罗伊德的兴奋 - &quot;不寻常的刺激&quot;</a></h3><div class='meta'>Sep 10, 2019</div><div class='ov'>美国 准备过程: 两司 (56.6克) 的原始茶可可被用砂和粉碎成细粉. 添加了一生和一黄. 据说可以帮助可可中的活性化学物质吸收. 这种粉末混合物被加入到7司的温水中, 为了使酒更令人愉快地喝, 以下是我在经历期间写的…</div></div>
+<div class='item'><h3><a href='../reports/109465.html'>可可 - 埃洛伊德探险 - &#x27;遇见可可精神&#x27;</a></h3><div class='meta'>Nov 14, 2016 · 剂量 40 g</div><div class='ov'>我认为这是一种强大的药物,值得我们尊重;事实上,我们应该更尊重它.</div></div>
+<div class='item'><h3><a href='../reports/110235.html'>巧克力 - 一种微妙的高潮</a></h3><div class='meta'>May 30, 2018 · 剂量 312 mg</div><div class='ov'>我在网上读过, 也尝试过几次, 如果我没有足够的时间做咖啡, 这种剂量的效果让我感觉充满活力, 对于目前的经历, 我不认为我正确地嗅出了这句话, - 我肯定能感觉到一些不同,它已经不到10分钟. - 好吧,已经过去了30…</div></div>
+<div class='item'><h3><a href='../reports/63123.html'>巧克力 - 爱洛伊德的药物 - &#x27;不影响注意力,却让我变得非常谦卑&#x27;</a></h3><div class='meta'>May 30, 2018</div><div class='ov'>美国 可可和温暖的牛奶! 首先, 我已经远离毒品了很长一段时间了! 我在过去的几年里只喝过正常量的酒精, 我在一个网站的首页上看到一棵可可植物, 我终于读了所有关于它的属性,因此. 巧克力很好吃,我不敢相信. 我决定去看…</div></div>
+<div class='item'><h3><a href='../reports/115127.html'>, 激情花, 可可和大麻 - 埃洛伊德 Exp - &quot;Psilohuasca: 确认&quot;</a></h3><div class='meta'>May 7, 2021</div><div class='ov'>美国 [本报告在2022年1月和2022年12月更新了后期附录,并在2022年6月更新了后期入门段] 这是安德森B! 这是我提交的确认. 我甚至使用了Psilocyben来获得视角, 并确认我确实不是没有被原谅 (被诅咒…</div></div>
+<div class='item'><h3><a href='../reports/75822.html'>可可 (25倍提取物) - 耳膜 - &quot;非常高到非常不适&quot;</a></h3><div class='meta'>Dec 31, 2017 · 剂量 10 g</div><div class='ov'>总之,我仍然喜欢黑巧克力,</div></div>
+<div class='item'><h3><a href='../reports/75223.html'>巧克力 - 爱洛伊德的能量 - &quot;像咖啡因一样的能量, 却不让人火&quot;</a></h3><div class='meta'>Jun 12, 2018</div><div class='ov'>我最近去了一个生食聚会, 买了一磅生可可粉. 如果我喝这款&quot;可可粉&quot;的果汁, 它会给我一整天的能量, 我一直很喜欢喝咖啡, 每天大概喝三四杯的咖啡. 那天晚上9点左右, 我用3茶匙生可可粉做了一个巧克力冰沙. 我在9点1…</div></div>
+<div class='item'><h3><a href='../reports/110037.html'>和可可 - 埃罗维德 探险 - &quot;压倒阿兹特克人&quot;</a></h3><div class='meta'>Jun 18, 2025 · 剂量 3.5 g</div><div class='ov'>我用40粒可可豆和7克强效的制了一种, 我在网上发现的食谱和女朋友分享. 巧克力显然是一种温和的毛伊, 所以它增强了的作用, 我们并没有准备好它会有多么激烈, 结果达到高峰, 大约3到4小时的自我死亡, 我们只是很高兴活…</div></div>
+<div class='item'><h3><a href='../reports/95935.html'>大麻和可可 - 埃罗伊德Exp - &#x27;有人在801010原始食物饮食尝试食用品&#x27;</a></h3><div class='meta'>Dec 1, 2022</div><div class='ov'>生活方式设计实验:生食饮食 - 第27天:大麻实验 我心里很痛, 肚子的结只会变得更糟. 这是什么垃圾! 我一直在炼,吃得足够,睡得足够,发生了什么? 我决定是时候清理我的生活, 带来一些天然的药物来帮助我处理困住的情绪…</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 18 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

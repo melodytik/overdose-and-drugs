@@ -1,0 +1,308 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>MEM和4-HO-MiPT - 埃洛伊德的探险 - &quot;两种方式&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mem.html'>← MEM</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>MEM和4-HO-MiPT - 埃洛伊德的探险 - &quot;两种方式&quot;</h1>
+<div class='sub-title'>MEM &amp; 4-HO-MiPT - Erowid Exp - &#x27;Two Ways&#x27;</div>
+<div class='meta'>作者：Xorkoth From Bluelight Collection Citatio · 日期：Oct 28, 2015 · <a href='https://erowid.org/experiences/exp.php?ID=107201' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我很幸运地收到了一种标志性的精神类安非他命MEM (2,5-二甲基-4-乙甲基安非他命) 的样品,
+它呈现为白色/白色/几乎有点粉红色的细粉末,很容易聚集在一起.
+我收到了50毫克, 查看后, 我意识到我只能得到一次机会.
+我决定一次性服用, 确保在我唯一一次尝试这种药物的机会时, 能感受到它的全部效果.
+我很确定它是谁, 并且PIHKAL列出了50毫克的最高剂量水平,
+我的心理状态非常好.
+我有3个假日,但由于工作量,
+周四早点下班, 周末还有四天的时间.
+我在生活中的一切都很顺利, 在精神上和情感上都很满意,
+我很快就要去朋友家了.
+我决定在完成最后一项工作之前参加MEM考试,
+9月15日下午3点34分 - 口服48毫克MEM (我无法从包装中的介质中恢复2毫克).
+我打算很快去朋友家, 玩音乐, 录音,
+我之所以加上这个名字是因为在PIHKAL中, 舒尔金一再表示他建议将MDMA与MEM一起服用, 以使其效果得到最佳利用.
+我认为这意味着它本身可能有点不足.
+我发现4-HO-MiPT也很令人高兴.
+另外我更感兴趣的是一种迷幻体验而不是一种同情感.
+但我们会看到它是如何,如果我不觉得添加任何东西,我不会.
+下午3点50分 - - 可能是微弱的警报?
+我感觉到一个微弱的,光滑的能量在我的身体.
+毫无疑问,我感觉很好.
+我觉得我的肠道有点动,
+下午3点55分 - - 警报是可以的.
+这可能会是一次旅行,我明白这种感觉.
+这是一种很好的感觉,
+一些轻微的兴奋和刺激的能量.
+准备离开.
+下午4点14分 - 抵达我今晚的预定地点.
+我现在已经很强大了.
+在视野的角落里有视觉活动的痕迹,
+这种感觉很好,但强烈,所以我感到有点紧张.
+尽管如此,
+像我尝试过的其他迷幻安非他林一样, 我觉得自己非常有能力,
+到目前为止, 感觉很像 DOC.
+现在是我和朋友一起出去的时候, 剩下的都是回顾.
+我第一次见到我的朋友时, 他很好奇我做了什么.
+我告诉他 (他已经知道我会得到一个MEM样本) 并描述了发生了什么.
+这就是我最喜欢的朋友.
+我发现自己有一点迷幻的自我意识.
+很难决定该说什么.
+我不清楚为什么, 因为感觉不太像迷幻.
+我很想起DOC的出现, 感觉有些激烈, 我有点失衡,
+我感觉很好, 边缘有点动作, 但心态更像是刺激或共, 而不是迷幻.
+尽管如此,这种感觉在某种意义上却是很明显的迷幻,
+随着时间的推移, 我在这种状态中变得越来越舒服, 直到我到达后大约一个半小时,
+另一个朋友加入了我们, 我们开始做我们常做的事,
+尬的情形逐渐消失, 让我陷入一种稳定状态,
+颜色得到了增强,但没有其他视觉活动 (边缘周围的运动在上升后完全消失).
+我发现我的思维过程是自由流动的, 我在概念上在事物之间建立了一些额外的联系,
+这完全没有触及精神层面,
+我感觉到一些同情感, 但实际上我心情很好.
+虽然我的心情受到MEM的积极影响,
+这绝对是某种兴奋剂...
+我有很多的体力, 我发现自己经常跳跃, 但我也自然地这样做; 当我感到兴奋或积极的社会刺激时,
+我也很舒服地坐在那里,
+这既让人放松又刺激...
+我没有感觉到过度刺激, 没有汗的手掌或脚,
+我没有带来心脏监测器, 但我怀疑心率/血压有轻微增加.
+由于这种作用和伪效应, 我甚至不确定如何将其归类为药物.
+这是迷幻?
+一点点.
+是否有同理心?
+一点点.
+这是一种兴奋剂吗?
+是的,但不是像安非他命或任何东西.
+为了比较,AMT对我来说是一个更强烈的共和迷幻药.
+在某些重要的方面, DOC 感觉让我想起MEM, 完全是迷幻的,
+我觉得MEM是一种通用的药物,
+但一旦它完成了, 稳定的状态就会保持不变几个小时.
+它似乎从来没有达到顶峰,它上升,然后停留在那里相当长的时间.
+在夜晚的过程中, 它缓慢而舒适地消失在强度, 直到它消失了 (我睡觉前不久).
+接下来的几个小时我都享受着朋友们的陪伴,
+我和朋友一起进去演奏 (我在键盘上,他在低音上).
+我知道这将是一场富有创造性和满意的音乐会,
+我们主要演奏F#小调,
+我感觉自己很有表现力, 我的手指很容易做我想要的.
+我有一些强烈的时刻只是流动和惊的结果.
+后来我的朋友对我说了好话.
+我们没有录制, 但我们希望我们有, 这是我经验中的一个好的的标志.
+我会说音乐增强是我发现MEM本身最明显的差异.
+我发现,就像DOC一样,酒精与MEM混合得非常好,但DOC我喜欢等到高峰结束,达到平原阶段,
+酒精增加了我感受到的高兴和欢乐,
+我没有喝醉,我在5个小时内喝了大约2.5杯酒.
+我也抽了两次大麻, 就像DOC高原一样,
+这与DOC的运作方式不同, 因为在DOC的第一阶段, 如果我吸烟,
+享受朋友的陪伴,社交和做我喜欢做的事情, 然后在晚上9点左右 (T+5:30), 我决定要添加4-HO-MiPT.
+我朋友决定要和我一起做, 所以我给他25毫克,我给自己27毫克,
+我仍然感觉到MEM一样自从我来完成,但实际上它是相当温和的整个时间,所以我觉得没有恐惧添加什么是我坚实的,但不是高,剂量4-HO-MiPT混合.
+我们都开始上来了.
+我们旅行的时间表和风格基本相同.
+事实上,它与4-HO-MiPT本身并没有太大的不同,
+我感觉到一种充满热情的感觉, 增加了MEM已经产生的轻微的热情.
+我觉得有点不舒服, 不是以负面的方式,
+这次没有任何事情, 我觉得专注和明确,
+视觉效果开始出现, 虽然与4-HO-MiPT本身没有什么不同.
+我从来没有专注于视觉与这个三胺.
+随着旅程的开始, 我们开始聊天,
+我和我的朋友经常谈论语法语言幽默,
+很快,我笑得脸上都疼了.
+我在其他时候也曾经经历过这种情况,
+似乎MEM以这种方式协同工作,使4-HO-MiPT的这一方面比平时更强大.
+我发现它的高兴效应来自于同情的增强和幽默的场所;
+在添加任何其他东西之前, 我也在MEM上得到了一些类似的东西, 但 4-HO-MiPT使得它在这个方面变得非常强大.
+晚上就像这样, 几乎是不断的笑声, 聪明的对话, 和友溢出从我们的杯子.
+另一位住在那里的朋友从约会回家, 开始告诉我们,
+我和我的朋友正在分析他的行为和他们互动的故事 (当时我觉得这个女孩可能不太适合约会,
+有时他会以刻板印象来表现, 很奇怪,
+参与其中时对正在发生的事情进行分析真是太有趣了,
+对于我来说, 添加4-HO-MiPT后的整个晚上是惊人的.
+这不是我最喜欢的4-HO-MiPT旅行, 但它可能是我第二个最喜欢的.
+随着夜晚开始接近尾声, 旅行慢慢消退,
+我开始喝一些酒,
+像之前只有MEM,它混合得很好.
+我还发现酒精与4-HO-MiPT混合得很好,
+我喝了4或5杯酒, 也许2个小时,
+我发现自己变得有点粗心, 不是说我不好,
+旅程的效果也差不多消退了除了后光.
+黎明的第一个红色彩色的天空,我们上床睡觉.
+我很快就入睡了,睡了大约5个小时.
+酒精让我的头有点模糊,
+我在周六的剩余时间和同一个朋友一起徒步游河, 在一个我们平衡的地方, 跳跃和爬山河穿过巨石和木头,
+像往常一样令人惊叹,
+笑声让我的脸和腹部有点痛,
+总之,对于我来说,MEM是一种难以分类的药物.
+诚实地说,它有点通用, 但还是很不错.
+没有任何负面的东西.
+如果有人提供给我,我会再次接受.
+我甚至会尝试更高的剂量.
+但如果我再也没有机会 (我可能不会再有机会)
+它似乎含有迷幻,共情和刺激的元素, 但它没有做任何以及其他很多事情.
+总的来说我觉得它有点缺少, 直到我添加了4-HO-MiPT,
+然而,我主要是有4-HO-MiPT的旅行, MEM似乎没有很多颜色.
+我主要是4HO-MiPT旅行, MEM似乎没有很多颜色.
+我认为它填补了一些空白, 让旅程更深入地朝着正面/高兴的方向发展 (尽管我已经发现它本身是非常高兴的).
+我不一定觉得有特定的协同作用.
+但似乎MEM可能会成为其他迷幻药的发射平台,
+如果我能再得到一些,我想我会用这种方式.
+这就是我的经验和随后的反思,
+我很高兴我可以尝试它, 特别是考虑到它的意义作为一个里程碑在舒尔金的研究.
+现在我已经能够向世界报告. 现在我已经向世界报告了.
+我喜欢它, 但从主观效果来看,
+MEM (716),4-HO-MiPT (342):小组 (2-9) (17),组合 (3),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Two Ways
+MEM &amp; 4-HO-MiPT
+by
+Xorkoth
+From
+Bluelight Collection
+Citation:   Xorkoth. &quot;Two Ways: An Experience with MEM &amp; 4-HO-MiPT (exp107201)&quot;.
+Erowid.org
+. Oct 28, 2015. erowid.org/exp/107201
+DOSE:
+T+ 0:00
+48 mg
+oral
+MEM
+(powder / crystals)
+T+ 5:30
+27 mg
+oral
+4-HO-MiPT
+(powder / crystals)
+T+ 0:00
+repeated
+Alcohol - Beer/Wine
+BODY WEIGHT:
+160 lb
+Recently I was blessed to receive a sample of the benchmark psychedelic amphetamine MEM (2,5-dimethoxy-4-ethoxyamphetamine), which is #122 in PIHKAL.  It appears as a white/off-white/almost a bit pinkish, fine powder that clumps together very easily.  I received 50mg, and upon looking it up, I realized that I was only going to get one shot at this.  So although I would have liked to take it at varying dosages starting low, I made the decision to take it all at once so I could be sure to feel the full effects on my likely one single chance to try this compound.  I was sure of its identity and PIHKAL lists the upper dosage level right at 50mg, so I felt good about doing it all at once.
+My mental set is fantastic.  I had an intense work week where I had 3 vacation days scheduled but due to workload I had to work 2 of those days.  It&#x27;s finally all behind me and I have gotten off a bit early, on Thursday, and I have 4 day weekend beckoning.  Things in my life are going great, I&#x27;m very fulfilled mentally and emotionally and I spend almost 100% of my free time pursuing music with my best friends in town, and nothing could make me feel better and more fulfilled.  The setting is at my house, but I am about to head to my friends&#x27; house shortly.  I decided to take the MEM just before getting done with my final work task, and once done I will head over.
+3:34pm on 9/11/15 - Ingested 48mg of MEM orally (I was unable to recover 2mg from the medium it was wrapped in).  My plan is to head to my friends&#x27; house soon and hang out, do music stuff (playing and recording), and probably take 4-HO-MiPT quite a bit later.  My reason for the addition is because in PIHKAL, Shulgin repeatedly comments that he recommends taking MDMA with MEM in order to make the best use of its effects.  I took this to mean that by itself it may be a bit lacking.  Having no MDMA on hand, I thought about what I do have and I realized that 4-HO-MiPT is quite euphoric as well.  Plus I am more interested in a psychedelic experience than an empathogenic one.  But we&#x27;ll see how it&#x27;s going, if I don&#x27;t feel like adding anything, I won&#x27;t.
+3:50pm - Maybe faint alerts?  I feel a faint, smooth energy in my body.  I feel good without a doubt.  I&#x27;m getting a little movement in my bowels that I associate with stimulant come-ups.
+3:55pm - Alerts for sure.  This is probably going to be a ride, I get that sense.  It&#x27;s a very nice feeling though, entirely pleasant.  Small euphoric rushes and a definite stimulant energy.  About to depart.
+4:14pm - Arrived at my planned location for the night.  I&#x27;m coming up pretty strong now.  Hints of visual activity at the corners of my vision, nicely enhanced colors.  The feeling is good, but intense, so I feel slightly edgy.  Easily manageable however.  Like other psychedelic amphetamines I have tried, I feel extremely capable, coordinated and &#x27;with it&#x27;.  So far the come-up feels a lot like DOC.  I&#x27;m going to stop taking notes now as it&#x27;s time to hang out with my friend, the rest will be retrospective.
+When I first saw my friend, who I had told I was going to be performing an &#x27;experiment&#x27;, he was curious about what I had done.  So I told him (he already knew I was going to be getting a sample of MEM) and described what was happening.  This is my friend who I trip with more than anyone else.  I found I had a bit of that psychedelic self-consciousness.  For the first 10 minutes I felt a little awkward and was having trouble determining what to say.  I couldn&#x27;t quite figure out why though, because it didn&#x27;t feel precisely psychedelic.  I was reminded strongly of the DOC come-up, where things feel intense and I feel a bit off-balance, but with DOC this is accompanied by psychedelia and it&#x27;s logical that I would feel this way.  With MEM, I felt good, and there were hints of movement around the edges, but the state of mind was closer to a stimulant or empathogen than to a psychedelic.  Yet the come-up felt distinctly psychedelic in some way that is hard to put my finger on.
+As time went on, I became more comfortable in this state, until about an hour and a half after arriving, I took stock of myself and found that I felt, well, pretty great.  Another friend joined us, and we proceeded to do what we do, which is to laugh a lot and have hilarious, insightful, thought-provoking conversation and wordplay.  The awkwardness faded and I was left with a stable state that I found to be a bit perplexing to try to describe.  Colors were enhanced, but there was no other visual activity (the movement around the edges faded entirely after the come-up).  I found that my thought process was flowing freely and I was making some additional connections conceptually between things, which is a psychedelic quality, yet there was nothing very deep about it.  It didn&#x27;t touch the spiritual level at all, it was more observational in nature.  I felt hints of empathogenesis, but really I was just in a very good mood.  Certainly my mood was affected positively by the MEM, but I would have been in a great mood anyway.
+It was definitely some kind of stimulant as well... I had a lot of physical energy and I found myself bouncing around a lot, but I also do that naturally; when I get excited or positively socially stimulated, it gives me energy and euphoria.  But I was also perfectly comfortable just sitting there unmoving.  It was relaxing at the same time as stimulating... I felt no amount of overstimulation, no sweaty palms or feet, no anxiety.  I didn&#x27;t bring my heart monitor but I suspect my heart rate/blood pressure were increased mildly.  Because of this range of effects and pseudo-effects, I&#x27;m not even 100% sure how to classify this as a drug.  Is it psychedelic?  A little.  Is it empathogenic?  A little.  Is it a stimulant?  Yes, but not like amphetamine or anything.  For comparison, AMT is a much stronger empathogen and psychedelic for me.  DOC, which the feeling of MEM reminds me of in some significant ways, is fully psychedelic and more stimulating, and even more empathogenic oftentimes.  MEM struck me as a rather generic but fully enjoyable drug.  The come-up felt intense and even had some rushes to it, but once it finished coming up, the stable state it resulted in remained unchanging for hours.  It didn&#x27;t seem to ever reach a peak, it came up and then stayed right there for quite some time.  Over the course of the night it slowly and comfortably faded in intensity until it was gone (shortly before I went to bed).
+I spent the next few hours enjoying the companionship of my friends and laughing a lot.  At some point, my friend and I went inside to jam together (me on keys and him on bass).  As soon as we started, I knew it was going to be a highly creative and satisfying jam, and indeed it was.  We played in F# minor primarily, with some modulations we seemed to just both know to do.  I felt intensely expressive and my fingers were easily able to do what I wanted them to do.  I had some strong moments of just flowing and being surprised by what came out.  Afterwards my friend complimented me on the jam.  We didn&#x27;t record it but we wished we had, which is the mark of a good jam in my experience.  I would say that the music enhancement was the most noticeable difference in myself over baseline that I found with MEM on its own.
+Also, throughout the trip, I was slowly drinking beer, and I found that, like with DOC, alcohol mixes exceedingly well with MEM, except that with DOC I like to wait til the peak is over and the plateau stage hits, whereas with MEM, it was like the plateau stage hit right after the come-up.  The alcohol added to the euphoria and joviality I felt substantially without seeming to detract anything.  I didn&#x27;t get drunk, I had about 2.5 beers over the course of 5 hours.  I also smoked weed twice, and, like with the DOC plateau, I got high but it didn&#x27;t seem to synergize at all.  This departs from the way DOC works because during the first stages of DOC, if I smoke, it kicks the trip in much stronger, but with MEM this did not happen.
+Time passed like this, with me having a really great time, enjoying the company of friends and socializing and doing the things I like to do, and then at around 9pm (~T+5:30) I decided I wanted to add that 4-HO-MiPT.  My friend decided he wanted to do it with me, so I weighed him out 25mg and myself 27mg, and we took it orally with some water to wash it down.  I still felt the MEM the same as I had since the come-up completed, but really it was quite mild the whole time, so I felt no fear at adding what is for me a solid, but not high, dose of 4-HO-MiPT to the mix.
+Within 20 minutes we both started to come up.  Our whole timeline and style of our trips was basically the same.  In truth, it didn&#x27;t feel a lot different than 4-HO-MiPT by itself, but it was as if the MEM allowed the positive aspects of it to come through in a much more focused way.  From the very beginning of the tryptamine&#x27;s effects on me, I felt a rising, bubbling euphoria, adding to the mild euphoria already produced by the MEM.  Usually with most any 4-substituted tryptamine, I feel a bit out of sorts during the come-up, not in a negative way but just like, I don&#x27;t know what to make of anything, or what to say, or what to do.  This time, there was none of that, I felt focused and articulate even during the come-up.  Visuals began to appear, nothing really any different from 4-HO-MiPT by itself though.  I&#x27;m never focused on visuals with this tryptamine anyway.
+As the trip settled into us and we settled into it, we began to just talk and talk.  A lot of syntactical language humor was discussed, which is something me and my friend often get into because we both think it&#x27;s great.  Before long my face hurt from laughing so much.  I have had this happen other times on just 4-HO-MiPT, but it&#x27;s not always how the trip goes and it was very pronounced during this one.  It seems likely that the MEM synergized in this way to make this aspect of 4-HO-MiPT stronger than usual.  I find that its euphoric effects come from both an empathogenic enhancement and from a place of humor; everything just seems so funny on it, and that makes me feel great, as does laughter itself.  I was getting some of this sort of thing on MEM as well, before adding anything else, but the 4-HO-MiPT made it tremendously stronger in this regard.
+The night went on like this, with near-constant laughter, intelligent conversation, and camaraderie overflowing from our cups.  At one point, our other friend who lives there came home from a date and started telling us about it, and it sounded so strange.  My tripping friend and I were analyzing his behaviors and the stories about their interactions (which at the time sounded me to like maybe this girl wasn&#x27;t so good to date, though since then I have met her a few times and she seems pretty cool), and replying to him in ways we thought would give hints about what we were realizing about the situation.  Sometimes he was acting so much out of stereotypes and it was weird yet amusing to witness.  It was really fun to meta-analyze what was happening while participating in it as well, and that&#x27;s the kind of thing that happened throughout the night as we were hanging out.  Personally I get a lot of satisfaction and pleasure from stuff like that, so for me, the whole night after adding the 4-HO-MiPT was amazing.  It wasn&#x27;t my favorite 4-HO-MiPT trip but it was probably my second favorite.
+As the night started to wind to a close and the trip slowly died down, my face and head were hurting from laughter.  I started to drink some beer to help me get tired and have a little more fun.  Like before with just MEM, it mixed very well.  I also find that alcohol mixes well with 4-HO-MiPT so this didn&#x27;t surprise me.  I drank maybe 4 or 5 more beers over probably 2 hours, longer than we had intended on staying up, but why interrupt something great?  I got moderately drunk, and I noticed that I was getting a bit sloppy, not in a negative way but I was stumbling over words periodically and my thought process and speech patterns were getting a lot less clear.  I didn&#x27;t mind though as I was also starting to get tired and the trip had more or less worn off other than the post-glow.  As the first blush of dawn colored the sky, we went to bed.  I fell asleep quite quickly and slept for about 5 hours.  Upon rising, I felt a little foggy-headed from the alcohol but otherwise good, and still in a great mood.  I spent the rest of my Saturday doing a river hike with the same friend I tripped with, in a place where we basically balance, jump and climb up a mountain river across boulders and logs, including climbing up a large waterfall.  It was amazing as usual, and my fog cleared as soon as we got there.  My face and even my abs a little were sore from all the laughter, but I felt wonderful the whole day.
+In summary, MEM is a difficult drug to classify for me.  Honestly it was a bit generic, but quite nice still.  There was nothing negative about it.  If someone offered it to me, I&#x27;d take it again.  I&#x27;d even try it at a higher dose.  But I&#x27;d be fine with it if I never got the chance again (which I probably won&#x27;t).  It seemed to contain elements of a psychedelic, empathogen and stimulant, but it didn&#x27;t do any of them as well as plenty of other things.  Overall I found it to be a bit lacking, until I added the 4-HO-MiPT, at which point it really took off.  However, I was having a 4-HO-MiPT trip primarily, the MEM didn&#x27;t seem to color it a lot.
+I was having a 4-HO-MiPT trip primarily, the MEM didn&#x27;t seem to color it a lot.
+I think what it did was it filled in some gaps and focused the trip even more profoundly in the positive/euphoric direction (though I already find it to be profoundly euphoric on its own).  I didn&#x27;t necessarily feel there was a specific synergy happening.  But it seems like MEM might make a good &#x27;launching pad&#x27; for other psychedelics, as a way to help focus something else more positively.  If I were to get some again, I&#x27;d use it that way I think.
+So that&#x27;s my experience and subsequent reflections on something very rare.  I&#x27;m glad I got to try it, especially given its significance as a landmark in Shulgin&#x27;s research.  For a number of hours I had a little piece of psychedelic history modulating my brain, and now I&#x27;ve been able to report on that to the world.  I enjoyed it, but in terms of subjective effects, I didn&#x27;t find it worth using over a variety of other substances that do it better.
+Exp Year: 2015
+ExpID: 107201
+Gender: Male
+Age at time of experience: 32
+Published: Oct 28, 2015
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MEM (716), 4-HO-MiPT (342) : Small Group (2-9) (17), Combinations (3), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

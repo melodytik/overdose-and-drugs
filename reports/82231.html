@@ -1,0 +1,197 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>这种东西很强大.</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-oxymorphone.html'>← Oxymorphone（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>这种东西很强大.</h1>
+<div class='sub-title'>Oxymorphone - Erowid Exp - &#x27;Nobody&#x27;s Lying... This Stuff Is STRONG&#x27;</div>
+<div class='meta'>作者：SpickNSpack Citation · 日期：Feb 8, 2018 · 剂量：15 mg · <a href='https://erowid.org/experiences/exp.php?ID=82231' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>去年我在一个非常敏感的地方做了手术.
+经过这次手术后, 我与疼痛扎了相当长的时间,
+最终我找到了一个治疗疼痛的专家, 因为外科医生给我开的药物没有太大帮助 (主要是珀科塞特,
+医生给我服用了吗啡,然后是芬太尼,然后是氧康丁.
+尽管我喜欢吸毒, 我还是按照指令服用这些药物.
+我的身体有这种奇怪的能力吸收阿片类药物非常快,
+医生说他很担心我在过去6周内服用了多少 (包括外科医生给我的氧化).
+他建议我转换为Opana, 氧化,
+我说可以,只要有效果.
+按照指令使用Opana.
+这让我非常生病.
+第二天又去看医生, 要求重新服用催化剂.
+获得批准.
+他给了我一个多不到一周的氧.
+现在我很好奇
+我听说人们对此有什么看法:香和阿片类药物一样好,甚至比海洛因更好.
+我知道唯一好的方法就是吸它.
+我所有的药都是30毫克的Opana延长释放剂.
+那天早上我没有服用催化剂, 因为老实说, 尽管我服用了止痛药多久, 并且我自然耐受性和耐受性都很高,
+我有点紧张告诉你真相.
+我知道它会结, 但我小心把30毫克的片子放进嘴里,
+(比获得氧康的涂层要困难得多... 就好像他们想让你吸入那种狗一样.
+我把药片切成两半, 成两块15毫克, 然后用一美元票和打火机粉碎一块.
+我知道如果需要,我总能做得更多.
+最好是安全的后悔.
+我卷起了这张纸币,嗅了起来,很轻松地爬上去,我几乎感觉不到.
+我不得不说我没有感觉到一些用户报告的冲动,
+我躺在床上等待它开始起作用.
+这真是让人感动.
+我知道如果我只服用一点点,但更多,我会像一样高... 我对15毫克可以做什么感到震惊
+如果我对片无知,
+对于我来说,剂量是完美的.
+我没有感到失控.
+这与我之前的任何阿片类药物都不同.
+我脸上有点麻木了. 的感觉很强烈,
+我喜欢的是它没有让我感觉像OC和其他人一样惰.
+这让我慢了一点,但我觉得头脑清晰.
+没有警觉,但没有雾.
+我没有打算在高潮期间做任何事情,
+我非常享受它对我的腿的感觉.
+我开始感觉到全身高潮, 非常愉快,
+这几乎让我的身体&quot;游泳&quot;, 而不是让我的脑海游泳.
+我当时决定不再服用,
+我听说你对氧化的耐受性会很快升高,所以我故意让4天或更长时间间隔,
+我做过的最高剂量是25毫克 (估计),
+总的来说,这是一个非常愉快的经历.
+适度是关键... 但我非常高兴尝试了它.
+至少对我来说, 另一件很好的事情是它没有毁掉我的OC.
+这两种高潮是非常不同的.
+几乎就像非同卵双胞胎.
+你知道它们来自同一批, 但每一个都有自己的特点.
+其他:
+药品 - 氧化摩 (221):不适用 (38),医疗用途 (47),回顾 / 摘要 (11),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Nobody&#x27;s Lying... This Stuff Is STRONG
+Oxymorphone
+by
+SpickNSpack
+Citation:   SpickNSpack. &quot;Nobody&#x27;s Lying... This Stuff Is STRONG: An Experience with Oxymorphone (exp82231)&quot;.
+Erowid.org
+. Feb 8, 2018. erowid.org/exp/82231
+DOSE:
+15 mg
+insufflated
+Pharms - Oxymorphone
+(ground / crushed)
+BODY WEIGHT:
+232 lb
+Last year I had surgery on a very tender spot. I struggled an unusual amount of time afterward with the pain, much longer than normal postoperative care. Eventually I ended up seeing a pain management specialist because the medications the surgeon was prescribing weren&#x27;t helping much (mostly percocet, but after I had been taking them for so long the tylenol started to make me feel sick so we switched to plain oxycodone IR 15mg 4-6x a day, not a combination pill.)
+First the pain management doctor had me on morphine, then fentanyl, and oxycontin. Allow me to note that despite my penchant for drug use, I had been taking all of these as directed. I had plenty of experiences with opiates before (prescription opiates, I had never done smack or anything like that) and honestly didn&#x27;t really have the urge to abuse them because I was in so much pain that I dreaded being without. My body has this weird ability to absorb opiates very quickly when I take them for legitimate pain. Pretty quickly I was up to 40mg of oxycontin every 12 hours and doc said he was worried how much I had been on the past 6 weeks or so (including the oxycodone from the surgeon). He recommended switching me to Opana, oxymorphone, which has a roughly 2:1 ratio to oxycodone. I said fine, whatever works. Took the Opana as directed. Made me VERY sick. Went back to doc next day and requested to go back on Oxycontin. Approved.
+He had given me little more than a week&#x27;s worth of oxymorphone. Now I was curious. I had heard what people said about it: the champagne of opiates, as good or better than heroin etc. I knew that the only good way to do it was to snort it. All of my pills were 30mg Opana Extended Release.
+I skipped my oxycontin that morning because honestly, despite how long I had been on the painkillers before that and how high both my natural tolerance and built up tolerance was, I wanted my system to be at least a tiny bit cleared before I tried the oxymorphone. I was a little nervous to tell you the truth. I knew it would gel when exposed to liquid, but I carefully stuck one of the 30mg tabs in my mouth and tried not to soak it too badly, then took it out and scraped off as much of the time release coating as I could. (Much harder than getting the coating of oxycontin... it&#x27;s like they want you to snort that shit.)
+I cut the pill in half to have two 15 mg chunks, then crushed one with a dollar bill and a lighter. It looked like such a tiny line once all was said and done, but I knew I could always do more if I needed. Better safe than sorry. I rolled up the bill and sniffed it up... went up very easy; I could hardly feel it. I have to say I didn&#x27;t feel quite the rush some users report but I did get some. I got in bed and waited for it to kick in.
+Man, did it kick in. It wasn&#x27;t that intense at first, probably because of my tolerance, and it never got ALL that strong... but I knew if I had taken just a little but more I would have been high as a kite... and I was shocked at what 15mg could do for a long time (clinical) user. If I had been opiate naive I might have died.
+For me, the dose was perfect. I didn&#x27;t feel out of control. It was unlike any other opiate high I had ever had. It had all the great qualities of any opiate: incredible warmth, tingly all over (actually, the itching wasn&#x27;t that bad in my case) and my face was a little numb. What I loved about it is it didn&#x27;t make me feel as sluggish as OC and the others do sometimes. It slowed me down some but I felt clear headed. Not alert, but not foggy. I hadn&#x27;t planned on doing anything during my high and stuck to it. I had turned my two sided comforter fuzzy-soft-fleece side up and was immensely enjoying the feel of it against my legs. I started to get a full body high, very pleasant and very noticeable but not out-of-control. It was almost like instead of making my head swim, it made my body &#x27;swim&#x27; instead.
+I decided not to do anymore just then, but I&#x27;ve done some since in varying doses. I&#x27;ve heard your tolerance for oxymorphone can raise VERY quickly so I intentionally leave 4 or more days in between doing it and try not to do too much at once. The highest I&#x27;ve done was about 25mg (estimate) and I was GONE.
+All in all, very pleasant experience. Moderation is key... but I&#x27;m incredibly happy to have tried it out. In retrospect, at least for me, the other really nice thing is it didn&#x27;t ruin OC for me. They&#x27;re very different highs. Almost like non-identical twins. You know they&#x27;re from the same batch but each have their own defining qualities.
+Exp Year: 2008
+ExpID: 82231
+Gender: Male
+Age at time of experience: 18
+Published: Feb 8, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Oxymorphone (221) : Not Applicable (38), Medical Use (47), Retrospective / Summary (11), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

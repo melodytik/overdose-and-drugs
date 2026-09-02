@@ -1,0 +1,229 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德Exp - &quot;唤醒内心的头&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/alpha-phip.html'>← alpha-PHiP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德Exp - &quot;唤醒内心的头&quot;</h1>
+<div class='sub-title'>alpha-PHiP, Etizolam &amp; Escitalopram - Erowid Exp - &#x27;Awakens the Crackhead Inside&#x27;</div>
+<div class='meta'>作者：kikomiko Citation · 日期：May 26, 2021 · 剂量：20 mg · <a href='https://erowid.org/experiences/exp.php?ID=115454' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我和男朋友在法律研究化学品市场订购了一些α-PHiP.
+他对此做了一些研究, 并将信息传给了我.
+我发现它很有趣, 主要是因为它与弗拉卡 (也称为阿尔法-PVP) 的联系.
+听到关于&#x27;尸药&#x27;的可怕故事, 我不愿意尝试PHiP,
+所以我想,为什么不呢?
+这种药物价格惊人便宜.
+我们订购了5g,并在我们收到它的那一天试用.
+这是我们第一次蒸发和... 吸烟的晶体从锡感觉像一个非常的移动本身.
+尤其是考虑到我们在一辆车后面隐藏, 在小村庄的山顶上.
+但这种感觉是独一无二的 - 一种刺激性的头,轻微的高兴,增加的喋喋不休,
+不过,这并没有持续很长时间.
+我们决定把它留给另一个日子.
+这一天是下周的星期二.
+我刚刚完成了一次在线考试 (科维德和其他事情),
+有兴奋剂!
+我和男朋友合力开车到一个野餐的地方,
+我更喜欢吸气, 因为它持续时间更长,
+我们只能开车回家.
+我开车了.
+愚蠢的...由于意识的增加,
+尽管如此, 由于我们感到偏执,
+我们的目的是用埃蒂索拉姆去睡觉,
+在一个不眠的夜晚之后, 一个不眠的,但又不稳定的一天,
+开始失控了.
+他最近和一个朋友出去玩, 他告诉我我们可能感染了COVID.
+我们一开始很担心.
+他打电话给他的,所以她告诉他我们可以住在他们的空房子,直到我们不再生病了.
+我们的徒心灵在新闻上发光.
+一个空的公寓我们自己无限期!
+我们不能拒绝.
+我们决定用更多的埃蒂索拉姆 (以防止焦虑/偏执) 给他们看一眼.
+所以,在这一点之后, 是我对我模糊的回忆的归因.
+我记得的部分包括:
+- - 骗父母说他们有COVID检测结果,
+- - 开车 (坏主意!) 到我的房子取衣服,
+-一个黑帮的合成草 (请注意我甚至不吸草) 让我被骗了我死了15分钟,
+- - 掉所有在线和实时课程,
+- 自食欲抑制以来没有吃太多
+很难说我是否睡到星期五.
+我相信我们每天保持2毫克的Etizolam, 2/3次.
+但是在星期四,我的男朋友哭了起来,
+我猜我们的内,羞耻,偏执, 让我们两人都变得更好.
+他决定在25-NBOMe上,
+所以我把它留给了自己.
+这是一件好事.
+我清楚地记得我最后的三行.
+我把他们拉起来,把一个放在纸上,试图抽烟,但失败了.
+关键是,晚上结束了我, 求我的男朋友让我有另一个线.
+另一方面我注意到了上的下降, 并且鼓励他在完全下降之前把它冲下所.
+虽然我知道这一切都已经失败了,
+我在妄想,不愿合作, 我看到了他们.
+臭名昭著的影子人正在客厅里形成.
+我甚至听到声音,没有,害怕死.
+所以男朋友不得不给我5毫克的埃蒂索拉姆.
+睡得像一个婴儿12小时.
+我觉得自己想结束这一切, 所以我喝了一些酒,
+显然,这并没有起作用.
+我必须提及我目前也经历了人生的艰难阶段,
+我对阿尔法-PHiP的成可能是因为我患有抑郁症和焦虑症.
+我不关心学业,我的外表,家庭剧情,
+它创造了暂时的缓解,同时也成为一个问题而不是解决方案.
+如果我没有男朋友在身边,
+我尝试过许多不同的物质, 但经验使我不想再服用任何物质.
+这让我看到毒品的恶性.
+当然,它有它的亮点, 但桌子开始转动很快.
+时间表: 115454
+发布时间:2021年5月26日
+alpha-PHiP (945):第一次 (2),组合 (3),抑郁症 (15),多日经验 (13),成和习惯性 (10),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Awakens the Crackhead Inside
+alpha-PHiP, Etizolam &amp; Escitalopram
+by
+kikomiko
+Citation:   kikomiko. &quot;Awakens the Crackhead Inside: An Experience with alpha-PHiP, Etizolam &amp; Escitalopram (exp115454)&quot;.
+Erowid.org
+. May 26, 2021. erowid.org/exp/115454
+DOSE:
+20 mg
+oral
+Pharms - Escitalopram
+(daily)
+repeated
+insufflated
+alpha-PHiP
+(powder / crystals)
+repeated
+vaporized
+alpha-PHiP
+(powder / crystals)
+repeated
+oral
+Etizolam
+BODY WEIGHT:
+50 kg
+Not long ago, my boyfriend and I ordered some alpha-PHiP from a legal research chemicals market. He had done some research on it and passed the information onto me. I found it intriguing, mostly because of its association with flakka (also known as alpha-PVP). Having heard the horrible stories about the &#x27;&#x27;zombie drug&#x27;&#x27; made me reluctant to trying PHiP, but was informed that flakka was publicly made to look worse than it actually is. So I thought, why the hell not.
+The drug was surprisingly cheap. We ordered 5 g and tried it out the day we got it. It was our first time vaporizing and… smoking crystals off a tin foil felt like a very crackhead move in itself. Especially considering the fact we were doing this hidden behind a car, on top of a hill above this lil village. But the feeling was unique- a stimulative head rush, slight euphoria, increased talkativeness, not giving a shit about nothin&#x27;, the need to do something, anything. Didn&#x27;t last long, though. We decided to save it up for some other day.
+That day came next week, on a Tuesday. I had just finished an online exam (Covid and shit) and felt I needed a well deserved chillout. With stimulants! So, joining forces with my boyfriend, we drove to a picnic kinda place in the middle of a forest and combined snorting and smoking it. I preferred snorting as it lasts longer, albeit less intense. It got dark, we needed to get home and the only option was driving. I drove. Idiot… Due to the increased awareness, it went pretty well, got back safe. Socializing with Mother was avoided, tho, since we were feeling paranoid. Our intent was to go to bed with the help of etizolam, but it was a rather puny helper.
+After a sleepless night came a sleepless but tweaky day and dumbass decisions. It started going outta control. Boyfriend told me we might be infected with Covid since a friend he was recently out with had it. We were, at first, worried. He called up his mom, so she told him we can crash in their empty apartment till we ain&#x27;t ill no more. Our crackhead hearts lighted up at the news. An empty apartment all to ourselves for an indefinite amount of time! We just couldn&#x27;t say no. Since the comedowns were hitting us pretty hard, we at some point decided to show them the finger by downing more etizolam (to keep the anxiety/paranoia away). So, beyond this point, the benzo is what I ascribe my vague recollections to. The parts I do remember include:
+-lying to parents about being positively Covid tested so we could keep the sesh going at the apartment,
+-driving (bad idea!) to my house to pick up clothes,
+-a gangsta puff of synthetic weed (mind you I don&#x27;t even smoke weed) had me fooled I was dying for 15 min,
+-ditching all of my online &amp; live classes,
+-not eating much since appetite suppression
+It&#x27;s hard to say whether I slept till Friday at all. I believe we kept the Etizolam at 2 mg, twice/3 times a day. But on Thursday, my boyfriend broke down in tears, on Friday, I did. I guess the guilt, shame, paranoia got the better of both of us. On Friday, he made the brave decision to trip on 25-NBOMe, but kept away from the PHiP. So I had it for myself. Yay. I can clearly remember the last 3 lines I had. Drew them up, put one in tinfoil and attempted to smoke but failed. Point is, the night ended up with me, begging my boyfriend to allow me to have another line. Another side of me, however, noticed the addictive downwards spiral and encouraged him to flush it down the toilet before the full-on comedown. I was going crazy after it was all too late, searching for it despite knowing it went down the drain. I was delusional, noncooperative, and I saw them. The infamous Shadow People were forming in the living room. I was even hearing voices and, no shit, was scared shitless. So boyfriend had to put me down for the night with 5 mg of etizolam. Slept like a baby for 12 hours.
+Until I woke up and found myself wanting to end it all, so I drank some liquor and mixed it with etizolam. Apparently, that did not work. I must mention that I am also currently going through a rough phase in my life and am on 20mg escitalopram/day. My struggles with depression/anxiety probably contributed to the fact I found alpha-PHiP so addictive. I was unphased by schoolwork, my appearance, family drama for those couple of days of being cracked up. It created temporary relief whilst becoming more of a problem than solution at the same time. Had I not had my boyfriend by my side, who knows where I would be right now. I&#x27;ve tried many different substances, but the experience I&#x27;ve had with this one has made me not want to take any for a looong time. It showed me how dark things can truly get with drugs.
+Sure, it has its highlights, but the tables start turning quickly.
+Exp Year: 2021
+ExpID: 115454
+Gender: Female
+Age at time of experience: 20
+Published: May 26, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+alpha-PHiP (945) : First Times (2), Combinations (3), Depression (15), Multi-Day Experience (13), Addiction &amp; Habituation (10), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

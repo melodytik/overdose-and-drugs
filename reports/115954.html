@@ -1,0 +1,359 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>3,4-MD-PCP - 埃洛伊德的 实验 - 一起做所有的事情</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-4-md-pcp.html'>← 3,4-MD-PCP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>3,4-MD-PCP - 埃洛伊德的 实验 - 一起做所有的事情</h1>
+<div class='sub-title'>3,4-MD-PCP - Erowid Exp - &#x27;Everything All at Once&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Jan 13, 2022 · 剂量：40 mg · <a href='https://erowid.org/experiences/exp.php?ID=115954' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>前言:
+接下来的3个段落是重的药物/化学术语, 跳到序言的底部,
+3,4-MD-PCP是另一种新型的氨酸.
+虽然大多数新产品的设计模式都相当可预测, 但3,4-MD-PCP带来了新的东西.
+3,4-MD表示甲基二氧化基附在环的3和4位置.
+化学知识博的吸毒者可能会立即认出这是一种独特的替代甲基, 形成MDMA.
+它也可以在其他兴奋剂中看到,
+在这种情况下,甲基二氧化基被看作与PCP中的环相连.
+看到这一切, 一个人可能会想:
+这种化合物是PCP和MDMA的组合吗?
+虽然药物不是这样起作用.
+由于3,4-MD与安非他命基的交互作用,
+缺乏这种安非他胺基, 3,4-MD组不会产生MDMA所谓的同情效应.
+这只是一个巧合, 3,4-MD组保留某种类型的精神活性在PCP和甲基.
+作为一种独特而引人注目的解离性药物,
+值得注意的是,3,4-MD-PCPr是已知的最有选择性的NMDA抗剂.
+(这篇文章的来源是
+这意味着它将假设提供尽可能纯粹的离散体验,因为大多数其他离散剂会影响各种其他受体,给它们带来外围刺激作用.
+3,4-MD-PCPr几乎只会影响NMDA和DAT受体 (大多数其他解离剂也会以某种方式影响血清素和上腺素受体) - - 这里也许有很有趣的东西需要探索 - - 这种选择性是3,4-MD替代的结果吗?
+只有进一步的研究和更多的数据才能告诉我们.
+无论如何,所有的术语一边,这个化合物是什么样的?
+我发现很难用词汇来总结它.
+也许它最具特色的是它可以采取多种形式,
+它是一种无形的化合物,
+我可以用一百万种形容词来形容它们, 但它们都在某种程度上是真实的:温暖,社交,狂热,刺激,洞察力强,内省,沉重,视觉,多彩,迷失方向,令人困惑,清醒,头,舞蹈,接地,精确,奇特,未来, 列表还可以继续下去!
+这是一种令人兴奋的化合物,
+有时感觉有意识, 仿佛我与其他生物或生物进行复杂的互动,
+这就是我的多彩的离散的小物.
+我对这种化合物进行了几次试验,
+我在不同场合尝试过,比如在户外狂欢节,或在杂货店,
+每一次都感觉很不同, 但最终他们之间开始形成一些共同点.
+这是一种奇怪的过渡性疯狂, 感觉我的意识和身体已经转移到某种更高的形式, 或许现实已经转移到我身边.
+感觉就像我在操纵我的身体,
+我发现我的理想剂量大约是30-40毫克.
+50毫克是压倒性的, 持续了很长时间.
+低剂量是社交的,
+虽然它在口腔和舌下具有大约相同的效力,只是持续时间较长.
+持续时间是中长的,取决于剂量.
+一个50毫克的剂量持续到深夜,
+大约30毫克的剂量持续约5-6小时.
+粉末是不愉快的吸入 - 不是极其腐蚀但恶臭的味道和非常粉状,覆盖鼻腔.
+下面的报道是40毫克鼻腔剂量.
+对于它有些模糊,矛盾和抽象的内容,
+这种化合物对我来说也难以理解.
+T0:00- 用于鼻内注射的剂量.
+粉末是轻薄的, 稍微刺痛和刺激,
+吸是不愉快的, 吸完一行我必须等待一分钟才能完成另一个.
+这是一个相当大的粉末堆.
+开始有点头和头.
+我正在看&quot;山之王&quot;与我的伙伴和玩Minecraft.
+这部剧越来越难以理解.
+虽然我在建造我的小城堡时有很多乐趣.
+我在上来的时候抽了一点大麻.
+我的脑袋是如此沉重和松动, 我的手指尖是麻木, 这就像我的大脑是非常沉重和浮动在我的头骨的中间,
+我从头部开始感到一种强烈的麻木感.
+房间似乎在移动,在温和的海上摇摆.
+我的思想漂流, 但像一个固定在地球上的气球, 在风中摇摆.
+我觉得我的意识已经轻微转移到我的身体的一侧.
+我仍然试图跟踪电视节目,
+屏幕上的事件似乎太混乱和无意义,
+我觉得我在强调它错误的细节,
+我怀疑我现在能进行一场对话,
+效果仍在形成, 冲过我,
+视觉开始在我的外围建立起来, 纠的电路像根和菌体的密集网络在直角上扭转, 半透明和凝.
+整个视野都被强烈的闪所占据, 世界在伟大的紫色脉冲中闪.
+感觉像是迷幻般的, 随着思想的流动, 超级焦点,
+现在,它正用一颗闪亮的激光刻印在我的脑海中.
+我每时每刻都会感到一种奇怪的矛盾, 让我感觉自己远离身体,
+我站起来移动, 感觉并没有特别的失调,
+这是一种令人困惑的感觉,
+我将其比作驾驶自己的身体的感觉,
+我感觉自己干燥,好像被热灯干了.
+起的特征是缓慢地沉下去的分离, 顺,稳定和恒定的, 不像涌的河流那样冲或拉或涌出.
+现在是时候练习我的标准来描述离散者, 关掉所有的灯光,
+我这次的选择是永恒的最爱, 永不消失的奥特里克斯点.
+这是一张熟悉,令人兴奋和有趣的专辑,
+我在30分钟后继续写下我的笔记 (我没有完成专辑,
+这当然说明了这种体验的性质 - - 虽然只是躺着很有趣,
+我不想在黑暗中无目的地生活.
+没有任何感觉, 没有身体完全消失的感觉.
+没有感觉被改变和扭曲在不可能的方式或感觉像我翔或感觉好像有奇怪的压力对我施加,
+虽然身体显然仍然麻木和分离, 仍然有这种感觉, 我的意识已经缩小或转移,
+尽管如此, 这仍然是一次沉浸式的体验,
+它们不是特别生动或活跃, 旋转和模糊, 有时是微弱和模糊,
+它们是柔软的,丝的,光滑的,像风一样流动, 穿过草原或雾,
+它们是光滑的,
+沉浸的感觉主要来自于一种存在感, 仿佛毒品是我的玩伴,
+沉浸的感觉主要来自于一种存在感, 仿佛毒品是我的玩伴,
+它有动作,欲望,意图,所有陷的活着呼吸的东西,然而它不过是布通过我的神经一些白色粉末我的鼻子.
+我沉浸在它的世界里,
+我被它的奇迹所吸引,被它的光和运动所吸引,被它的思想所占据.
+这真是太迷人了!
+我站起来回到这个世界,
+站立和走路证明没有问题.
+我觉得自己充满了烂的能量, 我觉得自己已经充满了力量,
+无论我在哪里看, 似乎都是一部完美的电影.
+我站在高而自豪的身边, 肌肉的能量闪着,
+也许这是一种疯狂.
+这种经历充满了矛盾和具有挑战性的描述.
+我能够清晰地思考,与周围的世界互动, 但同时, 我感到自己与自己有着非凡的距离,
+我现在只是躺在那里, 眼睛开, 灯光依然灭, 音乐在破碎的笔记本音箱里播放,
+没有完全关注屏幕, 只想着和冥想.
+在黑暗中, 视觉流动和爬行, 融化和移动与稳定的运动像窗的水流下墙.
+这种药物似乎没有什么特色,
+它是活的,有意识的,完全无形的.
+我对性,性欲,性欲和欲望的本质着迷, 不是以唤起的意义,
+我很快就会记得那天晚上我与多个人有过生动而激烈的相遇.
+我想知道别人对我的欲望是如何体验的, 我想知道别人对我的欲望是如何体验的, 我想知道我个人是如何体验欲望的.
+这种化合物提供了很多思考的东西, 但它仍然相对微妙, 它轻轻地建议这些想法, 它不强迫他们通过一些疯狂的冲动
+这种化合物提供了很多思考的东西, 但它仍然相对微妙, 它轻轻地建议这些想法, 它不强迫他们通过一些疯狂的冲动
+(尽管在上一个时间标记中提到, 经历中确实有一种高于基线的狂热程度,
+我上楼和我的搭档在一起,
+峰值似乎已经开始下降了.
+我在手机上发短信给人们,
+尽管有分离性麻木和头的风暴,
+我知道现在26岁的老年人常常感到痛苦.
+尤其是我的肌肉感到非常紧张.
+拉动每一个肌肉以保持柔软和灵活.
+我不是一个很灵活的人, 我甚至不能触摸我的脚,
+我觉得自己已经经历了全面的维护, 所有的部件都被油化,清洁和更换,
+我与这种能量无关,与这种满足感无关,
+我是幸福的,惰的,惰的.
+我回到楼下,独自一人在黑暗中.
+我是清醒的,移动的,功能性的.
+无论我多么努力, 我都觉得自己无法进入一个洞或伪洞.
+我仍然很有社交性, 渴望与他人交流,
+我觉得有必要和住在地球另一边的祖母说话.
+我很难过,因为她是我的直系祖先,
+我每隔几年只见她一次, 我们通常只交换小谈话.
+她在痛苦,孤独,无聊,抑郁.
+感觉如此奇怪, 如此脱离与我亲属血统的人.
+我对此感到悲伤, 我受教育的文化差距, 我必须创造一个虚假的自我,
+我感受到同情心的痛苦, 清晰地想象她每天在她的公寓里看电视,
+这几乎让我眼.
+这种复合体的无形性质再次显露出来, 一只镜般的狐在我的情绪中,,,, 进我心灵的深处, 着透这个世界, 超越我们,超出我们的控制范围的不可逾越的悲伤.
+我们不能更亲近,更见面,
+一旦我的思想抓住一个主题, 复合物也会, 热切地包裹每一个想法与水晶的葡萄树, 快速成长为密集的,
+这是一种存在的复合物, 但这种存在只是一个空洞的容器, 准备接收每一个经过的想法和经验, 包裹它,放大它,
+它是模仿者,模仿者, 它会复制它所触及的任何东西,
+我经常在某些离散者的昏迷中发现这种状态, 我的思想像一座破裂的水一样流动,
+现在我有很多种药物, 其中大部分是迷幻药,
+这是一种独特的认知增强, 似乎在所有这些课程中都很常见,
+进入这个熟悉的状态总是令人愉快的惊喜.
+我今晚的热情阅读的主题是迈阿密的历史和摩天大楼的历史.
+阅读和阅读和阅读像一个书呆子.
+我在做这件事时会偶尔和别人有愉快的交谈, 这是一种在社交领域提供很多东西的组合.
+这种化合物在社交领域提供了很多优势
+没有.
+我已经通过了变化的清醒的面, 接近基线的状态.
+我脑后有一种沉重的分离感, 肢体也有一些,
+像一个空房的虹灯一样.
+我在黑暗中仍能看到形状和图案的清晰影像,
+现在回到了基线.
+结论: 3,4-MD-PCP的特征很难确定,
+每一次试验都提供了不同的东西.
+我会说这是一部平滑,有洞察力,有点狂热,多彩,温暖,高兴,和.
+它是一种令人头且功能性分离, 在起床和做事之间划分界限,
+也许它最显著的特点是很难将其概括--它是一个真正无形的化合物, 曲并塑造了我的大脑,
+也许它最显著的特点是很难将其概括--它是一个真正无形的化合物, 曲并塑造了我的大脑,
+它有望成为一个真正的各行各业的杰克, 离散,多功能,
+较低剂量是非常适合跳舞和社交,中等剂量是非常适合与亲密的朋友在一起或玩电子游戏,
+这里有很多潜力!
+剂量似乎与持续时间相关,较高剂量具有显著更长的峰值和下降.
+任何剂量都能让人愉快,即使其他效应已经消失.
+身体的分裂是存在的, 但不是压倒性的重或失能.
+我有时觉得自己完全控制着肌肉和身体, 几乎超越人类.
+这很适合跳舞.
+虽然我可以说这种药物相对于胺酸或DCK这种解离剂相当刺激,
+头部空间是冥想和沉思的, 就像迷幻药一样,
+整个地方都充满热情.
+视觉效果是存在的, 但不是特别显著,
+眼睛闭着, 黑暗中的视觉空间是模糊而无形的,
+这种药物具有一种互动性和沉浸感, 仿佛它是一个会屈服于使用者的思想和情感的存在,
+虽然它可能不符合所有人的喜好,也不能充当他们想要的角色, 但它也许可以被塑造成一个人可能需要的任何功能, 最终它是一个极其有趣的新奇事物!
+时间表:115954
+发布时间:2022年1月13日
+3,4-MD-PCP (959):各种 (28),音乐讨论 (22),回顾 / 摘要 (11),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Everything All at Once
+3,4-MD-PCP
+by
+nervewing
+From
+Reddit Collection
+Citation:   nervewing. &quot;Everything All at Once: An Experience with 3,4-MD-PCP (exp115954)&quot;.
+Erowid.org
+. Jan 13, 2022. erowid.org/exp/115954
+DOSE:
+40 mg
+insufflated
+3,4-MD-PCP
+(powder / crystals)
+repeated
+smoked
+Cannabis
+BODY WEIGHT:
+130 lb
+Preface:
+The next 3 paragraphs are heavy pharm/chem jargon, skip to the bottom of the preface for a summary of this new dissociative, skip to the end of the preface for my full report.
+3,4-MD-PCP is yet another new arylcyclohexylamine. While most new ones have been following a fairly predictable pattern for design, 3,4-MD-PCP brings something new to the table. The 3,4-MD denotes a methylenedioxy group attached to the 3 and 4 positions of a phenyl ring. Chem savvy drug users may instantly recognize this as the distinctive substitution on the methamphetamine base that forms MDMA. It can also be seen in other stimulants like MDPV and Methylone. In this case, the methylenedioxygroup is seen attached to the phenyl ring in PCP.
+So in seeing this, one may think- “Wow! So is this compound a combination of PCP and MDMA?”. That is not how drugs work though. The effects of MDMA are due to the interplay of the 3,4-MD substitution with the amphetamine base. Lacking that amphetamine base, a 3,4-MD group will not generate the empathogenic effects MDMA is so known for. It is simply a coincidence that a 3,4-MD group retains some sort of psychoactive activity on both the PCP and Methamphetamine base. Rather, this molecule stands alone as a unique and fascinating dissociative drug, vastly different from both PCP and MDMA.
+It is worth noting that 3,4-MD-PCPr is the most selective NMDA antagonist known. (The source for this is Dr. Jason Wallach’s dissertation) This means it would hypothetically offer about as pure of a dissociative experience as possible, as most other dissociatives hit a variety of other receptors, giving them peripheral stimulant effects. 3,4-MD-PCPr pretty much only hits the NMDA and DAT receptor (most other dissociatives hit serotonin and norepinephrine receptors in some way too)- there is perhaps something very interesting to be explored there- is this selectivity a result of the 3,4-MD substitution? Only further studies and more data can tell us.
+Anyways, all the jargon aside, what is this compound like? It is a unique dissociative, I find it hard to really grasp the words to summarize it. Perhaps what characterized it the most was how many forms it could take, depending on dose or set or setting. It is an amorphous compound that molds itself to all sorts of situations. I could throw a million descriptors in the air and all of them would be true to some degree: warm, social, manic, stimulating, insightful, introspective, heavy, visual, colorful, disorienting, confusing, lucid, dizzy, dancey, grounded, precise, whimsical, futuristic, the list goes on! It is a truly exciting compound that has been fascinating to research. At times it felt sentient, like I was engaging in a complex interplay with some other being or some creature, curious and alive and fully interactive. It is my colorful dissociative little pet.
+I ran several trials with this compound at doses ranging from 5 mg up to 50 mg. I tried it in different settings, like an outdoor rave, or the grocery store, or most times, just alone in my house. Each time felt quite distinct, but ultimately some commonalities began to develop between them. Most of all is a sense of being transferred to an enhanced other self, it is an odd sort of transitive mania where it feels like my consciousness and body have shifted to some other superior form, or perhaps reality has shifted around me. It feels like I am piloting my body as a mech, with impossibly precise handling and motor control. I found my ideal dose to be around 30-40 mg. 50 mg was overwhelming and lasted for a very long time. Lower doses are sociable and fun for dancing. Most of my trials were intranasal, though it is active orally and sublingually with about the same potency, just a longer duration. The duration is medium-long, dependent on dosage. A 50 mg dose lasted long into the night and I was still feeling it the next morning. A dose around 30 mg lasted for about 5-6 hours. The powder is unpleasant to snort- not extremely caustic but foul tasting and very powdery, coating the sinuses. The following report is for a 40 mg intranasal dose. I apologize for it being vague, contradictory, and abstract at points. This is a compound that really defies coherent description, even for me.
+T0:00- Dose taken intranasally. Powder is light and fluffy and slightly stings and irritates but above all else, is pretty foul tasting. Snorting it is unpleasant, after chuffing down one line I have to wait a minute to finish the other. It is a sizable pile of powder.
+T0:17- Onset, feeling a little bit dizzy and lightheaded. I am watching King of the Hill with my partner and playing Minecraft. The show slowly becomes harder and harder to make sense of. I’m having a lot of fun building my little castle though. I smoke a bit of cannabis as I come up.
+T0:30- My head feels so heavy and floppy, my fingertips are numb, it is like my brain is immensely heavy and floating in the middle of my skull, not touching anything, just drawing in its surroundings with a sundering gravitational force. A powerful numbing sensation fades in from the front of my head. It feels like the room is moving, rocking on a gentle sea. My mind is adrift but grounded like a balloon anchored to the earth, tossing about in the breeze.
+I feel like my consciousness has shifted slightly to the side of my body. I still try and follow the TV show but it makes little sense at this point. The events on the screen seem too disjointed and nonsensical to be of interest to me. I feel like I am emphasizing the wrong details of it and ignoring the parts that are actually important to understanding it. I doubt I could hold a conversation well right now and don’t bother.
+T1:00- Effects are still building, washing over me, that same sensation as laying in the ocean and having its waves buffet my head. Visuals begin to build in my periphery, tangled circuitry like dense networks of roots and mycelium twisting and turning at right angles, translucent and gelatinous. My entire field of vision is taken by an intense flashing, the world flickering in great violet pulses. The experience feels psychedelic, in the limber flow of thoughts, in my hyperfocus, in the anticipation building at the sight of iridescent visuals creeping in. It is being etched into my mind with a fiery bright laser. I am so dizzy, each moment I feel an odd contradiction building where I feel further from my body, receded into empty space- yet immaculately and completely in control of it. I get up and move around and don’t feel particularly uncoordinated, rather like I am compensating for momentum and moving my muscles with an impossible precision. This is a confusing sensation because these limbs don’t quite feel like they belong to me. I would liken it to a sensation of piloting my own body as if it were a mech suit, my consciousness a little homunculus of myself perched in my skull cavity, pulling levers and joysticks to make my muscles move. I feel dry like I have been desiccated under a heat lamp. The character of the comeup is that of a slowly sinking dissociation, smooth and steady and constant, not rushing or pulling or gushing forth like a churning river.
+T1:30- Time for me to practice my standard for characterizing dissociatives- turning all the lights off, lying down in the total dark and listening to music through headphones. My selection this time around is a perennial favorite, Oneohtrix Point Never’s “Garden of Delete”. It is a familiar and exciting and interesting album that always provides a fascinating substrate for dynamic synesthesia.
+My notes resume some 30 minutes later (I didn’t finish the album I got too restless just lying there). This speaks to the character of the experience of course- as much fun as it is to just lie around, there is a compulsion to do something, to occupy my thoughts and actions with something more stimulating to all of my senses. I don’t want to just aimlessly be in the dark. Furthermore, there wasn’t much of a hole to speak of, there was no sense of all-encompassing dissociation, no sense of my body fading entirely. No sense of being altered and twisted in impossible ways or feeling like I am levitating or feeling as though there are odd pressures being exerted on me, as other dissociative holes tend to offer. I am quite aware that my body is there, lying still on the couch,  and though it is still distinctly numb and dissociated, there is still that sense that my consciousness has shrunk or shifted or changed its form to no longer match me physically.
+Despite this, it was still a deeply immersive experience, replete with amorphous synesthetic visuals, great monolithic things lurking in the distance. They weren’t particularly vivid or active, swirling and blurring and at times faint and indistinct, but something was going on. The realms are soft, silken, smooth and flowing like winds through a meadow or banks of fog gently enveloping a rolling landscape. They are smooth and shaded like a computer render.
+The sense of immersion came primarily, however, from a sense of presence, like the drug was a playmate, wrapping around me, clutching me, lurking in the wings to pounce and strike.
+The sense of immersion came primarily, however, from a sense of presence, like the drug was a playmate, wrapping around me, clutching me, lurking in the wings to pounce and strike.
+It has motion, desire, intention, all the trappings of a living breathing thing and yet it is nothing more than the cascade through my nerves of some white powder up my nose. I am sunken in its world as it flits and floats around me, curious and inquisitive, glowing in the night. I am taken with its wonder, swept up in its light and motion, possessed by its mind. How fascinating!
+I stand up and return to the world, able to reintegrate easily. Standing and walking proves no issue. I feel imbued with a glowing energy, I feel like I have powered up and entered some ascendant form. Everywhere I turn my eyes seems like a perfectly composed movie shot. I stand tall and proud as energy flickers off of my muscles as they shift and move with impossible precision. Perhaps this is a form of mania.
+T2:00- This experience is so full of contradictions and challenging descriptions. At once, lying still, I am lucid, I am able to think clearly, to interact with the world around me, yet at the same time, I feel so remarkably far from myself, distant and weird, I have been transformed into some glistening crystalline other.
+I am now just laying about, eyes open, lights still off, music playing through my busted laptop speakers, browsing the internet. I bask in its glow, not fully paying attention to the screen, just thinking and meditating. Visuals stream and creep in the dark, melting and shifting with a steady motion like a curtain of water running down a wall. This drug seems to have little character of its own, rather it will imprint on my current conditions and emotions. It is alive, sentient, and fully amorphous. I am fixated on sex, sexuality, the nature of lust and desire, not in the sense of arousal but in the sense of it being a subject to ponder. This is probably imprinting on my immediate memory from earlier in the night where there was a vivid and intense encounter with multiple people. I take in my own body, my own form, I wonder how others experience desire, I wonder how others would experience desire towards me specifically, I think about how I personally experience desire. This compound offers so much to think about, but it remains relatively subtle, it gently suggests these thoughts, it doesn’t force them through in some manic rush
+This compound offers so much to think about, but it remains relatively subtle, it gently suggests these thoughts, it doesn’t force them through in some manic rush
+(though as mentioned in the last timestamp, there is certainly an above-baseline degree of mania to the experience- quite pleasant!)
+T2:41- I go upstairs and hang out with my partner while they get ready for bed. The peak seems to be descending by now. At this point I feel talkative and social and I am messaging people on my phone just for idle chitchat. I am acutely aware of my body at this point, despite the storm of dissociative numbness and dizziness. I am aware of all the little aches and pains that are constant nowadays at the ripe old age of 26. My muscles in particular feel incredibly tense. I get on the floor and stretch and contort myself to my hearts content, pulling every muscle to be supple and limber. I am not a very flexible person, I can’t even touch my toes, but I do the best I can and I feel great afterwards, with even more control of my body and limbs. It feels so empowering, I feel yet even more superhuman and ascendant, to continue the metaphor of piloting a mech I feel like I have undergone a full maintenance, all my parts oiled and cleaned and replaced to be fresh and fully, effortlessly mobile. I have nothing to do with this energy, with this sense of fulfillment, but that is okay, I am content to merely exist. I am blissful and languid and listless. I go back downstairs to be alone in the dark.
+T3:30- Tossing about among the curtains of the world; I am lucid, mobile, functional. I don’t feel like I could descend into a hole or pseudo-hole at this point no matter how hard I may try. I am still feeling sociable and eager to interact with others and I have my bearings about me well enough to do so competently. I feel a compulsion to talk to my grandmother who lives on the other side of the planet. I feel sad, that this is my direct ancestor but I know next to nothing about her. I only see her once every few years and we usually only exchange small talk. She is in pain, lonely, bored, and depressed. It feels so odd to be so detached from someone within my direct bloodline. I am taken by the sadness of this, of the great cultural divide in my upbringing, in how I must create a false version of myself to peacefully coexist with an entire half of my family that lives in a deeply Conservative Islamic culture. I feel pangs of empathy, vividly imagining her passing the days just watching TV in her apartment, quiet and dim, widowed and alone. It nearly brings tears to my eyes. The amorphous nature of this compound reveals itself yet again, a prismatic fox bounding and twisting and nuzzling among my emotions, pulling into the depths of my heart, tugging at the great insurmountable sadnesses that permeate this world, larger than us and beyond our control. It is a but a misfortune of geography after all, that we cannot be closer, see each other more, entwine our lives as family should.
+Once my mind catches onto a subject, the compound does too, eagerly enveloping each thought with crystalline vines that quickly grow into dense tendrils slither upwards to the sky, firing off as a dazzling display of fireworks in my neurons. This is a compound of presence, but that presence is little but a hollow vessel, ready to take in every passing thought and experience, envelop it, amplify it, imbue it with vibrant color and a great swirling energy, crystallize it and construct it as something new in my mind. It is an imitator, a mimic, it will replicate whatever it touches, and within this is a boundless world.
+T4:00- A distinct stimulated psychedelic comedown has set in, a state I often find in the comedown of certain dissociatives where my thoughts flow like a bursting dam, where my curiosity drives me to ravenously consume as much text as I possibly can. This state presents with many drugs for me actually, most characteristically psychedelics but also cannabis, and as stated before, many different dissociatives. It is a distinct type of cognitive enhancement that seems common across all those classes where my pliable brain just demands more, more information, an endless trail of investigation towards a trivial tangent, a vicious desire to just know. It is always a pleasant surprise when I enter this familiar state. The subjects of my ravenous readings for the night are the history of Miami and the history of skyscrapers. Reading and reading and reading like a nerd. There are intermittent pleasant conversations with others as I do this,this is a compound that offers a great deal in the realms of sociability
+this is a compound that offers a great deal in the realms of sociability
+.
+T5:00- I have passed through the veil of an altered lucidity to a state closer to baseline. There is a lingering sense of a heavy dissociation in the back of my head and a bit in my limbs, but it is a warm buzzing afterglow smoldering itself out. There is a lingering gentle stimulation like a neon sign in a vacant room. I am still getting visuals in the dark, distinct images of forms and patterns swirling and flowing in my periphery.
+T6:00- Back to baseline by now.
+Conclusion: It is tough to really characterize 3,4-MD-PCP, each of my trial with it offered something different.
+It is tough to really characterize 3,4-MD-PCP, each of my trial with it offered something different.
+As far as commonalities go, I would say it is smooth, insightful, a bit manic, colorful, warm, euphoric, and sociable. It is a dizzy and functional dissociative, towing a line between being great for getting up and doing stuff while also being great for just lying in the dark. Perhaps its most remarkable feature is that it is so difficult to generalize- it is a truly amorphous compound that bent and molded itself around my brain, collecting and amplifying thoughts and emotions, its nature changing as my set and setting changed.
+Perhaps its most remarkable feature is that it is so difficult to generalize- it is a truly amorphous compound that bent and molded itself around my brain, collecting and amplifying thoughts and emotions, its nature changing as my set and setting changed.
+It has promise of a true jack of all trades dissociative, versatile and enjoyable in a wide variety of settings, depending on dosage. Lower doses were fantastic for dancing and socializing, medium doses are great for being around close friends or playing video games, higher doses can be disorienting and incapacitating but can make it nice to just meditate and listen to music. There is a lot of potential here! Dosage seems to correlate with duration, with higher doses having a significantly longer peak and comedown. Any dose offers a pleasant afterglow even after the other effects have faded.
+The physical dissociation is present but not overwhelmingly heavy or incapacitating. At times I felt immaculately in control of my muscles and my body, almost superhuman. It is great for dancing. The sense of dissociation is one of steady immersion, there is no rush or stimulating push in my nerves, though I would say this drug is quite stimulating relative to dissociatives like ketamine or DCK, though it is a neutral, background stimulation, no force to it at all. The headspace is meditative and contemplative like a psychedelic, and can turn into a tranquil stillness when occupied with over activities. There is a warm euphoria throughout. Visual effects are present but not particularly remarkable, the same drifting patterns and textures that other dissociatives seem to offer. With my eyes closed, the visual space in the darkness was vague and nondescript, as if the drug was telling me to stop lying around and enjoy the world around me. This drug has a sense of interactivity and immersion, as though it is a presence that will bend to the thoughts and emotions of the user, twisting and twirling around them and shifting to fit whatever the mood and atmosphere may be. It is truly a fascinating dissociative, even if it may not be to the liking of all people or fill the roles they desire, it can perhaps be molded to whatever function a person may need, and ultimately it is an extremely interesting novelty to explore!
+Exp Year: 2021
+ExpID: 115954
+Gender: Not Specified
+Age at time of experience: 26
+Published: Jan 13, 2022
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3,4-MD-PCP (959) : Various (28), Music Discussion (22), Retrospective / Summary (11), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

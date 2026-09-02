@@ -1,0 +1,418 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>1P-LSD - Erowid Exp - &quot;一次旅行&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/1p-lsd.html'>← 1P-LSD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>1P-LSD - Erowid Exp - &quot;一次旅行&quot;</h1>
+<div class='sub-title'>1P-LSD - Erowid Exp - &#x27;The One Trip&#x27;</div>
+<div class='meta'>作者：Paradox Citation · 日期：Dec 24, 2016 · 剂量：150 mg · <a href='https://erowid.org/experiences/exp.php?ID=109693' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我从来没有写过像这样的旅行报告.
+经验本身需要对以前经验的洞察力, 我会尽量简要地说,
+有关物质: 1P-LSD
+存储:封闭袋,用100ug剂量的抹纸
+吸毒史:大麻 (大麻/大,烟酒/酒) x 批量,可卡因 (质量差) x3,MDMA (晶体) x1,1P-LSD x5 150ug-500ug (相同的标签以保持经验一致)
+重要的前兆之旅
+~130ug - 第一次体验 (1P-LSD)
+我不想深入讨论, 但大多数人认为这是一个标准的初次体验.
+感知:
+颜色:颜色变得更加生动和有趣,我发现自己从某种不同的角度来看待颜色,
+声音:音乐和声音非常清晰, 非常有趣和吸引人.
+一般来说音乐听起来很棒
+触觉:我的身体感觉充满了,
+触觉可以通过观察或感知不同的东西来改变.
+情感意识:意识到情感是一种新的感觉,
+在户外:光线似乎不同地反射在植物上,
+我可能会补充说, 我在这次旅行的公司似乎知道很多关于药物和它的作用.
+我在接下来的旅行中,
+终于被允许沉睡 (在这种药物下睡觉是不可能的, 吃饭也是不可能的)
+250ug - 偶然的情绪 (MDMA组合)
+主题:情感意识
+让我们说这次旅程的视觉效果,头部空间等都是一样的,
+公司决定在我的同时, 转换糖果 (MDMA+1P-LSD).
+他们也意识到我已经服用了多少 (而且似乎对此感到火).
+我不知道第三方的剂量.
+我们用了几个小时来处理一般效果, 我被介绍了更多的基于感知效果.
+移动游戏块往往会减慢时间,
+棋板上的艺术可以变成鱼的牙和可怕的图像.
+我不知道药物的作用 (主要是MDMA,从来没有做过) 并没有对我进行彻底解释, 这导致了第三方不幸的情况.
+我们都知道这种感情不合适.
+这导致第三方有她所说的&quot;坏旅行&quot;.
+我完全意识到那个场景中正在发生的毒品 *现在* 但是我认为第三方低估了我会如何感受到在其他房间发生的事情的能量,
+这正是1P-LSD带来的情感意识的强烈增加所导致的.
+我知道他们 (或至少其中一人, 我认为男性只是在1P-LSD) 是糖果翻转和操,
+(在此期间进行了几次单人旅行,
+其他)
+300ug - 糟糕的旅行
+主题:宇宙的结构
+这就是我会说我有点自满的地方.
+我认为我理解的比我实际上做的更多, 这是我分享这个奇妙的物质的机会,
+我经历过后光,视频闻起来像LSD,生活中的模式和一些漂亮的改变生活的认识,
+另外, 我决定加入一个我从未见过的陌生人 (二十多岁, 肥胖) (因为他要求我来, 我对1P-LSD感到非常自信),
+我从来没有读过有人与家人一起旅行的报道,
+我 - - 300ug,朋友 - - 150ug, 不知名 (我现在甚至不记得他的名字) 100ug,
+我在使用1P-LSD时遇到的最大悖论之一就是生活的悖论, 我来自哪里,
+有些人还没有准备好.
+显然我也没有.
+旅行的结果最初是惊人的,
+我们听了很多音乐.
+现在我在那里分析这次旅行以及正在发生的一切.
+我很少因为喜欢而出轨, 我通常是为了从中得到一些东西.
+另一方面,我非常&quot;在当下&quot;.
+每次我去向人们展示药物可以做出一些惊人的事情 (时间延长,情感感知,
+终于我放弃了,躺下听着粉红乐队的&quot;时间&quot;.
+基于我从未认识的某人那里得到的情感指标, 他喜欢我们的狗, 也喜欢我的 (你可以看到这如何变得消极).
+在开始这次糟糕的旅程之后, 没有什么&quot;真实&quot;的事情可以吓到我.
+让我感到恐惧的是宇宙本身的结构.
+没有经历过这种情况, 很难解释它是如何工作的, 但我觉得自己在生活中被1P-LSD骗了,
+就像在黑洞的中心, 在每一个纳秒, 我被拉到一个方向去体验一子,
+我在半小时后醒来, 发现房间黑暗, 里面全是水 (我一直给我水,
+我开始说出&quot;这一切都不是&quot;一句话,
+我不知道是什么让我回来了, 但我只知道我突然又好了,
+接下来是整个旅程的绝对高兴.
+我道歉,因为显然我完全疯了一个小时左右,
+我真的不喜欢这种做法, 因为我觉得这表明对1P-LSD的精神不尊重.
+我认为她确实滥用酒精.
+暂时 - 精神状态: 重度抑郁症 (确诊)
+第一次使用MDMA 180mg
+这是一个冲动的决定购买和采取由于我当时的心理状态.
+我不确定这种物质是否完美, 但它看起来很好,
+没有.
+我会简单地说,因为前身几乎是旅行报告本身.
+我在一个IRC频道上同时单独旅行.
+似乎知道如何引导我度过我一生中最美丽的经历.
+所有从1P-LSD经验的理解似乎只是, 达到顶峰的烟花表演惊人的认知.
+让我相信这一切都是一个大计划的一部分, 最后一切都会好起来的.
+在这次经历之前, 我无法真正理解女孩,友,
+在这次旅行之后,
+我看到了所有 (或我认为我做了).
+我没有从这次MDMA经历中恢复过来, 我有一次焦虑,
+我通过自我催眠治疗和冥想治愈了我的焦虑.
+经过这次体验, 我确信这个世界比我在其他1P-LSD体验中看到的更多.
+我真正理解了&quot;empathogen&quot;这个词的含义.
+我开始服用1P-LSD的原因之一是想找到比我能看到的更多的东西,
+一次旅行 (详情)
+思考方式 + 准备
+虽然只有150ug (我说&quot;仅仅&quot;但我觉得剂量不再重要),
+我从来没有从这次旅行中&quot;回来&quot;.
+视觉扭曲消失了, 身体负荷, 头脑和果手指平息了,
+首先,我把账单放在桌子上一个小时左右,
+之后我有两天的空,
+我唯一的困扰是,在吸了MDMA之后,
+我是有组织的,专注的,快乐的,聪明的,有创意的,有情感的,我想我也有一些被压抑的童年记忆 (相对&quot;艰难&quot;的成长),而MDMA也对这些有帮助.
+总而言之,我在23点吃了150g.
+没有太多的准备, 但我有时间, 我是一个好奇的猫.
+我还想对耐受性和神经毒性进行排列,
+走上来
+我把它放在那里5分钟左右, 然后吞下.
+我可以感觉到和身体负荷很快的20-30分钟后剂量但我开始觉得它只是上腺素因为这是第一次1P-LSD旅行自我的坏旅程.
+我认为,不管是什么,我可以面对这些恶魔,
+收集论文,阅读历史,阅读心理探险家维基等等.
+似乎在现实生活中,
+旅行的第一段时间,
+随着熟悉的效果开始显现, 我绝对在好公司度过了愉快的时光.
+经过大约两小时半的时间, 我已经达到高峰,
+我在清醒时练习冥想和观察自己的意识, 我想要在化学物质的影响下练习冥想,
+这可能会吓坏正常人, 但对我来说,
+峰值+前往公园
+在视觉上,物体在移动,地毯上的图案移动,我手上的痕迹,时间延伸的时刻, 音乐在屏幕上停顿, 但在耳机里并没有停顿.
+我有轻微的共感, 我可以看到声音作为扭曲在我的计算机屏幕上的碎形 (或者我认为我可以,
+我带着一个小背包,雪板克,耳机和钥匙.
+我穿上一些温暖的衣服,走到外面.
+到了当地的公园, 我感觉到了公园的能量,
+我走进了公园, 那里是美丽的.
+草木在微风中轻轻地挥舞着, 树木发出一种能量.
+我选择了一个看起来很大的松树,把我的克放在它的基础上.
+在三棵树下冥想
+松树
+我在树干上躺着, 感觉到能量不强,
+我把头靠在树干上, 让我的眼睛稍微闭上,
+我以前从冥想和催眠疗法中学到了一些技巧:
+一个安全的,屏蔽的空间, 里面有充满狂喜的感觉, 就像我在滑雪时的感觉,
+通过思考本身, 能够观察自己的内心.
+在&quot;现实&quot;中使用刺激的外观能力
+能够分析认知作为第三方过程,分析我自己的思维过程
+我探索了许多这些地方,
+在我上面的树枝上, 腐烂和恶臭的尸体会出现在我面前,
+我们在谈论各种事情.
+对于我来说,这是有道理的.
+这种大小的树木很老, 与一片草相比,
+我不是在正常的意义上交流, 我在脑海中想象概念,
+我觉得我经历了很多不同的想法和想法,
+我试图向其他&quot;生命&quot;证明人类在这个世界上有自己的位置,
+我试图向树展示我们无限的爱和人类的创造力/抗逆能力.
+我们如何利用负面情绪驱动令人难以置信的积极情绪.
+我感觉到我的内心充满了巨大的能量,
+疯狂的树
+我看到另一棵树,
+它的颜色是白色的 (也许是银色的树),
+我又一次好奇地去冥想下面那个.
+接下来似乎是一场&quot;谁最疯狂&quot;的比赛, 可以肯定的是,
+树会向我展示它认为可怕的东西, 然后我向它展示人类的潜在愤怒,
+这场交换最终似乎毫无意义,
+我们彼此的观点被认可,
+值得一提的是, 在这棵树下冥想的时候, 一群醉酒的人走过来,
+这让我很生气, 但松树却得好像说这没关系,
+最后一个树
+我发现公园里最大的树, 很中心, 我认为是树或类似的树.
+我不记得叶子的形状,
+我应该回去再次检查,因为它不远.
+无论如何,这棵树是我意识到一切的地方.
+我从不同的角度重新体验了这棵树.
+我轻轻地绕着那个不好的旅程的区域走,
+我觉得自己身边的黑白,光与黑暗,
+我看到的是更精致,更稳定的东西.
+这时,一切都变得有意义.
+生命只是我们唯一的意识所创造的.
+如果一切始终是一样的, 我们会感到无聊, 因此我们不断地重新构建我们周围的世界,
+我看到了一个巨大的意识树网络,
+我们的&quot;人类树&quot;完全被其他意识方面所罩.
+我看到宇宙的奇点之后 (从我的角度来看) 我从大树中获得了最后的能量冲.
+我自己也需要尿, 于是请树木允许我走到角落里去 (别问我该怎么办).
+我在六点左右回家, 在旅程的最后一段时间里,
+我们讨论了诸如&quot;无限&quot;这样的概念, 我似乎能够完全理解数学方程,
+这就是它所困的地方.
+我听了一张我之前听过很多次的专辑,
+每一个歌词都表达了我刚刚经历的经历,
+我在清醒时在旅行后读到的所有东西 (大脑中的8A和8B几何,LSD论文,在治疗PTSD时使用MDMA,
+阴阳是它的核心.
+视觉和身体的感觉消失了, 但心态从来没有回来.
+我从那时起就一直很高兴.
+现在我有了前所未有的目标感.
+我错过了一个驱动器.
+记住,这些都是个人的视觉, 我只是为了报道它们,
+个人结论 - - 仅仅是意见
+为了超越人类的意识, 我们必须超越一切,
+在我看来,我们只能感知光, 因为存在着黑暗,
+没有相反的概念, 这些概念就毫无意义.
+任何宗教意识形态或科学教条都是由集体意识创造的,
+意识本身是破碎的, 因为它是必要的, 天堂在地球上,
+另一种选择是超越这个&quot;现实&quot;并回到纯极性.
+对于我来说,思维方式是我自己在每一秒创造出来的东西.
+时间是相对的, 因为我有无限的时间来循环宇宙,生命和维度.
+当你把意识和生命看成是你走路时创造出来的东西时, 你就会以不同的方式看待世界.
+当你把别人看作是你自己意识的碎片时,
+别人犯的错误是你自己的.
+你只是笑着想&quot;这太遥远了&quot;
+如果我们能够同时体验每一个可感知的东西, 那么我们很快就会感到无聊,
+这些点甚至可能不存在于地球上.
+纯粹的意识是有缺陷的, 因为它没有意义 - - 生命是解决方案.
+生命本身就是它的意义.
+没有任何其他资金
+1P-LSD (682):抑郁症 (15),自然/户外 (23),家庭 (41),回顾/总结 (11),一般 (1),各种 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The One Trip
+1P-LSD
+by
+Paradox
+Citation:   Paradox. &quot;The One Trip: An Experience with 1P-LSD (exp109693)&quot;.
+Erowid.org
+. Dec 24, 2016. erowid.org/exp/109693
+DOSE:
+150 mg
+sublingual
+1P-LSD
+(blotter / tab)
+BODY WEIGHT:
+12 st
+I’ve never written a trip report quite like this one before. The experience itself requires an insight into previous experiences, which I will try to give briefly in order to save space but this is inherently a long read.
+Substance: 1P-LSD
+Timing: 23:00 until 14:00 the next day (15h total)
+Dosage: Oral 1.5 blotters
+Storage: Sealed bag, 100ug dosed blotters
+History of drug use: Marijuana (hash/bud, bong/spliff) x lots, Cocaine (poor quality) x3, MDMA (crystal) x1, 1P-LSD x5 150ug-500ug (same blotters for consistency of experience)
+Precursor Trips of Importance
+~130ug - First Experience (1P-LSD)
+I won’t delve too much into this but it was as ‘most’ would describe a standard initial experience. The company I was in were relatively experienced with the drug (to the extent that they were willing to say, this will become more apparent later on in the most recent experience), 2 individuals, male and female, in a relationship.
+Perceptions:
+Colour: Colours were more vivid and interesting, I found myself perceiving colours in terms of something different than before, but at this point I could not put my finger on what it was.
+Sounds: Music and sounds were crystal clear, very interesting and engaging. In general music sounded amazing
+Tactile: My body felt loaded, as if I had an excess of adrenaline built up with in me. Tactile sensations could be altered by looking at or sensing different things.
+Emotional Awareness: Awareness of emotion as a new sensation that could be shared between humans, visually, spiritually it seemed, and within the body.
+Outdoors: Lights seemed to bounce off the plants differently, the tree in the back garden was almost breathing.
+I might add that the company I was in for this trip seemed to know a lot about the drug and it’s effects. I was left to work out a lot of this myself in the coming trips. I rode the trip out and ended listening to a variety of music before I finally was allowed to drift to sleep (sleep is impossible on this drug, as is eating)
+250ug - Accidental Emotions (MDMA combos)
+Main Theme: Emotional Awareness
+Again I won’t go too deeply into this but lets say this trip was more of the same, visuals, headspace etc but with a twist. The difference here is that the company I was in decided to candy flip (MDMA + 1P-LSD) at the same time as I was tripping. They were also made aware of how much I’d taken (and seemed annoyed by that). I’m not aware of the 3rd party’s dosages. I was quite focused on my own experience.
+We messed around for a few hours with general effects and I was being introduced to more and more of the perception-based effects. Moving board game pieces around tended to slow time the slower I moved the pieces. Backgammon board art could be made into shark’s teeth and scary images.
+Me being unaware of the drug’s effects (mostly MDMA, having never done it before) and not having had it explained to me thoroughly led to an unfortunate scenario for the 3rd parties.
+Being female and close in terms of relationship anyway led to unwanted emotions occuring, we both knew that the feelings were not appropriate. This led to the 3rd party having what she called a ‘bad trip’. I’m completely aware of what was going on in that scenario in terms of drugs *now* but I think that the 3rd parties underestimated how I would feel the energy of what was going on in other rooms while not in those rooms.
+This is leading on from the intense increase in emotional awareness brought on by 1P-LSD. Basically in short, I was aware that they (or at least one of them, I think the male was just on 1P-LSD) were candy flipping and fucking without even being in the room or understanding what MDMA did from first hand experience.
+(Couple of solo trips between this, experimenting more with effects, trips on
+IRC with others)
+300ug - Bad Trip
+Main Theme: The Fabric of the Universe
+This is where I’ll say I got a bit complacent. I thought I understood more than I actually did and this was my opportunity to share this wonderful substance I had found. I’d experienced afterglows, videos that reeked of LSD, patterns in life and some pretty life changing realisations and surely other people deserved to experience this too, right?
+This was the second trip I had with this friend (early 20s, male, normal build) and in addition to him, I decided to add an unknown person who I had never met (mid 20s, male, overweight) (since he asked to come and I felt very confident on 1P-LSD) and at the last minute, our set and setting changed to include my own mother. Now I have never read reports of people tripping with family before but I can say myself it’s not for the feint of heart.
+Dosages: Me - 300ug, Friend - 150ug, Unknown (I don’t even remember his name now) 100ug and he took his tab 1.5 hours after the rest of us as he was unsure.
+One of the big paradoxes when I&#x27;m on 1P-LSD is the paradox of life and where I come from, tripping with the person that brought my consciousness into this world digs up quite a lot things I might want to leave covered up. Some people aren’t ready for this. It appears I was not either.
+The result of the trip was initially amazing, lots of body rushing, visuals and headspace. We listened to a lot of music.
+Now I was there to analyse the trip and everything that was going on. I rarely trip purely for the fun of tripping, I’m usually on board to get something out of it. My mum on the other hand was very ‘in the moment’. Every time I’d go to show people something awesome that the drug could do (time dilation, emotional perception, a video that seemed to have a lot of LSD style instruction in it), she would shy away from it and reduce it to ‘just a drug’, it was pretty frustrating.
+Eventually I give up and lay back listening to Pink Floyd’s ‘Time’. I fell into what most people would describe as a ‘bad trip’ based off of an emotional indicator I got from the unknown party that he liked our dog sexually and also liked my mum that way too (you can see how this turned negative). There were no ‘real’ things after the initiation in this bad trip to ‘scare’ me. It was the very fabric of the universe itself that frightened me. It’s hard to explain how this works without having seen it but I felt like I’d been ‘caught’ cheating with 1P-LSD in life, as ‘recompense’ I lived what felt like 1000’s of lifetimes in the period of around 1 hour that were pure agony, pain and suffering on a scale that is not perceivable in this dimension. Like being at the centre of a black hole where ever nanosecond I&#x27;m pulled off in one direction to experience a lifetime, then snapped back and pulled the other way to experience a different one.
+I woke up halfway through the hour to a darkened room and I was covered in water (my mum had been feeding me water and turned all the lights off to reduce stimuli). I went to utter a sentence ‘It’s all noth---’ and then fell straight back into another 1000 lifetimes of the same thing.
+I can’t tell you what brought me back out but all I know is that suddenly I was fine again, my friend and the unknown guy came back in and we were all happy. What followed was total euphoria for the rest of the trip. I apologised because apparently I was completely insane for the hour or so I lost myself. At the end of the trip my mum added alcohol to the mix and I really disliked that as in my opinion showed a disrespect for the mindset 1P-LSD can put one in. She does abuse alcohol in my opinion.
+Interim - Mental State: Major Depressive Disorder (diagnosed)
+First time MDMA 180mg Bombed Orally
+This was an impulse decision to buy and take due to my mental state at the time. I can’t be sure that the substance was perfect but it looked pretty good and it gave the exact experience that is mostly described for MDMA
+.
+I’ll be brief here because the precursors are almost trip reports in themselves. I did this trip solo and I was on an IRC channel at the same time. Out of nowhere this guy private messages me and seems to just know how to guide me through the most beautiful experience that I’ve ever had in my life. All the understanding from the 1P-LSD experiences seemed to just, culminate into a fireworks display of stunning cognition. The music we both listened to seemed to just connect the dots and the MDMA took my mind off the understanding and allowed me to believe it was all part of a big overarching plan and it’ll be alright in the end.
+Before this experience I was unable to truly understand girls, friendships, why people behave how they do. After this trip I was awake. I saw all (or I thought I did).
+I had no comedown off this MDMA experience, I had 1 bout of anxiety and weed got really strong afterwards too. I cured my anxiety with self hypnotherapy and meditation. After this experience I was sure that there was more to the world than I had seen on my other 1P-LSD experiences.
+I truly understood what the word ‘empathogen’ meant.
+Safe to say, it completely ‘cured’ or reversed the thinking that caused my spate of depression that had been building for years - one of the reasons I took 1P-LSD to start with was to find more than what I could see, because what I could see wasn’t great.
+The ‘One’ Trip (Detailed)
+Mindset + Prep
+Although only being 150ug (I say ‘only’ but I feel the dose doesn’t matter any more), this trip was the most intense I have ever experienced in terms of pure understanding.
+I never ‘came down’ from this trip. The visual distortions went away, the body load, mindfuck and jelly fingers subsided but what I saw still hasn’t left me - as if it’s burned into my conscious mind now.
+To begin with I left the tabs on my desk for an hour or so, 150ug ready to go at 22:00. I had 2 days free afterwards so I figured ‘’Why the hell not?’’. The only hangup I had was that after the MDMA my mindset was incredible. I was organised, focused, happy, intelligent, creative and emotionally aware, I figure that I also had some repressed childhood memories (relatively ‘rough’ upbringing) and the MDMA helped with those too. Bottom line, I ate 150ug at 23:00 anyway. Not a huge amount of prep but I had time free and I’m a curious cat. I also wanted to line up tolerance and neurotoxicity for a first time candy flip later down the line.
+Come Up
+The tab seemed to dissolve under my tongue much more easily now than before, I kept it there for 5 minutes or so, then swallowed. I could feel the tingling and body load as quick as 20-30 mins after dosing but I’m beginning to feel that it was just adrenaline since this was the first 1P-LSD trip since my bad trip.
+I figured, whatever was in the bad trip, I could face those demons here and finally rid myself of my primitive desires so I could see what really drives us. At this point I had been researching a lot of stuff regarding LSD, collecting papers, reading history, reading psychonaut wiki and more. Things seemed to be linking up in reality, not just during the trips.
+For the first portion of the trip I hung out on my dose for a while with some people on the IRC channel that I was in. The chats were good, I listened to some music and as the familiar effects begun to set in I was definitely having a good time just relaxing with good company.
+Approximately 2 and a half hours in, I was pretty much peaking and set myself up to go outside. I’d been practicing meditation and observation of my own consciousness while I was sober and I wanted to practice meditation while under the effects of a chemical that connects up all the bits of my brain that normally are not. This might scare normal people but for me the endless search for ‘why’ is what gives me purpose in this life.
+Peaking + Journey to Park
+Visually, things were moving around, pattern movement in the carpet, tracers on my hands, moments of time dilation where songs would pause on the screen but were not really paused in my headphones. I had mild synesthesia, I could see the sounds as distortions in the fractals on my computer screen (or I thought I could, I’m not sure at this point).
+I packed a small rucksack with a snowboard jacket, my headphones, keys. I put on some warm clothes and headed outside. It was around 03:00 by the time I got to the local park, I could feel the energy of the park before I even stepped inside, the life within was strong compared to the concrete outside.
+As I stepped inside the park, it was beautiful. Bright street lamps in the old style with glass boxes on top, grass waving gently in the breeze and a sense of energy coming from the trees. I picked out a large looking pine tree and lay my jacket at it’s base.
+Meditation Under 3 Trees
+Pine Tree
+As I lay back against the trunk of the tree, I felt energy, not strong, but subtle flowing through both me and the tree itself. I laid my head against the tree’s trunk, allowed my eyes to close slightly and drifted into my own mind. I had a few techniques in my toolbox from meditation and hypnotherapy before:
+A safe, shielded space with ecstasy locked inside in the form of a feeling I had when snowboarding, accessible through touching my thumb and forefinger
+The ability to look inwardly using thought itself
+The ability to look outwardly using stimuli in ‘reality’
+The ability to analyse cognition as a 3rd party process, to analyse my own thought processes
+I explored many of these places and never really found a use for my safe space. In the branches above me, dead bodies rotting and fetid would appear before me, winds would intensify, other trees would literally wave at me, branches creaking. We communicated about things. To me it made a lot of sense. Trees that size are quite old and would naturally have more conscious awareness of things to share when compared to say, a blade of grass. I wasn’t communicating in the normal sense of things, I was imagining concepts in my mind and then allowing responses from the tree in terms of signs or energy.
+I feel that I went through a lot of different ideas and thoughts such as deforestation, global warming, war and more. It was as if I was trying to prove to the rest of ‘life’ that humans had their place in the world and that we still needed to prove we were worth keeping around. I tried to show the tree our unbounded love and human resourcefulness/resilience in the face of adversity. How we use the negative emotions to drive incredible positive ones.
+When I reached the end of our cognition, I felt a huge swathe of energy rise up inside me, as if the tree was gifting me with energy in return for my understanding.
+Insanity Tree
+I spotted another tree, one that had been waving at me earlier. It was white in colour (silver birch maybe) and it had also been showing me dead bodies in it’s canopy and the essence of insanity. Again curiosity got me and I went to meditate under that one next.
+What came next seemed to be a contest of ‘who was the most nuts’ and it’s safe to say that either it was a mirror for my own emotion, or I won that encounter. The tree would show me something that it deemed frightening and then I showed it the potential wrath of the human race, turning the fallen leaves into human skulls and the grass into hellfire. The exchange eventually seemed pointless and the battle of ‘who was the scariest’ didn’t seem to get either of us anywhere. We acknowledged each other’s perspective and the same energy flowed through me.
+Worth noting that while meditating under this tree, a group of drunk people walked by and pissed up against the tree I had previously been meditating under. This infuriated me for some reason, but the pine creaked as if to say it was okay - it’s just the way the universe works.
+Final Tree
+This was the biggest tree in the park I could find, it was pretty central and I think it was an Oak or something similar. I can’t remember the shape of the leaves I was tripping pretty hard at this point. I should go back and check again as it’s not that far away.
+Regardless, this tree was where I realised everything. This tree was where I relived my bad trip from a different perspective.
+I gently skirted around the area of the bad trip, it seemed that the tree was communicating to me about love, life and most of all, polarity. When I was in the darkness, I felt like there was black and white, light and dark going on around me and I was being ripped around inside. Now what I saw was something much more refined, much more stable.
+It was at that point that everything made sense. Life is only what our one consciousness makes it. If everything were the same all the time, we’d get bored so we constantly refabricate the world around us to circumvent that boredom yet the paradox is not knowing how much control we have and being driven by million year old evolutionary instincts. I saw a huge network of trees of consciousness that I perceived as ‘light-trees’. All interconnected, our ‘human’ tree was completely dwarfed by some other aspects of consciousness.
+After I saw the singularity of the universe (from my perspective) I received a final rush of energy from the large ‘oak’. I needed a piss myself and asked the trees permission to go in the corner (don’t ask me what the fuck).
+I headed home at around 06:00 where I listened to music for the final section of the trip and discussed thoughts with others on IRC (where highly logical people now seemed very illogical). We discussed concepts such as infinity where I seemed to be able to make perfect sense of mathematic equations that I’d only ever glimpsed before when I was skimming through maths and physics posts (the concept of hiding infinity within another function, or why quantum computing and fusion combined would give rise to true AI or new consciousness).
+This is where it all stuck. I listened to an album that I had listened to MANY times before called ‘One’. Every single lyric expressed what I had just experienced in a way that was not just pure coincidence. All the things I read after the trip while sober (8A and 8B geometry in the brain, LSD papers, the use of MDMA in the treatment of PTSD, other people’s experiences) seemed to ring true with the vision of polarity controlling the entire infinite multiverse. Yin and Yang at it’s core.
+The visuals and body sensations subsided but the mindset NEVER returned. I’ve basically been ‘high’ ever since.
+I’m fully functional, I don’t really have a desire to do anything hugely different but I have this sense of purpose now that I never had before. A drive that I was missing.
+Remember that these are all personal visions and I only report them for the sake of reporting them and increasing our collective understanding of psychedelic drugs.
+Personal Conclusions - Opinions Only
+In order to transcend this human consciousness, we must transcend everything that brought us to this point in the first place.
+To me, we can only perceive light because darkness exists, the void cannot exist without the matter inside it, sanity cannot exist without insanity. Without the opposites, these concepts would mean nothing. It dawned on me that there was no such place as ‘heaven’ or ‘hell’ other than what the mind creates, that any religious ideology or scientific dogma was something created by a collective consciousness in order to make sense of that part of a personality.
+The consciousness itself is fractured because it is necessary to do so, ‘heaven’ is here on Earth, it’s what we make of it. The alternative is to transcend this ‘reality’ and return to pure polarity. To me now, mindset is something I create myself on a second by second basis. Time is relative as I have infinite time to cycle universes, lifetimes and dimensions.
+When you see consciousness and life as something that is created around you as you walk, you view the world differently. When you see other people as fragmented parts of your own consciousness, you can no longer ‘hate’ anyone. Mistakes that others make are your own. You just chuckle and think ‘that’s far out dude’.
+If we were able to simultaneously experience every single perceivable thing at once then we would get bored very quickly, hence the requirement to experience life from different points of view. These points may not even be on ‘Earth’ as a human. I guess what I’m saying is that pure consciousness as a concept is flawed because it has no meaning - life is the solution. Life itself, is the meaning.
+Exp Year: 2016
+ExpID: 109693
+Gender: Male
+Age at time of experience: 24
+Published: Dec 24, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+1P-LSD (682) : Depression (15), Nature / Outdoors (23), Families (41), Retrospective / Summary (11), General (1), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

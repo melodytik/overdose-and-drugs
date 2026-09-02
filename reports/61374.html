@@ -1,0 +1,188 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>欧罗伊德的第一部好故事</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/gbl.html'>← γ-丁内酯</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>欧罗伊德的第一部好故事</h1>
+<div class='sub-title'>GBL - Erowid Exp - &#x27;First Good Story&#x27;</div>
+<div class='meta'>作者：Tom Citation · 日期：Nov 3, 2007 · 剂量：1.4 ml · <a href='https://erowid.org/experiences/exp.php?ID=61374' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>前言:
+昨晚我大约在18:30吃了1.5个凝杯 (1.1毫升) 的GBL, 肚子很 (感觉很, 不能再吃任何食物).
+我感觉到了,大约30分钟后, 但它是非常温和,
+今晚:
+我会尽我所能忽视安慰剂, 但这可能很难
+时间+0 - 09:44 - 吞下了2个凝囊, 自昨天18:00后没有吃过任何食物.
+我觉得有点放松了, 不能确定它只是安慰剂.
+感觉不如预期, 有点失望.
+没有什么惊人的, 不像我上次做了2个帽子 (像疯子一样跳转), 有一些乐曲, 希望能帮助.
+我认为, 现在真的感受到了这首音乐, 感觉很好, 很有舞蹈感.
+我觉得我已经喝了大约5酒, 总的来说我很开心, 没有任何禁,
+视力有点迟, 我可以很好地集中注意力,
+现在感觉有点强烈了, 感觉更像是6 - 7酒,
+基本上,把它想象成醉酒, 但不好的东西 (视力模糊/难以集中/精神模糊/傲慢) 大大减少.
+我当然能感觉到酒精会给你带来的不良影响,
+如果我服用了4个凝囊, 很有可能我现在已经昏迷了.
+我喜欢GBL, 让它去做自己的事情.
+我很幸运, 我从来没有感到恶心 (轻微的胃部不舒服) 过 GBL 胃部充满,
+我认为GBL是酒精的好处和咖啡因的好处的混合物,
+喜欢它:), 舒尔金尺度上加1.8分, 不像2分那么强烈, 因为没有冒险,
+我觉得我可以开车,但我知道我不能,不像酒精在那个方面,
+只是担心GBL很快会被禁止, 我讨厌这个政府:
+现在几乎恢复正常, 视力还像醉酒一样,
+现在已经没有了, 很好,
+你可能会从我的语中知道,GBL让我变得很口.
+想补充一下:
+今天我吃了2个凝杯 (1.7毫升), 肚子几乎空了, 度过了美好的时光,
+我已经有足够的被打倒冷之前,当我醒来时我感觉很好.
+似乎如果GBL/GHB被负责任地使用, 它可以成为一种很棒的社会药物,
+已使用的证券
+2007年11月3日发布
+GBL (89):一个人 (16),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+First Good Story
+GBL
+by
+Tom
+Citation:   Tom. &quot;First Good Story: An Experience with GBL (exp61374)&quot;.
+Erowid.org
+. Nov 3, 2007. erowid.org/exp/61374
+DOSE:
+1.4 ml
+oral
+GBL
+(capsule)
+BODY WEIGHT:
+75 kg
+Preface:
+Last night I had 1.5 gelcaps (1.1ml) of GBL at approx 18:30, with a full stomach (felt full, couldn&#x27;t eat any more food). I felt it, after about 30 mins, but it was very mild and not what I would consider fun as such, although it was by no means bad.
+Tonight:
+I shall do my best to disregard placebo, but this may be difficult
+T + 0 - 09:44 - 2 gelcaps swallowed, no food eaten since 18:00 yesterday.
+T + 3 - 09:47 - feel slight more relaxed, can’t be sure its nothing more than placebo though.
+T + 9 - 09:56 - not feeling it as expected, slightly disappointed.
+T + 12 - 09:58 - feel mentally a bit slowed, and a *tiny* bit dizzy, nothing amazing though, not like I was last time I done 2 caps (bouncing around like a mad man), got some tunes on which hopefully will help.
+T + 13 - 09:59 - here it comes, I think, really feeling this music now and feeling nice and dancey. I&#x27;d like to say at this point I mentally feel like I’ve had about 5 pints as far as general happiness and loss of inhibitions go, but there’s none of the usual alcohol fuzziness, I feel as if I could sit and do some work fine. Vision is a little bit retarted, I can focus fine but it seems to take my brain a *tiny* bit longer to register what things are and my eyes feel a bit heavy.
+T + 16 - 10:01 - feeling it a bit more intensely now, feels more like 6-7 pints, but still with the mental clarity. Basically, think of it as being drunk but with the bad things (blurred vision/difficulty focusing/mental fuzziness/arrogance) greatly reduced. Of course I can feel the bad effects that alcohol would give you, but VERY mildly, it seems GBL gives me 100% of the good things of alcohol at any set dosage and 20% of the bad ones. This is not to say GBL is all fun and games though, the dose-response curve is very steep and if I had taken 4 gelcaps chances are I&#x27;d be out cold right now.
+T + 19 - 10:04 - Feeling more dancey and happier now, nice euphoria and general &#x27;life is really good&#x27; attitude, I love GBL, gonna let it do its thing now. Oh, one thing I&#x27;d like to add - GBL can make some people vomit, the taste of the chemical or the irritation it causes to your stomach can make you dry heave or full on vomit, I am lucky though and I have never even felt nauseous (slight stomach discomfort maybe) on GBL with a full stomach, but I have a friend who projectile vomits on it sometimes. I think of GBL as a mix of the good things of alcohol + the good things of caffeine, but better.
+T + 23 - 10:09 - Eddie Halliwell is r0x0ring my panties at the moment, got the tunes up loud and headbanging to the tuneage, loving it :), a plus 1.8 on the schulgin scale, not quite as intense as a 2, cos there’s no adventure as such, but I can feel it right now, but I could continue with a normal day&#x27;s plans if I wanted to (expect drive of course). I feel as if I could drive, but I know I couldn’t, not quite like alcohol in that respect where I imagine enough to feel this :) would make me pretty certain driving would be a very stupid thing to do.
+T + 31 10:17 - Nothing new to report, feel the effects in waves, currently not feeling it too much, just worried GBL will be banned soon, I hate this government :(, planning on buying a litre or 2 with a friend in September, just hope its still available.
+T + 50 10:35 - Feel pretty much back to normal now, vision is still a *tiny* bit drunk like, but I think it’s worn off pretty much
+12:19 - meh all gone now, it was good, but I’ve had better GBL experiences.
+As you can probably tell by all my waffling, the GBL was making me very talkative
+Would like to add this:
+Today I had 2 gelcaps (1.7ml) with a nearly empty stomach and had a wonderful time, focusing was hard, I was wobbly and speech was slurred, but I felt fully in control and mentally fine, with a nice dose of euphoria. I have had enough to be knocked out cold before and when I woke up I felt fine. It seems that if GBL/GHB is used responsibly it can be a fantastic social drug, I have ordered larger size 000 caps and hope to try 1.5 when they arrive.
+Exp Year: 2007
+ExpID: 61374
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 3, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+GBL (89) : Alone (16), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

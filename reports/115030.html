@@ -1,0 +1,340 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>3-Cl-PCP - 体外 - &quot;软化池&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-cl-pcp.html'>← 3-Cl-PCP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>3-Cl-PCP - 体外 - &quot;软化池&quot;</h1>
+<div class='sub-title'>3-Cl-PCP - Erowid Exp - &#x27;The Softening Pool&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Mar 15, 2021 · 剂量：150 mg · <a href='https://erowid.org/experiences/exp.php?ID=115030' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>本报告的作者和其中提到的第二个人的要求, 稍微修改了本报告的原稿,
+前言:
+像往常一样,最后还有一段话.
+这是今年首次推出的新型氨酸之一.
+这是第二次尝试使用PCP作为基结构的3化,对于那些不倾向于化学,原子 (,,等) 附着在熟悉的PCP分子上的某个位置.
+这种化合物最初引起人们的兴趣, 但最终被视为不光彩.
+我个人认为它是短暂的,激烈的,
+只是一个愚蠢的头部打了一拳,
+它的剂量也高于许多用户认为经济的.
+3-Cl-PCP在几个月后出现,但没有受到很大的欢迎,也许是由于其化对应物的温和接待.
+在过去的几个月里, 关于这种化合物的信息很少, 除了指出与3-F-PCP的相似性,
+评论并没有让我像MXiPr那样被迷住,
+我很高兴看到它有着独特的特质!
+我觉得这很有趣,很有趣,我认为值得研究,
+这使我相信,进一步开发3基胺是有必要的,并将产生有价值的化合物.
+后来对80-120毫克的鼻入和舌下剂量进行的试验显示出有前途,
+关于不同药物输送途径的说明:不管用什么药物,效果似乎都是一样的,
+我认为直肠注射也会有类似的效果.
+鼻腔内注射根本不值得 - - 这是一种大量的粉末, 带有强烈的不愉快的气味,
+鼻腔内注射剂也似乎比其他方法持续时间更短.
+关于语言下剂量的详细信息在报告中.
+这次经历的背景不是我平常的房子, 而是一个豪华的公寓,
+这是一座建筑奇迹,位于一个安静的街区, 立在周围的大多数房屋之上, 让人欣赏天际线和周围城市景观.
+所有楼层都是通过螺旋楼梯进入的,
+我和我的伴侣不得不离开我们的家一周, 但幸运的是,
+它的味道苦, 不像苦和熟悉的阿里环胺石油味道,
+尽管它在我的嘴里, 我觉得我闻起来更像是味道.
+确实是苦的和不愉快的, 但不像一些药物,
+虽然不好吃, 但完全可以控制.
+我注意到当我喝淡淡的酒时, 甜味似乎显著增强 - - 一种温和而微妙的饮料突然变成了美味而诱人的东西.
+直接在粘膜上有轻微的刺痛感, 只是局部麻醉.
+有一些轻微腐蚀的粘膜, 但它是完全治愈到第二天, 不同于化合物如3-MeO-PCP
+开始感觉有点温暖,沉重,头.
+我感觉自己变得昏暗,远离,
+像一块小石头在河里倒下,
+感觉有点冷静, 像在炎热的日子里淋浴一样.
+我在这个令人愉快的分离雾中浴,
+没有冲动或刺激, 但也没有任何特殊的镇静或休息.
+站起来走路很有趣, 我很正常, 能无所不干,
+躺在一个大柔软的床上也很天堂般 - - 没有一个状态是必要的动机或喜欢,
+无论我在哪里或在做什么, 我都会感觉到一个热的离散式浴充满了我,
+现在我可以与我的伴侣无问题地沟通,
+我对那些像海浪一样冲过我身上的快乐感觉感到敬畏,
+现在感觉越来越强, 似乎正在增强势头,
+我不知道这会有多强烈 - - 强烈可能不是描述这种经历的正确词,
+开放的视觉开始呈现-- 典型的短暂的视觉来自离散,
+有四边形的格子形状, 像块一样, 环绕着绿色,粉红色和紫色的.
+像我电脑屏幕或房子的白墙一样.
+现在, 随着对话变得越来越困难,
+这些大是烂的白色大块, 入我的思维过程,
+但我对此感到满意.
+虽然我仍然感到非常放松和平静,
+尽管有这些小副作用, 我的心率感觉正常, 我完全平静地躺着, 手指互相敲打.
+我向我的伴侣宣称,我想在房子顶层的顶层公寓/办公室里,我想和我的物千足玩 (我们带他们来了这个小假期,因为他们需要每隔一天被雾化),
+然后也许在客厅里休息.
+这些都是理性的,可以实现的目标,
+这真是太好了!
+太多甚至!
+感觉比我应该感觉的要多, 像是对NMDA受体的绝对激进的阻塞,
+我发现自己在一个快乐的冲击在这个矛盾,我可以感觉如此强烈的平静.
+随着我的认知功能失去序列和连续性的感觉,
+我需要闭上一只眼睛才能读字母, 即使如此,
+我现在是纯粹的感官, 所有的感官都被淡了,
+我觉得自己在翔,不断地升高,
+我觉得自己已经完全麻木了. 我觉得自己已经完全麻木了.
+我可以站起来, 静静地走来走去,
+爬上和下楼的螺旋楼梯是具有挑战性的,在昏暗的光线下,它们被墙壁上的红色和绿色图案的闪光所拍摄,从直角构建的旋转和螺旋,冲入地球.
+我对此感到非常高兴.
+虽然3-F-PCP是冷淡的,灰色的,没有色彩或情感, 这是一个缓和的神经元节日, 不一定是温暖的,
+我选择在木地板的角落缩起来.
+我穿着几层温柔的衣服,
+我的身体感觉像被吸收了, 整体就像缩在我的身边一样小,
+我的感知能力变得越来越模糊,
+短暂而浅薄的呼吸现在已经让位给了缓慢的,柔软的,深沉的和温柔的呼吸.
+我心中的每一个部分都处于平静之中.
+我记忆越来越模糊.
+我不记得有什么时候把它们带出去玩, 虽然我相信它们爬在我的皮肤上的触觉会很愉快.
+现在我的笔记很难破译, 它们充满了字型错误和看似键盘破碎的胡说八道,
+我的身体形状感觉像是垂下垂下,滴下滴落, 实际上在某些点上融化,
+我无法找到充电器的过程, 这进一步使我陷入困境,
+很难打字,很难思考,很难移动, 我只能在角落里融化,
+我让自己沉入这个分离的洞里, 感觉我的身体融化成一片水,
+我被无穷无尽的螺旋和杂的形状的花朵迎接,
+一切都在旋转,旋转,漂流,缓慢而有意识地,
+我同事拿出一本书, 收藏着由传奇艺术家-自然学家恩斯特·海克尔所绘制的图片,
+他的风格甚至使熟悉的物种难以辨认,
+我觉得自己正着来自另一个世界的动物 - - 即使是我认识的动物,
+我决定从熟悉的东西中脱离, 享受不知所措, 假设这些确实是人类尚未遇到或描述的新生命形式.
+这种药物甚至在认知上强迫我满足于压力最小的选择,
+焦虑症肯定是一种特征,
+我坐在黑暗中, 清楚地回忆起我对视觉效果如此生动的惊叹. 房间里的一切都染色在深紫色和鲜的电蓝色中,
+它们像木星的云一样旋转,
+我几乎没有意识到自己在做什么, 也不知道为什么我在这个房间里,
+我从来没有想过,除了一些高度进化的寄生虫之外, 任何动物最终都只是一个光荣的管子,
+我的肢体,我的器官,我的感官,在面对这个事实时,突然变得多余了--除了完全静止,一个管子还有什么用呢?
+我无法准确地追踪时间, 因为我的手机还没打开, 但在完成我需要做的事情后, 我大概在里面呆了很长一段时间,
+我终于站起来,洗手,回到楼上, 清楚地记得自己四脚爬上螺旋楼梯.
+我相信我的下一个目标是走到屋顶甲板上, 凝视风景,
+我还记得在周围玩弄包装和收集我可能需要的物资.
+我记得曾经面临各种技术挑战 - - 我的笔记本电脑触摸板故障 (偶尔会出现这种情况),无法连接扬声器,我的手机仍然令人困惑的死亡 (我似乎一直忘记了这一点,并反复检查它的黑色表面) - - 在处理一些简单的任务之后,
+我设法成功地安顿下来 - - 笔记本电脑还在, 连接到一个很好的低音扬声器,
+也许在五层楼的屋顶上听起来不太明智, 也许是,
+现在我已经平静下来, 通过技术和小物体的混乱工作,
+很难理解我需要做什么以及为什么,
+虽然这似乎对体验没有太大影响,
+我躺在我的背上, 凝视着夜空, 一排一排的紫色蓝色的云, 从下面被城市灯照亮.
+巨大的波浪和波浪以规律的模式穿过云层, 它们的前面不是曲的,
+这些的逐步波动留下了色彩的波, 闪的闪光.
+我真的感觉到天空是一座巨大的圆顶,
+我甚至没有注意到12月的空气或屋顶的寒冷地板 - - 我的眼皮变得沉重,
+我把扬声器抱在身边, 听着一个很好的低音弹奏到我的身体,
+我希望我能永远这样躺下, 在我的眼后面的黑暗中,
+我感觉到我的身体正向下沉, 融化和沉在深, 直到它与脉动的膜结合,
+音乐的变化引起了视觉的微小变化,
+最终,幻觉空间仍然是抽象的, 主要是黑暗的, 带有微小的冷淡的彩色灯光闪, 大部分是不变的,
+这里很安静 - - 我的头脑是空白的, 我并没有真正深入到连贯的思想 - - 关于记忆或情感或自我的反思,
+我可以永远在这里, 但最终, 随着时间的流逝, 药物的效果开始减弱,
+我坐起来开始真正地欣赏周围的景象 - - 一个方向上的摩天大楼高,
+现在是凌晨1点左右,
+另一方面,远处闪着巨大的工业场地和炼油厂,烟和蒸汽被下面的灯光照亮,
+随着我拍摄场景,它们会变得模糊,分裂成双重图像或镜像,
+曾经熟悉的天际线很快就变成了一片密的幽灵林,
+我叹了口气,相同的缓慢和沉重的呼吸已经采取了这次经历的顶峰,
+这座城市是美丽的,所有这些,所有的玻璃和光,
+我又一次感受到极大的高兴感.
+我能走得更轻松了, 我有点清醒, 意识到我在做什么,
+我在周围寻找我的伴侣, 发现它奇怪和孤独的房间是空的当我回来,
+楼梯是有点更可航行在这一点上.
+仍然有强烈的视觉效果, 轻轻照亮的浮雕中的抽象图案沉在各种表面上, 仍然通常沿着简单的网格.
+我被对待之前, 流下墙壁像光投射通过一个窗户在暴雨期间在晚上.
+我发现自己倾向于沉入任何我来休息-不完全解体成一个洞,
+这种柔软舒适的分离 - - 在这一点上,它所留下的东西就像一个温柔的毛压在我身边,
+无论我的身体在做什么,处于什么位置,或在什么表面休息,
+经过一点我们上去和在卧室.
+躺在床上是天堂,因为它是当我上来.
+随着时间的推移, 我可以更好地进行对话.
+我注意到我嘴唇和舌头周围的感知能力仍然很差,
+能感觉到自己的嘴巴对说话能力有多重要.
+虽然我的四肢仍然麻木, 但我的大脑似乎已经恢复正常,
+药物的效果已经无法辨认.
+我试图睡觉, 但发现自己躺醒到早上, 尽管缺乏任何明显的刺激.
+也许只是环境和我整体的健康让我整晚不睡觉,
+似乎这些明显的抗焦虑效应不会持续.
+我终于在早上9点左右睡着了.
+结论:许多人 (包括本作者) 认为3-F-PCP是淡淡的,只是纯粹中性解离的浪潮.
+因此,对3-Cl-PCP的预期相对较低,因为最初的报道显示其特性相似.
+对于我个人来说,
+我对这种药物有很多令人愉快的惊喜, 但最重要的是,
+由于多种因素,
+首先是它是多么柔软和舒缓, 极其缓解焦虑 - - 这是一种温柔的毛脱离,
+感觉就像躺在一个巨大的床上,
+然而它没有任何明显的镇静或刺激.
+没有狂热,没有冲动,没有强烈的动力去做事情,
+如果我想坐着很久, 我也不会有问题, 而且那也很柔软, 很好, 很.
+其他使用者可能会觉得这种剂量有点激烈.
+服用100-120毫克口服或舌下剂量仍应在一定程度上表现出柔和愉快的分离性焦虑缓解作用.
+这种高剂量, 对于它的顶峰, 基本上是非功能和认知抑制,
+他们的上升和下降是社交和温暖的.
+旅程的视觉和感官特征也会有所增加, 这将带来一种独特的愉快体验,
+也许不是一个理想的药物在白天出去散步.
+如果我不得不比较它与任何东西, 它将是事实上是Ephenidine, 或另一个diarylethylamine-they分享一个类似的仍然,沉没分离,
+但最终它本身就是独一无二的,有价值的东西.
+我唯一的抱怨是需要相当高的剂量才能达到预期效果.
+其他:
+发布时间:2021年3月15日</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+The Softening Pool
+3-Cl-PCP
+by
+nervewing
+Citation:   nervewing. &quot;The Softening Pool: An Experience with 3-Cl-PCP (exp115030)&quot;.
+Erowid.org
+. Mar 15, 2021. erowid.org/exp/115030
+DOSE:
+150 mg
+sublingual
+3-Cl-PCP
+(powder / crystals)
+repeated
+smoked
+Cannabis
+(plant material)
+BODY WEIGHT:
+130 lb
+This report has been slightly edited from its original submission at the request of the author and a secondary person mentioned in this report in order to omit some details about the setting.
+Preface:
+Per usual, there’s a tl;dr at the end.
+This was one of a suite of new arylcyclohexylamines to debut this year. It was the second attempt at a 3-halogenation with PCP as the base structure – for those not chemically inclined, a halogen atom (Fluorine, Chlorine, Bromine etc.) is attached to a certain place on the familiar PCP molecule. That first attempt saw a Fluorine- 3-F-PCP, a compound that was received with initial interest but ultimately dismissed as being lackluster. I personally found it to be short, intense, and quite neutral and boring with little useful to offer. Just a dumb smack upside the head with dissociation. It also dosed higher than many users found economical. 3-Cl-PCP appeared a few months later, but met little fanfare, perhaps due to the lukewarm reception of its fluorinated counterpart. In the months that have passed, very little information has trickled in about this compound, beyond noting similarities to 3-F-PCP and an even lower potency. The reviews didn’t have me enthralled as those for MXiPr, which was released concurrently and likely helped to overshadow humble 3-Cl-PCP, and I was in no rush to obtain and test this compound. However, I got around to it eventually and was pleasantly surprised by some if its unique qualities! I found it to be interesting and enjoyable and I believe it is worthwhile to investigate and has something to offer to psychonauts of any experience level. This leads me to believe that further development of 3-halogenated arylcyclohexylamines is warranted and will produce worthwhile compounds.
+My initial experiences with this compound were with intranasal doses, starting at 50 mg and stepping upwards in what were initially 10 mg increments every ½ hour, but I eventually lost track of the doses and timing and found myself in a pleasant and unique dissociated state after several hours and an unknown cumulative dose &gt;100 mg. Later trials with intranasal and sublingual administration in the range of 80-120  mg showed promise but were still lacking, so I settled on a 150 mg sublingual dose to fully feel out the character of this compound.
+A note on the different routes of administration: It seems to be the same potency no matter how you take it, though I have only tried intranasal, oral and sublingual. I imagine rectal dosing would be a similar dose. Intranasal dosing is simply not worth it- it’s a large volume of powder with a strong unpleasant odor and a lingering irritating burn that I could feel into the next day-not quite the sharp instant sting some compounds will impart but something drawn out and torturous. Intranasal doses also appeared to have a shorter duration than other methods. Details on sublingual dosing are in the body of the report.
+The setting of this experience was not my usual house, but rather a luxurious apartment in the upscale downtown of the city where I live, where me and my partner were briefly staying. It was an architectural wonder on a quiet block, towering over most of the surrounding houses, affording spectacular views of the skyline and the surrounding cityscape. All of the floors were accessed by a spiral staircase and there were grand windows looking out onto the city in all directions. My partner and I had to vacate our home for a week but were fortunately allowed to stay here during that time- a little vacation in an opulent and luxurious space.
+T0:00- Dose poured under my tongue. It tastes bitter, not as much the bitter and familiar arylcyclohexylamine petroleum flavor, but fairly rancid and a little sickeningly sweet. Despite the fact that it&#x27;s in my mouth I feel like I am smelling it more than tasting it.
+It&#x27;s definitely bitter and unpleasant but not like some drugs that reflexively induce retching from the flavor. Unpalatable but entirely manageable. Interestingly, I notice when drinking a lightly flavored seltzer as a chaser, the sweetness seems significantly magnified- a mild and subtle drink suddenly becomes something delicious and tantalizing.
+There is a slight tingling sensation directly on the mucous membrane, and just a bit of localized anesthesia. There is some slight corrosion of the mucous membrane but it was fully healed by the next day, unlike compounds like 3-MeO-PCP which can wear a spot on a user’s gums If they’re not careful.
+T0:30- Onset- feeling a bit warm, heavy, lightheaded.
+T0:45- It’s hitting more and more, I am feeling faint and distant, like the volume has been turned down on all of my senses. It is a lightheaded and dizzy sinking sort of dissociation, like a pebble spiraling down as it sinks into a river. There is a soothing and calming numbness gently running down my extremities in light blue pulses, it’s cold but pleasantly so, like a cool shower on a hot day. I am bathing in this pleasant dissociative mist, getting thicker and thicker by the second to form into banks of luminous fog.
+There is no rush or stimulation, but there isn’t any particular sedation or couchlock either. Getting up and walking around is fun and interesting, I am fairly functional and able to move without issue, just a bit of looseness and excess momentum in my limbs. Lying down on a big soft bed is heavenly too- neither state is necessarily motivated or preferred, it all just feels tranquil and sublime. No matter where I am or what I’m doing there’s this sense of a lukewarm dissociative bath filling up around me, the water a miraculous icy turquoise in color.
+I can communicate with my partner without issue for right now, I feel mentally lucid though it feels as though that is starting to wane. I am for the most part in awe of the physically euphoric sensations washing over me like ocean waves and just desire to communicate it effectively with them.
+T0:50- Feeling it stronger and stronger now, it seems to be building momentum without showing any sign of stopping. I wonder how intense this is going to get- intensity perhaps not being the correct word to describe this experience, it’s an intensifying of a state of bliss and relaxation, sinking into comforts of an increasingly newfound magnitude. Open eyed visuals begin to present- the typical fleeting visuals from dissociatives that just fade into the background. There are gridlike quadrilateral patterns, offset like bricks, ringed in glowing mortar of teal and pink and purple. There is a persistent flashing and strobing in white spaces, like on my computer screen or the white walls of the house.
+T1:00- It’s building and building, there are dams blocking my flows of thought now as conversation becomes more and more difficult. These dams are big shiny white blocks, wedging themselves into my thought processes, getting in the way. But I am content with this.
+While I still feel very relaxed and tranquil, there are paradoxically stimulant side effects I am observing- a shortness and shallowness of breath, constant finger stimming. In contrast to most of my experience with stimulants, I feel quite comfortable and at ease, and despite these little side effects, my heart rate feels normal and I am entirely at peace with lying perfectly still, fingers tapping away at each other. I declare to my partner that I want to hang out in the penthouse/office on the top floor of the house, that I want to play with my pet millipedes (we brought them along on this little vacation because they need to be misted every other day), that I want to go out onto the roof and look out over the skyline, then hang out in the big soft bed downstairs, and then maybe lounge around in the living room. All of these are sensible and attainable goals, easily within my grasp.
+T1:09- This is delightful! Too much even! It feels like more than I should be feeling, like an absolutely aggressive blockade of my NMDA receptors, like a furious divorce from reality- yet at the same time, it is still so calm, so gentle, so utterly blissful. I find myself mostly in a joyous shock at this contradiction- that I can feel so intensely tranquil. My notes become sparse beyond this point, the timestamps become jumbled as my cognitive function loses its sense of sequence and continuity. I need to close one eye to read letters, and even then, they are an assortment of symbols that I have a hard time parsing meaning from. I am a being of pure senses now, and all of my senses have been dulled and replaced with an alien dissociated euphoria. I feel like I am levitating, constantly rising higher and higher into ascendancy. When I sit still I lose myself to the power of this drug, I lose my sense of body, I feel like I go entirely numb. I can stand up and walk around still, but it feels automatic and aimless. Ascending and descending the spiral stairs is challenging and in the dim light they are taken with flashes of magenta and teal patterns on the walls, swirls and spirals constructed from right angles, washing their way down into the earth. So intense, but what a delight, I feel so happy about this. Whereas 3-F-PCP was cold, grey, absent of color or emotion, this is a subdued festival of the neurons, not necessarily warm, but pleasantly cool, intense but without a rush, visual and colorful and awash with pleasant emotions.
+T1:18- I have made it up to the top floor somehow, I have opted to just curl up in the corner on the wood floor. I am wearing several soft warm layers and I am quite cozy here in my little space. My body feels like it has absorbed into itself, that my entirety is just as small as I am while curled up like this, and it is as large as I will ever be. My proprioception has become more and more vague and scrambled. The short and shallow breathing from before had now given way to slow, soft, deep and gentle breaths. Every part of me was at peace. My memory gets hazier past this point. My partner brings up my pet millipedes to play with, I don’t recall taking them out at any point though I’m sure the tactile sensation of them crawling on my skin would’ve been lovely.
+My notes at this point are hard to decipher- they are laden with typos and seemingly keyboard smashing gibberish, a testament to my rapidly declining motor skills. My physical form feels like it’s drooping and dripping and literally physically melting at points, like a candle. At some point my phone ran out of battery and I couldn’t piece together the process of finding a charger for it, which further unanchored me and particularly made it hard to readily keep time. It’s hard to type, hard to think, hard to move, all I can do is just melt in the corner, and frankly it’s still a joyous carnival of total inhibition, I am still feeling calm and tranquil and awash in euphoria, I am still having a great time. At points my eyes drift shut, I allow myself to sink into the hole of this dissociation and there is a sensation of my body melting into a puddle that seeps into the floor, it’s weight stretching the surface like a bowling ball dropped onto a trampoline. I am greeted by endless spirals and blossoms of tangled forms in silhouette, backlit by a shifting cool light. Everything is spinning and swirling and drifting, slowly and deliberately, everything gentle and just as it needs to be.
+At some point my partner brings up a book that is a collection of plates done by the legendary artist-naturalist Ernst Haeckel- opulent and intricate depictions of the diversity of life in this world, embellished with symmetry and sublime composition. His style can render even familiar species as unrecognizable, while a certain alien quality is also inherent in many of the obscure invertebrates and odd microbes that he illustrated. I feel like I am gazing upon a bestiary of another world- even the species I recognize, my memory falters and I fail to remember their names. I decide to take joy in resigning to the separation from the familiar, to simply revel in not knowing, in just assuming that yes, these are indeed novel life forms the likes of which mankind has yet to encounter or describe. Even cognitively, this drug seems to force me to settle for the least stressful option, to always assume the best. Anxiolysis is certainly a trait that can be explicitly and uniquely ascribed to this dissociative.
+T1:40- At some point I manage to go down the stairs to go pee. I sit in the dark and distinctly recall marveling at how vivid the visuals are in this setting- Everything is tinted in deep violets and vivid electric blues- everything is in a constant downward motion, like the visuals are a liquid cascading down every surface in the room. They swirl like the clouds of Jupiter, they are fringed with tendrils and fractals like a tangle of vines, always in flux, always in motion. I am nothing at this point, I am hardly even aware of what I’m doing or why I’m in this room right now, beyond a vague suggestion from my body. Never before have I quite reckoned with the simple biological fact that every animal, save for some highly evolved parasites, is ultimately nothing more than a glorified tube, sometimes branching at points, but nonetheless the body of each creature is constructed around a basic in and out dynamic. My appendages, my organs, my senses, all suddenly seem superfluous in the face of this fact- what is a tube to do other than sit completely still? I couldn’t keep exact track of time due to my phone still being dead, but I was presumably in there for quite a while after I was done what I needed to, just reckoning with my facts of my biology and staring in awe at the vivid drifting visuals, like a constant shower of branches, a garden of translucent vines, or perhaps a bed of seaweed undulating in the waves. I eventually manage to stand up, wash my hands, and navigate myself back upstairs, with a distinct memory of crawling up the spiral stairs on all fours. I believe my next objective was to go out on the roof deck and gaze at the scenery, though my memory is especially foggy around this point. I recall fiddling around with bundling up and gathering what supplies I may need. I recall grappling with various technological challenges- my laptop’s touchpad failing (as it will occasionally do), it failing to connect to a speaker, my phone still being bafflingly dead (I seemed to have kept forgetting this and checking its blank black surface time and time again)- after struggling with what would have otherwise been quite simple tasks for some amount of time, I managed to settle in successfully- laptop still there for notes, hooked up to a nice bassy speaker, my external mouse somehow successfully established, water and cannabis at the ready, and warm soft layers to shield me from the cold. Perhaps being on a rooftop 5 stories up sounds ill-advised in this state, and perhaps it is, though I was confident it wouldn’t be an issue for me.
+T2:20- I feel a sudden sense of clarity now that I have settled down and worked through the confusion of technology and small objects while heavily dissociated. It’s hard to grasp what I need to do and why when my short term memory is faltering and my sense of cause and effect has been stunted. I take a few hits of cannabis from my one hitter as I usually do, though this seems to have little effect on the experience beyond perhaps adding a bit more definition to the visuals. I lie on my back first and gaze into the night sky, rows upon rows of violet-blue clouds illuminated from below by the city lights. Great pulses of waves and ripples pass through the clouds in regular patterns, their fronts not curved but constructed from a series of right angles. These jagged step-by-step undulations leave washes of color in their wake, little flashes of iridescent lightning. I truly get a sense of the sky being a great dome above, it feels like it seals me in where it meets the horizon, I am not truly outdoors but simply enclosed in yet another vast space. Lying here in all of my soft layers is heavenly, I don’t even notice the bite of the December air or the cold tarmac of the roof- my eyelids grow heavy and drift shut from the weight of my bliss under this great hemisphere. I hug my speaker against my body as a nice bassy pop pulses into my body, the vibrations massaging my abdomen.
+I wish I could lay like this forever, in the darkness of the back of my eyelids, a shimmering gossamer spiral of blue cellophane rippling and pulsing to the vibrations of the music, extending into the infinite walls of the great sphere that encloses me. I feel my body sink straight downwards, melting and drooping into the abyss until it is conjoined with the pulsing membrane, and suddenly without a body I am a being of pure vibration and vitreous blue energy. Changes in the music elicit slight changes in the visuals like flashes of color and light in the distance, taking various patterns and aligning to various synesthetic themes and emotions. Ultimately, the hallucinatory space remains abstract, predominantly dark with small flashes of cool colored lights, and mostly unchanging, in steady and gentle motion like ocean waves lapping up on a beach at night, laden with bioluminescent plankton.
+It’s quiet here- my mind is blank and I am not really delving into coherent thoughts-ruminations on memories or emotions or the self, it’s just a quiet tranquility, the sensory pleasure of such a vivid yet ultimately cryptic and subdued forms in the endless dark. I could be here forever, but eventually, as time passes, the drug’s effects begin to wane, thoughts of the world beyond this space begin to invade, I begin to feel bored and impatient, I want to open my eyes.
+I sit up and begin to really take in my surroundings- skyscrapers tower over me in one direction, their peaks lit up by an array of prismatically colored lights, their bodies a constellation of pockmarked windows lit windows. It is around 1 AM and very quiet. In another direction, the distant twinkling of vast industrial fields and refineries, smokestacks and plumes of steam illuminated by the lights bellow, to one side, a single massive building with a grand art deco topper towered particularly close. As I took in the scene, they would blur, split into double images or mirror themselves, be accompanied by shadow forms that would shoot up infinitely into the sky as beams of light and shadow. What was once the familiar skyline was soon becoming a dense jungle of phantoms, pillars of light and glass piercing into the dark, cloudy heavens. I sighed, the same slow and heavy breaths as had taken the peak of this experience, and felt so at peace. This city was beautiful, all of this, all of the glass and light intentionally constructed to be deliciously consumed by my hungry eyes, it was a wall of pure rippling sensation that tore through me. I was taken yet again with cresting waves of euphoria.
+T3:00- I come back inside- I can walk a little easier now, I am a bit more lucid and aware of what I am doing and how time proceeds and the nature of cause and effect. I stumble around looking for my partner, finding it odd and lonely that the room is empty when I come back in, before finding them in the living room downstairs. The stairs are a bit more navigable by this point. There are still strong visuals in place, abstracted patterns in gently lit relief settling into various surfaces, still usually along the lines of a simple gridwork. In the dark coming down the stairs I was still greeted by the same drifting and flowing curtains of vines and tangles of tendrils that I was treated to before, flowing down the walls like the light cast through a window during a heavy rainstorm at night. My head is still spinning and I find myself tending to sink into wherever I come to rest- not fully disintegrating into a hole but becoming still and immersed in what sensations come through.
+T3:30- What a soft and comfortable dissociation- at this point what remains of it feels like a gentle plush pressing in on all sides of me, a steady pressure that pulses and beats with my heart. I am so cozy, at no point has this drug made me feel any semblance of physical discomfort, no matter what my body is doing or what position it’s in or what surface it’s resting on. After a point we go up and hang out in the bedroom. Lying on the bed is as heavenly as it was when I was coming up. I am steadily coming down now, my thoughts are becoming steadily more lucid and coherent and I can hold conversation better as time passes. I notice there is still a loss of proprioception around my lips and tongue, causing me to stumble over words as I speak and mispronounce things. I realize now how important the feedback of being able to feel one’s mouth is to the ability to speak clearly and articulately.
+T4:20- Mostly down- there is a lingering numbness in my limbs but my brain feels like it has mostly returned to normal, with maybe a slight persisting short term memory loss.
+T6:00- The effects of the drug are no longer discernible. I try to sleep but find myself lying awake well into the morning, despite lacking any marked stimulation. Perhaps it was just the setting and my overall health that kept me up all night, as I felt in a state of sober anxiety the entire time. It would appear those distinct anxiolytic effects do not last. I eventually fall asleep around 9 am.
+Conclusion: 3-F-PCP was received by many (including this author) as lackluster and just a surge of pure neutral dissociation. Thus, expectations were fairly low for 3-Cl-PCP, which initial reports indicated was similar in character. For me personally however, my expectations were far exceeded. So much pleasantly surprised me about this drug, but chiefly, it was how novel and unique it felt. It was really incomparable to any other dissociative I’ve taken, due to several factors. The first is simply how soft and soothing and supremely anxiolytic it is- it is a gentle plush dissociation, pleasant and euphoric the whole way through abound with delightful physical sensations. It feels like lying on a king size bed made of clouds. Yet it was absent of any noticeable sedation or stimulation. There was no mania, no rush, no intense motivation to do things- but there was also no couchlock, no mental inhibition that just left me drooling in a daze for hours. It was simple and matter-of-fact- if I wanted to get up and move, I could, and it felt good and soft and melty- if I wanted to sit still, I had no issue with doing so for long periods of time, and that too was soft and good and melty. A dose of 150 mg was sufficient for a deeper out of body experience for me, other users may find such a dose a bit intense. A dose from 100-120 mg orally or sublingually should still present some degree of the soft and pleasurable dissociative anxiolytic effects. A dose this high was, for the peak of it, largely non-functional and cognitively inhibiting, though still greatly enjoyable. The comeup and comedown were sociable and warm. Add to that a distinct character for the visuals and sensory aspect of the trip and it yields a uniquely pleasant experience, ideal for a night at home alone with soft surfaces and some music or with a loved one. Perhaps not an ideal drug for going out for a walk during the daytime. If I had to compare it with anything, it would in fact be Ephenidine, or another diarylethylamine- they share a similar still, sinking dissociation, as opposed to any kind of rushing sensation. But it is ultimately something unique and worthwhile of its own. My only complaint is the fairly high dose required for desired effects.
+Exp Year: 2020
+ExpID: 115030
+Gender: Not Specified
+Age at time of experience: 25
+Published: Mar 15, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3-Cl-PCP (928) : Various (28), Music Discussion (22), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

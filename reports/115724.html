@@ -1,0 +1,312 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我后悔吸入的第一行&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/alpha-php.html'>← α-PHP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我后悔吸入的第一行&quot;</h1>
+<div class='sub-title'>N-Ethylhexedrone &amp; alpha-PHP - Erowid Exp - &#x27;The One Line I Regret Snorting&#x27;</div>
+<div class='meta'>作者：AcidFreak1424 Citation · 日期：Sep 29, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115724' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这是我第一次使用Pyrovalerones.
+我对大多数常见药物有经验.
+我喜欢认为我是一个有自我控制的心理飞行员 , 可以负责任地使用物质.
+为了澄清一下:用pyros,我的意思是pyrovalerones,
+我已经服用了7g的Kratom,
+我感觉很放松,很高兴.
+我对自己说,无论如何我都不会再服用.
+(我有各种成物质的经验,而且总是能够抵制再服用的冲动.
+这是一个立即的烧伤, 但它在30秒后消退.
+我决定看一些动漫.
+我突然感受到一种积极的能量和高兴感.
+我认为这与低剂量的可乐非常相似.
+我立即想增加效果.
+我觉得如果我现在再服用一次, 奇迹就会发生.
+我无法抗拒这种冲动,决定服用10毫克的小剂量.
+T +0:25:影响的增加很小,但明显.
+我决定听一些音乐,抽一支烟.
+香烟似乎增加了我的高兴感, 但使我的心率升.
+我决定尝试拍摄.
+感觉很好, 但来这里是很难做到的.
+:情已经显著减弱,
+想再服用是很强烈的, 但我设法抵制, 因为将有一个家庭晚餐在一个小时,
+我决定在当天晚些时候尝试使用a-PHP.
+没有更多的高兴感, 只有很多不舒服的刺激.
+我感觉有些困惑,
+我的心率感觉危险高.
+我感觉不舒服和丧.
+我想回到天堂.
+现在我明白, 暴饮暴食后的衰退一定是多么可怕,
+我只是躺在床上希望这一切结束.
+我仍然认为稍后尝试使用a-PHP是个好主意 (我仍然在经历渴望).
+我告诉自己,a-PHP将是我忍受抑郁症的终极奖励.
+我打电话给我说要吃晚饭.
+我有一些焦虑, 因为我知道没有办法表现清醒.
+我去浴室看镜子.
+我没有看起来很久很搞了lol.
+我现在开始恶心, 心脏好像在爆炸.
+我觉得心灵的空间, 几乎像一些离散的后果.
+我吃饭时几乎吐了.
+让父母看到我这样的状态,
+现在头痛让我觉得我会在未来几分钟内中风.
+我认为最糟糕的副作用就是刺激.
+让我无法在任何姿势上舒适,
+对于中风和发热的恐惧仍然存在.
+我只是躺在床上, 着无处不在.
+我甚至不想听音乐或做任何其他事情.
+想想如果我再服用一次,
+我阅读了我能找到的关于a-PHP的每一份报告.
+(我仍然无法清晰地思考,
+我决定先测量心率和血压,
+我的心率是每分钟145跳, 血压是153/95.
+幸运的是,这让我足够害怕等待一个小时.
+我心率现在是每分钟120跳, 血压是140/90.
+我测出10毫克的a-PHP,并将其分成2行.
+我犹是否可以吸入它.
+我很生动地想起一个声音告诉我&quot;你会后悔的&quot;和&quot;你的生活就这样了&quot;.
+这让我很害怕, 我决定把量减少到7毫克,
+它烧得很厉害, 但不像女巫那么厉害.
+我已经吸了比这更糟糕的东西.
+唯一令我厌恶的东西是我每次呼吸时都会闻到精液的味道.
+这就像有人刚刚进入我的鼻孔.
+我将我的a-PHP袋子放回玻璃里,
+虽然它比巫婆长得更长, 但它非常愉快.
+这感觉与巫婆有很大不同.
+然无情的感觉不再那么冷酷,纯洁,
+这种感觉与MDMA并没有什么不同,
+我将其描述为令人愉快的感,
+我很容易在床上放松,
+我几乎不想动身体.
+我认为再服用5毫克是个好主意.
+我告诉自己今晚只能这么做,
+精液的气味加剧到我不得不去洗手间,
+为什么上帝不让我们永远处于这种状态?
+我还在看动漫, 有时会眼地哭,
+我希望这一刻永远不会结束.
+我的心率感觉相当高, 但绝对不像Hexen那样高.
+我决定再服用最后6毫克.
+:自从开始以来, 似乎越来越强烈.
+我在情感上与正在观看的系列有着深厚的联系:例如,当有可爱的事情发生时,我会为快乐而哭泣.
+我决定尝试这种物质的音乐增强效果.
+虽然不像5-MeO-MIPT那样令人惊叹, 但与我尝试过的其他刺激剂不同.
+我正在考虑再添加9毫克,
+我觉得已经开始了.
+T+6:30:偏移缓慢而稳定.
+这比女巫的&quot;撞击&quot;要温和得多.
+我偶尔会想到要把女巫洗掉, 因为如果有PHP,谁还想要那种东西呢?
+没有子可以睡觉. 没有子可以睡觉,
+愉快的效果已经消失了.
+我感到惊的是我现在几乎没有副作用.
+我可能有点头,但这就是它.
+也没有令人不舒服的残留刺激.
+我注意到一个奇怪的副作用, 我通常从大麻得到:呼吸已经从自动到手动.
+胸部有点紧张 (血管收缩).
+现在我真的想睡觉.
+我终于睡着了.
+谢天谢地,我没有再服用一次.
+第二天:我觉得很惰,思维也受损.
+想到吸入另一个线不离开我一天的大部分.
+我甚至在某个时刻准备好了另一条线,
+第二天我感觉更好了.
+结论:我是一名经验丰富的心理飞行员,
+我总是设法负责任地消费每一个 (re) 剂量计划前进.
+这两种物质不太适合.
+我经常发现自己有理由重新服用,
+我第一次抵制再剂量时失败了, 这很容易失控,
+我现在要休息几个月, 不再服用任何药物,
+我一直想知道有没有一种负责任的消费方式,
+我建议任何想试试Pyros的人, 取出袋子里想要的剂量,
+我第一次尝试着燃烧火焰,
+时间表: 115724
+发布时间:2021年9月29日
+阿尔法-PHP (677),N-乙烯 (738): 宿醉/几天后 (46),组合 (3),一般 (1),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The One Line I Regret Snorting
+N-Ethylhexedrone &amp; alpha-PHP
+by
+AcidFreak1424
+Citation:   AcidFreak1424. &quot;The One Line I Regret Snorting: An Experience with N-Ethylhexedrone &amp; alpha-PHP (exp115724)&quot;.
+Erowid.org
+. Sep 29, 2021. erowid.org/exp/115724
+DOSE:
+T+ 0:00
+7 g
+oral
+Kratom
+T+ 0:00
+25 mg
+insufflated
+N-Ethylhexedrone
+(powder / crystals)
+T+ 0:15
+10 mg
+insufflated
+N-Ethylhexedrone
+(powder / crystals)
+T+ 0:25
+1 cig.
+smoked
+Tobacco - Cigarettes
+T+ 4:30
+7 mg
+insufflated
+alpha-PHP
+(powder / crystals)
+T+ 4:55
+5 mg
+insufflated
+alpha-PHP
+(powder / crystals)
+T+ 5:30
+6 mg
+insufflated
+alpha-PHP
+(powder / crystals)
+BODY WEIGHT:
+150 lb
+This is my first experience with pyrovalerones. I have experience with most common drugs. I like to think that I am a psychonaut with self-control who can use substances responsibly .
+To clarify: With pyros, I mean pyrovalerones, a chemical class within the cathinone-class.
+T -1:30: I took 7g of Kratom with no tolerance.
+T -0:10: I&#x27;m feeling relaxed and euphoric. I measure out 25mg of hexen, I am telling myself that I will not redose no matter what. (I have experience with various addictive substances and ALWAYS managed to resist the urge to redose.)
+T +0:00: I insufflate the 25mg. There is an immediate burn but it subsides after about 30 seconds. I decide to watch some anime.
+T +0:10: Suddenly a wave of positive energy and physical euphoria washes over me. I would say it is very similar to a low dose of good coke. I immediately get the urge to increase the effects. I feel like if I would redose right now and only once, something magical will happen. I could not resist the urge and decide to go for a small booster-dose of 10mg.
+T +0:15: I insufflate the additional 10mgs and continue watching.
+T +0:25: The increase in effects is small but noticeable. I decide to listen to some music and smoke a cigarette. The cigarette seemed to increase the euphoria for a bit but sent my heart rate skyrocketing.
+T +0:40: Euphoria is still there.I decide to try fapping. It felt good but coming was a very difficult thing to do to say the least.
+T +0:50: The euphoria has lessened significantly but I still feel better than sober. The urge to redose is strong but I manage to resist because there will be a family dinner in about an hour and I don&#x27;t want to look fcked up. I instead decide to try out a-PHP later in the day.
+T +1:00: No more euphoria, just a lot, uncomfortable and not so clean stimulation. I feel spaced out and am shivering and shaking slightly. My heart rate feels dangerously high.
+T +1:20: I feel dysphoric and depressed. I want to go back to heaven. I understand now just how horrible this comedown must be after a binge, when it&#x27;s already so bad after just a (low) common dose.
+T +1:30: I am just lying in my bed and hope for this to end. I still think it&#x27;s a good idea to try out a-PHP later (I am still experiencing cravings). I tell myself the a-PHP will be my ultimate reward for bearing this depression.
+T +1:40: My mom calls for dinner. I get some anxiety because I know there is no way to act sober. I go to the bathroom and look in the mirror. I haven&#x27;t looked this fcked up in quite awhile lol. I am getting some nausea now and my heart feels like it&#x27;s exploding out of my chest. I feel mentally spaced out, almost like the after-effects of some dissociative.
+T +2:00: I almost threw up while eating. I feel ashamed for letting my parents see me in this state. There is a headache now which makes me think I am going to have a stroke in the next minutes.
+T +2:30: The worst of all side effects I would say is the stimulation. It prevents me from getting comfortable in any position no matter what and forces me to constantly move some part of my body. The fear of stroke and heat-attack are still present.
+T +3:00: I&#x27;m just laying in my bed and stare into nothingness. I don&#x27;t even want to listen to music or do anything else. Thinking about what would have happened if I had redosed another time sends shivers down my spine.
+T +3:30: I read every report about a-PHP I could find. (I still couldn&#x27;t think very clearly and wanted to get my so-desired reward (pure stupidity)). I decide I would first measure my heart rate and blood pressure before snorting another stim (wise decision). My heart rate was 145bpm and blood pressure 153/95. Luckily this scared me enough to wait another hour.
+T +4:30: My heart rate is now at 120bpm and blood pressure at 140/90. I measure out 10mgs of a-PHP and divide it into 2 lines. I am hesitant to snort it. I had a vivid thought of a voice telling me &quot;you will regret this&quot; and &quot;there goes your life&quot;. This scared the hell out of me and I decide to reduce the amount to 7mgs and snort it. It burns quite a bit but not quite as bad as the hexen. I have snorted wayyy worse stuff than this. The only thing that grosses me out to the point that I&#x27;m close to puking again is the smell of cum whenever I breathe. It’s like someone just came into my nostrils. I am putting my bag of a-PHP back in the glass with my other chems, expecting not to open it again tonight (lol).
+T +4:50: This took much longer to come up than the hexen but it is very pleasant. This feels VERY different from hexen. The euphoria is not as cold and pure and I am seemingly clear headed (delusion). This feels not completely unlike MDMA in the sense that the euphoria is very warm. I would describe it as very pleasurable tingling-sensations that are present EVERYWHERE in the body. There is also very little forced stimulation, I have no problem relaxing in bed and watching anime. There is little desire to move my body.
+T +4:55: Yes I think it&#x27;s a good idea to redose 5mgs. I tell myself this will be it for the night because I don&#x27;t want to use a benzo to sleep (it&#x27;s 9:30 pm.). The cum smell intensifies to an extent where I had to go to the bathroom, but didn&#x27;t throw up.
+T +5:10: Why couldn&#x27;t god make us be in this state forever. I am still watching anime and am sometimes sightly crying because this feels so wonderful (never had this reaction on a drug, not even on coke or MDMA).
+T +5:30: I am enjoying this so much I want this moment to never end. My heart rate feels quite high, but definitely not as high as on hexen. I decide to go for another LAST (lol) 6mgs.
+T +5:50: It feels like it has been increasingly intensifying since the onset. I am emotionally deeply connected to the series I am watching: e.g. when something lovely happens, I would cry of joy.
+T +6:00: I decide to try the music enhancing effect of the substance. It is amazing, not quite as amazing as with 5-MeO-MIPT, but unlike any other stim I&#x27;ve tried.
+T +6:10: I am thinking about adding another 9mgs but decide to wait for another bit because my heart is quite pounding at this point. I feel like the offset has begun.
+T +6:30: The offset is slow and steady. It is so much more gentle than the &quot;crash&quot; from hexen. I occasionally get the thought of flushing the hexen because who wants that shit if there&#x27;s a-PHP, right?
+T +6:50: Somehow I managed to convince myself that if I would redose again, there would be no way I could sleep without a benzo. Pleasant effects are gone by now.
+T +7:20: I am surprised that I am feeling little to no side-effects right now. I am maybe slightly dizzy but that&#x27;s about it. There also is no uncomfortable residual stimulation.
+T +8:00: I am noticing an odd side effect, I usually get from weed: Breathing has gone from automatic to manual. Also my chest feels a bit tight (vasoconstriction).
+T +10:30: I am not tired but I really want to sleep now.
+T +11:45: I finally managed to fall asleep now. Thank god l didn&#x27;t end up redosing another time.
+Next Day: I feel sluggish and my thinking is impaired. The thought of snorting another line doesn&#x27;t leave me for most of the day. There even was a point where I got the scale ready for another line, but managed to keep control.
+I feel much better the second day.
+Conclusion: I am a quite experienced psychonaut and have experience with various substances. I always managed to consume responsibly with every (re)dose planned ahead. Not so much with these two substances. I commonly found myself coming up with reasons to redose and use it more often in the future. I failed the first time ever resisting a redose, this could have easily gone out of control and get myself addicted to pyros. I will take a couple months break from all drugs now and I don&#x27;t know if I will ever do pyrovalerones again. I have always wondered if there was a way to consume them responsibly but I know now this is most likely impossible for anyone. My suggestion to anyone wanting to try out pyros is to take the desired dose out of the bag and give it to a friend meanwhile and tell them to flush it if you are asking for the bag while high.
+TLDR: Tried pyros for my first time and nearly ended my life in a mess.
+Exp Year: 2021
+ExpID: 115724
+Gender: Male
+Age at time of experience: 19
+Published: Sep 29, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+alpha-PHP (677), N-Ethylhexedrone (738) : Hangover / Days After (46), Combinations (3), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

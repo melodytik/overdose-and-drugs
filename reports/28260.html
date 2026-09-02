@@ -1,0 +1,185 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;阅读和看电视变得更加吸引人&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/iap.html'>← IAP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;阅读和看电视变得更加吸引人&quot;</h1>
+<div class='sub-title'>IAP - Erowid Exp - &#x27;Reading &amp; TV Watching Become More Engrossing&#x27;</div>
+<div class='meta'>作者：Mompochea Citation · 日期：Dec 15, 2003 · 剂量：20 mg · <a href='https://erowid.org/experiences/exp.php?ID=28260' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我试图使用液体测量技术 (我之前在2C-I上成功地使用过) 来称重材料.
+我把100毫克的IAP (纯白粉) 入10毫升的水中,
+并且震动了.
+并且震动了.
+并且震动了.
+几乎没有粉末被溶解.
+我把瓶子放在热水中加热,
+没有变化.
+于是我大力摇动瓶子, 使小小的IAP颗粒在水中平稳地漂浮,
+我能够获得大约20毫克的化合物.
+我吞下了液体/粉末, 接着喝了一杯水,
+现在我应该提到,当涉及到尝试新的精神活性物质时,我往往特别紧张 (尤其是像IAP这样的IAP, 关于持续时间和效果的信息很少),因此,我有时很难区分药物的初始效应和我焦虑的身体和心理表现.
+在大约15分钟内, 我开始感觉到一些相当严重的紧张 (紧张的,紧张的感觉,
+这持续了大约一两个小时, 逐渐缓和.
+我也开始经历一些胃异常 (不完全恶心, 但接近) 也减少了下一个小时左右.
+偶尔会有不确定的愉快感, 但总体而言,
+为了放松,我躺在沙发上一会儿,开始阅读.
+我开始逐渐越来越沉迷于阅读 (对我来说是不寻常的), 并越来越少关注IAP的影响.
+两小时后, 我从沙发上站起来,
+我头部和身体感觉有些&quot;游泳&quot;,
+这种经历似乎有点迷幻.
+明亮物体的影像似乎特别明显, 也许有一些非常温和的&quot;追踪效应&quot;.
+随着我起身移动, 这些影响的意想不到的强度又引起了轻微的焦虑.
+我躺在沙发上打开电视.
+我最终看了一场关于死刑的辩论, 一位联邦法官和一位著名的律师.
+我发现自己不寻常地参与和被讨论所吸引.
+我不仅对辩论的道德,社会和法律方面感兴趣,
+接下来又被一种非常轻松,昏昏欲睡的愉快感所取代, 这种感觉持续了两三个小时.
+我怀疑这可能是IAP导致大量的血清素进入我的血液.
+我不认为这种体验令人欣喜或高兴.
+虽然令人愉快和放松, 也有一种情感中立的感觉.
+这不是&quot;快乐快乐快乐,生活是美妙的!&quot;
+我会说我回到基线大约六个小时后摄入IAP.
+晚上剩下的时间我有点头痛.
+阅读和看电视绝对更有吸引力和愉快.
+然而,令我失望的是,IAP似乎根本没有提高音乐的欣赏.
+我当时独自一人, 所以我不能说这会如何影响社交互动,
+网上的许多IAP报告都提到与酒精,大麻和其他药物有很好的协同作用.
+虽然我不再使用酒精或大麻,
+这种放松和昏昏欲睡确实与酒精相似,
+虽然IAP确实有独特的氛围, 我认为我使用过的药物最像是可,
+这可能是值得探索的IAP/.
+其他:
+IAP (280):一般 (1),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Reading &amp; TV Watching Become More Engrossing
+IAP
+by
+Mompochea
+Citation:   Mompochea. &quot;Reading &amp; TV Watching Become More Engrossing: An Experience with IAP (exp28260)&quot;.
+Erowid.org
+. Dec 15, 2003. erowid.org/exp/28260
+DOSE:
+20 mg
+oral
+IAP
+(liquid)
+BODY WEIGHT:
+130 lb
+I had recently acquired 100mg of IAP.  One day while home alone, having nothing to do, I decided to try it out.  I attempted to weigh out the material using the liquid measurement technique (which I had previously used with great success on 2C-I).  I sprinkled 100mg of the IAP (a pure white powder) into 10ml of water in a very small bottle, put the cap on, and shook the bottle.  And shook.  And shook.  And shook.  Little to none of the powder was being dissolved.  I warmed the bottle by placing it in hot water, then repeated the shaking process several times more.  No change.  I guess I should break down and buy a scale.  But I was eager to try the substance nonetheless, so I vigorously shook up the bottle so that the tiny specks of IAP were more or less evenly floating around in the water and then immediately withdrew 2ml of the liquid before the IAP got a chance to settle much.  So I was able to obtain  (very) roughly 20mg of the compound.
+I swallowed the liquid/powder, followed by a glass of water to wash out the rather bitter taste.  Now I should mention that I tend to be particularly nervous when it comes to trying new psychoactive substances (especially one like IAP where there is little information about duration and effects available), thus it can sometimes be hard for me to distinguish the initial effects of a drug from the physical and psychological manifestations of my anxiety.  In about 15 mins I started feeling some fairly heavy tension (a tight, clenching feeling, though not particularly painful) around the jaw/neck/shoulders area with some teeth grinding.  This lasted about an hour or two, gradually subsiding.  I also began experiencing some stomach weirdness (not quite nausea, but close) which also diminished over the next hour or so.  There were occasional waves of a non-specific pleasurable feeling, but my overall feeling was one of mild anxiety.  To relax, I lay down on my couch for a while and started reading.  I began gradually more and more engrossed in my reading  (to a degree unusual for me) and focused less and less on the effects of the IAP.
+About 2 hours after I ingested the IAP, I got up from the couch to get something, and that’s when I really started to notice the effects.  My head and body felt rather “swimmy”, I felt slightly disoriented, and my vision was somewhat unfocused.  There also seemed to be a very slightly psychedelic edge to the experience.  The afterimage of bright objects seemed especially pronounced, with perhaps some very mild “tracer effects”.  The unexpected intensity of these effects as I got up and moved around caused another episode of mild anxiety.  I lay back down on the couch and turned on the TV.  I ended up watching a debate on the death penalty between a federal judge and a famous trial lawyer.  I found myself unusually engaged in and fascinated by the discussion.  Not only was I very engaged in the moral, social and legal aspects of the debate, but I was also fascinated by the personality characteristics and quirks of the two speakers, and found the way those traits clashed to be quite hilarious.
+As I focused on the discussion my anxiety once again subsided, to be replaced with a very relaxed, drowsy, pleasant sensation which lasted for two or three hours.  I suspect that the IAP caused a major release of serotonin into my bloodstream.  I wouldn’t call the experience ecstatic or euphoric, however.  Although pleasant and relaxing, there was also a feeling of emotional neutrality.  It wasn’t so much “HAPPY HAPPY JOY JOY, LIFE IS WONDERFUL!”, but more like “This isn’t so bad. Everything is OK.”  I’d say I was back at baseline about six hours after ingesting the IAP.  I had a bit of a headache of the rest of the evening.
+Reading and watching television were definitely more engaging and enjoyable.  However, to my disappointment, the IAP didn’t seem to enhance musical appreciation at all.  I was alone at the time, so I couldn’t say how it affects social interaction, but my guess would be that it would be more relaxed.
+Many of the IAP reports on the net mention a good synergy with alcohol, marijuana, and other drugs.  Although I no longer use alcohol or marijuana, I can definitely see IAP adding to the experience of both of those drugs.  The relaxation and drowsiness did resemble alcohol, although there was none of the mental confusion or propensity towards stupid and destructive behavior that alcohol creates.  Although IAP definitely has a unique vibe, I’d say the drug I’ve used that resembles it most would be hydrocodone, with its physical and mental relaxation and relative lack of mental cloudiness or negativity.  An IAP/hydrocodone combination might be worth exploring.
+Exp Year: 2003
+ExpID: 28260
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 15, 2003
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+IAP (280) : General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

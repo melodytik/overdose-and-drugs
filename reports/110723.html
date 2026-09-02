@@ -1,0 +1,237 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4-AcO-MiPT - 埃罗伊德 - &quot;海洋&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-mipt.html'>← 4-AcO-MiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4-AcO-MiPT - 埃罗伊德 - &quot;海洋&quot;</h1>
+<div class='sub-title'>4-AcO-MiPT - Erowid Exp - &#x27;Oceanic&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Nov 1, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=110723' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>背景:我的公寓
+T0:00- 测量和服用剂量.
+粉末有类似酸的气味.
+在T0:15-上线.
+精神上和身体上同时感到不安.
+尽管深处似乎很熟悉, 我却觉得自己无法真正理解其中的内容.
+我心里感觉到那种在任何旅行之前的焦虑.
+我觉得我的四肢正在染和扭曲在所有错误的地方.
+这种经历让我觉得它在慢慢地爬上我的脑海,
+我出去在后院的浴里抽烟.
+这使得视觉效果有所提升.
+墙上的形塑料变成了鱼,蛇和的,
+珊瑚,藻类和藻开始在它们之间的间隙中形成,
+我看到一个多彩的生态系统.
+我觉得精神上的刺激很大.
+想把信息注入我的眼睛, 永远保留在我的头骨中.
+我发现自己在Facebook上的每一个链接都被迷住了,
+这种经历既深刻又理性,
+我在外面, 周围是植物,生物和的天空,
+我发现自己被蚊子罩着,
+我的意识感到充满活力和增强.
+我现在又回到了我的卧室.
+旅行是旋转和恶心-感觉像我在水下.
+视觉的旋转,扭曲和模糊了我的周围环境,
+我没有重量, 慢慢地随着潮流漂流, 水围绕着我的身体, 拖着我.
+感觉就像我在潜水, 但没有所有不舒服的和重的设备挖进我.
+总的来说,这次旅行感觉很水.
+只是感觉四面都被冷酷的感觉包围着, 曲, 波动和脉冲,
+我把音乐放上去, 感觉非常欣赏它, 声音是和的和响亮的.
+每一个音符都被完美地放置, 每一个音符都带着活力和深度.
+每一个音符都被完美地放置, 每一个音符都带着活力和深度.
+音乐的各个元素相互配合, 很明显, 很明显,
+我继续阅读很长一段时间, 像海绵一样吸收更多的信息.
+我是这个海的料, 取信息的微小粒子从潮膨胀过去我.
+我感觉非常好.
+这比它的亲戚4-HO-MiPT更令人高兴.
+我希望与他人交往并与他们分享这种感觉, 这是一种深深的温暖,
+我只是对一切感到兴奋.
+恶心让我感到丧, 但这并不是什么问题.
+我还躺在床上.
+我一直在阅读有关俄罗斯放射性污染的可怕故事.
+故事的情绪似乎反映在外面的灰色雨天.
+我躺在肚子上试图平息持续的恶心,
+感觉好像我内心的部分都不合适,
+现在视觉效果更有色彩,
+只有我的身体不舒服,
+我还在读书, 尽可能多地获取信息,
+这似乎更适合一些有大量体力活动的东西,
+我开始在聊天中与一些朋友交谈,
+我能无地同情他们的情绪状态, 并根据此作出反应.
+没有任何具体的违法行为.
+感觉像我能够与朋友的心灵相同, 像我提供了他们自己的副版本,
+这当然可能是一种幻觉的同情感,一种幻觉的社会能力感, 但结果似乎暗示出某种程度的正确理解.
+我会在后面抽烟.
+我觉得自己还在做梦,好像我的整个世界都被透过一个非常柔和的曲线的幽默镜子看着.
+我躺下,欣赏潮湿的空气和黑暗的天空.
+叶子在重复自己, 充满凉爽的多彩光环, 巨大的玻璃蛇的形状在天空中.
+后来开始下雨,我回去看.
+我现在大部分时间都睡着了.
+尽管之前我感觉很社交和友好,
+终于决定和我的室友一起出去,
+面对面的社交感觉有点尬, 总是这样, 经过一整天的独自旅行 - - 这就像在热水浴里度过一整天后重新调整室温水 - - 起初是个冲击,
+我们吸烟更多, 但在这一点上, 我觉得我只是被了.
+没有问题就去睡觉吧.
+这可能是我最喜欢的新迷幻药 (当然是LSD之后).
+头部空间简直是令人愉快的 - - 奇怪,富有同情心,
+让我想要做事,学习事,吸收信息和刺激,
+感官效应并不太强大, 但仍然令人愉快和有趣,
+但后来我发现, 在整个旅程中散步和保持活跃程度上可以减轻负担.
+在峰值尾部的同情效应也是一个好处, 听取我的经验4-AcO-MET.
+总的来说,我觉得它与4-HO-MiPT非常相似,
+4-AcO-MiPT的视觉方面呈现出比它的4-HO对应物&quot;更大&quot;和不那么复杂,而4-AcO-MiPT呈现出一个独特的同理心专家,而它的兄弟姐妹缺乏.
+发布时间:2017年11月1日</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+Oceanic
+4-AcO-MiPT
+by
+nervewing
+Citation:   nervewing. &quot;Oceanic: An Experience with 4-AcO-MiPT (exp110723)&quot;.
+Erowid.org
+. Nov 1, 2017. erowid.org/exp/110723
+DOSE:
+T+ 0:00
+130 mg
+oral
+4-AcO-MiPT
+T+ 0:00
+1 cig.
+smoked
+Cannabis
+T+ 3:15
+smoked
+Cannabis
+BODY WEIGHT:
+125 lb
+Dosage: 30 mg oral in gel cap
+Setting: My apartment
+T0:00- Dose measured out and taken. Powder has an odor reminiscent of acetic acid.
+T0:15- Onset. Simultaneously a mental and physical sense of uneasiness.
+T0:40- The uneasiness builds. It is as though I am dangling over a yawning, swirling void, its depths are ostensibly familiar yet I feel as though I cannot truly fathom what they contain. There is a great unknown lurking before me and I feel that galloping anxiety in my heart that precedes any trip. It feels like my limbs are smearing and warping into all the wrong places. The experience feels like it’s creeping up on me, slowly crawling over my mind like an amoeba, one little pseudopod at a time.
+I go outside and smoke a joint in the scavenged bathtub in my backyard. This kicks up the visuals quite a bit. The swirls of stucco on the wall above me morph into the twisting sinews of fish, snakes, and eels, writhing their way through a glittering stained-glass ocean. Corals and algae and diatoms begin to form in the interstices between them and wriggle through the vibrant sea. A colorful ecosystem has presented itself before me.
+I feel very mentally stimulated. I’m in a mood where I just want to read and learn about as much as possible, I want to inject information into my eyes and keep it in the vault of my skull forever. I find myself fascinatedly clicking every link I can on facebook, taking great interest in every little detail of a wide assortment of random articles, empathizing deeply with each. The experience is at once profound and rational, stringing my mind along to explore depths I could not have imagined delving into before. I am outside in the air surrounded by plants and life and the soaring sky, but I find myself engrossed in my laptop and trapped in a long chain of links. I find myself getting swarmed by mosquitoes so I decide to go inside. My consciousness feels energized and enhanced.
+T1:00- I am back in my bedroom now. The trip is swirling and nauseating- it feels like I am underwater. The visuals swirl and warp and blur my surroundings and it appears like there is a rippling surface high above me, backlighting the silhouettes of creatures gracefully swimming above. I am weightless and slowly drifting with the current, the waters wrapping around my languid body and dragging it along. It feels like I am SCUBA diving, but without all the uncomfortable and heavy gear digging into me. Overall, the trip feels watery. I don’t physically feel watery, like sweating a lot or having to urinate, it is just a sense of being surrounded on all sides by a cold, warping, rippling and pulsing sensation like the subtle motions of currents beneath the surface.
+I put on music and feel a great deal of appreciation of it, the sounds being harmonious and reverberant. Each note sounds perfectly placed, each tone resonates with vibrancy and depth.
+Each note sounds perfectly placed, each tone resonates with vibrancy and depth.
+The elements of the music flow alongside one another and are distinct and discernible, yet at the same time they coalesce and unite into one glorious mosaic. I continue to read for a good while, taking in more and more information like a sponge. I am a filter feeder in this sea, picking out little particles of information from the tides swelling past me.  I am shaking a great deal and feel absolutely fantastic. This is much more euphoric than its close cousin, 4-HO-MiPT. I want to socialize and share this feeling with others, it’s a profound warmth with a touch of that overwrought empathogenesis, but not too much. I just feel excited about everything. The nausea stirs in my gut but its not too much of an issue.
+T1:30- I am still lying on my bed. I have been reading grim tales of the consequences of radioactive pollution in Russia. The mood of the stories seems to be reflected on the grey drizzly day outside.  I lie on my stomach to try and quell the continuing nausea- it has been consistently coming in waves throughout the experience. I am awash with a queasy twisting feeling, like parts inside of me are twitching out of place and flapping around while encased in my flesh. The visuals are touched with even more color now and everything feels faint and dreamy. It is only my bodily discomfort that seems to ground me. I am still reading a lot and taking in as much information as I can as little tremors tickle their way around my limbs and joints.
+T2:00- I am shaking so much, this is not really a good drug for just lounging around my room- it seems better suited to something with a great deal of physical activity, like walking around a lot or going for a swim. I begin talking to some of my friends on chat and feel a perceived heightened emotional depth. Like I am able to empathize flawlessly with their emotional states and respond in accordance to that. The conversations are deep and honest and don’t appear to be fraught with any specific transgressions. It feels like I am able to speak on the same wavelengths as the minds of my friends, as if I am providing a secondary version of them that they can bounce ideas and thoughts off of. This of course, may have been a hallucinated sense of empathy, a hallucinated sense of social competence, but the results seem to hint at some degree of proper understanding.
+T3:15- I go out back and smoke some more. I feel dreamy and wavy still, like my entire world is being viewed through a very gently curved funhouse mirror. I lie down, appreciating the moist air and the darkening sky. The leaves are repeating themselves and pulsing with cool colored polychrome auras, and the forms of great vitreous serpents wind their way through the sky. Eventually it begins to rain so I go back inside.
+T6:00- I am mostly down now. Despite feeling quite social and friendly earlier, it feels as though that has burnt out and I just want to be left alone to ruminate on the trip. Eventually however, I decide to hang out with my roommate as I haven’t in a while. Socializing face to face feels a bit awkward, as it always does after spending a whole trip alone- it’s like readjusting to room temperature water after spending all day in a hot tub- it initially comes as a shock, it’s awkward and immobilizing, but eventually I am able to fully immerse and acclimate myself again. We smoke more but at this point I feel like I am just getting stoned.
+T10:00- Go to sleep without issue.
+Conclusion- This may now take the throne as my new favorite psychedelic (behind LSD of course). The headspace is nothing short of delightful- it’s whimsical, empathogenic, and feels overall like a pleasant dream. It’s mentally stimulating and makes me want to do things, learn things, absorb information and stimuli for no reason other than the joy of knowledge. The sensory effects aren’t too powerful but still enjoyable and interesting, particularly in the way that they seem to be living, writhing creatures. The bodyload is a bit rough, at least when sitting still, but I found on a later date that walking around and staying active throughout the trip alleviates it to a degree. The empathogenic effects at the tail end of the peak were also a perk, hearkening to my experiences with 4-AcO-MET. Overall I found it very similar to 4-HO-MiPT, in that the essence of the trip was an ostensibly similar creeping feeling that gave way to deep mental stimulation and rational insight, with very organic visuals. The visual aspect of 4-AcO-MiPT presented as being “larger” and less intricate than it’s 4-HO counterpart, and 4-AcO-MiPT presented a unique empathogenic expert that its sibling lacked.
+Exp Year: 2017
+ExpID: 110723
+Gender: Male
+Age at time of experience: 21
+Published: Nov 1, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-MiPT (312) : Alone (16), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

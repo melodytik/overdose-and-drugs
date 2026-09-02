@@ -1,0 +1,216 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - 魔术性睡眠</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mushrooms-panaeolus-cyanescens.html'>← 裸盖菇(- Panaeolus cyanescens)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - 魔术性睡眠</h1>
+<div class='sub-title'>Mushrooms - Panaeolus cyanescens - Erowid Exp - &#x27;Sex Sleep Magic Mushrooms&#x27;</div>
+<div class='meta'>作者：Tom Citation · 日期：Dec 15, 2017 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=111106' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我自己在几天前采摘了这些, 让它们在风机下干燥,
+我担心它们会变质或成.
+它们被储存在蜂蜜中可能会使发病速度减慢,
+我没有,所以我基本上看了一下, 事实证明我们比我想象的要少一点.
+旅行
+我决定在晚上服用它们, 因为第二天我们都空了,
+我自己吃的量大约是我女朋友的两倍 (大约1克),
+我们基本上在午夜12点吃完内容.
+我准备了一些草茶, 因为我发现它可以帮助任何恶心或胃,
+我的女朋友在床上玩手机.
+我回来时是12点12分, 我感觉自己已经摄入了一些对身体造成冲击的东西,
+感觉就像我正要向成千上万的人上台,
+身体的其他部位开始感觉很重, 就像常见的一样.
+我问我的女朋友她感觉如何, 她说她感觉有点醉,
+我注意到眼前的景象已经很明显了,
+我认为蜂蜜真的必须在发病的延迟了什么样的吸,但就在那一刻我注意到墙壁曾经是如此微微开始呼吸,和什么淡的光在房间里,开始给物体彩色的&quot;&quot;这似乎当一个旅行是入口.
+很显然我的想法不是一个清醒的人,
+我常常在旅行中感到焦虑,
+但今晚的情况有所不同.
+我和我的女朋友上床,躺在她靠在我胸前的昏暗的房间里.
+雷声开始出现在外面与蓝色闪电的奇怪闪光 (这不是幻觉).
+我开始和女朋友亲吻, 慢慢地开始旅行.
+我没有打算在旅行前和我的女朋友发生性关系,
+我们吻了一种方式, 似乎指导我们在节奏.
+我们吻了一种方式, 似乎指导我们在节奏.
+我在过去曾经用做爱过几次,
+但为了不用太详细,这段时间非常激烈和亲密, 大约在凌晨1:40左右, 我们不得不停下来,
+我觉得只有才能带来这种强烈的联系.
+不是说我们没有很强的联系, 但这是不同的.
+我和我的女朋友一起去洗.
+我问她感觉如何, 她告诉我她的身体感觉很沉重,
+她试图将其归因于喝醉但感觉略有不同, 我认为她没有任何参考点,
+但蜂蜜是否会进一步拖延时间?
+浴室的灯光是房间里唯一的光源.
+这是一个非常舒适的环境,
+我总是用这种方法来衡量我已经走了多远.
+我知道事情不会变得更加激烈,
+我对自己的女朋友感到满意, 很快乐,
+我女朋友在吃之前说她工作很累,
+她说她可能会在吃了这些后入睡, 我笑了笑, 说你不会在吃了这些睡觉.
+我很惊地发现,她几乎睡在我的胸前!
+这怎么可能呢?
+我动了一点,她醒了,我问她任何视觉.
+她说当她闭上眼睛时, 她看到三种彩色的&#x27;东西&#x27;在移动,
+也许我应该给她更多的第一剂, 但她似乎足够满足这是主要的事情.
+我闭上眼睛时, 看到有色彩的图案在演变, 闭上眼睛时, 感觉像被带到另一个世界.
+闪电的蓝色闪光看起来超级酷, 几乎好像它们产生的能量正全力进入房间, 但不是以一种侵略性的方式,
+雷声在远处,所以也没有威胁.
+事实上,如果我可以选择让闪电和雷停止, 我不会做.
+我喜欢今晚和我们在一起.
+我躺在那里,闭上眼睛,玩弄我女朋友的头发,
+这也正是我睡着的时候!
+是的,睡着了,在给药后2个半小时.
+我从来不想吃睡觉,
+我猜想这些因素,比如之前的疲劳,强烈的性行为,以及的剂量较低,
+之后的光
+我第二天早上10点左右醒来.
+我早起就去洗了.
+我对这次旅行没有任何焦虑感到非常高兴.
+也是我和我的女朋友有着深刻的联系.
+她的情绪似乎非常积极, 非常平静,
+总的来说,对于剂量大小和我们服用时的晚点, 我觉得这是一个非常积极的体验,
+唯一的缺点是醒来时发现一群在床边桌上,
+时间表: 111106
+- - 帕奈奥卢斯 (Panaeolus)  (185):小组 (2-9) (17),性讨论 (14),光体验 (4),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Sex Sleep Magic Mushrooms
+Mushrooms - Panaeolus cyanescens
+by
+Tom
+Citation:   Tom. &quot;Sex Sleep Magic Mushrooms: An Experience with Mushrooms - Panaeolus cyanescens (exp111106)&quot;.
+Erowid.org
+. Dec 15, 2017. erowid.org/exp/111106
+DOSE:
+oral
+Mushrooms - Panaeolus cyanescens
+(edible / food)
+BODY WEIGHT:
+88 kg
+BACKGROUND
+Me and my gf are 29 years of age, and I&#x27;ve been with her for a little over 2 years at this point, and during that time I&#x27;ve seen her drunk a sum total of 2 times. She had never tripped before on anything, and I myself had not tripped for around 3 years prior to this day. I have much experience with LSD, truffles, mushrooms, 2bd and 2ci, to name a few substances from my past, so I know what was in store tonight for us both, or at least, I thought I did.
+I had picked the mushrooms myself a few days before, let them dry under a fan before grinding them up and storing them within honey, and putting that mixture into the freezer. For some reason I was scared that they would degrade and or become mouldy otherwise. The fact that they were stored in honey may have made the onset a lot slower due to the fact that the stomach had to work through the gloopy mess to get to the fruits. I had no scales so I basically eyeballed it and I actually it turned out we had a little less than I thought.
+THE TRIP
+For some reason I decided to take them at night as we were both free the next day so could stay up late, although now thinking about it, ingesting them in the day would have been best. We both ate down our sticky honey Pan Cyan contents, myself having roughly double (about 1 gram) what my gf had as it was her first time. We basically chomped down the contents at 12 Midnight. I went to prepare some lemongrass tea because I find it helps any kind of nausea or stomach cramping whilst taking mushrooms. My gf was in bed playing on her phone.
+When I returned it was 12:10 and I could feel that I had ingested something that was a shock to the system, that notorious sensation when swallowing a potent substance such as mushrooms, MDMA and so forth. It sort of feels as if I&#x27;m about to go on stage to thousands of people, or I&#x27;m at the top of a rollercoaster free-fall drop. At around 12:30 I noticed that my head was becoming increasingly light on the very top, and the rest of my body was beginning to feel very heavy as it so often does with mushrooms. I asked my gf how she felt, and she stated that she felt a bit intoxicated, but no visuals yet.
+At 12:40 I noted that by now visuals should be obvious, as I paid close attention to the sounds my stomach was making, churning its way through the honey gloop. I figured that the honey really must have delayed on the onset which kind of sucked, but just at that moment I noticed that the walls were ever so slightly starting to breath, and what dim light there was in the room, was starting to give objects that colourful &#x27;fuzz&#x27; that appears when a trip is incoming. It was obvious that my thoughts were not that of somebody sober, but I was very happy that I was not the least bit anxious. I often used to have major anxiety attacks on trips, especially at the start. But tonight things felt different. I got into bed with my gf and lay down with her resting on my chest in the dimly lit, calm room. Rumbles of thunder started to appear outside with the odd flash of blue lightning (this was not a hallucination).
+Around the 1 hour mark I started to make out with my gf, slowly easing into the trip. I did not intend to have sex with my gf before the trip or when preparing for it, it didn&#x27;t even really cross my mind, but that was what was happening, and I was instigating it. We kissed in a way that seemed as if the mushrooms were guiding us in a rhythm.
+We kissed in a way that seemed as if the mushrooms were guiding us in a rhythm.
+I have had sex on mushrooms a couple of times in the past, long into the past, so I had pretty much forgotten what it was like. But to spare you all of the details, it was very intense and intimate, and around 1:40am we had to stop because our bodies were physically tired and heavy from the mushrooms, and things started to become a distraction. However, the sexual experience was really profound and there was a strong connection between us that I feel only the mushrooms could have brought on. Not that we don&#x27;t have a strong connection anyway, but this was different.
+It was at this point that I went to take a shower and so did my gf. I asked her how she was feeling, and she told me that her body felt really heavy and slow, but she felt good. She tried to attribute it to being kind of drunk but slightly different in feeling, I figured she doesn&#x27;t really have any kind of reference point seeing as she has never used any other substance before in a recreational manner, and that her dose tonight must have been pretty low. But was the honey delaying things even further?
+At around 2:00am we both got back into bed with the bathroom light being the only source of light in the room. It was a very cozy environment, full of positive vibes and contentment. The straight lines where the door connects to the wall started to wave and become more vibrant for me, I always use such methods to gauge how far gone I am into a trip. I figured at this point that things were not going to get anymore intense than this, and I was happy with that. Instead of chasing some kind of hallucination visual frenzy, I was content and happy, cozy with my gf in bed.
+2:15am my gf had said before we took the mushrooms that she was quite tired from work, but we decided to trip anyway. She stated that she may fall asleep after she takes them, to which I laughed and said you won&#x27;t fall asleep on magic mushrooms. To my astonishment, sure enough, she was pretty much asleep on my chest! How could this be. I moved a little and she woke up, to which I questioned her about any visuals. She said she saw 3 coloured &#x27;things&#x27; moving when she closed her eyes, which I thought was fairly tame. Maybe I should have given her more for her first dose, but she seemed content enough which is the main thing.
+When I closed my eyes, I saw evolving patterns that were pretty colourful, and it was almost as if I was taken to a different world when I closed my eyes and became engrossed in the visuals. When I opened them again, I noted that the pictures on the wall were morphing slightly, and the blue flashes of lightning looked super cool, almost as if the energy produced by them was entering the room in full force, but not in an aggressive manner, more an appreciation of mother nature. The thunder was in the distance and so also wasn&#x27;t threatening. In fact, if I could have chosen to make the lightning and thunder stop, I wouldn&#x27;t have done. I liked it being here with us tonight.
+2:25am I lay there with my eyes closed, playing with my gfs hair whilst she relaxed on my chest, pretty much asleep. This is about when I also drifted off to sleep! Yes, asleep, 2 and a half hours after dosing Pan Cyans. This is new to me as I&#x27;ve never wanted to sleep on mushrooms, and pretty sure it was impossible. I guess however that the factors involved such as being tired before hand, having intense sex, and the mushrooms being a somewhat low dose, all contributed to us being able to sleep.
+THE AFTERGLOW
+I woke up the next day at around 10am. I woke up first and took a shower. I had a very positive, refreshed feeling, and very happy about the fact that there was no anxiety whatsoever on the trip. But also that me and my gf connected in a profound way. When she finally woke up, she seemed in a very positive mood as well, very peaceful and innocent. Overall for the dose size and how late it was when we took it, I feel it was a super positive experience, and maybe the coziness of the night and being in bed together made it simply perfect. The only downside was waking up to an army of ants on the bedside table that had discovered the leftover of the honey concoction.
+Exp Year: 2017
+ExpID: 111106
+Gender: Male
+Age at time of experience: 29
+Published: Dec 15, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms - Panaeolus cyanescens (185) : Small Group (2-9) (17), Sex Discussion (14), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,314 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>果果果果果</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/doc.html'>← DOC</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>果果果果果</h1>
+<div class='sub-title'>DOC - Erowid Exp - &#x27;Brainfood&#x27;</div>
+<div class='meta'>作者：LoneBee Citation · 日期：Jun 3, 2009 · 剂量：10 mg · <a href='https://erowid.org/experiences/exp.php?ID=73492' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>他同意这篇文章被发布, 因为我们都同意任何考虑使用这种物质的人最好知道他们要干什么.
+我觉得有必要在给药之前解释一下他的精神状态.
+我是/曾经是个业余心理治疗师,
+这一切似乎源于他青春期早期的一起事件,
+随着时间的推移, 伤口没有愈合, 也许只是留下了情感.
+他是一个非常聪明的年轻人, 具有创造性的解决问题能力, 是著名数学教授的儿子,
+然而,即使在这个著名的大学,充满了聪明和有趣的人他自己的年龄,
+他似乎被一种焦虑,抑郁,以及在社交环境中对自己几乎具有命运主义的看法所阻碍.
+我犯了一个令人难以置信的愚蠢错误,
+我读了尽可能多的最新研究, 相信他患有PTSD,
+他现在肯定是.
+但我们会到达那里.
+由于无法找到,并且只有两次非常弱的&#x27;酸&#x27;我想要对自己进行实验,我建议他尝试一个朋友的DOC.
+虽然这绝对不是最简单的体验, 但我认为它具有很大的治疗潜力,
+我自己也无法停止痛苦地分析自己的每一个方面,
+由于某种上帝遗忘的原因,他信任我.
+但他对这种物质有一些经验, 并感到很舒服的眼睛.
+[Erowid的注意事项:
+两个相同体积的粉末样本 (即使是相同的化学物质) 不一定重量相同.
+因此,眼球测量是一种不准确且可能危险的测量方法,特别是对于非常少量的活性物质.
+看看
+这篇文章是关于测量剂量的重要性
+没有.
+他问我想要什么剂量, 认为更重更有治疗效果,
+这绝对是我得到的.
+我在11点左右服用了我的&quot;酸&quot;,然后去给他服用.
+于是我开始寻找一些草药, 骑着自行车在城里周游, 以节省燃料,
+我读过草药是如何诱发后来的回忆, 我不想对我的朋友这样做, 所以是的,
+我肯定会上来,享受自己当我再次见到他,他似乎相当激动.
+我们去了他的宿舍, 打算一下, 看一些瓜的电影和动画片, 不管是什么.
+他用一个口头打了我.
+他告诉我他一直感到自杀的抑郁,
+我很震惊,并知道这将是一个火车祸他,当然我不能让我有这个想法.
+另一个朋友打电话给我, 需要帮忙,
+半小时后我回来, 发现我的朋友已经离开校园,
+我跟着他去, 谨慎地, 因为我不相信这个共同朋友的房子,
+但我可以想象他在宿舍的房间里感到不安.
+他和几个人一起在网上玩了几个小时.
+药物注射后大约8小时, 演出开始.
+他在比赛中表现不佳, 不断说&#x27;你会我的股, 不是你...是的,你会很残酷.
+忽然,当他放下控制器站起来, 仍在继续这段独白时, 我们意识到他实际上是在跟自己的旅行说话.
+他终于有点平静下来,坐下来,
+十五分钟后, 他提到他口中有一种触觉幻觉.
+&quot;我有个很奇怪的感觉, 像是我嘴里发生了什么事. 突然, 他跳起来站着, 喊道:&quot;有人带我去该死的医院!
+他告诉我们他的触觉幻觉变得非常痛苦, 他觉得他的喉被撕裂,
+他一直坚持要去医院, 我们一直试图说服他.
+他开始说他的视力逐渐变色, 暂时忘记不那么愉快的症状.
+然后他开始咳,并感觉到他的喉区域.
+他说他能感觉到一些东西在他的喉里移动,
+他宣布他的头和喉里有昆虫,
+我们无法说服他只是在吸毒,
+他知道他需要去医院.
+几个小时后, 他试图从嘴里出虫子, 挤压和测量他的头部, 摸摸他的亚当之果, 让我和其他人感到害怕,
+他说他可以用手感觉到他的头骨的变化,
+坦率地说,我没有能力告诉他这不是真的.
+他告诉我他的头正在生长, 我会意识到它确实似乎这样做,
+尽管我对一般药物和精神病药物比其他在场的人了解得更多,
+最后,我们共同朋友的父母进来宣布他们要上床睡觉了.
+某种程度上,孩子玩了它, 他们进入他们的卧室没有问题.
+很快, 孩子又大喊大叫要去医院了, 我们意识到他住在朋友父母隔壁的卧室里是不好的.
+我们都走了出去,认为改变环境对他有好处.
+哈,如果解决方案是那么简单.
+他以快速的步伐走上走下街道, 尖叫着:&quot;有人带我去该死的医院!&quot;
+我们不知道该怎么做.
+医院的访问听起来不是一个好主意.
+另一方面, 由于我们都不知道在哪里可以找到类或镇静剂,
+只是希望它能让他有点安静, 这可能是我们所能做的最糟糕的事情之一.
+那时它肯定没有帮助,现在...好吧,我会到达那里.
+他求我们把他打倒,
+我们都觉得我们不能这样对待朋友,
+然后他变得暴力.
+他要求看我们每一个人的眼睛, 在看到我的瞳孔扩大, 以及另一个或多或少清醒的个人的眼睛, 宣布我们中的几个显然是外星人.
+尤其是我的瞳孔,他说已经变得像猫或爬行动物.
+他后来还解释说, 我们的脸上几乎没有任何特征, 这使他相信我们是外星人.
+现在他的幻觉的全部程度就显而易见.
+他认为我们所有人,他的朋友,都是外星人,
+我们想阻止他去医院, 让他脑中的昆虫能够吞或控制他的大脑,
+阅读了成千上万的经验报告,
+我承认,我避免阅读一些更明显的迷幻列车毁, 不想给弹药我的一个.
+我从来没有听说过或读过任何经历接近这样糟糕,
+我们告诉他我们将带他去医院, 让他平静下来, 后来, 志愿司机 (我早就决定他需要去医院,
+半个小时,几乎所有的党搜查了房子, 而被宣布外星人的人试图让他保持冷静.
+他又一次在街上游荡, 不相信车钥匙是找不到的,
+警方肯定会在路上, 终于有个孩子志愿开车了.
+我志愿同他一起去医院, 解释一切, 因为我看不到这个孩子独自去做什么好事.
+这可能是我今晚为孩子做的唯一一件好事.
+我坐在背车的后座上, 惊慌失措, 害怕医院,
+孩子不断抱怨痛楚的触觉幻觉,头部的昆虫,以及头部的生长.
+然后司机对我低声说出他的宏伟计划.
+他打算开车一段时间, 认为孩子会忘记他去医院的愿望,
+我指出他可能还会在另一个6-8小时,很容易, 和计划不会工作.
+我也不得不低声说话, 因为我们都知道,
+他相信自己即将死亡, 需要去医院才能有机会活下去,
+所以当司机发现他的计划是完全 fucked, 他带我们去医院.
+列车的残骸走向急诊室的大门, 速度比其他人跑得还快,
+我挤出了门口,跑到他后面, 及时进入, 看到他步入急诊室,
+他接近小老太太在办公桌,和犹不决,地说:&#x27;有东西在我的脑海里.
+我需要去看医生.&#x27; 她的眼睛大了一点,但她点了点头,微笑,礼貌地说:&#x27;你需要先填写一些文件.
+这绝对不是他想要听到的.
+他开始了一段独白, 如果我不那么害怕,
+绝对每个人在急诊室等候区都着我们, 他显然是吸毒,
+他大喊大叫,要求立即去看医生.
+警卫被叫来, 在我安抚孩子后不久就到达了.
+他仍然看起来很不安,所以他们只是走到他身边,问他是否有问题.
+孩子惊慌失措, 很可理解, 因为他们都戴着章, 虽然他们年纪大了,
+事实上,其中一个非常像唐·诺茨.
+他问他们是否要逮捕他,他们说&#x27;除非你陷入麻烦,否则你不会有任何麻烦.&#x27;他似乎无法理解这一点,指着我们走进的门,问警察是否会通过这些门来逮捕我们.
+唐·诺茨的样子正好是错误的, 他拿出一个装有警察章的钱包, 说&#x27;我是警察, 儿子.&#x27; 不知为什么, 我的朋友并没有惊慌失措, 大概只是说&#x27;.&#x27; 但唐·诺茨试图让他平静下来, 用和平的手势, 微笑着.
+他举起双手,好像要打个拳头,然后说:&#x27;,这就是情况吗?&#x27; 他后来告诉我,那是因为警察的眼睛也开始像猫或爬行动物的眼睛,
+他似乎理解了, 放下了双手.
+他对另一名警卫说:&#x27;他确实不想这么做!
+无论如何, 他是下一个进入急诊室的人,
+我相信他们又把刀着我们的背.
+我设法让他保持平静, 医生们也没有担心,
+我向医生解释了他的处方, 并留下一段时间以确保他保持冷静.
+我向医生建议他服用醇或镇静剂, 通知他孩子还有一段时间才会下来.
+他们当然问他是谁给他药,
+我告诉他们没有, 虽然我相信我的瞳孔和他一样大, 他们相信我,
+他们问他,他花了一会儿思考答案.
+我沉默地坐着, 感到恐惧与内的混合, 知道如果他指责我, 我可能会被逮捕,
+恐惧已经消失,但没有罪恶的微小.
+医生解释说, 由于我问了很多问题, 提供了很多细节, 他经历了&quot;抗胆药物危机&quot;, 药物阻断了他的大脑中的肌酸乙胆受体,
+这导致触觉幻觉和疼痛.
+他们告诉我他实际上可能已经昏迷或甚至死亡没有医疗护理, 但现在将是好的.
+尽管如此, 孩子要求做CT扫描,
+他们进行了, 虽然他们从来没有向他展示结果.
+虽然他不相信他的任何朋友. 现在,他知道他有什么可怕的东西.
+他打电话给他的, 我离开那里之前她到达.
+他还在整晚, 即使他们有什么在IV.
+经历了5个多月, 孩子几乎每天都有回忆或恐慌.
+他根本不能再吸大麻了, 因为那天晚上我们让他吸的小烟显然与幻觉有心理联系.
+草立即引起恐慌反应和强烈的回忆.
+这一事件可能迫使他获得他之前需要的心理/精神病学帮助,
+我对自己的无知感到内, 试图以鲁的方式帮助他.
+我还要向读者传授许多道德观念, 并且我仍然相信迷幻疗法,
+最终,我想我应该说减少危害的策略总是值得的.
+开始用小剂量,然后用一个该死的尺度!
+我还了解到, 认为大麻可以帮助某人摆脱困境是个坏主意.
+我朋友有严重的焦虑问题, 失眠,
+我不应该给任何人药物.
+最好的意图,最糟糕的结果.
+刺可以是非常残酷的.
+其他:
+DOC (357):各种 (28),二手报告 (42),HPPD / 持久视觉 (40),旅行后的问题 (8),抑郁症 (15),过量服用 (29),导游/护理员 (39),火车毁和旅行灾难 (7),不好的旅行 (6)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Brainfood
+DOC
+by
+LoneBee
+Citation:   LoneBee. &quot;Brainfood: An Experience with DOC (exp73492)&quot;.
+Erowid.org
+. Jun 3, 2009. erowid.org/exp/73492
+DOSE:
+10 mg
+oral
+DOC
+(powder / crystals)
+BODY WEIGHT:
+150 lb
+I am writing this report on behalf of a friend, as he has little experience with psychedelic substances, and is also not the avid fan of this site that I am. He has consented to this being posted, as we both agree that it is best for anyone considering using this substance to know what they are getting into.
+To begin, I feel it is necessary to explain a little about his mental state before dosing. I am/was more the amateur psychotherapist than I should be/have been, and had tried talking to him about anxiety problems and depression he had been experiencing. It all seemed to stem from an incident earlier in his adolescence which had perhaps caused the anxiety and depression problems he had been struggling with. This, along with several other issues, has continued to haunt him, with time healing no wounds, and perhaps simply leaving emotional abscesses. He&#x27;s a very intelligent young man, a creative problem solver and the son of a renowned mathematics professor at a renowned college, a college where he himself was a student during this experience.
+However, even at this renowned college, full of intelligent and interesting people his own age, he had great difficulties in building a social life. Most of all, he seemed to be held back by a sense of anxiety, depression, and an almost fatalistic view of himself in social environments. I made the incredibly foolish mistake of telling him that he could perhaps find some relief of these problems from a psychedelic experience. I had read as much as I could on all the latest research, and was convinced that he was a PTSD case if I had ever seen one. He certainly is now. But we&#x27;ll get there.
+In light of being unable to find mushrooms and having only two very weak hits of &#x27;acid&#x27; I wanted to experiment with myself, I suggested to him that he try some DOC that a friend had. I myself had sampled it on numerous occasions, and while it certainly wasn&#x27;t the easiest experience, I thought it had a great amount of therapeutic potential, being somewhat similar in structure and effect (I hypothesize) to ibogaine. I myself couldn&#x27;t stop painfully analyzing every aspect of myself, to a ridiculous degree.
+For some godforsaken reason, he trusted me. My friend that had it owned no scale capable of measuring the minute dose, but he had some experience with the substance, and felt comfortable eyeing it out.
+[Erowid Note: 
+Two samples of powder (even of the same chemical) with equivalent volumes won&#x27;t necessarily weigh the same. For this reason, eyeballing is an inaccurate and potentially dangerous method of measuring, particularly for substances that are active in very small amounts.
+See
+this article on The Importance of Measured Doses
+.]
+He asked what kind of dose I was looking for, and, thinking that heavier is more therapeutic for some reason, I told him I wanted a larger one. That&#x27;s definitely what I got.
+I dosed on my &#x27;acid&#x27; around 11, and went to give him his dose then. I figured I had a good 2 hours before he was going to really come up, and so I began a mission of finding some herb, riding around town on my bike to save gas and prevent a psychedelic-induced auto accident. It ended up taking a little more than two hours, including the act of smoking up a bit (I&#x27;ve read about how herb can induce later flashbacks, didn&#x27;t want to do that to my friend, so yeah, I smoked without him). I was definitely coming up and enjoying myself when I met back up with him, and he seemed fairly agitated. We headed over to his dorm room to hang out, intending to chill, watch some goofy movies and cartoons, whatever. He then hit me with a verbal sledgehammer.
+He told me he had been feeling suicidally depressed, and had been making light of it in our conversation. I was honestly shocked, and knew then that it was going to be a train wreck for him, though of course I couldn&#x27;t let on that I had had this thought. At another point, another friend called me up and needed a favor, so I left briefly to help him out. Upon returning not a half hour later, I found my friend had left campus, and had gone to a mutual friend&#x27;s house. I followed him there, wary, as I didn&#x27;t believe this mutual friend&#x27;s house, nor the mutual friends we would find there, would make for a good environment. But I could imagine the agitation he had felt alone in his dorm room.
+He played Halo 3 over there with several people, online for hours. Around 8 hours after dosing, the show began. He was doing poorly in the game, and kept saying things like &#x27;You&#x27;re going to kick my ass, aren&#x27;t you… yeah, you&#x27;re going to be fucking brutal.&#x27; and everyone in the room obviously believed he was talking about his opponents in the game. Suddenly, as he put the controller down and stood up, still continuing this monologue, we realized he was actually talking to his trip itself. He eventually calmed down somewhat and sat down, seemingly resigned to a terrible trip.
+Perhaps fifteen minutes later, he mentioned a tactile hallucination in his mouth. &#x27;Guys, I&#x27;ve got this really weird feeling.. like, something is happening in my mouth.&#x27; Suddenly, he jumps up to a standing position, and yells out &#x27;SOMEBODY TAKE ME TO A FUCKING HOSPITAL!&#x27;, scaring the living hell out of everybody in the room, especially as our mutual friend&#x27;s parents were still awake and quite possibly within earshot. He told us his tactile hallucinations had become enormously painful, that he was feeling like his throat was being ripped apart, that it felt like something was literally wedging itself between the two halves of his brain and slowly separating them. He kept insisting that he go to the hospital, and we kept trying to talk him down.
+He began saying that his vision was fading into different colors, forgetting about the less pleasant symptoms momentarily. Then he began to cough, and feel around his throat area. He said he could feel something moving around in his throat, as well as in his head. He announced that there were insects in his head and throat, and that they were trying to get to his brain. We were powerless to convince him that he was just on drugs, and that he needed to calm down. He knew he needed to go to a hospital.
+After hours of trying to pull bugs out of his mouth, squeezing and measuring his head, and feeling around his adam&#x27;s apple, scaring me and everybody else into thinking that he was about to do something drastic, he began to say that his head was growing in different directions. He said he could feel the change with his hands, in his skull and detect changes in his hearing and vision. Being on acid myself, I was frankly in no state to tell him this was not true. As he told me his head was growing, I would realize that it did indeed appear to be doing so, as impossible as this would be. I was quieter after this, despite knowing far more about drugs in general and psychedelics specifically than any of the other individuals in the room.
+Finally, our mutual friend&#x27;s parents came in and announced they were going to bed. Somehow, the kid played it off, and they went into their bedroom without a hitch. Shortly thereafter, the kid was screaming about needing to go to a hospital again, and we realized that being in a bedroom across the hall from our friend&#x27;s parents was not a good place for him. We all went outside, thinking that a change in environment could be good for him. Hah, if only solutions were that simple.
+He was walking up and down the street at a brisk pace, screaming at the top of his lungs, &#x27;Somebody take me to a fucking hospital!&#x27; all around the upper-class neighborhood our mutual friend lived in. We did not know what to do. A hospital visit did not sound like a good idea in the slightest. On the other hand, with none of us having a clue where to find a benzodiazepine or a tranquilizer, and only having some weed, I knew we had little chance of ending his bad trip. We smoked the weed with him anyway, just hoping it&#x27;d sedate him a bit, and that may have been one of the worst things we could have done. It certainly didn&#x27;t help at the time, and now.. well, I&#x27;ll get there.
+He was begging us to knock him out, to just punch him as hard as we could. None of us felt that we could do that to a friend, so we continued more or less just watching him, racking our brains for a solution. And then he became violent. He demanded to look into each of our eyes, and at the sight of my enlarged pupils, as well as the eyes of another more or less sober individual, announced that several of us were obviously aliens. My pupils, specifically, he said had become like a cat’s or a reptile’s. He also explained later that all of our faces became virtually featureless, and that this helped to convince him that we were aliens.
+The full extent of his delusions then became apparent. He thought that all of us, his friends, were aliens, or at least in on an alien conspiracy. We wanted to prevent him from going to a hospital, so that the insects in his head could finish devouring or taking control of his brain, leaving him impotent to stop some impending alien invasion.
+Having read thousands of experience reports, I was blown away by all this. I admit, I avoid reading some of the more obvious psychedelic train wrecks, not wanting to give ammo to one of my own. I had never heard or read about any experience nearly this bad, especially as he began swinging at some of his best friends. We pacified him by telling him that we would get him to a hospital, and then the volunteer driver (I had decided long ago he needed to go to a hospital, but I had no car there) couldn&#x27;t find his car keys. For half an hour, almost all of the party searched the house for them, while the people that had been declared aliens tried to keep him calm. This obviously didn&#x27;t work, and he was once again roaming the streets, disbelieving that the car keys couldn&#x27;t be found, screaming at the top of his voice, &#x27;Somebody take me to a fucking hospital!&#x27;.
+Sure that police would be on their way, finally another kid there volunteered to drive. I volunteered to ride with, to go into the hospital with the kid and explain everything, as I couldn&#x27;t see anything good coming of this kid going alone. Probably the only really good thing I did for the kid the entire night. I got in the back seat of a hatchback, panicking, fearing the hospital like only someone on acid can, and we got the driver and the train wreck piled in. We drove all around town somewhat crazily for a while, the kid continuously complaining about painful tactile hallucinations, insects in his head, and growth of his head. Then the driver whispered his grand plan to me.
+He intended to drive all around for a while, thinking the kid was going to forget his desire to go to a hospital, and then once calmed down, take him back to his college. I pointed out that he could still be tripping for another 6-8 hours, easily, and that the plan wasn&#x27;t going to work. Of course, I had to whisper too, as we both knew that if the train wreck had overheard us, he would surely have become violent, in the front seat of a moving vehicle. He believed he was dying, and needed to get to the hospital to have a chance of living, and already thought that we were against him.
+So after the driver learned that his plan was totally fucktarded, he drove us to the hospital. The train wreck got out and walked towards the main doors of the emergency room faster than some people can run, not stopping to move the seat to let me out of the little hatchback coup. I squeezed my way out, and ran behind him, getting inside in time to see him striding through an emergency room full past capacity, likely with very sick and some injured people eager for medical attention. He approached the little old lady at the desk, and hesitantly, haltingly, said &#x27;There&#x27;s something in my head. I need to see a doctor.&#x27; Her eyes widened quite a bit, but she nodded, smiled, and politely said, &#x27;You need to fill out some paperwork first.&#x27;
+That was certainly not what he wanted to hear. He began a monologue that, were I not so terrified, would have been quite funny, announcing that he had an emergency, and was in an emergency room, and that paperwork wasn&#x27;t going to help anyone. Absolutely everyone in the emergency room waiting area was glaring daggers at us, as he was obviously on drugs, and in their mind, surely had done it to himself. He yelled, demanding to see a doctor immediately. Security was called, and arrived shortly after I had calmed the kid down. He still looked agitated, so they simply walked up to him and asked if he had a problem. The kid panicked, understandably, as they were both wearing badges and although they were old, they had a very apparent police look to them. In fact, one looked shockingly like Don Knotts.
+He asked if they were going to arrest him, and they said &#x27;You won&#x27;t be in any trouble unless you get in trouble.&#x27; He didn&#x27;t seem to be able to understand this, and pointed to the doors we had entered from, asking if police were going to come through them and arrest us. The Don Knotts looking guy did exactly the wrong thing there, pulling out a wallet with an actual police badge in it, and saying &#x27;I am a cop, son.&#x27; Somehow, my friend didn&#x27;t freak out at that, more or less just saying &#x27;Oh.&#x27; but then Don Knotts tried calming him down, making a peaceful hand gesture, and smiling. That did set my friend off, and he raised his hands like he was going to start boxing the guy, and said &#x27;Oh, so that&#x27;s how it is?!&#x27; He told me later that it was because the cop’s eyes also started to resemble cat-like or reptilian eyes at that moment, and he was convinced he just discovered that the cops were aliens, too.
+I stepped in between the train wreck and the cop, saying, &#x27;You don&#x27;t want to do that, dude!&#x27;, and somehow he seemed to understand, and lowered his hands. Don Knotts responded by posturing, telling the other guard &#x27;That&#x27;s right he doesn&#x27;t want to do that!&#x27; and smiling smugly. Either way, he was the next person into the emergency room, paperwork be damned. I&#x27;m sure daggers were again stared into our backs.
+Somehow, I managed to keep him calm enough and the doctors from worrying enough that they didn&#x27;t put him in restraints, though I was assured that it was practically standard procedure to do so. I explained to the doctors what he was on, and stayed a while to make sure he stayed calm. They gave him an I.V., telling him it was something to bring him down, after I suggested a benzo or tranquilizer to a doctor, notifying him that the kid still had a while to go before he was going to come down. Of course they asked who gave him the drug, and if I was on it too. I told them no, though I&#x27;m sure my pupils were just as large as his, and they believed me, as I wasn&#x27;t a big enough problem for them to doubt. They asked him, and it took him a moment to mull over the answer. I sat silently, feeling a mixture of terror and guilt, knowing I could be arrested if he blamed me in the least, or even still thought I was an alien out to get him, and at the same time feeling that I deserved whatever happened for my carelessness and arrogance. Finally, he said he didn&#x27;t want to say, and I relaxed a little, terror having faded, but not the guilt in the slightest.
+The doctors explained to me, as I was asking many questions and providing many details, that he had undergone an &#x27;anticholinergic drug crisis&#x27;, that the drug had blocked the muscarinic acetylcholine receptors in his brain, more or less causing mucous membranes to dry up severely and crack like dry mud. That caused the tactile &#x27;hallucinations&#x27; and the pain. They told me he actually could have fallen into a coma or even died without medical care, but would be fine now. Still, the kid demanded a CT scan be done, to check for insects or other abnormalities. They performed it, though they never showed him the results. They told him there were no bugs, and somehow he trusted them, though he didn&#x27;t trust any of his friends. He called his mom, and I got out of there before she arrived. He was still up all night, even with whatever they had in the I.V.
+Now over 5 months after this most terrifying drug experience, the kid has flashbacks or panic attacks almost every day. He simply cannot smoke weed anymore, as the little we had him smoke that night obviously became psychologically linked with the hallucinations. Weed instantly provokes a panic reaction and intense flashbacks now. This episode may have forced him to get the psychological/psychiatric help he needed before this, and he says that honestly, he believes it may have been for the best. Still, I feel incredibly guilty for the ignorance that possessed me to try to help him in the reckless way that I did.
+There are many morals that I&#x27;d like to impress upon the reader, as well as that I still believe in psychedelic therapy in principle, as it has worked wonders for me personally. In the end, I guess I should say that harm reduction strategies are always worth it. Smaller doses first, and use a fucking scale for Christ&#x27;s sake! Also, I learned it is a bad idea to think marijuana can help bring somebody down from a bad trip.  My friend has massive anxiety problems, with insomnia, and of course depression caused by the chaos in his mind and life now. The bottom line is that I shouldn&#x27;t have given drugs to anybody.  The best of intentions, the worst results. Irony can be fucking brutal.
+Exp Year: 2008
+ExpID: 73492
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 3, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOC (357) : Various (28), Second Hand Report (42), HPPD / Lasting Visuals (40), Post Trip Problems (8), Depression (15), Overdose (29), Guides / Sitters (39), Train Wrecks &amp; Trip Disasters (7), Bad Trips (6)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

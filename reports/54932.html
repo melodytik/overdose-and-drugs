@@ -1,0 +1,280 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4-乙基-MiPT - 体外 - &quot;不应轻视&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-mipt.html'>← 4-AcO-MiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4-乙基-MiPT - 体外 - &quot;不应轻视&quot;</h1>
+<div class='sub-title'>4-Acetoxy-MiPT - Erowid Exp - &#x27;Not to Be Taken Lightly&#x27;</div>
+<div class='meta'>作者：Dondante Citation · 日期：Jul 29, 2006 · <a href='https://erowid.org/experiences/exp.php?ID=54932' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>之前的经验:
+我第一次使用这种三胺的体验,不包括4-5毫克的味道,包括12毫克的剂量,然后在T+1:30用6毫克,总共18毫克.
+强剂没有显著加剧旅行,但使其持续约7-8小时.
+我觉得这次旅行肯定比一八分之一的Cubensis更轻松.
+虽然有些视觉效果很好, 身体也很高,
+我会说这次经历让我在吸了大麻后,
+对于我来说, 大麻并没有直接让旅程变得更加激烈,
+我可以更容易地让我的思想流浪.
+经验:
+我一直在争论剂量, 但最终决定22毫克.
+我曾尝试过一些,,4-ho-dipt和,
+我和我的同伴分别服用了22毫克,18毫克和10毫克.
+我知道这次经历可能会让我的其他18毫克经历然失色,
+这是两天前发生的事情.
+晚上九点半
+摄入的化学物质
+味道很糟糕, 但部分原因可能是它溶于100%乙醇中.
+晚上9点50分
+随着我们开始感受到最初的效果,
+我不知道它感觉到什么, 但它肯定知道发生了什么.
+我的胃开始一点.
+旅行前的焦虑开始.
+晚上10点
+我们都很焦虑.
+一个朋友吐.
+我感觉有点恶心, 但没有什么不寻常的.
+身体的高度是越来越强大.
+双手开始,有点.
+我已经准备好开始旅程了.
+随着化学物质的使用, 不久的焦虑就被兴奋所取代.
+我们嘲笑一切.
+晚上10点15分
+在外面抽一支烟.
+我不吸烟, 但有一口黑色的酒会让我感觉很好.
+这是一个美丽的,几乎没有云的夜晚, 但它可能在30年代.
+旅行让我很震惊,
+星星在摇摆,当我着它们时,它们会变得越来越亮.
+微弱的云层在黑色的天空中, 呈现出迷幻般的色彩.
+树木似乎有了自己的个性.
+我觉得我身后的树正在腰抓住我们,
+我们都觉得当我们抬头看时,
+在空气中有一种声, 在我们所看到的每一个地方都有振动.
+我拿着雪茄的手变得麻木,
+我可以说我很冷, 但这是一种非常不寻常的感觉,
+晚上十四点五分
+我们回到里面.
+讨论在哪里可以放松身心,听音乐.
+房间墙上有一些非常有趣的挂毯, 还有一个地毯,
+视觉效果非常强烈, 绝对像一样,
+心脏病变得越来越强大.
+开始听我的早晨克乐队 (令人惊叹的乐队),
+吸一些大麻.
+我们不断地沉浸在自己的内心世界里, 但最轻微的跌倒者一直想说话.
+我觉得这有点令人烦.
+听一个人的谈话, 让我的脑海产生奇怪的联想和联系,
+词语和想法引发这些非常生动的心理图像.
+我和另一个22毫克的药者在谈话中遇到了一些困难,
+下午十一点四分
+其他三个人决定再出去抽烟,
+如果前一个小时很难用文字表达,
+我躺在床上,倒, 但我觉得这不是太难,
+我分析了自己的生活, 但它不是我的.
+我有点不安, 但决定看看这会带我到哪里.
+实际上我没有去任何地方, 但这绝对是最接近我有OBE.
+虽然我没有从第三人称中看到自己,
+我不想详细描述, 因为我不知道如何描述发生的一些事情, 但当我与其他三人见面时,
+让我看到更大的东西. 现在,
+我不认为这是自我损失, 但我确实感觉像我见了的集体无意识或某种东西.
+我从来没有与另一个现实有过联系, 也没有完全脱离这个现实,
+我会稍后重新思考这个想法.
+上午十二点半
+我自己在房间里的经历很奇怪, 但在接下来的几个小时里,
+我们回到了那个软软的地毯和的挂毯的房间, 我们一直在评论它们看起来像水下海洋生物.
+我只是在笑. 我只是在笑.
+我指出了这一点,
+我们听了一些&quot;燃烧的嘴唇&quot;和两个不像他们那样扎的人正在交谈.
+但他会不断忘记他所说的话的意义, 最终走在没有太多意义的接触线上.
+我试着跟上, 但我的短期记忆力已经很差了.
+上午1点45分
+再一次出去.
+每次都像是穿上帽子和外套, 走到后院的旅程,
+我们两人躺在吊床上, 谈论树木, 似乎都在移动, 试图告诉我们一些东西.
+像往常一样, 结果我们都在歇斯底里地笑,
+上午2点15分
+我们回到了里面.
+我的思想感到疲.
+我很难理解一个完整的句子, 更不用说谈话的话题了.
+我觉得我只是存在着, 我听到一连串的话语,
+我有几点想补充评论或问问题, 但我无法弄清楚为什么我想说些什么,
+试图通过这片杂的混乱来理解这一切是有趣的, 但最终变得很累.
+这可能听起来不舒服, 但我不介意.
+只是坐下听音乐 (现在是Modest Mouse), 听声音却没有努力去处理它们,
+上午四点半
+晚上发生了很多事情, 但我的记忆很模糊.
+我终于试图入睡, 我再次被我看到的事实, 人类根本不应该看到.
+现在我不得不面对我们的现实并不是唯一的现实.
+问题在于,当我和女朋友躺在床上时, 我的理性感觉又回来了,
+一个药物诱导的经历不能打开通往另一个现实的大门.
+我向不同意的人道歉.
+我终于明白了迷幻药是如何成为急性精神病的模型.
+我暂时变得精神分裂症!
+虽然我对自己说这种经历是迷幻药的结果,
+幸运的是,这一阶段过去了, 我的理性部分恢复了控制,
+这是一个令人惊叹的经历,
+我仍然认为自己在迷幻药方面是新手,
+我会继续尊重他们, 我觉得经常这样做会带来一些严重的后果.
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Not to Be Taken Lightly
+4-Acetoxy-MiPT
+by
+Dondante
+Citation:   Dondante. &quot;Not to Be Taken Lightly: An Experience with 4-Acetoxy-MiPT (exp54932)&quot;.
+Erowid.org
+. Jul 29, 2006. erowid.org/exp/54932
+DOSE:
+T+ 0:00
+22 mg
+oral
+4-AcO-MiPT
+(liquid)
+T+ 0:45
+smoked
+Tobacco - Cigarettes
+T+ 1:15
+smoked
+Cannabis
+(plant material)
+BODY WEIGHT:
+175 lb
+Previous experience:
+My first experience with this tryptamine, not including a 4-5 mg taste, consisted of a 12 mg dose followed at T+1:30 with 6 mg for a total of 18 mg. The booster dose did not significantly intensify the trip, but made it last about 7-8 hours. I felt like the trip was definitely less intense than an eighth of Cubensis. There were some decent visuals and a great body high, but it was not too difficult to carry on a conversation. I would say that this experience put me at a solid ++ and then a light +++ after smoking some pot. For me, pot doesn’t directly make the trip more intense but it helps me surrender control and let the trip take me where it will. I can let my mind wander much more easily.
+The experience:
+I had been debating the dosage for quite some time, but finally settled on 22 mg for myself. I had tried a few phenethylamines, mushrooms, 4-ho-dipt, and salvia, but other than salvia, never really had a totally overwhelming experience. My tripmates took 22, 18, and 10 mg respectively. I knew that this experience would probably blow my other 18 mg experience away, but I could not have anticipated what happened. This is an account of what happened two nights ago.
+9:30 P.M
+Ingested chemical. Tastes terrible, but that could be partly due to the 100% ethanol that it&#x27;s dissolved in.
+9:50 P.M
+As we are starting to feel the initial effects, my roommate&#x27;s dog is going nuts, barking and growling. I have no idea what it was sensing, but it definitely knew something was up. My stomach begins to rumble a bit. Pre-trip anxiety is setting in.
+10:00 P.M
+We are all quite anxious. One friend pukes. I feel slight nausea but nothing unusual. The body high is getting stronger by the minute. Hands are tingling and getting a bit clammy. I’m ready to get on with the trip. Soon the anxiety is replaced with excitement as the chemical takes hold. We are laughing at everything.
+10:15 P.M
+Go outside for a smoke. I don’t smoke cigarettes, but it feels good to take a few puffs of a black and mild. It is a beautiful, almost cloudless night, but it’s probably in the 30s. The trip is hits me hard as I am looking out across the rolling hills behind our house. Stars are wiggling and keep getting brighter when I stare. The faint clouds make a swirl of psychedelic colors against the black sky. The trees seem to be getting a little bit of a personality. I feel like the tree behind me is bending over to grab us, but I just find this funny.
+We all feel like we are looking through a fish eye lens when we look up. There is a buzz in the air and vibrations are apparent everywhere we looked. My hand holding the cigar keeps getting numb and I have to switch repeatedly. I can tell I am cold but it’s a very unusual sensation, like I am being reminded by my senses that I’m cold but I don’t really care.
+10:45 P.M
+We go back inside. Debate where to chill and listen to music. One’s bedroom has some really trippy tapestries on the wall, as well as a carpet, which we decide is crucial to a good trip. Visuals are quite strong, definitely like mushrooms, with maybe a slightly sharper edge. Mindfuck is getting stronger still. Start off listening to some My Morning Jacket (amazing band) and later switch to Peter Tosh. Smoke some pot. We keep drifting off into our own inner worlds, but the one tripping the lightest keeps wanting to talk.
+For a minute I find this slightly annoying. But it is fun to listen to a conversation while my mind is making weird associations and connections. Words and ideas spark these very vivid mental images. Me and the other 22 mg tripper are having some trouble following a conversation, but we are enjoying the trip immensely.
+11:45 P.M
+The other three decide to go back out for another smoke, but I go to my room and listen to Pink Floyd, The Wall. If the previous hour was hard to put into words, this is where it is almost impossible. I was laying on my bed, tripping, but I didn’t feel like it was too hard, then I found that I was thinking about myself from a third person perspective. I was analyzing my life, but it wasn’t mine. I was slightly disturbed, but decided to see where this would take me.
+I didn’t actually go anywhere, but this was definitely the closest I’ve had to an OBE. My thoughts were slightly outside of my head, and though I wasn’t seeing myself from the third person, I was thinking from it. I will not go into too much detail here because I don’t know how to describe some of the things that happened, but when I met back up with the other three, I felt like I had seen some other part of reality, outside of the one we live in. It was like I was viewing reality at a slightly different frequency or angle, which was letting me see something bigger.
+I don&#x27;t think it was ego loss, but I did feel like I was catching a glimpse of Jung&#x27;s collective unconscious or something. I never quite connected with this other reality or completely stepped out this one, but it was definitely something I hadn&#x27;t experienced before. I would revist this thought later.
+12:30 A.M
+The experience in my room by myself was weird, but does not occupy my thoughts too much for the next few hours. We go back to the room with the soft carpet and trippy tapestries that we keep commenting on how they look like underwater sea creatures. At one point the tapestry was swallowing my friend, but I was just laughing. I pointed it out and everyone else agreed. We listened to some Flaming Lips and the two that weren’t tripping quite as hard were having a conversation. The friend that had taken 18 mgs kept thinking he could talk sensibly, but he would keep forgetting the point of what he was talking about and end up going on tangents that didn’t make much sense. I’d try to keep up, but my short term memory was pretty much shot.
+1:45 A.M
+Go outside again. Each time seems like it’s a journey to put on a hat and coat and make it out to the backyard which overlooks a 50 acre park. Two of us lie in hammocks and comment on the trees, which all seem to be moving and trying to tell us something. As usual, it ends up with us all laughing hysterically, about who knows what.
+2:15 A.M
+We are back inside. My mind feels exhausted. I have trouble making sense of a complete sentence, much less a topic of conversation. I feel like I am just existing, and I hear a trail of words, but can only hang on to a few at a time. There were a few points when I wanted to add a comment or ask a question, but I couldn’t figure out why I wanted to say something, and had to ask how my question related to what we were talking about.
+It was fun to try to work through this thick confusion to make sense of everything, but eventually became tiring. This may sound uncomfortable, but I didn’t mind. It was peaceful to just sit and listen to music (now Modest Mouse) and hear sounds but put no effort into processing them.
+4:30 A.M
+So much happens over the course of the night, but much of my recollection is blurry. When I finally attempted to sleep, I was revisited by the fact that I had seen something that humans simply were not supposed to see. I had ventured outside of this reality and now had to cope with the fact that our reality was not the only one. The problem now, as I lay down in bed with my girlfriend, was that my sense of rationality was returning, and it was telling me that this was impossible. A drug induced experience cannot open the door to another reality.
+I apologize to others who disagree with this. I finally understood how psychedelics can potentially be a model of acute psychosis. I had become temporarily schizophrenic! For a while, no matter what I told myself about the experience being the result of a psychedelic, I could not convince myself that it wasn’t real. Luckily, this phase passed, and the rational part of me regained control and I was able to go to sleep around 5:30. This was an amazing experience, a strong +++. I still consider myself a novice in terms of psychedelics, but I learned quite a bit that night. I will continue to treat them with respect and I feel that doing them too often is sure to have some serious consequences.
+Exp Year: 2006
+ExpID: 54932
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 29, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-MiPT (312) : Glowing Experiences (4), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

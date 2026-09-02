@@ -1,0 +1,354 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>,甲,甲基化物和其他类药物</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-methylphenidate.html'>← 哌甲酯(利他林)（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>,甲,甲基化物和其他类药物</h1>
+<div class='sub-title'>Heroin, Methadone, Methylphenidate &amp; Various - Erowid Exp - &#x27;Opioid Valhalla&#x27;</div>
+<div class='meta'>作者：Putnik Citation · 日期：Oct 11, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=65390' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我22岁了
+没有.
+我住在塞尔维亚.
+塞尔维亚是一个奇怪的国家.
+我生活在中产阶级,有很好的父母, 和2岁的妹妹谁是完全直,
+如果您来塞尔维亚寻求毒品,
+意识到他们之间没有太多选择.
+你只能用双重处方获得, 在此之前还需要填写大量的协议.
+没有什么奇怪的, 每个国家都是这样的, 但唯一的区别在于, 在其他更现代的国家,
+在街上唯一可用的毒品是甲基,
+胺,MDMA,MDA,LSD,海洛因,特拉马多尔和可卡因
+我一生都在寻找和试验各种毒品, 我自己也成了.
+具体来说, 我在15岁时就上了阿片类药物,
+我立刻意识到我生来就是要和阿片一起生活,
+我只是说&#x27;听我的遗嘱是我的责任!
+这太强烈了.
+现在,经过8年的药物生活, 我成为了某人.
+在这个社会里, 确实有价值存在的东西.
+我读完高中, 进入微软系统工程师专业.
+我立即在一家公司找到一份很棒的工作.
+另外,我也非常喜欢神秘, 我也是东方圣殿组织的活跃成员.
+在这8年里, 我尝试了很多药物.
+从大麻,大麻,特拉马多尔,MDMA,MDA,安非他命,甲胺, 穿过精神,海洛因,美沙,吗啡,片,DXM,卡纳克斯,瓦,到瓦洛伦,阿尔泰恩,以太,,普罗西克利丁,LSD,萨尔维亚神和里塔林.
+我在这些年里也设法保持平衡, 但是在我21岁 (去年) 时, 我进入了生命危险区.
+我从19岁开始服用海洛因,
+但在2006年, 我对片的成变得非常强烈.
+我所有的工资都花在了海洛因上,
+我与O.T.O.的兄弟姐妹失去了联系, 我停止了我的精神活动,
+我从我的家乡Vrsac搬到贝尔格莱德, 因为那里是我的公司,
+我们一起关心毒品和其他的东西的钱.
+在这些年里,
+我在16岁的时候去精神病医院住了两个半月,
+虽然我在那儿遭受了很大的折磨, 我在那家医院后的药物使用量也越来越少.
+随着时间的推移,
+2006年回到贝尔格莱德.
+我每两周去一次拜访我的父母在Vrsac度过周末, 他们注意到我没有现金, 我总是问他们钱,
+我脸色白,眼睛水,精力不足, 每次我去拜访他们,
+我告诉他们我正在服用海洛因, 我告诉他们从我开始服用以来的一切.
+我母亲也预料到了.
+她是一位伟大的战士,
+我无法原谅自己对她的伤害.
+我告诉他们我上了海洛因, 他们问我是否想去医院排毒.
+我觉得我可以单独使用Trodon (tramadol) 和 Xanax.
+但在我的内心, 我真的不想放弃.
+我一直在忍受这种海洛因, 直到我找到一个很好的来源,
+这是白色的, 这是我一生中吸过的最强烈的东西.
+我开始使用纯海洛因.
+经过一段时间, 我开始用静脉注射.
+我一直使用新的注射器和针,
+我每天吃的东西都越来越多, 直到我每天吃到3克!
+[Erowid的注意事项:
+本报告所描述的剂量非常高,可能超出Erowid的&quot;重量&quot;范围,并可能造成严重的健康风险或导致不必要的极端效应.
+有时报告的极高剂量是错误而不是实际使用的剂量.
+我几乎不能在公司工作, 每隔45分钟都要服用一剂.
+我开始崩.
+这意味着我的神经受到了炎症.
+我开始陷入这样的情况, 我没有钱买药, 我打电话给每个人, 要求钱,
+这种东西太强了.
+我终于有足够的时间了.
+我们决定去一家私人诊所,
+塞尔维亚人逐渐意识到, 甲是他们选择的药物.
+所以我开始在私人诊所进行排毒,
+我开始每天两次服用30毫克美沙,
+但我已经习惯了.
+几天过去了,我又恢复正常了.
+但现在是时候开始降低剂量,直到达到0毫克.
+开始了.
+我开始每天服用5毫克,
+我开始吸毒,我的生活又开始艰难了.
+我试图保持清洁之前, 但即使在两个月后是正确的, 我的身体仍然渴望阿片类药物
+我有震,无法入睡,抑郁和一大堆的狗发生在我身上.
+我每天服用1毫克的甲,
+医生把我转换为使用 Xanax,Heminevrin,Lendormin 治疗睡眠,
+我成功地在治疗中停留了一个星期, 症状让我无法忍受,
+我们离开了私人诊所,
+我意识到我需要维护甲.
+我还有两种选择.
+贝尔格莱德的成和美沙维持医院, 或在诺维萨德类似的医院.
+我决定去拜访贝尔格莱德的第一个.
+但这是一个可怕的.
+医生告诉我和我的父母要关他, 拿走他的手机,
+愚蠢的女人,!
+我以为她生气了吗?
+我是一个有工作的人, 没有人可以把我关起来, 拿走我的手机,
+她不想听我的话,说&#x27;你不能得到甲,没有办法&#x27;.
+我知道了.
+我们离开了医院,我告诉女医生:&quot;一旦我们进入欧盟,你就会给每个人用甲!
+愚蠢的医院.
+他们只给严重上的艾滋病患者,
+我只剩下一个机会, 那是诺维萨德专门的成诊所,
+我开始写一封电子邮件给诊所的主任教授.
+他回答了我,我们约了个时间.
+很好,我说,我和诊所的负责人预约了.
+这是有前途的.
+我父母一直给我买海洛因的钱,
+终于到了那一天, 我们到达了诊所.
+医生让我想起了肖恩·康纳利, 他看起来超级聪明.
+我告诉他我的历史.
+起初他不想给我甲, 但后来我绝望地开始在他的办公室里玩戏.
+我开始哭泣,求,我告诉他们我会自杀,我不知道该怎么做,我在过去的8年里尝试了一切,没有什么工作,我需要甲!
+他终于听到了我!
+孩子,有人听到了我!
+他告诉我待在医院10天, 在他们对我做心理测试,
+医院的住宿对我来说是一件可怕的事情,
+我认为我会被折磨, 就像我16岁那个时候.
+但是没有!
+这里是现代医院,
+每个人都非常善待我, 作为解毒疗法,
+我在医院结交了一些好朋友, 我们偷偷地从房间的窗户里买大麻, 在医院院子里抽,
+十天后,医生尼古拉·武科维奇 (医院负责人) 打电话给我.
+他告诉我我被接受了美沙维持计划!
+我很高兴,终于可以自由了!
+我的父母那天来了,我们打包了.
+我向医院的朋友们打招呼,然后我们走了.
+医生给我开药30毫克的甲.
+他还给了我抗抑郁药Zoloft,抗焦虑药克隆诺 (克隆泽) 0.5毫克每天一次,
+我很高兴.
+非常高兴.
+在接下来的几周里, 甲的剂量越来越高,
+我觉得这剂量是可以的.
+几个月过去了, 我开始感到丧和疲劳,
+只有在服用甲后的前四个小时, 之后我变得非常丧, 我的注意力也受到很大影响,
+我决定请医生给我开里塔林.
+他甚至不知道里塔林是什么, 因为在塞尔维亚没有里塔林作为注册的药物!
+我向他提供了很多关于Ritalin的材料, 我从英语翻译成塞尔维亚语, 他也对Methylphenidate做了大量的研究,
+但现在有一个问题是如何得到它.
+我们尝试了一切,但不可能.
+我在塞尔维亚的药品数据库中发现2007年新获批准的药品.
+我看了音乐会!!!
+是的 !!!
+我立即打电话给正在为塞尔维亚提供Concerta的进口公司, 他们告诉我我必须等待,
+我等待着,等待着,等待着.
+我有时也会服用斯皮德,
+另一方面, 我没有接触到海洛因,
+经过7个月的等待, 他们终于告诉我在诺维萨德的医生,
+,我说的很好.
+现在我已经开始使用甲维护了一年了,
+我们订购了一瓶36毫克的Concerta.
+我是塞尔维亚第一个买了第一瓶Concerta的人,哈哈哈.
+现在我的治疗方法是这样的:
+甲60毫克 (我稍微降低了一点剂量)
+康塞尔塔 36mg
+血清素 (帕洛克西丁) 20mg
+里斯佩里 2mg 在晚上
+听音乐会的第一天很有趣.
+我会描述这种混合物的效果.
+我早上11点左右醒来.
+我每天服用的是甲,西洛沙特和克隆诺.
+经过一个小时, 我开始感觉到一种阿片类的高, 但非常温和,
+我不知道Seroxat和Clonopin在做什么,Clonopin只是强化美沙和Seroxat给了我更多的快乐,但这不是那么明显.
+服用甲,塞洛克萨特和克洛诺3个小时后, 我服用了一片36毫克的特制超高压构造的康塞尔塔药片.
+我感觉到身体的温暖, 我不再有起落落, 我心情很好, 我可以集中精力, 我有很大的动力.
+我终于开始有组织了.
+音乐会, 感谢天堂!
+现在是我服用康塞塔与美沙的第四天, 我觉得额外.
+我希望我能从中获得繁荣.
+现在,我不需要世界上任何更多的药物.
+我有自己的处方药, 让我继续前进,
+我已经自由了.
+最后,我们要说些什么.
+我认为现在是时候开始构建自己的未来和事业,
+现在我没有人, 必须结交一些新朋友.
+我不是说我会成为一个硬直的直人, 我有时会有兴趣的关节,
+我不需要任何其他东西.
+其他:
+药品 - 甲基 (114),海洛因 (27),美沙 (166): 不适用 (38),抑郁症 (15),医疗用途 (47),成和习惯性 (10),回顾 / 摘要 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Opioid Valhalla
+Heroin, Methadone, Methylphenidate &amp; Various
+by
+Putnik
+Citation:   Putnik. &quot;Opioid Valhalla: An Experience with Heroin, Methadone, Methylphenidate &amp; Various (exp65390)&quot;.
+Erowid.org
+. Oct 11, 2007. erowid.org/exp/65390
+DOSE:
+repeated
+Heroin
+(powder / crystals)
+60 mg
+oral
+Methadone
+(daily)
+36 mg
+oral
+Pharms - Methylphenidate
+(daily)
+20 mg
+oral
+Pharms - Paroxetine
+(daily)
+0.5 mg
+oral
+Pharms - Clonazepam
+(daily)
+2.0 mg
+oral
+Pharms - Risperidone
+(daily)
+BODY WEIGHT:
+90 kg
+I&#x27;m 22 years old
+. I live in Serbia.
+Serbia is one strange country. I live in the mid class, have a good parents, and 2 years younger sister who is completely straight, only smoked weed with me a couple of times. If you would come to Serbia asking for drugs, you would very soon
+realise that there is not much to choose among them. Some of the finest stuff is very well kept in the tresors of the state pharmacies and you can get them only on the double copy prescription with whole a bunch of protocol filled before that. Nothing strange, it&#x27;s like that in every country, but the only difference is that in the other more modern countries, you can find those same drugs on the street, while in Serbia you can&#x27;t. The only drugs available on the street are Methamphetamine,
+Amphetamine, MDMA, MDA, LSD, Heroin, Tramadol and Cocaine.
+But, being the man born to be a drug-pro, I devoted my life in searching and experimenting with various drugs, and I myself became addicted to them. To be more precise, I became addicted to opiates at my 15th year of age, taking 300mg of Tramadol for the first time in my life. Even if Tramadol is not fully an opiate, I immediately realised that I&#x27;m born to live with opiates and after that night I couldn&#x27;t imagine my day without them. I simply said &#x27;It&#x27;s my duty to listen to my Will!&#x27;. It was so strong.
+Now, after 8 years of my life with drugs, I became something. Something that&#x27;s deffinetly worth of existing in this society. I finished high school and went to the Microsoft specialization for the Systems Engineer. I immediately found a great job in one company. Besite that, I&#x27;m into the occult very much, and I&#x27;m an active member of Ordo Templi Orientis. In this 8 years I tried a lot of drugs. From Marihuana, Hashish, Tramadol, MDMA, MDA, Amphetamine, Methamphetamine, across Psylocibine Mushrooms, Heroin, Methadone, Morphine, Opium, DXM, Xanax, Valium, to Valoron, Artane, Ether, Chlorophorm, Procyclidine, LSD, Salvia Divinorum and Ritalin.
+I somehow managed to stay balanced myself during these years, but I entered the life threatening zone in my 21st year of age (last year). I started taking heroin at my 19th, and since then I mixed it with Morphine and Tramadol sometimes. But last year in 2006, my opiate addiction got really strong. Every salary of mine went to heroin, I completely devoted my life to heroin. I lost a connection with my Brothers and Sisters from O.T.O., I stopped with my spiritual practices, I simply became a slave, as it always goes with heroin.
+Now, during that time I moved from my parents from my town Vrsac to Belgrade, because that is where my company was and I had an apartment there and I lived alone and worked. I had a few pals with whom I was sharing and taking heroin and we together cared about the money for the drugs and all the rest. During these years my parents somehow thought that I&#x27;m gonna be better. When I was 16 I went to a psyshiatric hospital and was there for 2 and a half months till I completely freaked out and demanded to turn back home. It was a kind of refreshing experience for me even if they tortured me there very much, I was taking drugs more less after that hospital. But anyway, I started taking more and more as the time passed by. To come back to Belgrade, 2006.
+I was visiting my parents in Vrsac every 2 weeks for a weekend and they noticed that I&#x27;m out of cash, I was always asking them for the money, and my mother who is a nurse noticed a great change in me. I was pale, with watery eyes, out of energy, and that was getting worse every time I came to visit them, or them came to Belgrade to visit me. At one moment, I told them that I&#x27;m taking heroin and I told them everything since I started with it. My mother was expecting that. She is a great fighter and would do anything to make me feel good. Ehhh, how much I wounded her with my drug life, I cannot forgive that to myself.
+After telling them that I&#x27;m addicted to heroin, they asked me if I want to go to hospital and detox. I sad no, I thought that I can do it alone with Trodon (tramadol) and Xanax. But I really within myself didn&#x27;t want to quit. And I was sufring the heroin like that until I found a very good source of it which provided me with 80% pharmaceutically pure heroin. It was white in colour and that was the strongest shit I ever snorted in my life. I started with the pure heroin. After some time, I started taking it I.V. I was disciplined, always had a new syringe and a needle, always used alcohol and a water from ampoules. But, I kept taking it more and more, and it was like that until I reached 3g of that shit a day!
+[Erowid Note: 
+The dose described in this report is very high, potentially beyond Erowid&#x27;s &#x27;heavy&#x27; range, and could pose serious health risks or result in unwanted, extreme effects. Sometimes extremely high doses reported are errors rather than actual doses used.]
+I barely could work in the company during the day, I had to take a dose at every 45 minutes. I started falling apart. I started to feel a strange electric shocks in my legs, and that meant that my nerves got an inflammation. I started to fall in the situations when I didn&#x27;t have the money for my dose and I was calling everybody on the phone asking for some money, and I was calling my parents in Vrsac and I was crying while in the withdrawals. Tramadol and Xanax couldn&#x27;t do a shit for me, this stuff was too strong.
+At last I had enough of that. We decided to go to a private clinic which was the only private clinic in the whole country doing the detox with Methadone. Methadone is still very controversial theme in Serbia, but the people are slowly getting the point that it&#x27;s the drug of choice. So I started the initial detox in that private clinic, my parents payed all that. I started with 30mg of Methadone twice a day, but that was barely enough to cover my withdrawals. But I managed to get used to it. And the days passed, I kinda got normal again. But, it was time to start lowering the dose until I get to 0mg.
+And it started. When I came to the near end, to 5mg a day, oh boy, everything was clear to me. The withdrawals started and my life was hard again. I tried to stay clean before this, but even after 2 months of being straight, my body would still yearn for opiates and I couldn&#x27;t keep myself straight. I had tremors, couldn&#x27;t sleep, depression and a whole bunch of shit going on with me. And when I came to 1mg of Methadone a day, I simply couldn&#x27;t make it. When I came to 0mg, my doctor then switched me to Xanax, Heminevrin, Lendormin for sleeping and nothing else. I managed to stay on that therapy opiate-free for a week, then the symptoms were unbeareble to me, I couldn&#x27;t go to work and I, without any thinking started with heroin again. We left the private clinic and lost any contact with the doctor.
+I realised that I need a Methadone maintenance. I had 2 more choices. The state hospital for addiction and methadone maintenance in Belgrade, or the similar one in Novi Sad. I decided to visit the first one in Belgrade. But it was terrible.
+The women doctor who talked with me told me and my parents &#x27;lock him up, take away his cell-phone, give him Tramadol and Valium for 7 days and that&#x27;s it.&#x27;. Stupid woman, HEYY !!! Is she mad I thought ??? I&#x27;m a man who has a job, no one can just lock me up and take my cell phone, and, Tramadol maybe can help the people with back pain, but woman, I need Methadone. She didn&#x27;t want to hear me and said &#x27;You cannot get Methadone, no way&#x27;. I knew it. We left the hospital, while I told the woman doctor &#x27;You&#x27;ll be giving Methadone to everybody once we enter the European Union!&#x27;. Stupid hospital. They are giving Methadone only to the severely addicted people who have AIDS and who are at the end of their lives.
+Now, I was only left with one more chance, and that was the specialised addiction clinic in Novi Sad, where they used a modern European Methadone program. I started by writting an e-mail to the head proffesor-doctor of the clinic. He answered me and we made an appointment. Oh great, I said, I made and appointment with the head of the clinic. That was promicing. And during all that time my parents were giving me the money for heroin to have as much as I need just to get through the day until we get to the clinic in Novi Sad.
+At last, the day came and we arrived at the clinic. The doctor reminded me of Shawn Connery, and he looked ultra-smart. I told him my history. At first, he didn&#x27;t want to give me the Methadone, but then I fell in desperation and started a play in his office. I started crying, begging, I told them that I will kill myself and that I don&#x27;t know what to do and that I tried everything in the last 8 years and nothing worked and that I need Methadone! And at last he heard me! Oh boy somebody heard me! He told me to stay in the hospital for 10 days while they make a psycho-test with me and while they scrutinize me and detox me and decide what to do.
+At first it was a horrible thing for me to stay at the hospital, but I agreed. I thought that I&#x27;ll be tortured like in that one when I was 16 years old. But no! This was the modern hospital working like the modern European clinic. Everybody were extremely good towards me, as a detox therapy I got a bunch of infusion and a bunch of Tramadol, Valium and Flormidal (midazolam). I also made some great friendships in the hospital, we were buying weed secretly through our room windows and were smoking it in the hospital yard, and anyway, I had a great time.
+After 10 days, doctor Nikola Vuckovic (the head of the clinic who took care of me) called me in his office. He told me that I was accepted for the Methadone maintenance programe! Oh BOY, I was so happy, I was feeling free at last! My parents came that day and we packed. I said hello to all the buddies in the hospital and we left. The doctor prescribed me a starting dose of 30mg of Methadone. Beside it, he gave me an antidepressant Zoloft, anxiolytic Clonopin (clonazepam) 0.5mg once a day, and in the evening one Risperidone 2mg. I was happy. Very happy. In the next few weeks, my Methadone dose got higher and higher, and I stopped at 70mg. I felt just okay with that dose.
+The months passed, but I started feeling depressive and fatigued, I didn&#x27;t have a motivation. Just in the first 4 hours after taking my Methadone dose, but after that I was getting very down, and my concentration was affected very much, I couldn&#x27;t focus, and I had a restless leg syndrome for already 4 years. I decided to ask my doctor to prescribe me Ritalin. And it was a hell of a talk with him, he didn&#x27;t even know what Ritalin is, because, there is no Ritalin in Serbia as a registered med at all! I provided him with a lot of material which I translated from English to Serbian concerning Ritalin and he also made a lot of research on Methylphenidate and after a while, he agreed to prescribe me Ritalin.
+But now there was a problem how to get it. We tried everything, but it was impossible. Then, one day while I was searching the database of the meds of Serbia, I found a list of newly approved medications for the year 2007. I saw Concerta !!! YEAH !!! I immediately called the importing company who is working on providing Concerta for Serbia and they told me that I&#x27;ll have to wait, that there are a bunch of legal stuff to be finished and the Concerta will be shipped to Serbia and distributed ONLY to the state pharmacy strongly secured tresors where all of the narcotics with the potential of abuse go. And I waited and waited and waited.
+I was taking speed sometimes, just to get me a little high, but it was hard for me in such a depressed state of mind and with all those symptoms. In the other hand, I didn&#x27;t touch heroin, Methadone was and still is doing a great job for me. After 7 months of waiting, they finally informed my doctor in Novi Sad that Concerta arrived in Serbia and that it can be distributed. Oh great I said. It was now already a year since I started Methadone maintenance, and now I&#x27;m starting with Concerta as well. We ordered one bottle of 36mg Concerta. And guess what, I was the first person who bought the first bottle of Concerta in whole Serbia, hahaha.
+So now my therapy looks like this:
+Methadone 60mg (I lowered a dose a little bit)
+Concerta 36mg
+Clonopin 0.5mg
+Seroxat (paroxetine) 20mg
+Risperidone 2mg in the evening
+The first day of taking Concerta was interesting. I will describe the effects of this mix of mine. I woke up round 11am. Took my daily dose of Methadone, Seroxat and Clonopin. After an hour I start feeling an opiate high, but very mild, and it soothes me very much. I don&#x27;t know what Seroxat and Clonopin are doing, Clonopin is just potentiating Methadone and Seroxat is giving me more euphoria, but that&#x27;s not so noticable. After 3 hours after taking Methadone, Seroxat and Clonopin, I took one 36mg special-ultra-hyper constructed tablet of Concerta. Oh boy, after an hour my restless legs syndrome was gone, I felt the warmness in my body, I didn&#x27;t have any more ups and downs, I was in a great mood, I could concentrate and I got motivated very much. My day started to be organized at last. Concerta, thank you to the heavens !!!
+Now is the 4th day of me taking Concerta with my Methadone and I feel extra. I hope I&#x27;ll get a prosperation out of this. Now, I don&#x27;t need any more drugs in the world. I have my prescription drugs that keep me going and I don&#x27;t have any more preassures in my mind. I&#x27;m free.
+In the end, what to say. I guess the time has come for me to start building my future and my career and to make my family happy and proud of me. I stopped hanging out with every person who is on heroin or addicted to any drug, I now have nobody and have to make some new friendships. I don&#x27;t say I&#x27;ll become a hardcore straighter, I&#x27;ll sometimes be in a mood for a joint, but nothing more beside my prescription drugs. I don&#x27;t need anything else.
+Exp Year: 2007
+ExpID: 65390
+Gender: Male
+Age at time of experience: 22
+Published: Oct 11, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Methylphenidate (114), Heroin (27), Methadone (166) : Not Applicable (38), Depression (15), Medical Use (47), Addiction &amp; Habituation (10), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

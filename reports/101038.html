@@ -1,0 +1,290 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2C-B - 埃洛伊德探测器 - &quot;一个视觉壮观&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-b.html'>← 2C-B</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>2C-B - 埃洛伊德探测器 - &quot;一个视觉壮观&quot;</h1>
+<div class='sub-title'>2C-B - Erowid Exp - &#x27;A Visual Spectacular&#x27;</div>
+<div class='meta'>作者：Riley Citation · 日期：Apr 2, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=101038' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我是第一次使用2cb的粉末是囊,所以我不知道物质的确切质量.
+根据Pihkal (Shulgin) 的旅行报告以及其他许多人,
+在第二个囊被摄入之前,没有发生超过20毫克的情况.
+我和另外三位初次使用2cb的人,
+我们也经历过许多MDMA和狂欢场景,
+我们都超过25岁了.
+我在经历之前或经历期间没有服用除2cb以外的药草或补充剂,
+我们四个人决定每人服用一个囊,
+我一整天只吃了一份早餐三明治和一些小小的零食.
+我开始感到饥饿的时候就服用了囊,
+时间+0.00小时
+我们都在下午6点服用第一粒 (10-15毫克).
+作为一个20磅重的女性,
+在20分钟之内, 一种光环环绕着所有的光形 (灯,电视),
+身体越来越不安, 仿佛被推向未知世界.
+所有的身体感官和冲动,如温度和恶心, 开始变得短暂而混乱, 坚固的地面和基础设施开始摇和移动,
+我知道我在这个东西,没有回头.
+恐惧的程度远远不如被推进LSD之旅; 然而, 有时我身体上感到不安,
+这是一件令人震惊的事情.
+半小时内, 我不得不走出门, 远离音乐和电视,
+我只是凝视着隔壁建筑的混凝土和, 试图通过令人着迷的视觉来分散我失去平衡的注意力,
+影子和纹理变得更加三维, 波动进出, 像层层一样相互滑动.
+坦率地说,我不知道是否要尿,,或吐... 第一个小时只是我的身体想知道我放了什么,
+开始的时候,我的身体只是想知道我放了什么东西进去,
+时间+1.00小时
+身体温度开始稳定, 感觉又温暖又粘,
+我只是感到欣慰, 因为我的体温不再像以前那样波动.
+我觉得自己已经接受了药物,
+房间的明亮区域会变得极其明亮,然后变得暗, 白光中的颜色分为彩虹的每一种颜色.
+一个真正的视觉壮观.
+每一次呼吸和每一次音乐的声音似乎都决定了每一个表面的几何形状的旋转速度, 以及极具色彩的线条决定了它们的边缘.
+视觉波变得越来越强, 但我的思想与之分离,
+我可以进行正常的对话, 完全处于当下,
+我无法描述这些颜色.
+其他报道,比如在Pihkal (Shulgin),说有粉红色;我看到每一个颜色可以想象到的人, 钉彩虹的颜色以及所有阴影的虹, 几乎像发光的光脉冲下水母的触角.
+这是一个美丽的图案的轮, 永远在运动.
+像亚历克斯·格雷一样, 任何几何和无限的东西,
+时间+2.00小时
+在约2个小时后抽烟.
+香烟看起来巨大的和超大, 强烈的尾随从发光的红珀.
+感觉很有趣, 我完全脱离了吸烟的自我.
+我很喜欢这些视觉效果, 忘了自己在吸烟.
+我觉得自己在看着朋友吸烟, 而不是在吸烟.
+我在一半的过程中感到无聊,没有目的.
+我们决定走到外面.
+我吃了一份奶油奶酪饼干, 味道很好,
+我意识到它正在发生, 但这部分我经历的只是许多其他经历中的一个.
+感觉到视觉图像退了一步, 现在树木和光线透它们看起来几乎是状和假的,
+完全控制了它的强度.
+我认为我们在外面大约一个小时, 但我们没有做得很远.
+每一个方向都有一个新的故事.
+路面和街道看起来像道或虫洞延伸出去,
+声音会加剧并逐渐分解, 就像狗的听觉或比人类更好的东西一样.
+视觉展示让我平静下来, 我可以一下, 享受四处观看,
+有时它看起来像有烟雾或雾在空气中.
+时间+3.00小时:
+我们回到里面,
+我已经准备好再服用2cb的囊了.
+我觉得自己已经掌控了自己的心灵和身体,
+每个人都决定加入我.
+他们的速度比我慢得多, 也许他们正处于旅程的高峰,
+尽管如此,
+在15分钟之内, 我开始看到天花板和墙壁上的图案重新出现.
+我吃了一些比以前更好吃的饼干, 我躺在地上, 背景是平静而渐进的惚.
+我开始进入一个视觉上勃发展的世界,
+没有任何灯光表演,电视或外界视觉刺激; 这一切都在你眼前.
+音乐听起来令人难以置信, 但我的注意力主要集中在我所看到的,
+我躺在我的背上, 我进入了一个世界与我从未感觉或看到的任何东西在或LSD.
+我只是着看着, 形状变得流动, 演变为三维的光带,
+我只是呼吸,感受到一种强烈的平静和欣赏, 对于眼前的东西,
+这就像是艺术家对大脑神经网络的描绘, 你有时会在&quot;发现号&quot;上看到,
+我的身体只是在这个网络中漂浮,
+我只着天花板, 我知道; 我完全意识到我在哪里,
+我现在可以看到太空的广, 就像一个灵魂漂浮到任何我想去的地方.
+我完全欣赏了我对艺术和科学的理解, 让这个环境和我周围的环境一样真实.
+它比我见过的任何一件艺术品都好, 细节也无限详细, 像碎形是无限的, 但只能被欣赏到目前为止,
+我感觉自己完整.
+虽然我这次的旅程可能会持续更长时间.
+我有时几乎为这位美女哭泣, 但从来没有,
+在这次太空旅行之后,
+我喜欢我男朋友的幽默,
+我发现自己笑得歇斯底里, 当他评论旅行的部分和音乐的声音.
+时间+4.50小时:
+我感觉到他的头在我的肚子上, 他的手臂围着我的腿.
+我还在脑海中旅行,
+我们讨论了音乐的吸引声, 仿佛我们能听到它分开和连接,
+我们开始融为一体,
+虽然这并不是性行为, 但很容易成为性行为.
+有时说的东西会很有趣, 每一个肌肉都会收缩,
+他说我听起来如此遥远,我知道我的意思;他听我从我的肚子和我的声音.
+我觉得自然和原始,没有必要化,时尚,规范... 没有时间判断,偏执,忘恩负义,或恐惧.
+无论我们的脸上有多少图案或充满光线,
+每一个感官都在燃烧,每一个视觉,声音,味道和触觉都在燃烧.
+这是一种神圣的存在感, 感觉很强大, 幸运的是人类.
+时间+5.50小时:
+每个人都走到地板上,
+它们的脉冲越来越大, 它们也越来越慢,
+现在正接近午夜, 我们都很高兴在舒适的家中停留, 有浴室,食物和水, 而不是在户外.
+因为你很容易离开, 走向遥远的世界, 不需要想到与另一个层面的人或我们可能会陷入困境的环境进行互动,
+时间+6.00小时:
+我们都吃了三明治和沙拉, 喝了大量的水.
+我吃了一些药物, 但这是最负面的症状.
+我会说整个旅行是6个小时 (每10-15毫克囊3个小时) 间隔总共20-30毫克2cb.
+我们都能在凌晨2点左右轻易入睡, 我甚至做了一些可爱的梦...
+第二天早上:
+经过9个小时的睡眠后, 今天醒来时,
+! 这真是太棒了!
+完全没有丧,甚至没有疲劳,没有抑郁或冷漠.
+对于刚刚发生的事情,
+我从来没有觉得自己在使用这种药物时,
+但我理解为什么报道称效果如此,
+我更喜欢现在, 感觉自己掌控一切, 经常受到启发, 而不是重温过去的记忆或思考其他迷幻药所伴随的伟大哲学.
+伴随着其他迷幻药物出现的这些启示, 可以带来深刻的洞察力和快乐的感觉,
+至少不是我服用的剂量; 心态是现有的,平静的,轻松的,
+视觉效果同样令人惊叹,
+已使用的证券</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Visual Spectacular
+2C-B
+by
+Riley
+Citation:   Riley. &quot;A Visual Spectacular: An Experience with 2C-B (exp101038)&quot;.
+Erowid.org
+. Apr 2, 2017. erowid.org/exp/101038
+DOSE:
+T+ 0:00
+1 capsl
+oral
+2C-B
+(powder / crystals)
+T+ 2:00
+1
+smoked
+Tobacco - Cigarettes
+T+ 3:00
+1 capsl
+oral
+2C-B
+(powder / crystals)
+T+ 6:00
+400 mg
+oral
+Pharms - Ibuprofen
+BODY WEIGHT:
+120 lb
+I am a first-time 2cb user and the powder is in a capsule so I do not know the exact mass of the substance. However, based off of the trip reports in Pihkal (Shulgin), as well as numerous others, I am going to estimate that each capsule contained 10-15 mg. What happens at the &gt;20 mg reports did not happen until ingestion of the second capsule.
+I am with three other first-time 2cb users, however, we have all had experience with other psychedelics. We have also had many experiences with MDMA and the rave scene, which seems to be pertinent for comparison in 2cb. We are all past 25 in age. I did not take any herbs or supplements other than 2cb before or during the experience, but I smoked 2 cigarettes during, and took 400 mg ibuprofen after 6 hours for a minor headache, and am not on any current medications. The four of us decide to take one capsule each, and we are in an apartment, since we don’t know for certain what to expect. I have only had a breakfast sandwich and minor snacks throughout the day. I take the capsule while I am beginning to feel hungry again so that my stomach is empty, as I wanted to know the full story of 2cb.
+T+0.00 hr:
+We all take the first capsule (10-15mg) at 6pm. It came on very strong for me, being a 120 lb female on a rather empty stomach. Within 20 minutes, there was a glow surrounding all light forms (lamps, TV), like warm auras pulsating in and out. My body increasingly felt uneasy, like it was being propelled into the unknown. All physical senses and urges such as temperature and nausea began feeling fleeting and confused, and the solid ground and infrastructure began rocking and shifting as if I was on a boat. I knew that I was on this thing and there was no turning back. There was not nearly as much fear as being propelled into an LSD trip; however, there were bouts of physical uneasiness that I had to mentally overcome. It was overwhelming. Within 30 minutes, I had to step outside to get away from music and TV as it began to take me over. I just stared at the concrete and fence of the next-door building, trying to distract my loss of equilibrium with the fascinating visuals, which became stronger and stronger. Patterns began to take over every surface; shadows and textures became much more 3d looking, undulating in and out and sliding over one another like layers. To be completely honest, I couldn’t tell if I had to pee, poo, or vomit… The first hour was just my body figuring out what the hell I put in it, but I just held on.
+The first hour was just my body figuring out what the hell I put in it, but I just held on.
+T+1.00 hr:
+I came back inside and still was adjusting to the drug, but now my body temperature began to stabilize, and I felt warm and clammy, similar to on mushrooms. It didn’t bother me in the least, I just felt relieved that my temperature wasn’t fluctuating as before. I felt like I had accepted the drug and had much more control.  Lighted areas of the room would get extremely bright and then dark, the color in the white light separated into every color of the rainbow. A true visual spectacular. Every breath and every sound of the music seemed to dictate the rotational speed of the geometric shapes populating on every surface, and the extraordinarily colored lines dictating their edges. The visuals were coming in stronger and stronger waves, but my mind was separate from them and I could think clearly and quietly. I could carry regular conversation and was completely in the present although the patterns began to grow out of the surfaces and swoop down into the space. I can’t begin to describe the colors. Other reports, such as in Pihkal (Shulgin), say that there are rosy hues; I saw every color imaginable to man, riveting colors of rainbow as well as all shades of neon, almost like glowing light pulsing down the tentacles of a jellyfish. These were the outlines of a gorgeous pattern, ever in motion. It was absolutely beautiful and spectral, like Alex Grey and anything geometric and infinite, evolving fractals of insane detail and electricity.
+T+2.00 hr:
+Smoking a cigarette after about 2 hours. The cigarette looked huge and oversized, intense trailing coming out of the glowing red amber. The feeling was interesting, I was totally disconnected from my smoking self. I was so amused with the visuals, I would forget I was smoking. The smell and the act did not even dent the experience in the least; it was as if I was watching a friend smoking instead of actually smoking. I get bored halfway through with it, there was no purpose.
+Everyone is coming up now and we decide to step outside. I eat a bagel with cream cheese and it tastes good but I have the same disconnected feeling. I recognize that it is happening, but the part of me experiencing that is only one of many other experiences. Feeling the visuals taking a step back and now the trees and light peering through them looks almost rubbery and fake, very Alice and Wonderland, like cartoon props, but each dancing and swaying and having almost as much detail as I wanted to see. Completely in control of the intensity. I think we are outside for about an hour, but we don’t make it very far. Each direction we stand, and there’s a new story to be told about the visual scene. The sidewalks and the street look like tunnels or wormholes extending out, and the cars traveled into them, into a world unknown. Sounds are intensified and broken down in time and layers, like the sense of hearing is that of a dog or something far better than human. The visual show calms down for me and I am able to just hang out and enjoy looking around discussing how things are more 3d and alive with personality. Sometimes it looked like there was smoke or fog in the air.
+T+3.00 hr:
+We get back inside and the trip has subdued. Having no fear or paranoia about this substance, I am ready to take another capsule of 2cb. Its been 3 hours since the first, and I feel very embracing and in control of my mind and body, ready to take it a step further if it wishes to go there. Everyone decides to join me. The guys came up at a much slower rate and were probably just at the height of their trip as I was ending mine. Nevertheless, we take our second capsule. Within 15 minutes, I begin to see the patterns reemerging on the ceiling and the walls.
+As I come back up, it feels intense and I eat a little more of a bagel, which tastes better than it did before, and I lay back on the ground with calm and progressive trance playing in the background. I began to enter a visually blossoming world that was speeding up faster and faster. The lights are dim and candles are lit and there is no need for any lightshow, TV, or external visual stimulation; it is all there in front of your eyes. Music sounds incredible, but my focus is primarily in what I am seeing, which was becoming more complex and intricate by the second.
+As I laid on my back, I entered into a world that was unlike anything I have ever felt or seen on mushrooms or LSD. I just stared and stared as the shapes became fluid and evolved into 3 dimensional ribbons of electrified light, flowing down through me and back out into the ceiling. I just breathe and feel an intense peace and appreciation for what is before my eyes, which is beyond any 2d still or poster, but is rather everywhere, both evolving at times, but sometimes in focus, like an intense organized network of light and energy. It was like traveling through an artist’s rendition of the brain’s neuronal network that you sometimes see on Discovery, with synapse connections transferring light, flowing through them with firey heat. My body just floated through this network, which was all around me in every direction, with such intense detail that I was overcome with awe and pleasure.
+I was only staring at the ceiling, which I knew; I was completely aware of where I was, yet able to freely travel away and explore, like a child being set free into a whole new world of light-filled tubes and huge voids in between them, filled with nebula-like gas and stars. The ceiling expanded farther out and began to look translucent, as I could now see into the vastness of space, like a soul floating wherever I wanted to go. I experience a sense of freedom and empowerment I have never felt before and I was in complete appreciation of my minds interpretation of art and science that allowed this environment to be as real as it was around me. It was better than any piece of art I’ve ever seen and infinitely more detailed, the way fractals are infinite but can only be appreciated so far, until now… All this was unraveling before my eyes, yet in between, I could see out into the stars and space, and see energy transferring between them inside ribbons, whether they wrapped around me or into the space unseen. I feel whole.
+I am not stuck on the ground, although this journey I was leading could have been enjoyed longer. I almost wept at the beauty at times but never did, just peered through glossy eyes without saying a word at times. After this space travel, I sit up and take a look around. I enjoyed my boyfriend’s humor and things he said made complete sense even if the subject matter was light. I found myself laughing hysterically as he commented on parts of the trip and the sounds in the music.
+T+4.50 hr:
+My boyfriend and I moved over to a couch and I felt his head over my stomach as his arms were wrapped around my legs. I was still traveling far and near in my mind, but was in total control. We discussed the riveting sounds of the music as if we could hear it separating and joining and sounding much more complex and beautiful than when heard normally. We began melting into one mold, and laughing at almost anything. We literally became one, like a twisted pretzel, and although it wasn’t sexual, it easily could have became so. My laughter came from deep within my belly and sometimes one thing that was said would be so funny, every muscle would join in contraction, and the idea would somehow evolve into something more and more hysterical as the laughter continued. He said I sounded so far away, and I knew what me meant; he was listening to me from both my belly and my voice. I felt natural and primal, no need for makeup, fashion, norms… no time for judging, paranoia, ungratefulness, or fear. No matter how much our faces were covered in patterns or flowing with light, each and every one of us was beautiful and accepted from the inside out. Every sense was on fire with detail, every sight, sound, taste, and touch. It was a god-like sense of existence, and it felt powerful and lucky to be human.
+T+5.50 hr:
+Everyone made their way to the floor and it was there that the trip began to taper away. Just as it pulsed in higher and higher, it pulsed away, but in a slower and steadier fashion. It had been another three hours since we took the second capsule, now approaching midnight, and we were all happy with having stayed primarily in the comfort of our home, with bathroom, food, and water, instead of outdoors somewhere. It didn’t matter being in the confines of a room because you could easily leave and go to far away lands in your mind and it was comforting to not have to think of interacting at all with people on another level or an environment that we may get stuck at.
+T+6.00 hr:
+We all had appetites near the end and had sandwiches and salad and drank plenty of water on the comedown. I had a headache and took some ibuprofen (400 mg) with the food, but this was the most of any negative symptoms. I’d say the entire trip was 6 hours (3 hours per 10-15 mg capsule) on a spaced out total of 20-30 mg of 2cb. We were all able to fall asleep easily around 2am and I even had some lovely dreams…
+Next morning:
+Woke up today after 9 hours of sleep feeling happy and wholesome about this experience, which was so much more fulfilling than the forced states of MDMA and raving. WOW! Absolutely no comedown, not even tired, no depression or apathy. More of an intense feeling of awe and appreciation for what just happened.
+I never felt as if I was rolling on MDMA on this drug, it was absolutely more of a true psychedelic than I was expecting. But I understand why reports claim the effects being so, this is MUCH less of a mind-trip than either mushrooms or acid. I was much more in the present and felt in control, and oftentimes inspired, rather than drudging up past memories or thinking of grand philosophies that accompany other psychedelics. These epiphanies that come with other psychedelics can lead to feelings of profound insight and pleasure, but could also lead to negative thought patterns, flashbacks, and paranoia. This is not so with 2cb, at least not at the dosage I took; the mindset is present, calm, lighthearted, and oftentimes, very comical. And the visuals are just as stunning, if not more.
+Exp Year: 2013
+ExpID: 101038
+Gender: Female
+Age at time of experience: 26
+Published: Apr 2, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-B (52) : Glowing Experiences (4), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,370 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>子 - 子 - &quot;疯了&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/nutmeg.html'>← Nutmeg</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>子 - 子 - &quot;疯了&quot;</h1>
+<div class='sub-title'>Nutmeg - Erowid Exp - &#x27;Going Nuts&#x27;</div>
+<div class='meta'>作者：Inji Citation · 日期：Sep 8, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=82143' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>美国
+这是我第二次使用西红.
+我第一次吃了三颗坚果,
+在一到十的尺度上,
+这一次我决定把剂量提高到4个坚果.
+但事后回想起来, 这确实给我带来了很多麻烦.
+我在第二天早上写这篇文章,请原谅任何失语.
+无论如何,现在我仍然感觉有点头.
+我不能专注于该死的.
+我会写下我在日记中写的东西, 然后我会破译它.
+我在那个时候是如此, 我不能真正专注于我在写什么.
+我在日记中的文字直接转录, 将在引号中,
+我当时对国家的看法是中立的.
+我确实感觉到了一些预期吃它.
+这是我的生日,我想做点什么.
+我和我的家人要出去旅行 (非心理类型).
+我在自己心中争论我是否应该这样做,
+我感到无聊.
+我把坚果全部吃掉, ,然后用牛奶喝下去.
+我发现第一颗坚果很好,味道很好,
+这就像吃了粉,
+在此期间我没有服用任何药物.
+T+0:00 我刚刚吃了坚果.
+时间大约是上午10点.
+我决定开车四个小时,
+我开始感觉到药物的效果.
+感觉有点不同.
+虽然效果不大, 但显著.
+我开始失去我正在做的事情的注意力.
+经过两小时的开车,
+我感到一种轻微的高兴感.
+我忘记了我在这个阶段的生活中的麻烦.
+我也开始仔细思考自己在说什么.
+我说的东西听起来像是醉了,即使对我来说.
+T+3:00 自第一次摄入以来已经过了3个小时.
+我开始体验一些奇怪的效果类似于一个大的声. 这种大的声是不同的,
+非常放松.
+我感到有些迷失方向.
+我发现自己试图进入我和家人正在吃饭的餐厅,但我一直试图从错误的门进来 (门在我的右边,我试图通过旁边的门进来).对话开始变得困难,但我正在管理.
+我会尽可能少说话,
+我周围的人都知道我完全清醒.
+我已经很难跟上对话了.
+T+3:35时间.
+食物的味道非常好.
+现在我的思维已经减慢了, 看到雨滴落到水池里,
+我确实觉得看简单的东西,对环境进行划分,很有趣.
+一切似乎都很不同.
+T+4:00 时间
+我觉得非常高.
+在一到十的尺度上,
+我觉得很奇怪.
+T+4:40时间
+我开始倒了.
+我很快就会忘记一些东西.
+注意:坐在前座
+为了提醒自己, 坐在前座, 避免被红眼睛发现.
+我还看起来很正常,
+让我觉得我真的很渴.
+写这本日记变得越来越困难.
+我刚刚喝了一升水,但我仍然感到口渴.
+让我们一起来看看.
+我在一个游戏机前.
+这让我想起了我小时候常去的游戏中心.
+游戏内容是&quot;金属X&quot;.
+我发现我的脑海正在努力工作.
+我开始被买到现在.
+我在过去的几周里一直生活在过去, 思考我做出的遗憾和愚蠢的决定.
+子使我忘记了这一点, 简而言之,
+我只能想到自己在做什么,
+而我就是.
+我要去抽烟,我的心跳很快
+我能感觉到我的身体正在运转, 在我处于静寂的环境中, 我不确定是我幻想的额外的心跳还是我的心跳真的更快.
+我开始觉得我的身体像一袋一样.
+(我觉得很重,我不想动) 现在我的脑海开始说块/棒/块/棒/块/棒相当奇怪的东西
+我可能已经失去了.
+现在回想起来, 我以为这才是我能达到的最高水平,
+我也可以证实,
+我有半清醒的时期,
+当我看着窗外的东西走过时, 当我闭上眼睛, 望过一个裂时, 我可以感觉到地球的广,
+我花了大部分时间只看着窗外, 根本没有想到任何事情.
+一切看起来都很美.
+我注意到一种良好的草大麻也会产生同样的效果.
+不同之处在于, 我脑中的声音稍微低声, 如果我确实想到令人不安的东西, 我的大脑会很快想到其他事情,
+无论如何,我可能是像个白痴一样微笑,
+如果有什么令人讨厌的东西卡在你的脑海里,
+并且偏执狂.
+你有没有遇到过这种情况?
+我讨厌它.
+随着大麻的使用, 任何内的感觉都加大了十倍.
+我没有吃这子.
+T+5:00时间.
+我觉得自己已经了,
+一切都变成了白色噪音.
+我正走在一个梦幻世界.
+雨在我坐的车的前窗上敲打着.
+我的思想是非常可视的.
+我在脑海中看到一些图像.
+在后台的无线电开始听起来像胡说八道.
+他们用英语说话.
+我的身体感觉轻松.
+我穿着我的雷班,它几乎是夜晚.
+他们问我为什么要穿它们, 我说我觉得它很酷.
+我的眼睛现在可能已经很红了.
+我一直在失去我的思维.
+在电台上,一首重复的旋律让我觉得时间在跳过,人们...我在写什么?
+最后,它变得有点难以理解.
+我无法保持一个想法超过几秒钟.
+我无法保持一个想法超过几秒钟.
+很难跟踪我写的内容.
+声音在我周围回响当在车里.
+我已经沉默了.
+声音的对比.
+在读取回声.
+恐怖的棉花嘴.
+您可以看到,我很难连接句子.
+我记得在这个时候我放弃了写完整句子的尝试,
+我不认为这有所帮助.
+现在我看着我的镜子.
+我不知道里面的人是谁.
+和以前的不同
+我下次不想看镜子,
+我相信镜子里的那个人是真实的,
+只是在旅行的这个阶段, 我更容易使用我的想象力.
+他们的想象力也很好.
+在下午我回家的时候,我做了一个非常好的手淫.
+我证实它具有诱惑性 .
+我还用相机拍了一张自己,
+我当时很醉.
+我没有认出我自己拍的照片中的那个人.
+我忘了在这些条目后写时间.
+我正在高速公路上行驶.
+我可以想象/感觉到这个广的空间.
+请尝试解释
+记住自己,以后再试着把这些东西放在一起.
+在这最后一篇文章之后,
+晚上的其余部分是模糊的.
+声音突然变得非常响亮.
+我在一家繁忙的餐厅里,
+血的眼睛和白的脸.
+工作.
+只是专注于旅行, 当他们停止说话时点头.
+这已经足够好了.
+一切似乎非常生动.
+我应该详细说明:当他们对我说话时, 我只能听到人们的语.
+听起来那些通常会发出声音的人 (坐在你旁边的人) 似乎来自一个被枕头覆盖的扬声器,而那些通常被认为是安静的人 (对话者发出背景噪音) 变得更加.
+我还记得有人在鱼店里嘲笑我,
+我记得我认为他们嘲笑我, 因为我看起来如此.
+笑声还在我的脑海里响起.
+T+24:00 时间
+昨晚是模糊的
+我今天早上醒来时还在想昨天的早晨.
+这让我快速消磨时间.
+我知道我会这样做, 但我没有生气.
+他们的话从一只耳里进来,从另一只耳里出来.
+我的记忆力仍然很差, 无法集中注意力.
+我在一天中抽了第一支烟,
+简介:我现在甚至没有宿醉,
+我应该指出的是,在这种影响下,我觉得好像在做梦.
+在这种影响下,我觉得好像在做梦.
+没有.
+我觉得正常的我刚刚去过别的地方度假,
+着简单的东西,比如高速公路上的汽车,
+我只观察到一些事物的感知差异,
+- 我观察到我觉得我是在观察自己, 因为我发出声音的人,
+这很难解释.
+- 我注意到我熟悉的人看起来很不同.
+不是视觉上的扭曲,而是无形的不同.
+也许只是我的脑海在玩弄我.
+在听觉感知方面,
+- 专注于一个音频流是非常困难的.
+- 的声音,比如笑声吓坏了我.
+笑声听起来像一个跳过的CD.
+这听起来像是&quot;哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+实际上,这可能是它听起来像正常, 但在影响下我发现我注意到这些事情.
+- 音乐听起来比平时更好.
+总的来说,我对这种药物的经验是,它与我尝试过的任何其他药物 (如大麻,,等) 有很大不同.
+我确实在酒后做了很多思考,
+我相信子的力量,不要低估它.
+在晚上结束时,我确实得很重.
+我太昏昏欲睡了,可能站不起来.
+我不记得我做了什么.
+我认为我会再次这样做,当我有很多时间.
+我吃了近30个小时, 仍然感觉有所改变.
+在基线附近.
+我不认为这是一次有趣的经历,
+其他:
+发布时间:2018年9月8日
+胡桃子 (41):一般 (1),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+Going Nuts
+Nutmeg
+by
+Inji
+Citation:   Inji. &quot;Going Nuts: An Experience with Nutmeg (exp82143)&quot;.
+Erowid.org
+. Sep 8, 2018. erowid.org/exp/82143
+DOSE:
+4 nuts
+oral
+Nutmeg
+repeated
+smoked
+Tobacco
+BODY WEIGHT:
+176 lb
+This was my second time using nutmeg. The first time I had three nuts, and it had a mild to strong effect on me. On a scale of 1-10, the trippiness was around 7. This time I decided to up the dosage to 4 nuts. Not a bad idea to me at that moment,  but, in retrospect, this did cause me a lot of trouble. I’m writing this the morning after, please forgive any lapse in diction. Anyway, right now I’m still feeling a little woozy-headed. I can’t concentrate for shit.
+I am going to write down what I wrote in my journal, and then I’m going to decipher it. At the time I was so stoned I couldn’t really concentrate on what I was writing. The words in my journal are directly transcribed and will be in the quotation marks, stuff in parenthesis I added afterward to make it clear what I was writing about.
+My mind of state was neutral at the time. I did feel some anticipation eating it. It was my birthday and I wanted something to do. Me and my family were going to go out for a trip (the non psychological type). I debated with myself whether I should have done this, but I went ahead and ate the nuts anyway. I felt bored. I ate the nuts whole, chewing them and chugging it down with milk. I found the first nut to be fine, taste-wise, but I hated the texture. It is like eating sawdust when I crush it up inside my mouth.  I hadn’t been taking any medication during the period.
+“T+0:00 I have just taken the nuts. It is approximately 10am.”
+I made the decision to drive the four hours before the comeup. It was around my third hour that I began to feel the effects of the drug. It felt like something was definitely different. Not a huge effect, but definitely noticeable. I started to lose concentration of what I was doing. At the end of the two hour drive I decided it was no longer safe for me to be driving. I felt a mild euphoric effect. I forgot about the troubles that I was in at this point in life. I also began to become very conscious about what I was saying. The stuff I said sounded stoned, even to me.
+“T+3:00 It is now 3 hours since first ingestion. I am starting to experience some weird effects similar to a pot buzz. “ This pot buzz was different in that I didn’t see any patterns or visual distortion. Quite relaxing. “I am experiencing some disorientation. I found myself trying to get into the restaurant that me and my family were eating at, but I was constantly trying to get in from the wrong door (the door was to my right, I tried to get in the door that was next to it.) Conversation is starting to become difficult, but I am managing. I will try to speak as little as possible to avoid being discovered. As far  as the people around me know, I am completely sober.
+I am having trouble following conversation already.”
+“T+3:35. Food tastes quite good. My thinking has slowed and I’m finding it fun to look at rain drops hitting the puddles”
+I did find looking at simple stuff, sort of zoning out on the environment, fun. Everything seemed very different.
+“T+4:00. I feel really high. On a scale of 1-10, it is about 6 right now. I feel funny.”
+“T+4:40. I am starting to trip hard. I am forgetting stuff very quickly. Note: Sit in the front seat”
+I made this as a reminder to myself, to sit in the front seat to avoid being caught with red eyes. I still looked normal at this point when I looked at myself in the mirror.
+“Under the impression that I am really thirsty. It’s getting harder to write this journal. I just drank a quart of water and I still feel thirsty. Getting sever cottonmouth.
+I’m in front of an arcade machine. It reminds me vividly of the arcade centers I used to go to when I was a kid. The game on it, is ‘Metal Slug X’.&quot;
+At this point I found that my mind was working pretty hard. I started to be bought to the present. I had been living in my past the few weeks ago, thinking about regrets and stupid decisions I had made. Nutmeg made me forget about that because in short, I was zonked. I could only think about what I was doing and trying not to act stoned. Which I was.
+“I’m going for a smoke, my heart is beating pretty hard”
+I could feel my body processes working, and in the silence of the location I was in, I was not sure whether I hallucinated the extra heartbeats or whether my heart was actually beating harder.
+“I’m starting to feel like my body has a sack of bricks. (I felt very heavy, I didn’t want to move) Just now my mind started to say ‘bricks/sticks/bricks/sticks/bricks/sticks’ Pretty weird stuff”
+At that point I had already probably lost it. Looking back, I thought that was as high as I was going to get, but the trip intensified. I can also confirm that I had the feelings of waves of inebriation washing over me, ebbing and flowing. I had periods of semi-sobriety, and then I would be overtaken by the nutmeg. When I was watching stuff go past outside the window, and when I closed my eyes to the point where I was looking past a slit, I could feel the vastness of the earth with my body, seemingly with the ability to look at everything, and look at nothing at all. I spent most of my time just looking out the window, not thinking about stuff at all. Everything looked beautiful.
+I noted the same effects from a good sativa strain of marijuana. The difference was that the voices in my head were slightly less loud, and that if I did think about something upsetting, my brain just thought about other stuff so quickly that I forgot what was upsetting me. Either way I was probably grinning like an idiot, since I felt pretty relaxed.  With marijuana, if something annoying gets stuck in your head you get pretty annoyed with it. And paranoid. Has this ever happened to you? I hate it. Also with marijuana any feelings of guilt I had were magnified tenfold. I didn’t have this with nutmeg.
+“T+5:00. I am feeling terribly stoned, or as the British would put it “I was pretty munted”. Everything is turning into white noise. I’m walking in [something unreadable] Dreamworld. The rain is pattering on the front window of the car I’m in. My mind is very visual. I see images in my head. The radio in the background station is starting to sound like nonsense. They are speaking in English. My body feels light. I’m wearing my raybans and it’s nearly night. They asked me about why I was wearing them, and I said that I thought it looked cool. My eyes are probably very red by now. I keep on losing my train of thought. On the radio, a repeating melody made me think that time was skipping stuff that people…what the fuck am I writing?
+At the end it gets a bit incomprehensible. I couldn’t hold on to one thought for more than a couple of seconds.
+I couldn’t hold on to one thought for more than a couple of seconds.
+“It’s very hard to keep track of what I’m writing. Voices around me echo when in the car that. I am in silence. Contrasting voice. Echoes in read. Horrible Cotton mouth.”
+As you can see I could barely string a sentence together. I remember at this point I gave up trying to write full sentences and resorted to writing stuff down in key words. I don’t think it helped.
+“Just now I looked at my mirror. I wondered who the person inside it was. So different from before”
+Looking at mirrors when I am high is something I’m not going to do next time. I convinced myself that the person inside the mirror was real, that he was the evil version of me. However, this thought never over took me, it was only easier at this point in the trip to use my imagination. Imagination was pretty good as well. Some time during the afternoon when I got home I had a very good wank. I attest to its aphrodisiac properties . I also took a picture of myself with my camera to check how stoned I was. I was pretty stoned. I didn’t recognize the person in the picture I took of myself.
+I forgot the write the time after these entries.
+“I’m riding along a highway. I can imagine/feel the vastness. NTS:Please try to interpret”
+Note to self to try and put stuff together later.
+After this last entry I couldn’t be fucked to write in it. The rest of the evening was a blur. Voices suddenly seemed very loud. I was in a busy restaurant and my parents were scolding me for being so high (I really did look very stoned. Bloodshot eyes and pale face. The works.). However, I got through it by just concentrating on the trip, and nodding when they stopped talking. It worked well enough. Everything seemed extra vivid. I should elaborate: When they were talking to me I could only hear the people babbling away. It seemed that the people that normally sounded loud (the people that sit next to you) seemed to be coming from a speaker that has a pillow over it, and the people that normally are perceived as quiet (the background noise that people conversing make) became extra loud. I remember a person laughing at me in a fish shop from some faint memory, but I can’t even remember  when it was. I remember thinking that they were laughing at me because I looked so stoned. The laugh still echoes in my head.
+“T+24:00. Last night was a blur. I woke up this morning still thinking about yesterday morning. It makes me pass time very quickly. My parents found out that I was really stoned on nutmeg (they know that I do this) but I didn’t get angry. I was so zoned out that what they said sailed in through one ear and came out the other. My memory is still crap – can’t focus on anything. I had my first smoke of the day and I felt all the stoned feelings coming back.”
+Summary: I have not so much as a hangover now, but I still feel pretty tired and mellow . A note that I should make is that under the influence I felt as though I was dreaming
+under the influence I felt as though I was dreaming
+. I felt as the normal me had just taken a vacation to somewhere else and I was living a dream. Staring at simple stuff like cars moving along a highway at the same speed as you looked as though you were watching a television commercial. However, the visual distortions were few, I only observed a difference in perception of things such as:
+- I observed that I felt like I was observing myself, because the person that made the noises that I made, such as speaking, eating seemed like a different person entirely. It is hard to explain.
+- I noticed that people familiar to me looked very different. Not a visual distortion different, but different in an intangible sense. Maybe it was just my mind playing tricks on me.
+In terms of auditory perception, I found:
+-	That concentrating on one audio stream was very difficult.
+-	Shrill sounds such as laughter freaked me out. The laughs would sound to me like a CD skipping. It would sound like this “HA-ha-ha-ha-ha-ha-ha”, but imagine that all the ha’s sound exactly the same. Actually, this is probably what it sounds like normally, but under the influence I found that I noticed these things.
+-	Music sounded better than usual.
+Overall, my experience of this drug is that it is a lot different than any drug I’ve tried otherwise (such as marijuana, shrooms, salvia.). I did get a lot of thinking done while I was under the influence, but now I have forgotten what it was already. I believe in the powers of the nutmeg, don’t underestimate it. I did crash pretty hard at the end of the night. I was so sleepy I probably couldn’t stand up. I don’t remember most of what I did. I think I will do this again, when I have a lot of time on hand. It’s been nearly thirty hours since I ate it and I still feel altered. Nowhere near baseline. I wouldn’t call the experience fun, but if I had been in different circumstances, I think I would have enjoyed it.
+Exp Year: 2009
+ExpID: 82143
+Gender: Male
+Age at time of experience: 19
+Published: Sep 8, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Nutmeg (41) : General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,323 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲基 - 艾洛伊德 - &quot;不那么友好的小猫&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methcathinone.html'>← 甲氧卡西酮</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲基 - 艾洛伊德 - &quot;不那么友好的小猫&quot;</h1>
+<div class='sub-title'>Methcathinone - Erowid Exp - &#x27; The Not-so-Friendly Kitten&#x27;</div>
+<div class='meta'>作者：me · 日期：Feb 28, 2006 · <a href='https://erowid.org/experiences/exp.php?ID=39168' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我讨厌这种药物的名称.
+我不可能发音或拼写.
+非常合适.
+一位远亲的朋友了一批这种东西... 大约2克... 放在我的邮箱旁边的石头下.
+我发现了它,决定去看看.
+据说它&quot;非常容易&quot;生产.
+在石头下面的包裹里还有一张纸条...
+它们的制作并不像人们所说的那样容易.
+需要两张代数书来正确计算所有比例.
+互联网上公布的程序中存在一些明显的错误, 然而,直到对这些程序进行数学验证, 这些错误才变得明显.
+一旦这些错误被发现并纠正,
+尽管如此, 仍需要扩大这些方法, 以使产品达到可接受的标准.
+尽管看起来很简单, 但它需要非常细致,
+所以,显然,他必须坐下来思考他究竟在做什么, 而不是简单地把一堆垃圾扔进一个瓶子里,
+但无论如何,当我打开袋子, 我被一个白色的水晶物质迎接,
+非常不寻常,但非常微弱.
+我把东西放在桌子上,然后睡觉了.
+星期五早上, 我7点起床,
+的
+这味道真是太好了!
+类似于甲, 但完全和完全不同的同时.
+没有任何化学味道.
+这东西的味道很好!
+我说的是,它确实有很好的味道.
+我等待着他们赶来.
+没有一个即将到来.
+我吸了更多的烟.
+没有忙.
+这是怎么回事?
+我没有感觉到任何东西...
+然后它开始在我身上...
+但这不是可卡因或甲基.
+这对我来说是完全陌生的.
+能量.
+有很多.
+但不是高兴.
+只有能量.
+我开始清理.
+但不是像我在吸毒时那样.
+没有专注,但也绝对不是&quot;精神分裂症&quot;.
+我只是注意到我的办公室是一个灾难地区, 我想要所有的垃圾清理.
+所以我做到了.
+但这仍然不是我想要的.
+这感觉不好!
+只是充满活力.
+,该死的
+我知道如何获得一个冲动.
+进了所, 在我的手臂内注射了10毫克.
+这应该可以.
+轻微的冲动.
+想吐的短暂感觉.
+好了...这更像是它.
+但仍然没有真正的高兴感,
+所以,我去洗了一些...
+我厌倦了,决定看看性生活是如何的.
+除了玛丽和她的5个姐妹之外, 没有人能和她一起做.
+的
+我绝对必须包括这个, 因为它是最奇怪的事情,
+这种东西绝对能阻止我勃起.
+试过所有的技巧, 但不可能.
+但无论如何, 我还是高潮了!
+没有一次,但两次在5分钟之间,我高潮与一个完全软的子!
+我只是躺在床上看着我的身体,
+所以,我又试了一遍.
+结果是一样的.
+我没有什么可做,但笑第二次!
+在接下来的24小时内, 这种奇怪的效果似乎是甲基的典型特征...
+我用了20个小时左右的时间, 虽然我和我的朋友分享了一些 (大约1/4克).
+所有公布的报告都声称这种东西会让你失控和疯狂.
+绝对不是我的经验.
+那天我做了很多事情.
+那些需要做多年的工作.
+智力功能似乎没有受到影响.
+能够在卡车上进行复杂的维修,
+没有尝试任何更高的数学或任何类似的东西, 但我认为我可以这样做很好需要出现.
+作为一种性药物, 如果你是女性或者像我这样的男同性恋者,
+对于异性恋的人来说...
+这是我用过的最糟糕的杀药!
+在这方面比麻或可卡更糟.
+但它并没有杀死欲望 (它实际上增加了欲望)...
+我认为这是一种来自地狱的抗伟哥药!
+不,它确实有深刻的性影响... 凌晨5点,经过22个多小时的使用,
+我一生中最激烈的一次... 持续了5分钟多,
+我完全昏了几秒钟, 发现自己&quot;在天花板上&quot;, 俯着床上的裸体,
+这只是继续,继续,继续,但最终平息了...
+这与我所经历过的一切不同.
+但是,它确实有一个丑的一面.
+我没有注意到任何可怕的心理副作用, 像可卡因或... 但在整个经历, 我感觉到我的肌肉疼痛...
+我不理解为什么,如何,或是以何种方式.
+我也会有时感受寒等.
+我终于能够在第二天早上7点半左右睡觉了.
+我觉得自己已经被火车过了.
+我不确定我能站起来吗?
+但没有像麻醉或可卡因那样令人丧.
+没有头痛,没有恶心,没有这些东西, 只是极度和疲劳.
+他们声称这种东西是极具成性的.
+我看不出如何.
+这是一种迷人的,奇怪的,有时有趣的... 它的味道是非常好的吸烟.
+但吸烟时的冲动似乎最好 (我不得不保持烟雾很长一段时间才能感觉到它,虽然...).
+吸起来就像吸毒一样.
+性行为带来的影响是非常强烈的,
+它似乎不会影响智力或生产力.
+但它根本没有产生让我感兴趣的兴奋剂的高兴感.
+我不想在不久的将来再次使用它.
+没有.
+我是一个长期使用兴奋剂 (主要是甲基) 的人.
+我也喜欢可乐, 但它对我的系统的反应与甲基类似,
+其他兴奋剂不同, 这种药不太抑制我的食欲.
+我吃了十个小时, 便变得饥饿不堪.
+是的... 它让我想起了可卡而不是麻醉.
+但这两者都不一样好.
+虽然我很高兴,但我必须努力才能看到.
+我认为这只是令人困惑和奇怪.
+严重高估了它的成潜力 (至少对我来说...).
+药物的作用不能完全掩盖.
+很难倒,但主要是身体上的... 并且很短暂.
+(第二天我醒了几个小时,感觉很好...)
+最好的管理方法似乎是吸烟.
+我意识到使用这种方法增加的发病率根本不能证明注射的痛苦和麻烦.
+在需要再服用之前, 似乎需要3到4个小时...
+我无法提供准确的剂量信息,
+这种影响是微妙的, 很难确定.
+即使是注射, 开始是一个的效果比一个&quot;撞击&quot;像可卡因或甲基.
+我在网上找不到任何剂量信息,
+我发现这种药物具有类似可卡因的杀伤能力,
+我不知道如何以科学的方式表达这一点.
+我只能说我最好小心这件事... 就像它让我的血压上升的方式,
+但是我没有血压计,所以我不能给出数字...
+我从来没有被它吓到过, 但我的身体却告诉我要小心...
+这是我用过的最奇怪的药物之一.
+我既不能赞成,也不能反对.
+我对它感到失望, 不想再使用它了.
+不是因为它很糟糕或很可怕.
+绝对不像可怕的达图拉或其他类似的东西.
+这并没有让我变得疯狂, 也没有让我在社会上变得无用.
+网上的报道与我的经验不太一致...
+现在我自己使用了它, 我可以看出作者是从哪里来的,
+这只是不是我的东西...
+其他:
+甲基 (81): 性讨论 (14),一般 (1),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+The Not-so-Friendly Kitten
+Methcathinone
+by
+me!
+Citation:   me!. &quot;The Not-so-Friendly Kitten: An Experience with Methcathinone (exp39168)&quot;.
+Erowid.org
+. Feb 28, 2006. erowid.org/exp/39168
+DOSE:
+repeated
+smoked
+Methcathinone
+(powder / crystals)
+10 mg
+IV
+Methcathinone
+(powder / crystals)
+rectal
+Methcathinone
+(powder / crystals)
+BODY WEIGHT:
+135 lb
+I hate the name of this drug. Impossible for me to pronounce or spell.
+Very appropriate.
+A friend of a distant cousin brewed up a batch of this stuff... about 2 grams of it... and left it under a rock near my mailbox. While shoveling snow, I stumbled upon it and decided to check it out. It has the reputation of being &#x27;extremely easy&#x27; to produce. The package under the rock also contained a note... here&#x27;s the text:
+&#x27;It is not nearly as easy to make as they say it is. Took me two sheets of algebra to get all the proportions correct. There are a number of glaring errors present in the internet published procedures, however, these did not become appearant until mathematical verification of said procedures was undertaken. Once these errors were discovered and corrected, the method did proceed pretty much as advertised. Even still, the methods had to be expanded upon to purify the product to acceptable standards. This is pure synthetic chemistry and even if it looks simple, it requires much attention to detail and considerably more skill than one might expect... enjoy!&#x27;
+So, evidently, he had to really sit down and think about what exactly he was doing rather than simply toss a bunch of shit in a flask and get high. But, at any rate, when I opened the bag, I was greeted by a white crystaline substance that really didn&#x27;t have much smell... just a hint of an ice cream-like odor. Quite unusual, but very faint. I put the stuff on the desk and went to bed.
+Friday morning, I got up at 7 and eagerly put a bit in a glass dick and smoked it.
+Wow. The taste was wonderful! Similar to methamphetamine, but utterly and completely different at the same time. No chemical taste whasoever. This stuff tasted yummy! And I mean, it truly did taste good.
+I waited for the rush.
+None was forthcoming.
+I smoked more.
+No rush.
+What the fuck???
+I didn&#x27;t feel much of anything for a bit...
+Then it started creeping on me...
+But this was not coke or meth. This was something utterly alien to me.
+Energy. Lots of it. But not euphoric. Just energy.
+I started cleaning. But not the way I do on meth. Not focused but by no means &#x27;schitzoid&#x27; either. I just noticed that my office was a disaster area and I wanted all that shit cleaned up. So I did.
+But it still wasn&#x27;t what I wanted. It didn&#x27;t feel good! Just energetic.
+Well... fuck. I know how to get a rush.
+Went into the john and injected about 10 mg in my arm IV. That should do it.
+Mild rush. Brief sensation of wanting to puke. Good... that&#x27;s more like it.
+But still... no real euphoria like meth or coke. wtf???
+So, I went an cleaned some more...
+Got bored with that and decided to see how it was with sex.
+Nobody around to do it with except Mary and Her 5 Sisters.
+Wow. I absolutely have to include this because it was one of the more bizarre things that&#x27;s ever happened to me... The stuff absolutely and utterly prevented me from getting an erection. Tried every trick in the book, but it was impossible. But, I had an orgasm anyway!!! Not once but twice within 5 minutes of each other, I orgasmed with a completely limp dick!  weirdest goddamned thing that&#x27;s ever happened to me in my life. for real! After the first time, I just lay there on the bed looking at my body in utter disbelief. So, I tried it again. Same result. I could do nothing but laugh after the second time!
+And, as I was to find out over the next 24 hours or so, this kind of bizarre effect seemed to typify methcathinone... I went through the entire two grams in about 20 or so hours, although I did share some (about 1/4 grams) with my friend.
+All the published reports claim that the stuff makes you unfocused and crazy. Absolutely not my experience at all. I got lots and lots of things done that day. Productive things that have needed to be done for ages. Intellectual functioning did not seem impaired at all. Was able to perform complex repairs on a truck, build shelves in my house, etc. Didn&#x27;t attempt any higher mathematics or anything like that, but I think I could have done so just fine had the need arisen.
+As a sex drug, it could be seriously good if you&#x27;re a woman or the kind of gay man I am. For straight guys... forget it. The worst cock killer drug I&#x27;ve ever used! Hundreds of times worse in that respect than meth or coke.  But it doesn&#x27;t kill the desire (it actually heightens desire)... just the physical ability to get it up! I&#x27;d characterize it as anti-Viagra from Hell!
+No, it definitely has profound sexual effects... at 5 in the morning, after 22+ hours on it, I had an orgasm that I thought was going to kill me. Most intense of my entire life... lasted for well over 5 minutes and bordered on a seizure. I completely blacked out for a couple of seconds, found myself &#x27;on the ceiling&#x27; looking down at my naked body on the bed below, went back into my body, saw rainbow-like colors everywhere... it was so intense that I genuinely thought I was going to die for a time. It just went on and on and on and on, but finally subsided... Unlike anything I&#x27;ve ever experienced.
+But, it does have an ugly side. I did not notice any heinous psychological side effects like coke or meth... but throughout the experience, I felt aches in my muscles... mostly in my upper back... the sort of ache that comes when I&#x27;m under severe stress. This tells me that the stuff is seriously hard on the body but I don&#x27;t really understand why or how or exactly in what way. Also, I&#x27;d periodically suffer from cold chills and such.
+I was finally able to sleep at around 7:30 the next morning. When I awakened around noon, my body hurt like I&#x27;d been run over by a train. I wasn&#x27;t sure I&#x27;d be able to even stand up I was so sore. But no depression like comes from meth or coke. No headache, no nausea, none of that stuff, just extreme lethargy and fatigue.
+They claim this stuff to be exceedingly addictive. I cannot see how. It is fascinating, bizarre, sometimes fun... it tasted really good smoked. It has an OK rush when injected or rectally administered (yeah, I tried that, too...), but the rush seemed best when smoked (I had to hold the smoke for a very long time to feel it, though...). It burns as bad as meth when I snort it. The sexual effects are profoundly intense but frustrating at the same time. It does not seem to impair intellectual functioning or the ability to be productive. But it simply does not produce the euphoria that makes a stimulant attractive to me. I have no desire to use it again anytime soon. None. And I am an individual with a long and gruesome history of stimulant abuse (methamphetamine mainly... I love coke too, but it reacts to my system in a similar manner to methcathinone in that I get completely sick of it after a short time and put it away....). Oh... and unlike other stimulants, this one did not much suppress my desire to eat. I became ravenously hungry after being on it for 10 hours or so... Yes... it reminds me more of coke than meth. But its not as good as either. The euphoria is there but I have to work to see it.
+I can characterize it as nothing other than confusing and bizarre. Grossly overrated in its addiction potential (for me, anyway...). Major body load that the drug&#x27;s effects don&#x27;t entirely mask. Hard comedown, but primarily physical... and pretty short-lived. (I felt fine the next day after being up for a few hours...)
+Best method of administration seemed to be smoking it. After slamming it 3 or 4 times, I realized that any increase in onset gained by using that method simply did not justify the pain and hassle of the injection.
+It seems to last about 3 or 4 hours before the need to redose is felt again... I can&#x27;t give accurate dosing information because I simply could not ever get a handle on the shit. The effects are subtle and hard to pin down. Even injected, the onset was a creeper effect more than a &#x27;slam&#x27; like coke or meth. Not knowing the drug and unable to find any dosing information on the net, I proceeded with extreme caution in dosing... especially when I injected it (only 10 mg the first time). On some level, I could detect that this drug has an ability to kill similar to cocaine but that is based on long, long experience with my body and stimulants. I don&#x27;t quite know how to express this in any sort of scientific manner. I could just tell that I&#x27;d better be careful with this shit... like it made my blood pressure go up way, way faster than meth --- the way coke can. But I don&#x27;t have a blood pressure cuff so I can&#x27;t give numbers... It never scared me upon administration but my body did tell me to be careful...
+It is among the strangest drugs I&#x27;ve ever used. I can recommend neither for it nor against it. Personally, in the final analysis, I was dissapointed in it and really don&#x27;t much want to use it again. Not that it was bad or scary. By no means like the dreaded datura or anything like that. It didn&#x27;t render me insane nor did it make me socially useless. The reports on the net did not really match my experience with it... I mean now having used it myself, I can see where the authors were coming from, but again, this is seriously strange shit that is hard to pin down...
+It just wasn&#x27;t my thing...
+Exp Year: 2004
+ExpID: 39168
+Gender: Male
+Age at time of experience: Not Given
+Published: Feb 28, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methcathinone (81) : Sex Discussion (14), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

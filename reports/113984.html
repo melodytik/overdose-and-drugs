@@ -1,0 +1,398 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的经验 - &quot;老实说,我现在想不到一个&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-dpt.html'>← 4-AcO-DPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的经验 - &quot;老实说,我现在想不到一个&quot;</h1>
+<div class='sub-title'>4-AcO-DPT &amp; 3-HO-PCP - Erowid Exp - &#x27;Honestly I Can&#x27;t Think of One Right Now&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Jan 11, 2020 · <a href='https://erowid.org/experiences/exp.php?ID=113984' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>在T0:00这两种物质,30 mg 4- AcO- DPT,12 mg 3- HO- PCP,在午睡后醒来后被单一输入.
+那是一个夜晚.
+我在自己的房间里,舒适,装饰,熟悉,
+现在我已经明白了我所做的事情的严重性.
+我是一座山,在一场光明的雨中, 喷发出地球的能量,
+我是一座,住许多狂暴的河流.
+我喝了一次大麻.
+碗里的一块烧伤点回头看着我.
+我感觉自己像冬天的地铁道里面.
+事情开始腐烂.
+由于某种原因, 我笔记中的下一个时间又在20分钟.
+我在不打&quot;破碎&quot;一词之前,
+下一个时刻,一小时,是完全不连贯的,
+在那之后,沉默.
+房间里的颜色已经消失了.
+感觉就像一个突然被灭了, 留下了空气中的烟雾.
+世界变成了一种我无法处理的形态杂乱.
+我选择在黑暗中躺下, 设法把灯拔掉.
+在我的世界里, 声音成为一种完全不可理解的力量,
+所有的感官都被击中,从我的脑海中赶出鞭子,分散在农村.
+每一个输入都被混合和扭曲成一个病态的神经,
+所以没有我的感官能力,
+混沌;似乎我的室友有几个人来到家里为一个即兴的杂会议,
+在我门外有声音.
+这里有鼓.
+这里有一个深低音.
+各种声音开始敲打墙壁, 生命的热情和电力超越了我的黑暗房间, 我是它的俘,
+这是一场无限复杂的风暴, 每个形式的结合有着万亿种方式,
+似乎越来越多的人进入了房子, 超过了我身体所能容纳的数量, 声音,声音和存在在我的门外呈指数级增多,
+似乎越来越多的人进入了房子, 超过了我身体所能容纳的数量, 声音,声音和存在在我的门外呈指数级增多,
+千百万个神游行在一场崩的游行中, 散发着热的能量到夜空中, 它们都在不断地倒和自我转化.
+如此复杂,如此多样化,如此难以理解的视觉,
+我开始在这个没有任何意义的世界里传送--突然间我又开始工作了.
+我突然发现自己在上课.
+我突然发现自己是一堆书在桌子上.
+我突然回到父母的家.
+脑子随机地投射我的记忆,想法和空间,
+我真的不知道自己在哪里,
+我不能思考.
+我无法理解,我能做的就是在它的怜悯,一切都被打破了,
+这不仅仅是我内心的感觉,
+我已经做到了,我已经引发了世界的崩和解体
+这不仅仅是我感觉中的改变,
+我已经做到了,我已经引发了世界的崩和解体
+围绕着我的房间外的疯狂, 很快就会被墙壁,空气,景象和声音所影响,
+我已经毁灭了这个世界, 把它变成了一个自始至终的梦.
+我完全孤单了, 那些曾经给我安慰和目的的幻想已经死亡,
+这是一个虚拟的世界, 任何事情都是可能的, 但我注定要挖掘它不真实的深处,
+我能做什么,但躺在这里在黑暗中,完全静止,让爬行缺席消耗我?
+奇怪的是,它是无线的,总是靠近,但从来没有到达.
+我希望它能来接我, 而不是面对着它牙长的灰喉的期待.
+它不能抓住我,但我不能逃脱,
+陷入困境;我眼,突然从烂的布.
+房间很安静,黑暗,我看不到我的手表,但事情已经平静下来.
+我不知道有多少时间过去了,我没有连贯的回忆发生了什么事之前,
+几分钟前, 或许是一子以前, 我吸了一丝粉.
+我对此之前发生的事情没有任何连贯的记忆, 我是否与任何人互动,
+几分钟前, 或许是一子以前, 我吸了一丝粉.
+世界令人毛骨然地静止和沉默,
+我想知道它是否完好无损的超出我的房间.
+我站起来视外面, 却发现我的平衡仍然非常不安.
+我想知道我是否真的打破了现实, 我想知道我是否真的在某个炼狱.
+我听到一个在我的耳朵, 慢慢的升的声音超越我的空间回来.
+混沌,声,我的话语的破碎, 一切开始像水一样崩,
+我是那么愚蠢的认为它已经结束了吗?
+我是那么天真,以为我可以轻易逃脱?
+只是等待它?
+世界又一次起,又一次死去,又一次,又一次,把我吸进了它的喉,
+总是有一点我还剩下去去体验这种无经验,
+虽然反复变化和分裂,但坦塔卢斯无法完全吞我,他变得无聊,而指导这次经历的伟大力量或存在或非存在,转向更有创造性的折磨方法,
+假冒; 我在第三人称中看到自己,
+我很难认出这个人,但我知道是我.
+这是一个破碎的外我自己
+我很难认出这个人,但我知道是我.
+这是一个破碎的外我自己
+它在行动,感觉和思想上难以掌握环境,
+我感觉到它的恐惧,混乱,扎,我感觉到它的四肢的麻木分离,
+我无法控制它,我是一个幽灵,一个与身体分离的无形意识.
+它们是什么?
+它们在扎的环境中, 是什么驱使它们前进?
+我还不知道,但它仍然存在.
+我无法控制这个身体,
+它离开了房间.
+但它是令人不安的,尬的,熟悉但腐败的.
+它造成了现象,它造成了问题,它损害了东西,它损害了自己,它引起了注意和蔑视.
+我无助地看着这个东西, 这个东西,
+我讨厌,我讨厌我做了这件事,我讨厌我只能无助地看着,
+我立刻同情它,看到自己如此尬,看到自己为生存而奋斗,我同情它麻醉和负担的四肢,我同情它无法理解周围的一切,
+我已经越过了界限, 这个的尸体正在造成问题, 而问题需要解决.
+不管是什么东西居住在这个身体上, 根本不知道是什么样的后果,
+现在它拿出手机,现在它发短信给人们,
+世界在它之外,泡,外面的苦黑暗把它烂的眼睛转向它.
+现在已经看到了,没有回头路了.
+医生们穿着白色外套,救护人员穿着黑色衫,警察,家长,老师,老板和导师以及任何可能威胁到我稳定和平生存的权威,
+恐慌在身体中涌现出来, 恐慌袭击了任何感知能力,
+警方的警笛声和的声围绕着它, 随着意识失去控制, 入黑夜,
+我只能跟着, 我只能祈祷它能和平解决.
+更多的人物出现在视野之外, 无形的巨型轮, 临,威胁和跟踪,
+他们越来越近, 一起, 准备抓住我,
+我躺在床上, 黑暗和寂静.
+我仍然是一个无形的意识, 我的身体仍然瘦和白在我的床上.
+这里太安静了.
+这一切都没有发生吗?
+我是怎么回来的?
+我没有毁了自己的生活吗?
+身体直接看着我--我已经采取了什么形式?
+它能看到我吗?
+我现在是否已经体现出来了?
+身体是我,它看起来像我,它看起来像我,但我也是我,我清楚地记得自己在某个时候用药,我记得前一天.
+身体冲向我,抓住我的骨手, 着我的脑海,
+它的眼睛充满了恐惧,疯狂,困惑和深深的悲伤.
+&quot;你为什么要这样做?&quot;
+你为什么要这样做?
+你能得到什么?
+现在会发生什么?
+这一切都结束了!
+我试图逃跑,试图穿过门,打破现实规则,
+我的身体从门口出, 走进走廊里, 里面充满了我几乎不认识的人,
+我低估了这个的无协调的身体,
+它问:&quot;你为什么这么做?&quot;
+你为什么要这样对待我们?
+为什么你这样对我?
+我在我的床上.
+这一次我在我的身体里.
+这里真是太黑暗了,
+我躺在那里,我能感觉到面料,
+随着无限的静态,碎形和混乱在我的视野边缘流血, 我知道这还没有结束.
+空气开始发出金属般的声, 我发出的每一个声音都通过运动而产生波和反响,
+空气开始发出金属般的声, 我发出的每一个声音都通过运动而产生波和反响,
+我对别人不公平,
+很快, 阴暗的斑点开始形成深切的伤口, 穿过我的视野.
+它们出现在我的皮肤上,
+如此多的东西威胁着我的现实, 如此多的东西让我觉得我已经永久地破坏了我的存在,
+影子开始形成一个巨大的黑点在我的房间的角落.
+我突然感到震惊和昏迷, 完全失明, 所有感官都消失了.
+听到我的耳朵响起, 视力开始恢复,
+它们从巨大的阴影中漂浮和凝聚, 模糊的人形,
+我心里毫不怀疑这些生物希望我无无,永恒的伤害.
+我心里毫无疑问,
+我是否进入了某种被禁止的意识领域?
+我做了什么让我受到这样的惩罚?
+他们开始把我的意识从我的身体中抽出来, 吸取我的灵魂,
+他们的意图是永恒的, 他们的行为将超出我的意识的界限, 这将是我从未开始理解的痛苦,
+死亡是完全的?
+在他们的世界里, 死亡有什么意义吗?
+这是逃跑吗?
+死亡; 在所有这些之后,死亡意味着什么?
+我已经没有身体了,在某些方面,没有思想,在某些方面,
+我躺在床上,甚至外面的城市光线也变得越来越暗,
+黑暗罩着我的胸部, 压着我的肺部,
+我感到寒冷, 剩余的颜色从黑暗的房间, 边缘消失到黑色.
+我感到紧张,枯,干燥和强烈地静止.
+我已经停止呼吸了吗?
+我的心已经停止了吗?
+在我的视觉中出现了黑色的斑点.
+这是否是死亡,还是更可怕的东西的悬崖?
+我闭上眼睛,让它带走我.
+影子住我的眼睛, 我沉入黑暗中,
+黑暗中,比黑暗更黑暗,它坐着,它的呼吸像肩膀一样沉重被铁葬礼服围困,它的形状是寒冷,周围的空间干燥和无菌,
+这就是所发生的事情.
+这里现在是我的家, 在这些迷糊的悬崖中,
+我不担心或压力,我不害怕,这是接下来的.
+当细胞停止代谢,发送神经冲动,然后,然后他们不能找到我,他们不能注册我作为一个对手,他们可以让我一个人.
+我已经平安了,死亡终止了一切.
+在我的房间里.
+这是一个死沉的静默.
+我认为我可以读时钟.
+可能已经过了3个小时.
+我觉得我已经醒了几天的睡眠.
+房间里有一种沉重的感觉, 我的四肢仍然感觉寒冷,
+我的心跳很快.
+我需要尽快结束这件事.
+我的心跳很快.
+我需要尽快结束这件事.
+又在云层中来抢夺我的肝脏, 却没有任何光线,
+它的手指抓住我的脸, 在我的视野角落开始形成裂.
+我打开灯光, 却被一片我完全无法识别的外星物体迎接.
+我认为不可能的形状,神秘的形状和颜色, 我甚至不能包裹我的头周围互动给身体的感觉状态.
+我忙地翻开我的抽, 找出一个小瓶的Flualprazolam.
+我摸索着, 接着一个又一个异物,
+我甚至不知道我把多少滴放在我的舌头上,我只是祈祷它会窒息那些来找我的人.
+墙壁被堵住,但却在尖叫, 巨大的黑色毛的旋流沉入角落, 世界又变成了灰色.
+我醒来时又醒来了,在我的床上.
+这都是梦吗?
+我会好起来的吗?
+这仍然是如此安静.
+世界是否存在于我门外?
+我从中得到了什么?
+我有没有玩得开心?
+现在结束了?
+现在结束了?
+世界是否存在于我门外?
+我从中得到了什么?
+我有没有玩得开心?
+现在结束了?
+现在结束了?
+现在我的心灵和身体是单一的.
+我的感知仍在崩的边缘.
+我只是想让这一切结束.
+我能感觉到我的四肢再次死亡,
+我在第二天下午醒来时, 没有钟,
+我的手机藏在桌子下面.
+似乎我最终昏了, 虽然我可能很快就退休到床上.
+我认为这已经结束了.
+时间表: 113984
+2020年1月11日发布
+4-AcO-DPT (607),3-HO-PCP (838):单独使用 (16),不好的旅行 (6),困难的经验 (5),组合使用 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+Honestly I Can&#x27;t Think of One Right Now
+4-AcO-DPT &amp; 3-HO-PCP
+by
+nervewing
+Citation:   nervewing. &quot;Honestly I Can&#x27;t Think of One Right Now: An Experience with 4-AcO-DPT &amp; 3-HO-PCP (exp113984)&quot;.
+Erowid.org
+. Jan 11, 2020. erowid.org/exp/113984
+DOSE:
+T+ 0:00
+30 mg
+insufflated
+4-AcO-DPT
+(powder / crystals)
+T+ 0:00
+12 mg
+insufflated
+3-HO-PCP
+(powder / crystals)
+T+ 0:30
+1 hit
+smoked
+Cannabis
+(plant material)
+T+ 0:00
+repeated
+oral
+Flualprazolam
+(liquid)
+BODY WEIGHT:
+130 lb
+At T0:00 Both substances, 30 mg 4-AcO-DPT, 12 mg 3-HO-PCP, were insufflated in a single line after waking up from a nap. It was nighttime. I am in my room, comfortable, adorned, and familiar, awash in incense, dimly lit.
+At T0:30, the gravity of what I have done has already become apparent. I am a mountain in a shower of light, erupting from the earth with the energy incurred by the first great accretion. I am a dam holding back many furious writhing rivers.
+I take 1 hit of cannabis. The single burnt spot in the bowl looks back at me. I am flapping in the breeze, I am cold and wobbly, I feel like the inside of a subway tunnel at night in the winter.
+Things begin to rot. The next timestamp in my notes takes place at 20 minutes again for some reason. I ramble about being unanchored before failing to type the word “broken” several times. The next timestamp, at one hour, is completely incoherent, aborted words and thoughts that couldn’t make it past my fingers. After that, silence.
+The color drained from the room. It felt like a candle had suddenly been snuffed, leaving nothing but lingering smoke in the air. My visual inputs began to collapse and the world became an indeterminate jumble of forms that I couldn’t feel assed to process. I opted to just lie in total darkness and managed to unplug my lights. Sound became a completely incomprehensible force in my world, filling the coagulating air. All senses were stricken, chased from my mind with whips and scattered into the countryside. What sat in their place was a primal metallic corruption, every input blended and distorted into one sickly nerve that slithered down my spine. So without my sensory faculties, how was I to supposed to process
+Chaos; it appears that my roommates had several people come to the house for an impromptu jam session, the incomprehensible silence of the night now gave way to a distressingly less comprehensible cacophony. There are voices outside my door. There are drums. There is a deep bass. All sorts of sounds begin to hammer at the walls, the fervor of life and electricity beyond my dark chamber- I am its captive, at the mercy of a broadening darkness with electric tendrils at its fringe, each one meticulously picking and prying at every thread of my being, the fabric of my reality fraying and collapsing into a tangle on the floor. It is a storm of infinite intricacy, a trillion forms each combined in trillions more ways, it is disorder that is physically impossible for my neurons to process. It seems like more and more people are coming into the house, more than could possibly physically fit, the voices and sounds and presences are multiplying exponentially outside my door, building the pressure, ripe to crack into my dark chamber at any moment.
+It seems like more and more people are coming into the house, more than could possibly physically fit, the voices and sounds and presences are multiplying exponentially outside my door, building the pressure, ripe to crack into my dark chamber at any moment.
+The presences coalesce, morphing together to form one sickening grand circus that sets the walls on fire, a million harlequins marching in a collapsing parade that radiates incandescent energy into the night sky, all of it perpetually stumbling and self-transforming. A vision so complex, so deeply varied and unintelligible that I am left listing aimlessly through its lopsided processions as they dance and tear the fabric of space apart in exultant hysteria. I begin to teleport around this world where nothing makes sense- suddenly I am at work again. Suddenly I am in class. Suddenly I am a stack of books on a table. Suddenly I am back at my parent’s house. My mind is projecting me randomly through my memories, thoughts and spaces that distinctly aren’t mine, dizzying and disorienting as I can find nowhere to truly return to. I genuinely have no idea of where I “really” am existing, I am paralyzed with fear. I cannot think. I cannot comprehend, all I can do is be at its mercy, everything is broken,
+Debasement; More than mere alterations in perception, this is more than a feeling in me, it is a fundamental breakdown in the fabric of reality. I have done it, I have triggered the collapse and disintegration of the world
+More than mere alterations in perception, this is more than a feeling in me, it is a fundamental breakdown in the fabric of reality. I have done it, I have triggered the collapse and disintegration of the world
+, the madness that surrounds me outside of my room will soon be subject to the walls and the air and the sights and sounds of the world turning to grey and homogenous static and buckling inwards into a great void. I have doomed this world, transformed it into a solipsistic nightmare that is shattered from inception. I am completely alone, and the illusions which granted my solace and purpose before this have died and now decay around me. It is a virtual world, where anything is possible, but I am doomed to plumb the depths of its unreality as it comes crashing into what I thought was reality, infecting and necrotizing every bit of it that it touches and glitches out. What can I do but lie here in the dark, entirely still, and let the creeping absence consume me? Curiously, it rolls in asymptotically, always approaching but never arriving. It is a mindless tantalus, a hungering maw without eyes, and I seem to be perpetually out of its reach, I wish it would just come and take me rather than facing the anticipation of gazing down its toothy pitch gray throat. It cannot catch me, but I cannot escape,
+Entrapment; I blink my eyes and suddenly come to from the festering cascade. The room is quiet, pitch black, I cannot read my clock but things have settled down. I have no idea how much time has passed, I have no coherent recollection of what has happened before this, whether or not I interacted with anyone, or any linear sequence of events. One moment ago, or perhaps an eternity of moments ago, I snorted a line of powder.
+I have no coherent recollection of what has happened before this, whether or not I interacted with anyone, or any linear sequence of events. One moment ago, or perhaps an eternity of moments ago, I snorted a line of powder.
+The world is eerily still and silent, it is a deafening silence in fact. I wonder if it is intact beyond my room. I get up to peek outside but find my equilibrium is still highly disturbed. I wonder if I really have broken reality, I wonder if I am really in some purgatory. Then it comes back-a rushing in my ears, a slow crescendo of the noises beyond my space returning. The chaos, the cacophony, the shattering of my word, it all begins to crash back in, like a dam, leaking at first but soon bursting forth with a destructive wall of vivid, devastating hallucination. Was I so foolish to think it was over? Was I so naïve to think I could escape that easily? Just wait it out? No, it is back in force, the world heaves and dies again, and again, and again, sucking me down its gullet, only for me to be recursively devoured again within its icy gizzard, still never quite being completely consumed. There is always still a bit of me left to experience this non-experience, this raging torrent of despair and terror and deep debased discomfort. The recursions begin to alter and split however- tantalus, unable to entirely devour me grows bored, and the great forces or beings or non-beings guiding this experience turn to more creative methods of torment, for me, the Sisyphus being crushed to pulp and static under this great boulder again and again and again, each time getting stranger than the last,
+Impersonation; I am seeing myself in the third person this iteration, my eyes are hollow and my body limp. I hardly recognize this person but I know it is me. It is a broken shell of myself
+I hardly recognize this person but I know it is me. It is a broken shell of myself
+, if it walks it stumbles uncontrollably, it struggles to navigate its environment in motion and in sense and in thought, it is helpless like a newborn. I feel its fear, its confusion, its struggle, I feel the numb dissociation at its extremities and I feel the disoriented deranged motion of the extra momentum in its limbs. I have no control over it, I am a ghost, an invisible consciousness separated from its body. But then what inhabits it? What drives it forward as it struggles through its’ environment? This I do not yet know, but it lives nonetheless. I am helpless to control this body, this visibly broken body. It leaves the room. It interacts with people, but it is disturbing, awkward, familiar but corrupted. It makes a scene, it causes problems, it damages things, it damages itself, it draws attention and scorn. I watch helplessly as this thing, this thing that is supposedly me, sullies my name, my body, my existence. It is messy and disgusting, I hate it, I hate that I have done this, I hate that all I can do is watch helplessly, and most of all I hate what has taken my body, I hate whoever is controlling it and driving it to do things other than lie completely still on my bed. And at once, I sympathize with it, seeing myself so awkward, seeing myself struggling to exist, I sympathize with its anesthetized and encumbered limbs, I sympathize with its inability to comprehend anything around it, the childlike confusion in which, from its point of view, it can do no wrong, but it does so wrong,
+Pursuit; it has crossed the pale, it has crossed the line, I have crossed the line, this shambling corpse is causing problems and problems need solutions. Whatever inhabits that body has no idea of the consequences of being visibly and distressingly incapacitated, of being a cause for concern. But me, this disembodied mind with a shred of clarity realizes that this is coming to a head- now it pulls out its phone, now its texting people, now it is spreading its sickness far and wide. The world churns and bubbles beyond it, the bitter darkness outside turns its glowering eyes towards it. It was seen now, there was no going back. Immediately its minions began to flood the streets to hunt this body down, doctors in their white coats, EMT’s in their black shirts, police and parents and teachers and bosses and mentors and every authority that could threaten a stable and peaceful existence, every one that would want to persecute me for doing reckless combinations of obscure drugs. It dawned on the body that a disapproving world had noticed it, and panic welled up within it, panic struck whatever sentience was taking it on a joyride, and it fled. It ran, ran outside, bewildering those who were in the house, surrounded by a cacophony of police sirens and vultures descending on its decaying existence as the consciousness lost its grip and withered into the night. The body fled and fled, on autopilot, interfering with traffic, terrifying passerby, all I could do was follow, all I could do was pray it would resolve peacefully. More figures appeared just out of view, formless hulking silhouettes, looming and threatening and stalking, the paranoia of a city of eyes watching from the shadows, none of them with good intentions. They come closer and closer, all at once, all ready to snatch me up and punish me for my misdeeds.
+I am in my bed, it is pitch dark and silent. I am still a disembodied consciousness, and my body is still gaunt and pale on the bed before me. Its so quiet. Did none of that happen? How did I get back here? Had I not ruined my life? The body looks directly at me- what form have I taken? Can it see me? Have I manifested physically now? The body is me, it looks like me, it seems like me, but I’m me too, I distinctly remember dosing myself with drugs at some point, I remember the day that came before that. The body lunges towards me, it grips me with its bony hands and stares into my mind with piercing wild eyes, framed with wisps of tangled black hair. Its eyes are filled with fear, madness, confusion, and a deep sadness. “Why did you do this?” it seems to ask. “Why have you done this to yourself? What are you gaining? What will happen now? It’s all over! It’s ruined!” I try to flee, I try to phase through the door, break the rules of reality just to escape this persecution at my own hands. My body tears through the door, into the hallways populated with faceless shadows of people I barely know, shoving them aside to chase me down. I underestimate this creeping uncoordinated body and it quickly runs me down, corners me, traps me in the rules of its reality. “WHY HAVE YOU DONE THIS” it asks. “WHY DID YOU DO THIS TO US? WHY DID YOU DO THIS TO ME?”
+I am in my bed. I am in my body this time. It is pitch dark and silent. I am lying there, I can feel the fabric, though it feels coarse and stiff, and I can feel the cold air as it touches my skin. My heart is racing too much to feel any sense of relief, and as the infinite static and fractals and chaos bleeds in at the edges of my vision I know that it’s not over yet. The air begins to sizzle with a metallic twinge, every sound I make through movement flanges and reverberates, everything turns to grey and shadows begin to mob the solid forms in my vision
+The air begins to sizzle with a metallic twinge, every sound I make through movement flanges and reverberates, everything turns to grey and shadows begin to mob the solid forms in my vision
+, I have wronged others,
+Malice; soon the shadowy blobs begin to form into deep cuts and slashes that gash through my field of vision. They appear on my skin and bleed indistinct black into the world around me, like drops of ink staining a sheet of paper. So much has threatened my reality, so much has made me feel like I had permanently damaged my existence, but nothing I had felt so far had reached the magnitude of this- my heart was beating out of my chest and adrenaline was coursing through my veins. My skin went cold as the shadows begin to form into one great dark spot in the corner of my room. It felt like a bomb went off in my head- I was suddenly stunned and dazed, completely blinded and all of my senses completely washed out. There was a ringing in my ears as my vision began to return, and I saw them. They floated and coalesced from that great pooling shadow, vaguely humanoid with 4 distinct bipedal limbs, coated in a metallic sheen, but otherwise formless and amorphous, exuding an aura of pure malice. There was no doubt in my mind that these beings wished me immaculate, eternal harm. There was no doubt in my mind that I was powerless to stop them. Had I tapped into some forbidden realm of consciousness? What had I done to warrant this punishment? They began to draw my consciousness from my body, sucking out my soul, leaving behind a withered corpse for the judges of our world to deal with. Their intentions were eternity, their actions would go beyond the limits of my consciousness, it would be suffering that I could never begin to comprehend before, it would be a million different sufferings at the same time on the same mind, they hated me, they despised me, they sought their own twisted justice. Was death total? Did death mean anything in their world? Was it an escape?
+Death; what would death mean after all of this? I was already without a body, at points, and without a mind, at points, was it when they were both snuffed out? I lie on my bed and it seems even the ambient city light outside grows darker, casting longer and longer shadows until the room is nothing but darkness, stale and heavy. And the darkness sits on my chest, it crushes my lungs and sips the breath from the lips, and my heart wrenches and I cannot feel or move my limbs at all. I feel cold as the residual colors drain from the dark room and the edges fade in to black. I feel tight, withered, desiccated and imperatively still. Have I stopped breathing? Has my Heart stopped beating? Splotches of black appear in my vision. Is this death or the precipice of something even more terrible? I close my eyes and let it take me. The shadows smother my eyes as I sink into the dark like a pebble twisting and swirling to the bottom of an icy black pool.
+In the darkness, darker than the darkness, it sits, its breath is heavy like shoulders beleaguered by an iron funeral gown, its form is the cold, the space around it dry and sterile, nothing has lived here, nothing will ever live here.
+This is what has happened. This is now my home, among these obsidian cliffs, draped over an infinite nothingness. I am not concerned or stressed, I am not scared, this is what comes next. When the cells stop metabolizing, sending nerve impulses, then, then they can’t find me, they can’t register me as an antagonist, they can leave me alone. I am at peace, death stops all.
+I gasp and come to, in my room. It is dead silent. I think I can read the clock. Maybe 3 hours have passed. I feel like I have awoken from sleeping for days and days. There is a weight in the room, my limbs still feel cold and dead and dry, but it is calm and quiet. My heart is racing. I need to end this while I can.
+My heart is racing. I need to end this while I can.
+Again the eagle comes for my liver in the gathering clouds but for carrying no light or bringing anything worthwhile to mankind, an absurd pity.
+Its fingers clutch my face, the cracks begin to form at the corners of my vision. I turn on the light only to be greeted by a field of alien objects which are entirely unrecognizable to me. Forms I thought impossible, mysterious shapes and colors that I cannot even wrap my head around interacting with give the state of sense of body. I hurriedly dig through my drawer to find my out- a small vial of Flualprazolam. I grope around, picking up foreign object after foreign object until one finally registers. I don’t even know how many drops I put on my tongue, I just pray it will smother that which comes for me. The walls are gagged but screaming, great dark hairy vortices sink into the corners and the world turn grey again.
+I wake up and come to again, in my bed. Was this all a dream? Am I going to be okay? Its still so quiet. Does the world exist outside my door? What have I gained from this? Did I have fun? Is it over? Is it over?
+Does the world exist outside my door? What have I gained from this? Did I have fun? Is it over? Is it over?
+I am a single mind and body now. My perceptions still feel on the precipice of disintegrating all over again. I just want it to be over. Oh god, I can feel my limbs dying again, oh god I’m dying again, the world ripples and crackles again.
+I wake up the next afternoon with no alarm wearing different clothes than what I was wearing for the duration of the trip/from what I had last remembered. My phone is hiding under my desk. It seemed I eventually blacked out, though I presumably retired to bed soon after.
+I think it is over.
+Exp Year: 2020
+ExpID: 113984
+Gender: Not Specified
+Age at time of experience: 24
+Published: Jan 11, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-DPT (607), 3-HO-PCP (838) : Alone (16), Bad Trips (6), Difficult Experiences (5), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

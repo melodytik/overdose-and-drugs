@@ -1,0 +1,225 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>对于这场比赛,</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dmxe.html'>← DMXE</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>对于这场比赛,</h1>
+<div class='sub-title'>DMXE - Erowid Exp - &#x27;It Was Definitely Quite Intense&#x27;</div>
+<div class='meta'>作者：L Citation · 日期：Mar 3, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115204' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>强烈的20mgDMXE经验
+我之前只尝试过胺和DXM,
+遗憾的是, 我没有写一份报告,
+我没有任何可辨认的解散容忍.
+过敏测试:大约6mg
+没有发现立即不良反应,但在10分钟后似乎会出现轻微分离和头的感觉.
+然而,在这些水平上,它很容易成为安慰剂.
+我似乎也有一些汗的手掌.
+下次我会用体积测量来测量我的过敏测试而不是眼球.
+下次我会用体积测量来测量我的过敏测试而不是眼球.
+活体报告:20毫克口服
+在20毫升水中溶解200毫克轻微色的DMXE粉末,将2毫升喷射到我的嘴里,达到20毫克的剂量.
+溶液味道稍微苦,但易于与一些水一起吞.
+一小时前补充阿尔法脂酸 (500毫克,抗氧化剂) 以尽量减少潜在的神经毒性.
+唾液产量显著增加
+我记得对胺也产生了这种影响.
+我感觉比平时更热, 但不是以一种不烦人的方式.
+不知道我穿的衣服太多了,还是因为物质.
+迄今为止没有其他影响.
+,我现在很舒服.
+我觉得身体的肌肉完全放松了,
+心理影响相对较小, 但有一些分离.
+我将精神影响比作几杯酒.
+感觉就像一个温暖的毯子.
+我仍然可以打字,但感觉越来越轻.
+如果我只是着无所事事, 效果是最突出的.
+感觉到第一个兴奋的, 而解离的强度正在上升.
+感觉极其平静和放松.
+我使用了18毫克/毫升的尼古丁电子烟,
+我不确定我是否能够保持清醒的电话机.
+我会试着玩一些Minecraft.
+解离和镇静正在变得非常激烈.
+很难正确演奏,所以我想我会做其他事情.
+我觉得自己既麻醉了,又分离了,又放松了.
+一个惊人的组合.
+只有当我闭上眼睛时才会感到高兴, 这也让我觉得自己处于梦境状态.
+我没有任何视觉, 除了视觉上的雪,
+我刚做了一次N2O的试剂, 像往常一样,
+我不太喜欢混合气与其他物质,
+打字时我的手指开始感到很奇怪,
+我认为这是因为麻醉效应, 因为我不能感觉到我的嘴唇或我的嘴里.
+音乐大声听起来更好, 但听起来不如迷幻药.
+我认为这是峰值.
+现在开始下降.
+解离仍然很强, 但镇静剂正在占据主导地位.
+似乎大部分的&quot;好玩&quot;效果都已经结束了.
+我仍然感到非常放松,
+现在回到基线.
+只有微弱的残留效应.
+我心情很好, 似乎有很明显的抗抑郁作用,
+抗抑郁作用仍然存在和明显.
+也可以被描述为&quot;光&quot;.
+我怀疑这种效果最多会在几天内消失.
+总的来说,这是一个很好的经验.
+结论:效果很有趣,
+这绝对是一个非常激烈的经历
+没有.
+让我感到温暖,内心平静,镇静,
+时间表: 115204
+发布时间:2021年3月3日
+DMXE (926):第一次 (2),宿醉/几天后 (46),治疗意图或结果 (49),一般 (1),未知背景 (20)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>It Was Definitely Quite Intense
+DMXE
+by
+L
+Citation:   L. &quot;It Was Definitely Quite Intense: An Experience with DMXE (exp115204)&quot;.
+Erowid.org
+. Mar 3, 2021. erowid.org/exp/115204
+DOSE:
+T+ 0:00
+20 mg
+oral
+DMXE
+(liquid)
+T+ 0:15
+1 hit
+inhaled
+Nicotine
+T+ 0:39
+1 cart.
+inhaled
+Nitrous Oxide
+BODY WEIGHT:
+56 kg
+Intense 20mg DMXE Experience
+Prior dissociative experience: I’ve only ever tried Ketamine and DXM, both producing a very psychedelic experience at higher doses for me. However the Ketamine use was over a year ago, and I, unfortunately, didn’t write a report so I don’t remember the experience very clearly. I have no discernable disso tolerance.
+Allergy test: ~6mg
+No immediate adverse effects noted although a feeling of slight dissociation and lightheadedness seems to be present after 10 minutes. However, at these levels, it could easily be placebo. I also seem to have slightly sweaty palms. Next time I will volumetrically dose my allergy test instead of eyeballing.
+Next time I will volumetrically dose my allergy test instead of eyeballing.
+Live report: 20mg oral
+T+0:00 Dissolved 200mg of weighed slightly-tan DMXE powder in 20ml water, spraying 2ml in my mouth for a 20mg dose. Solution tastes slightly bitter but easy to swallow with some water. Supplemented with Alpha-Lipoic Acid (500mg, antioxidant) an hour earlier to minimize potential neuro-toxicity.
+T+0:05 Noticeable increase in saliva production. I remember having this effect on Ketamine as well. I feel hotter than usual but in a nonbothering way. Can&#x27;t tell if I’m wearing too many clothes or if it&#x27;s the substance. No other effects so far.
+T+0:07 Suddenly feeling extremely relaxed. All the muscles in my body feel fully relaxed, and I think it&#x27;d be hard to tense up even if I wanted to. Relatively minor mental effects, but there is some dissociation. I would compare the mental effects at this point to a few beers.
+T+0:10 The warmness in my head is kind of nice, it feels like a warm blanket. I can still type relatively OK, but I feel it getting slighter harder. If I just stare into nothing and don&#x27;t do anything the effects are most prominent.
+T+0:15 Feeling the first tingle of euphoria, while the dissociation intensity is going up. Feeling extremely at peace and relaxed. I hit an 18mg/ml nicotine vape which temporarily intensified the euphoria further.
+T+0:20 Dissociation is extremely obvious now, I&#x27;m not sure if I would be able to hold a sober convo atm. I&#x27;m going to try to play some Minecraft.
+T+0:31  Dissociation and sedation are getting really intense. It’s very hard to play properly, so I think I’m going to do something else. I feel both anesthetized, dissociated, and relaxed. An amazing combo to be sure. Euphoria is only present when I close my eyes, which also makes me feel like I’m in a dream-state. I don&#x27;t have any visuals, apart from visual snow which is very reminiscent of weed.
+T0:39 I just did a cartridge of N2O, and as per usual it just intensified everything. I didn’t enjoy it as much as mixing nitrous with other substances, however, so I&#x27;m not sure if I recommend the mix. My fingers are starting to feel very weird while typing, kinda like they’re wet even though they aren&#x27;t. I think it&#x27;s because of the anesthetic effects as I can&#x27;t feel my lips or inside of my mouth either. Music sounds much better when it&#x27;s loud, but it&#x27;s not as good as on psychedelics.
+I think this is the peak.
+T+1:01 On the comedown now. Dissociation is still strong, but the sedation is taking over. The “fun” effects seem for the most part to be over. I&#x27;m still feeling very relaxed, and glad I had the experience.
+T+1:40 Back to baseline now. Only feeling slight residual effects. My mood is very good though, with what feels like some very noticeable anti-depressant effects which should be further investigated by other researchers.
+T+1 day Antidepressant effects are still present and noticeable. Could also be described as an “after-glow”. However, I suspect the effect will probably fade in a couple of days at most. Very good experience all in all.
+Conclusion: Very fun effects, although it did leave me intrigued to try higher doses. It was definitely quite an intense experience
+. The main effects for me were feelings of warmness, inner-peace, sedation, and quite intense dissociation.
+Exp Year: 2021
+ExpID: 115204
+Gender: Male
+Age at time of experience: 18
+Published: Mar 3, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DMXE (926) : First Times (2), Hangover / Days After (46), Therapeutic Intent or Outcome (49), General (1), Unknown Context (20)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

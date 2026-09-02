@@ -1,0 +1,199 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>爱洛伊德的演出 - &quot;我的心脏&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-dipt.html'>← 4-AcO-DiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>爱洛伊德的演出 - &quot;我的心脏&quot;</h1>
+<div class='sub-title'>4-ACO-DiPT - Erowid Exp - &#x27;My Kind of Mindfuck&#x27;</div>
+<div class='meta'>作者：Wank Citation · 日期：Jun 3, 2009 · 剂量：20 mg · <a href='https://erowid.org/experiences/exp.php?ID=76631' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我决定在我的音乐播放清单中避免电子音乐 (这对我精神加速的音乐的支柱),
+我很幸运在短短几年内获得了相当多的毒品.
+我来体验萨尔维亚,Dxm,阿曼尼塔斯,2c-i,Lsd,2c-t-2,Lsa,,,Pfpp和其他一些.
+虽然我不敢说我有&quot;身材&quot;.
+我是一个极端个性, 但是一个稳定的个人.
+我每天补充维生素, 欧米茄3,6和9复合物, 100毫克的5-HTP,
+我喜欢这些物质如何与我的绘画能力相互作用.
+我吃了一些饼干和一大块快餐的汉堡, 发现自己快要吃了.
+02:05  浸泡
+我吸入化学物质, 掉镜子上的残余灰尘,
+这种苦味和化学味道不会延续,
+鼻子上的负荷是轻微不愉快的, 但我只参与吸入另一种药物,
+开始我想我会后悔我的摄入方法, 但发现自己已经忘记了它大约十分钟后.
+02:15 第一警报
+我眼睛的瞳孔已经扩大, 虽然颜色有点亮,
+现在我可以随时选择任何乐器.
+视觉仍然没有.
+我觉得这很奇怪, 我能感觉到我的头脑滑入一个明显的基线区域, 我通常会期望视觉效果跟随,
+我决定放弃音乐, 继续画画.
+0300  +++ 年
+我现在意识到这是我经历过的最愉快的身体高潮之一, 没有紧, 奇怪的肌肉紧张,
+伴随着一种轻微的情绪提升, 而触觉的体验似乎有所提升.
+心理经验也很好, 似乎没有我认为2c-i或的紧循环, 而是允许极端平衡的视角,
+我觉得我现在很享受自己.
+我最近打电话给一个朋友, 发现言语完全没有抑制, 我比正常人更快地理解话题,
+我决定重新戴上耳机, 接到一些令人愉快的回应,
+我发现我能够把注意力集中在画画和音乐上,
+感觉的温暖是令人欣慰的, 就像在阳光下浴一样, 触觉感觉没有变得更好或更糟,
+05:00 关于比较
+在过去的两个小时里, 我已经达到高峰, 并且发现类似于 pfpp 的视觉效果,
+精神效应明显大于pfpp,更类似于2c-t-2, 也许总体上的高兴度略低.
+身体负荷似乎与2c-i最相似,一般温度似乎稍高一些,心率稍高一些,以及对触觉的更大欣赏.
+让自己被互联网和其他一些东西分散注意力.
+我似乎比平常有更多的拼写错误.
+在 IRC 上进行交流和发送信息并不特别困难.
+06:20  审查
+我的瞳孔已经恢复到原来的大小,
+我完全不感到疲倦, 也没有感觉到任何负面影响,
+我没有发现这种物质过度刺激或镇静, 绝对没有恶心 (虽然这是我通常不会经历的,
+我对音乐的偏好变化只会让我对音乐不感兴趣,不参与其中,
+我认为把这种提升融入艺术能力是很容易的, 由于我的记忆中很少有空白,
+我对自己的绘画能力的提升并不是&quot;令人惊叹&quot;,
+在经历后的光中写成.
+其他:
+4-AcO-DiPT (55): 烂的经历 (4), 音乐讨论 (22), 第一次 (2), 独自一人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>My Kind of Mindfuck
+4-ACO-DiPT
+by
+Wank
+Citation:   Wank. &quot;My Kind of Mindfuck: An Experience with 4-ACO-DiPT (exp76631)&quot;.
+Erowid.org
+. Jun 3, 2009. erowid.org/exp/76631
+DOSE:
+20 mg
+insufflated
+4-AcO-DiPT
+(powder / crystals)
+BODY WEIGHT:
+160 lb
+My setting this experience through would be the comforting intimacy of tripping alone in the early hours of the morning, in my room.  I would be on a completely new substance, on perhaps a decidedly high dosage for being inexperienced with this chemical.  This trip, I decided to avoid electronica in my play list of music(a mainstay of music for my psychedelically accelerated mind) and decided to otherwise choose vocally inclined artists including Modest Mouse(an older album), Jason Mraz, Dido, Rasputina, and Frank Sinatra.
+I have been lucky enough to have been dealt(so to speak) a rather nice hand of drugs in my few short years of tripping.  I&#x27;ve come to experience Salvia, Dxm, Amanitas, 2c-i, Lsd, 2c-t-2, Lsa, Mushrooms, Nitrous, Pfpp and a few others.  I am 20 years old, weigh around 160lb, and am physically fit, although I wouldn&#x27;t go so far as to say I&#x27;m &#x27;built&#x27;.  I exhibit a borderline personality, but am an otherwise stable individual.  I take no medications, and supplement daily my diet with vitamins, an omega 3, 6, and 9 complex, and 100mg 5-htp, additionally I use kava nightly as a sleep aid. I pursue psychedelics for the wide range of experiences offered, and I rather like how these substances interact with my drawing capability.  At the beginning of this experience I&#x27;ve eaten a number of cookies and a large, fast food restaurant&#x27;s burger, finding myself edging towards being full.
+02:05 – Imbibement
+I insufflate the chemical, and lick the residual dust off the mirror, finding to my chagrin a powerfully unpleasant assault on my taste buds.  The bitter, chemicalish taste doesn&#x27;t linger and was easily dealt with by strong mints, though it would be recurring due to the drip.  The nose load from this is mildly unpleasant, but I&#x27;ve only partook in snorting one other drug, yopo, and this happens to be a walk in the park comparatively speaking.  However, the drip is rather unpleasant, and in the beginning I wondered if I would regret my method of ingestion, but found myself to have forgotten about it some ten minutes later.
+02:15 – First Alert
+My pupils have dilated, and while colors are a bit brighter, overt mental and visual effects are absent.
+02:30 –
+I&#x27;ve come up listening to music and find myself by this point able to pick out every instrument at my leisure.  Visuals are still absent.  I find it rather odd, I can feel my mind slipping into a significantly off baseline area where I&#x27;d usually expect visuals to follow, I&#x27;m excited to have found a chemical that packs a wallop for the mental experience while laying off trivial(in my opinion anyway) visuals.
+At this point I decided to drop music from my activities and pursue drawing for a bit.
+0300 – +++
+I realize now that this is amongst the most pleasant body highs I&#x27;ve experienced, no jaw clenching, odd muscle tensions, balance issues, disorientation, or anything I can otherwise tell as negative.  Instead, a slow warmth has begun creeping across my entire body, accompanied by a very mild mood push, while the tactile experience has seemingly been enhanced some fair bit.  The mental experience is coming along very nicely, seemingly lacking those tightly spun loops I associate with 2c-i or mushrooms, and instead allowing for an extremely level headed perspective, without polarization any one way or the other(emotionally or reasonably speaking), with the added bonus of a creative push(or step away from my normally lethargic nature).  I find I&#x27;m rather enjoying myself at this point.
+04:00 –
+I&#x27;ve recently called a friend, and found speech to be completely uninhibited, I&#x27;m a bit faster on the uptake of topics and such than normal, although rather tangent orientated, or a bit more easily distracted, but all of such is to have been expected in the heightened associative mindset of this kind of substance.   I&#x27;ve decided to put my headphones back on and am greeted with something or other that is pleasant, from here on I proceed to continue drawing and find myself very relaxed.  I find I am able to focus on drawing and the music separately and well, neither in the least bit distracting from the other.  The euphoric warmth is quite comforting, as if like basking in the sun&#x27;s glow, the tactile has not gotten much better or worse and by this point can&#x27;t be expected to change much.
+05:00 – On Comparisons
+Over the past two hours I have peaked nicely, and found visuals akin to pfpp, that is with a general kick up of the visual scatter, brighter colors, a bit of a halo effect around stark contrasts, and mild breathing effects(most prominent in shadows and textured surfaces).  The mental effects were significantly greater than pfpp and more akin to 2c-t-2, with perhaps a bit less overall euphoria.  The body load seems to have been most comparable to 2c-i with regard to general temperature seemingly having been a bit warmer, slightly higher heart rate, and a greater appreciation for the tactile sense.  From this point I proceed to ride the experience out to it&#x27;s close, allowing myself to become distracted by the internet and little else.  Typing well, at this point, does require a bit of effort and I seem to have a few more spelling errors than is usual.  Otherwise, as with engaging in conversation, communicating on IRC and sending messages is not particularly difficult.
+06:20 – Review
+My pupils are back to baseline size, as am I back to normal with a pleasant afterglow.  I am not at all fatigued by this experience, and do not feel any negative effects such as a slowdown, headache, or other undesirable.  I did not find this substance to be overly stimulating or sedating, there was absolutely no nausea(though that&#x27;s something I wouldn&#x27;t normally experience except perhaps for by yopo), gastro effects were nothing special, and I very much so enjoyed myself.  The change in scenery regarding my preference for music did nothing more than keep me for the most part uninterested and unengaged in the music, finding myself treating it more as distraction worthy than to be the beautiful sound scape I would under normal circumstances enjoy.
+I rather think integrating the bit of enhancement to artistic capability from this will be rather easy, due to few gaps in my memory that I would otherwise experience on the vast majority of psychedelics I&#x27;ve done(perhaps simply an issue of length of time and relative impact of a tighter, faster looping thought process I seem to associate with tripping on most other substances), and the fact that the enhancement to my drawing ability was not in any sense &#x27;mindblowing&#x27; but would be enough to warrant review and kick start the integration process from this aspect of my trip.
+Written in the afterglow of the experience.
+Exp Year: 2009
+ExpID: 76631
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 3, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-DiPT (55) : Glowing Experiences (4), Music Discussion (22), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

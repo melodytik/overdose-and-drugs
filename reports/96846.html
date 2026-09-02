@@ -1,0 +1,302 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>果和胺 - 艾洛伊德的故事 -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methiopropamine.html'>← Methiopropamine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>果和胺 - 艾洛伊德的故事 -</h1>
+<div class='sub-title'>MDAI &amp; Methiopropamine - Erowid Exp - &#x27;Profound-Ocalypse &#x27;</div>
+<div class='meta'>作者：Anonymous Citation · 日期：Jul 24, 2012 · <a href='https://erowid.org/experiences/exp.php?ID=96846' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>9:53:刚刚服用的
+大约100mg的MDAI和注入大约20- 30mg的MPA
+感觉到MPA的作用非常强烈.
+我的身体是温暖的,好像我在炼.
+尽管如此, 我确实觉得我的感官有点偏离.
+10:45 服用了另外20-30毫克的MPA, 开始变得相当强烈.
+我还服用了124毫克的MDAI药,
+非常温暖,心跳很快.
+颜色开始变得非常明亮.
+我烟上的桃是非常明亮的.
+听粉红乐队 - 我们和他们 - 的音乐非常愉快.
+今晚我打算听一些有意义的音乐.
+我还能看到我身体上的每一个毛孔.
+哈哈哈哈
+这变得非常有趣.
+现在已经有相当多的平静了,
+呼吸很浅, 但也已经有点平静下来.
+我从来没有经历过任何类型的RC或任何东西.
+到目前为止,一切都很好.
+虽然我不建议没有经验的人.
+12:00 思想在奔跑,但同时也混.
+每隔一秒就会有不同的想法.
+无法解释的精神状态... 也许我会在不久的将来进一步探索这一点.
+现在我感觉非常深刻和情绪化, 但是在好的意义上.
+我可以深深地谈话,并轻松地接受事情.
+强烈的智慧和同情感已经出现,
+12:52 吸入了另一个MPA的块.
+我坐了3个小时听着&quot;月亮的黑暗面&quot;, 开始站起来, 头很轻, 一波脉冲和热量开始通过我的身体,
+亲密和老朋友的深度谈话是非常安慰的.
+强烈但可爱的深度感受让我感到压倒.
+1:02 MDAI似乎有不同阶段, 我被困在一个心灵悖论中,
+但同时我也能感受到.
+这对我来说是我和几个朋友一起吃的东西,
+我几乎失去了思维的轨道, 但它似乎又回来了.
+我已经学会了欣赏自我丧失.
+1:07 在写最后一篇文章时, 我意识到我打算开始写这篇文章,
+这完全解释了我最后的文件.
+1:12 &#x27;你太早就找到了秘密.
+你哭泣到了月亮上.
+1:19 时间似乎飞快.
+我发现了&quot;深度&quot;这个词的新意义.
+这种化学物质给了我最&quot;深刻&quot;的意识状态,
+我必须说我很有经验在类的幻觉药物,Enthnogens和兴奋剂.
+1:24 我注意到我不把这些称为药物,
+这不仅仅是一种药物.
+太空中的深层化合物.
+不仅仅是人类创造的,
+黑夜的先驱, 那些把黑暗变成白天的人.
+1:35 我刚刚微笑了.
+微笑的温柔和谦卑, 似乎空虚的感觉现在正在逐步出现.
+我会在外面坐一会儿, 听一下&quot;愿你在这里&quot;的其余部分,
+1:40这是我对一个长期朋友说的.
+这首歌&quot;针&quot;和&quot;伤害&quot;和&quot;照耀你疯狂的钻石&quot;.
+这首歌曾经让我想起你在TPC的日子.
+同样地&quot;针和损害&quot;的狗,我得到了所有软的狗,但,没关系.
+是的,它让我想起了我, 我们都朝着同一个方向前进.
+现在我想起了你是我起自己并把我的事情整理的原因之一.
+这就是为什么我最近离开你,
+我希望这能帮到你一点.
+似乎我已经变得软弱了,
+谦卑是这段经历的重要组成部分, 克服谦卑是人生的一步.
+2:19 宁静通过我像爬行的感觉的heebie jeebies..
+只有这些才是好的.
+潜意识的残余形成和自我意识的希望.
+思考生活以及所有这一切结束后将会发生的严酷现实.
+但是,会不会结束?
+时间2点23分, 汗水透.
+我在想太多,太辛苦了吗?还是这一切都是其中的一部分?
+我的内在告诉我这些想法是有原因的,
+3:08 在外面坐了好几个小时,
+帮助那些需要帮助的人.
+我忘了提及我已经有很长一段时间的锁,
+这感觉很好.
+3:45 很久没有记录过.
+我一直忙于帮助别人.
+有些亲密的朋友, 有些不亲密,
+有些人可能认为我的话,智慧,知识和谦卑是理所当然的,
+但现在我意识到有些人不会这样做.
+他们将把它们用作生命工具和修复器.
+有时我想知道别人脑子里发生了什么,但我也不知道自己脑子里发生了什么.
+有时我觉得心灵只是一个宇宙,总有更多的东西要探索和发现.
+但这只是因为有些人还没有找到自己的天赋.
+无限的时间
+另一个注意事项,我刚刚吸入了今晚最大的.
+我觉得我必须以美好的方式结束, 可能会抽一些草,
+我的词汇似乎越来越多,越来越复杂.
+时间4点18分.
+今晚的最后一次碰撞, 让它骑出去.
+现在我还处于同样的心态.
+我认为我已经到达了这次旅行的底部, &#x27;意义&#x27; - - 谦卑,宁静,深度,美丽,快乐,肯肖,启蒙,萨托里,无限,空虚和虚空.
+有些人可能会说这种混合或单一的MDAI不是迷幻药.
+但是, 在我看来是.
+心理药物不仅仅是为了视觉和身体的高潮,
+许多人认为它们是打开心灵大门的钥匙,
+但仅仅因为它们能启发你并不意味着它会治愈你,
+什么都不是一切,而一切都是什么都不是.
+周五晚上出门, 打算使用某种迷幻/诱发性化合物,
+这些都是强大的工具,
+仍然感觉到影响相当强烈,
+但是,我正在抽我的最后一支香烟,抽一点草,放松.
+和平!
+很好的振动.
+我不知道明天的太阳会给我带来什么严酷的现实.
+也许会很好.
+经验是让我成为的人,所以我只能接受.
+无论是好的还是坏的.
+时间表: 96846
+甲基胺 (545),MDAI (499):小组 (2-9) (17),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+Profound-Ocalypse
+MDAI &amp; Methiopropamine
+by
+Anonymous
+Citation:   Anonymous . &quot;Profound-Ocalypse: An Experience with MDAI &amp; Methiopropamine (exp96846)&quot;.
+Erowid.org
+. Jul 24, 2012. erowid.org/exp/96846
+DOSE:
+T+ 0:00
+100 mg
+oral
+MDAI
+(powder / crystals)
+T+ 0:00
+25 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 0:52
+124 mg
+oral
+MDAI
+(powder / crystals)
+T+ 0:52
+25 mg
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 2:59
+1 bump
+insufflated
+Methiopropamine
+(powder / crystals)
+T+ 5:52
+1 bump
+insufflated
+Methiopropamine
+(powder / crystals)
+BODY WEIGHT:
+140 lb
+9:53: Just dosed. Approximately 100mg of MDAI and insufflated about 20-30 mg of MPA
+9:56: Feeling the effects of the MPA pretty strongly. My body is warm, as if I was working out. Focused, although, I do feel like my senses are a little bit off.
+10:45 Took another 20-30 mg of MPA and it is beginning to be quite intense.
+Also, took another 124 mg of MDAI and is also starting to come on like a freight train. Very warm, fast heart rate. Colors are beginning to get very bright. The cherry on my cigarette was very illuminated. Music is very delightful listening to Pink Floyd - Us and Them. I&#x27;m aiming for deep meaningful music tonight. Also, I can see every little pore on my body. Hmm.. Getting very interesting.
+11:40  The MPA has settled down quite a bit, got to be quite intense there for a second. Breathing was shallow but that has also calmed down a bit. The MDAI has me a state of mind I&#x27;ve never experienced before with any sort of RC or anything at that. So far, it&#x27;s been alright. Although I wouldn&#x27;t recommend for the non experienced.
+12:00  Thoughts are racing but at the same time scrambled. Getting caught up in different thoughts every other second. Unexplainable state of mind.. maybe I&#x27;ll explore this some more in the near future.
+12:43  Okay, I&#x27;ve lost that state of confusion and scrambled thoughts, I feel really deep and emotional right now, but in a good way. I could have deep convo and just accept thing easily. Strong feelings of wisdom and empathy have occured, Life realizations.
+12:52 Insufflated another bump of MPA.
+Been sitting for 3 hours listening Dark Side Of the Moon and began to stand up, got very lighteheaded and a wave of pulses and heat began to flow through my body, I couldn&#x27;t walk straight. Deep talks with close and old friends is very comforting. Intense but lovely feelings of profoundness overwhelm me.
+1:02  The MDAI seems to have phases, I get caught inside a mind paradox that seems to change my whole feelings from empathy and wisdom to complete emptiness and is almost uncomfortable. But, at the same time I can apperciate it. Not for the non experienced who are looking to have fun, This for me is something I would ingest with a few friends and have long deep talk. But, like mushrooms, I get caught in the vortex of confusion in the middle of talking and almost lose train of thought, but it seems to come right back. I&#x27;ve learned to apperciate the loss of ego.
+1:07 And I just realized as I was writing the last document I planned on starting it off as me sweating alot and completely lost that thought and ran into deep specifics. Explains my last document perfectly.
+1:12 &#x27;You reached out for the secret too soon. You cried to the moon.&#x27;
+1:19 Time seems to be flying by quickly. I have found new meaning in the word Profound. This chemical has givin&#x27; me the most &#x27;Profound&#x27; state of consiousness I&#x27;ve ever experienced. And I must say I&#x27;m well experienced in the class of Psychedelics, Enthnogens and Stimulants.
+1:24 I&#x27;ve noticed I don&#x27;t refer to these as drugs, just chemicals and substances. It&#x27;s something more then just a drug. Profound compounds of the universe. Not made by just man, made by Pioneers. Pioneers of the night, the ones who turn Darkness into Daylight.
+1:35 I just cracked my first smile. Was a gentle and humble smile, seems the feelings of the void are coming in phases now. Going to sit outside for a bit while listening to the rest of the Wish You Were Here album and think a little bit more.
+1:40 This is what I told a long time friend of mine. The songs The Needle and the Damage Done and Shine On You Crazy Diamond. &#x27;That song used to remind me of you back in the TPC days. Same with &#x27;The needle and the damage done&#x27; fuck, I&#x27;m gettin&#x27; all soft an shit, But, it&#x27;s okay. Yeah, It reminded me of me in the sense we were both heading in the same directions. Now that I think upon it you&#x27;re part of the reason I lifted myself up and straightened my shit up. That&#x27;s Why I leave you for yourself recently to show you that if I learned from you, you should learn from me. Hope that helps you a bit.&#x27; TPC being Rehab and also various jails and programs.
+Seems as though I was getting soft, but this didn&#x27;t matter to me. Humilty is a big part of this experience and getting over humility is a step ahead in life.
+2:19  Tranquilty passes through me like creeping sensations of the heebie jeebies.. Only these are good ones. Subconscious remnants forming and self conscious hope. Thinking of life and what is in store for the harsh realities to come when this is all over. But, will it ever be over?
+2:23  Perfusive sweating. Am I thinking too much and too hard? or is it all part of it? My inner self tells me these thoughts are here for a reason and here to stay.
+3:08  Been sitting outside for hours contemplating, pondering.. Helping others who need help. I forgot to mention that I&#x27;ve had lock jaw for quite awhile now and steadily clinching my jaw. It feels so good though.
+3:45 It&#x27;s been a little while since I&#x27;ve documented. I was busy helping others where help was do. Some close friends some not, the good deed is done. Some may take my words, wisdom, knowledge, and humbility for granted and that used to bother me. But, now I&#x27;ve realized there is some people out there who won&#x27;t do that. They will use them as life tools and repairmanship. Sometimes I wonder what goes on in peoples heads, But, then again I don&#x27;t know what goes on in mine sometimes. Sometimes I feel as though the mind Is simply the universe, there&#x27;s always more to be explored and discovered. Some more complex then others but that&#x27;s just because some haven&#x27;t found their own gift yet.
+Infinite.
+On another note, I just insufflated the biggest bump of the night. Felt I had to end it on a good note, will probably smoke some grass and play my guitar. My vocabulary seems to be growing and getting more complex.
+4:18 Still goin&#x27; pretty strong. Took the last bump for the night, gonna let it ride out. The MDAI, still has me in the same state of mind.
+I think I&#x27;ve gotten to the bottom of this trip, &#x27;The Meaning&#x27; - Humilty, serenity, Profoundness, Beauty, Bliss, Kensho, Enlightenment, Satori, Infinite, Emptiness, and the Void. Some of you may say this combo or single MDAI is not a psychedelic. But, In my opinion it is. Psychedelics are not only meant for visuals and body highs, they are for what you take from the &#x27;Trip&#x27;. They are tools, considered keys by many to unlock the doors of your mind and Enlighten you. But, just because they can enlighten you doesn&#x27;t mean just thinking it&#x27;s gonna cure you, it is simply a realization and connection with the universe and infinite.
+Nothing is everything and everything is nothing.
+Don&#x27;t take these words for granted, Going out on a friday night and planning on doing some psychedelic/enthogen compound you&#x27;re in for a bad night, think about this. These are powerful tools and are meant to be respected.
+4:35  Still feel the affects pretty strongly, and for longer then expected. But, I&#x27;m smoking my last cigarette and smoking a little herb and relax. Peace! Good Vibes.
+I wonder what harsh realities await for me in the tomorrow sun. Maybe it will be good.. Experience is what has made me so I&#x27;ll just have to accept it.
+Whether be good or bad.
+Exp Year: 2012
+ExpID: 96846
+Gender: Male
+Age at time of experience: 18
+Published: Jul 24, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methiopropamine (545), MDAI (499) : Small Group (2-9) (17), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,252 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>美国的&quot;魔兽世界&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mpt.html'>← MPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>美国的&quot;魔兽世界&quot;</h1>
+<div class='sub-title'>MPT - Erowid Exp - &#x27;Sheer Force Psychedelia&#x27;</div>
+<div class='meta'>作者：Kaleida Citation · 日期：Feb 9, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=110916' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>大麻
+(植物材料)
+这是我第一次接触MPT,
+在我所有的化学实验中, 唯一最让我印象深刻的分子, 给了我最棒最令人印象深刻的迷幻体验,
+我认为它也可以转移到MPT, 但无论如何, 对我来说它只是完美的,
+想到这些事情, 希望MPT能像4-HO-MPT一样让我享受,
+我以前使用过的迷幻药包括DMT,MET,MiPT,DiPT,DALT,Psilocybe cubensis,4-HO-MET,4-HO-DET,4-HO-MPT,4-HO-EPT,4-HO-DPT,4-HO-MiPT,4-HO-DiPT,4-HO-McPT,4-AcO-DMT,4-AcO-MET,4-AcO-DET,4-AcO-MALT,4-AcO-DALT,5-HO-DMT,5-MeO-MiPT,5-MeO-EiPT,5-MeO-DALT,Ipomoea tricolor,Argyreia nervosa,LSD,ELATH-D,AL-LAD,2C-B,2C-I,DOC,以及MDMA.
+我最近一次旅行是在此之前两周左右,
+我把40毫克的MPT放进一碗大麻中,
+我原本打算用35毫克,这是我迄今为止用MET最远的药量,
+似乎很少有人在服用高于这个剂量时报告轻微的经历, 而MET在35毫克剂量下对我来说也不是很强大,
+然而,我很快意识到我的假设是多么错误....
+在我第一次被击中后的前30秒左右, 比我记得的更快, 我周围的房间开始被高度复杂和美丽的几何图案所覆盖,
+我也感觉到自己开始在全身有强烈的出汗感, 完全与我从DMT,MET和MiPT中得到的感觉相同,
+我注意到的第一件事是感官过载的壁垒, 就像我从DMT中得到的感觉过载, 我开始从MET中得到的感觉过载;
+几何形状和颜色简直令人震惊, 飞到任何地方, 实际上把我推到一个离散的状态.
+然而,此时我也感觉到我正在经历一些真正的分离,与其他大量的胺类药物不大不同,
+随之而来, 它们实际上与感官过度负荷相结合得非常美妙, 我在DMT和MET上并没有达到这种程度,
+最后,我也得到了之前仅仅在4-HO-MPT中得到的效果, 简单的胺, 这让我想起了高剂量的LSD,
+这种视觉效果对我来说是极其享乐的, 并且感觉它触及了比我吃过的任何其他分子更深层次的迷幻分离的地方,
+无论如何,我对所获得的效果非常感兴趣, 但同时也感到惊, 尤其是考虑到我认为这种剂量不会那么强大.
+总的来说,与所有这些效应的整体分离使得我很难处理我周围发生的事情, 有几次我有过一种经历,
+像我经常在吸了更高剂量的DMT之后感觉到的, 也是我在某种程度上在MET上感觉到的,
+我花了大部分时间在床上翻转, 试图理解发生了什么事,
+我也经常在DMT上有这样的想法, 我真的需要开始更好地照顾我的身体,
+所以这实际上是很好的所有事情考虑.
+最后,在T+0:15, 就在我想知道这一切是否会结束,
+我感觉自己完全清醒, 能正常运作, 而且移动也变得更容易.
+不同于DMT或MET, 视觉效果仍然非常强大, 显得令人印象深刻,
+我想尽可能多地享受它们,
+我一直在听很多舒缓的音乐来帮助我放松到这个伟大的后光, 它一直很好地工作,
+视觉效果在观看时仍然显著, 相当显著, 但在这个时候已经变得不那么强烈了,
+而从来没有使用过其他基质胺, 心灵的眼睛效果是巨大的花形几何设计,
+我也开始心跳, 起身走动, 沉迷于音乐, 但在某个时候,
+检查,所以我采取了几次深呼吸,让自己冷静下来,坐在椅子上,等待一分钟再次检查.
+现在的速度肯定慢了一些,
+我通常不会因为使用4替代的胺酸而心率升高, 我最常使用的胺酸,
+虽然并没有完全消失, 视觉效果却在消失.
+我仍然感到高兴, 这很好, 但我也开始有点反弹头痛,
+我终于决定冲入淋浴. 现在,
+现在我已经从淋浴中出来了, 总的来说感觉很好, 但当我在里面的时候, 我特别开始感觉到我的四肢有点紧张,
+我觉得自己很硬, 觉得我可能需要放松一会儿,
+我又放了一些音乐, 享受我仍然感受到的快乐,
+我这样做是因为我的一般理论, 虽然我没有真正的想法所以不要引用我在这个, 这种紧张的结果由血管收缩由这些更大的因多尔引起在激活5-HT2A受体比自然更有效的,
+酒精的血管扩张特性可以帮助扭转其中的一些问题.
+我真的不能说这些是否准确, 但我可以说酒确实有所帮助,
+我决定用我之前装满MPT的碗最后一滴, 看看我是否真的把它全部弄出来了,
+我从来没有感觉到任何迷幻效应, 即使是轻微的, 开始出现.
+我认为我的技术是成功的,所以.
+我花了很多时间和他们一起, 不再追踪发生在我身上的事情, 但大部分都已经结束了,
+偶尔他们会让自己知道第二,但除了这基本上是它.
+这就结束了我第一次使用MPT的经验.
+我必须说...
+我非常印象深刻.
+这对我来说非常像DMT,4-HO-MPT和一些LSD的交叉,
+尤其是视觉效果非常出色.
+再次,我觉得有必要指出,似乎我可能有点敏感的 4-HO-MPT 的某些方面比其他一些,包括视觉效果,所以它可能会变成这里也是如此,但尽管如此...
+经典的迷幻视觉感觉, 有大量的图案,颜色,扭曲,重量标记,等等; 我说这只是因为我也有一些极其视觉的经验在像ETH-LAD和5-MeO-MiPT我可以说是更强烈在某些方面,
+而是更加分离或以难以与之相比的方式.
+在经典的方法中,MPT对我来说绝对是最强的,甚至超过了我最近使用AL-LAD的经验,
+除了视觉体验外, 头部空间和身体高也很好,
+几乎唯一的负面是沉重的身体负载, 在主要效果消失后,
+虽然我不得不说这并不像我想象的那样让我烦... 虽然这可能是因为最近我实际上正在学习接受一些强大的迷幻药作为体验的一部分,
+随着我对这种体力负荷的每一次体验, 它变得越来越不令人担忧或分散注意力,
+这不一定意味着其他人会觉得这么容易,
+虽然这次经历显然是次要突破, 但它也完全有潜力达到突破点.
+但个人来说, 我从来没有真正的DMT突破... 所以我有点紧张的把自己推到一个研究化学品之前知道什么是经验是什么样子的东西我知道会保证安全第一.
+由于这个原因, 我可能会暂时推迟对MPT的进一步探索.
+我不想浪费它, 毕竟, 我希望能够从每一个经历中获得最大的收获.
+我很有信心我能处理它, 并且很高兴在这个时候体验它, 所以我认为我只需要让自己再次尝试,
+但是,直到那时它将不得不等待....
+现在我只能这么说, 我对我到目前为止所经历的很满意.
+尽管如此, 这仍然是一个相对未经探索的精神活性,
+我也认为任何对这种分子有足够敏感的人, 能像我一样感受强烈的效果, 很可能会对它所发现的东西感到满意,
+准备处理任何形式的强烈经历, 积极或消极.
+只要有适当的照顾, 这才是你所能期望的.
+但现在这可能已经足够严了,所以我会在这里结束,说再见,我的同伴!
+时间表: 110916
+MPT (804):一般 (1),第一次 (2),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Sheer Force Psychedelia
+MPT
+by
+Kaleida
+Citation:   Kaleida. &quot;Sheer Force Psychedelia: An Experience with MPT (exp110916)&quot;.
+Erowid.org
+. Feb 9, 2018. erowid.org/exp/110916
+DOSE:
+T+ 0:00
+40 mg
+smoked
+MPT
+(powder / crystals)
+T+ 0:00
+1 bowl
+smoked
+Cannabis
+(plant material)
+T+ 1:30
+1 glass
+oral
+Alcohol - Beer/Wine
+(liquid)
+T+ 1:45
+1 hit
+smoked
+Cannabis
+(plant material)
+This was my first experience with MPT, and it was a long time coming. In all of my research chemical experimentations, the one molecule that has stood out to me the most, given me the best and most impressive psychedelic experiences, and rightly earned the position of my favorite among them, is 4-HO-MPT. That one has recently appeared on the scene again and initial reports so far make it seem as though I might be a bit sensitive to the effects of 4-HO-MPT compared to some, so perhaps that should be kept in mind as I would assume it could transfer over to MPT as well, but nonetheless, for me it&#x27;s simply perfect, so it is what it is and I&#x27;m not complaining. This was my mindset going into the experience, thinking about these things and hoping that MPT might turn out to be as enjoyable for me as 4-HO-MPT, but also trying not to cloud the experience with too many expectations.
+My previous experience with psychedelics includes DMT, MET, MiPT, DiPT, DALT, Psilocybe cubensis, 4-HO-MET, 4-HO-DET, 4-HO-MPT, 4-HO-EPT, 4-HO-DPT, 4-HO-MiPT, 4-HO-DiPT, 4-HO-McPT, 4-AcO-DMT, 4-AcO-MET, 4-AcO-DET, 4-AcO-MALT, 4-AcO-DALT, 5-HO-DMT, 5-MeO-MiPT, 5-MeO-EiPT, 5-MeO-DALT, Ipomoea tricolor, Argyreia nervosa, LSD, ETH-LAD, AL-LAD, 2C-B, 2C-I, DOC, and MDMA. My most recent trip was a little under two weeks before this on 55 mg of 4-HO-EPT.
+T+0:00 - I layered 40 mg of MPT into a bong bowl of cannabis and smoked the whole thing over the course of three or four hits, I can&#x27;t recall exactly now. I was originally going to go with 35 mg, the furthest I&#x27;ve gone with MET so far, but a little extra came out on the scale, and when it stopped at exactly 40 mg I figured that was fine. I had read around a bit on MPT and wasn&#x27;t too afraid of what it could do, it seemed like a good few people reported mild experiences at doses higher than this, and MET wasn&#x27;t very strong for me at 35 mg either, so I smoked it without much apprehension. However, I quickly realized how wrong my assumptions were....
+Within the first thirty seconds or so of taking my first hit, faster than I remember coming up on MET, my room around me started becoming covered in highly intricate and beautiful geometric patterns significantly reminiscent of DMT, but with a color scheme and some geometric designs much more alike 4-HO-MPT for me, but far more intense, which is really saying something for me. At this time I also felt myself beginning to have a strength sweaty sensation all over my body, the exact same one I&#x27;ve gotten from DMT, MET, and MiPT, so I know that I was genuinely entering a strong base tryptamine state and leaned back against the wall and closed my eyes. The first thing I noticed was a wall of sensory overload much like I get from DMT, and started to get from MET; sadly it&#x27;s almost impossible to remember vividly now (hopefully that will change with repeated experiences), but the geometry and colors were simply overwhelming, flying everywhere and practically pushing me into a state of dissociation all on their own.
+the geometry and colors were simply overwhelming, flying everywhere and practically pushing me into a state of dissociation all on their own.
+However, at this time I did also feel that I was experiencing some genuine dissociation not unlike other bulky tryptamines for me, and again actually particularly like 4-HO-MPT which I find especially dissociative in nature for a full-spectrum psychedelic, though I would say the dissociation of MPT was actually stronger, and there was my usual visual aspect of countless arms all reaching out to me in a spiraling pattern coming from a distance to accompany it, and they actually mixed quite beautifully with the sensory overload, I don&#x27;t get them to this degree on DMT and MET so this was new to me and quite nice. Finally, I was actually also getting an effect I get before this solely on 4-HO-MPT of the simple tryptamines which reminds me of high doses of LSD more than anything else, this sort of effect where 3D wireframe patterns take human shapes and there&#x27;s often a light blue glowing background behind them, and it&#x27;s hard to explain why without really being able to show anyone the true experience, but this visual effect is extremely hedonistic and enjoyable for me, and feels like it touches upon a more deeply psychedelically dissociated place than pretty much any other molecules I&#x27;ve ingested, so I was completely delighted to see it on MPT as well, and it was notably more intense than it had ever been on 4-HO-MPT and LSD, my best guess being because it&#x27;s a base tryptamine of course.
+Anyway, I was absolutely in love with the effects I was getting at this point, but also absolutely overwhelmed, especially considering that I had figured this dose wouldn&#x27;t be all that powerful. The overall dissociation from all the effects combined was making it hard to even process anything that was happening around me, and a couple times I had an experience that is more common on mushrooms than on DMT for me of suddenly becoming aware of my sensory perception again and thinking &#x27;Oh yeah, I&#x27;m hallucinating my ass off....&#x27; Nonetheless, I was well aware of the experience as a whole, and much like I often feel after smoking a higher dose of DMT, and also that I&#x27;ve felt to some extent on MET, the trips begin with a sudden feeling of &#x27;What the hell have I done to myself?&#x27; as such strong trips often do. I spent most of the peak rolling around in bed trying to grasp what was happening and get comfortable, which is not to say that I was particularly uncomfortable but simply didn&#x27;t know how to react or position myself in a way that wouldn&#x27;t overwhelm my senses. I was getting a thought process that I often get on DMT as well, that I really need to start taking better care of my body while I still have the chance, as I felt that I could sense it decaying in all the little ways that eventually add up to lead to our deaths, and it actually did give me some motivation to start working on myself again which I have not had in that exact way in quite some time, so that actually was nice all things considered.
+Finally, at T+0:15 just as I was wondering if this was ever going to end or if I would simply be stuck in a DMT-like trip forever, I started coming down a bit. All of the difficulty of the trip other than some of the heightened physical sensations immediately faded, and I felt completely lucid and functional, and it became easier to move around again too. Interestingly though, unlike DMT or MET for me at this point, the visuals were still quite strong and impressive, not compared to the peak of course, but just as a trip in general, just like when coming down from something like a high dose of mushrooms. I wanted to enjoy them for as much as I possibly could before they really started to fade, so I got up and headed out to the living room to put on some music.
+T+0:25 - I&#x27;ve been listening to a lot of calming music to help relax me into this great afterglow, and it&#x27;s been working quite well, though despite the theme of the music and the heavy nature of the peak I was finding myself with a good bit more energy to move around with now, more like MET than DMT for me. The visuals were still noticeable and quite significant when really watched but had gotten a little less intense at this point, but at the same time they were now being replaced with an orgasmic bodily euphoria not unlike the one I experience from 4-HO-MPT, and it was being accompanied by its own visual effect that I also once again got on 4-HO-MPT when I had the same feelings but never on other base tryptamines, a mind&#x27;s eye effect of a giant flower-shaped geometric design with the petals spinning around and buzzing and just creating this sort of jumpy, buzzy effect that adds to the orgasmic and energetic nature of this euphoria. My mind was beginning to race as well so I got up and started pacing around and getting lost in thought to the music, though at one point I noticed just how wired I was so I decided to check my heart rate. It was indeed a bit high, but of course I checked it immediately after stopping in place from walking frantically around the apartment, so I took a few deep breaths to calm myself down, sat down in a chair, and waited a minute to check again. It was definitely slower now, but still above normal. I don&#x27;t normally get increased heart rate from 4-substituted tryptamines, the ones I&#x27;ve used the most, so this concerned me slightly, but I know that elevated heart rate is common when smoking DMT and such, and this really wasn&#x27;t that fast in the end, so I just tried to put it out of my mind.
+[B]T+0:40/B] - At this point I noticed that, while not completely gone, the visuals were largely disappearing now. I did still have the euphoria going, which was quite nice, but I was also beginning to have a bit of a rebound headache kick in, not uncommon for me after strong psychedelics particularly when combined with cannabis, so I was considering taking a shower to help relax my body, which usually helps a good bit.
+T+0:55 - With the energy now pretty much gone and nothing left but a lingering body high and that headache, I finally decided to jump in the shower.
+T+1:15 - I&#x27;m out of the shower now, and it felt good in general, but while I was in there I notably started feeling some tension in my extremities, sort of like they were made of clay as another psychonaut recently said about 4-HO-MPT, and I will say in retrospect that I have noticed a similar though lesser effect on 4-HO-MPT, but it was never uncomfortable for me. This version of it was a bit stronger, I was feeling stiff and like I would probably have to just relax for a little while after this to keep myself comfortable.
+T+1:30 - Back in the living room, I put some music on again and enjoyed the bit of euphoria I was still feeling, but the body tightness was still getting to me, so I grabbed a beer. I did this because my general theory, though I have no real idea so don&#x27;t quote me on this, is that this tightness results from vasoconstriction caused by these bulkier indoles being more efficacious in activating 5-HT2A receptors than the natural ones, basically like the psychedelic amphetamines compared to their corresponding phenethylamines, and so therefore the vasodilating properties of alcohol could help reverse some of it. I really can&#x27;t say whether or not any of this is accurate, but I can say that the beer did help, as it has done for this feeling in the past.
+T+1:45 - I decided to take the last hit of the bowl I had loaded the MPT in before to see if I had actually gotten it all, and also because there was just a little bit of green cannabis still left in it. I easily got everything in one hit, but I never felt any psychedelic effects, even mild ones, begin to appear. I suppose my technique was a success, so yay.
+T+4:50 - My roommate and a mutual friend arrived not long after my last note so I spent a lot of time hanging out with them and not tracking what was happening to me anymore, but most of it was definitely over by the time of my last note anyway, aside from the slightly remaining tingly body high and the tightness. By this time both of those things were pretty much gone now too, occasionally they would make themselves known for a second, but other than that that was basically it.
+So, that concludes my first experience with MPT. I have to say... I was pretty impressed. It felt very much like an intersection of DMT, 4-HO-MPT, and a bit of LSD to me, which is pretty much exactly what I would have expected and hoped for, so in the end it was a pretty satisfying experience. The visuals in particularly were just fantastic.... Again, I feel the need to point out that it seems that I might be somewhat sensitive to some aspects of 4-HO-MPT compared to some, and that includes the visual effects, so it could turn out to be the case here too, but nonetheless... the visuals produced by MPT I would actually say were the strongest I&#x27;ve ever gotten from any research chemical psychedelic, at least in terms of the traditional, classic psychedelic visual feel, with tons of patterns, colors, distortions, heavy tracers, and so on; I say that just because I have also had some extremely visual experiences on things like ETH-LAD and 5-MeO-MiPT which I could argue were more intense in certain ways, but so far were specifically not as intense in this more traditional psychedelic visual way, instead being more dissociative or whatever in ways that are hard to compare to this. But, in that classic way, yeah, MPT was definitely the strongest for me, beating out even my recent experience with AL-LAD, which I would say is possibly the second most visual research chemical I&#x27;ve taken in this way so far.
+Outside of the visual experience, the headspace and body high were quite nice too, again very dissociative and orgasmic in a way that reminds me of 4-HO-MPT, so no complaints there. Pretty much the only negative was the heavy-ish body load that kicked in after the main effects wore off, so I would say be warned about that, though I do feel compelled to say that it didn&#x27;t bother me as much as I would have thought... though this may be because as of late I am actually getting myself into the mindset of learning to simply accept the heavy body load that some powerful psychedelics have as part of the experience, like the purge from ayahuasca for instance, and with each experience I have with this type of body load it does get less and less alarming or distracting, like I&#x27;m just adjusting to it. That doesn&#x27;t necessarily mean that others will find it so easy, but just some food for thought.
+One final note to I would like to make is that while this experience was clearly sub-breakthrough, it also completely felt like it had the potential to reach that breakthrough point. But, personally, I&#x27;ve never actually had a DMT breakthrough yet... so I&#x27;m somewhat nervous to push myself to that point on a research chemical before knowing what the experience is like on something that I know will be guaranteed safe first. For that reason, I may end up putting off further explorations with MPT for a bit.... I don&#x27;t want to waste it, after all, I want to be able to get the most out of each and every experience I have with it. The last time I tried DMT I didn&#x27;t particularly feel ready for a breakthrough, but that was actually many years ago now, and I&#x27;m quite confident that I could handle it and am excited to experience it at this point, so I think I just need to get myself some again and go all the way with it and then I&#x27;ll be able to pick up where I left off with this no problem. But, until then it will have to wait....
+So, that&#x27;s all I have to say about that for now, and I&#x27;d say I&#x27;m pretty happy about what I&#x27;ve experienced so far. Nonetheless, this is still a relatively unexplored psychoactive, so I would definitely urge caution to all those looking to explore it themselves, especially in higher doses considering the potential for body load. That being said, I do also think it&#x27;s likely that anyone who is sensitive enough to this molecule to receive strong effects like I do may be quite pleased by what they find in it, especially if they have similar psychedelic desires to myself, so I would recommend it to anyone looking for a potentially powerful trip who is also highly aware of their own body, in itself and its reaction to psychedelics, and prepared to handle an intense experience of any kind, positive or negative. As long as the proper care is taken, that&#x27;s really all you can hope for. But, that&#x27;s probably enough seriousness for now, so I&#x27;ll end it here and say farewell, my fellow travelers!
+Exp Year: 2017
+ExpID: 110916
+Gender: Female
+Age at time of experience: 26
+Published: Feb 9, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MPT (804) : General (1), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

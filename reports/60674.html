@@ -1,0 +1,342 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>布鲁格曼西亚 - 埃罗伊德探险 - &quot;雨林中的视觉&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/brugmansia.html'>← 木本曼陀罗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>布鲁格曼西亚 - 埃罗伊德探险 - &quot;雨林中的视觉&quot;</h1>
+<div class='sub-title'>Brugmansia - Erowid Exp - &#x27;Visions in the Rainforest&#x27;</div>
+<div class='meta'>作者：Ed Citation · 日期：Feb 13, 2007 · 剂量：1 cup · <a href='https://erowid.org/experiences/exp.php?ID=60674' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>在雨林深处的一个小村庄里,
+我绝对没有兴趣吃任何东西, 与度假旅行者不同,
+经过几周的教学和准备, 包括阿雅华斯卡仪式,
+只有回到祖国之后,
+我是他们村子里唯一的外国人.
+我在夜间徒步旅行中被美洲虎追踪了4个小时,
+那天早些时候,我在日记上写下了:
+我们必须在早餐后禁食.
+我和F要吃一口.
+艾和杰将会摄入阿亚瓦斯卡.
+我们将在林中过夜, 睡在吊床上.
+他们告诉我,F和我会在晚上失去五种感官, 我们会看到过去和未来的幻象.
+我已经准备好了.
+这并没有吓到我.
+唯一让我感到恐惧的是, 在四天前跟踪我们的美洲虎一样,
+他们知道雨林,植物,一切.
+这将是一个好晚.
+由于我神经系统中所有断断的连接都重新连接,
+这是几天后我日记中的一段短片,
+在我们喝酒之前, 我们先向老石头求助.
+我们都要求在吞下绿色混合物之前, 获得良好的愿景和指导.
+我走开,坐在一块倒下的木头上.
+没有人知道它是什么.
+我决定电厂没有工作, 也许是因为我还没有准备好.
+走回村庄,独自一人,没有光, 我遇到了E,
+他说我必须跟他一起回到山上.
+我坚持要回到村庄和床上,因为什么都没有发生.
+然后我们都会再次听到它.
+这两只美洲虎.
+遥远,但越来越近.
+这解决了问题.
+我正在回到村子.
+他静静地站着,我去找F,把他从吊床上拉出来,
+我们停在那个小柱子上.
+&quot;你不能回到村子.
+在你吃完果之后,
+一只黑色的大美洲虎飞向我们.
+他的矛被抛到一边, 不知怎么的把他的右肩开了.
+他们扎在我的昏暗的灯光.
+尽管有伤口, E却用双手杀死了怪物.
+灯火开始淡.
+我认为电池灯会灭掉.
+电池并没有耗尽, 而是视力.
+我眼睛的视力是如此的模糊, 没有点亮灯.
+我觉得F现在一定是昏迷了.
+另外两只美洲虎也来了.
+我说:&#x27;我们应该与这两个人战斗,然后跑到村子里.
+我们不能.
+首先,我受伤了
+你和F必须在这里过夜,
+我眼睛的视力变得淡,你的伤口将会更大的损害, 疼痛和硬开始,
+两对闪闪发光的眼睛, 慢慢地起, 看着我们,
+我没有想到为什么麦古亚不起作用.
+我很忙地计算着,
+&quot;我不敢相信!
+我不能相信它!
+我从来没有见过这么多的美洲虎经过我们的领土.
+我比思考美洲虎是如何到达那里更担心.
+那是我第一次想到&#x27;如果这不是真的呢?
+我还在村里睡觉,我只需要醒来.&#x27;我把自己扔在吊床上,睡着了,醒来时,还在吊床上.
+所以这不是一个梦.
+我小小的打也没有帮助.
+更多的猫在四处旋转,五六只.
+我试图唤醒F但他只半微笑,在他的语言,并转过来.
+而E已经不见了.
+一个女人和几个孩子为E和他的住宿带来食物.
+从村子爬下来.
+我试图告诉他们他们不能继续.
+他们必须回头.
+女人拒绝,但听到美洲虎的声,看到E的大猎物,她决定在这个哨所等待他的回归.
+她的孩子们把一些毯子扔在竹地板上,
+我无法唤醒他们.
+现在我绝对不能去寻求帮助.
+它们几乎在踩着孩子们的脚.
+一个慢慢下,但他的眼睛看着我的,用脚在他的下巴住一个孩子,慢慢地开始把他拖走.
+我从来没有杀过比更大的东西, 但我不能犹.
+我抓住一个燃烧的木头, 让它撞到他的头上.
+猫把孩子扔下,翻过来,死了.
+我转过身来也撞到了那只毒蛇.
+但第一击,它变成了一块木头.
+然后,E在那里说他会帮助我们一段时间, 但后来F和我真的必须去另一个山.
+我希望我们都能立即和积极地到达村庄.
+另一家人走过这条路,那个男人甚至带着枪.
+他们用他们的语言聊天.
+&quot;你知道吗?&quot;我说道.
+两个孩子决定和我们住在一起,
+我们要回到神圣的山.
+现在!&#x27;E命令,尽管我的抗议.
+他的坚持和真诚的表情让我再次想到,
+我只需要通过一些测试,我想.
+我应该尊重那些试图教导我的人.
+我可以回到山上的吊床上, 相信E的判断力,
+但如果它是真实的?
+错误的决定是生与死.
+我问:&quot;孩子们呢?
+他们也必须学会不害怕.
+让他们学习&quot;,他说.
+我不能离开他们.
+我知道无所畏惧是战胜美洲虎的重要因素之一.
+我会在考试中失败,
+我不懂武术, 很难拿刀, 真的讨厌杀人.
+但是我不会离开孩子.
+&quot;我没有去&quot;,我说严厉地.
+然后, &#x27;请留下,我们需要你.
+艾里告诉我:&quot;你必须保持冷静和无畏.
+我不是害怕或疯狂.
+我只是无法保护这些睡着的孩子在这个可怜的小屋.
+我回答说:&quot;我的眼睛正在变得昏暗.
+实际上,我唯一能看到的就是黑色美洲虎.
+他们是黑暗的斑点黑比黑的闪亮的眼睛.
+我终于坐在吊床上, 猫们看着我们,
+他们中的一些人很少搬家.
+我没有动.
+我必须回到山上.
+我拒绝了.
+我说服E坐在吊床的另一端,
+这样开始了等待.
+它们几乎不动, 慢慢地向前走, 然后冲进来!
+由于某种原因, 它们更多地攻击我被毯子从身体部位出来的地方.
+他们攻击我最多.
+我会尽可能地呆在毯子下.
+有时,我听到E疯狂地喊道:&#x27;掩盖!
+我会把毯子扔到我的头上,
+经过很长一段时间,我们非常累.
+他开始打,有时我无法唤醒他.
+猫似乎也疲不堪.
+[然后我的讲述变成了几页毫无意义的短语,
+故事持续了二十页左右, 充满了我在接下来的两天里经历的详细经历.
+有时我会以第三人称呼自己,有时甚至用&quot;他&quot;而不是&quot;她&quot;.
+几天后,我意识到,尽管在整个经历中我一直认为这种植物没有起作用,
+我不知道我是在&quot;幻觉&quot;, 因为一切对我来说都是真实的.
+根据E的说法,我必须被绑住, 因为我在山顶上肆意漫步,
+我也曾用燃烧的棍子攻击木头,
+有一次,我逃脱了,他们发现我站在火中,我们一直在山顶上.
+奇迹般地,我没有被烧伤.
+两天来, 我用英语回答所有问题,
+他们会用西班牙语告诉我说我说英语时他们不能理解我, 我会很生气告诉他们我在说西班牙语...
+几天后我写这篇报道时, 我还看不清,
+我很震惊地发现马库亚是布鲁格曼西亚,
+尽管如此,我已经准备好了.
+我在心理,情感和身体上接受了40多年经验的土著治疗师的训练.
+他们的传统不允许&quot;反对&quot;你的异象.
+他会回答&quot;是的&quot;, 问我是否害怕.
+我会回答&#x27;不&#x27;. 他们的文化认为这种植物有助于准备好的人战胜他们的恐惧,
+我总是有两个&#x27;看守&#x27;,真正的导游会问我关于我的异象, 问我我对我所看到的任何东西的恐惧.
+如果我没有这些指南, 我可能会失去理智, 尤其是在接下来的几天里,
+他们教导我保持冷静, 像是真正的敌人一样对抗任何&quot;坏&quot;的幻象.
+幸运的是, 因为这种东西可以杀死你或送你去精神病房.
+甚至他的一个亲戚也失去了两周的头脑,
+我很感激我学到的东西,
+你会变得完全精神分裂.
+它不像一般的幻觉剂,
+你完全沉浸在一个令人信服的另类现实中,
+我尊重那些在精神上使用这种植物的土著文化,
+这种植物是他们知道的最强大的植物.
+这种植物是什么?
+其他:
+布鲁格曼西亚 (84):自然/户外 (23),实体/生物 (37),导游/保姆 (39),宿醉/几天后 (46),困难经历 (5),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Get the Erowid &quot;Words&quot; T-shirt
+Contribute $50
+and show support for accurate drug information!
+Visions in the Rainforest
+Brugmansia
+by
+Ed
+Citation:   Ed. &quot;Visions in the Rainforest: An Experience with Brugmansia (exp60674)&quot;.
+Erowid.org
+. Feb 13, 2007. erowid.org/exp/60674
+DOSE:
+1 cup
+oral
+Brugmansia
+(tea)
+BODY WEIGHT:
+120 lb
+The indigenous healers were teaching me about their lives and medicine in a small village deep in the rainforest. I showed absolutely no interest in ingesting anything, and unlike vacationing trippers, had never had any intention of even trying ayahuasca in the rainforest. However, after weeks of instruction and preparation, including ayahuasca ceremonies, my new teachers decided that I was prepared and should participate in a final ceremony using a plant they call maikuia. Only after returning to my country did I finally figure out what maikuia was in English. I was the only foreigner in their village. Some background information, a few days before I had been stalked by jaguars for four hours during a night hike, so that was fresh in my mind.
+This is what I wrote in my journal early that day:
+We have to fast after breakfast. F and I are going to ingest maikuia (floripondio). E and J are going to ingest ayahuasca. We will pass the night in the jungle, taking hammocks to sleep in. They tell me that F and I will lose our five senses for the night and we will have visions of the past and of the future. I am ready. It does not scare me. The only thing that gives me fear is being without my senses where there are jaguars like those that stalked us four nights ago. But, we will be four people, and they know the rainforest, the plants, everything. It will be a good night. Tomorrow I will have to rest for the whole day as all the broken connections of my nerve system reconnect.
+This is a short excerpt from my journal several days later, when I had regained enough vision to write:
+We ask the old stone our favors before we drink. We both ask for good visions and direction before swallowing the greenish concoction. I wander off and sit on a fallen log. F wanders off in the opposite direction. After an hour or more watching the darkness fall around me, I decided that the plant has not worked and perhaps it is because I am not ready.
+Marching back to the village, alone and with no light, I meet E, who is on his way to take care of us. He says I must come back with him to the mountain. I insist on going back to the village and bed, as nothing is happening. Then we both hear it again. The two jaguars. Far away, but coming closer.
+That settles it. I am heading back to the village. He stands silently as I go and retrieve F, lug him out of his hammock and slip back down the mountain.
+There is another small post like the one on the mountain, and there we stop.
+&#x27;You cannot go back to the village. It is forbidden for you to go there after you have ingested maikuia,&#x27; says E.
+Just then, a large black jaguar, tall as E&#x27;s shoulder flies toward us in the night. His spear is flung to the side and somehow gashes his right shoulder open. They struggle in my dim lantern light. E ends up killing the monster with his bare hands in spite of the wound. The lantern lights begins dimming. I think the battery light is going out.
+My battery wasn&#x27;t dying, my eyesight was. My vision was so dim there was no point in turning on a light. I think F must be in a maikuia coma now.
+Two more jaguars arrive.
+&#x27;We should fight these two and run to the village,&#x27; I say.
+&#x27;We can&#x27;t. First, I am injured. You are weak, and you and F must stay here for the night after taking our sacred plant.&#x27;
+&#x27;My eyesight&#x27;s dimming, your wound will be more of a detriment as the pain and stiffness set in, and look... more.&#x27;
+Sure enough, two more pairs of gleaming eyes, crunching up slowly, watching us, but hesitating as they see the great dead cat at E&#x27;s feet. I don&#x27;t think about why the maikuia isn&#x27;t working. I am busy calculating and trying to stay calm.
+&#x27;I can&#x27;t believe it! I can&#x27;t believe it!&#x27; E calls. &#x27;I&#x27;ve never known so many jaguars to pass through our territory.&#x27; This doesn&#x27;t sound like happy news. And I have bigger worries than thinking about how the jaguars came to be there.
+Then was the first time I thought &#x27;What if this isn&#x27;t real? I am dreaming in my bed back in the village, and all I must do is wake up.&#x27; I throw myself on a hammock, fall asleep, and wake up, still on that hammock. So this wasn&#x27;t a dream. And my little snooze hadn&#x27;t helped. More cats were circling, five or six. I tried to rouse F but he&#x27;d only half-smile, mumble in his language, and turn over. And E was gone.
+Out of nowhere came human voices, a woman and a few children bringing food for E and his overnight stay. Climbing down from the village. I try to tell them they must not go on. They must turn back. The woman refuses, but hearing the crackle of the jaguars and seeing the large prey of E, she decides to wait down at this post for his return.
+To my dismay, her children throw some blankets on the bamboo floor, no walls, half-finished hut, and they fall fast asleep. I could not rouse them. Now I definitely could not go for help. The jaguars have given up subtlety and are practically tramping on the feet of the children. One bent down slowly, but his eyes looking in mine, clamped a child by the foot in his jaws and slowly began to drag him away.
+I had never killed anything larger than a cockroach in my life, but I couldn&#x27;t hesitate. I grabbed a burning log and let it fall crashing over his head. The cat dropped the child and rolled over, dead.
+Just then I noticed the poisonous snake, a toadheaded pitviper, crawling from our fire, I turned and hit that too. But with the first blow, it turned into a log.
+Then, E was there and said he would help us for awhile, but then F and I really must go to the other mountain. I wanted us all to get up to the village right away and agressively.
+Another family came down the path, the man even had a gun. They chatted in their language.
+&#x27;Tell them to help us!&#x27; I frantically command, probably in English.
+Two of the kids decide to stay with us, to my dismay.
+&#x27;We are going back up the sacred mountain. Now!&#x27; E commanded, despite my protests.
+His insistent and sincere expression puts the thought to my mind, again, that this isn&#x27;t real. All I have to do is pass some test, I think. I should respect those who try and teach me. So I could go back to the hammocks on the mountain, trust E&#x27;s judgment, and get a good grade on this test.
+But if it IS real? The wrong decision is life and death.
+&#x27;And the children?&#x27; I ask.
+&#x27;They must learn to have no fear, too. Let them learn,&#x27; he says. I can&#x27;t leave them.
+I knew that fearlessness was only one factor in winning a battle against the jaguars. So I&#x27;d fail the test and look silly. I knew no martial arts, could hardly sheathe a knife, and really abhorred the idea of killing anything. But I would not leave the children.
+&#x27;I&#x27;m not going,&#x27; I said harshly. Then, &#x27;Please, stay, we need you.&#x27;
+&#x27;You must be calm and unafraid,&#x27; E tells me.
+&#x27;I&#x27;m not scared or frantic. I just can&#x27;t protect these sleeping children in this poor hut. My eyes are going dim,&#x27; I reply.
+In fact, the only thing I could see were the black jaguars. They were splotches of darkness blacker than black with brilliant eyes.
+I sat down finally on a hammock, the cats watched us, but did nothing. Some of them rarely moved. I did not move. E told me F and I must go back up the mountain. I refuse. I convince E to sit for awhile on the other end of my hammock, trying to keep him there.
+And thus began the waiting. The cats would hardly move, inching forward so slowly, then pounce! For some reason, they attacked more where I had a body part out of my blanket. And they attacked me the most. I would stay under the blanket as long as possible. Sometimes, I heard E frantically crying &#x27;Cover up! Cover up!&#x27; I would throw the blanket over my head and E would beat the jaguar back.
+After a long time of this, we were very tired. He began snoring and I couldn&#x27;t wake him up sometimes. The cats seemed to tire out, too.
+[Then my account goes into phrases that make no sense at all for a few pages, and then it starts making sense, but I switched to referring to myself in third person. The account continues for twenty-ish pages, filled with detailed experiences that I live over the next two days. Sometimes, I refer to myself in third person, sometimes even as &#x27;he&#x27; instead of &#x27;she.&#x27; Sometimes I lapse into nonsense phrases or Spanish.]
+After a few days, I realize that although I had thought during the whole experience that the plant had not worked, I had actually entered a deep schizophrenic psychosis. I had no idea I was &#x27;hallucinating&#x27; as everything seemed completely real to me. According to E, I had to be tied up as I was violently roaming the mountaintop, convinced I was saving children from stalking jaguars. I also had been attacking logs with burning sticks, convinced they were vipers. One time, I escaped and they found me standing in the middle of the fire we kept going on the mountaintop. Miraculously, I was not burned. For two days, I answered everything in English, convinced I was speaking Spanish. They would tell me in Spanish that they could not understand me when I spoke English, and I would get annoyed telling them I WAS speaking Spanish... though I was not. When I wrote this account days later, I could still barely see, and reading some of the nonsense I wrote, I was still not all there.
+I was shocked to learn that makuia was brugmansia and probably would have never agreed to go on that vision quest had I known at that time. However, I was about as prepared as you can be. I was psychologically, emotionally, and physically trained by indigenous healers with over forty years of experience. It is against their tradition to &#x27;speak against&#x27; your visions. Therefore, when I asked the shaman, for example, if he saw the jaguars I saw, he would reply &#x27;yes&#x27; and ask me if I was afraid. I would reply &#x27;no.&#x27; Their culture believes this plant helps the prepared person conquer their fear as they combat enemies in visions that last for days. I always had two &#x27;sitters,&#x27; really guides that would ask me about my visions and ask me about my fear of whatever I saw.
+If I had not been with these guides, I probably would have lost my mind, especially over the next few days, as I began to weave back and forth between lucidity and insanity without my vision. But they taught me to be calm and to fight any &#x27;bad&#x27; vision as if it were a real enemy.
+I took a dosage prepared by someone with dozens of years of experience, fortunately, as this stuff can kill you or land you in a psych ward. Even one of his relatives lost his mind for two weeks and wandered off in the jungle, lost for almost a month.
+I am grateful for what I learned but would never ever ever do this again. You go completely schizophrenic. It is not like a normal hallucinogen that makes you see your friends face melt off or makes you see squiggly lines in the wallpaper. You are totally immersed in a convincing alternate reality while your body here on earth crashes around violently, hurting yourself, your surroundings, and even the people around you.
+I respect the indigenous cultures who use the plant spiritually, but even they do not do it more than a few times in their life. It is the most powerful plant they know. NEVER mistake this plant for a recreational drug!
+Exp Year: 2006
+ExpID: 60674
+Gender: Female
+Age at time of experience: Not Given
+Published: Feb 13, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Brugmansia (84) : Nature / Outdoors (23), Entities / Beings (37), Guides / Sitters (39), Hangover / Days After (46), Difficult Experiences (5), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

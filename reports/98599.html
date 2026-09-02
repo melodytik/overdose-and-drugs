@@ -1,0 +1,298 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>在我的私人空间里滚动</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2-hydroxycocaine.html'>← 2-hydroxycocaine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>在我的私人空间里滚动</h1>
+<div class='sub-title'>MDMA &amp; Cocaine - Erowid Exp - &#x27;Home, Rolling in My Personal Space&#x27;</div>
+<div class='meta'>作者：Muscaria Citation · 日期：Feb 3, 2023 · <a href='https://erowid.org/experiences/exp.php?ID=98599' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>国内首次车的经验
+我决定在卧室里放松一下.
+晚上6点左右吃了一些.
+在晚上7点左右服用了50毫克的5-HTP和500毫克的维生素C.
+我不想过度准备.
+担心自己会陷入抑郁症.
+我在我的房间里独自休息,
+现在的非理性恐惧:我必须与我的室友互动,
+我决定随身携带笔记本电脑, 听音乐, 在私人空间,
+我过去只吸过可卡因和大麻, 所以这些是我对身体/精神高潮的参考点.
+~晚上9点45分
+在纸上扔掉囊.
+MDMA 闪闪发光, 晶体是可见的, 诱人的.
+这让我想起了我读过的描述, 好的MDMA应该是什么样子,
+大约75毫克,大约25毫克.
+立刻感觉到一个大气的高.
+可乐通常会让我感到&quot;疏远&quot;和&quot;冷静&quot;,
+不会描述这种感觉为&quot;高兴&quot;.
+在我的笔记本电脑上播放舞蹈/科技音乐和上网.
+音乐听起来很好--这与我吸食大麻后听到的音乐相比--
+我对音乐的感觉非常深刻.
+晚上10点15分
+我还能感觉到滴水和MDMA的味道在我的喉.
+只是看起来像一个可口可乐滴滴,并没有真正的味道那么可怕.
+更多地感觉到我脑海中的&#x27;距离&#x27;/&#x27;气氛感觉&#x27;.
+音乐中的节奏和细微之处,
+听Jocelyn Enriquez的&quot;你想念我吗 (梦想室混音) &quot;这让我感觉很好.
+晚上10:45分
+在音乐/头部距离的感觉方面,
+回答了一封我帮助某人解决一些个人问题的电子邮件, 并且对我以非正常的方式给他们的建议感到非常满意.
+感觉异常积极,
+打电话给一个曾在过去过的朋友, 讨论当前的经历.
+晚上11点
+在电话里和朋友谈论经验.
+只是为了传达我在回复邮件时的积极感受.
+我觉得自己比可乐更会说话,甚至更会说话.
+问我是否有更多的说话,朋友同意我.
+感觉平静,挂衣服,收拾我的房间.
+实际上,我真的很乐意回家,在我的个人空间里.
+我通常不喜欢的任务,
+晚上11点15分
+感觉有点像我已经稳定/达到平原.
+虽然触摸不一定是&quot;感觉良好&quot;,
+我经常把头发拉回来.
+我几乎怀疑我会下来,但希望我不是.
+我预计这会比实际情况更激烈.
+我想知道这是因为大多数人服用200毫克左右,
+恐怕我无法与其他人类互动/离开我的卧室已经消失.
+感觉我可以出去做正常人.
+如果有人叫我走过来, 在酒吧见面,
+我很烦,因为我不能同时打电话和听大声的音乐,
+晚上十一点半
+我已经达到高峰.
+考虑将可乐加入混合物中.
+我仍然感到非常平静和冷静, &#x27;障碍已经消失&#x27;的感觉仍然存在.
+现在我觉得这是一种很正常的感觉,
+这让我想起了整夜工作的感觉.
+这种尸般的觉醒感太久了,
+晚上11:45分
+感觉好像我已经下来了.
+评估了情况.
+虽然我在影响下, 客观上感觉安全做一条可乐线没有一个可怕的想法.
+在做一系列的可卡因.
+在凌晨12点
+绝对感觉像是可卡因混杂在MDMA驱动的寒冷.
+经历了牙和牙麻木, 但没有真正感觉到一个大的上部从它.
+很可能不会再做一次, 只是因为感觉像是浪费可卡因.
+我确实感到有点失望, 因为我正在慢慢地从一个平原下降,
+我很难过我下来了, 但不一定会感受到下来所引起的恶名昭著的负面副作用.
+想知道我现在是否应该服用5-HTP+维生素,
+上午12点15分
+在互联网上写这篇经历日志真是令人丧.
+我认为我会在我的房间里跳舞,然后称之为一个晚上,除非有什么事件发生.
+上午1点15分
+非常积极的经验.
+虽然我仍在享受音乐,
+服用了50毫克的5-HTP和500毫克的维生素C.
+在上午2:15
+保持清醒一点,感觉相当清醒在这个点.
+我在使用MDMA的大部分时间里,
+我觉得我的头脑再次清晰/敏.
+听音乐的感觉有点&quot;超越&quot;正常的音乐听力,
+很快就会睡觉了.
+积极的一面是,我很高兴MDMA不是这次激烈的精神病体验,
+我很担心失去单独的MDMA处女会是一个糟糕的/浪费的经历,
+但是我可以看到,如果我在球可能会有点可怕独自做.
+现在我已经克服了对毒品的担忧, 我觉得我可以在社交场合做得更多,
+如果有一件事我之前没有注意到,
+我不敢相信已经过了凌晨2点了,
+现在我听的技术/舞蹈/豪斯音乐让我感到厌倦和烦,
+上午三点
+查看我的日志并进行编辑.
+现在回想起来, 做莫莉似乎是一个非常微妙的经历.
+我不确定我能描述它给任何人如果我没有做这个日志.
+现在回想起来, 做莫莉似乎是一个非常微妙的经历.
+我不确定我能描述它给任何人如果我没有做这个日志.
+我认为这次经历最独特的是我感觉到一切都很好, 世界和障碍都在崩,
+我确实感觉到了它的&#x27;真相血清&#x27;方面,
+过去可卡因给我带来了一种&#x27;一切都好&#x27;的感觉,
+我觉得我几乎没有抓到这药的表面, 因为我的经历与所有关于滚动的故事相比,
+上午10点
+没有宿醉,没有悲伤,醒来时感觉充满乐观和新鲜感.
+像往常一样过正常的一天, 对莫莉有了新的欣赏.
+其他:
+发布时间:2023年2月3日
+MDMA (3),二可卡因 (685):组合 (3),第一次 (2),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Home, Rolling in My Personal Space
+MDMA &amp; Cocaine
+by
+Muscaria
+Citation:   Muscaria. &quot;Home, Rolling in My Personal Space: An Experience with MDMA &amp; Cocaine (exp98599)&quot;.
+Erowid.org
+. Feb 3, 2023. erowid.org/exp/98599
+DOSE:
+T+ 0:00
+50 mg
+oral
+Tryptophan - 5-HTP
+T+ 0:00
+500 mg
+oral
+Vitamin C
+T+ 0:00
+75 mg
+oral
+MDMA
+T+ 0:00
+25 mg
+insufflated
+MDMA
+T+ 2:00
+1 line
+insufflated
+2-hydroxycocaine
+T+ 3:30
+50 mg
+oral
+Tryptophan - 5-HTP
+T+ 3:30
+500 mg
+oral
+Vitamin C
+BODY WEIGHT:
+150 lb
+Domestic Rolling First Time Experience
+Before: First time rolling and I&#x27;ve decided to do it in my bedroom while I just relax. Had some wonton soup around 6pm. Took 50mg of 5-HTP &amp; 500mg Vitamin C around 7pm. Slightly nervous about serotonin syndrome, so I don&#x27;t want to overdo it with prep. Nervous about come-down and depression. I&#x27;m chilling alone in my room as I type this. Current irrational fears: I&#x27;m going to have to interact with my roommates while fucked up or interact with my cat and pet him to death. Deciding to roll with my laptop near by, listening to music, hanging out in my personal space, going to attempt to log my MDMA experience every 15 minutes or so. I&#x27;ve only done coke and smoked weed in the past, so these are my reference points to bodily/mental highs.
+~9:45pm
+Dumped capsule out on sheet of toilet paper. MDMA was shimmery, crystals visible and enticing. Reminds me of a description I read of what good MDMA should look like, starting to feel positive that this is quality stuff.
+Parachuted approximately 75mg, bumped approximately 25mg.
+Instantly felt an atmospheric high. From personal experience, coke usually makes me feel &#x27;distant&#x27; and &#x27;chill&#x27; and the feeling of MDMA is really analogous to that at this point. Would not describe feeling as &#x27;euphoric&#x27;. Putting on dance/techno music on my laptop and surfing the web. Music immediately sounds good--it&#x27;s comparable to how music sounds to me after smoking weed… not exactly the same at all, but it&#x27;s close to that feeling of connecting to music. I feel very appreciative of the music in a subtle way.
+10:15pm
+I still feel the drip and the taste of the MDMA in the back of my throat. Just seems like a coke drip, doesn&#x27;t really taste that horrible. Feeling that &#x27;distance&#x27;/&#x27;atmospheric feeling&#x27; in my head more. The beats and subtleties in the music are very appealing to me and standing out more. Listening to &#x27;Do You Miss Me (Dreamhouse Mix)&#x27; by Jocelyn Enriquez and it&#x27;s doing me right.
+10:45pm
+Still feel the same in terms of music/head distance feeling. Responded to an email where I helped someone figure out some personal problems, and feeling really good about the advice I gave them in an abnormal way. Feeling unusually positive, a little &#x27;weight off my chest&#x27; feeling. Calling a friend who has rolled in the past to discuss current experience.
+11:00pm
+Talking on phone with a friend about experience. Related the story of answering the email and felt like it took me a long time to tell an otherwise uninteresting story just to convey the positive feeling I felt from answering the email. I feel a LOT more talkative, even more-so then when on coke. Ask if I&#x27;m noticeably more talkative, and friend agrees I am. Feeling calm, hanging up clothes, picking up my room. Actually feeling really positive about just being home, rolling in my personal space. Tasks I usually begrudge ie: picking up clothes and hanging them in the closet feel &#x27;easier&#x27;.
+11:15pm
+Feeling a little bit like I&#x27;m stable/reached a plateau. Although touch doesn&#x27;t necessarily &#x27;feel good&#x27; in the way people talk about heavy petting with rolling, I&#x27;m definitely touching my head/hair a lot more. Slicking my hair back frequently. I almost suspect I&#x27;m coming down, but hope I&#x27;m not. I expected this to be a lot more intense than it was. I wonder if it&#x27;s because most people take around 200mg or because I got a weak capsule of molly. The fear that I wouldn&#x27;t be able to interact with other humans/leave my bedroom is gone. Feels like I could go out and be normal. The barrier I would usually feel trying to make plans this late at night is gone--if someone called me to walk over and meet them at a bar, I would do it. I&#x27;m experiencing annoyance over the thought that I can&#x27;t talk on the phone and listen to loud music at the same time so I&#x27;m getting off the phone so I can listen to music more.
+11:30pm
+About 90% sure I&#x27;ve peaked. Considering introducing coke to the mix. I still feel very calm and chill, and the &#x27;barrier is gone&#x27; feeling remains. The heady/distant feeling feels very normal now, like I&#x27;ve grown used to it. It kind of reminds me of the feeling of pulling an all-nighter. That zombie-feeling of being awake for too long and distant from the world.
+11:45pm
+Feel like I&#x27;m coming down. Evaluated the situation. Although I&#x27;m under the influence, it objectively feels safe to do a line of coke without it being a horrible idea. Doing a line of coke.
+12:00am
+Definitely feel like the coke blended in with the MDMA-driven chillness. Experiencing numb gums and teeth, but not really feeling a big upper from it at all. Probably would not do again, just because it feels like a waste of coke. I do feel a little disappointed that I&#x27;m slowly coming down from a plateau, and definitely understanding why people tend to pop a second pill. I&#x27;m sad I&#x27;m coming down, but not necessarily feeling any of the notorious intense negative side effects of coming down. Wondering if I should take 5-HTP + vitamins now or just chill out and ride this out a little more.
+12:15am
+Being on the internet and typing this experience log is a bummer. Think I&#x27;m going to dance around my room and then call it a night, unless anything eventful happens.
+1:15am
+Dance for awhile by myself--very positive experience. Still enjoying music &amp; have that foggy feeling, but I definitely feel a lot more &#x27;sober&#x27; than before. Took a 50mg 5-HTP &amp; a 500mg Vitamin C.
+2:15am
+Stayed awake for a bit, feeling pretty sober at this point. The spacey/distant feeling that clouded my head for most of my time on MDMA is mostly faded. I feel clear-headed/sharper again. Still enjoying music in a way that feels a little &#x27;beyond&#x27; normal music-listening, but perhaps this is just an afterglow of sorts. Getting tired and ready to go to bed soon. On the positive side, I&#x27;m glad MDMA wasn&#x27;t this intense psycho experience that&#x27;s going to leave me depressed for three days. I was nervous that losing my MDMA virginity alone was going to be a bad/wasted experience, but I think because I only did a little or perhaps had weaker molly, I feel really positive about this entire thing. But I could see if I was tripping balls that it could be a little scary to do alone. Now that I&#x27;ve gotten over my anxieties about the drug, I feel like I could do more in a social setting and roll a little more hardcore next time.
+If there&#x27;s one thing I hadn&#x27;t noted before, it&#x27;s definitely that time went by fast. I can&#x27;t believe it&#x27;s already after 2am, it does NOT feel like 4 hours went by. The techno/dance/house music I was listening to all night now feels tiresome and annoying, so I put on relaxing acoustic music.
+3:00am
+Went over my log and edited it. In retrospect, doing molly feels like a very subtle experience. I&#x27;m not sure I could describe it to someone if I didn&#x27;t make this log.
+In retrospect, doing molly feels like a very subtle experience. I&#x27;m not sure I could describe it to someone if I didn&#x27;t make this log.
+I&#x27;d say the most unique thing about this experience is when I had a sense of all being right with the world and barriers breaking down so I felt less nervous about my apprehensions. I definitely felt the &#x27;truth serum&#x27; side of it in a way that is analogous to the honesty that comes from alcohol. In the past, coke has brought me an &#x27;all is right&#x27; feeling, but not to this degree. Definitely feeling like I barely scratched the surface of this drug because my experience was so tame compared to all the stories one hears about rolling, but it was a nice first dance with molly.
+10:00am
+No hangover, no sadness, woke up feeling positive and refreshed. Going about the normal day as usual with a new appreciation for molly.
+Exp Year: 2012
+ExpID: 98599
+Gender: Male
+Age at time of experience: 25
+Published: Feb 3, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDMA (3), 2-hydroxycocaine (685) : Combinations (3), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

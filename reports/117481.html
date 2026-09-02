@@ -1,0 +1,216 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>化 - 埃洛维德的使用 - &quot;错误的袋子&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/fluorophenibut.html'>← Fluorophenibut</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>化 - 埃洛维德的使用 - &quot;错误的袋子&quot;</h1>
+<div class='sub-title'>Fluorophenibut - Erowid Exp - &#x27;Wrong Bag&#x27;</div>
+<div class='meta'>作者：khmerrouge Citation · 日期：Oct 25, 2023 · 剂量：1 g · <a href='https://erowid.org/experiences/exp.php?ID=117481' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>这是一个关于4F-Phenibut (Fluorobut) 的经验报告.
+在过去的几年里,我偶尔尝试使用4F-Phenibut和Phenibut (没有产生耐受性).
+我已经使用了高达1. 7克的Phenibut (我认为这已经太强烈了我的需求) 和高达200毫克的4F-Phenibut.
+我喜欢这种情况. 现在,
+我决定重新开始断断续续的禁食, 过去我已经这样做了7到8个月,
+很遗憾, 在几个月之内, 所有体重都回来了,
+现在, 我遵循16:8标准的饮食时间表, 这意味着我每天8小时都吃饭, 剩下的16小时都禁食 (只喝水, 不吃零食或任何东西;
+我每周做六天, 星期天不做.
+这种方法过去对我有所帮助,
+我觉得要在周末服用一些Phenibut, 按照常规的方式服用,
+开始时, 一样是常常,
+我很容易被任何能吸引我的注意力的东西所分散.
+这是一个有点不同于平常的第一个迹象.
+接下来的几个小时里, 我变得越来越醉了, 有点焦躁, 难以集中视力,
+我变得越来越醉酒,有点, 很难集中我的视力,
+这有点类似于使用分离词.
+我感到非常疲,
+我夜,等待女朋友在外出后回家.
+我觉得好像睡着了, 但每当我能集中注意力去做需要集中注意力的东西时,
+我很高兴和情感再次见到她, 感觉像沉浸在她当过度拥抱和亲吻发生.
+我很口, 有一些有趣的想法/见解和回忆,
+我们终于关灯睡觉了.
+对于我的女朋友来说, 这是一个相当艰难的夜晚, 因为在我们漫长的拥抱和谈话中,
+我对此没有任何记忆.
+她开始担心, 因为我经常有呼吸暂停.
+她估计这些停顿时间长达20秒,
+她反复醒我, 告诉我继续呼吸,
+晚上我抱着她, 她几乎没有空间躺在床上.
+我经常与她接触, 拥抱她甚至躺在她身上, 这进一步阻碍了她得到一个安静的睡眠.
+显然我正在大量出汗,
+我在黑暗中摸索着去所.
+我住在同一间公寓里已经10年了,
+我开始摸索在关闭的门周围寻找把手柄.
+听到我的女朋友从一个完全意想不到的方向问我在做什么?
+想打开门去洗手间, 但实际上打开门意味着离开公寓, 走到大多公共的楼梯.
+这实际上是一个很有趣的情况!
+后来我和睡觉的女朋友的对话变得非常奇怪 (当时我不这么认为,
+我对女朋友的问题和言论的回应显然毫无意义.
+星期天早上我感觉有点好一些,
+我们下午又睡了两个小时左右.
+我几乎没有食欲, 但我的女朋友还是去购物,
+在她吃了温暖的晚餐后,
+我仍然比平常更有同情心, 能够专注于弹钢琴, 常常感觉到周围的色彩和气氛更加强烈.
+这让我想起了在迷幻药物后的光.
+我也觉得第二天的夜晚更糟糕.
+我醒了几次, 觉得很难重新入睡.
+没有人能让我感觉到这一切.
+我再次出汗, 这次我还流出大量的唾液.
+现在已经有近48小时了,
+我很难找到正确的词汇与同事交谈时, 我用了完全不合适的,脱离背景的替代词来代替其他容易记住的表达式,
+所以,记忆问题似乎还在继续.
+我也似乎不自然地放松 (我不介意) 我感到脱水.
+我才意识到我犯了一个可能非常严重的错误.
+我错误地使用了标有4F-Phenibut的袋子.
+我错误地使用了标有4F-Phenibut的袋子.
+填充了两个500毫克的凝盖一个克!
+难怪这件事像货运列车一样袭击了我.
+根据在线信息,400600毫克的4F已经很强,
+我为我的错误付出了代价,
+这是一次强大而又漫长的旅程, 但幸运的是,
+人们要小心做好准备的每一步!
+检查包装上的标签.
+时间表: 117481
+发布时间:2023年10月25日
+这里有什么东西?
+(26), 列车残骸和旅程灾害 (7), 其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Wrong Bag
+Fluorophenibut
+by
+khmerrouge
+Citation:   khmerrouge. &quot;Wrong Bag: An Experience with Fluorophenibut (exp117481)&quot;.
+Erowid.org
+. Oct 25, 2023. erowid.org/exp/117481
+DOSE:
+1 g
+oral
+Fluorophenibut
+(capsule)
+BODY WEIGHT:
+98 kg
+This is an experience report concerning 4F-Phenibut (Fluorobut).
+I have experimented with 4F-Phenibut and Phenibut occasionally (without ever creating tolerance) over the past several years. I have used dosages of up to 1,7 grams of Phenibut (which I deemed to be already too intense for my needs) and up to around 200 mg of 4F-Phenibut. Using these dosages consistently led to more or less the same degree of intoxication, which I like.
+Since I recently hit a critical weight on my body-scale, I decided to re-start intermittent fasting, which I had already done once in the past for a duration of about 7 or 8 months and which led to a slow and steady decline in weight until I hit what would be deemed as normal weight judging by the Body Mass Index. When I stopped intermittent fasting, all the weight returned within a couple of months unfortunately, but I couldn’t be bothered to re-start intermittent fasting until now. Right now, I follow a standard 16:8 schedule, meaning that I eat during 8 hours of the day, and fast during the remaining 16 hours (only water, no snacks or anything; the idea is to let your insulin-levels drop to zero and then remain for several hours in a state of “early starvation”). I do this 6 days a week and skip Sundays. This method has worked for me in the past and I re-started intermittent fasting almost exactly 2 weeks ago.
+So, 2 weeks in to this intermittent fast (I had almost lost 2 kg so far already) I felt like doing some Phenibut on the weekend and dosed in the usual way, 1 gram on Saturday after breakfast. It started out as always, slightly euphoric and with increased focus. On the “downside” I was easily distracted by anything that could catch the focus of my attention. This was a first sign of something being a little different than usual. During the course of the next few hours I became increasingly inebriated, somewhat ataxic and had intense difficulty focusing my vision, as well as urinating.
+I became increasingly inebriated, somewhat ataxic and had intense difficulty focusing my vision, as well as urinating.
+It had some similarities to using a dissociative. Some diarrhea occurred and I felt paradoxically exhausted, yet very alert. I stayed up late and waited for my girlfriend to come home after a night out. I felt like sleeping, but I still was highly alert whenever I was able to focus my attention to something that needed concentration, like playing the piano or playing a game on the smartphone. When she arrived I was already in bed and I was unusually high and sedated, but happy and sentimental to see her again and felt like sinking in to her when excessive cuddling and kissing occurred. I was quite talkative and had some interesting ideas/insights and memories that I felt like sharing. Finally, we turned off the light and went to sleep.
+It was a somewhat rough night for my girlfriend, because already during our extended cuddle and talk I apparently kept falling asleep between sentences and she had to shake me awake so I would continue talking. I have no memory of this whatsoever. As we turned off the light she became worried, because I often had breathing pauses. She estimates these pauses of being up to 20 seconds long, which sounds indeed scary. She repeatedly shook me awake to tell me to continue breathing, but I hardly remember this. During the night I “hogged” her and she had almost no space to lie left in the bed. I was constantly in touch with her, hugging or even lying almost on top of her, which further impeded her ability to get a night’s restful sleep. Moreover, I was apparently sweating profusely and moistening her body with my exudations.
+Sometime during the night I woke up and had to pee, so I got up and groped my way to the bathroom in complete darkness. I have been living in the same apartment for 10 years, so I have done this dozens of times. At some point, I thought I ran into the closed door of my bedroom and started to grope my way around the closed door to find the handle. This lasted for an unusually long time and suddenly, there was a smartphone torch-light and the sleepy voice of my girlfriend from a completely unexpected direction asking what I was doing? I was flabbergasted and could not believe that I was standing next to the main door to my apartment, trying to open it to get to the bathroom when in reality, opening it would have meant exiting my flat and stepping out into the more or less public stairways. It was actually quite a comedic situation! The ensuing dialogue with my sleepy girlfriend turned out to be very weird (I didn’t think so at the time, to me it seemed quite normal). I was apparently in a very confused state, with severe short term memory loss and what I was replying to my girlfriend’s questions and remarks apparently made no sense at all.
+Sunday morning I felt slightly better, but still on it. I was unable to go out and do anything and we slept for another 2 hours or so in the afternoon. My appetite was close to zero but my girlfriend kindly went out to go shopping anyway to get some food to make me a dinner. The symptoms started to further alleviate a bit after her warm dinner. I still felt more empathetic than usual, could concentrate at playing the piano and often had the feeling of perceiving colors and atmospheres of the surroundings more intensely. It reminded me of the afterglow of being on psychedelics.
+The next night was (consciously) a little bumpier also for me. I woke up several times and felt like it was difficult to go back to sleep. However, just as in the night before, I had many vivid and bizarre dreams. I sweated a lot again and this time I also salivated quite profusely.
+It is now almost 48 hours since I dosed the usual gram and I still feel on it. I had trouble finding the correct words when interacting with colleagues at work and I have used completely unfitting, out of context surrogates for otherwise readily remembered expressions, a sort of confabulation, which was occasionally rather embarrassing today. So, the memory issues seem to be still going on. I also seem to be unnaturally relaxed (I don’t mind that) and I feel dehydrated.
+It is now 2 weeks after this incident and I realized only now that I made a potentially very grave mistake. Instead of the bag of Phenibut I mistakenly used the one labelled 4F-Phenibut
+Instead of the bag of Phenibut I mistakenly used the one labelled 4F-Phenibut
+and filled two 500 mg gel caps with a gram of it!  No wonder this hit me like a freight train. According to online information, 400 – 600 mg of 4F is already strong and anything above 600 mg is “heavy”…
+I paid a price for my mistake and will be extra careful in the future not to get the two substances confused. It was a powerful and rather long trip, but luckily with no need for acute medical attention or lasting damage. Take care in every step of your preparations, people! Double check the labels on your baggies, too.
+Exp Year: 2023
+ExpID: 117481
+Gender: Male
+Age at time of experience: 48
+Published: Oct 25, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Fluorophenibut (754) : General (1), What Was in That? (26), Train Wrecks &amp; Trip Disasters (7), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

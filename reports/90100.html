@@ -1,0 +1,290 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>形 - 形 - &quot;指数级加速&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/anadenanthera-spp.html'>← Anadenanthera spp.</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>形 - 形 - &quot;指数级加速&quot;</h1>
+<div class='sub-title'>Anadenanthera colubrina - Erowid Exp - &#x27;Exponential Acceleration&#x27;</div>
+<div class='meta'>作者：King Anadenanthera I Citation · 日期：Apr 14, 2011 · 剂量：3 g · <a href='https://erowid.org/experiences/exp.php?ID=90100' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>1/3克分成两部分,D把我的每个鼻孔都炸了.
+从吸气到放松的总时间大约是20到25分钟.
+我和D已经准备好了豆子.
+我们烤它们,剥掉它们,然后用子在砂中粉碎它们.
+我们加入了一些石灰粉和一点点水.
+我们把它们烤在烤箱里几天,
+我们用卷起的纸和带制成一个吸气管.
+他带着女朋友过来, 她说她会照顾我们,
+我们坐成一圈, 每个人都拿着枕头和一个桶,
+我想先去, 因为探索不是我轻易做的事情.
+如果有什么未知,请让我成为第一个请求注意.
+我们把粉末放在三个人圈子中间的托盘上.
+我们用你能想象到的最温和而激烈的音乐,
+在空洞的管中放入1/6克.
+他把它放在我的鼻子里, 我看着他的眼睛说我准备好了 (尽管我不太确定).
+我心里很紧,我很兴奋.
+他轻轻地吹了一声,这是他第一次吹东西到别人的鼻子.
+我没有感觉到任何燃烧的感觉,
+警方密切关注我的每一个手势.
+我没有感觉到任何直接的, 和D问如果我想要另一个.
+没有明显的感觉我说,&#x27;是的,驱车&#x27;er家.所以他装上了第二堆1/6克粉,这一次有更好的控制他的吹技术.
+我立刻注意到,它轻松地滑上去,没有太大力度,没有气味的呼吸,没有最初的冲击波.
+我感觉到一些更直接的东西.
+一点点灼热感, 但没有什么我不能管理.
+我仍然没有感觉到任何身体上的影响,
+我意识到人们的着,但我表现得像我不在乎.
+在一分钟之内,
+一个接一个.
+这似乎发生得太快了.
+现在我确实感觉到了身体上的影响.
+一种突然的拉力,与巨大的木星引力相似, 开始把我拉向地面.
+我知道它即将到来, 不能阻止它的威胁在我的脑海中闪过意义.
+我感觉到汗水遍布我的身体,
+气氛变得越来越响亮,
+甚至热度也越来越大.
+我感觉到一个过山车的冲动在我的细胞中滚动.
+我头像在长途巴士旅行中那样落在我的手中, 当我太累了, 试图在公共场合不入睡,
+虽然有些不舒服, 但并没有让人尬.
+我知道最糟糕的还没有到来,
+世界对我的压力越来越大.
+感觉就像在一个与我身体大小的赛道上, 印地赛车以稳定的加速在我的血液中旋转.
+我感觉到我的内心振动的加速以可怕的速度增长.
+如果在第一刻我感觉到我的心和脑袋以2公里/秒的速度跳动,第二时感觉到4公里/秒,第三时感觉到8公里/秒,无限...
+在这个时候,W开始猛烈吐.
+他在他的手和膝盖,头面的吐桶,尖叫出一个腐烂的黑色物质.
+我甚至不会开始冒险猜测他真的在喉推力和粘性,厚液体之间大喊大叫多久.
+在我的脑海里,这是一段时间.
+在他脑海中,这也持续了一段时间.
+在许多强烈的吐声之间, 他尖叫道:&#x27;视觉!!!!&#x27;
+我开始笑自己通过病在自己的胃.
+我觉得如果现在任何一秒钟我不得不倾斜和开始清洗自己.
+虽然我几次倾倒在桶上, 但它从来没有出现.
+我抬头看着D,脸上充满恶心,像一个扭曲的宿醉,他问我:&quot;你能把这吹进我的鼻子吗?&quot;我开眼睛,等待我看到的最后一个正常时刻,看着他,然后看着他手中的管子,指着我抓住,我着说:&quot;我不认为我现在可以这样做.
+我看到了他的眼睛,脸和面部情绪的真诚关心.
+他不太确定我是否会成功.
+我也没有.
+还记得加速速度因子吗?
+在此时,它已经达到几千米/秒的速度.
+我没有能力把管子向朋友的鼻孔.
+不再是这样.
+几秒钟后, 世界将会被撕裂,
+我将要解释的发生在几分之一秒内, 但发生了很多事情, 如此详细,
+让我们一起想象一下我在中心的房间.
+我在右边躺着一个女朋友.
+像地震裂一样的线对角划分了房间.
+这里是右对角线和左对角线.
+他们转过身来, 换了侧面,
+这两个对角线分成四个三角形, 以难以想象的速度交换位置,
+继续以这种方式,直到分裂的房间已经达到接近相同的速度作为冲我的身体.
+我觉得现在躺在枕头上是明智的,
+没有棋子, 只有不放弃的满足感.
+面对W的疯狂强烈,尖叫吐, 和我倒在地板上感到相当不安关于吸入粉末自己的鼻子.
+所以他把一根线切开, 只有不到W和我的一半, 嗅到了,
+他还在吐自己的内脏,D也开始.
+他的吐方式更有礼貌和谨慎.
+于是我的耳朵听到了吐的立体声交响曲.
+很令人不安... 但我最不关心的.
+我认为关闭眼睛是明智的,
+这只是新德里交叉路口的疯狂忙.
+我不是汽车,而是一颗亚原子粒子,
+现在,我知道我有什么问题.
+恐惧增加了冲的加速现在接近光的,如果不是光本身.
+我开始怀疑速度是否会稳定下来,或者我是否会从宇宙中消失.
+经过我大致称之为5分钟的时间,
+接受眼背后的疯狂更容易,
+在接下来的十分钟里, 我穿过了空间,时间以及其他尚未被发现的无限.
+在黑色的背景下,仿佛在时空的结构上伸展.
+红色和蓝色的旋转是光谱的两端.
+红色和蓝色的旋转方式类似于电影&quot;接触&quot;中使用的机器, 导演罗伯特·泽麦基斯,
+它们的图案重复和略有变化,
+我注意到更多的子在它们后面卷起并展开.
+在我穿过&quot;虫洞&quot;的过程中,
+开始发出奇怪的动物声音, 在某一点上, 我以为他已经转化为一些不可言喻的恶魔生物,
+只有现在才有足够的勇气打开左眼, 再次入现实世界.
+这种忙的情绪和大部分的视觉效果都消失了.
+我认为现在是时候了.
+作为第一位船长的勇气, 相信平面地球, 走到已知世界的边缘,
+鱼在柜上.
+她看着我们所有人 (可能有点困惑,
+我抬头看到了天花板上的灯泡.
+这是一个像花一样的开花.
+踏板从中发芽, 距离中心至少有一米.
+这是一个令人放松和美丽的.
+看着生活成长和勃发展.
+如此简单,如此理智.
+如果所有进化都能如此清醒.
+无论我刚刚经历了什么, 肯定是一个进化,
+他说他有一个非常棒的经历.
+他倒,吟,叫,像一个疯狂的人笑他的旅程的最后几分钟.
+迪说他经历了一段艰难的旅程.
+我从来没有听说过他从他的保守清洗.
+总的来说,这完全是值得的.
+我得到了我想要的,还有更多.
+我会再做一次,但我没有这样的愿望.
+它说了我想要听到的一切.
+在短短15分钟的时间里,
+为了真正理解发生的一切, 一个人可能需要几百个生命来理解所有输入数据.
+我觉得地球给我们这些&quot;豆子&quot;来种植是惊人的.
+接下来的一天, 我醒来时头痛如偏头痛.
+我经历了这一切,
+只是在我们的后果的轨道上喝酒.
+其他:
+类 (139):小组 (2-9) (17),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Exponential Acceleration
+Anadenanthera colubrina
+by
+King Anadenanthera I
+Citation:   King Anadenanthera I. &quot;Exponential Acceleration: An Experience with Anadenanthera colubrina (exp90100)&quot;.
+Erowid.org
+. Apr 14, 2011. erowid.org/exp/90100
+DOSE:
+1/3 g
+insufflated
+Anadenanthera colubrina
+(ground / crushed)
+BODY WEIGHT:
+70 kg
+1/3 gram split in two, blown up each of my nostrils by D.
+Total time from insufflation to relaxation- approximately 20 – 25 minutes.
+D and I had prepared the beans.  We baked them, peeled them, and crushed them in a mortar with pestle.  We mixed in a little lime powder and a smidgen of water.  We roasted them in the oven for a few, to remove the moisture, took them out, and let cool.  We made a snorting tube made from rolled-up paper and masking tape.
+W came over with his girlfriend who said she would watch over us perched on the couch.  Sitting in a circle, we each had a pillow and a bucket with fresh plastic bag for the impending stomach purge.  I wanted to go first, because exploring is not something I take lightly.  If there is something unknown then let me be the first to beg its attention.
+We had the powder on a tray in the middle of our three-person circle.  We set the mood with the most gently intense music you can imagine, Byla&#x27;s album- Byla.
+D put 1/6 of a gram in the hollowed-out tube.  He put it in my nose, I looked him in the eye and said I was ready (even though I wasn&#x27;t too sure about that).  My stomach was nervous, and I was excited.  He blew softly, this being his first time blowing something up somebody else&#x27;s nose.  It reached its mark, and I did not feel any burning sensation as I was expecting to from all the reports I&#x27;d read.
+D and W watched me closely for every sign I made.  I felt nothing immediate, and D asked if I wanted the other one.  As there was no noticeable sensation I said, &#x27;Yes, drive &#x27;er home.&#x27;  So he loaded up the second pile of 1/6 gram powder and this time had much better control over his blowing technique.  I noticed right away, the way it slid up there with ease, not too hard, no smell of his breath, no initial shock waves.
+Upon reaching the back of my nostrils, I felt something more immediate.  A slight burning sensation, but nothing I couldn&#x27;t manage.  I still did not feel any physical effects as three pairs of eyes watched me unflinchingly.  I was aware of the stares but acted like I didn&#x27;t care.  D prepared W&#x27;s doses and within a minute he delivered the blow.  One right after the other.  It happened so fast it seemed.
+I was definitely now feeling physical effects.  A sudden tug, not unlike heavy Jupiter-gravity, began to pull me towards the ground.  I knew it was coming now, and the threat of not being able to stop it flashed across the meaning in my mind.  I felt the sweat come all over my body, like the heat in the room had been turned up.  The atmosphere was getting louder, not with treble but with bass amplification.  Even the heat was getting louder.  I felt the rush of roller coaster dives rolling up through my cells.  My head dropped into my hands like would happen on a long bus-ride, when I&#x27;m so exhausted trying not to fall asleep in public, but I drift to fall down and Snap! back up to alertness.
+It was becoming uncomfortable but not embarrassing.  I knew the worst had yet to come and was still a little anxious about that.  The speed with which the world was weighing in on me was picking up.  It was like being the host of a race-track the size of my body, with the Indy cars swirling circles around my blood-stream with steady acceleration.  From this point hence, the acceleration I felt vibrating inside me picked up at terrifying speeds.  If at the first moment I felt my heart and head were racing at 2km/s, the second moment felt like 4km/s, and the third moment 8km/s, ad infitum...
+At this point W started violently vomiting.  He was bent over on his hands and knees, head facing the vomit-bucket, screaming out a putrid black substance.  It seemed like a long time, and I won&#x27;t even begin to venture a guess at how long he was really there yelling between guttural thrusts and slimy, thick liquids.  In my mind it was a while.  It&#x27;s safe to say that in his mind it lasted a while too.  At one point between many intense puking sounds, he screamed, &#x27;THE VISUALS!!!!&#x27;
+I began to laugh myself through the sickness in my own stomach.  I felt as if any second now I would have to lean over and begin the purge myself.  And though I did lean over my bucket a few times, it never came.
+I looked up at D with the nausea expressed all over my face like a twisted hangover and he asked me, &#x27;Can you blow this up my nose?&#x27;  I opened my eyes for what would be the last normal moments I would see, looked at him, and then looked at the tube in his hands gesturing for me to grab and I mumbled something like, &#x27;I don&#x27;t think I can do that right now.&#x27;
+I saw genuine concern in his eyes, cheeks, and general facial mood.  He wasn&#x27;t too sure if I was going to make it.  And neither was I.  Remember the acceleration velocity factor?  At this point it had picked up to a good few thousand metres per second.  I was in no condition to aim tubes into friendly nostrils.  No longer.  In a few seconds the world was going to rip apart- and I don&#x27;t mean that metaphorically.
+What I am about to explain happened within a fraction of a second, but so much happened, in such great detail that I will need some time to explain it, but don&#x27;t forget this fact that it happened VERY FAST.  Envision with me for a moment, the room in which I am in the centre.  A three-cushioned couch lie directly in front of me, with a girlfriend on the right side.  A line like an earthquake fissure divided the room diagonally.  The right diagonal, and the left diagonal.  In the span of a camera flash, they inverted- switched sides, and returned to their normal &#x27;sides&#x27;.  These two diagonals then split into four triangles, switched places at unthinkable speeds, and returned to &#x27;normal&#x27;.  These four triangles split into eight, they rotated like fractals, and continued in this fashion until the splitting of the room had reach near the same velocity as that of the rushing of my body.
+I thought it would be wise at this point to lie down on the pillow, which was probably the single greatest move I&#x27;d ever made.  It was a chess stalemate without the pieces, only the satisfaction of not giving up.
+D- faced with W&#x27;s crazy intense, screaming vomits, and my collapse onto the floor felt quite uneasy about insufflating the powder up his own nose.  So he cut up a line with a little less than half the amount W and I had taken, sniffed it, and waited...
+W was still vomiting the last of his guts out into his bucket and D started as well.  His vomiting style was much more polite and reserved.  W was on my left, and D on my right, so there was a stereo symphony of puke relishing my ears.  Disturbing... but the very least of my concerns.
+At this point I thought it wise to close my eyes, because the open-eyed world was too much.  It was just a mad rush of a New Delhi intersection at rush-hour.  Instead of cars, I was a sub-atomic particle whizzing by, guided by unseen, powerful forces.  Upon closing my eyes, however, I found little relief.  The terror increased as the acceleration of rushes were now approaching that of light, if not light itself.  I was beginning to wonder if the velocity was ever going to plateau and calm down, or if I was just going to spin out of the universe all together.
+After what I would roughly call 5 minutes, the acceleration did indeed stop, much to my relief.  It was easier to accept the madness behind my eyelids with constant velocity.  For the next ten minutes I travelled through immeasurable vortices of space, time, and others not yet discovered.  There as a background of black, as though stretched on the fabric of space-time.  There were spinning reds and blues, opposite ends of the spectrum of light.
+The red and blues were spinning in similar fashion to the machine they use in the film Contact, directed by Robert Zemeckis, written by Carl Sagan, to propel the main character through the wormholes.  Their patterns repeated and varied slightly, but all remained spinning in this triptych way.  Then I noticed more of them spinning in dimensions curled up and unfurled behind them. And for another ten minutes or so this continued as I travelled through the &#x27;wormhole&#x27;, so to speak.  W began making strange animal sounds and at one point I thought he had transmogrified into some unspeakable daemon-creature- half pterodactyl, half werewolf.
+It was about 15 minutes after the initial dose and only now was I brave enough to open my left eye, to peek out into the real world again.  The rushing feelings subsided, as had most of the visuals.  Now is the time, I thought.  So with the bravery of the first captain of a ship, and believer of the flat-earth, reaching the edge of the known world, I opened my eye.  The fish tank was on the dresser.  The girlfriend was perched like an owl on the couch, watching all of us (and probably a little bewildered having never taken any hallucinogens before).
+I looked up at the light bulb on the ceiling.  It was off, but there was emerging from it a flower-like blossom.  Pedals sprouted out of it, and stretched at least a metre away from its centre.  It was calming and beautiful.  To watch life just grow and flourish like that.  So easy, so sane.  If only all evolution could be that sobering.
+Whatever I just experienced was certainly an evolution, but I was pulled through it at speeds no human being could ever be accustomed to at this stage in our development.
+W said he had a really great experience.  He was tumbling, moaning, howling, and giggling like a mad-man for the last few minutes of his journey.  D, having taken less than half of what we took said he had an intense journey.  I never heard a peep out of him after his conservative purging.
+All in all, it was completely worth it.  I got what I asked for, and then some.  I would do it again, but I have no desire to.  It said all that I wanted to hear.  It gave me all the experience of a hundred eons in 15 simple minutes.  To truly digest all that had happened, one would likely need a few hundred lifetimes to understand all the input data.  I think it&#x27;s amazing that the Earth has given us these &#x27;beans&#x27; to cultivate.
+The next day I awoke with a stunning headache of migraine proportions.  I lived through it, and life continued as it always does.  Just chugging along the tracks of our aftermaths.
+Exp Year: 2010
+ExpID: 90100
+Gender: Male
+Age at time of experience: 25
+Published: Apr 14, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Anadenanthera colubrina (139) : Small Group (2-9) (17), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

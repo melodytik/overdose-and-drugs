@@ -1,0 +1,240 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>皮约特 - 伊洛伊德的&quot;时间扭曲&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/peyote.html'>← 佩奥特掌(乌羽玉)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>皮约特 - 伊洛伊德的&quot;时间扭曲&quot;</h1>
+<div class='sub-title'>Peyote - Erowid Exp - &#x27;Time Warps&#x27;</div>
+<div class='meta'>作者：Flash Gordon Citation · 日期：May 10, 2006 · <a href='https://erowid.org/experiences/exp.php?ID=47731' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这是一个糟糕的计划, 开车约一个小时.
+我不认为他们会回来什么.
+我听着他们, 脸上着&#x27;我告诉你&#x27;的笑容.
+他们被抢劫了.
+被印第安人抢劫了
+一个喝醉了的印第安人带着一个由骨头制成的项链从皮约特摊后面的房子里出来,
+显然我的一个朋友是太白的喜欢, 但他们设法说话印第安人到10个按的船40美元.
+是的,他们被偷走了.
+约一个月后, 我和三位朋友决定第二次去黄药摊.
+这次我们被两个认识印第安人的女人迎接,
+得到一个.
+我们都对刚刚达成的协议感到兴奋.
+为了完成交易, 一个朋友不得不把背上的衫交给其中一个女人.
+我们中的两个人18岁, 另外两个人17岁, 所以每个人都必须向家人澄清,
+我们选择了我的房子.
+毕竟,我有9英的树木,草,和相当异国情调的植物在我的院子,
+有很多地方可以探索.
+这将是我第一次使用.
+在那之前, 我曾尝试过,2c-e,mda,mde,mdma,dxm,,大麻和.
+我觉得我可以处理这些干的, 它们看起来像陈旧的腐烂的片.
+我们把按分成四个相对相等的堆.
+我们每个人都有13个干,
+我不是在夸大其词说黄是我尝过的最令人厌恶的东西.
+我了一下.
+我脸上扭曲; 我觉得要把一切都吐出来.
+尽管有人警告我, 我还是用水把所有的东西都洗下来.
+我不得不这样做.
+味道是如此令人难以置信的苦,
+这里皮约特已经让我感到羞愧, 而旅程甚至还没有开始.
+我们都开始感到恶心.
+我们出去了,以防我们都开始吐.
+我们不想让我的父母醒来听到四个家伙的声音,
+我们坐在一张桌子周围, 中间雕刻着一颗太阳,
+我开始注意到一切都有一种水色的外观.
+一切都被涂上色彩,
+我试图放一些音乐, 但我不能享受任何的轨道,
+我把它扔到草地上, 试着躺下,
+我闭上眼睛时, 一直看到浅蓝色,紫色和微小的球体.
+他们的旋转让我头.
+终于,我翻了过来吐了.
+我的朋友也做了同样的事情.
+经历了第二次可怕的皮约特味道后,
+但在接下来的几分钟里, 我感觉很好.
+我们都进了几分钟, 外面的空气很潮湿,
+没有人能说我们有多远, 因为我们都感觉正常,
+很快我们就开始开玩笑, 没有一个很有趣,
+我们的笑话开始变得越来越没有意义,
+我们决定回到外面, 因为我们四个人觉得在我的房间里很拥挤.
+我们坐在我们的太阳桌上,继续我们的愚蠢的展示.
+这就是皮约特的作用吗?
+把我们变成的瓜?
+很快,我的朋友变得非常认真.
+他有什么不对,或者我们有什么不对.
+他开始疯狂地说话,关于某种形而上学的东西,只是他太不清楚描绘图片.
+我们都感到困惑.
+他告诉我如果我们让他一个人, 他会吃枪.
+我们决定离开那个地方,
+我们覆盖了如此多的区域, 查看我的财产的不同部分,
+我们已经覆盖了至少9英, 但当我们进来时, 我们惊地发现, 只有十分钟过去了, 因为我们已经在外面.
+十分钟?
+我们都很害怕.
+我们知道我们在那里至少一个小时或两个,我的意思是,我们走过我的地盘,
+我开始感觉到一场情绪的洪水.
+我无法决定要选择哪条路,
+没有明显的原因,
+我感到困惑,幸福,仇恨,爱,不舒服,悲伤,
+后来我觉得最好是离开一段时间,
+我决定试着听一些音乐,于是我在最后一处寻找我的CD - - 在厨房里.
+现在,我不记得这一切, 但我的朋友告诉我他们看到我从两个大窗户在我的客厅,
+我记得我走路, 寻找我的CD但显然我一直在冲刺.
+房子里的一切都加快了.
+这真是个奇怪的时间变形.
+我走到外面, 风越来越大.
+我仍然感到奇怪和不合时宜,
+除了那个继续说话不连贯的人,
+我躺在草地上一段时间,从许多无关的思想转移,看到奇怪的符号,和变得头.
+我终于站起来去尿尿, 开始思考 - - 皮约特有什么好看的呢?
+这是一个令人困惑的混乱.
+我觉得我已经在这里好几天了,
+我开始觉得皮约特是不合我的,
+似乎有什么东西从他们但我已经太远看到它是什么.
+我不知道我能在几秒钟内做出如此快速的反应,跑得如此快.
+随着夜晚的结束,一切开始平静下来.
+那天晚上有两次旅行,
+我在里面,而他们已经在外面在相反的时间.
+后来我知道他们进去是因为我的屋顶上闪过着明亮的白色灯.
+他们不愿详细说明,我也不想问.
+这一夜很奇怪.
+这很奇怪.
+我一直感觉到别人的情绪, 我觉得有什么东西在我身边整个晚上.
+这看起来很愚蠢,
+但我无法解释自己的信念.
+其他:
+皮约特 (42):第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Time Warps
+Peyote
+by
+Flash Gordon
+Citation:   Flash Gordon. &quot;Time Warps: An Experience with Peyote (exp47731)&quot;.
+Erowid.org
+. May 10, 2006. erowid.org/exp/47731
+DOSE:
+13 buttons
+oral
+Peyote
+(dried)
+BODY WEIGHT:
+128 lb
+About six months ago a couple of my friends headed out to Rio Grande City to try and convice a couple of Indiands-who owned a peyote stand along the side of the road-to sell them about 40 buttons of freshly cut peyote. I had my doubts, and had plenty reason to have them. It was a poorly drawn up plan, and the drive was about an hour away. I didnt think they&#x27;d come back with anything. The very next day I asked them how it went, and I listened with a bemused &#x27;i told you so&#x27; smirk on my face. They were robbed. Robbed by Indians. An old drunk Indian with a necklace made from bone had come out of the house behind the peyote stand and made threats with a 22. Apparently one of my friends was too white for their liking, but they managed to talk the Indian into 10 buttons for abour 40 bucks. Yeah, they were ripped off.
+About a month later I decided to go with three of my friends on a second trip back to the peyote stand. This time we were greeted by two women who knew the Indian and snuck us a bag of about 50 dried buttons for 40 bucks. Score. The drive home was short; we were all excitied about the deal we had just struck. A friend of mine had to give one of the women the shirt off his back to complete the trade (a darkside of the moon shirt, if you were wondering). Two of us were 18, and the other two 17, so everyone had to clear it with their family, who were always curious to know where they&#x27;d be staying.
+For reasons that kind of escape me, we choose my house. I was okay with the choice, after all, I did have 9 acres of trees, grasses, and fairly exotic plants around my yard, as well as a maze of orchrids right behind my house. Plenty of room to explore.
+This would be my first experience with peyote. I had tried mushrooms, 2c-e, mda, mde, mdma, dxm, nitrous, marijuana, and salvia up until that point. I felt I&#x27;d be able to handle the mescaline inside these dried buttons, which resembled stale, rotten potatoe chips. Around 11:00 p.m we each seperated the buttons into four relatively equal piles. We each had 13 dried buttons that we began to chew in giant handfuls. I&#x27;m not exagerating when I say peyote is the most disgusting thing I ever tasted. I cringed. My face contorted; I felt like spitting everything right back up. Despite the warnings I had been given, I used water to wash everything down. I had to. The taste was so incredibly bitter that I felt suffocated by it. Here the peyote had already humbled me and the trip hadnt even started.
+About an hour had gone by and we all started to feel sick. We went outside just incase we all started throwing up. We didnt want to wake my parents to the sound of 4 guys violently puking their insides out. We sat around a table with a sun carved in the center; it sat right agianst some bamboo trees and various types of plants. I started to notice that everything had a water colored look to it. Everything was painted so that the colors would run into each other. I tried to put on some music, but I couldnt enjoy any of the tracks, and I certainely didnt want to force anything. So I got sick of my cd player and tossed it aside in the grass and tried laying down to get rid of the churning inside my stomach.
+I kept seeing light blues, purples, and tiny orbs when I closed my eyes. Their spinning only made me dizzy. Finally, I rolled over and puked. My friend did the same. After I relived the horrible taste of peyote for a second time, I found that I still didnt feel better. But over the next couple of mintutes, I felt good. We all went inside for a couple of minutes, the air outside was humid and making us sick. None of us could tell just how far gone we were, because we all felt pretty normal despite some small changes in the visual field. Soon we all started making jokes, and none of them were funny, but we laughed our asses off. Our jokes started making less and less sense, and we were vaguely aware of it, but the more deranged it got, the funnier it was. We decided to go back outside because all four of us felt crowded in my room. We sat at our sun table agian and continued our idiotic display. Is this what peyote did? Turn us into babbling morons?
+Soon my friend turned really serious. Something was wrong with him, or maybe something was wrong with us. He started talking crazily, about something metaphysical, only he was too inarticulate to paint the picture. We were all confused. About this time another friend of mine had become depressed; he told me if we left him alone that he would eat a gun. We all decided to get out of that spot and take a walk. We covered so much area looking over different parts of my propertey, wandering around aimelessly until we got tired and went inside for a break. We had covered at least 9 acres, but when we got inside we were shocked to see that only ten minutes had gone by since we had been outside.
+10 minutes? We were all freaked out. We knew we were out there for at least an hour or two, I mean, we had walked my etire propertey and had a conversation before we went walking. It was at this point I began to feel a flood of emotions. I couldnt decide which path to choose, which emotiont to feel. I felt everything all at once for no apparent reason. Confusion, happiness, hatred, love, uncomfortableness, sadness, I even felt stupid and enlightened at the same time. I later thought it would be for the best if I seperated myself for a while, while everyone was outside. I decided to try and listen to some music, so I looked for my cds the last place I thought I had seen them - in the kitchen. Now, I don&#x27;t remember any of this but my friends told me they saw me from two large windows in my living room, running furiously back and forth inside the house. I remember walking, looking for my cds but apparently I had been sprinting. Everything outside had been slowed down to a crawl, and everything in my house was sped up. What a strange time warp.
+As I headed outside, the wind picked up. I still felt strange and out of place, and my friends all ran inside. Except for the guy who continued talking incoherently, but eventually he went inside too. I layed down in the grass for some time, shifting from many unrelated thoughts, seeing strange symbols, and getting dizzy. I finally got up to a take a leak, and started thinking - what was so enlightning about peyote? It&#x27;s just a confusing mess.
+A weird time dilation that never stops; I feel I&#x27;ve been out here days and I&#x27;ve learned nothing. I started to feel like peyote was beneath me, and I even got a strange sense of confidence. But just then something shook violently in the bushes next to me, and something seemed to come out of them but I was already too far to see what it was. I didnt know I could react so quickly, and run so fast in just a couple of seconds.I couldnt think of what was in those bushes, because the bushes were relatively big and it would take a rather large dog to shake them.
+Everything started to calm down as the night winded down. There was towo trips that night, one I experienced, and the ones my friends had. I was inside while they had been outside at opposite times. I later learned they had went inside because of bright white lights coming over my roof. They wouldnt elaborate and I didnt care to ask. The night was strange. Very strange. I kept feeling other peoples emotions, and I felt like there was something next to me the entire night. It seems silly, and it is silly. But I can&#x27;t really explain the conviction I had.
+Exp Year: 2005
+ExpID: 47731
+Gender: Male
+Age at time of experience: Not Given
+Published: May 10, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Peyote (42) : First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

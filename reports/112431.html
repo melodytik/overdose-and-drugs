@@ -1,0 +1,229 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - - - -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/eth-lad.html'>← ETH-LAD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - - - -</h1>
+<div class='sub-title'>ETH-LAD - Erowid Exp - &#x27;Puking While Tripping&#x27;</div>
+<div class='meta'>作者：Maxwell Tryps Citation · 日期：Oct 10, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=112431' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我从小就一直和邻居比利做朋友.
+但比利要去背包旅行欧洲5个月, 所以我们决定让他去做一个迷幻之旅.
+我在各种网络论坛和RC网站上听说过ETH-LAD,
+所以我们认为我们可以处理更高剂量的ETH-LAD和决定采取200ug.
+我在网上读到ETH-LAD的效果是不可预测和强烈的.
+心理学家维基页面还指出&quot;,ETH-LAD也被报告为更容易产生不良的身体效应,如严重和持续的恶心,温度调节失调和普遍的身体不适,特别是在较高剂量时&quot;.
+恶心在迷幻世界并不罕见, 所以我们知道我们只能用空腹去做.
+我之前用做过很多次,
+我们住在山区附近, 所以在一个星期六的早晨,
+我们在早上8点50分进行了200ug的语言下测试.
+我走到帐里拿起手机, 转过身来, 发现比利腰,
+他喊道:&quot;恶心在这里!
+我还觉得很好,但到了9点45分,
+我还觉得很好,但到了9点45分,
+在此时, 迷幻效应开始产生,
+颜色在我们整个视野中激烈地走在一起.
+我感到非常头和迷.
+几乎所有我视野中的东西都模糊不清, 远离世界,
+比利是第一个在9点50分左右吐的人.
+到了10点,我和比利一起在地面上猛烈地,无节制地干.
+心理效应急剧增加, 我感到极度迷失方向,
+在我的包里有两粒0.5毫克的卡纳克斯药,
+我认为如果在迷幻之旅中遇到困难,
+然而, 鉴于我们似乎正在经历的生理反应, 比利建议我们服用克萨那克斯,
+我们每个人在10:05左右服用0.5毫克.
+效果开始达到顶峰水平, 比利和我仍然很恶心.
+恶心是波而来的; 一次动通常会让我感觉不舒服3到5分钟.
+我和比利在不舒服的姿势之间转换, 试图不被幻觉所压倒,
+当我们跪在阳光下时, 我们会开始出汗, 感觉很热, 但当我们走到阴影里时, 我们会感到寒冷, 渴望阳光.
+搬家本身就令人厌恶,
+听觉幻觉变得普遍, 产生响亮的,高调的声, 随着周围的声音而变形.
+像高音直升机的叶片一样, 像在听觉池中的波一样.
+在技术上说, 哈萨克斯使幻觉变得更好.
+这也许使经历的强度从10降至8.
+更好,不是很好.
+我和比利继续痛苦, 30秒的干燥动,
+在接下来的几个小时里, 这种冲动更频繁, 可能每隔20分钟.
+这是一次非常激烈和令人不快的经历.
+由于我们处于荒野, 无法接收电话,
+开车是不可能的,我们太疯狂了,加上汽车停在我们营地半英里之外,
+我很确定我们不会死, 我们只能等待药物发挥作用,
+我们仍然不能很努力, 但时间和麻将使体验的强度进一步降低到相当于大约150ug的LSD.
+我们可以散步,打牌,在树上摆吊床.
+毕利和我都是每日大麻的使用者,所以在我们感觉低于平均水平但超过可怕几个小时后, 我们决定点燃一个碗.
+在过去的几个小时里, ETH-LAD的视觉效果进一步下降,
+虽然我们两人还没有好好吃, 但大麻让我们感觉很平淡.
+我们躺在帐里,闭上眼睛, 发现了令人惊叹的生动和快速的闭眼视觉.
+但它以惊人的速度进行.
+每秒钟就会有四到五种鲜明,生动,复杂的幻觉闪过我们的眼前.
+从卡通到几何图案,
+森林是强大的大声和有点扭曲.
+这种幻觉状态使得下午的休息相当体面.
+晚上8点左右, 我们都清醒了,
+我在回家的时候烧掉了其余的东西.
+现在我明白,听起来ETH-LAD在较低剂量下可以产生相当积极的效果,
+如果你想做一些高剂量的东西,
+这是一场令人心碎的吐节, 幻觉效应比我使用过的其他幻觉剂更令人困惑和困惑.
+这是一场令人心碎的吐节, 幻觉效应比我使用过的其他幻觉剂更令人困惑和困惑.
+也是个重要的教训 - - 遵循降低危害的指导方针 - - 即,如果你尝试一种新物质,
+但我们没有考虑到恶心会有多么令人疲.
+值得注意的是,我的朋友比利在此次旅行前几个星期就一直有胃病,
+我不会感到惊, 如果这加剧了ETH-LAD的产生恶心的能力,
+尽管如此, 对于任何读者,
+其他:
+ETH-LAD (688):组合 (3),自然/户外 (23),健康问题 (27),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Puking While Tripping
+ETH-LAD
+by
+Maxwell Tryps
+Citation:   Maxwell Tryps. &quot;Puking While Tripping: An Experience with ETH-LAD (exp112431)&quot;.
+Erowid.org
+. Oct 10, 2018. erowid.org/exp/112431
+DOSE:
+T+ 0:00
+200 ug
+sublingual
+ETH-LAD
+(blotter / tab)
+T+ 1:15
+0.5 mg
+oral
+Pharms - Alprazolam
+(pill / tablet)
+T+ 6:40
+smoked
+Cannabis
+BODY WEIGHT:
+160 lb
+Since I was a young child, I had always been friends with my next door neighbor Billy. But Billy was leaving to backpack around Europe for 5 months (freaking sweet), so we decided we would send him off with a psychedelic trip.
+I had heard about ETH-LAD on various online forums and RC websites, and had just attained 25 tabs to try it out. Both Billy and I are fairly experienced with LSD and 1P-LSD, so we thought we could handle a higher dose of the ETH-LAD and decided to take 200ug.
+I had read online that the effect profile of ETH-LAD is unpredictable and intense. The PsychonautWiki page also noted that &#x27;ETH-LAD has also been reported to more readily produce adverse physical effects such as severe and persisting nausea, temperature dysregulation, and generalized bodily discomfort, particularly at higher doses.&#x27;
+Nausea is not uncommon in the world of psychedelics, so we knew we just had to go into it with empty stomachs. I had done that numerous times before with mushrooms and never had any issues; we both expected to be fine.
+We live near mountains, so one Saturday morning we set out at 7am and got an hour deep into wooded mountainous nowhere to set up a camp for ourselves. After setting up a tent and setting out all our stuff, we took the 200ug on tabs sublingually at 8:50am.
+T+0:40 - At about 9:30, we were standing around waiting for the tabs to kick in. I went over to the tent to get my phone, and when I turned around I found Billy bent over, supporting himself by a boulder. &#x27;The nausea is here!&#x27; he shouted.
+T+0:55 - I still felt alright for a minute, but by 9:45 we were both bent over just trying not to puke.
+T+0:55 - I still felt alright for a minute, but by 9:45 we were both bent over just trying not to puke.
+At this point the psychedelic effects began to set in, and boy were they intense. Colors ran aggressively together across our entire fields of vision. I felt remarkably dizzy and disoriented. It was like getting hit with a psychedelic stun grenade- most everything in my field of vision was blurry and worlds away, but when I would focus a perturbing sense of physical malady pervaded my entire body. Billy was the first one to puke around 9:50.
+T+1:05 - By 10:00 I had joined Billy in violently and uncontrollably dry heaving on the ground. The mental effects had increased dramatically, I felt wildly disoriented and my vision was sickeningly unstable and wavering. In my bag there were two 0.5mg Xanax pills that were to be used as trip-killers in case of an emergency. Generally I believe that if something is difficult in a psychedelic trip you should try to work through it and trip-killers should be used only as a last resort before going to the hospital. However, given the violent physiological reaction we seemed to be undergoing, Billy suggested we take the Xanax and I didn&#x27;t take much convincing. We each took 0.5mg at about 10:05.
+T+1:20 - The effects were beginning to reach peak levels and both Billy and I were still badly nauseous. The nausea came in waves; a bout of heaving would usually leave me feeling just generally uncomfortable for 3-5 minutes. After shifting between many uncomfortable positions and trying not to be overwhelmed by hallucinations, Billy and I would take turns retching on the ground. The temperature dysregulation was becoming pronounced; when we would kneel in the sun we would begin to sweat and feel hot, but when we would move to the shade we would feel chilly and long for the sun. Moving was very sickening in itself and could only be done in short bursts. Auditory hallucinations became prevalent, creating a ringing, high-pitched hum that would be distorted by sounds in the environment. The breaking of a stick would be echoed in the hum repeatedly, sounding like soprano helicopter blades, reverberating like ripples in an audial pond.
+T+2:00 - The Xanax had made the hallucinations better, technically. It had perhaps brought the intensity of the experience down from a 10 to an 8. Better, not great. Billy and I continued in agony as 30second bursts of dry-heaving punctuated stretches of disorientation, confusion, nausea, and an ineffable feeling of ill-being. For the next several hours these bursts of heaving came more intermittently, at perhaps intervals of 20minutes. It was wildly intense and unpleasant. There was no cell-reception since we were in the middle of nowhere, so there was nobody we could call. Driving would have been impossible, we were too deranged, plus the car was parked about half a mile from our camp and we couldn&#x27;t walk that far for nausea. I was reasonably sure we couldn&#x27;t die, and that we would just have to wait for the drug to work it&#x27;s way out of our systems.
+T+4:10 - Billy began feeling better around noon, I had my last torrent of choking, gut wrenching dry-heaving about 12:30pm, and by 1:00 we were beginning to feel downright decent. We still couldn&#x27;t exert ourselves very much, but time and the Xanax had worked the intensity of the experience down further to the equivalent of perhaps 150ug of LSD. We were able to go on short walks, play cards, and set up hammocks in the trees.
+T+6:40 - Both Billy and I are daily cannabis users, so after we had been feeling below average but above ghastly for a couple hours, we decided to fire up a bowl. The visuals of the ETH-LAD had further diminished in the past few hours, but after a few tokes of left-handed tobacco we discovered a pleasing increase in visuals without accompanying nausea. Neither of us felt well enough to eat yet, but the cannabis put us pretty much feeling middle-of-the-road. We laid in the tent and closed our eyes and found remarkably vivid and quick-paced closed eye visuals. It seemed to resemble the cannabis phantasmagoria of floating images and screwy patterns, but it proceeded with astonishing rapidity. Four or five distinct, vivid, and intricate hallucinations would flash before our eyes per second. They ranged from cartoons to geometric patters, to figures beheld in 3D space. Sense of sound was also highly elevated- the forest was imposingly loud and somewhat distorted. This hallucinatory state made for a pretty decent rest of the afternoon.
+T+11:00 - By about 8pm we were both sober again and we packed up and left.
+Seeing only the harm potential in the tabs, I burned the rest of them when we got home.
+I now understand that it sounds like ETH-LAD can have pretty positive effects at lower doses, but holy cow, I cannot recommend high doses. If you want to do a high dose of something, do mushrooms, those are interesting. This was a harrowing puke-fest and the psychedelic effects were more confusing and disorienting than with other hallucinogens I&#x27;ve used.
+This was a harrowing puke-fest and the psychedelic effects were more confusing and disorienting than with other hallucinogens I&#x27;ve used.
+Also an important lesson- follow harm reduction guidelines- namely, if you&#x27;re trying a new substance, start with a low dose to see how it affects you and work your way up. Billy and I thought we were experienced enough with LSD to handle a high dose of ETH-LAD, but we didn&#x27;t take into account just how grueling the nausea could be.
+Also worth noting, my friend Billy had been having stomach problems for several weeks prior to this trip and had been experiencing occasional nausea anyways. I wouldn&#x27;t be surprised if that exacerbated ETH-LAD&#x27;s ability to produce nausea for him, and then I got nauseous sympathetically. Even so, to any readers, I advise extreme caution with high doses of this substance.
+Exp Year: 2018
+ExpID: 112431
+Gender: Male
+Age at time of experience: 20
+Published: Oct 10, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+ETH-LAD (688) : Combinations (3), Nature / Outdoors (23), Health Problems (27), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

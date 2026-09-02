@@ -1,0 +1,205 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>皮克隆和素 - 艾洛伊德药物 - &quot;痛苦的记忆&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ssris.html'>← SSRI类抗抑郁药</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>皮克隆和素 - 艾洛伊德药物 - &quot;痛苦的记忆&quot;</h1>
+<div class='sub-title'>Zopiclone &amp; Fluoxetine - Erowid Exp - &#x27;Painful Memories&#x27;</div>
+<div class='meta'>作者：blink Citation · 日期：Nov 27, 2005 · 剂量：300 mg · <a href='https://erowid.org/experiences/exp.php?ID=48249' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>我希望它能找到某人, 让他们不必走我走过的路.
+我从六年级开始, 服用不同剂量的普罗扎克药 (有时也会转换为帕克西尔药), 持续了六年半.
+我也在服用里塔林和控制释放的里塔林,
+我也开始陷入深度抑郁,
+2001年9月下旬 - 我去看了家庭医生, 让我的普罗扎克 (Fluoxetine) 剂量从40毫克增加到60毫克,
+在增加剂量之前, 我每天服用4次10毫克的药丸.
+我和医生同意每天早上服用6粒药是过分的,
+那天晚上10点左右, 我测量了我的剂量.
+我忘记了剂量单位的变化,
+我喝了5粒安眠药, 喝了不知数量的酒精 (最多只喝两次), 再喝了10到12粒普罗扎克, 然后睡着了.
+这份报告的其余部分是我自己碎片化的记忆和我从朋友那里获得的第三方账户的拼.
+我不记得那天晚上发生的事情,
+我早上8点醒来, 习惯性地穿好衣服, 赶上8点15分的公交车.
+我登上了公共汽车, 着窗外, 记忆在五秒钟的记忆中交替,
+我开始感到不适, 但几乎整个公交车的时间内, 我一直在吐.
+距离学校只有30秒, 我再也忍不住了.
+通过一个残酷的运气, 我坐在两个唯一的紧急出口之一, 举起红色的手柄, 向外推窗户,
+我关闭窗户,看着我的左边.
+让我在公共汽车上剩下的几分钟站着.
+我向司机道歉, 让她感到不舒服, 并提出清理它.
+我不知道她是否回答了我, 因为我的下一个记忆闪过学校的内部.
+我发现自己独自在洗手间, 望着镜子, 挤压不存在的污点, 感觉奇怪, 全身.
+我离开了洗手间, 横跨走廊向着门.
+我坐在我的一些水意向旁边, 打开一个关于无意义的东西的谈话.
+试图与他们交谈大约一分钟后, 第一个响了.
+接下来的钟声将在5分钟内响起, 标志着第一班的开始.
+我把右手套拉回来, 给其中一个人看, 显然是自己造成的刺伤, 还有5到6根大安全针穿进和穿出我的皮肤.
+奇怪的是,血很少.
+让我坐在走廊的地板上.
+我试图打开锁, 关闭了门.
+经过几次失败的尝试, 我躺在我的储物柜前睡着了.
+我躺在那里多久,我不知道.
+于是她把我的手臂放在她的肩膀后面, 走向前台办公室.
+我告诉办公室工作人员不要打电话给救护车,而是打电话给我母亲.
+无论出于什么原因, 他们都同意了, 在办公室椅子上昏睡20分钟后, 她来了.
+我坐在车的后座, 解释说我得了流感, 前一天晚上空腹吃药,
+她把我送回家,然后回去工作.
+我在床上着一瓶水, 哭泣, 因为腹部的疼痛.
+我选择自己解决问题, 不需要药物的帮助; 不是每个人都能做到的, 但到目前为止我已经能够做到.
+尤其是那些看到刺伤的熟人.
+每次我看到他们, 他们的眼睛都会变化,
+我成功地摆脱了这种经历, 没有任何长久的后果 (除了一些灰色的痕),
+我觉得我只是在妄想,失忆,
+我可能是错的, 但精神痕仍然新鲜3年后, 还没有开始愈合.
+希望这能让你了解高剂量普罗扎克引起的自我破坏行为.
+几年后,我回想起这段经历,
+时间表: 48249
+药品 - - 佐皮克隆 (272),药品 - - 素 (80):各种 (28),多天经验 (13),宿醉/几天后 (46),抑郁症 (15),过量服用 (29),火车毁和旅行灾难 (7),不好的旅行 (6),困难经历 (5),回顾/总结 (11),组合 (3),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Painful Memories
+Zopiclone &amp; Fluoxetine
+by
+blink
+Citation:   blink. &quot;Painful Memories: An Experience with Zopiclone &amp; Fluoxetine (exp48249)&quot;.
+Erowid.org
+. Nov 27, 2005. erowid.org/exp/48249
+DOSE:
+300 mg
+oral
+Pharms - Fluoxetine
+(capsule)
+25 mg
+oral
+Pharms - Zopiclone
+(pill / tablet)
+2 shots
+oral
+Alcohol - Hard
+(liquid)
+BODY WEIGHT:
+150 lb
+This report details one of the lowest points I&#x27;ve reached in my life and I hope that it finds its way to somebody in that same place so they won&#x27;t have to take the same path I did.
+From the time I was in grade 6, I had been taking varying dosages of Prozac (and at some points switching to Paxil), on and off again, for 6½ years.  During this time I was also taking Ritalin and Controlled Release Ritalin, but stopped taking them going into my last year of high school.  Around this time I also began to go into a deep depression and at extremes, became suicidal.
+Late September of 2001 - I went for a scheduled checkup with my family doctor to have my dose of generic Prozac (Fluoxetine) increased from 40mg to 60mg and to renew a separate sleeping pill prescription (Imovane).  Before the increase in dosage, I was taking 4 x 10mg pills daily.  My doctor and I agreed that taking 6 pills each morning was excessive so we switched from 10mg to 20mg capsules.
+That evening at about 10PM, I measured my dose.  I forgot about the change in dosage units and took my regular 4 pills for a total of 80mg; 20mg more than the maximum recommended daily dose.  Upon realizing my error I thought out loud “Well, I&#x27;ve gone this far, why not go for it.”  I took 5 of my sleeping pills with an unknown amount of alcohol (no more than 2 shots at most) and took a further 10 to 12 Prozac, then went to sleep.
+The rest of this report is both a patchwork of my own fragmented memory and 3rd party accounts I solicited after the fact from friends.
+I remember nothing about that night or the quality of sleep (if any).  I awoke at 8am and out of habit, managed to dress myself and get out the door, in time to catch my bus at 8:15am.  I boarded the bus and stared out the window with my memory alternating between recording 5 seconds of memory then blanking for another 5.  I began to feel ill but held down the vomit for almost the entire duration of the bus ride.  Near the end of the ride to school, literally only 30 seconds away from the school, I couldn&#x27;t hold it in any longer.  By a cruel twist in luck, I had seated myself in one of the two only emergency exits and proceeded to lift the red handle, push the window outwards and evacuated the contents of my stomach across the side of the moving bus.
+I closed the window and looked to my left.  I had either terrified or shocked the girl seated next to me into standing in the aisle for the few remaining moments on the bus.  As it came to a rest I made my way off and apologized to the driver for the inconvenience I caused her and offered to clean it.  I don&#x27;t know if she answered me because my next memory flashes to the inside of the school.
+I found myself in the washroom alone, looking into the mirror, squeezing non-existent blemishes, feeling a strange, full body shiver.  I left the washroom and slumped down across the hallway facing its doors.  I had sat down next to some aquaintences of mine and struck up a conversation about something nonsensical.  After about a minute of trying to talk with them, the first bell rang.  The next bell would ring in 5 minutes, signaling the beginning of first class.  Around this time I pulled my right sleeve back and showed one of the group what was apparently several self-inflicted puncture wounds as well as 5 or 6 large safety pins going into and coming out of my skin.  Strangely there was very little blood.
+The group I had been seated with were understandably shocked and left me sitting on the hallway floor.  I made my way to my locker and attempted to open the lock holding the door shut.  After several unsuccessful attempts, I lay down in front of my locker and went to sleep.  How long I lay there, I don&#x27;t know.  At some point later, one of my friends found me on her way to her own locker nearby, and put my arm over the back of her shoulders to me in stumbling to the front office.
+Once there I asked the office attendants not to call for an ambulance, urging that they instead call my mother.  For whatever reason, they agreed to and after nodding in and out of conciousness in the office chair for 20 minutes, she arrived.  I got in the rear seat of the car and explained I had the flu, took my medication on an empty stomach the night before and hadn&#x27;t had any water.  She drove me home and went back to work.
+At 11am, I was at home again, in my bed, nursing a bottle of water and crying due to the pain in my midsection.
+After this experience, I swore off the sleeping pills and Prozac, opting instead to solve my problems on my own, without the aid of medication; not something that everybody can do but something I have thus far been able to accomplish. To this day, I have difficulty looking in the eyes of the people who saw me that day, especially the aquaintances who saw the puncture wounds.  Every time I see them their eyes change and I can see a mixture of fear and discomfort as they relive the same moments I can barely remember.
+I managed to come out of this experience with no lasting effects (save a few gray scars) beyond the shame and social stigma of being a “cutter/self-mutilator”.  It seems to me as though I was simply delirious and amnesiac and was nowhere near close to dying.  I may be wrong in that assertion but the mental scarring is still fresh 3 years later and has yet to begin healing.
+Hopefully this gives some insight into the self-destructive behavior that high dose Prozac brought out in me.  Reading it back to myself years later, all I can do is shudder.
+Exp Year: 2001
+ExpID: 48249
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 27, 2005
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Zopiclone (272), Pharms - Fluoxetine (80) : Various (28), Multi-Day Experience (13), Hangover / Days After (46), Depression (15), Overdose (29), Train Wrecks &amp; Trip Disasters (7), Bad Trips (6), Difficult Experiences (5), Retrospective / Summary (11), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,693 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>欧罗伊德的故事 - ,小姐莫莉.</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dopr.html'>← DOPR</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>欧罗伊德的故事 - ,小姐莫莉.</h1>
+<div class='sub-title'>DOPr - Erowid Exp - &#x27;Good Golly Miss Molly&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Dec 3, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=113746' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>好的小姐莫莉...一个故事的DOPR
+2019年10月26日与朋友口服的6.6毫克DOPr
+通过Xorkoth
+我如何开始编织这个伟大的故事?
+我会尽可能多地回顾细节,并做出尽可能多的观察.
+我把我的笔记留在了我倒的房子里, 但它们无论如何都是相当无用的,
+我认为我会尝试设置场景.
+记住,在我开始写这篇文章时, 已经过了T+35:15小时, 我仍然处于最低状态,
+试着以更真实的方式去感受.
+我在10月26日星期六早上8点醒来,
+我已经准备好了前往我的乐队的家园, 那里占地200英, 是一个令人难以置信的美丽自然奇观之地.
+我的吉他手,我称之为扎克,
+他的女朋友克拉拉, 和我们的贝斯手, 赫克托, 都住在那里.
+这里有很多令人惊叹的动物.
+除此之外,房子本身是惊人的.
+那里的氛围总是很棒, 我们在那里制作了一些精彩的音乐.
+在这片200英的土地上还有很多小径.
+我提及这一切是为了描绘一个景色,
+计划是我和赫克多一起在家里玩, 他成了我最喜欢和最常见的玩伙伴, 因为他和我对迷幻药有同样的感情,
+无论如何, 计划是我将在10点出现在我们将采取DOPR.
+这也是赫克多第一次服用迷幻安非他命药, 但他非常不愿意尝试一些很少有人尝试过的东西.
+我到达时,他还在睡觉,所以我最终唤醒了他,我们决定了剂量.
+我决定给他5毫克,给自己6.6毫克.
+为什么是6.6?
+诚实地说,我喜欢六元,而且是两个六元.
+似乎比6.5更好.
+在现实中,它可能是不可辨别的.
+在现实中,它是非常强大的剂量.
+但我已经准备好了.
+公司不可能更好.
+环境不可能更好.
+公司不可能更好.
+环境不可能更好.
+我们打算一旦它开始出现就去徒步旅行, 最终会播放音乐.
+所以我们在上午10点半拍摄了,
+这次投降.
+在嘴里它去了.
+酒精的味道相当多, 这是我预期的, 因为我用酒精制成溶液,
+我们知道它需要一段时间才能达到顶峰,
+我抽了一口大麻, 赫克多抽了几次, 他经常抽大麻,
+另外一个非常重要的一点是, 赫克多喜欢
+爱的
+他有气.
+他为我们买了一箱50元.
+虽然我们还没有破解.
+我们只是听了一些音乐, 等待效果开始.
+我记得在45分钟内 (我现在没有时间笔记,
+只是一个非常放松,高兴的感觉身体的能量转变,
+一个轻微的高兴的语气.
+事实上,虽然他服用的量少了一点,但他和我一直都处于同一个水平,
+但我们稍后再谈一下.
+效果慢慢形成.
+我们开始感觉很好, 我们开始谈论我们可以谈论的一切.
+整个旅程中, 这是我最喜欢的部分之一.
+我已经把它与DOX类药物联系起来了.
+这与当时的 DOC 对话非常相似, 我们想深入探讨任何我们心目中触及的东西的内在运作, 这非常令人满意,
+经过2个小时,或许一个45小时, 我们都开始得到一些视觉.
+我在此之前也听到一些关于运动的建议, 但在这一点上我们都停下来,
+我告诉你,我们是对的!
+从那时起,视觉效果非常快速,令人惊地快速,
+虽然颜色显得非常美丽, 颜色谱中的微妙的阴影变化却是鲜明的独立颜色.
+这样看起来很像梅斯卡林.
+但这就是与梅斯卡林视觉效果的比较的终点.
+视觉部的视觉包括我视野中的一切都在微小的波浪中.
+一开始它只是一个漂亮的效果, 但很快我开始意识到我看到后图像 (或预图像真的), 层次的很多次, 堆叠在堆上, 在一切,
+我手会静止, 但我看到它如何移动的不同代,
+这是一个非常酷和独特的效果.
+视觉效果与DOC的视觉效果有很大不同,
+而且视觉效果也更强大.
+现在,已经有好2个半小时了, 旅行已经开始了.
+我感到非常放松.
+身体的感觉并不紧张
+我感到非常放松.
+身体的感觉并不紧张
+这让我和赫克多都想起了身体中的MDMA.
+不是那么强烈, 但类似的 entactogenic.
+我们都很开心.
+药物似乎想让我们闭上眼睛,
+闭眼的视觉效果非常强烈, 但对我来说, 至少到目前为止,
+虽然我们都觉得药物给了我们一个诱人的机会被它催眠,
+我们选择继续无休止但极其令人满意的关于生命,宇宙和万物的无休止对话.
+经过一段时间,
+他总是扮演&quot;爸爸&quot;的角色, 他总是照顾每个人,
+他告诉我们一条有&quot;大布&quot;的小径, 听起来很棒,
+我们都不担心熊,他们不是侵略性的.
+但显然一个街头的家伙向他展示了山狮在他的土地上的镜头.
+无论如何我们走了.
+我注意到我真的很醉了,
+我不会因为旅行而醉.
+实际上,我感觉自己比平时更能控制自己的身体.
+公共事务部的情况完全不同.
+我没有平衡.
+感觉就像在海上坐船一样.
+我觉得我的平衡不太好,
+我有时会发现自己在扎,摇摇欲.
+我说醉了,这是绝对正确的,
+让人感觉到自己正处于旅程之中,
+视觉效果也在另一个层面.
+我们看到的每一个地方都是美丽的秋季色彩.
+一切都在移动...
+实际上是,因为这是自然.
+我看到了巨大的层次的潜在运动.
+我开始很难理解我看到的东西.
+我不得不停下来, 收拾自己, 因为我真的看不到自己要走到哪里.
+随着这一切, 我开始看到大规模的视角转变.
+没有任何物体呼吸, 像我在远处看着, 我看到的东西的整个大都在移动,
+在某个时候,我们发现一些火尾, 赫克多想拍一张照片,
+是一种非常酷的品种,
+绝对是美丽的
+我们终于到了水面.
+对于我来说, 这有点反气候,
+但这只是一个多层次的双布中的两个小布,
+在这个时候,我们都非常出汗, 因为徒步旅行很,
+我们停下来喘息, 思考我们到底在哪里.
+我们开始仔细观察一切,
+我一直注意到有一种特定的蓝色,一种天蓝色, 我在岩石上看到,
+对于我来说,这种颜色是超和的, 但有趣的是它看起来&quot;模糊&quot;,
+我们开始谈论保罗·斯塔梅茨 (他和一样,
+埃克托告诉我保罗第一次旅行
+没有.
+我们逐渐回到房子, 讨论保罗·斯塔梅茨故事的百万个触点.
+我们回家的时候, 已经有3到4个小时了, 大概下午2点半左右,
+这种催眠暗示的感觉很强烈.
+我们都闭上眼睛,开始沉浸其中.
+很容易被它带走.
+这几乎像是睡眠, 但是一个有意识的睡眠,
+我突然觉得我们应该演奏音乐.
+音乐显然是那个时候对我最有影响的东西.
+我觉得这种催眠力量有能力通过音乐促进流动状态.
+我是非常正确的.
+我们刚刚要走出去的时候, 听到扎克开始弹吉他,
+我们走到那里,开始热身,感受彼此.
+作为一个历史/相关事实, 扎克很少旅行这些天.
+但他知道我们的旅程, 他有着令人惊叹的能力, 当我们演奏音乐时,
+随着我开始玩,
+真的
+感觉到这种药物在我的身体中的作用.
+它表现为一个缓慢地挥动的树枝.
+我开始强烈地感受到这一点,
+我闭上眼睛,继续玩.
+我闭上眼睛, 看到一只被微风吹动的肢体慢慢摇摆.
+叶子被同样的微风吹动, 但速度要快得多.
+他们是支部运动的一部分.
+事实上,它们与树枝上较慢的节奏完美同步,
+我突然明白发生的节奏.
+几年前我在听萨纳塔时意识到, 任何节奏, 无论多么曲折,奇怪或有多奇怪的时刻符号, 都可以分解为节拍的每一个音符在&quot;时间线&quot;上发生的等效间隔的节奏.
+有时你可能需要分为64音,或128音,或其他.
+但在任何你能想象到的节奏的基础上, 存在着一个均的节奏序列.
+我以前也曾在智力上意识到这一点, 并把其中的一些东西带到我的演奏中,
+但有东西居住在我的身体里, 教导我演奏音乐和肌肉记忆.
+我开始以一种我从来没有想过的方式演奏,
+我感觉到了它点击, 我们都用大眼睛看着对方.
+后来我和赫克托谈了这件事, 他也经历过类似的经历.
+听起来好像我们在传递某种东西, 但同时, 它是根据我们的声音,
+接下来是我从未听过的最深刻的音乐流,
+如果您是一位音乐家,
+你知道每一个音符都会奏效.
+即使是一个错误,一个错过的音符, 也会被接纳和演变,
+我们开始演奏一些旧的歌曲, 并将它们完全演变为迄今为止最好的歌曲.
+这场演出教了我很多关于如何演奏正确的蓝调钢琴.
+尤其是用左手作为一个持续的步行低音线, 而不是作为和弦支.
+现在我突然知道如何做到这一点.
+材料的演变是惊人的,无言的, 如此一来,
+我们也提出了很多新材料,
+我们接触到的几个地方, 特别是在边缘,
+然后我开始意识到,等待,我明白如何演奏这种感觉,和弦的变化和节奏的类型,
+但我也感受到今天世界的痛苦,深深的伤害,伤心和恐惧.
+我感觉到并理解了可怕的,有毒的公众故事,
+我感觉到文明的自杀性质, 文明的崩,大规模枪击,爆炸,恐怖主义,
+我理解这些言论,每天都在宣传可怕的故事.
+对于这些人来说, 恐惧表现为仇恨,
+我们被养着仇恨,愤怒和恐惧,
+我意识到,最终我们选谁并不重要.
+改变必须从内部发生,
+我意识到这种普遍的心跳,
+它让人们进入一个原始的地方, 一个集体思维的地方, 一个理解,惊奇和爱的地方.
+一个真实的感觉和思想的地方,
+通过这首音乐, 我们可以帮助人们.
+这种音乐是治愈的,它是原始的和强大的.
+不仅如此,当我抬头看扎克和赫克多, 我看到他们也看到了, 我们着对方大大.
+我们一起玩, 慢慢加剧, 达到某种超凡的高潮, 唤起悲伤,兴奋,爱情,性,,空间,宇宙,原子和分子,
+我在收到这封信时公开哭泣,
+我哭了, 悲伤和绝对狂喜的奇怪组合,
+这是最美丽的事情, 我们曾经一起玩过的最美丽的东西,
+我之前最感觉到我的和我们的力量.
+我们正在使用药物.
+现在,我有着强烈的音乐高峰,
+现在,我有着强烈的音乐高峰,
+感觉通过我的身体是绝对压倒性的,高潮在它的强度,非常愉快,
+强大的
+这么强大.
+我看到的每一件事物都在移动, 在如此多的层次上, 甚至看起来不真实, 一切都像一种强烈的迷幻无限深度的图案.
+这就像我的视觉是画在桑塔塔的专辑封面
+它给了一切看起来.
+这张专辑的封面 (我在同一天晚上发现,
+我开始看到我手的可能动作, 当我向下看,
+我只能跟随指南, 了解我应该学习的内容.
+这就是我做的.
+我们经常停下来看着对方,
+经过几个小时, 我开始有时觉得自己需要放松,
+我在感受音乐时会感到非常强烈的音乐兴奋, 这是一种合法的改变状态.
+音乐在播放时很好, 但音乐停止后, 我的大脑就像爆炸了,
+这时我完全清醒了,只是因为音乐.
+所以在6.6毫克的DOPr上达到顶峰是极其激烈的.
+扎克终于放下了吉他, 赫克和我决定我们需要放松.
+所以我们半尬地把扎克留在客厅,
+我们当时才记得我们有气.
+让我再讲一个背景故事.
+赫克托
+真的
+喜欢有气的
+他的整个房间里都是空的盒子和空的灯泡.
+他告诉我,他把所有二手车都储存起来, 因为它们看起来像是大量的浪费,
+他会继续这样做一段时间.
+我从来没有见过最糟糕的情况, 对于他来说, 似乎很冷静,
+在他做了一个之后,我把两个打入充电器.
+我们有一些漂亮的大气球,所以我把它全部吹进气球.
+几次深呼吸.
+开始吸入,几次吸入和吐出.
+身体的声变得非常激烈.
+然后,事情就发生了.
+每次我用迷幻药时, 我都会从上次开始.
+只是在一个宏伟的,相当漫长的时刻, 就好像我知道这个问题和答案,
+虽然这似乎是世界上最清晰的知识,
+然后我尽可能地坚持下去, 然后它开始退缩, 我意识到很多事情,
+然后我充满了宣称我这次有它的冲动,,是的,
+这一次
+我记得如何描述它.
+然后我不能,我像,该死的!
+的气!
+这是怎么回事?
+是一种疯狂的药物,兄弟.
+,发生了什么,比以往任何时候都更长,更清晰.
+我在那个状态中存在了很长一分钟, (也许,谁知道,
+经过大量的呼喊, 我又做了2次.
+这一次,我开始感觉到我吸入气时会感觉到的东西.
+尽管我们使用气球, 似乎狗进入我的肺部,
+这实际上让我的喉开始.
+我感到很糟糕的感觉, 很害怕受到大打击,
+尽管如此,我还是觉得不好.
+但是我愿意为再次参观峰会付出代价!
+我说,所以走出去.
+我吸入,呼出,重新呼吸... 感觉有点窒息,
+但每一次之后,对我来说变得越来越不清楚.
+我记得的更少,
+这一次,我突然觉得我的眼睛已经闭了,
+我有一种模糊的感觉,
+我是不是这么做?
+我还在等着做吗?
+我没有记得.
+我开始觉得我有时间旅行, 击中它, 因为我模糊地认为我记得实际上做了,
+没有
+在我做这件事之前,
+这让我开始质疑现实,
+但相对较快, 我笑了起来... 这只是一种愚蠢的.
+尽管我的肺部已经了, 感觉无法完全呼吸,
+他慢慢地吸入和吐出气球, 然后等待, 再做一次,
+他试图保持稳定的低流, 这是我从来没有想过的事情.
+他后来告诉我, 通过这种方式, 他得到了很多东西,
+我想尝试这个,但我昨晚没有.
+我很慢慢地吸入, 因为我的肺部让我很害怕.
+我开始注意到房间里的背景声音实际上是在说话,
+我觉得里面有生物在和我说话,
+后来赫克多说他当时也经历过同样的经历, 背景声音变成了对他说话的声音,
+但在这种情况下, 我实际上能够记住经历, 我的意思是我记得它的主旨,
+时间间歇.
+触发古老的间歇音乐
+我做了一个很酷的观察, 这导致了一些真正的学习, 因为我没有睡过自从这个经验, 我仍然有这个经验,
+我意识到我正在清晰地回忆起那天晚上的细节.
+我意识到在旅途中写入我的笔记,
+我通常会在旅行中这样做, 用它们来记住我当时希望能够记住和沟通的东西.
+只是花时间写下来, 我基本上是停下来退一步, 记住这一点.
+但我的笔记都是完全没有意义的.
+几句错误的字,一个惊呼.
+另外,我的笔记甚至没有在这里.
+我意识到我可以把那一刻留给自己, 拍出一个脑海中的快照, 不用写任何东西,
+写作总是会打断任何正在发生的事情.
+这将是未来的宝贵工具.
+幕上升.
+触发戏剧性的大声响
+现在,我已经用不了气了, 因为我在肺部的感觉让我吓坏了.
+希克托开始回来.
+我们每个人都打开了我带来的酒.
+我在晚上一直慢慢喝酒, 到晚上喝了8杯 (大约8小时).
+在DOX,DOC中 (事实证明,DOPr也是如此), 酒精在适度和稳定的量中混合得非常好.
+让我放松身心,感受高潮和欢乐, 这将是我未来很长一段时间的生命.
+我们开始大笑, 无休止地进行无休止的对话,
+晚上的主题是,我们中的一个或另一个会开始非常热情地解释我们在想什么或意识到什么,
+我们会笑, 但这很疯狂, 因为我们总是互相理解,
+我认为DOPR的独特之处之一, 绝对是令人着迷的, 是它与集体思维空间的联系.
+我们知道对方的感受和想法, 我们同时想要同样的事情,
+这真是很酷,但也很自然,就像我们知道对方的想法是正常的.
+现在是晚上9点15分左右,
+它的力量和以往一样强大, 不比在音乐的高峰时更强大,
+视觉效果是绝对压倒性的, 在最好的方式,
+我觉得我看到的每一件事, 我的眼睛都试图吸收它并看到它的一切,
+仿佛我的眼睛正在吞下它.
+我出去抽一支香烟,
+星星是绝对丽,如此明亮,
+只有在3/4-MMC,MDMA,MDA,AMT等同情药物中才会发生这种情况.
+听起来像是同样参与打哈欠的肌肉, 围绕着我的耳朵, 由于非自愿的肌肉收缩而移动,
+但同时也非常无法控制.
+我在吸烟时感受到这种效果.
+我从这个DOPR的身体感觉或多或少完全类似的身体高的好同情.
+这真是太棒了.
+在抽完香烟之后,
+我们一直在谈论关系后应激障碍.
+赫克特最近和一个女朋友发生了非常糟糕的经历, 她患上了躁狂发作,
+所以每当我们跌倒时,它就会出现.
+我也曾经经历过暴力关系, 他也知道这一点,
+让他能够从经历过这种情况的人的角度来看待情况,
+他生活中很多人基本上告诉他他被一个女人虐待,
+他觉得自己不应该有这样的感受.
+我会尽我所能帮助他从中康复, 因为我爱赫克多, 他觉得是我的家人,
+在服用药物12小时后, 扎克进来问他能不能抽一口大麻 (顺便说一句,
+然后克拉拉进来, 我们有一个很好的寒冷一段时间.
+她的狗,伊娃,来了出去玩.
+她是个超级爱犬, 她是那些只想把舌头放进你的嘴里的狗之一.
+她只是在等待一个机会,总是,滑进那舌头.
+如果有机会,她会你的脸不停只要你让她.
+埃克多让她做了,然后缩起来笑了起来.
+伊娃开始得到
+真的
+对于的人来说非常激烈.
+她是解决他和愤怒.
+后来他开始拒绝她,说她不愿意,
+我和赫克多笑得无法控制, 因为我们刚刚谈论女性在恋爱中对男性的虐待, 甚至是身体暴力.
+这是一只狗, 无意中强迫他.
+在歇斯底里,喘不过气的笑声中, 赫克托终于让她冷静下来,
+然后她又有了这种冲动, 深深地看着他的眼睛, 开始轻轻地按摩他的手臂,
+就好像说&quot;来吧,宝贝,让我们去,不,没关系,是的,让它发生.
+这太多了,我们四个人笑死了好5分钟.
+时间间歇.
+没有触发古老时代的插曲音乐, 因为那个模因已经被播放出来了, 乐队已经累了.
+时间是凌晨2点06分, 几乎是T+40点,
+我还在着.
+实际上,我比几个小时前感到疲倦的感觉更小了.
+我仍然充满了快乐和愉快的感觉.
+现在我才意识到明天不是星期天,
+明天是星期一,我必须工作.
+如果我现在就上床睡觉, 我可以睡8个小时.
+当然我现在不能睡觉.
+但是我会服用一些Etizolam,所以我可以很快就会疲倦和睡觉.
+我会吃一些Etizolam,所以我可以很快疲倦和睡觉.
+如果我不睡觉, 就会太热了,
+你的成年生活该死的!
+你和你的愚蠢的规则和睡觉时间和责任.
+但是,我还是偶尔会看到它.
+这是荒谬的.
+如果您一直认为DOC太短,
+我很快就会服用2毫克的Etizolam, 希望这足以让我昏倒.
+我会在早上写完这部关于一种长长的毒品的故事.
+几天后继续
+在一段时间后,扎克和克拉拉上床睡觉.
+随着夜晚的推移, 赫克托和我继续有趣和伟大的对话.
+我们看了各种关于种植树木的影片,
+赫克多定期使用更多的气, 而我没有.
+我确实继续慢慢地喝酒, 他也是.
+我不会概述所有内容, 因为这份报告永远不会结束,
+我处于一个平原阶段,
+我们都在聊天,笑,感觉惊很多.
+我一直有内耳的声, 尤其是在吸烟的时候.
+星星是令人难以置信的...
+我几乎可以看到外面的一切, 它们悬挂在天空中, 看起来我可以伸手收拾它们,
+我们经常谈论, 赫克多最近曾几次这样做,
+最终,大约上午6点 (T+19:30),赫克托宣布他要躺下,闭上眼睛,试着休息.
+他说他不认为他会能够睡觉, 但他几乎立即睡着了.
+我也躺下了,但对我来说很明显我不会能够睡觉,我不想,无论如何.
+我试着打几张音符,听音乐,然后放弃,
+在房间里变得非常热, 因为赫克多整晚都很冷,
+我走到外面,被清晨的美丽所震撼.
+秋天的色彩令人振奋,
+我回去向所有动物说好.
+我花了一些时间和猪一起,给他们一些食物.
+我大部分时间坐在舍旁边.
+有一群不同种类的和.
+它们非常漂亮,看起来也很有趣.
+是谨慎地保持我的眼睛,但是害羞地看着我看起来像她想让我的熟人,但太害羞了.
+我着动物和大自然,走来走去,检查我的血中酒精含量 (0.062%), 找到了他们那里的小接待点, 给我的朋友发短信, 和我的朋友进行了很有趣的对话,
+结合了我在键盘上的能力和女士们.
+我真的很想让自己和别人开心.
+后来我又回去, 赫克多还没有醒来,
+于是我开启了我的键盘, 一个人演奏了大约一个半小时.
+我回顾了前一天学到的一些东西,
+我开始演奏,让我的思想流浪, 迷失在钢琴,延迟和合成器的世界里.
+即使是现在, 超过T+24小时后, DOPr仍然是我经历过的最好的音乐播放增强器.
+我从来没有体验过最好的音乐播放增强器.
+我意识到我很饥饿, 准备好回家放松身心. 接着,
+并且吃很多食物.
+我再次检查了我的血中酒精含量...
+只有0.011.
+然后是0.009.
+然后0.010,所以完全可以去.
+我收拾了所有的东西,开车走了.
+我走遍了整座房子好三次, 因为我觉得分散, 像我忘记了什么,
+只有在回家的途中, 我才意识到我忘了电脑.
+虽然我的视力仍然非常和, 但没有更多的视觉 (那些死在T+24,也许T+25).
+我在收音机上听NPR,花了一个小时才回来 (加上吃饭)
+) 的情况.
+我觉得这个节目很有趣,
+食物令人失望
+没有.
+我还没有吃完食物,看起来很糟糕.
+除此之外,我还吃了一些各种各样的零食.
+基本上我花了晚上剩下的时间做一些蓝光工作,
+我感觉非常宽松和愉快, 但也越来越累.
+但我的想法有些不稳定, 直到我上床睡觉,
+我服用埃蒂索拉姆以确保我真正入睡, 因为我甚至没有感到疲倦, 效果很好,
+那一天我没有做太多, 工作是很少的,
+我很高兴能和他们一起参加这场比赛.
+我没有使用任何药物, 但我很高兴,
+我可以轻松演奏以前无法演奏的东西,
+我们录制了练习,我很高兴,因为这都是与我们的新贝斯演奏家.
+那里有很多好用的原材料.
+总结
+我完全被DOPR吹走了.
+药物使用量为6. 6mg.
+非常
+但它是如此全面,舒适和令人满意.
+我不能不把它与DOC进行比较.
+它们有很多相似之处, 但DOPR是一种更深层次的迷幻,
+也更有视觉效果
+群体意识的层面开启了我们, 完全不同于我曾经经历过的任何东西,
+几天后, 赫克托尔和我谈到了这件事, 我们都非常积极地感觉到整个旅程,
+我们对音乐的体验也是一样的.
+关于人类本质的洞察力是清晰而有道理的.
+感觉像是某种古老的天体力量, 非常抽象,潜意识,
+在高峰期和高峰后的身体感觉是极其愉快的,
+我心情非常高兴,
+眼睛关闭时, 我几乎无法分辨它们是否开放或关闭, 因为视觉是如此强烈,
+视觉体验真的很有意义.
+现在是星期三, 旅行结束4天后, 我仍然在敬畏和极大的光中回顾它.
+我从这次旅行中学到了一些有用的东西,
+作为DOC的狂热爱好者,
+唯一的缺点是时间长.
+唯一的缺点是时间长.
+这种东西持续了很长时间...
+我在40个小时内仍然有精神影响,
+这绝对让我感到很难受.
+我发现自己很容易哭泣, 我的情绪非常强烈,
+他表示,这无疑是他一生中最好的RC迷幻体验,
+我认为这说明了很多.
+这是一种强烈的,疯狂的迷幻药.
+我真的很感激能够有机会获得它
+没有.
+时间表: 113746
+发布时间:2019年12月3日
+DOPR (691):一般 (1),组合 (3),音乐讨论 (22),多天经验 (13),烂的经验 (4),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Good Golly Miss Molly
+DOPr
+by
+Xorkoth
+From
+Bluelight Collection
+Citation:   Xorkoth. &quot;Good Golly Miss Molly: An Experience with DOPr (exp113746)&quot;.
+Erowid.org
+. Dec 3, 2019. erowid.org/exp/113746
+DOSE:
+T+ 0:00
+6.6 mg
+oral
+DOPR
+(liquid)
+T+ 0:00
+repeated
+smoked
+Cannabis
+T+ 0:00
+6-8 carts.
+inhaled
+Nitrous Oxide
+T+ 0:00
+repeated
+oral
+Alcohol - Beer/Wine
+T+ 0:00
+smoked
+Tobacco - Cigarettes
+T+ 40:00
+2 mg
+oral
+Etizolam
+BODY WEIGHT:
+170 lb
+Good Golly Miss Molly... a Tale of DOPr
+6.6mg of DOPr taken orally with a friend, on October 26th, 2019
+by Xorkoth
+How can I begin to spin the grand yarn that is the story of my ingestion of 6.6mg of DOPr?  I will attempt to recall as much detail and make as many observations as I can.  I left my notes at the house I was tripping at, but they were fairly useless anyway, consisting of word mashes and such gems as &quot;I can just fucking say that . music blah&quot;.  I suppose I&#x27;ll attempt to set the scene.  Please keep in mind as I begin writing this, it is T+35:15 hours after the dose, and I am still enveloped in the mindstate, albeit on the tail end.  I want to try to write the experience while still on the tail end to try to get the feeling more authentically.
+I woke up at 8am, Saturday morning, October the 26th, in the rather intense year of 2019.  This particular day, I had made plans that I was excited about and ready for, to go to my band&#x27;s house, which is on 200 acres of an incredibly gorgeous nature wonderland.  My guitar player, who I shall refer to as Zach,
+and his girlfriend Clara, and our bass player, Hector, all live there.  Clara is an animal rescuer, so there are a
+ton
+of amazing animals.
+Besides that, the house itself is amazing.  And the vibes are always great, we make some wonderful music there.  There are also a lot of trails covering the 200 acres.  I mention all of this to paint a picture of the setting, which is idyllic and beautiful with a lot of input and things to do.
+So, the plan was that Hector and I would trip at the house; he has become my most often and preferred tripping buddy because he and I have the same relationship to psychedelics and he has quickly come to feel like a little brother to me, I love him very much, he&#x27;s on of my favorite people, and favorite musicians to play with.  Anyway, the plan was that I was going to show up at 10am and we were going to take DOPr.  It was Hector&#x27;s first time taking a psychedelic amphetamine but he was very much down with trying something that very few people have sampled.  When I arrived, he was still sleeping so I eventually woke him up and we decided on dosages.  After consulting with my compadre, I decided to give him 5mg, and myself 6.6mg.  Why 6.6?  Honestly I love sixes and it was two sixes.  Seemed better than 6.5.  In reality it was probably indistinguishable.  Also in reality, it was a very strong dose.  But I was ready for that.  The company couldn&#x27;t have been better.  The setting couldn&#x27;t have been better.
+The company couldn&#x27;t have been better.  The setting couldn&#x27;t have been better.
+We planned to go hiking around once it started to come up, and eventually play music.
+So we took it at 10:30am, the oft-quoted T+0:00.  The drop.  Into the mouth it went.  It tasted of alcohol pretty much, what was what I expected since I made the solution with alcohol to prevent microbial growth over time.  We knew it was going to take a while to peak and probably a while to even come on, so we made ourselves comfortable.  I smoked a single hit of weed and Hector took several dabs.  he is constantly smoking dabs so it was normal for him.  Also as an aside, but a very relevant aside, Hector loves, I mean
+loves
+, his nitrous.  He picked up a 50 box for us.  We didn&#x27;t break into that yet though.  What we did was listen to some music and waited for the effects to begin.
+Around 45 minutes in, if I recall (don&#x27;t have my time stamp notes at the moment but hey I theoretically have a memory, right?), I noted first alerts.  Just a very relaxing, euphoric feeling body energy shift, a sign of things to come.  A slight euphoric tone.  Hector and I both felt the the onset of first effects at the same time... in fact, though he took a bit less, he and I were remarkably on the level the whole time, there was very much a sort of group trip mindstate, we were both tapping into the same place and at some point (later on), being in each other&#x27;s heads.  But more on that later.
+The effects slowly built.  We were starting to feel good and we started just talking about everything we could talk about.  This continued unabated throughout the entire trip, was was one of my favorite things about it.  It&#x27;s something I have come to associate with the DOX class of drugs.  It was very similar to DOC conversations at this point, where absolutely anything our minds touched on we wanted to delve into the inner workings of, which was very satisfying, and then some tangent would happen and the topic would evolve, but there was never any lull in conversation.  After about 2 hours, or maybe an hour 45, we both started to get some visuals.  I had been getting some suggestion of movement before this, but at this point we both just stopped and remarked that the visuals were starting and that we could tell it was going to be an intense visual experience.  And let me tell you, we were right!  Very quickly from then, surprisingly quickly, the visuals grew until they were fully not ignorable at all.  I wasn&#x27;t seeing colors so much, although colors stood out remarkably and beautifully, subtle shade variations in a color spectrum vibrantly stood out as separate colors.  It was very mescaline-like in that way.  But that was where the comparison to mescaline visuals ends.  DOPr&#x27;s visuals consist of absolutely everything in my field of vision rippling with tiny waves. At  first it was just a pretty effect, but soon I began to realize that I was seeing afterimages (or pre-images really), layering many times, stacks on stacks, on everything,  It was like I could see the potential movement of everything.  My hand would be still, but I saw all these different iterations of how it could move, overlayed in many layers over the top of my hand.  It was a very cool and unique effect.  The visuals differ very much from DOC&#x27;s visuals, it&#x27;s an entire other sort of visual.  And also much more powerfully visual.
+At this point, it&#x27;s been a good 2 and half hours, and the trip is quite kicked in.  I feel so relaxed.  The body feeling is not edgy at all
+I feel so relaxed.  The body feeling is not edgy at all
+, and it reminds both Hector and I of MDMA in the body, kind of.  Not as intense, but similarly entactogenic.  We&#x27;re both in a fantastic mood.  The drug seems to want to make us close our eyes and then get carried into into a trance.  The closed eye visuals are quite intense but for me, though at least up to this point, they don&#x27;t seem meaningful, it&#x27;s just a jumble of shapes and colors flowing around, not really responding to the music.  Although we both feel that the drug is offering us a seductive chance to be hypnotized by it, we don&#x27;t feel that we have to follow that, and we don&#x27;t.  We opt to continue the endless but immensely gratifying  endless conversation about Life, the Universe, and Everything.
+After a bit we decided we wanted to go hiking around and exploring.  We walked outside and started talking to Zach who always assumes a bit of a &quot;dad&quot; role, he is the guy who always takes care of everyone, is the responsible one, and so on.  He told us about a trail with a &quot;big waterfall&quot;, which sounded great, so off we went with a can of bear spray.  None of us are worried about the bears, they&#x27;re not aggressive.  But apparently a guy right down the street showed him footage of a mountain lion on his property.
+Anyway off we went.  I noticed that I was really quite intoxicated, in fact substantially so.  With DOC, I don&#x27;t get intoxicated from the trip.  Instead I feel very on point, well balanced, very in control of my body and in fact feeling even more in control than usual.  Not so with DOPr, at all.  My equilibrium was off.  It felt very similar to being on a boat at sea.  It felt like the earth was rocking back and forth beneath me, so my balance was not very good.  I sometimes found myself bracing myself and wobbling.  Of course, I say intoxicated, and it was absolutely true, but I don&#x27;t mean that negatively in any way.  It added to the feeling of really being on a trip, of being taken over by this force that is DOPr.
+At this point the visuals kicked in on another level, too.  Everywhere we looked was absolutely gorgeous fall colors.  Everything was moving... I mean it was actually, since it&#x27;s nature.  But everything appeared to be in a state of constant flux, huge layers of potential movements everywhere I looked.  It began to get hard to understand what I was seeing sometimes.  We were walking up the trail, and I would have to stop and gather myself because I literally couldn&#x27;t see where I was about to step.  Along with this, I begin to get large-scale perspective shifting.  There was no breathing of objects, it was more like as I looked out in the distance, entire large frames of what I saw were shifting, sliding left or right, or rotating just slightly.  At one point we find some turkey tail  mushrooms, and Hector wants to take a picture, so I do.  The mushrooms were an extra cool variety, they had these almost iridescent purple outer edges.  Absolutely gorgeous.
+Finally we make it to the water.  It&#x27;s a bit anticlimatic (for me), because when someone says big water I imagine a big waterfall.  But it was just two tiny waterfalls  in a multi-level double waterfall which is cool.  At this point we&#x27;re both quite sweaty since the hike was quite steeply uphill and kinda not really on a trail after a while.  We stop to catch out breath and reflect on where we&#x27;re at.  We start looking closely at everything because everything is so striking and beautiful looking.  I keep noticing that there is a certain blue color, a sort of sky blue color, that I&#x27;m seeing on rocks, and a few plants.  That particular color, for me, is super satured, but the interesting thing is that it looks &quot;fuzzy&quot;, like there is some literally fuzz growing out of it, I was relatively convinced it was mycelium but when I touched it, it was just regular hard rock.
+On the way back down, we start talking about Paul Stamets (he came up through the trip as did mushrooms as a topic).  Hector told me about Paul&#x27;s first mushroom trip
+. We gradually make our way back to the house, discussing a million tangents from the Paul Stamets story.
+When we get back to the house, it&#x27;s somewhere between 3 and 4 hours in, probably about 2:30pm, and Hector and I both feel like the peak is starting.  The feeling of hypnotic suggestion is strong.  For a minute we both close our eyes and really start to sink in.  It&#x27;s very easy to get carried away.  It almost feels like sleep in a way but a conscious sleep, more like meditation except like not fully conscious, also not by choice, the drug was hyonotizing us into it.  I feel very much suddenly that we should play music.  Music was very clearly the thing to be doing to me right then.  I think I had a hunch that this hypnotizing force had the ability to facilitate a flow state with music.  I was very right it turns out.  Right when we were about to walk out there, we heard Zach start playing guitar, which, we determined, only further meant that the time was right for playing music.
+We got out there, and started sort of just warming up, getting a feel for each other.  As a bit of history/relevant fact, Zach very rarely trips these days.  But he knew of our journey, and he has this amazing ability to connect to the trip when we play music, and really get in there with us musically.  As I got into playing, I began to
+really
+feel the motion of this drug in my body.  It manifests itself as a slowly waving branch.  I start to feel this so strongly that I feel I am the branch.  I close my eyes and keep playing just by feel.  I see the visual behind my  closed eyes of a slowly swaying limb, blown by a breeze.  And connected to the branch are a million little leaves, and the leaves are being rustled by the same breeze but much more rapidly.  But they are connected to the branch, they are part of the movement of the branch.  And in fact, they are perfectly in sync with the slower rhythm on the branch, forming an endlessly rapid intertwining counterpoint.  I suddenly understand the rhythm that is happening.  I had the realization, a number of years ago while listening to Sanata, that any rhythm, no matter how swingy or odd or in a weird time signature, can be broken down to where each note of the beat will occur on a &quot;timeline&quot; of equivalently spaced beats.  Sometimes you might have to subdivide into 64th notes, or 128th, or whatever.  But underlying absolutely any rhythm you could possibly imagine, there the existence of an evenly subdivided sequence of beats.
+Well, I have realized it intellectually before and brought some of that into my playing, but all of a sudden, I felt imbued with something, it wasn&#x27;t exactly like a presence controlling me, because I was controlling it.  But there was something there that was inhabiting my body, and teaching me, both music to play and the muscle memory to do it.  I began playing in a way I have never been able to or even quite imagined, but it was a bringing forth of that rhythmic knowledge into my actual playing, with great technique and creativity.  As soon as we got on that, Hector and especially Zach clicked into the same thing, I felt it click and we all looked at each other with kind of wide eyes.  Later I talked to Hector about it and he felt a very similar experience.  It felt like we were channeling something but at the same time, it was crafted to our sound and based on the work we had already done together, so it was more like we were channeling an energy field or awareness that was highly instructional, and communicating with all of us, we were all having the same conversation.
+What follows is the most profound and deep music flow I have ever been on, sober or on any drug.  It was no-fail zone, if you&#x27;re a musician, maybe you know what I mean.  It&#x27;s where you&#x27;re playing so comfortably, and you&#x27;ve got the vibes down perfectly and you just know that every note you play is going to work.  Even a mistake, a flubbed or missed note, is taken and evolved and so instead of a mistake, it&#x27;s a happy accident that evolves the music.  We proceeded to (without any speaking to each other even one time the entire jam session, which was about 5 hours in total) play some older songs and totally evolve them into by far the best they&#x27;ve ever sounded.  The presence was teaching me a lot about playing proper blues piano.  It&#x27;s something I have admired but I had never figured out some of those movements, and particularly using the left hand as a constant walking bass line, rather than being chord support.  And now I suddenly knew (and still know) how to do it.  The evolution in material that was happening was amazing, and wordless, and so right on, and levels above what we&#x27;re previously done.  We also came up with a lot of new material, not fully written out songs but great raw material to work with.  A few places we toucheed on in particular were verging on, or in some cases, fully breaking through, into what I can only describe as the feeling of the heartbeat of the universe.  And then I started to realize, wait, I understand how to play this feeling, the chord changes and types of rhythms to produce that incredibly deep-hitting universal beat.
+But I also felt the pain of the world today, the deep, deep hurt and brokenness and fear.  I felt and understood the horrible, toxic public story, different for different groups but all based on fear, creating a terribly disaffected and jaded population.  I felt the suicidal nature of civilization, the imploding of it, the mass shootings, the bombings, the terrorism, quite literally people killing themselves to kill as many people as possible.  I understood the rhetoric, the terrible story being perpetuated every day.  For these people, the fear manifests as hate, gibbering fear hidden behind aggression and hate.  We are being fed hate and anger and fear, and eating it up.  I realized that it doesn&#x27;t matter who we elect, ultimately.  The change has to happen from within, we have to save ourselves.  And I realized that this universal heartbeat vibe, it touches people.  It taps people into a primordial place, a group mind place, a place of understanding and wonder and love.  A place of authentic feeling and thought, unobstructed by appeals to the ego.  With this music, we can help people.  This music is healing, it is primordial and powerful.   And not only that, but as I looked up at Zach and Hector, I see they see it too, we&#x27;re staring at each other wide-eyed.  And we all play it together, and slowly intensified it, and reached some otherworldly climaxes that evoked grief and excitement and love and sex and tripping, and space and the universe, and atoms and molecules, touching on deep shared consciousness stuff.  I openly wept as it arrived, it was so incredibly cathartic and profound and even in the moment deeply healing for me.  I sobbed in a weird combination of grief and absolute ecstasy and also some amount of being just simply overwhelmed by what was happening.  It was the most beautiful thing imaginable, the most beautiful we have ever played together, the most beautiful I have played personally.  The most I have felt my and our power before.  We were wielding medicine.
+At this point, I have an intense music high the heights of which had never previously been achieved by me.
+At this point, I have an intense music high the heights of which had never previously been achieved by me.
+The feeling coursing through my body is absolutely overwhelming, orgasmic in its intensity, very pleasurable, but
+strong
+, oh so strong.  At this point my visuals are so overwhelming that everything I was seeing was moving its possible movements and in so many layers that it didn&#x27;t even look real, everything looked like an intensely psychedelic infinite depth of patterning.  It was like my vision was the painting on the cover of Santata&#x27;s album
+Abraxus
+, it gave everything that look.  Actually that album cover (which, I discovered the same night night, is a fucking incredible and mind-blowing piece of art) gives a good reprepsentation of how the visual display was during the peak.  I began seeing the possible movements of my hands when I looked down, began to see the moves I was about to make, or could be about to make.  I could just follow a guide to find out what I was supposed to learn.  And that&#x27;s what I did.
+Periodically we&#x27;d stop for a second and look up at each other like, &quot;is this really happening right now?&quot;.  After a number of hours, I started to periodically feel like I needed to chill out because my heart was pounding and  my brain was almost overexcited.  I get very strong music highs when I&#x27;m feeling the music, it&#x27;s legitimately an altered state.  It&#x27;s great during the music, but as soon as the music stops, It&#x27;s like my brain explodes with thought and it&#x27;s too much, I start pacing, and can&#x27;t talk to people, it&#x27;s intense.  And that&#x27;s when I&#x27;m totally sober, it&#x27;s just from the music.  So peaking on 6.6mg of DOPr was extremely intense.  Zach put the guitar down eventually and Hector and I decided we needed to chill out.  So we sort of semi-awkwardly left Zach in the living room and went to Hector&#x27;s room.
+It was at that point that we remembered that we had nitrous.
+Let me establish another bit of back-story.  Hector
+really
+likes nitrous.  His entire room is full of empty boxes and empty bulbs.  He told me earlier this same trip that he was saving all of the used ones because it seems like a lot of waste, but that he also organizes them by color.  Dude will keep doing it for a while once he starts.  It&#x27;s far from the worst I&#x27;ve seen and it seems pretty chill for him, but we are definitely in a routine nitrous user&#x27;s room.  After he does one, I crack 2 into the charger.  We have some nice big balloons,  so I blow it all out into the balloon.  Take a few deep breaths.  Start inhaling, breathe in and out a few times.  The body buzz is getting really intense.  And then, the thing happens.  Every time I do nitrous on psychedelics, I continue on from the last time.  And for just a majestic, rather lingering moment, it&#x27;s like I know both the question and the answer and it is the answer to existence, it is the reason, or something.  It&#x27;s impossible to explain even though it feels like the clearest knowledge in the world.  And then I hold it as long as I can, and then it starts to recede and I realize a bunch of things that somehow seem like the signposts for how this experience is coinciding with the past times, but I&#x27;m a little closer to finally reconstructing the pathway to that understanding.  And then I am filled with the urge to proclaim that I have it this time, oh yes,
+this time
+I remember how to describe it.  And then I can&#x27;t and I&#x27;m like, god damn it!  Fucking nitrous!  What the fuck??  Nitrous is a crazy drug, bruh.
+Well, that happened, more drawn out and clear that it had ever been before.  I existed in that state for a solid minute probably (maybe, who fucking knows honestly, it was probably seconds for all I know), and then it faded.  After much exclaiming, I did another 2.  This time, I started to feel this thing I feel with inhaling nitrous.  Even though we were using a balloon, it seemed like shit was getting in my lungs and somewhat suffocating me.  It actually makes my throat start phlegming up.  I was feeling that really bad feeling and it was scaring me to take big hits, or inhale too fast.  It still just felt bad.  But I was willing to pay the price for revisiting The Peak!  So sally forth, said I.  I did inhales, exhales, rebreathing... feel slightly suffocated, and I started to fade into the Place.  But with every subsequent time, it gets less clear, for me.  Like I remember less of it and it is less poignant and memorable (haha!).  This time, I suddenly thought my eyes were closed but realized they were wide open.  I had a vague sensation that I had been about to do a blast.  Did I do that?  Or am I still waiting to do it?  I could not remember.  I began to feel like I had time traveled, and hit it, because I vaguely thought I remembered actually doing it, but thought that I hadn&#x27;t done it, leading to me to the conclusion that I
+had
+done it, but had also time traveled back from before I did it.  It made me start questioning reality as I started to come back.  But relatively soon I chuckled... that one was just kind of silly.
+Despite my lungs being all phlegmy, and a feeling of being able to not quite take a fully satisfying breath, I decide to do it one more time.  Meanwhile Hector basically has a balloon constantly, and slowly breathes it in and out, and then waits, and does it again, and cracks another in there sometimes.  He&#x27;s trying to keep up a steady low stream, which is something I never thought to do.  He later explains to me that in this way he gets a lot of stuff happening and he gets like a half hour to let it develop and learn its parameters.  I want to try this, but I didn&#x27;t last night.  But I did very slowly inhale on it because my lungs were freaking me out.  I started to notice that the background sounds of the room were actually talking, they were often very silly voices saying something, sometimes words, sometimes gibberish.  It was the craziest thing, I felt like there were beings in there talking to me, or maybe each other.  Later Hector said he had the same experience at that time, with the background sounds becoming voices talking to him, but he experienced it over the course of a half hour whereas mine was all in a moment that was over in the blink of an eye.  But in this case, I actually am able to remember the experience, I mean  I remember the gist of it, and image flashes.
+Interlude.  Trigger old-timey intermission music
+I&#x27;ve made a cool observation which has led to some real learning and since I have not slept since this experience, I am still having this experience and therefore I would be remiss in my duties as an experience custodian to not make note of my observation.  I realize I am recalling the details of the night with a lot of clarity.  I realized that by writing the entries in my notes during the trip, I&#x27;m creating little memory hooks.  Normally I do this throughout a trip, and use them to remmeber things that at the time I wished to be able to remember and communicate later.  But simply by taking the time to write them, I am basically stopping and stepping back and making a mental note to remember this.  But my notes were all absolute nonsense.  A few badly typed words, an exclamation.  Furthermore, my notes are not even here right now.  So I realized I could simply take that little moment to myself, make a mental snapshot, and not have to actually write something, and it will be as effective.  Writing something always interrupts whatever was happening anyway.  That will be a valuable tool in the future.
+Curtain raises.  Trigger dramatic loud sound
+At this point, I&#x27;m done with nitrous because I&#x27;m creeped out by the feeling in my lungs.  Hector starts to come back.  We each cracked open a beer from the beers I brought.  I continued to slowly drink beer throughout the night, having 8 by the end (over about 8 hours).  I finally felt as if maybe the peak was over and it was into the plateau just a bit, and on DOX&#x27;s, DOC anyway (and, it turns out, DOPr too), alcohol mixes very well in moderate and steady amounts.  It relaxes me into the experience and feeds into the euphoria and hilarity of the fantastic plateau stage that is to become my life for the next long while.  We begin to laugh a lot, and continue unabated out endless conversation that was the near-constant of the whole experience.  The running theme of the night ended up being that one or the other of us would start getting really passionate in explaining what we were thinking of or realizing, and then would start to get tongue-tied and just sort of awkwardly stop and be like,  so, yeah.  And we&#x27;d laugh but it was crazy because we always understood each other even if something was totally left unsaid.  One of the things I think is really unique and cool about DOPr, and absolutely fascinating, is this connection to a group mind space.  We knew what the other was feeling and thinking, we wanted the same things at the same time and knew that they were the things to do.  It was really cool, but also very natural, like it was just normal that we knew what each other was thinking.
+At this point it&#x27;s around 9:15pm, which is almost T+11:00 from dosing.  It is as strong as it&#x27;s ever been, not stronger than at the music playing peak, but just as strong.  The visuals were totally overwhelming, in the best way, but unrelenting.  I felt like  everything I looked at, my eyes were trying to suck it in and see everything about it, to greater and greater depths of texture.  Like my eyes were swallowing it.  I went outside to smoke a cigarette to gather myself for a second.  The stars are absolutely gorgeous, so bright, and they loom like they&#x27;re right there, like I could touch them.  At this point I have something happening that happens to me only on empathogens, like 3/4-MMC, MDMA, MDA, AMT, etc.  It&#x27;s this thing where it&#x27;s like the same kind of muscles involved in yawns, up around my ears, are shifting because of involuntary muscle contractions and it opens up a channel in my ear where it sounds like a deep whooshing in my ear and it&#x27;s almost kind of orgasmic feeling.  But also very uncontrollable.  I&#x27;m getting this effect as I&#x27;m smoking the cigarette.  My body feeling from this DOPr more or less exactly resembles the body high of nice empathogens.  How fantastic.
+After the cigarette, I went back inside.  Hector and I kept talking, and talked about relationship PTSD a good bit.  Hector recently had a really fucked up experience with a girlfriend where she was in a manic episode and went fucking nuts and traumatized him, physical and emotional abuse and also the shock of seeing her psychotic behavior.  So whenever we trip it comes up, pretty much.  I have been through an abusive relationship too, and he knows this, so I&#x27;ve also shared a lot with him.  It allows him to get someone&#x27;s perspective who has been there, and also just to get it out to someone who will treat it safely.  He has had a lot of people in his life basically tell him that he&#x27;s being mysogynistic by saying that he got abused by a woman.  It&#x27;s kinda fucked him up because he feels like he&#x27;s not allowed to feel the way he does.  It&#x27;s pretty fucked up and I will always do whatever I can to help him heal from that, because I love Hector, he feels like part of my family but we&#x27;ve only known each for like a half a year, less than that.
+At around 10:30, 12 hours after dosing, Zach came in and asked if he could smoke a hit of weed (I had been smoking one hit every couple of hours for most of the trip, by the way).  Then Clara came in, and we had a nice chill for a while.  Her dog, Eva, came in to hang out.  She&#x27;s a super affectionate dog, she is one of those dogs who would like nothing more than to put her tongue in your mouth.  She&#x27;s just waiting for an opportunity, always, to slip that tongue in.  If given the chance, she will descend to licking your face non-stop as long as you let her.  Well, Hector let her do it and was curled up giggling from it.  And Eva started to get
+really
+intense about the licking.  She was tackling him and licking furiously.  Eventually he started pushing her off and telling her no, and she&#x27;d lunge back into it.  It started to feel a little rapey, and me and Hector laughed uncontrollably because of how we had just been talking about abuse of men by women in relationships, even physical violence.  And here is the dog nonconsentually forcing herself upon him.  Amidst hysterical, breathless laughter, Hector finally got her to chill, he&#x27;s got his arm on her to hold her back.  And then she gets the urge again and looks deep into his eyes and starts literally gently massaging his arm that her arm is also touching, with her paw.  As if to say &quot;come on baby, let&#x27;s go, no it&#x27;s okay, yeah just let it happen&quot;.  It was too much, all four of us died laughing for a good 5 minutes.
+Interlude.  No triggering of old timey interlude music because that meme has already been played out and the band is getting tired
+So here I am, at 2:06am, which is almost T+40:00 since ingestion.  And I&#x27;m still humming along.  I actually feel less tired than I did many hours ago, somehow.  I am still filled with good cheer and feeling playful.  However, I just realized that tomorrow is not Sunday, as I had been thinking since the past 2 days are one day to me.  It is Monday tomorrow and I have to work.  I could stretch it and if I went to bed this minute, I could get about 8 hours of sleep.  Of course I can&#x27;t sleep right now.  But I&#x27;m going to take some etizolam, so I can get tired and sleep soon.
+I&#x27;m going to take some etizolam, so I can get tired and sleep soon.
+I will simply be too hot to handle at work if I don&#x27;t get some sleep, which I feel like I could do at this point and am tempted to... but responsibility wins out.  Damn you adulthood!  You and your stupid rules and bedtimes and responsibilities.  But yeah I still have an occasional visual.  Absurd.  This is the drug you want to do if you just always thought DOC was too gosh darn short.
+I will shortly take 2mg of etizolam and hope it&#x27;s enough to knock me out.  And I&#x27;ll finish writing this obscenely long tale about an obscenely long drug in the morning.
+Continuing on several days later
+After a bit, Zach and Clara went to bed.  As the night wore on, Hector and I kept up the fun and great conversations.  We watched all kinds of videos about various things, from planting trees, to disturbing psychedelic themed mumble rap.  Hector did more nitrous periodically, and I didn&#x27;t.  I did keep gradually drinking beers, and so did he.  I&#x27;m not going to outline everything because this report will never end, but it basically amounted to more of the same.  I was in a plateau stage every bit as good as DOC&#x27;s plateau, but trippier, more visual, and wonkier.  We  were both talking and laughing and feeling amazement a lot.  I kept having the inner ear whooshing thing, especially when I was smoking cigarettes.  At one point I went outside sometime around 4am (T+17:30), and the stars were incredible... I could see just about everything out there, and they were hanging in the sky, looking like I could reach for them and gather them in my arms, so near, arrayed in 3 dimensional space before me.  We talked about salvia a lot, as Hector recently did it a few times and counts it as his most realistic and  mind-blowing trips ever.
+Eventually, at around 6am (T+19:30), Hector announced that he was going to lay down and close his eyes and try to rest.  He said he didn&#x27;t think he was going to be able to sleep, but he fell asleep almost immediately.  I laid down too, but it was obvious to me I would not be able to sleep, and I didn&#x27;t want to, anyway.  I tried typing some notes, and listened to music, and spaced out, and before I knew it, it was dawn.  It was getting really hot in the room, because Hector was chilly all night and had a fire going in the wood stove, and it was actually really not cold out at all.  I went outside, and was slammed by the beauty of the morning.  The colors of the Fall were exhilarating, just so saturated and pleasurable to look at.  I went around to say hi to all the animals.  I spent some time with the pigs and gave them some food.  Mostly I went and sat by the chicken houses.  There are a bunch of different kinds of chickens and a goose.  They&#x27;re so pretty, and really fun to watch.  The chickens were warily keeping an eye on me, but the goose was shyly looking at me looked like she wanted to make my acquaintance, but was too bashful.  I stared at animals and nature, walked around, checked my blood alcohol level (0.062% ), and found the little spot of reception they have there and texted my friends, and got into a hilarious trippy conversation with my friend, where at one point I declared that my new solo music project&#x27;s name is Quad Blaster Mole Fingers, on account of the two extra arms I grew as a result of the DOPr entity, combined with my prowess on the keys and with the ladies.  In retrospect I would say I was fairly hypomanic at this point, and I really wanted to make myself and other people laugh.
+After a while I went back inside, and Hector still wasn&#x27;t awake yet, and everyone else was gone.  So I turned on my keyboard rig and played by myself for about an hour and a half.  I reviewed some of the things I had learned/been taught the day before, and yep, still got it.  I started playing and letting my mind wander, and got lost in a world of piano and delay and synthesizer.  Even now, over T+24 hours later, DOPr is still the best music playing enhancer I&#x27;ve ever experienced.
+DOPr is still the best music playing enhancer I&#x27;ve ever experienced.
+But finally, my back started to really hurt from all the playing, and Hector still hadn&#x27;t woken up, and I realized that I was ravenously hungry, and pretty much ready to get back home and relax and unwind.  And eat a lot of food.  I checked my blood alcohol level again... 0.011.  Then 0.009.  Then 0.010, so totally good to go.  I packed up all of my stuff and drove away.  I walked all around the house a good three times, because I felt scattered and like I was forgetting something, but at last I determined I had everything.  Only to realize halfway home that I&#x27;d left my computer.  Driving was fine, it was 2:30pm (T+28:00) when I left, and although my vision was still very saturated, there were no more visuals (those died around T+24, maybe T+25).  I listened to NPR on the radio for the hour it took me to get back (plus get food
+).  I found the program very enjoyable, it was a game involving wordplay and the people were really funny.  The food was a disappointment
+.  I didn&#x27;t quite finish the food, it seemed poorly made.  I ate some various snacks besides that.
+Basically for the rest of the night, I did a little Bluelighting, and wrote the bulk of this report.  I was feeling very loose and jovial, but also increasingly tired.  But my thoughts were somewhat trippy until I went to bed, which was around T+40 hours (about 2:30am Sunday night/Monday morning).  I took etizolam to ensure I&#x27;d really sleep because I wasn&#x27;t even feeling tired, and it worked, but the next day I was exhausted and groggy for the first hour or so after waking up.  That day I didn&#x27;t do much, I mean I worked but put minimal effort into it, and watched TV later in the day and just felt a bit fried from lack of sleep.  But then the day after that, I had band practice (with my other band) and was well-rested.  I didn&#x27;t do any drugs but to my great pleasure, I found myself right back in that DOPr-inspired flow.  I was playing things with ease that I couldn&#x27;t before, and feeling intensely creative.  We recorded the practice and I&#x27;m so glad because it was all jams with our new bass player.  There&#x27;s a lot of great raw material to work with there.
+In Conclusion
+I was absolutely blown away by DOPr.  6.6mg was
+very
+strong, but it was so full-spectrum, comfortable, and satisfying.  I can&#x27;t help but compare it to DOC.  They have a lot of similarities, but DOPr is a much deeper psychedelic, and much more intoxicating.  Also more visual.  The group consciousness level it opened us to was not qwuite like anything else I&#x27;ve ever experienced, and it was amazing and profound and seemingly very real, very present and available.  Days later Hector and I talked about it and we both very actively felt that way for the whole trip, especially the peak.  We also both felt the same way about our musical experience on it.  DOC is very enabling and confidence-boosting, crisp and earthy and wise in its insights about human nature.  DOPr was warm and friendly, but felt like some sort of ancient celestial force, very abstract, subliminal, highly intoxicating, mesmerizing.  The body feeling for a while during the peak and post-peak was intensely pleasurable, very at home in the body, and entactogenic, even causing some nystagmus.  My mood was very euphoric, I had a permagrin plastered all over my face.  When my eyes were closed I could hardly tell whether they were open or closed because the visuals were so strong and I&#x27;d drift so far away, I&#x27;d forget what I was seeing or where I was.  The visual experience really was something else.
+It is now Wednesday, 4 days after the trip ended, and I am still reflecting on it with awe and a great glow.  I actually pulled something very useful out of the trip, the musical learning.  As an avid lover of DOC, I would say that I liked this trip more than almost any DOC trip or indeed, almost any other trip I&#x27;ve ever had.  The one big downside is the duration.
+The one big downside is the duration.
+This stuff lasts a LONG time... I still had mental effects at 40 hours, as you could likely tell from the tone of the writing of the report.  It definitely took a lot out of me because of that.  But I rate DOPr at this dose among the very highest quality experiences I&#x27;ve ever had.  For the entire day afterwards, I was extremely engaged with whatever I thought about, and I found myself crying easily, my emotions just felt very intense, in a predominantly positive direction.  I saw Hector today and he says that, at 5mg, this was without a doubt his best RC psychedelic experience of his life, and it has only been matched by a few particularly impactful trips frzxom his past.  I think that says a lot.
+DOPr is an intense, wild gem of a psychedelic.  I am truly thankful to have been blessed with the opportunity to get a supply of it
+.
+Exp Year: 2019
+ExpID: 113746
+Gender: Male
+Age at time of experience: 36
+Published: Dec 3, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOPR (691) : General (1), Combinations (3), Music Discussion (22), Multi-Day Experience (13), Glowing Experiences (4), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

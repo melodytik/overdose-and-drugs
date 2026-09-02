@@ -1,0 +1,296 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>DOF - 埃洛伊德 探险 - &quot;温柔的子&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dof.html'>← DOF</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>DOF - 埃洛伊德 探险 - &quot;温柔的子&quot;</h1>
+<div class='sub-title'>DOF - Erowid Exp - &#x27;Gentle Embers&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Feb 19, 2021 · 剂量：20 mg · <a href='https://erowid.org/experiences/exp.php?ID=115182' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>尽管DOF在设计新型迷幻药物方面是一个相当明显的方向,
+这种化学物质的开发很可能受阻,因为舒尔金表示其非安非他命同类2C-F是不活跃的.
+在20世纪80年代和90年代,DOF在体外多次进行了测试,这些测试给出了可预测的结果,即它对5HT2A受体的亲和力相对较低,与该受体结合是迷幻药作用的标准机制.
+因此预测DOF缺乏迷幻效应,主要是一种兴奋剂,而且比其他迷幻类安非他命 (也称为DOXs,与DOM或DOC等化合物) 强度要低得多.
+我从最近的一批药物中获得了一小部分粉末,
+冬天天气非常寒冷, 大部分时间我独自在家,
+这种物质肯定是迷幻的, 虽然总体来说它是温和的和功能性的许多熟悉的迷幻效应,
+总结一个完整的总结.
+已服用剂量
+我只是躺在床上,在阳光下浴.
+第一个警报是恶心,紧张的闪.
+刺激的冲击贯穿我, 我感到紧张与紧张的预期, 我觉得我只是希望峰值冲过我.
+仍然觉得这可能只是一个焦虑安慰剂效应.
+我在四肢中感到轻微的不适和刺激,
+我确信这种药物正在影响我.
+现在肯定有某种东西, 一种明显的迷幻冲动和脉动不安.
+这不仅仅是一种普通的兴奋剂.
+视觉效果开始呈现, 微妙而轻微, 像我屏幕上的反差闪,
+我的思想从一个想法跳到另一个想法, 一种熟悉的迷幻感,
+恶心会大大增加,
+没有其他方面的体验似乎正在加速, 只有身体负荷.
+现在,身体感觉的增强伴随着一种高兴的冲动,
+我最喜欢在熟悉的环境中使用迷幻药,
+我觉得自己现在有了某种傲慢的态度,
+也许现在没有人在这里是最好的,也许我会表现傲慢和讨厌.
+我只是想耀自己, 这有助于增强我的自信.
+我感到非常荣幸能够接触到这种罕见的化学物质,
+总的来说,我仍然认为这次经历是不同的,
+身体突然变得轻, 仿佛我呼吸的空气比我习惯的空气轻.
+T1:48 - 视觉是隐蔽的 - 我会从眼角捕捉到痕迹的闪光或奇怪的颜色变化,但当我停下来寻找它们时,它们就不再出现.
+这种快乐的情绪不仅仅是我以前的自信,
+这是非常愉快的.
+我得很大, 恶心持续增加,
+这意味着刺激,身体负荷,微弱的视觉方面, 它们在不同阶段增长和消退.
+我只是在床和沙发之间旅行,
+没有任何显著活动.
+任何事物最终都是微妙而轻微的.
+在墙上出现热波的图像,
+这也许只是我在基线上经历的正常HPPD的突出.
+它们缺乏个性和独特的特质,
+我闭上眼睛, 看到一个黑色的空间,
+没有什么值得评论的.
+我突然被迫准备好几件大型家具搬出房子,
+我独自在家, 这绝不是一个有趣的方式来移动大型家具.
+我面临的任务是把一张大沙发搬到前门,从卧室搬出一把大椅子,在地下室清理一个大柜.
+我立即开始执行任务,
+这是一种刺激的电推, 恶魔般的强迫性集中.
+沙发是一场扎, 因为我很小,很弱.
+我必须把很多东西移开.
+这把椅子是一个有趣的难题, 因为它只能在朝着一个方向方向时, 进入卧室门.
+柜里充满了旧的短暂物品,
+我不得不清除这些灰尘和地下室碎片.
+我没有被分心;我没有每次都在查看手机,也没有过度休息, 像我通常在完成任务时那样.
+我对自己印象深刻, 药物是如何抑制所有这些, 我是如何利用这些来完成有形的工作.
+我在半小时内完成所有这些任务.
+人们将在3个小时内来接他们.
+我猜我不需要那么忙.
+虽然外面很冷,
+这种药物绝对是高温的 - - 我不知道如果我在夏天的炎热中完成所有这些任务 (这所房子的温度控制非常差...)
+这种药物能给人带来多大的乐观感.
+这种药物能给人带来多大的乐观感.
+没有.
+通常情况下,我至少会因为自己要搬家而烦.
+但在这种状态下, 我似乎只能考虑积极的方面--它打破了整天的单调,
+这是一个很好的状态.
+身体负荷是存在的, 烦人但可以管理, 在从事体力活动时会消失.
+主要表现为恶心, 值得庆幸的是没有尿,
+没有意识到时间的流逝.
+写作时的感觉很好, 思想的流动很顺利,
+我对最终的产品感到满意,
+我已经把这件事推迟了好几天,
+屏幕上有轻微的图案, 但它们是短暂的,
+它们的强度在整个时间框架中保持一致.
+我在等待有人拿起家具时,
+药物在过去一小时的强度保持一致,
+两个人来帮忙把家具装进一辆货车里, 其中一个是我通过家人认识的,
+但这种体验显然是温和的, 互动没有问题, 除了看到别人面对面的最初震惊 (戴着面具,
+我觉得自己很幸运, 因为我现在并不是在扎着一种身外迷幻体验 (或者正如我的伙伴所说,
+它们穿着被打的,涂料的,灰尘的工作服, 在一个显然忙碌的一天快速停下来,
+我可以无问题地交谈,这很好, 因为他们都是很的人.
+我甚至向他们展示了我收藏的物蜘蛛和昆虫.
+我们得出结论, 房子是围绕着沙发建造的,
+其中一个人从事大量的制造和修复.
+他们谈了很多关于不同家具的东西,他们的风格,他们的构造,他们的来源和他们可能会被制造或使用的环境.
+我认为日常生活中的这些物体是理所当然的,
+我帮助他们拿出柜子和椅子,
+我肯定在整个过程中都在, 感觉像被升高的热量所, 一种热的呼吸能量涌在我的身体中,
+现在的任务已经完成,我今天剩下的时间没有任何义务.
+我还感到恶心,但我也很饿,今天吃的很少.
+心理药物通常会给我带来一定程度的食欲抑制,
+我吃了一, 简单易食.
+我吸了一点大麻来平息我的肚子.
+吃饭不是特别有趣或有价值的,
+刚刚吃完饭, 我最亲爱的朋友突然给我打电话.
+完全出乎意料, 但完全欢迎我没有其他计划.
+我们在电话里聊了近3个小时.
+他是我最古老的朋友之一,
+他对我说了很多好话, 听到赞美感觉很好.
+我很喜欢这个机会, 让我的思想自由流过我的嘴.
+我们谈论各种各样的事情, 从我们的生活环境,到政治,媒体,冲突,
+这将是一个绝对崇高的党药, 如果党仍然是一个安全的事情在这个国家.
+我可能会把我的第二剂量保存到那一天,
+我只是注意到药物的效果肯定正在减弱, 一个稳定而渐进的但明显的下降.
+我注意到我仍然在,还有一点恶心.
+只有刺激才剩下.
+我同事回家, 互动无需尬.
+它们指出,剩余的刺激是多么的外在,
+我在一个缓慢的微妙下降的晚上剩下的.
+现在恶心大多已经消退了,我可以吃完整的晚餐,没有任何问题.
+吸食大麻并不能使灰尘起,
+只有一种刺激感.
+开始感到有点疲倦, 这表明我可能几乎完全回到基线.
+我仍然在几个小时后才睡觉,
+结论:当一个人将DOF与结构相似的药物进行比较时,它是特别独特的.
+心理胺,名字前面是&quot;DO&quot;,以其强度,极长的持续时间和整体强度而闻名.
+总体而言, 效果相对较轻微,
+这种药物实际上可能对那些期待典型的DOx体验的人来说是令人失望的,
+它可以作为一种令人愉快的方式来捕捉幻觉药的刺激和高兴感,
+头部空间是清晰而愉快的,是一种增强思想和内在联系,
+虽然它只是延长了几个小时, 但它与更强烈的迷幻体验相似.
+视觉是几乎不存在的,他们可以被一个寻找他们,
+这种药物让我渴望社会交流, 虽然不是同情者所能传达的那种危险的皮方式,
+这种体力负担主要以恶心的形式存在,
+总的来说, 这是一种令人着迷的药物,
+时间表: 115182</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+Gentle Embers
+DOF
+by
+nervewing
+Citation:   nervewing. &quot;Gentle Embers: An Experience with DOF (exp115182)&quot;.
+Erowid.org
+. Feb 19, 2021. erowid.org/exp/115182
+DOSE:
+20 mg
+oral
+DOF
+(capsule)
+repeated
+vaporized
+Cannabis
+BODY WEIGHT:
+130 lb
+Preface: DOF only appeared on the scene recently, despite being a fairly obvious direction to go in designing a new psychedelic. Development of this chemical was likely hindered by the fact that Shulgin stated that its non-amphetamine homologue, 2C-F, was inactive. DOF was tested in vitro a number of times throughout the 80’s and 90’s and these tests yielded the predictable result that it had a relatively low affinity for the 5HT2A receptors, binding to that receptor being the standard mechanism by which psychedelics work. So it was predicted that DOF would be lacking in psychedelic effects, that it was primarily a stimulant, and that it was much less potent than the other psychedelic amphetamines (also known as the DOX’s, with compounds like DOM or DOC). I was provided with a small sample of powder from this recent batch, which I instantly dove right into, taking 20 mg after an allergy test. It was a very cold winter day, I was home alone for most of the day, and ostensibly had no responsibilities. As a spoiler- This substance is certainly psychedelic, though overall it is mild and functional with many of the familiar psychedelic effects such as visuals being quite muted. A full overall conclusion as at the end.
+T0:00- Dose taken. I am just lying on my bed, basking in the sunlight.
+T0:25- First alerts as a twinge of nausea, a flicker of tension.
+T0:47- Shocks of stimulation run through me, I feel on edge with nervous anticipation, I feel like I just want the peak to wash over me. Still feels as though this may just be an anxious placebo effect.
+T1:00- A mild discomfort and stimulation grows in my limbs, definitely above a baseline placebo at this point. I am certain that this drug is affecting me.
+T1:10- Something is definitely there now, a distinctly psychedelic rush and a pulsing unease. This is more than just a normal stimulant. Visuals begin to present, subtle and light, as lingering flashes of contrast on my screen in negative colors, afterimage echoes of each word I type in the blank white space. My mind is racing and dancing from thought to thought, a familiar psychedelic sense of internal connectedness and free-flowing association of thoughts.
+T1:30- Nausea builds considerably, as does a latent stimulation in my bones. No other aspect of the experience seems to be accelerating now, just the bodyload.
+T1:39- I spoke to soon on the last note- now the build in physical sensations is matched by a euphoric rush, something bordering on entactogenic effects but more profound, more self-assured and lucid.
+My ideal setting for doing psychedelics is always alone, in a familiar space, but for once, I really wish I had someone to talk to. Conversations over text will suffice for now- words and sentences form easily in my head, I feel more eloquent and articulate, I feel like I have a certain swagger now in how I hold myself and conduct myself. Perhaps it’s better that no one is around right now, maybe I would be acting arrogant and obnoxious. I just feel like showing myself off, there is a tangible boost to my confidence. I feel absolutely privileged to have obtained access to this very rare chemical and I am basking in the glow of the circumstances that have brought me here. Overall I would still describe the experience as distinct but ultimately very mild and manageable. There’s a sudden lightness in my body, like what I am inhaling is lighter than the air I’m used to.
+T1:48- The visuals are furtive- I’ll catch a flash of tracers or an odd color shift out of the corner of my eye, but when I actually stop and look for them, they stop presenting. A nice steady euphoria is setting in, more than just the confident self-assuredness that was washing over me before, it is a universal assuredness in the world around me. This is very pleasant. I am shaking a lot and the nausea continues to build, the bodyload is uncomfortable but entirely manageable.
+T2:17- The different components of the experience swell and recede in gradual gentle waves, oddly out of sync with seemingly no rhyme or reason- this means the stimulation, the bodyload, the slight visual aspect, they wax and wane in varying phases. I have just been travelling between the bed and the couch, stretching out, lying down to take some wind out of the nausea, reading news articles on the internet and working on a long blog post. No remarkable activities on my end.
+Everything is still ultimately subtle and light. Heat wave type visuals crawl up the walls, as do faint striped patterns. This may also perhaps just be an accentuation of the normal HPPD that I experience at baseline. They lack individual and distinct character, they adorn this experience as an afterthought. With my eyes closed, there is a black space with faint, amorphous blobs of color. Not much to remark on at all.
+T2:40- I am suddenly beset with the task of preparing several large pieces of furniture to be moved out of the house, at the behest of the person coming to pick them up. I am home alone, which is never a fun way to move large pieces of furniture. I face the tasks of moving a large couch to the front door, moving a large chair out of the bedroom, and emptying and cleaning a large cabinet in the basement.
+I immediately set myself to the mission and I don’t stop to rest or breathe until it is complete. It’s an electric push of stimulation, fiendish and compulsive focus. The couch is a herculean struggle, as I am small and weak. I have to move many things out of its way. The chair presents an interesting puzzle as it will only fit out of the bedroom door when oriented one way. The cabinet is full of old ephemera that I have to hastily box up. It is encased in an-inch-thick layer of dust and basement debris that I have to clean off. I don’t get distracted; I am not compulsively checking my phone every chance I get or taking excessive breaks, as I normally find myself doing when I have to complete a task. It all goes to say I have a terrible work ethic, attention span, focus, and motivation normally, and I was simply impressed with myself in how the drug was able to suppress all that and how I was able to harness that to get tangible work done. I finish all these tasks in a matter of half an hour. The person is coming to pick them up in about 3 hours. I guess I didn’t need to rush so much.
+T3:10- I worked up quite a sweat moving everything, even though it is bitterly cold outside. I find myself panting in the backyard in a T-shirt just to cool off. This drug is definitely hyperthermic- I don’t know what I would do if I was set with all of these tasks in the dead heat of the summer (this house has very poor temperature control…) It is nice to refresh myself in the brisk air.
+I am taken with how much of a sense of optimism this drug instills
+I am taken with how much of a sense of optimism this drug instills
+. Ordinarily, I would be at the very least annoyed with having to do all of this moving stuff on my own. But in this state, it seems I am driven to only consider the positives- that it broke up the monotony of the day, that it was a bit of exercise, that it was nice to see that I can actually focus and accomplish a task when I set myself to it. This is a nice state to be in.
+Bodyload is present, annoying but manageable and fades to the background when engaged in physical activity. Primarily presents as nausea- mercifully no urinary retention as phenethylamines are prone to trigger in me.
+T5:15- I seemingly spent the last 2 hours just writing, without really being aware of how much time was passing. I hammered out my year in review essay, it felt nice to write while having thoughts flow so smoothly and articulately. I am satisfied with the finished product, proud even. I had been putting this off for days so it was nice to finally have it done.
+There were light patterned visuals on the white of my screen but they were fleeting, other than that there was nothing else noteworthy as far as the drug’s effects go. They remained consistent in their intensity throughout this time frame. I dawdle around and kill time while waiting for the person to pick up the furniture, a bit nervous about interacting with someone face to face while still definitely under the effects of this drug.
+T6:05- The drug has remained consistent in its intensity over the last hour, a long plateau. 2 people are here to help recover the furniture into a van, one of whom I have met a few times through family, the other a total stranger. Not ideal to be tripping around, but this experience is remarkably mild enough that interacting presents no issue beyond the initial shock of seeing other people face to face (under masks, which honestly probably helped me with keeping calm). Another flush of optimism- I consider myself lucky that I am not grappling with an out of body psychedelic experience right now, (or as my partner suggested, extremely lucky that I am not in the throes of some dissociative storm). The contrast between us is laughable and almost makes me feel shame- them in their beat-up, paint spattered and dusty work clothes, making a quick stop on what is clearly a busy day, and then me, adorned in sweat pants and a fleece lined hoodie, grateful for a break in the quiet monotony of comfortably doing absolutely nothing worthwhile for hours on end.
+I am able to converse without issue, which is good because they were both very talkative people. I even showed them my collection of pet arachnids and insects. We came to the conclusion that the house was built around the couch and that it was physically impossible to remove. One of the people works a lot with fabrication and restoration. They talked a lot about the different pieces of furniture, their style, their construction, their provenance and the context they likely would’ve been made or used in. It’s super interesting to consider these everyday objects that I take for granted in that way, it must be a fascinating lens with which to view the world. I helped them extract the cabinet and chair with minimal struggle (again, grateful that I had maintained full control of my motor skills). I was certainly tripping the entire time, in that sense of being raked with rising heat, of a seething breathing energy rippling through my body, visuals glowing ever so slightly like dying embers.
+T6:40- The task at hand is done, I have no obligations for the rest of the day. I am still nauseous but I am also very very hungry, having eaten little today. Psychedelics usually cause a degree of appetite suppression for me, but it seems after all these hours my gut has won out. I eat a can of soup, something simple and easy to consume. I vape a bit more cannabis to settle my tummy. Eating is not particularly fun or rewarding, but it feels nice to have something in my stomach.
+T6:50- Just as I finish up eating, one of my dearest friends just calls me out of the blue. Totally unexpected, but entirely welcome as I had no other plans. We end up chatting on the phone for almost 3 hours. He is one of my oldest friends and I am grateful for this chance to catch up, he is a lot of fun to talk to and our conversation is endlessly engaging. He says many nice things to me about me, it feels nice to hear compliments. I have been starved for socialization for this entire experience and I love the opportunity to just unload on someone, open the dams up and just let my thoughts flow free through my mouth. We talk about all sorts of things, from our life’s circumstances, to politics, to media, to conflict, I never find myself at a loss for words or with hesitation. This would be an absolutely sublime party drug, if parties were still a safe thing to do in this country. I will probably save my second dose for a day when that possibility can be realized.
+T8:29- The conversation is still going on, I simply noticed at this point that the effects of the drug were certainly waning, a steady and gradual but noticeable comedown. Most of what remains is just stimulation- I notice I am still shaking a great deal and I am still a bit nauseous.
+T9:54- All that remains really is the stimulation. My partner comes home, there is no awkwardness in interacting. They remark on how externally present the remaining stimulation is, in how much I am shaking and jostling my limbs. I am on a slow subtle comedown for the rest of the night.
+T10:30- The nausea has mostly subsided by now, I am able to eat a full dinner without any issue. Smoking cannabis does not stir the dust or reinvigorate any of the waning effects. All that lingers is still a sense of stimulation.
+T12:00- Begin to feel a bit tired, which signals that I am probably almost entirely back to baseline. I still don’t go to sleep until several hours later, where it comes and goes naturally.
+Conclusion: When one compares DOF to similarly structured drugs, it stands as being particularly unique. Psychedelic amphetamines, prefaced with a “DO” in the name, are renowned for their potency, extremely long duration, and overall intensity. To encounter one that doses at 20 mg, is about the same duration as LSD, and is overall fairly mild in its effects is something unique. This drug may in fact prove underwhelming to those expecting a typical DOx experience- though it is worthwhile in its own right. It serves a function as a lovely way to catch the stimulation and euphoria of psychedelics without much of the other effects. The headspace is lucid and pleasant, a sort of enhancement of thought and an internal connectedness that yielded itself to eloquence and confidence. It felt similar to the pleasant euphoric comedown that accompanies more intense psychedelic experiences, though it was just that drawn out for several hours. Visuals are near-nonexistent, they can be caught by one seeking them, though they have little character of their own. Atypically, this drug left me in want for social interaction, though not in the overclocked dangerously sappy way that empathogens can impart, it was a profound need to share a human presence in my experience. The bodyload mostly existed as nausea, manageable but present and noticeably irritating at times. Overall it was a fascinating drug that I am grateful to have experienced, I would love to see how it would perform in a social setting when that becomes feasible again.
+Exp Year: 2021
+ExpID: 115182
+Gender: Not Specified
+Age at time of experience: 25
+Published: Feb 19, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOF (881) : First Times (2), Glowing Experiences (4), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

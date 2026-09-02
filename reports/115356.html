@@ -1,0 +1,394 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- &quot;春天的喧&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/lsz.html'>← LSZ</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- &quot;春天的喧&quot;</h1>
+<div class='sub-title'>LSZ - Erowid Exp - &#x27;Bustle of Spring&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Apr 19, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115356' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>前言:
+首先看来,LSZ似乎是一种非常随意的方法来修改LSD分子 - - 一个完全不符合左边的结构,
+然而, 仔细检查后, 很明显, 这种亚化物只是通过将这些二甲基角结合成一个方形的碳桥形成.
+剩下的额外甲基组有助于使环稍微分开,
+这是一个的设计!
+这使得一种非常类似于LSD的分子突然具有受制约的结构,易受立体化学的影响,
+这真的是一个直观而精彩的设计, 由传奇人物戴维·尼科尔斯提供.
+这就引出了一个显而易见的问题 - - 这与LSD相比如何?
+这些LSZ片是专业制作的,纸张的一面显示分子结构,另一面标明物质名称,每片剂量为150μg.
+我选择了两个.
+那是今年第一个温暖的日子, 3月份的天气是70度,
+我在下午晚些时候出发, 打算花大部分时间在城市里散步, 看着这群人享受寒冷冬季的第一次休息.
+在出发之前, 我会在家里承受潜在的机身负担.
+我今天没有其他计划或义务.
+最后一个值得注意的是,我在此次体验前两天接种了Pfizer的COVID-19疫苗.
+这首注射确实给了我一些副作用, 主要是疲劳.
+我觉得很难醒来和从床上起床, 有时我感到非常疲.
+我觉得自己很好.
+服用剂量为2片.
+感觉有点刺激和恶心,
+我骨头里有一种不安.
+我仍然躺在床上.
+我决定是时候下船了, 下来吞下剩下的,
+穿着让我感觉舒服的衣服, 能让我在日落后保持温暖, 然后出发.
+随着我准备离开时, 熟悉的感觉开始入, 能量脉冲在我的四肢,
+太阳似乎比应有的更亮, 我觉得我的步伐不太好.
+感觉像一个菌一样蔓延到我的皮肤.
+我停下来等待交通时, 确实有一种令人恶心的感觉, 一种明确的精神和身体冲动,
+刺激的程度在三胺和乙胺之间.
+虽然这些都很微妙, 但对于这种药物来说,
+在附近的市场买一点生根.
+互动有点令人困惑, 但我仍然足够清醒,
+这可以帮助我平息胃.
+波动的感觉不同温度和质感我的身体和洗过我.
+我仍然完全清醒, 只是装饰着闪光效应.
+随着我走向目的地 - - 一个河边公园,
+整个天空似乎是闪着轻轻的变色.
+现在旅行的刺激完全取代了我接种疫苗的疲劳.
+开放的眼睛开始呈现, 沉默但清晰和明显在我面前.
+它们并没有带有镜般的光色彩,
+仿佛一切都增加了深度和纹理, 增加了对比度,
+只是一个微小的变化,
+我在一个小公园停下来呼吸.
+今天我穿得太多了,又热又出汗,需要水.
+现在我确实有很大的失落,
+我只是一个感知和导航的生物.
+很多人在这里,我祈祷他们不理会我.
+随机的对话片段在我的脑海中响起.
+整体感觉有点麻木, 汗水流,
+尽管如此, 一种恶心也在形成,
+我不禁对阳光烂的光微笑,
+我只能想到周围的一切是多么奇怪,
+虽然这一切很奇怪,但我已经习惯了,
+我可以接受.
+我站起来,继续前进.
+视觉增加了深度,在旋转的互锁运动中,在碎片的边界强度,虽然仍然没有颜色,仍然是浅的浮雕雕刻在天空表面.
+我已经到达目的地, 一个公园/步行小径, 沿着我居住的城市河流的一条河岸.
+由于今天是今年第一个温暖的日子, 人们纷纷走出去,
+许多人正在慢跑或骑自行车,
+很难找到一个坐下来思考的地方,
+我感到恶心,它一直在积累和冲洗我, 绑定到我的四肢上升的热.
+我需要坐下来,我需要一点草来缓解.
+我发现一个空的长, 沉入其中.
+我闭上眼睛一会儿,
+眼睛开, 视觉效果是微妙的, 微弱的,
+我很难凝视事物, 沉浸在自己的经历中.
+我偷偷从我的一个击球手手中吸了一口大麻; 一位路人对大麻烟雾发出评论,
+我找到了另一个地方停下步行,
+我觉得我可以深呼吸,闭上眼睛,
+一波迷幻般的热浪落在我身上, 当我停止运动时,
+我抽了一些大麻, 吃了一块生生来缓解恶心,
+不管我从哪里看, 我几乎无法感觉到它们的存在, 即使它们不是色彩和碎形的古典爆炸,
+每一个表面都有一种明确的浮雕,深入的纹理和轻微的色彩变化,
+在蓝天,云彩和阳光斑的河面上, 一些对比的纹理开始交织并形成图案, 但它们是短暂的,几乎模糊的,
+我闭上眼睛时, 看到一个旋转的,对称的,有色景观,
+这些图案的边缘就变成了闪耀的碎片,
+只是一个视觉展示, 没有邀请我进入更深层次的改变意识.
+我不想完全屈服于这个世界, 不管它有多诱人.
+一切仍然有一种兴起的感觉,
+虽然情况可能刚刚开始平稳, 但仍有更多的燃料供这场火灾消耗.
+我站起来继续走路.
+现在我决定更多地沉浸在周围环境中.
+像我周围的高建筑物一样, 人们无处不在,
+人们坐在圈子里交往,各种各样的人,各种大小,形状,年龄,颜色和风格, 有些人融入其中,
+我只是一个在群众中看起来很奇怪的人,
+我来到一个障碍, 在路径上方的一座桥正在修建.
+没有任何绕道, 创新的河流的人简单地拆除了, 通过一个活跃的建筑工地, 开自己的路径.
+没有人能阻止.
+许多人似乎是奇怪的角色, 刻意把他们放在我的孤独之路上, 让我感到困惑--一个穿着粉红色星期日服装的老太太,
+像我这样的男同性恋群体, 染发和纹身,
+一个小男孩在自行车上飞过,双臂都忙着举起像阿特拉斯这样的巨大的放大器, 高速播放音乐,
+我对周围环境的奇怪感感到满意, 随着它们的融合, 一切变得很正常,
+我没有停下来走路或休息, 我心里有一个目的地, 一条小路的小段向河边延伸,
+我已经到达我的位置, 一个特定的树干, 伸出河岸,
+我躺在树枝上, 在日落的阳光下放松,
+建筑物在日落的阳光下呈现轮, 内部的灯光开始闪.
+不少人偶尔会经过,
+现在我的思想自由流动, 一个稳定的连锁的协会, 像河流一样,
+它们围绕着我想要追求的职业生涯,长期生活目标,建立和发展我的各种实践和知识领域,
+非常平凡但迫切的事情.
+我梦想着成就,成名,广受尊敬,良好的声誉,自豪感和认可, 这是一种可爱的自给自足的多巴胺冲动.
+我很难用手机打笔记,很难精确地控制我的手指.
+他们感觉温暖和麻木, 并没有完全响应我的命令.
+我手上形成了细微的图案, 就像我皮肤上的浮雕,
+在我周围的树皮和天空中,
+视觉图像中有一种持久的温暖感, 仿佛它们已经熟并入我的视觉神经中,
+它们像神经元一样充满能量.
+我终于感到不安,所以我起身继续走路,
+我决定把我的头插进河边的另一个地方.
+我敲了口袋, 想确保我有一切, 忽然发现我失去了我珍贵的口袋刀,
+由于大量使用, 已经有很好的磨损和滑纹.
+诚实地说,它没有最好的钢铁,
+我心目中只剩下追溯自己的脚步,
+我在执行任务, 我在前进 (,倒退而言) 无休息或停下来呼吸.
+我首先停在悬挂的树上, 那里我休息-它会随之而来,
+我误认为这棵树是另一个, 坐在树根旁的人忙着干自己的事.
+我打断他们,问他们是否见过一把口袋刀--回想起来,
+甚至让我下来看一眼, 在我意识到我找错了地方之前.
+这种互动非常尬, 让我充满了强烈的焦虑,
+我找到了合适的树, 彻底搜寻该地区, 却无效.
+其他地方?
+或许是我早些时候坐下来剥皮吃一些生根的地方?
+我在为这个地方,不停止一次.
+我经过一群我认识的人, 也许他们也认识我,
+也许我过度思考, 我被一种强迫的焦虑和恐惧所吞.
+我曾经享受着阳光明的一天, 享受着周围的光,
+只是失去一个感性小物品, 能让我有多么丧!
+经过15分钟的步行, 我到达目的地,
+虽然现在天黑了, 很快任何进一步的搜索将完全无望.
+我又一次经过同样的人,
+在这里没有任何迹象.
+我接受它已经丢失了,
+现在我很饿, 无休止的步行让我疲不堪.
+我开始回家, 失败了.
+开始我沿着城市的大道走到地铁站, 我大部分的想法都转移到了我亲爱的刀,
+现在太阳已经完全落下, 夜晚变得明显冷.
+我停在城市中心的一个公园里休息一下, 这里曾经是一个充满活力的城市空间,
+让人丧的是, 曾经的聚会和社交场所如今只是一片平坦的混凝土,
+似乎除了此之外,它没有其他的功能.
+我走进城市中心的道, 走向各种公共交通枢纽,
+现在还不是晚上, 车站也很拥挤, 所以我放松了警.
+只有在我到达站台时, 地铁才到达,
+我觉得自己像个破碎的怪物, 混在其他面具人物的混杂之中,
+在地铁车内部的无数斑点和纹理表面上,
+我检查我的电子邮件来消磨时间.
+我有兴趣从事事业和学术的两个领域.
+经过数月的无用的停滞, 在那里我每天都在,
+我终于觉得我正在做一些事情,
+像我说的那样, 我根本没有为此努力.
+两次机会都落在了我的怀里, 我只是为了赢得机会而吸毒,
+我不值得为自己的行为得到奖励,这教我什么?
+,我很高兴未来终于看起来光明.
+我从地铁上走回家时,
+视觉和其他感官效应已经大多转移到一个独特的迷幻头脑空间.
+我在家,累了,很饿.
+我把一些即食米和豆放在炉子上,
+我着汗水, 打开窗户, 拖着一把重的椅子进入空的厨房休息,
+大部分房子已经被清空,
+我放上一些音乐, 声音反响和回声很多, 听起来像是制的,
+这是一种奇怪的效果, 在其他任何声音的体验中都不存在.
+我打开笔记本电脑回复那些我不在家时忽略的电子邮件和短信.
+我在谈话和写作时完全清醒, 没有过度思考或过度分析,
+每一个字都被精心挑选, 完全有效,
+晚餐已经准备好了.
+我选择坐在椅子上, 抱着子, 用子吃饭.
+我很饿,不打算留下剩余的食物.
+我吐出口香糖, 这让我明白, 持续的刺激仍在我的神经中流动,
+我在开的窗户旁抽了一碗大麻, 后院芽的桃花里有轻微的微风, 邻居们在各自的后院里享受温暖的夜晚的环境噪音,
+食物温暖而美味, 充满我的空肚子,
+效应似乎正在平衡.
+感官效应大多已经消失, 而认知和情感效应则走到最前面,
+我在想,当我完全低落时, 喝一支子是多么美好,
+我已经陷入了基于阅读有关阿尔茨海默病的阅读洞和&quot;守护者&quot;的&quot;时间末日的每一个地方&quot;项目, 这是一系列概念专辑,
+部分原因是我跟我的同事谈论他们的祖母,
+这是一个可怕的,令人心碎的事情.
+记忆对我来说是非常重要的,
+疾病的不可避免性, 它是如何真正的无法治愈, 如何它的不可阻的进展只能减缓, 从来没有停止, 孤独的世界和孤立和混乱的受害者落入,
+随着时间的推移,人们越来越孤独,
+不能回头或转向任何方向, 不能与外界沟通这黑暗的深度, 因为它几乎消失了, 一个活体滑入阴影.
+这场恐怖和悲伤让我流.
+一个人如何应对如此强大的命运?
+我只能想到恐惧的感觉, 如果我处在这种境地,
+转向新的超焦点, 这次是阅读关于精神药物研究的论文,
+这是一项非常令人兴奋的研究, 阅读它真是太棒了,
+我开始梦见幻觉科学的复兴, 如何在这个领域创造了极限,
+我开始想到有一天我也许能够为这个领域做出贡献.
+这是一个自我放纵的幻想, 但感觉很好,
+除了这种明显迷幻的思想和联想的自由流动, 以及对我所读到的任何东西的激发性关注, 以及我经历的独特记忆,
+几乎恢复到原来的状态, 唯一剩下的效果是刺激,
+在这个点上完全恢复到基线.
+结论:LSZ标记所有盒子为lysergamide- 一种程度的刺激,一个长时间,认知和情感增强,
+像任何一种素, 它也与同胞有微妙的差异.
+对于那些寻求这样的体验的人来说,
+它不像LSD那样有洞察力,深入,内省或强烈,
+什么让它与众不同?
+视觉特征是独一无二的, 雕刻的浮雕从我的周围环境中出来,
+清晰度是这次体验的关键特征,
+这是一种令人愉快的药物, 它可能不会提供LSD的深度,
+虽然我大部分时间都独自经历, 但这绝对是个社交药物.
+我不确定更高剂量会带来什么, 但在不同的效果呈现的比例之间,
+没有任何冲动.
+总的来说, 轻松而愉快的体验,
+时间表:115356
+发布时间:2021年4月19日
+LSZ (609):一般 (1),组合 (3),自然/户外 (23),其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Bustle of Spring
+LSZ
+by
+nervewing
+Citation:   nervewing. &quot;Bustle of Spring: An Experience with LSZ (exp115356)&quot;.
+Erowid.org
+. Apr 19, 2021. erowid.org/exp/115356
+DOSE:
+T+ 0:00
+300 ug
+sublingual
+LSZ
+(blotter / tab)
+T+ 0:50
+oral
+Ginger
+(roots)
+T+ 0:00
+repeated
+smoked
+Cannabis
+BODY WEIGHT:
+130 lb
+Preface:
+LSZ at first glance seems like a really arbitrary way to modify the LSD molecule- a structure completely out of left field, where in place of the diethyl “horns” of the LSD molecule, there is an azetidide group, a tense ring structure that is rarely seen in any bioactive molecules. Upon closer inspection however, it is clear that this azetidide is just formed by tying those diethyl horns into a square shape with a carbon bridge. The extra methyl groups that are left over help pull the ring apart a little to stabilize it. It’s a brilliant design! This makes a very LSD-like molecule suddenly have a constrained structure, susceptible to stereochemistry, whereas in LSD, the diethyl horns are free to rotate and move as they desire. Truly intuitive and brilliant design courtesy of the legendary David E Nichols. So this lends the obvious question- how does this compare to LSD?
+The LSZ tabs were professionally made, one side of the paper bearing the molecular structure, the other with the substance name clearly labeled, dosed at 150 µg apiece. I opted to take two. It was the first warm day of the year, a 70-degree March day, so of course I had to be outside. I set out in the late afternoon, intending to spend most of the trip just walking around the city, watching the throngs of people enjoy this first respite from a bitter winter. I would weather the potential bodyload of the come up at home before setting out. I had no other plans or obligations for the day.
+One last thing to note is that I received my first shot of the Pfizer COVID-19 vaccine 2 days before this experience. This first shot did give me some side effects, primarily fatigue. I found it extremely difficult to arouse and get out of bed, and at times felt exceptionally exhausted. Once I was fully awake and in motion though, I felt okay.
+T0:00- Dose taken sublingually, as 2 tabs.
+T0:20- First notes- feeling a bit stimulated and nauseous, something is making itself apparent. A restlessness in my bones. I am still just lying in my bed at this point.
+T0:35- I decide it’s time to disembark, I chew down and swallow the rest of the tabs and prepare my bag for a long walk. I put on a bit of makeup, save for sweeping bold winged eyeliner, put on clothes that make me feel comfortable that may still keep me warm after sunset, and then set out. By the time I’m ready to leave, familiar feelings begin to creep in, pulses of energy down my limbs, a sense of heat rising from me, a fuzzy numbness in my extremities, a queasy uneasiness, still subtle but it’s clear that all will grow in time.
+T0:45- Stepping outside is a shock, the sun seems brighter than it should and it feels like my stride is off kilter. A soft warmth proliferates across my skin like an encroaching mold. When I stop to wait for traffic, there is a definite queasy lysergamide come up, a distinct mental and physical rush shooting down my bones, a welling unease, a stimulation deeper than my bones, and a sense of being fully luminous in golden prismatic light. A level of stimulation somewhere between a tryptamine and a phenethylamine. All still subtle, but all still diagnostic for this class of drug.
+T0:50- Stop by the market nearby to buy a bit of ginger root. The interaction is a bit disorienting but I am still lucid enough to appear normal. This can help settle my stomach. Waves of pulsing sensations of various temperature and texture tickle up my body and wash through me. I am still fully lucid, just adorned with flares of effects. The intensity is definitely accelerating as I walk to my destination- a park by the river. I am hot and sweaty and the entire sky seems like it is flickering with gently shifting hues. At this point the stimulation of the trip has completely overrode the lingering fatigue from my vaccine.
+T1:00- Open eyed visuals begin to present, muted but clear and apparent before me. They are not laden with prismatic radiant color, but seem to immerse into the surrounding environment. It is like everything has added depth and texture, increased contrast manifesting into swirling pulsing interlocking forms, always shifting into new intricate and perfectly placed forms, but all of this in subtle bas-relief, against the sky, against the mottled sidewalk. It is a slight alteration, one that quickly fades when my attention turns elsewhere.
+T1:20- I stop for a breather in a small park. I overdressed today and am hot and sweaty and need water. I am definitely tripping significantly now, to where the world around me no longer feels fully accessible. I am a creature simply out here to sense and navigate. Plenty of other people linger around, I pray they pay me no heed.  Sounds are reverberating around me, random snippets of passing conversation amplified and echoing in my head. My whole body feels a bit numb, I’m so sweaty and woozy, but it is overall a pleasant sensation. A certain nausea is also building however, which threatens to only grow in caliber. I can’t help but smile at the glory of the sun’s fire, all these people enjoying its warmth, I am content, if a bit uncomfortable. All I can think about is how weird everything around me seems, as if my sense of what’s normal has been hard-reset. It’s all strange, but I grow used to that, and in that, it all soon becomes normal. I can live with that. I get up and press onwards. Visuals increase in depth, in swirling interlocking motion, in fractally bordered intensity, though still colorless, still a shallow relief hewn into the surface of the sky.
+T1:40- I’ve made it to my destination, a park/walking trail that snakes along the bank of one of the rivers that flows through the city I live in. As it is the first warm day of the year, people are out in droves, pandemic be damned. Many people are jogging or biking, while others are having picnics in the grass. It is hard to find a place to sit down and gather my thoughts before proceeding onwards. I am nauseous, it has been building and washing over me, bound to a rising turbulent warmth in my extremities. I need to sit down and I need a bit of weed to take the edge off.
+I find an unoccupied bench and sink into it. I close my eyes for a second and I am flashed with a pensive phantasm of color. With my eyes open, the visuals are subtle and slight, not too colorful but with lots of morphing depth. But there are people all around me, it’s hard for me to stare at things and really absorb myself into what I am experiencing. I sneak a quick hit of cannabis from my one hitter; a passerby remarks on the cloud of cannabis smoke and feeling self-conscious, I get up and leave.
+T2:00- I find another place to stop walking, this time a bit off the trail and a bit more secluded. I feel like I can actually take a deep breath and close my eyes and unwind in peace here. A wave of psychedelic heat crashes down on me as I stop moving, a great twisting and writhing weight from sinews of energy, immense in its stature yet at the same time ethereal and ephemeral.
+I smoke a bit more cannabis and eat a chunk of raw ginger to assuage the nausea, and it definitely helps. The visuals at this point are subtle, but all-consuming, no matter where I look or how I look at it I can just barely sense their presence, even if it isn’t kaleidoscopic explosions of colors and fractals, or clearly defined self-transforming patterns. There is defined relief pressed into every surface, deepened textures and slight chroma-shifts, but they only appear if I seek them out, content to mind their own business in my garden of senses otherwise. In the blue sky and the clouds and the sun-dappled surface of the river some of the contrasted textures begin to interweave and form patterns, but they are fleeting and near-indistinct, perhaps reminiscent of meso-American art if the artisan had not really set out with a particular plan and gave up halfway through.
+When I close my eyes I am greeted by a spinning symmetrical kaleidoscopic landscape of pulsing radiating forms and colors, like an inkblot driven by furious golden light. The fringes of these patterns give way to a wildfire of radiant fractals, their fringes crackling with electricity. It’s exciting, interesting, but merely a visual display that doesn’t invite me in to a deeper altered consciousness. Perhaps a part of me is still on guard as I am still in public and don’t want to fully surrender myself to that world, no matter how enticing.
+Everything still has a sense of rising, building, growing in intensity. Things may just be beginning to level off but it still feels like there’s more fuel for this fire to consume.
+T2:15- I get up and continue walking. Having tried to immerse myself in the experience before this, I decide now to immerse myself more in my surroundings. There are so many people everywhere, like the towering buildings around me are pulsing and beating out their life force to take in their essential doses of fresh air and sunlight in little joyous swarms. People sit in circles and socialize, people of all varieties, all sizes and shapes and ages and colors and styles, some blend in, others stand out with outlandish fashion and mannerisms. I am just another odd looking person in this mass, adorned with makeup, perhaps wearing too much dark clothing for such a sunny day, skulking alone through a river of people in their brightly colored fitness wear. I come to an obstruction, where construction is being done on a bridge above the trail. With no detour provided, the innovative river of people has simply torn down the fences and blazed through own trail through what was an active construction site. Unstoppable spirit.
+So many people seemed like odd characters, intentionally placed in my solipsistic path for my consideration and confusion- an old lady costumed in stark pink Sunday wear, clad in more makeup than even me, prominently reading a book alone on a bench titled “Maybe You Should Talk to Someone”. Various gaggles of androgynous people similar to me with dyed hair and tattoos all of whom seemed vaguely familiar. A little man with wild dreads and a toothy smile soaring by on a bike, both arms occupied with holding aloft an enormous amplifier like Atlas, blasting music at a high velocity, another shirtless man on a bike who seemed to pass by several different times on this short walk, dancing hands free to the top indie-pop radio hits of the early 2010s. A colorful day with colorful people that made me glad to be where I was, a sense of satisfaction in the strangeness of my surroundings, in how as they coalesced it all became quite normal, a new world for a new day.
+I didn’t stop walking or take any more breaks, I had a destination in mind at this point, a little stretch of the trail where it branches along closer to the river, where it is more wooded and secluded and crumbling piers and overhanging tree trunks allow one to relax and splay themselves out over the water and look out over the Western skyline and the setting sun with a bit of privacy.
+T2:30- I have reached my spot, a specific tree trunk that reaches out over the riverbank, its shape perfect for accepting a languid human body. I splay myself out on its branches and relax under the gaze of the setting sun, smoking a bit more cannabis. I have a beautiful view of the Western skyline standing over me, the buildings silhouetted in the sinking sun, their inner lights beginning to twinkle on. Various people occasionally pass by but don’t seem to notice me, leaving me comfortable in a sense of solitude. My thoughts now flow freely, a steady chain of association free to run its course like a river, unimpeded by my conscious meddling. They dance around thoughts of what I wish to follow in the scope of a career, in the scope of longer-term life goals, in the scope of building and progressing my various practices and areas of knowledge into some sort of professional reputation. Terribly mundane but pressing stuff. I fantasize about aspirations, about achieving fame, widespread well regard, a good reputation, pride and recognition, it’s a lovely self-supplied self-indulgent dopamine rush.
+It&#x27;s hard to type notes on my phone, it’s hard to precisely control my fingers. They feel warm and numb and aren’t fully responding to my commands. There are patterns gently forming on my hands, like embossments in my skin, shifting gently with color. There are swirling fractals forming pareidoilic shapes in the bark of the tree around me and in the sky, subtle but clearly discernible. There’s a lasting, molded, warmth to the visuals, as though they have been simmered and baked into my optic nerves, that they have arisen from a steady and gradual application of energy. When I close my eyes there are spinning zooming networks of fractals, crackling with energy like neurons. I get restless eventually so I get up and keep on walking, not sure where exactly I’m headed.
+T2:50- As I’m walking along I decide to poke my head into another spot along the riverbank. I tap my pocket to make sure I have everything, when I notice- I have lost my treasured pocketknife, the same one that had always been clipped to my pocket every day of the last 3 years. It had been everywhere with me and had a nice bit of wear and patina rubbed into it from heavy use. Honestly it didn’t have the best steel and was quite blunt, but it was sentimental to me and if I was to replace it soon I would’ve liked it to have had a more graceful sendoff. My mind becomes obsessively and singularly consumed with the task of retracing my steps and relocating it. I am on a mission, I trudge forward (er…backwards rather) without pause or without stopping for a breath.
+I first stop by the overhanging tree where I was lounging- it would follow that it would easily slide out of the pocket of my splayed out body. I mistake the tree for another one however, one occupied with a person sitting at its base minding their own business. I interrupt them to ask if they’ve seen a pocketknife- in retrospect an odd thing to hear from a masked lone stranger in a secluded place. The person seems nonplussed and nonthreatened and even lets me come down to take a quick look before I realize I’m looking in the wrong place entirely. This interaction is incredibly awkward and fills me with an upwelling of intense anxiety that soon chases me from the spot. I find the right tree and search the area thoroughly to no avail. Where else? Perhaps where I sat down earlier to peel and eat some ginger root?
+I beeline for this spot, not stopping once. I pass by groups of people I recognize- perhaps they recognize me too and think it odd that I pass them again. Maybe I am overthinking this- I am consumed by an obsessive anxiety and a fearful sense of dread. I was once a being enjoying the sunny day, basking in the glory my surroundings, and now I am a storm of nerves bearing down on the path before me, quaking in its own precipitation of sweat. How much simply losing a sentimental little object can set me off-kilter! After about 15 minutes of walking I reach my destination and to my dismay see no sign of my treasured trinket. I dejectedly make one more fast, streamlined walk back to the tree to look one more time, though it is getting dark now and soon any further searching will be entirely hopeless. I pass by the same people yet again, assuming myself to appear stranger with each pass.
+No sign of it here. I accept that it is lost, that someone else probably picked it up by now, and this acceptance brings me a measure of relief. I’m hungry at this point, and exhausted from the ceaseless pacing. I set out for home, defeated.
+T3:18- Begin my walk down the large central avenue of the city to the central subway station, my thoughts have mostly moved on from my dear knife, a small tarnish in an otherwise wondrous and beautiful day. The sun is fully set now and the night grows noticeably colder. I stop for a breather in an open park in the heart of the city, once a vibrant urban space with privacy, shelter, and seating, but it was renovated into a bare empty panopticon to cut down on ‘nuisance’ elements. It’s depressing how what was once a gathering and socializing space is now just a flat concrete expanse with no interesting features save for some cheap furniture where I can stop to rest for a few minutes. It seems it can serve no function beyond this.
+I descend into the tangle of tunnels in the center of the city that head to various public transportation hubs, my senses on guard as there has been a rash of violent incidents in these stations in recent times. It isn’t too late at night however and the station is well populated, so I let my guard down. The subway arrives just as I reach the platform, which always feels like a blessing. I feel like an odd broken being in the mess of other masked figures crowded onto this box, sweaty and flustered and exhausted, a fish out of its water. There are gentle patterns forming in the myriad mottled and patterned surfaces on the inside of the subway car. I check my emails to pass the time.
+Today two pertinent employment opportunities have presented themselves, in both areas I am interested in pursuing as a career and academic. It is exciting, it is the first glimmer of light after months and months of useless stagnation, where I spent every day of my unemployed life getting high and reveling in my own indolence and sloth. I finally feel like I am doing something and going somewhere with my life. It feels undeserved, as, like I said, I have not actually worked towards this at all. Both opportunities happened to just seemingly fall on my lap, all I did to earn it was do a lot of drugs and keep myself alive. I don’t deserve to be rewarded for my behavior, what does this teach me? Oh well, I am glad the future is finally looking bright. This elation carries me home from the subway, a fun and delighted walk fantasizing about potential futures. The experience has melded into an emotional aspect primarily, the visual and other sensory effects have largely passed into a distinct psychedelic headspace.
+T4:20- I’m home, tired and very hungry. I put some instant rice and beans on the stove, adorning it with strands of saffron and fresh-crushed annatto seeds in a tea infuser. I am sweaty and pop the windows open and drag a heavy chair into our empty kitchen to rest while I keep an eye on the stove. Most of the house has been emptied and packed up for renovations, everything is in disarray. I put on some music and the sounds reverberate and echo a lot, sounding tinny and constrained, yet voluminous and rich. It’s an odd effect that didn’t really present at any other point of the experience with any other sounds.
+I open my laptop and respond to emails and messages I’ve been neglecting while I was out. I feel perfectly lucid in conversation and writing, there is none of the overthinking or overanalyzing that sometimes hinders effective communication when I’m tripping. Each word feels carefully chosen and fully effective, there is a distinct intentionality to all of my actions that lets them flow freely.
+T5:30- My dinner is done now. I’m home alone, so I opt to just sit in my chair with a potholder on my lap and eat out of the pot with a spoon. I am hungry and don’t plan on leaving leftovers. I spit out my gum, and this brings to the forefront that there is a lasting stimulation still coursing through my nerves, manifesting as bruxism and muscle tension, still raging and burning, but I also feel tranquil and relaxed. I’m smoking a bowl of cannabis by an open window there’s a gentle breeze through the budding cherry blossom in the backyard, there’s ambient noise of my neighbors in their respective back yards enjoying the balmy night as it cools down, this is the sweet life, things are good and I feel an uplifted mood. The food is warm and delicious and filling my empty tummy with something dense and hearty is an excellent sensation.
+T6:00- Effects seem to be leveling off. Sensory effects have mostly fizzled out while cognitive and emotional effects come to the forefront, blossoming into a neat plateau.
+I am thinking about how nice it would be to take a benzo when I’m fully down and bliss out into that, but the schedule I’m keeping doesn’t allow for it.
+T6:20- I have fallen into a reading hole based around reading about Alzheimer’s disease and the project “Everywhere at the End of Time” by The Caretaker, a series of concept albums that sonically captures the progression of the disease, from the onset to death. This is driven in part by talking to my partner about their grandmother, who is in the later stages of the disease.
+It is a terrifying and heart wrenching thing to consider. Memories are so important to me, and the thought of having them decay and degrade until they are nothing is demoralizing and crushing. The inevitability of the disease, how it is truly incurable and how its unstoppable progression can only be slowed, never ceased, the world of loneliness and isolation and confusion that the victim falls into, until the world around them grows unrecognizable and the person they once were grows unrecognizable to peers, the terror of entering a lonely realm, never to return, only getting lonelier as one progresses further and further, until one forgets what loneliness even is. The terror of being caught in a thick impenetrable fog, or an unilluminable darkness, of not being able to turn back or turn any way, of not being able to communicate with the outside world the depth of this darkness because it has all but disappeared, a living body slipping into the shadows. The horror and sadness of it brings me to tears. What does one do against such a powerful fate? All I can think about is the sense of dread that would consume me were I in that situation, a dread fading to nothing, not a quiet peace, but an incomprehensible, raging nothing.
+T7:20- Transitioned onto a new hyperfocus, this time reading papers on the study of the psychedelic pharmacophore, on new research that has elucidated the exact configuration of the 5HT2A receptor as it receives a psychedelic compound that triggers it into activity. This is super exciting research that is wondrous to read about, the potential for delving into further fascinating compounds is endless. I begin dreaming of this renaissance in psychedelic science, how bounds have been made in the field that would unimaginable 20 or even 10 years ago. I begin to think that someday perhaps I may even be able to contribute to that field. It is self indulgent fantasy, but it feels good, all feels right. Aside from this distinctly psychedelic freeflow of thought and association and a stimulated focus on whatever I’m reading, and a distinct embedding in my memory of my experience, I am certainly in the midst of a steady downturn in all noticeable effects.
+T8:40- Almost back to baseline it seems, the only effects that remain are stimulation, a buzzing in my limbs.
+T10:00- Back to baseline entirely by this point.
+Conclusion: LSZ ticks all the boxes for a lysergamide- a degree of stimulation, a long duration, cognitive and emotional enhancement, and standard fare sensory effects. Like any lysergamide, it too bears subtle differences from its compatriots. It should scratch the itch for someone seeking such an experience. It is not quite as insightful, deep, introspective, or intense as LSD, its effects stack up similarly to the whole suite of LSD-like analogues and purported prodrugs. What sets it apart? The visual character is unique, a hewn relief that cooks in from my surroundings, forming organically with little pattern or reason, they are simply there and matter-of fact, never forceful, not particularly engrossing. Lucidity was a key feature of the experience, paired nicely with a certain sense of tranquility and calm, bolstered by a bubbly and optimistic euphoria. This is an enjoyable drug by any measure, it may not offer the depths of LSD but will offer a nice way to spend a nice day. Though I was alone for most of the experience it could absolutely be a sociable drug. I am not sure what a higher dose would present, but in how the different effects presented in proportion to one another I imagine it would get confusing and disorienting before it reached a place of deep introspection and engrossing detachment. It lacks push, or any sort of rush. Overall, something light, something delightful, an experience that cooks into the mind and keeps the user afloat on a raft of warm emotions.
+Exp Year: 2021
+ExpID: 115356
+Gender: Not Specified
+Age at time of experience: 25
+Published: Apr 19, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSZ (609) : General (1), Combinations (3), Nature / Outdoors (23), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

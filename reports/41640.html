@@ -1,0 +1,267 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4-Ho-DiPT - 虫体验 - &quot;非常愉快和强大&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-ho-dipt.html'>← 4-HO-DiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4-Ho-DiPT - 虫体验 - &quot;非常愉快和强大&quot;</h1>
+<div class='sub-title'>4-Ho-DiPT - Erowid Exp - &#x27;Very Enjoyable and Powerful&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jul 27, 2005 · <a href='https://erowid.org/experiences/exp.php?ID=41640' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我最近得到了一些4-Ho-DiPT,
+我已经吸过大麻,酒精,,麻醉,药物,可乐,各种片,沙维亚,DXM,LSA,MDMA,2C-I,还有其他一些.
+没有人知道我在哪里.
+我当时心情很好, 学校的成绩很好 (那天我的成绩从C变成了B),
+我还应该提一下, 我最后一次吃饭是在服药前5~6小时.
+我有30毫克的4-Ho-DiPT来处理,并计划谈论20毫克,
+在给药前半小时, 我们准备了这个区域,
+晚上10点半 - - 我吃了20毫克,
+这掩盖了味道很好.
+晚上10点45分 - - 我确实感觉到了.
+我觉得非常清醒和快乐. +1,但快速接近一个+2.
+我在那个时候喝了几次冰毒.
+过去15分钟的效应慢慢增长,
+在那个时候,
+超越我使用过的任何药物.
+我很难坐着,所以我经常来回走动.
+这种药物类似于MDMA (狂喜药),只是更强烈.
+除了与光相关的幻觉之外, 还没有真正的幻觉,
+我看着自己的眼睛, 黑色的部分充满了我的整个眼睛.
+晚上11点15分 - - 我决定再多吃10毫克,
+我试着闭上眼睛,
+这些视觉是难以描述的.
+我可以看到
+一些东西
+但可以确切地说出它是什么.
+我会迷失在CEV的世界里,回到现实.
+我第一次回来时, 一个惊人的OEV迎接我.
+我抬头望着天花板, 表面有纹理,
+几分钟后, 我又回来, 着天花板,
+我闭上眼睛,又开眼睛, 天花板上几乎没有动作,
+晚上11点半 - - 我在房子里探索了一下,
+我认为我看到他们的房子的灯光关闭, 但我不能确定在这种状态.
+我花了大概5到10分钟的时间着这些树.
+它们似乎是&quot;智慧&quot;的,而且看起来非常雄伟.
+他们也搬家了一点.
+这让我想起我在上看着树的时光.
+我决定开始弹吉他, 发现我太紧张了,
+晚上11点45分到凌晨12点30分 - - 这段时间我在家里漫步,
+我发现自己有极其奇怪的想法,
+我也有一些小偏执,
+看到
+这些东西
+在后面
+没有我.
+这非常奇怪.
+我听说这种情况在酸中发生,
+我也在不断地与自己进行内心对话,
+我不记得我有过的这些想法,但我记得一个:我在想如果你是宇航员,
+我脑海中有一幅图像, 一名宇航员被绑在椅子上,
+没有重力就不可能吸毒, 因为它们会漂浮.
+然后我意识到你必须注射你采取的一切,所以你不能成为一个宇航员.
+我有各种类似的奇怪的想法发生在整个晚上.
+我也一直在困惑,
+这使得做一些简单的事情,比如买香烟和灰, 变得非常困难.
+作为证据,第二天我在冰箱里发现了花生,
+音乐的
+我只是想提一下, 在这次旅行中,
+音乐的兴奋很好,歌曲听起来非常好.
+我主要听的是&quot;幻觉&quot;, &quot;&quot;, &quot;Synsun&quot;,
+我决定玩一个电子游戏 (准确地说是&quot;反击&quot;).
+通过麦克风和别人交谈, 我对别人说的话大笑,
+虽然手动动很难,
+听一些古老的印度 (乡村) 和中国音乐.
+在外面和大自然相处是一种强烈的感觉.
+尽管天气非常黑暗,冬季,
+我很想在森林里试试这种药物.
+我认为这将是完美的.
+只是躺下,闭上眼睛,听一些音乐,
+虽然我还很乱, 但药物效果正在慢慢消失.
+在凌晨3点半到4点, 药物几乎完全消耗.
+我确实感觉到了一些后果, 但没有什么显著的.
+我在此时感到非常轻微的头痛,
+这种药物绝对是我想要进一步尝试的东西.
+它们与有点相似,
+如果我必须把它与我做过的药物比较,
+这种药物让我有了最强烈的触觉感觉,
+虽然坐着时才变得令人丧 (四处走动使它变得很好).
+这是我注意到的唯一一个真正的负面方面.
+总而言之, 这是一次很棒的经历,
+其他:
+4-HO-DiPT (281):第一次 (2),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Very Enjoyable and Powerful
+4-Ho-DiPT
+by
+travbrad
+Citation:   travbrad. &quot;Very Enjoyable and Powerful: An Experience with 4-Ho-DiPT (exp41640)&quot;.
+Erowid.org
+. Jul 27, 2005. erowid.org/exp/41640
+DOSE:
+T+ 0:00
+20 mg
+oral
+4-HO-DiPT
+(powder / crystals)
+T+ 0:15
+2 hits
+smoked
+Cannabis
+(plant material)
+T+ 0:45
+10 mg
+oral
+4-HO-DiPT
+(powder / crystals)
+T+ 2:30
+smoked
+Tobacco - Cigarettes
+T+ 3:00
+1 bowl
+smoked
+Cannabis
+(plant material)
+T+ 5:00
+1 bowl
+smoked
+Cannabis
+(plant material)
+BODY WEIGHT:
+260 lb
+I recently obtained some 4-Ho-DiPT and was very eager to try it. I’ve had a fair amount of experience with drugs. I’ve done weed, alcohol, shrooms, meth, speed (pills), coke, various opiates, Salvia, DXM, LSA, MDMA, 2C-I, and a few others.
+One night I arrived home from school at about 10:00 pm. I was in a pretty good mood; school had gone great (my grade became a B from a C that day) so I didn’t have any of the negative ‘vibes’ I normally have from school. I should also mention that the last time I ate was 5-6 hours before dosing.
+I had 30 mg of 4-Ho-DiPT to work with and planned on talking 20 mg and maybe taking the additional 10 mg if I felt like I could handle it. The half hour leading up to dosing was spent preparing the area and glimpsing over a few trip reports to see exactly how long it takes to kick in.
+10:30 pm - I ingested 20 mg spread onto a piece of peanut butter bread. This disguised the taste quite well.
+10:45 pm - I’m definitely feeling it. I feel very alert, and happy. +1, but quickly approaching a +2. I had a few hits of reefer at this point.
+11:00 pm - Over the last 15 minutes effects had slowly grown and now I was in a full +3 state. At this point I was almost peaking and felt fantastic. Amazing tactile sensations surpassing any drug I’ve ever done. It proved difficult to sit still, and so I paced back and forth a lot. The OEV’s were reminiscent of MDMA (ecstasy), only stronger. No real hallucinations yet, other than light related, although everything does have a very surreal look to it. I looked at my eyes and the black part filled my entire eye.
+11:15 pm - I decided I was up to taking 10 mg more, so I had 10 mg on another piece of bread. I tried closing my eyes and was greeted by some faint hallucinations. These visuals are hard to describe. I could see
+something
+moving around but could really tell what it was. It was very fascinating nonetheless, and I’d lose myself in the CEV world and snap back to reality. The first time I snapped back I was greeted by an amazing OEV. I looked up at my ceiling, which is textured, and it was flowing in small waves or currents like water. A few minutes later I snapped back again and stared at the ceiling, this time it was ‘breathing’ rather than flowing like water. I closed my eyes and opened them again and there was very little movement on the ceiling, just a slight distortion.
+11:30 pm - I explored my house a bit and stared out the window into the neighborhood. Looking across the street I thought I had seen lights turn off at their house, but I couldn’t be sure in this state. Right outside the window are two big trees, and I spent probably 5 - 10 minutes just staring at these trees. They somehow seemed ‘wise’, and seemed very majestic. They also moved around a bit. This very much reminded me of looking at trees while on shrooms. I decided to play guitar at this point, and found I was too jittery to play well, and gave up quickly.
+11:45 pm - 12:30 am - This time was spend wandering my house and also laying down with my eyes closed. I found myself having extremely bizarre thoughts, and my memory was horrible. I also had some minor paranoia where I felt like something was there, and would
+see
+things
+behind
+me. It was very strange. I’ve heard of this happening on acid, and was glad I finally experienced it. I was also having a constant inner dialogue with myself which I found very amusing and humorous. I don’t remember most of these thoughts I had, but do remember one: I was thinking about whether it’d be possible to sneak drugs into space if you were an astronaut. I got a picture in my mind of an astronaut strapped to chair for blast-off which drugs secretly hidden in his space suit. Then I got to thinking how it’d be impossible to do drugs with no gravity because they’d just float away. Then I realized you&#x27;d have to inject everything you take, so you can’t be an astronaut pothead. I had all sorts of similarly strange thoughts going on throughout the night. Also, my brain kept confusing what order to do things. This made doing simple things, like getting a cigarette and ashtray, very difficult. As a testament to this, the next day I found the peanut butter in the fridge and a can of Pepsi in the cupboard.
+Music. I just want to mention that at most points during this trip I was listening to music. The music euphoria was nice, and songs seemed amazingly good. I listened to mostly Hallucinogen, Shpongle, SYNsun, Pink Floyd, and Velvet Underground.
+12:30 am - 1:00 am - Decided to play a video game (Counter Strike to be precise). In this game you can talk to other people via microphone and I was cracking up laughing at things people said, which normally I wouldn’t find funny. It was hard playing with jittery hands, but enjoyable anyway.
+1:00 am - 1:30 am - I went out on my deck and smoked a couple cigarettes, and listened to some old Indian (the country) and Chinese music. Being outside with nature was a powerful feeling. Everything had beauty, despite it being very dark and winter time. I would love to try an outdoor trip in the woods on this drug. I think it’d be perfect for it.
+1:30 am - 2:30 am - Just laid down and closed my eyes and listened to some music, and smoked a bowl.
+2:30 am - 3:00 am - The drug is slowly wearing off, although I was still very messed up.
+By 3:30 am to 4:00 am the drug is pretty much completely worn off. I definitely feel some after effects, but nothing significant. I got a very mild headache at this point which went away after smoking some more ganja.
+This drug is definitely something I’d like to experiment further with. It was somewhat similar to shrooms, but also very different. If I had to compare it with drugs I’ve done I’d say it’s kinda like 2C-I and shrooms (not implying actually combining the two). This drug gave me the most powerful tactile sensations I’ve ever experiences, but at times it was overwhelming. It only became overwhelming when sitting still though (moving around made it fine). This is the only real negative aspect I noticed. All in all it was a great experience, and I’d do it again in a heartbeat, and I probably will.
+Exp Year: 2005
+ExpID: 41640
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 27, 2005
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-HO-DiPT (281) : First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

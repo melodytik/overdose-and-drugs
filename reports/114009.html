@@ -1,0 +1,337 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>我认为这很值得&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-mirtazapine.html'>← 米氮平（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>我认为这很值得&quot;</h1>
+<div class='sub-title'>Mirtazapine - Erowid Exp - &#x27;I Would Say It Was Well Worth It&#x27;</div>
+<div class='meta'>作者：psypsy21 From Reddit Collection Citation · 日期：Aug 14, 2020 · 剂量：30 mg · <a href='https://erowid.org/experiences/exp.php?ID=114009' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>米尔塔扎:完整的综述和有用的信息
+我试图将它分类, 让您可以阅读您正在寻找的内容,
+我提前为任何字体错误道歉,
+谢谢你们!
+首先,我想说:我经历了非常艰难的时期,
+我已经放弃了所有的药物治疗,
+我是错的
+经过多种药物治疗, 我终于找到了一种能让我再次真正快乐的东西.
+我不是说米尔塔扎是适合你的药物,
+我写这篇文章是为了提供信息和第一手经验,
+关于我的一般信息:
+治疗前的体重: 83kg
+治疗后的体重: 94kg
+治疗持续时间: 6 个月 + 一周逐渐减少
+国家:瑞典
+身高: 58
+我在一个非常艰难的环境中长大,
+我经历了严重的抑郁和焦虑.
+我无法坐在电脑前不发,咬掉指甲, 或是有可怕的灾难性想法,
+我在去年夏天沉迷于毒品,
+这也影响了我工作和工作的能力.
+我告诉你这一切是为了让你了解我治疗前的情况.
+我决定再去看医生, 试一试新药.
+她决定给我开米尔塔扎因抑郁症和睡眠辅助药,
+我最初非常怀疑,
+我在第一周被处方15毫克,然后30毫克.
+我第一次服用米尔塔扎时, 很早就昏倒了,
+第二天是地狱般的, 因为无论我多么努力,
+我在工作中整天都在点头等待回家再上床睡觉.
+随着剂量增加, 情况逐渐好转.
+这是一个可怕的, 但当你通过它, 这是一个伟大的一步.
+根据医生说, 在第一个月后, 我应该有积极的变化.
+事实是,我已经在一周的入门剂量后感觉好了.
+我不想说我已经治好了,
+感觉呆持续了大约一个月,
+您可能会感到昏迷, 但这取决于您服用药物的时间.
+第四个月比第三个月好,第五个月比第四个月好,
+我在第二个星期也感到焦虑和躁狂.
+我医生描述的普罗米塔辛在那个时候是个很好的工具.
+我强烈建议你去问医生,以防情况恶化,
+在第一个月之后,
+我每天晚上都能得到足够的睡眠,
+现在我很喜欢这份工作,
+我也会觉得有动力去做一些事情,比如去健身房和和朋友们一起出去, 在治疗前很少有这种情况.
+两个月后, 我开始把我的生活朝着正确的方向发展.
+为了弥补我的空虚, 我不再购买无用的东西.
+作为一个成年人, 我终于觉得我可以控制自己的生活.
+幸运的是,从这里起,情况只会好转.
+显著的负面副作用:
+我很早就体验到了两种副作用:体重增加和视力问题.
+我在治疗期间增加了大约15公斤,
+药物会对你的身体产生某种影响,
+这也让你渴望以前所未有的碳水化合物,
+随着时间的推移,
+如果想尽可能少增加体重, 专注于做健康的食物, 严格的饮食.
+我注意到我的视力已经在第一个月发生了重大变化.
+我注意到我的视力已经在第一个月发生了重大变化.
+这种情况似乎不太常见, 但仍然是可能的.
+如果您曾服用过酸并看过手机, 文字会像跳舞一样, 越长时间看, 越厚越小.
+这几乎是我看来文字的样子,
+有时可能很难阅读或专注于一段长文本.
+远处的东西有时会变得有点模糊,
+我不知道在治疗后是否会恢复正常,
+但这绝对是一些
+我在一段时间后学会了控制自己.
+我还想提一下,在服用阿德拉尔药时
+这会暂时使
+我会在后面的长篇文章中详细解释.
+另一种副作用是我有一段时间感觉自己正变得疯狂.
+我不确定这是因为药物,还是因为我是一个沉重的吸毒者,
+我觉得世界不真实,有些偏执.
+基本上是精神病的早期迹象.
+幸运的是,这一切消失了,
+最后,我还要谈谈著名的生动梦.
+梦想
+感觉很现实,
+我可能会醒来,
+我做了一些事,
+我的梦想
+虽然有时梦想会让人心烦意乱.
+我也做过四五个清醒的梦,
+显著的积极影响:
+现在我终于摆脱了深度抑郁和充满焦虑的夜晚.
+现在我可以坐下来放松一下看电影.
+虽然有些日子很艰难, 但这是生活的一部分,
+积极性和愿意完成工作.
+这也是我为自己带来的一大好处.
+现在我非常喜欢我的工作,
+清理房子或做家务比治疗前很难.
+我觉得我更好地照顾自己和我的卫生,
+由于我真正的幸福, 我不再觉得药物是我生活中必需的.
+我经常滥用毒品, 每天都在使用极速,
+我坚信成往往是由于个人问题,
+我还偶尔使用不同的药物,
+睡眠不是一个问题.
+我是说米尔塔扎的睡眠辅助药比许多睡眠药更强大.
+吃了一剂药, 一小时后就像婴儿一样睡着了.
+经过一两个小时, 很难保持清醒.
+没有.
+最重要的是保持清醒.
+这样做会更容易.
+我不再需要你敏的任务.
+我的工作需要大量的思考,
+现在我真的想去上大学,
+我觉得我可以去上学, 这次我真的可以完成这件事.
+但在抑郁症后, 这就像在天堂.
+米尔塔扎与不同药物的相互作用
+酒精:一开始我喝了几杯酒就会感到很累,很想睡觉.
+随着时间的推移, 情况变得越来越好,
+然而,请小心饮用,这可能与您不同.
+,我的甜蜜的速度.
+我不能强调这足够,米尔塔扎和速度将加强彼此没有其他药物.
+每次我在治疗期间服用速度我会调整我的股.
+我会把它比作吸毒,这就是它的强度.
+如果您决定使用,请从小开始,看看您是否感觉到它,您可以随时在以后重新注射.
+值得一提的是, 由于混合物, 你可能会感到更偏执,
+甲基: 如果
+我已经服用了足够多的这种药和米尔塔扎,
+我也可以做一个疯狂的旅行.
+我已经写了一篇关于我与这两个人的经历的文章.
+如果你好奇的话,请阅读.
+我在使用米尔塔扎时没有出现任何问题.
+我不会说它更好或更糟,它只是伟大.
+基本上我从来没有因为血清耗尽而感到退缩或抑郁.
+但要小心使用,因为每个人的情况可能不同.
+这是一个死胡同.
+我试图在150g的标签上脚, 我知道是好的,
+我觉得我在前两个小时就会上来,然后它就停止了.
+所以是的,也许可以为你工作,但我不会费心.
+我会说这两种混合在一起很好.
+由于米尔塔扎实际上具有迷幻特征, 这将使得一个良好的头空间.
+开始低,以确保安全, 因为你肯定会上.
+可卡因:我不喜欢可卡因, 因为它不给我那种刺激,
+总而言之, 我的经历非常棒.
+总的来说,我的经历非常棒.
+虽然我也经历了一些副作用,
+随着时间的推移, 处理变得越来越容易,
+我希望我的生活能够继续下去,
+对于那些想放弃自己的人,
+我做到了, 我被证明我可以恢复健康.
+我很高兴我再次寻求帮助,
+已使用的证券
+发布时间:2020年8月14日
+药物 - 米尔塔扎 (311):不适用 (38),抑郁症 (15),医疗用途 (47),光的经验 (4),回顾 / 摘要 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>I Would Say It Was Well Worth It
+Mirtazapine
+by
+psypsy21
+From
+Reddit Collection
+Citation:   psypsy21. &quot;I Would Say It Was Well Worth It: An Experience with Mirtazapine (exp114009)&quot;.
+Erowid.org
+. Aug 14, 2020. erowid.org/exp/114009
+DOSE:
+15 - 30 mg
+oral
+Pharms - Mirtazapine
+(daily)
+oral
+Pharms - Promethazine
+BODY WEIGHT:
+85 kg
+Mirtazapine: Complete Review and helpful info
+A long thread, but I have tried to categorise it so you can read what you are looking for, but I would recommend to read everything so you can see the bigger picture. I apologise for any typos in advance, I’m not used to writing on my phone. Thank you!
+First of all, I would like to say: I have been through very tough times, and basically been depressed for 6 years. I had given up on all medications and just accepted the fact that some people never can be happy or healthy. I was wrong. After a wide variety of medications and therapy, I finally found something that helped me feel genuinely happy again. I’m not saying Mirtazapine is the medication for you, but you will hopefully find something that helps you with your struggles. I’m writing this to contribute with information and first hand experience and what it could be like for you or a dear friend.
+General information about me:
+Age : 21
+Weight before treatment: 83kg
+Weight after treatment : 94kg
+Treatment duration : 6 months + a week tapering off
+Dosage : 30mg
+Country : Sweden
+Height(?) : 5”8
+I was raised in a very tough environment that I basically don’t even recall. I suffered Major depression and a lot of anxiety. It was so bad that I couldn’t sit on my computer without shaking and biting my nails off, or having horrible catastrophic thoughts that were just absurd. My depression got so much worse last summer when I got addicted to drugs and started using it as a way to escape reality. I was also unable to sleep most nights which negatively affected my ability to work and hold a job. I’m telling you this so you can get a general idea about how I was before my treatment.
+When I finally had enough and couldn’t take it anymore, I decided to talk to my doctor again to try any new medication available. She decided to prescribe me Mirtazapine for depression and as a sleep aid along with some Promethazine in case my anxiety shoots up during the start of the treatment. I was extremely sceptical at first, but I really had no other choice then to give it a try.
+I was prescribed 15mg for my the first week, and then 30mg after that. The first day I took Mirtazapine, I was knocked out cold very early and I had a very deep sleep. The next day was kind of hellish cause no matter how much I tried, I just couldn’t really wake up. I was literally at work nodding the whole day just waiting to go home and go to bed again. This would go on for the first week or two and gradually got better when I started upping my dose. It is terrible but when you get through it, it’s a great step. According to my doctor, I was to expect positive change after the first month. Thing is, I was actually feeling better already after a week of the introduction dosage. I wouldn’t say I was cured, but my mood definitely was altered.
+The feeling of grogginess lasted for about a month, basically until it got to a level where I felt I could handle it. However, how groggy you feel will depend on how long you take the medication. Fourth month was better than the third, and the fifth was better than the fourth and so on. During my second week I also felt a spike in anxiety and was a bit manic. The Promethazine my doctor described was a good tool to use during those times. I would strongly advise you to ask your doctor for something in case it gets bad, Xanax would do the job as well.
+After the first month, I was already feeling great. I got enough sleep every night and also felt very energised during the day to work and do things I enjoyed. The job I had hated for months and thought about quitting was now somewhere where I enjoyed being. I would also feel motivated to do things such as going to the gym and hang out with friends, which rarely happened before the treatment. Two months in and I was getting my life in the right direction. I was handling my finances as a healthy person should and stopped buying useless things to make up for my emptiness. As an adult, I finally felt I had control of my own life. Things from here would only get better thankfully.
+Notable Negative Side Effects:
+Two side effects I experienced early on were weight gain and problems with my vision. I put on roughly 15kg during the treatment, and failed miserably when trying to lose it again during the treatment. The medication does something to your body, and you will more than likely put on some weight. It also makes you crave carbs like never before, which also helps you put on weight. With time you can learn to control it. Focus on making healthy food and having a somewhat strict diet if you want to add as little weight as possible.
+I noticed major changes to my vision already the first month.
+I noticed major changes to my vision already the first month.
+This seems to be less common, but it’s still a possibility. If you have ever taken acid and looked at your phone, the text would kind of dance around, get thicker and smaller the longer you look at it. This is almost what text looked like to me, but way less than on acid. It can sometimes be difficult to read or concentrate on a long text. Things in distance can sometimes become a bit blurry and your sight could go from perfect to somewhat bad. I have no clue if this actually goes back to normal after the treatment, I have yet to regain my perfect vision again. But it’s definitely something
+I learned to control after a while. I would also like to mention that doing Adderall while on this medication
+would temporarily make
+my sight more blurry, I will explain further later on in this long ass essay.
+Another side effect I experienced for a little while was actually feeling like I was going insane. I’m not sure if this is due the medication or if it’s cause I was a heavy drug user and the drugs had finally caught up to me. I felt like the world was not real and some paranoia. Basically early signs for psychosis. Luckily this vanished away and I went back to normal after a while.
+Last but not least, I have to address the famous vivid dreams.
+Dreams
+felt realistic and
+I could wake up thinking
+I had done something but then later on realise it was just a part of
+my dreams. Personally this doesn’t bother me at all since I actually enjoy dreams, even if they can get wired sometimes. I have also had 4-5 lucid dreams where I knew I was dreaming, which is also pretty cool.
+Notable Positive effects:
+The biggest change and most important is that I was finally relieved from that deep depression and the restless nights full of anxiety. I now feel very much at peace with myself and I can actually sit down and relax to a movie. Some days can be tough, but that is a part of life, you can’t be happy everyday, but it’s great when you can be happy most of them.
+Motivation and the willingness to get things done. This is also a huge thing that I got going for me. I now very much enjoy my job and other things such as working out. It’s much easier to just get up and clean the house or do the chores, where this was very difficult before the treatment. Routines are a lot easier to follow now and I feel like I take better care of myself and my hygiene, which often can be neglected when depressed.
+Due to being genuinely happy, I no longer felt that drugs were necessary in my life. I had abused drugs a lot and was a daily speed user, but with my life getting better, I started to naturally drift away from my addiction. I have a strong belief that addiction is often due to personal issues, and this definitely proves my point. I still occasionally do different drugs, and it’s so much more fun when done in moderation.
+Sleep is not an issue. I mean the sleep aid from Mirtazapine is so much stronger than many sleep meds. It’s amazing to take the dose and an hour later be sleeping like a baby. It’s pretty difficult to stay up after an hour or two
+.
+Last but not least, being clearheaded. It’s so much easier to consecrate and do things. I no longer struggle with tasks that require you to be sharp. My job involves a lot of thinking, so this is essential. I have been so motivated that I’m actually considering going to university, which has for a long time been a nono. I feel like I could go to school and actually get shit done this time. Maybe this is something regular people don’t have any issues with, but after depression, this is like being in heaven.
+—————————————
+Mirtazapine interactions with different drugs
+Alcohol : In the beginning I would get very tired and sleepy after a few drinks. This got better with time, and somewhere in the middle of the treatment I was able to drink like before. However, drink with caution, this could be different for you.
+Amphetamine: Oh my sweet Speed. I can’t stress this enough, Mirtazapine and Speed will potentate each other like no other drugs. Every time I took speed during the treatment I would be tweaking my ass off. I would compare it to doing meth, that’s how strong it feels. So start small if you decide to use and see if you feel it, you can always redose later. It’s worthy to mention that you can feel more paranoid due to the mixture, that’s why I would usually skip that days dosage for safety measures.
+Promethazine: If
+I took enough of this and Mirtazapine,
+I could also have a delirious trip. I have written a thread about my experience with those two. Read it if you’re curious.
+MDMA/Ecstasy: I have had no issues rolling while on Mirtazapine. I wouldn’t say it’s better or worse, it’s just great. I would although say that the medication helps with the day after, so basically I never felt withdrawal or any depression due to serotonin depletion. Use with caution though as this could be different for everyone.
+LSD: This is a dead end. I tried to trip on 150ug of tabs I know were good, and it just cancelled the trip. I felt like I was coming up for the first 2 hours then it just stopped. So yeah, maybe could work for you but I wouldn’t bother.
+Weed: I would say these two mix well together. Weed is definitely stronger while on this medication, and due to Mirtazapine actually having psychedelic traits, this will make for a good headspace. Start low to be on the safe side, cause you will get high for sure.
+Cocaine: I don’t really enjoy cocaine since it doesn’t give me that kick, but I would decently say that it also gets potentiated similar to speed, just not as much.
+———————————
+Conclusion and final words: All in all, my experience has been fantastic.
+All in all, my experience has been fantastic.
+I have suffered a few side effects, but I would say it was well worth it. It gets easier to deal with as you go, so don’t worry about being a zombie for a week or two, this doesn’t last that long.
+I hope my life will continue on as it has been lately without the medication, worst case scenario I get back on it. And to everyone who is feeling like giving up on themselves, don’t. I did, and I was proven that I could get well again. I’m so happy that I took that step and sought help again, and you should too, for your own sake.
+Exp Year: 2020
+ExpID: 114009
+Gender: Male
+Age at time of experience: 22
+Published: Aug 14, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Mirtazapine (311) : Not Applicable (38), Depression (15), Medical Use (47), Glowing Experiences (4), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

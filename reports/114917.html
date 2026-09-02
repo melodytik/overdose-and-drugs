@@ -1,0 +1,362 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 埃洛伊德 - 航海员的</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mxipr.html'>← MXiPr</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 埃洛伊德 - 航海员的</h1>
+<div class='sub-title'>MXiPr - Erowid Exp - &#x27;Voyager&#x27;s Ambrosia&#x27;</div>
+<div class='meta'>作者：nervewing Citation · 日期：Feb 10, 2020 · 剂量：60 mg · <a href='https://erowid.org/experiences/exp.php?ID=114917' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这种气味让人想起酸性塑料和燃烧的,
+一开始会有一种不愉快的冲击和持续的轻微不适, 虽然大部分是可以忍受的, 不适很快就会消失, 直到滴滴开始.
+开始,四肢头和麻木, 典型的任何离散症,
+没有任何迹象表明未来会发生什么.
+滴水味道很糟糕, 但它正在运行.
+经历不断增长,闪的虹脉在我的四肢上, 透到我的骨头.
+我能感觉到麻醉剂从我的皮肤深入到我的肉,从我的四肢到我的四肢.
+我每秒钟都变得更加头,
+我头周围环绕着一个光环, 发出淡的光,
+在我的核心里面,
+感觉就像一个力量冲进我的额头, 一个瞬间和强大的流.
+我在屏幕上看到多彩的闪光,点和小形状, 定期间隔的图案,
+我的打字方式变得更加不协调,
+我的脸感觉如此寒冷, 一股麻木的水,
+我的神经元被电力冲走, 被热的击到广的天空中,
+这种突然的强度让我感到惊.
+我只能惊叹地凝视着这场透着我心中的分离.
+我的四肢开始感觉像是液体, 我的手指漂浮在一个游泳池在我的思想, 我控制他们似乎神奇和不可理解.
+我的四肢开始感觉像是液体, 我的手指漂浮在一个游泳池在我的思想, 我控制他们似乎神奇和不可理解.
+感觉就像一个夏天突然暴风雨, 黑色的天空, 倾倒眼的雨布,
+这不是让我发或寻求温暖的感冒,
+在这场风暴中,奇迹般地, 闪闪发光的光束穿过云层,
+我的嘴里有一种甜的味道.
+在我的笔记中标记为T2;5-
+经过这一点, 单行文字的文字变得乱, 几乎无法阅读,
+它以越来越强烈的力量构建.
+我关掉灯光,躺在笔记本电脑的光中.
+我似乎无法真正掌握或专注于这场经历,
+这让我想起了试图抓住一条巨大的肌肉蛇,
+我像气象气球一样漂浮在空中,
+开放眼睛的视觉形式是六角形的视觉,
+我放松身体, 深呼吸, 让它带走我.
+这是一个多彩的快乐无的冲动!
+这是一个多彩的愉快无的冲动!
+我发现自己在疯狂地给朋友,亲人,业余爱好者发短信--这感觉就像是&quot;尤里卡&quot;的时刻, 我必须告诉那些愿意倾听的人关于这种药物的魔法,
+告诉人们我找到了新的圣杯, 但所有的谈话最终都变成了我无法正确阅读或连贯地打字.
+没有.
+我发现自己闭上眼睛,
+随着我的视力逐渐衰弱, 身体也随风暴而消失, 我感觉到我的四肢扭曲,
+我感觉到运动, 就像我在用心驾驶汽车,
+烂的灯光闪闪发光在天空中,
+我的身体像蛇一样伸展, 扭曲和滑落在黑暗的空荡荡的高速公路上,
+灯光在我的身后积聚, 直到我成为一波巨大的光,
+我打开和闭上眼睛, 这粉碎了整个幻觉,
+我闭上眼睛, 发现自己被新视觉所淹没,
+这感觉是我意识的逻辑延伸.
+思想的流和线条从我的脑海中出来, 像狂欢演唱会变成了节奏带游行.
+我觉得自己正沿着一条曲的道路或在夜间曲的河流上航行,
+我试图有意识地把注意力转移到别处时,
+我觉得自己正以剩余的动力漂流, 终于在深中浮动, 无方向停留,
+骨头里有点,感觉有些.
+我把电脑放下,决定插上耳机,听音乐,
+我把笔记本电脑放在床的另一端,
+它看起来像一百万英里远的闪亮灯塔, 脉动和呼吸屏幕崩并挤出成玻璃状的晶体和阶层金字塔.
+在黑暗中放着巨大的浮动形态, ,发光,
+我感觉自己充满活力, 但同时又冷静, 无动于衷, 像尸体在尸检台上,
+让我惊的是,我得到了足够的动力,
+我不故意点燃任何东西可能是一个奇迹.
+我通常在让自己陷入洞穴之前这样做 - - 虽然在这种状态下整个仪式感觉陌生,
+我最喜欢的声音是保罗·哈雷斯的Bituli, 这是一首40分钟长的曲目,
+我躺在床上,闭上眼睛, 开始追踪, 脑袋在手机光线的影像后旋转, 在视野中跳舞和跳动.
+我沉浸在床上, 立即被最纯洁和温柔的柔软所拥抱,
+我很快就感觉到自己被罩在一个的棺材里.
+我被绑在车上.
+我面临着这个过程的下一个步骤,
+我觉得自己正登一过山车的顶峰,
+随着我的速度增长, 我感觉自己在上升和下降, 引力和摩擦力在变化和减少,
+墙壁在我面前倒塌,变成一片黑色深,
+随着我的速度越来越快,
+这真是令人惊叹!
+随着时间的流逝, 视觉图像融为一体,
+充满了令人愉快的身体感受,归属感,舒适感,惊奇感和魔力.
+我买了票, 坐了车, 我对自己的购买感到满意.
+我停下来又开始,加速又减速,
+这就像我眼背面的虚拟电影院.
+我打开眼睛大约20分钟后决定改变音乐.
+这真是一个旅程.
+感觉时间比实际上已经过去了.
+在我眼睛开的短短几分钟里, 一系列的颜色, 斑点,点,梁,杆子,杆子在我周围漂浮,旋转,扭转,
+我排队听不同的音乐 - - 这次是黑超级彩虹的&quot;穿过田野&quot;,
+我闭上眼睛, 立刻又变成子, 用奢华的虹彩蜘蛛丝,
+我再次被稳定的运动所迎接, 像树木中的斑点阴影, 像虹毛细血管一样, 在我上面的天空中,
+我被包围在一个巨大的闪亮的三角形中,
+世界偶尔会被无声的闪光和光脉冲所照亮, 没有可辨的源头,
+我的手指只是奇怪的小骨,紧和干燥的色彩.
+最近的记忆在我的头骨中流, 冲过我的大脑像河流冲过岩石.
+它们像微风中的云一样漂浮,在天空中模糊和惰.
+简短的图像,文字,对话,
+感觉就像是大而柔软的手指温柔地着我的脸.
+一个温和的微风在吹.
+我在黑暗中再次开眼睛,
+很难读出屏幕上的字母.
+我有双重视觉, 在它们背后的空白中有脉动的形状.
+不同的字母在屏幕上浮动或随机地沉入屏幕, 使阅读变得更加困难.
+我觉得我的存在集中在我的头上,它是我的引力核心,
+我的四肢和脸仍然不像属于我.
+它们在我的房间空白的墙壁上散发着光线.
+我身上的每一个角落都面临着压力,
+整个世界变得曲和旋转, 颜色变得更少, 旅行或冒险的感觉也变得更少,
+我不停地追逐它, 但它总是会在最柔软的触摸后从我的手指中滑走.
+我开眼睛的视觉图像就像幻影, 着我的屏幕的光, 积而缓慢而优雅地自我转化,
+我眼睛上有着一系列的斑点.
+每一个表面都装饰着全息舞蹈和微妙交织的形式的旋转.
+现在我清醒了, 不再被许多幻觉刺激所轰炸,
+我知道自己坐得挺直, 我知道我的身体在哪里,
+肌肤上的感觉是缓慢而柔软的, 仿佛有人在我的皮肤上拖着最纯净的克什米尔,
+这些感觉吞了我, 很快就在我的皮肤上和皮肤上, 穿过我的肉体,
+我只想在它们中扭转,在它们中滚动,享受它们的触摸,拥抱它们,感觉它们对着我的压力,
+我正是在我需要去的地方.
+我只能在高兴中,躺下,叹息,
+我觉得我已经爱上了这种药物.
+我向他们保证, 我很快会再来,
+我站了起来.
+感觉好像我的手和脚都被包裹在里面,
+我站了起来.
+感觉好像我的手和脚都被包裹在里面,
+搬家不是很困难,只是有点奇怪.
+虽然我不再被这个分裂的诱惑者拖进洞里,
+我的手指对我来说仍然是陌生的.
+我的眼睛闪,我的肉是麻木.
+坐在床上, 感觉好像我的心跳在整个黑暗的房间里被放大, 每一次敲击都会在黑暗的墙壁上发出淡的波纹.
+我脑子里没有任何想法, 只有对我刚刚经历的事情的敬畏感.
+我只是坐在床上, 在柔和的云彩的怀抱下.
+眼前仍有广的田野, 镜般的地平线, 超越我的视野,
+环境开始腐烂和缩, 其残骸以微薄的雪降落到地面,
+网格开始越来越快地从墙壁上落, 就像MXiPr的网络世界正在从我们的世界中消失,
+我希望我能再次乘坐这辆车.
+我是中立的, 但在大部分情况下,
+虽然这并没有让我感到无能.
+我的四肢仍然很重,每一个动作都像在海上淹没.
+尽管现在的速度和方向都与我的速度相匹配,
+我心跳动,脑袋轻, 就像在第一次约会后,
+虽然一切都有一种柔软的色彩, 但也开始慢慢消失.
+我开始无目的地浏览社交媒体, 发现自己能够连贯地阅读和参与.
+阅读,参与,体验, 这一切都让我感到十分愉快,
+我觉得我可以阅读关于遥远的地方,
+我开始和朋友谈论昆虫, 这是一个我非常热衷的话题,
+我确信我把这个可怜的人入了我标志性的非常繁的信息库中.
+我觉得自己很愉快,有趣,有能力,
+现在我觉得自己有更好的运作能力,
+我正在写一篇文章,
+虽然它缺乏其他功能强大的解离剂,如3-MeO-PCE的内在驱动和刺激.
+这种下降的状态实际上更多的是分析而不是创造性
+这种下降的状态实际上更多的是分析而不是创造性
+也许它可以作为某种目的.
+我也很高兴能想到这个地产在未来的使用方式.
+眼睛着我的屏幕, 微小的视觉效果仍然在前后跳舞.
+我现在可以在网上阅读,
+我走到外面看着广的乡村夜晚.
+月亮和许多星星都被云遮住.
+一群夜间的昆虫和猫头,
+我觉得自己被草的气味,雾和天空的覆所束.
+我只能站在那里凝视着, 靴子沉入草地上, 天空呼吸和脉,
+我抽了一些大麻,
+经历几乎是地让自己过去了,
+我仍然觉得自己很清醒, 脑子就像一台精心油的机器,
+经验已经完全消退了.
+结论:MXiPr是一种花,
+但根据我的经验, 在给定的剂量下,
+在任何具有有趣幻觉体验的解离药物中, 都会遇到一些陷,
+这是一次令人兴奋的冒险幻觉之旅, 穿越虚拟现实,
+这是一个紧而独立的体验, 爆发成一波巨石的冲击,
+我认为这是令人愉快的.
+这是一种全身解离, 极具身体残疾性, 极具精神刺激性,
+对于一个离散者来说, 无论是眼睛开着还是闭着,
+在黑暗中最好.
+身体上的感觉是非常柔软,舒适和愉快的.
+头部空间可以分析和思考, 在下降过程中, 头脑感觉集中, 效率高,
+我很高兴看到它在更高和更低的剂量提供了什么.
+如果在较低剂量下表现良好,
+我唯一的抱怨是时间很短, 烧得很快.
+每个人都在问,与MXE相比,
+这是一种不同的药物,
+这种感觉也同样令人敬畏和惊奇,
+它具有与MXE相似的运动感和旅行感.
+然而,它缺乏MXE的质量和功率, 显着不那么刺激, 更多的是在柔软的表面放松的药物 (尽管我还没有用低剂量玩过,
+我觉得最相似的是个人最喜欢的MXPr和3-MeO-PCE组合,
+这也带来了令人眼花乱的感觉冒险,
+它们的主要不同之处在于它们的持续时间很短.
+未来,我希望看到PCiPr的骨干进一步探索--也许像3-MeO-PCiPr,3-HO-PCiPr,2-Oxo-PCiPr,3-Me-PCiPr或3-Cl-PCiPr这样的东西.
+时间表: 114917
+MXiPr (923):第一次 (2),音乐讨论 (22),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Voyager&#x27;s Ambrosia
+MXiPr
+by
+nervewing
+Citation:   nervewing. &quot;Voyager&#x27;s Ambrosia: An Experience with MXiPr (exp114917)&quot;.
+Erowid.org
+. Feb 10, 2020. erowid.org/exp/114917
+DOSE:
+60 mg
+insufflated
+MXiPr
+(powder / crystals)
+repeated
+smoked
+Cannabis
+(plant material)
+BODY WEIGHT:
+130 lb
+T0:00- Take my dose intranasally- it’s a large pile of light, chalky powder that I am not able to take down in one go. The odor is reminiscent of sour plastic and burning rubber and it stings briefly upon contact, though this quickly retreats instead of smoldering and lingering. There is an unpleasant initial shock and a lingering light discomfort, though it is for the most part tolerable and the discomfort quickly fades until the drip sets in.
+T0:08- Onset, a dizziness and numbness in my extremities, typical of any dissociative at even light doses. Nothing to indicate what is yet to come.
+T0:13- The drip tastes bad but it&#x27;s running it course. The experience builds, flashing neon veins crackling up my limbs and seeping into my bones. I can feel the anesthesia sink from my skin deeper and deeper into my flesh, from my extremities up my limbs. I am becoming dizzier by the second, like my brain is unravelling.
+There is a halo ringed around my head, glowing with a dull fluorescence, showering down a pleasantly cold dissociation, like bathing in a waterfall. There is a glowing power building within my core.
+T0:15- It feels like a force rushing into my forehead, an instant and powerful stream. I see colorful flashes in the light of my screen, dots and little forms and regularly spaced patterns, radiating outwards from glowering eyespots.
+My typing becomes more uncoordinated and disjoint, my fingers feel alien and incomprehensible. My face feels so cold, a numbing blast of water, my brain being washed in a raging torrent. My neurons are being power washed away and stricken by crackles of heat into the vast sky, it strips me down starting from my crown, tracing down my face, then into my sternum, so cold and powerful.
+T0:20- Suddenly even more energy, it has caught me off guard with its sudden intensity. I can’t engage in other activities much, all I can do is stare in awe at the torrential dissociation that drenches me now. My limbs begin to feel like they are made of liquid, my fingers floating in a pool across from my mind, my control of them seeming miraculous and incomprehensible.
+My limbs begin to feel like they are made of liquid, my fingers floating in a pool across from my mind, my control of them seeming miraculous and incomprehensible.
+It feels like a sudden storm blowing up on a summer day, blackening the sky, dumping blinding sheets of rain and chilling me to the bone with its gusts and gales. This is not a cold that makes me shiver or seek warmth, but a pleasant chill like walking past the open door of an air conditioned building on a blistering summer day in the city. And with this storm, miraculously, beams of glimmering light shoot through the clouds in prismatic beams onto the earth where my body is cast. There is a sweet taste in my mouth.
+T0:25- (notated as T2;5- in my notes, an indication of my motor control. Past this point they become mangled and near illegible words on single lines of text, often rhythmic and repetitive). It builds with greater and greater intensity. I shut off my lights and lie in the glow of my laptop. It is so fast and heavy, I cannot seem to really grasp or focus on the experience as it races around my mind. It reminds me of trying to catch a great muscular snake as it races away through the underbrush. I am floating up like a weather balloon, trying to grasp at billowing prismatic tendrils. Open eyed visuals take the form of a hexagonal sectioning of my vision like I am viewing the world through compound eyes, their borders ringed by soft rainbow pulses. Every second it feels like it continues to build in intensity, dragging me deeper into its depths- I relax my body and exhale deeply and let it take me. What a rush what a colorful pleasurable immaculate rush!
+what a colorful pleasurable immaculate rush!
+While I still can, I find myself frantically messaging friends, loved ones, fellow hobbyists in mangled text- this feels like a eureka moment and I must tell those who will listen about the magic of this drug, of this incredible discovery, this is a sudden upwelling of mania, excitement, a rush- a rush that is stymied by the growing intensity of the experience. I wanted to spread the good word, thank the academy, tell people I had found a new holy grail, but all conversations eventually degraded into my own inability to properly read or type coherently. Oops.
+I find myself closing my eyes and drifting into the experience more and more. As my vision fades, my body loses itself to the tempest, I feel my limbs twist and stream away, coil around me in tight spirals and constrict me in their soft and gentle warmth. I get a sense of motion, like I am driving a car with my mind, or like I am on a roller coaster, at the mercy of the winds of this substance. Bright lights sparkle and flash in the sky, bordered by pits of darkness that sink into the yawning above. My body stretches and extends like I am a serpent, twisting and slithering down a dark empty highway, the earth smooth beneath me, my shining iridescent keeled scales tracing a glowing path on the asphalt. The light builds behind me until I am a great glowing front to a wave, a pulse that leaves luminous tracers in its wake. I open and close my eyes and this shatters the entire illusion, like a great hexagram shaped stamp into an anodized titanium mirror. With my eyes closed I find myself awash in new visuals, great dark sigils and incomprehensible symbols emblazoned in colorful fire on a deep violet darkness. I feel like I am levitating, it feels so clean, so natural, like this is a logical extension of my consciousness. Streams and strands of thought wind out of my head and shoot off into the darkness like a rave turned ticker tape parade. The sense of constant motion carries such a distinct sense of direction, I feel like I am sailing down a winding road or a twisting turning river in the night, illuminated by the constellations above. This illusion too shatters when I try to consciously direct my attention elsewhere, collapsing into a pile of blocks and pixels. The sense of motion is swept out from under me with a sudden jerk and I feel like I am drifting along on what remaining momentum I have before coming to a floating, directionless stop in the abyss, a dimly glowing grid extending in all directions along all axes. There are little chills and tingles running through my bones.
+I lay down the computer and decide to plug in headphones and listen to music and let myself fully drift off without any rousing. I place my laptop down on the far end of the bed and bask in its glow. It looks like a shining beacon a million miles away, pulsing and breathing as the screen collapses and extrudes into vitreous hopper crystals and stepped pyramids. Great drifting forms blossom and radiate in the darkness, buzzing and glowing and smoldering into the ceiling. I feel so radiant and alive, but at the same time I feel cold and dead, still and numb like a corpse on an autopsy table, ready for my mind to be picked apart by glowing tendrils and wires like probing herons.
+T0:44- Much to my surprise I muster up the motor skill to take a single hit of cannabis from my one hitter. It is probably a miracle I didn’t unintentionally set anything on fire. I usually do this before letting myself succumb to a hole-though in this state the whole ritual feels alien and difficult to wrap my mind around.
+My first choice of sound is my old favorite, Bituli by Paul Hares, a meandering 40 minute track of eerie glitchy distorted beats. I lie on my bed and close my eyes and begin the track, head spinning from the afterimages of the light of my phone, dancing and pulsing around my field of vision.
+I sink into my bed and I am immediately embraced by the most immaculate and gentle softness, a steady pressure on all sides like there is memory foam inflating slowly around my entire body. It is a heavenly sensation, I quickly feel cocooned, a limbless and entirely still being encased in a plush sarcophagus. I am strapped into the ride. Once I am fully cocooned, I face the next step of the process, the motion, the journey. I feel like I am climbing towards the peak of a roller coaster inside a tunnel that unfolds before me, its walls adorned with regular patterns of patchy stucco in deep dull colors, there is always a gentle warm glow on the horizon. The patterns ripple and pulse and dance synesthetically to the music as I pick up speed, there is a sense of ascent and descent and of my gravity and friction shifting and reducing until it feels like I am levitating my way through space, still along some indiscernible floating track. So many twists and turns, the walls give way before me to a yawning black abyss, my path weaving in and out of great violet fluted pillars of light. The field of pillars grows and expands and multiplies infinitely into the distance as I pick up more and more speed. What a sensation! The visuals blend together as time passes and I have a hard time remembering specific images and sensations. It is an extensive and comprehensive virtual reality, replete with pleasant physical sensations and a sense of belonging, comfort, wonder and magic. This is where I am meant to be, it is okay for me to be here, I bought the ticket and took the ride and I am more than satisfied with my purchase. I stop and start, accelerate and slow down, my thoughts can’t focus on much more than the wonder and awe of the intensity of this experience. It is like a fully immersive virtual movie theater on the backs of my eyelids.
+T1:00- I open my eyes after about 20 minutes and decide to change the music. What a journey this has been. It certainly feels like more time has passed than it really has. In the brief minutes that my eyes are open there is an array of colors, spots and dots and beams and bars and rods floating and spinning and twisting around me, bright and colorful and matte in texture.
+I queue up different music- this time Black Moth Super Rainbow’s “Falling Through a Field”, an exercise in ethereal dreamy slightly unsettling pop, the sound of a misty forest at dawn while being stalked by colorful spirits. I close my eyes and am immediately spun into a cocoon again, wrapped with care in luxurious iridescent spider silk, in the way a great luminous phantom spider would gently wrap her eggs rather than her prey. I am greeted again by steady motion, visuals like the dappled shadows cast through trees, branching twisting forms in the skies above me like neon capillaries, the upper branches of trees reaching for the stars. I am encased in a great glowing triangle as I drift lazily through this beautiful and hazy land, the light of the forms around me illuminating untold colors twisted and tangled into the ground. The world is now and then illuminated by silent flashes and pulses of light with no discernible source, just a flash everywhere at once, a steady dissociating strobe that makes my motion skip and feel choppy.
+My fingers are but odd little phalange bones, tight and dry in pastel colors. Recent memories drive through my skull, wash over my brain like a stream over rocks. They float by like clouds on a slight breeze, hazy and lazy in the sky. Brief images, words, conversations, pieced together from a regular week of work. I am careening through fog banks, tumbling on their gentle billows, it’s gentle and comfortable and fluffy, it feels like great soft fingers tenderly brushing my face. A gentle breeze is blowing.
+I open my eyes in the dark again, met just with my laptop light. It is difficult to read the letters on my screen. I have double vision, and there are pulsing forms in the white space behind them. The different letters float a bit off the screen or sink into it at random intervals, making reading even more difficult.
+T1:20- The dissociation is already taking a step down- my existence feels centered on my head, it is my gravitational core and all other parts of my form and consciousness are drawn towards it. My limbs and face still do not feel like they belong to me. Large stripes radiate and pulse down the empty white walls of my room. There is pressure on all sides of me, especially at every apex of my being. The whole world is shifted askew and spinning, there is less color, less of a sense of ‘travel’ or adventure, now it is just the vestiges of the peak’s ornate details spinning out into the void. Its depths are constantly running away from me and I am constantly pursuing it, but it always happens to just slip out of my fingers after the softest touch.
+My open eyed visuals appear as phantom images, glares leftover from looking a the light of my screen, blocky and slowly and gracefully self transforming, built from the same sort of foam or plush that has characterized many of the substrates of this experience. Regular patterns of spots run across my vision. Every surface is adorned by the holographic dancing and swirling of wispy intertwined forms.
+I am lucid for now, no longer is it that I am being bombarded by so much hallucinatory stimuli that I can’t stop to think or engage with objects. I am aware that I am sitting straight up, I am aware of where my body is, but it still feels like my skull has busted open to a cavity as vast as the night sky outside. The sensations on my skin are slow and soft like someone is dragging the most immaculate cashmere across my skin, or perhaps the airiest satin, leaving a slight numbness in its wake. These sensations consume me, they soon run up and down my skin and across my flesh like the hands of so many dissociative lovers. I just want to twist into them, roll around in them and revel in their touch, cuddle with it and feel its pressure against mine, bare body to bare body, tensing at the points of contact sharply drawing in my breath. I am exactly where I need to be. All I can do is writhe with pleasure, lie back and sigh as the ceiling strobes in dark colors above. I feel like I have fallen in love with this drug. As the experience continues to recede I promise them I will visit again soon, for another date.
+T1:30- I stand up. It feels like my hands and feet are encased in lead, and then foam- So dense and heavy yet so soft and blocky.
+T1:30- I stand up. It feels like my hands and feet are encased in lead, and then foam- So dense and heavy yet so soft and blocky.
+Moving isn’t too difficult, just a bit weird. Although I am no longer being dragged into the hole or caressed by the dissociative temptress, I am still distinctly and heavily dissociated. My fingers still feel foreign to me. My eyes are flashing and my flesh is numb. Sitting on my bed makes it feel as though my heartbeat is being amplified through the entire dark room, each thump illuminating a dull ripple across the dark walls.
+There are no thoughts in my head- only a sense of awe at what I have just experienced. I don’t feel stimulated or anything, I am just sitting there on my bed, cradled by gentle clouds curling around me. The fields are still vast before me, a prismatic horizon just beyond my gaze, but I am content to be where I am, in this odd and vibrant world. The environment begins to decay and crumple, its vestiges raining to the ground in a fine snow and coating every surface. Grids begin to cascade down the walls faster and faster, like the cybernetic world of the MXiPr is draining from ours, they shared orbits so very briefly but now they must depart. The giddiness and excitement still flows through me, I wish I could take this ride again.
+T1:50- I am neutral but for the most part, engaged in what I am doing but not quite with the manic energy some drugs can impart. I am still definitely and noticeably dissociated, though it doesn’t feel incapacitating. My limbs are still heavy, each movement like it is awash at sea. There is still a rush though it matches my pace and direction now. My heart flutters, my head feels light, It’s like walking away from a good bye hug after a first date with a life ruining crush. There is a soft color adjoined to everything though that also begins to slowly fade out.
+As the awe fades and I begin to aimlessly scroll social media, I distinctly find myself able to read and engage in things coherently. Reading, engaging, experiencing, it all feels so delightful, I am filled with a desire to learn and expand myself into the world as far as possible. I feel like I can read about distant places, transport my mind there, a fully interactive adventure. I begin talking to one of my friends about bugs, a topic I am extremely passionate about, and my focus feels acute, my typed words articulate, my intentions direct and crystalline clear. I am certain I drenched the poor person into one of my signature extremely cumbersome infodumps. I feel so jovial and fun and competent, reminiscent of the comedown of a psychedelic but with less stimulation.
+T2:15- Feeling more functional, my mind is still in a state of gentle bliss and intense focus. I am working on writing a piece and I find it easy to record my thoughts eloquently and articulately. This feels like an excellent drug for driving creative endeavors, though it lacks the intrinsic drive and stimulation of other highly functional dissociatives like 3-MeO-PCE. The state of the comedown is in fact more analytical than creative
+The state of the comedown is in fact more analytical than creative
+, and perhaps it could serve some sort of purpose in that capacity. Nonetheless, it is extremely enjoyable and I am further excited thinking about the ways this property can be utilized in the future.
+T3:00- Further and further down, eyes cast onto my screen, the slightest little visuals still dance to and fro. My lights are back on and I am reading things on the internet and talking to friends. I step outside to gaze out into the vast country night. It’s chilly, the moon is obscured by clouds as are many of the stars. A chorus of night insects and owls ripples through the landscape. I feel glued to where I am, bound by the smell of the grass and the mist and the monolithic cloak of the sky. All I can do is stand there and gaze, boots sinking into the grass, the sky breathes and pulses, I am just another part of the vast earth with all of its vast features and lifeforms.
+T4:40- I smoke some cannabis to see if it stirs the dust much. It does not, the experience has mostly quietly let itself pass, a wisp of glitter in its wake. I still feel quite alert and my mind feels like a well-oiled machine, efficiently and objectively processing thoughts.
+T5:30- The experience has all but subsided at this point.
+Conclusion: MXiPr is an ambrosia, a glistening food for the gods. Those are steep words, but in my experiences it has proven to be truly something spectacular at the given dose. In any dissociative that presents an interesting hallucinatory experience there are a number of pitfalls that can be hit- low potency, excess stimulation or mania, or excess sedation. MXiPr misses almost all of these- it is an exciting adventurous hallucinatory journey through virtual reality, a roller coaster ride or a joyride in a little plane plane above a technicolor canyon, all replete with a genuine sense of motion and travel. It is a compact and self-contained experience that explodes in a shockwave of gossamer gems, a prismatic windstorm that carries the user to a far-off land. I for one find it delightful. It is a full body type of dissociation, highly physically incapacitating, mentally quite stimulating, and with a touch of euphoria and mania but not in excessive. It is extremely visual for a dissociative, both with eyes opened or closed. Best experienced in the dark. The physical sensations are overwhelmingly soft, comfortable, and pleasant. The headspace lends itself to analysis and wonder, and during the comedown the mind feels focused, efficient, and well-structured. It is a wonderful substance at this dose, and I am excited to see what it offers at both higher and lower doses. If it performs well at lower doses it may be a contender for my top spot. The only gripe I have would be the short duration- it burns hot and fast.
+As for what everyone is really asking- How does it compare to MXE? It’s a different drug, and there is nothing wrong with that. There is a similar sense of awe and wonder, a similar rush and sense of pleasant cold. As mentioned before it is highly visual, both with eyes opened or closed, and it has a similar sense of motion and journey to MXE. It lacks a lot of the mass and power that MXE packed however, is significantly less stimulating and much more a drug for relaxing on a soft surface (though I have not yet played with low doses so this may be subject to amendment). Perhaps what I found it most similar to was the personal favorite combination of MXPr and 3-MeO-PCE, which is a moot comparison as very few have tread that road. That however, also lends a dazzling synesthetic adventurous experience, wrapped in a silken cocoon with steady motion (albeit a longer duration). The major difference also is its unfortunately brief duration. Going into the future I would love to see the PCiPr backbone explored further- perhaps something like 3-MeO-PCiPr, 3-HO-PCiPr, 2’-Oxo-PCiPr, 3-Me-PCiPr or 3-Cl-PCiPr.
+Exp Year: 2020
+ExpID: 114917
+Gender: Not Specified
+Age at time of experience: 25
+Published: Feb 10, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MXiPr (923) : First Times (2), Music Discussion (22), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>心智机器设备</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>心智机器设备</h1>
+<div class='sub-title'>Mind Machine Devices</div>
+<div class='meta'>药理类别：综合 · 未指明</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 低</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属非药物体验类（设备、行为、状态等），无化学摄入，风险性质与药物不同。Erowid 上收录 11 篇体验报告（本页已译部分）。常见给药途径：吸入/吸烟。报告中出现的剂量：0.5 cups、3.5 g。报告类型分布：Mind Machine Devices(10)、Mystical Experiences(1)。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（11 篇）</h2>
+<div class='item'><h3><a href='../reports/26254.html'>大麻与思维机器 - 伊罗伊德展览 - &quot;一个美妙的体验&quot;</a></h3><div class='meta'>May 26, 2007</div><div class='ov'>使用的设备: 通过耳机播放 10 Hz 双声节拍的 Bwgen 电脑 在30分钟内以5到10赫兹的频率运行 我觉得很好, 今晚或明天没有其他具体计划. 背景:晚上我的卧室. 笔记:我以前多次服用过LSD, 我目前没有服用…</div></div>
+<div class='item'><h3><a href='../reports/34731.html'>设备 - 脑机 - 脑外表 - &quot;强光学编程催眠&quot;</a></h3><div class='meta'>Dec 20, 2006</div><div class='ov'>没有药物可以让我坐下来看太阳. 他给我戴了一双奇怪的防护眼镜, 确实,它模拟了一个LSD之旅. 我读了宣传文献, 决心在有机会的时候订购一本. 猎户座由一个类似于mp3播放器的硬件包和一双防护眼镜组成. 防护眼镜由一双骑…</div></div>
+<div class='item'><h3><a href='../reports/64148.html'>脑波发生器和咖啡 - Erowid Exp - &#x27;没有药物就能离开身体&#x27;</a></h3><div class='meta'>Aug 21, 2007</div><div class='ov'>我玩弄了一个脑波发生器, 播放声音, 大部分都让我头痛, 两个月后, 我终于找到了适合我的声音设置. 我记得我躺在床上永远闭着眼睛认为什么都不会发生. 听着那可怕的声音大约10分钟, 我开始感觉&#x27;不同&#x27;, 最终它跑到我的…</div></div>
+<div class='item'><h3><a href='../reports/22428.html'>DXM和脑波发生器程序 - 埃罗伊德Exp - &quot;积极的第三高原体验&quot;</a></h3><div class='meta'>Aug 8, 2007 · 剂量 0.5 cups</div><div class='ov'>总的来说,这是一个非常好的经验.</div></div>
+<div class='item'><h3><a href='../reports/67927.html'>设备 (双耳鼓动药物模拟器) - 耳显微镜 - &#x27;30分钟&#x27;剂量&#x27;</a></h3><div class='meta'>Dec 18, 2007</div><div class='ov'>首先我想说, 我对真正的药物有充分的经验, 我也使用了Vicodin,用量高达40毫克的可 (用冷水分离制备) 最近, 我在网上搜索时发现了一种叫做I-Doser的双耳脑波药物模拟器, 公司使用的确切引文是:&quot;使用经过验…</div></div>
+<div class='item'><h3><a href='../reports/39914.html'>纽约时报</a></h3><div class='meta'></div><div class='ov'></div></div>
+<div class='item'><h3><a href='../reports/115445.html'>脑机器设备 - 埃罗伊德 Exp - &quot;项目:宽恕&quot;</a></h3><div class='meta'>Sep 14, 2021</div><div class='ov'>我在浮动中心做了三四次, 这绝对是重启大脑和重生的绝对方法. 随着我在YouTube上看了越来越多的公司视频, 我有40美元的余额, 似乎是合适的时间. 这一次我做了一个宽松的宽恕意图. 我希望能够原谅那些曾经伤害过我或…</div></div>
+<div class='item'><h3><a href='../reports/22551.html'>- 菌 - &#x27;小心? 我不需要小心!&#x27;</a></h3><div class='meta'>Jan 27, 2006 · 剂量 3.5 g</div><div class='ov'>我心情很好, 因为我一整天都和我的一个朋友在一起, 那一天我第一次尝试. 现在, 我喝了大麻,E,DXM,Valium,早晨的荣耀,当然还有酒精. 虽然我读了数位的地方不吃整个八我决定我会无论如何. 我是一个平静的家伙,…</div></div>
+<div class='item'><h3><a href='../reports/100053.html'>麻和思维机器 - 埃罗伊德Exp - &#x27;几乎让我觉得自己在&#x27;</a></h3><div class='meta'>May 11, 2019</div><div class='ov'>我已经一年多没有吸过任何大麻了, 但最近我被一些非常强大的北极光所吸引. 由于缺乏耐受性, 在几次吸烟后, 我决定在放松的环境中使用我的拉克斯曼 (音乐而不是双耳节奏, 从一开始, 我在清醒使用机器时所经历的通常模糊的几…</div></div>
+<div class='item'><h3><a href='../reports/84894.html'>和思维机器 - 爱洛伊德 演出 - &quot;神性&quot;</a></h3><div class='meta'>Feb 14, 2017</div><div class='ov'>星期一下午我喝了一些酸, 晚上9点左右我在家中被打了3次, 在旅行的最后一半, 我使用了舒曼共振频率程序. 很酷,但大约一个小时后, 我决定使用&quot;思维机器&quot;和我的&quot;金星2000&quot;自慰机. ! 这真是太棒了! 维纳斯200…</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 11 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

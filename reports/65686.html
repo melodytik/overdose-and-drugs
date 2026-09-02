@@ -1,0 +1,244 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>布福 - 埃洛伊德的 - &quot;一个巫师的视觉&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bufotenin.html'>← 蟾毒色胺</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>布福 - 埃洛伊德的 - &quot;一个巫师的视觉&quot;</h1>
+<div class='sub-title'>Bufotenin - Erowid Exp - &#x27;Visions of a Shaman&#x27;</div>
+<div class='meta'>作者：accessing this page · 日期：Oct 12, 2010 · 剂量：10 mg · <a href='https://erowid.org/experiences/exp.php?ID=65686' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>接下来的周末我们用吸烟的自由基布丁来玩.
+我们吸的剂量从10毫克到15毫克不等.
+我们三个人都有积极的经历.
+这种方式的效果不同.
+10 mg的强度与以舌下服用150 mg的强度大致相同.
+这种情况发生得非常快.
+这种情况在一分钟内会有所不适.
+吸入10毫克的1个肺之后, 我感觉到头部有&quot;热感&quot;,
+在大约1分钟后,这会消失,在2-5分钟内,我会达到极高.
+罗宾无法服用超过10毫克.
+她说10毫克几乎太强烈了.
+她说在这种剂量下, 房间里的一切都开始扭曲和融化.
+她把它等同于500毫克的LSD.
+她发现峰值几乎是太多的处理.
+在高峰期,她非常紧张.
+她觉得好像她要溶解和融化.
+我和女朋友尝试了15毫克, 我们很惊.
+在吸入之后的3分钟内, 房间里的一切开始闪.
+我看到蛇像线条跳舞到处.
+整个视野都形成了一些图案.
+这些图案在我的周围转化为眼睛.
+它们看起来很古老,就像巫师的眼睛.
+我闭上眼睛,听到一个声音对我说话.
+它写着&quot;你是谁&quot;.
+它们是非常充实和清晰的.
+这次又重复了.
+我没有看到任何人.
+我看到的是蛇,像彩色的线条跳舞.
+这些蛇很快就变成了一个人.
+这是一个巫师.
+他已经很老了.
+他又问:&quot;你是谁?&quot;
+我意识到巫师不是跟我说话, 而是跟我视觉中的另一个角色说话.
+这是一条由蓝色和红色光组成的巨大的蛇.
+这看起来像一个电线框架计算机动画蛇.
+蛇发出一个大声的声.
+听起来非常.
+我忍不住听到这些声音.
+我感觉到它在我的耳朵.
+这很可怕.
+巫师看起来很生气.
+他打开了他的手,向蛇投射了一道蓝色的光.
+蛇破裂成一堆血滴.
+忽然,血液在我的周围旋转.
+这真是太恶心了.
+我开了眼睛.
+我不想再看到任何东西.
+我了一点,好像我喝了大量的咖啡.
+我的女朋友在跳舞.
+她看起来像她是一个电影.
+我可以看到她跳舞时闪.
+仿佛她是一个光的投影.
+我开始和她一起跳舞.
+让我手臂可以移动起来,
+房间里的一切都在摇摆,因为我们跳舞.
+没有音乐,但我很快就在脑海中听到音乐.
+随着每一个动作,
+随着我们跳舞的声音变得微弱.
+过了一会儿,我躺在沙发上.
+我看着天花板上形成的图案.
+我的女朋友开了一些音乐.
+音乐听起来很棒.
+我能感觉到每一个音符.
+在天花板上的图案开始随着音乐移动.
+我开始沉浸在梦中.
+我觉得自己睡着了.
+我有很多梦想.
+我醒了大约一个小时后.
+这种影响仍然存在.
+大约3个小时后,效果消失了.
+我认为15毫克太多了,而且持续太久了.
+我在高峰期有点紧张, 像我喝过多咖啡的时候, 幻觉太强烈了.
+后来我尝试了10毫克.
+10毫克似乎对我来说是完美的, 只有持续约2小时,
+我认为这是一个非常有趣的化合物.
+吸烟时, 它就像DMT.
+但更激烈的
+幻觉包括大量的声音,
+德米特更像是一场灯光表演.
+布福因更像是一部短片.
+我更喜欢口服布托,
+在语言下,它更为平滑,更为和平,更为高兴,
+吸烟时, 气势很强烈, 峰值也太快了.
+尽管如此,降落也是一样的.
+在语言下使用时, 起是渐进的,
+在吸烟时,高兴感的高峰期才会逐渐消失.
+我需要将它放在舌下15分钟. 现在,
+让它在我的舌头下15分钟不是那么愉快.
+如果我吞下它, 就会引起胃痛.
+很难没有吞下它.
+但如果做得对, 旅行是最美丽的迷幻体验之一.
+这非常值得.
+我不知道Yopo或Vila烟草是否是一个美丽的体验.
+其他:
+音乐讨论 (22),实体/生物 (37),回顾/总结 (11),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Support Erowid Center with a
+$50 Donation
+And get a blacklight-inked &quot;Erologo&quot; tee
+Visions of a Shaman
+Bufotenin
+by
+R. Henna
+Citation:   R. Henna. &quot;Visions of a Shaman: An Experience with Bufotenin (exp65686)&quot;.
+Erowid.org
+. Oct 12, 2010. erowid.org/exp/65686
+DOSE:
+10 mg
+smoked
+Bufotenin
+150 mg
+sublingual
+Bufotenin
+BODY WEIGHT:
+160 lb
+After having a great experience with sublingual free base bufotenine, the following weekend we played around with smoking free base bufotenine. We smoked doses ranging from 10 mg all the way up to 15 mg. All three of us had positive experiences. The effects are different this way. 10 mg was about as intense as 150 mg taken sublingually. It comes on really fast. The come up is a little uncomfortable for about 1 minute. After inhaling 1 lungful of 10 mg, I feel a “heat” effect in the head, and then my stomach feels unusual. After about 1 minute, this goes away and in 2-5 minutes I&#x27;m peaking REALLY HARD.
+Robin was unable to take more than 10 mg. She said 10 mg was almost too intense. At that dose she said everything in the room started twisting and melting. She equated it to 500 mics of LSD. She found the peak was almost too much to handle. During the peak she was very nervous. She felt as though she was going to dissolve and melt away.
+My girlfriend and I tried 15 mg and we were blown away. Within 3 minutes after inhaling it, everything in the room started shimmering and flashing. I saw snake like lines dancing all over everything. Patterns were forming all over my visual field. These patterns were morphing into eyes all around me. They look ancient, like the eyes of shamans. I closed my eyes and heard a voice speak to me. It said “WHO ARE YOU”. It was very load and very clear. It repeated. I could not see anyone. All I saw were snake like colored lines dancing around.
+These snakes quickly formed into a man. It was a shaman. He was very old. He asked again, “WHO ARE YOU”. I realized the shaman was not talking to me but actually talking to another character in my vision. It was a giant snake made of blue and red light. It looked like a wire frame computer animated snake. The snake let out a loud hiss. It was very loud. I couldn’t stand the sound. I felt it in my ears. It was frightening. The shaman looked angry. He opened his hand and threw a blue light towards the snake. The snake burst apart into a bunch of drops of blood. Suddenly blood was swirling around me. It was disgusting.
+I opened my eyes. I didn’t want to see any more. I was shaking a little bit, like I had a large amount of coffee. My girlfriend was dancing. She looked like she was a movie. I could see her flickering as she danced. As if she was a projection of light. I started dancing with her. It felt great to move my arms around. Everything in the room swayed as we danced. There was no music playing, but soon I heard music in my mind. With every movement, I heard sounds. The sounds grew faint as we danced. After a while I laid down on the couch. I watched patterns forming on the ceiling. My girlfriend turned on some music. The music sounded incredible. I could feel every note playing. The patterns on the ceiling began moving to the music. I started to drift away into a dream. I felt asleep. I have a bunch of dreams. I woke up after about 1 hour. The effects were still present. After about 3 hours the effects wore off.
+I think 15 mg is just too much and it lasts too long. At 15 mg I get a little bit of a nervous twitch during the peaks like I get from too much coffee and the hallucinations are way too intense. I later tried 10 mg. 10 mg seems prefect for me and only lasts about 2 hours, which is more manageable.
+I think this is a very interesting compound. When smoked, it is sort of like DMT. But more intense. The hallucinations include lots of sound and seem to have more of a story to them. DMT is more like a light show. Bufotenine is more like a short movie.
+I like sublingual bufotenine more than smoked bufotenine. Sublingually, it is smoother, more peaceful, more euphoric, and the visions are full of more content. When smoked, the come up is harsh, and the peak hits me too fast. The comedown is about the same though. When used sublingually, the come up is gradual and smooth and very euphoric. When smoked, the euphoria doesn’t hit until the peak starts to fade.
+The downside of sublingual use is that it takes about 10 times as much to be active and I have to hold it under my tongue for about 15 minutes. Holding it under my tongue for 15 minutes is not that pleasant. A lot of saliva starts to accumulate, and if I swallow any of it, it causes an upset stomach. It’s hard not to swallow it. But when done right, the trip is one of the most beautiful psychedelic experiences there is. It is very much worth it. I wonder if Yopo or Vila snuff is this beautiful of an experience.
+Exp Year: 2007
+ExpID: 65686
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 12, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Bufotenin (62) : Music Discussion (22), Entities / Beings (37), Retrospective / Summary (11), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

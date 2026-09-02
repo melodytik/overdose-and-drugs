@@ -1,0 +1,386 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>波德 - 埃罗伊德的经验 - &quot;不确定的混合效果&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bod.html'>← BOD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>波德 - 埃罗伊德的经验 - &quot;不确定的混合效果&quot;</h1>
+<div class='sub-title'>BOD - Erowid Exp - &#x27;Inconclusive Mixed Bag of Effects&#x27;</div>
+<div class='meta'>作者：Xorkoth From Bluelight Collection Citatio · 日期：Oct 30, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=113688' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>第一个BOD经验:不确定的混合效果
+2019年10月14日,哥伦布日
+通过Xorkoth
+中午12点
+(T+0:00) 时间
+- 口服15毫克.
+这种物质是一种密集的粉末, 含有硬晶体,
+点击
+没有.
+粉末是白色的,晶体是乳白色/透明的 (虽然只是微小的块,很可能一个大的晶体会是透明的).
+我有1克,就像我有1克的其他物品一样, 我把它们都存放在相同尺寸的珀瓶中.
+对于某些物质, 一克几乎占据了整个瓶子,
+我让粉末溶解在我的舌头, 和碎的晶体我的牙之间.
+像往常一样,我想知道我尝试的新物质的味道.
+这种BOD的味道非常独特,
+起初,我没有感觉到任何味道.
+几秒钟后,它开始发展.
+让人惊的是,它几乎没有苦味.
+这几乎有点味, 有点苦味.
+这真是不寻常.
+这几乎有点味, 有点苦味.
+这真是不寻常.
+我觉得根本不需要用水追逐它,
+我从来没有遇到过最不讨厌的RC迷幻药.
+这种后味几乎令人愉快.
+我对这件事的看法是多面的.
+我最近买了一些n-ethyl-hexedrone.
+两周前, 六天来, 我吃了这和3MMC的大量,
+但四天前, 我把剩下的女巫出来,
+结果是我有点睡眠不足,
+我感觉很好,虽然有点累.
+我已经两周没有服用任何迷幻药,
+外面是个美丽的天气, 我有些事情要办,
+也许我们可以去散步.
+我希望我能体验到一些我一直听到的好幽默.
+15毫克应该是一个稳定的中等低剂量从我的阅读,
+我不得不承认,我今天突然决定尝试这项工作的部分原因是我渴望兴奋剂,
+我不认为这会被证明是负面的, 虽然, 希望BOD会满足我的大脑的欲望&quot;一件事&quot;同时也提供一些内省我的行为.
+如果它跟其他迷幻药一样,
+我今天还没有吃饭,所以这是空腹.
+我确实吃了一些蛋白质粉 (主要是为了帮助我的大脑重新储备多巴胺),
+我还没有决定要服用这些药物,
+我可能会省略或减少咖啡因的剂量,
+晚上12:45分
+(T+0:45) 时间
+- 感觉到药物的第一个迹象.
+这让我想起一种温和的DOX类型的身体感觉,
+这是一种轻微的感觉,
+咖啡因对我的刺激没有增加.
+现在我正坐在电脑前,
+晚上12点55分
+(T+0:55) 时间
+- 这变得有点.
+我在我的胃有轻微的刺痛和一些轻微的.
+不过这并不坏,只是不太舒服.
+我读过一些人有点难过, 但一旦完全发育,
+下午1点10分
+(T+1:10) 时间
+- 我觉得有点习惯了, 虽然它仍然感觉相当,
+我有一些奇怪的吐, 奇怪的味道吐,
+我发现自己偶尔会轻轻地牙,
+我刚刚打电话给一个地方关于我今天需要照顾的事情,
+下午2点10分
+(T+2:10) 时间
+- 它已经得到了更多的平面现在.
+我眼睛看起来清晰, 颜色也很鲜,
+我一直在写一些长篇文章来回应一些反对其他群体的观点,
+我对他人感到非常热情和开放,
+我不会说我充满幽默,
+我认为这还没有完全发展.
+我和我的女朋友要出去, 我们要做一些事情.
+下午五点二十分
+(T+5:20) 时间
+- 那是一个冒险.
+汽车的电池灯没有关闭自从我换了交流电源,所以我去买了一个新的电池.
+但灯仍然在.
+替换换机的人说他怀疑这与我在车上安装的气息测试器点火联锁装置有关.
+我可能只是浪费了钱, 但我猜这没问题, 因为这是一个更好的电池,
+无论如何, 之后我们不得不去点火交叉的地方 得到一个虚假违规删除当我的交流电器被更换.
+他们给了我很多小费,这真的很好.
+这些设备是如此的荒谬, 显然你需要在不使用汽车时将它们包裹在塑料袋里, 并定期更换口罩,
+另一方面, 我有一本小册子,
+我只是想说,与其他人交谈是相当愉快的.
+我确实感到有些尬/紧张, 但大多数迷幻药会更糟糕 (但如果清醒, 没有特别存在).
+我可以开玩笑, 我觉得自己很舒服,
+我花了大约45分钟试图找到所有我需要的东西, 以后做一些米索拉面吃晚饭.
+我终于学到了一些我以前不知道的日本食材.
+为了找到我需要的东西,
+通过手机搜索, 我发现这些东西应该作为日本料理的基本食材.
+我最近也开始喜欢中国和日本的美食,
+我很容易以有序的方式解决问题.
+实际上,我通常不会有这么多的耐心去深入研究.
+我不得不做出一些决定, 因为我找不到什么,
+这是一次非常有趣的旅程,
+整个下午,每次我坐车, 我都在听NPR电台,
+这让我有很多东西可以思考, 这也是我在经历开始时想到的.
+我会说,也许是因为这样,
+但与此同时,我可以看到如果我处于不同的环境,
+我也无疑在某种程度上经历了一些刺激性崩.
+我觉得自己很积极和愉快.
+我确实有一些身体的紧张, 相当不变, 其中一个真正的指标对我来说是我会发现自己潜意识地住呼吸,
+我不知道这是否对人们来说是正常的, 但对我来说,
+我没有精神紧张, 但身体有点紧张.
+我不应该这么做, 但这并不是什么大问题,
+我心跳和血压都没有升高, 也没有任何焦虑.
+我心跳和血压都没有升高, 也没有任何焦虑.
+秋天的颜色终于开始显现, 天气晴朗,美丽.
+我觉得在高峰时, 颜色变得更加强烈, 我对美丽的感知也得到了增强,
+现在我确实感觉自己已经超越了峰.
+我可以告诉它不会去任何地方一段时间.
+我刚才意识到我今天还没有吃任何东西.
+我只是把一些面包放在烤面包机里,
+我认为,虽然在自然中度过一天,或与朋友聚在一起, 肯定会为这次旅行提供更好的环境,
+我不能不把它比作2C-D, 因为它是2C-D,
+它也与2C-D有很多相似之处.
+总体上是温暖的,闪闪发光的感觉, 感官扭曲最小, 没有什么特别的区别,
+我觉得自己既清醒又.
+这与我的经验相似, 至少, 低至中等剂量的2C-D.
+晚上八点半
+(T+8:30) 时间
+- 过去的几个小时总体上有点不愉快.
+身体能量从中性到积极, 开始变得有点不愉快.
+这可能是因为喝了酒.
+我确实喝了一杯酒, 很快, 因为它在冰箱里,
+总的来说, 酒精可以让我放松,
+酒的确直接导致了体重增加.
+现在我感觉已经回到酒前的状态,
+我仍然在我的身体和思想中感觉到它.
+我试图解决我女朋友的问题 (她收到一台新的平板电脑, 它不打开或显示充电),
+在此时, BOD 是相当的背景, 它主要是作为一个轻微的不安和紧张的身体感觉.
+我真的想把它传给别人, 因为这让我感到压力,
+我肯定觉得我没有能力应对这种情况,
+我不喜欢对抗, 但BOD并没有让事情变得更容易,
+我觉得自己有点不舒服, 但这并没有完全消失.
+过去的几个小时里, 虽然感觉不那么好,
+我还没有那么饿,但我需要做晚餐,因为我今天几乎没有吃东西.
+我们决定不去洗衣服, 因为她不想洗衣服,
+现在我也不能做拉面, 因为我还需要一些原料.
+我可能会加热一些头或其他东西.
+我现在正在传达一堆平凡的个人想法,
+基本上现在我希望它只是下降, 但它很容易管理.
+我和女朋友要找一部好看的电影, 也许有个有趣的电影会让这部电影重新发光.
+我确实认为过去几周的整体崩是一个很大的因素, 这和可能的低剂量,
+这感觉就像一个经历从来没有完全展开.
+第二天
+下午五点十五分
+(T+29:15) 时间
+- 晚上的其余部分最终变得更加愉快.
+随着时间的推移, 我又变得更加放松,
+我发现自己心情很好,
+我很喜欢这几小时的蓝光发布和旅行报告阅读.
+我还在网上向一位朋友坦白,
+强烈的冲动这样做出了什么,但我很高兴我做到了.
+我很喜欢阅读和写作.
+我和我的女朋友坐下来看电视.
+我们终于在Netflix上看了一部长达2个小时的电影&quot;她&quot;,
+听起来很愚蠢, 但这是一部非常好的电影, 我发现它完全迷人,
+之后我们就上床睡觉了.
+我感到疲倦, 但我无法关闭.
+我很高兴和我的女朋友拥抱一段时间, 享受它因为她很快就会离开一个月左右.
+我很舒服,但醒着,然而疲不堪.
+我在凌晨四点到五点之间 (T+16:00到T+17:00) 睡着了.
+我睡了一个无梦的睡眠,
+我早上10点左右醒来,
+现在我感觉很好,
+虽然工作很繁忙,
+现在我要去乐队的练习.
+我怀疑今晚我会睡得很安静.
+总的来说,这是一个混合袋.
+我认为,首先,我没有选择正确的时间来尝试这件事.
+我认为,首先,我没有选择正确的时间来尝试这件事.
+我主要的动机是兴奋剂的渴望, 在一个后巫婆狂欢崩.
+我不仅仅是出于一种冲动而强迫地服用它 (当我醒来时, 我甚至没有想过服用任何东西),
+我决定在高峰期做一堆事情, 虽然我认为这会有好处,
+身体的紧张感开始令人不快, 变得有点愉快,
+我很遗憾自己没有服用药物, 而且我的情绪也比平常低.
+我在高峰期心情很好, 感受到一些积极的效果,
+这种感觉有点通用,比2C-D更通用,但有点类似于2C-D (在精神上/视觉上,而不是身体上).
+我很难说其中多少是由于剂量 (我怀疑这对我来说有点低剂量,
+经过艰难的时期,
+尤其是后半段的效果很少.
+我喜欢长时间的治疗, 因为它一直很有趣,
+我只是希望它能在某个时候消失.
+尽管如此,我最终还是度过了相当愉快的时光.
+需要更多的实验.
+我会增加剂量, 可能是25毫克,
+我们将会看到更多关于这种药物所能 (或不能) 提供的东西.
+值得注意的是, 现有的报道 (从PIHKAL到最近的报道) 遍布各地,
+因此很可能有很多个人的不同看法.
+对于将甲基在乙胺的β位置上进行的研究,
+在下一次之前... 保持安全, 并采取这份报告的盐粒.
+服用剂量时不要轻率, 药物持续很长时间,
+时间表: 113688
+发布时间:2019年10月30日
+第一次 (2), 一般 (1), 其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Inconclusive Mixed Bag of Effects
+BOD
+by
+Xorkoth
+From
+Bluelight Collection
+Citation:   Xorkoth. &quot;Inconclusive Mixed Bag of Effects: An Experience with BOD (exp113688)&quot;.
+Erowid.org
+. Oct 30, 2019. erowid.org/exp/113688
+DOSE:
+T+ 0:00
+Vitamins / Supplements
+T+ 0:00
+120 mg
+oral
+Caffeine
+T+ 1:00
+15 mg
+oral
+BOD
+(powder / crystals)
+BODY WEIGHT:
+170 lb
+First BOD Experience: Inconclusive Mixed Bag of Effects
+10-14-2019, Columbus Day
+by Xorkoth
+12:00 noon
+(T+0:00)
+- Ingested 15mg orally.  The substance is a dense powder with hard crystals that clunked down onto my measuring tray with an audible
+click
+.  The powder is white and the crystals are milky white/clear (though just tiny chunks, it&#x27;s quite possible a large crystal would be clear).  I have a gram of it, as I have a gram of many other things, and I store them all in the same size amber vials.  With some substances, a gram takes up nearly the entire vial, but with BOD, it comes up to less than halfway full.  I let the powder dissolve on my tongue, and crunched a crystal between my teeth.  As always, I want to know how new substances I try taste.  The taste of BOD is extremely unique and unusual.  At first, I detected no taste at all.  After a few seconds, it started to develop.  Surprisingly, it was really hardly bitter at all.  It almost tasted slightly savory, with slight bitter undertones.  Really unusual.
+It almost tasted slightly savory, with slight bitter undertones.  Really unusual.
+I felt no need at all to even chase it with water, and still haven&#x27;t, as I finish this paragraph, 10 minutes later.  Probably the least nasty tasting RC psychedelic I&#x27;ve ever encountered.  The aftertaste is almost pleasant.
+My mindset going into this is multi faceted.  I recently ran out of some n-ethyl-hexedrone I got.  I binged on that and 3-MMC quite heavily 2 weeks ago, for 6 days, and either crashed hard or came down with a mild flu, or both, and abstained from all drugs for 5 days.  But then 4 days ago, I cracked the rest of the hexen out and did a smaller binge until it was gone.  As a result I am a little low on sleep, but I did sleep last night.  I am feeling pretty good, though a bit tired.  I have not had any psychedelics for 2 weeks; my last trip was a low dose of BOHB 2 weeks ago.  It&#x27;s a beautiful day outside and I have some errands to run, and other than that I am going to spend the day with my girlfriend who is leaving town for a while in a few days.  Perhaps we will go for a hike.  I am encouraged by the recent reports on this, and I am hoping that I will experience some of that great humor I keep hearing about.  15mg should be a solid moderate low dose from my reading, so it seemed like a good place to start.  I must admit that a portion of my sudden decision to try this today is that I am craving stimulants because of the recent binge.  I don&#x27;t think that will prove to be negative, though, as hopefully BOD will fulfill my lizard brain&#x27;s desire for &quot;a thing&quot; while also providing some introspection on my behavior.  And if it&#x27;s anything like some other psychedelics, it may prove to be energetically healing, as well.
+I have not eaten yet today so this is on an empty stomach.  I did consume some protein powder (primarily to help my brain re-stock its dopamine reserves), and a pre-workout supplement that had about 120mg of caffeine and some other supplements in it.  I hadn&#x27;t decided I was going to take this yet, and I consumed them about an hour before I took the BOD.  I probably would have omitted or reduced the dose of caffeine, but it&#x27;s alright.
+12:45pm
+(T+0:45)
+- Feeling the first signs of the drug.  It reminds me somewhat of a gentler DOX type of body feeling, as well as 2C-D.  It is a light feeling, rather nice.  I don&#x27;t feel additionally stimulated over what I already felt from the caffeine.  Currently I am sitting at my computer posting on Bluelight, which is fairly engaging.
+12:55pm
+(T+0:55)
+- It&#x27;s becoming somewhat jangly.  I have a slight twinge in my stomach and am getting some light chills.  However it&#x27;s not bad, just not entirely comfortable.  I have read of the come-up being somewhat rough for some people but then clearing up once it fully develops, so I&#x27;m not too worried.
+1:10pm
+(T+1:10)
+- I&#x27;m feeling a little more used to it, though it still feels rather jangly and is getting stronger.  I&#x27;m getting some funky burps, strange tasting burps, but I&#x27;m not nauseous.  I am finding myself occasionally grinding my teeth lightly, and I suppose I do feel somewhat more stimulated but it not on the level of, say, DOC.  I just made a call to a place about something I need to take care of today, and did alright, though I felt somewhat awkward.
+2:10pm
+(T+2:10)
+- It has gotten more leveled out now.  My vision appears crisp and colors are bright but no visuals thus far.  I have been very engrossed in making some long posts in response to some views against other groups of people that I find really sad and wrong-headed.  I feel quite warm and open towards others, though speaking with people has a bit of that awkwardness that psychedelics can cause.  I wouldn&#x27;t say I am filled with good humor, but I am in a good mood and contemplative.  I don&#x27;t think this has fully developed yet though.  I&#x27;m about to head out with my girl and we&#x27;re going to run some errands.
+5:20pm
+(T+5:20)
+- Well that was an adventure.  My car&#x27;s battery light hasn&#x27;t shut off since I got the alternator replaced, so I went and got a new battery.  But the light is still on.  The guy who replaced the alternator said he suspects it has something to do with the breathalyzer ignition interlock device I have installed in my car.  So I probably just wasted money but I guess it&#x27;s alright because this is a better battery, and the other one did get run down to zero.  Anyway, after that we had to go to the ignition interlock place to get a false violation removed from when my alternator got replaced.  While we were there, and I was waiting, I ended up talking to two other people who were waiting who had multiple years of experience with the things.  They gave me a lot of tips which was really nice.  Those devices are such a crock, apparently you need to wrap them in a plastic bag when you&#x27;re not using the car, and regularly change the mouthpieces, because otherwise bacteria can build up and give a false positive eventually.  That seems rather ridiculous but on the other hand I have a booklet with pages and pages of things that can cause false positives, provided as literature from the company.  But I digress... the point is that talking with other people was rather pleasant.  I did feel some awkwardness/tension, but it would have been much worse with most psychedelics (but not particularly present if sober).  I was able to joke around and I felt I came across as being at ease, even though I was somewhat self-conscious.
+After that we went to the Asian food market that&#x27;s right next to there and I spent about 45 minutes trying to find all the stuff I need to make some miso ramen later for dinner.  I ended up learning quite a bit about Japanese ingredients that I didn&#x27;t know before.  I basically had to look at everything and try to figure out what it is, in order to find what I needed.  I ended up picking up a few extra things too that I came to realize through some research on my phone are things that I should have as staples for Japanese cooking.  I&#x27;ve been getting into Chinese and Japanese cooking lately so it was an informative trip.  I was easily able to problem solve in an orderly fashion.  In fact I probably wouldn&#x27;t have had as much patience ordinarily to really delve deep.  I had to make some decisions because I couldn&#x27;t find something, so I had to figure out how to best substitute it.  It was quite fun, undoubtedly the best part of the long errand journey.
+Throughout the afternoon, every time I was in the car, I was listening to NPR, which was presenting me with all manner of grave situations (with a nice break for an interview with Elton John that was really interesting).  It gave me a lot of stuff to chew on, which was what I was already thinking about at the beginning of this experience, too.  I would say that, probably because of that, I have not really felt much of a sense of giddiness or hilarity.  But at the same time, I can see how it could go there, if I was in a different setting.  I also am undoubtedly experiencing some stimulant crash to some extent.  All those things considered, I feel quite positive and pleasant.  I do have some body tension that is pretty constant, one of the real indicators of that for me is that I will find myself subconsciously holding my breath a lot, and not breathing normally.  I don&#x27;t know if that&#x27;s a normal thing for people but it happens for me pretty consistently when I have body tension as a result of drugs and it has become somewhat of an indicator of how tense I am.  I don&#x27;t feel tense mentally, but physically I am in a somewhat clenched state.  It would be better if I wasn&#x27;t, but it&#x27;s not a big deal because I don&#x27;t feel bad, just not fully relaxed.  My heart rate and blood pressure do not feel elevated and I don&#x27;t feel anxious in any way.
+My heart rate and blood pressure do not feel elevated and I don&#x27;t feel anxious in any way.
+Visually, it has been a very pretty day, the Fall colors are finally starting to show and it was sunny and beautiful.  I felt that at the peak, the colors were intensified and my perception of beauty was enhanced, but there were no visuals to speak of in terms of distortions or anything.  I do feel past the peak now.  I can tell it&#x27;s not going anywhere for a while.  I just realized I have not yet eaten a single thing today.  I just stuck some bread in the toaster so I can have peanut butter toast, but I didn&#x27;t ever feel particularly hungry, to the extent that I totally forgot I hadn&#x27;t eaten yet until now.
+We&#x27;re going to hang out at home for a bit, and then still to come, we&#x27;re going to the laundromat and the store to get a few more things.  I think that, although some other setting such as a day in nature, or a friend gathering, would surely provide a better environment for this trip, the fact that I&#x27;ve spent the day doing normal stuff is a good opportunity for me to judge various aspects of this state.  I can&#x27;t help but compare it to 2C-D, since it is 2C-D with a methoxy on the beta position.  It does share a lot of similarities to 2C-D, too.  There is a general warm, sparkly feeling, with minimal sensory distortion and nothing particularly distinguishing about it that stands out over other substances, except for its general sense of ease and functionality.  I feel both sober and tripping at the same time.  This is similar to my experience, at least, with low to moderate dose 2C-D.
+8:30pm
+(T+8:30)
+- The last few hours have been kind of unpleasant overall.  I started to get a restless body feeling and a bit of a runny nose, and the body energy, which had been neutral to positive, began to turn a bit unpleasant.  It may or may not have been kicked in by drinking a beer.  I did drink one beer, rather quickly, because I had it in the fridge and I was feeling like it would be relaxing, and that was when the body energy started to get weird.  I mean generally alcohol helps me to relax, but since I&#x27;ve never tried this drug before, let alone combined alcohol with it, I really can&#x27;t say.  The increase in bodyload certainly directly followed the beer.  That was about 2 and a half hours ago and I mostly now feel back to where I was before the beer, but more down.  I definitely still feel it in my body and mind.  I&#x27;ve been trying to troubleshoot a problem with my girlfriend (she got a new tablet in the mail and it won&#x27;t turn on or indicate it&#x27;s charging), and also had to get my kerosene heater working for the first time this year which was a little nail-biting because it wasn&#x27;t working and it&#x27;s how I heat my house, but it appears that I solved the problem.
+The BOD is fairly background at this point, it&#x27;s mostly present as a slightly restless and clenched body feeling.  A situation came up on Bluelight involving needing to address some problems one moderator had with another and I really wanted to pass it off to someone else because it was making me feel stressed, but I had to reply since I was posting elsewhere and it was my responsibility (and also a friend).  I definitely felt less equipped to deal with that sort of situation given the BOD.  I mean I wouldn&#x27;t have liked it regardless because I dislike confrontation but BOD did not make it easier, in fact the opposite.  The restless energy had me feeling somewhat out of sorts which has not entirely disappeared.  Whereas earlier I felt nice, though short of euphoric, the last few hours I have felt, while not exactly dysphoric, somewhat unpleasant and uneasy.  I am still not all that hungry but I need to make dinner as I have barely eaten today.  We decided not to go do laundry because she didn&#x27;t really feel like it and neither did I because it just got too late.  So now I also won&#x27;t be making ramen today since I still need some ingredients.  I&#x27;ll probably just heat up some canned soup or something.
+I&#x27;m communicating a bunch of mundane personal thoughts right now because I&#x27;m struggling to find something to report about.  Essentially right now I kind of wish it was just down, but it&#x27;s easily manageable.  My girlfriend and I are going to try to find a movie to watch, maybe a funny movie will put some sparkle back in this.  I do think that a general crash from the last couple of weeks is a big factor here, that and possibly an underdose, where I got the physical effects but the psychedelic effects were not able to develop fully.  It feels like an experience that never quite unfolded all the way.
+The Next Day
+5:15pm
+(T+29:15)
+- The rest of the night ended up being more pleasant.  As time went on I became more relaxed again, though the drug hung on for a long time with just a slight grip.  I found myself in a good mood, getting very into stimuli.  My stimuli were a few hours of Bluelight posting and trip report reading, which I enjoyed a lot.  I also made a personal admission to a friend online which I needed to get off my chest, and that felt good.  The strong urge to do so came out of nowhere but I&#x27;m glad I did it.  I got very into things I was both reading and writing.  Then, at about midnight (T+12:00), my girl and I sat down to watch some TV.  We ended up watching a 2 hour long movie on Netflix, called &quot;Her&quot;, which is about a guy (Joaquin Phoenix) in the near future who gets a new artificial intelligence operating system and they fall in love.  Sounds silly but it was a really good movie, I found it totally captivating, funny and sad, it really hit the spot for me, I&#x27;ve been thinking about it all day.
+After that we went to bed.  I felt tired, but I was unable to shut off.  I enjoyed snuggling with my girl for an extended period of time, savoring it because she&#x27;s shortly going to be gone for a month or so.  I was comfortable but awake, yet exhausted.  Somewhere between 4am and 5am (T+16:00 to T+17:00) I drifted off to sleep.  I slept a dreamless sleep that nonetheless felt light.  I woke up at about 10am, a little late for work, and felt SO tired, and remained feeling tired all day.  But I felt generally good other than tired, and still do.  I had a very busy work day, but was able to juggle all the multi-tasking.  Now I am about to go to band practice.  I suspect I will sleep very soundly tonight.
+All in all, it was a mixed bag.  I think, first and foremost, that I did not choose the right time to try this.
+I think, first and foremost, that I did not choose the right time to try this.
+My primary motivator was stimulant craving, during a post-hexen-binge crash.  So not only was I taking it compulsively on a whim (I hadn&#x27;t even he slightest thought about taking anything when I woke up), I was feeling low from dopamine depletion.  And then I decided to do a bunch of errands during the peak which, though I was thinking it would be good for, were actually rather unpleasant errands overall and made it difficult to focus on anything positive or steer my mind in a positive direction.  There was substantial body tension which began unpleasant, got somewhat pleasant, and then became quite unpleasant for a while, and faded into neutral/slightly pleasant at the end.  There was a long stretch of time in the middle where I wished I hadn&#x27;t taken it and my mood was lower than normal.  During the peak I had a good mood and felt some positive effects, but they were not very strong compared to the drawbacks.  The feeling was a bit generic, more generic than 2C-D, but somewhat similar to 2C-D (mentally/visually, not physically).  It&#x27;s hard for me to tell how much of that was due to dosage (I suspect it was a bit of an underdose for me, but not even sure about that), how much was due to my set and setting, and how much was due to the nature of the drug itself.
+After the rough period, I did have hours of really nice, engaging times.  It lasted a bit long, especially since the last half was pretty much just trailing effects.  With DOC, or mescaline, or AMT, I love the long duration because it stays very interesting and full-bodied the whole time.  With BOD, I kind of just wished it would go away at some point.  All this said, I had a rather good time, in the end.  More experimentation is needed.  At some point I will raise the dosage, probably to 25mg, and make sure my set and setting are good.  And we&#x27;ll see more of what this drug does (or does not) have to offer.  It&#x27;s also worth noting that the existing reports (from PIHKAL up to recent reports) are all over the place, with some reporting it being not worth the bodyload, and some saying little bodyload and wonderful giddiness and laughter.  So it&#x27;s quite likely there is a lot of personal variation with this.  There isn&#x27;t much, if any, research done on putting a methoxy on the beta position of phenethylamines, so it&#x27;s rather uncharted territory.
+Until next time... stay safe, and take this report with a grain of salt.  And don&#x27;t be reckless with the dosage, it lasts a long time and it feels like if you overdosed it could produce, at best a lot of discomfort for a long time, and at worst, very dangerous levels of stimulation.
+Exp Year: 2019
+ExpID: 113688
+Gender: Male
+Age at time of experience: 36
+Published: Oct 30, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+BOD (572) : First Times (2), General (1), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

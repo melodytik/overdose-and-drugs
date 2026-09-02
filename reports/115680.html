@@ -1,0 +1,445 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾罗维德 - &quot;我长期以来一直感兴趣的化合物&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mmda.html'>← MMDA</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾罗维德 - &quot;我长期以来一直感兴趣的化合物&quot;</h1>
+<div class='sub-title'>MMDA - Erowid Exp - &#x27;A Compound I Had Long Been Interested In&#x27;</div>
+<div class='meta'>作者：InnerExplorer Citation · 日期：Sep 17, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115680' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>MMDA:对&quot;伊特&quot;进行彻底的审查和生物测试
+这是一个我长期以来一直感兴趣的化合物, 读过舒尔金关于&quot;心灵电影&quot;的经验, 更具体地说, 克劳迪奥·纳兰乔对MMDA作为一种非常有用的治疗剂的描述.
+我对此感兴趣已有十多年,
+我接触的样本是99.9%纯的MMDA, 用HPLC进行测试.
+我读了PiHKAL的文章和Claudio Naranjo的书&quot;治愈之旅&quot;,
+对于这种化合物和一般的迷幻药物而言,
+他对迷幻疗法的哲学倾向与我自己和我自己的治疗训练有很大的共.
+我知道单独的自我实验有其局限性.
+我不会有心理治疗师,导师或辅导员在场,
+我需要依靠自己的意图,自我意识和治疗技巧, 倾向于对可能不舒服的事情,
+我花了几个月的时间思考这段经历,
+我一直在思考的是神秘的融合,
+现在它比以往任何时候都更为根深蒂固, 我已经获得了前所未有的健康和内心平静.
+我对连接和建立关系的开放度也达到了历史最高水平, 我更加接受自己在这个世界上所处的位置以及我需要继续做的工作,
+我还从哲学上将生活视为一个有根性,持久或稳定的梦想.
+我们意识的整体与梦最为密切相关, 因为我们无法从意识之外测量意识或意识.
+我们的理解受限于一个简单的事实:我们不能完全摆脱体验.
+甚至药物经验也在这个&quot;梦&quot;中运作,
+我确实感觉到一个人可以在梦中变得越来越有意识,
+我认为这可能是神秘主义的关键.
+整合这一点是放弃理解,为只有感觉和感知而存在的空间.
+这种理解虽然可以用语言表达,但在亲身经历之前,往往无法真正理解.
+我不打算在这里详细介绍这些.
+我只是想分享我对这段经历的感受, 以及我走过的道路.
+我在这个过程中得到了朋友,家人和治疗师的充分支持; 我已经明白,对于任何希望在探索改变意识状态以及个人成长过程中获得根基和整合自我感的探索者来说,
+正如迷幻药物具有很大的清晰度和成长能力,
+了解这种物质的作用机制和治疗潜力, 也许我能给它一种新的语言,
+我觉得这些材料很少被探索, 也许经验丰富的探险家的思想,
+我下一个意图,不亚于第一点, 是完全接受这种经历,同时尊重可能存在的防御机制, 探索我允许自己从不同的角度更亲密地体验比自己更大的东西的能力,
+我希望把过去原谅自己, 拥抱一个光明的现在和未来, 连接,爱和服务他人,
+我也对克劳迪奥·纳兰乔的评估感到好奇,
+一个.
+客观上非常令人满意,
+2. 在
+习惯性的感情和冲突被放大
+三个和四个.
+感觉没有增强,但身体症状或视觉图像是显著的
+五个
+惰或睡眠
+克劳迪奥继续说:&quot;心理症状或情感图像可能存在于这些状态中的任何一个,但在第三和第四状态中最突出 (作为感觉替代品),而感觉是前两个体验中最突出的部分,以及一种漠不关心的状态 (可能是防御性的) 在第三和第四状态中开始,并在第五状态达到顶峰.
+在后者中, 像在正常的梦中一样, 可能有很多心智活动, 但这变得很难理解,记住,或表达.
+这些状态可能会在给定的经历中相继出现,因此对MMDA的反应可能最初是焦虑和冲突的状态,直到达到更好的平衡或昏昏欲睡;或者一个会话可能从愉快的平衡状态开始,然后导致情绪或身体不适,等等.
+- 治愈之旅 (第二版)
+70-71 年
+这听起来与我在治疗中观察到的MDMA效应相似,
+服用MDMA时的分离会看起来很像&quot;嗜睡&quot;或&quot;昏昏欲睡&quot;,除了在使用MDMA时,大多数人无法完全分离或入睡 (尽管有报道称,一些人服用MDMA后立即睡觉).
+我很想知道MMDA会对我有什么感觉, 我会如何对待它的影响.
+我希望能够将经验转化为一份报告,
+在Sasha Shulgin的PiHKAL中描述的一次经验中, (服用225毫克) 我在20分钟内对自己的手有了奇怪的意识而不是感觉到我被它们吸引.
+我开始感到害怕,
+我躺着面对地 (对我来说是一个丧的位置).
+接下来我和学校的孩子们 (图像) 或其他老师谈话.
+这非常生动.
+校园里的场景比我这里的现实场景更加生动.
+那些人比我更真实.
+实验期间我现在真的很昏睡.
+我从未有过这样的经历,
+我觉得好像睡了很长时间, 睡着了, 一系列的梦幻状态非常生动,
+在这个经历中, 似乎个体面临一些困难的情绪, 心理的反应是撤回, 实质支持并试图继续提供一个窗口进入潜意识.
+即使在解离过程中也存在着独特的内容, 与其他物质相比,
+我很好奇上述学校的场景是否可能具有关联性意义.
+这一点可以从Dr.
+纳拉尼奥描述第二个状态进入第三个和第四个状态.
+让我能够在整个体验中保持完全的存在.
+关于剂量,很难找到确定的信息来指导适当的剂量,以获得与这种化合物的全面,沉浸式体验.
+在PiHKAL中,舒尔金报告了剂量范围在100-250毫克之间,并且对其效果持续时间的描述不清楚.
+在他的书&quot;治愈之旅&quot;中,
+然而,Shulgin,Sargent和Naranjo发表了一篇题为&quot;3-Methoxy-4,5-Methylenedioxyphenylisopropylamine (MMDA) 的动物药理学和人类精神药理学&quot;的论文.
+在这篇文章中,他们描述给人类的MMDA在100-350毫克的范围内,大多数人接受120-150毫克.
+它们描述有效剂量为2mg/kg.
+对于作用的持续时间,据说在30-60分钟内开始,效果似乎在4-5小时内发生.
+对于我第一次使用这种化合物, 我会服用200mg,
+这种选择有几个原因.
+一个是&quot;心理影响[MMDA]是轻微的&quot; (Shulgin等人,1973),我希望确保我有一个经验,这是中等强度范围.
+我选择的剂量低于PiHKAL实验的最高值,
+似乎在高于250mg的剂量出现更多的负面副作用,因此200mg可能会带来充分而强烈的体验,同时防止任何负面副作用.
+在实验前4天服用20mg (1/6的最低有效剂量) 的过敏测试剂量以测试敏感性.
+我将描述过敏测试的任何影响, 然后继续描述完整的剂量.
+测试剂量
+20mg MMDA;用凝盖口服.
+摄入后大约30分钟, 有轻微的认知转变可能是安慰剂,
+我突然感到非常疲, 仿佛我已经服用了黑激素, 胺或草根.
+这似乎没有任何安非他命或兴奋剂的痕迹.
+我注意到一种情感和精神上的开放, 像我对梅斯卡林的认同,
+想躺下睡一下是非常强烈的!
+我想知道一个更高的剂量会让我昏倒吗?
+我今天休息得很好,所以我不认为在游戏中缺乏睡眠.
+睡觉的感觉有点缓解, 让我感到放松, 满意.
+没有什么可担心的.
+到了1.5小时后, 感觉有些轻微,
+如果我重新把注意力集中在我的身体和当下时刻, 那时的现实感会变得更加真实,
+虽然我仍然有点疲, 头痛轻微存在, 但没有完全发展.
+喝一些水可以帮助你.
+疲的感觉似乎是不可动摇的, 很多打哈欠,
+我不得不说我很喜欢这种感觉.
+我不反对在一个惰的周末日子里独自完成这项工作.
+这种感觉是非常复兴的,而MDA或MDMA则没有 (这些物质会激活更多,你知道你会在以后消耗).
+我觉得这一切过去了,
+我会让一个30分钟的小睡.
+我从3点到3点45分躺下睡了一会儿.
+首先,我能感觉到我的意识在身体的增强和睡眠之间动.
+我可以追踪身体的一些感觉,
+我感受到了那些时代的悲伤, 也感受到它们与现在的联系,
+我已经成年了, 暴力和压迫已经结束.
+我感觉到自己终于可以休息了.
+我的猫在我的头上,我沉睡了.
+梦想很多,但我只记得一些梦想.
+我记得有个生物对我说:&quot;我等了你这么久,
+你终于安全了.
+我一直在这里,永远也会在这里.
+我觉得我可以很容易地回到睡觉,
+我觉得很新鲜,放松,和一块.
+并且有很大的胃口!
+唯一让人觉得这像是MDMA或MDA的原因是感觉被增强.
+如果更高剂量产生更具特征的内因子效应,这也将是有趣的.
+在第五个小时我注意到一些PNS激活在下出汗的形式, 也许代谢到刺激代谢物?
+我的心率为每分钟71次, 休息心率为每分钟59次.
+我感到疲劳,但并没有疲.
+吃饭的胃口很好.
+总体来说:我认为如果我没有非常注意,
+我觉得我能够开始挖掘出这个分子的一些效应,
+这确实是我吃过的最独特,最令人费解的药物之一.
+它可以,但...
+我希望在接下来的一剂药物中能有更深入的理解,
+第一个试验剂量
+明天除了与我的心理医生会面之外,
+在下午3点20分服用药物之前,
+我对这个实验感觉很好,
+我创建了一个大约4个小时的播放列表,
+躺下听音乐的眼罩.
+感觉到胸部有轻微的热度, 预见到一些刺激,
+我可以感觉到有活力的动作进入我的喉.
+在胃/胸部区域肯定有什么东西正在形成.
+放松一下.
+我已经进入了一个美丽的意识.
+我没有重量,一切都很容易.
+这种感觉在波中不断增长,
+恶心的波浪比梅斯卡林的强度小, 但含量深.
+进入我生活中所有冲突的领域,
+尽管我感到非常不舒服.
+我在这里是为了这个.
+超越的幸福浪潮, 伴随着在当下完全接地.
+没有区别在我的体验和宇宙中的一切之间.
+这一切都是因为爱而存在.
+也有很多不舒服的感觉.
+保持所有不愉快的情绪我避免.
+这感觉很像MDMA, 但更清醒和迷幻.
+在过去的1小时里, 发现困难, 坚持困难,
+这比MDMA更像是体质药物.
+探索每一个情感层面.
+有时会有一些混,我不会超过这个剂量.
+虽然它与MDMA在情感上有很大的相似之处,
+主要影响似乎正在减弱, 现在转向更昏昏欲睡的影响.
+在整个经历中, 视觉活动并不多.
+逐渐有更多的窗户向幸福的方向重新开放.
+这真是一个顶级体验.
+我对自己,我的关系和现实有了更深入的认识.
+这将是一个我需要很长时间来融入的经验.
+我会说这个剂量大约相当于350-500毫克的梅斯卡林.
+从治疗的角度来看,MMDA似乎很有用,因为没有什么感觉是捏造的,防御不被打倒,你必须让它全部进入,否则你会发现自己试图远离它,错过了给你的整个礼物 (这是一个很好的反来提高对自己的防御的认识).
+现在我闭上眼睛, 看到一些生动的&quot;脑部电影&quot;,
+完全不同的语法和词汇, 但梦想却像外星人试图创造&quot;人类梦想&quot;.
+这些情节并没有引起太多的情感反应, 而不是困惑,好奇和笑声.
+这种药物似乎比MDA或MDMA更具&quot;个性&quot;.
+这感觉有点像在DMT上实体的性格.
+我曾经看过一个脑部电影:
+眼睛闭着, 我忽然忘了自己躺在客厅的针床上.
+我发现自己在Facebook上滚动,
+我转向他,我像WTF男人,他说&quot;等一下,我只是试图弄清楚我是否是一个警察在这里&quot;在这个梦中,这句话完全有意义.
+没有人被分阶段.
+但作为电影观众的内心, 我觉得等待一下,
+然后我意识到这是一个梦,我再次醒来.
+T+5:30 - 吃了一些菜,然后搬进客厅.
+任何从前刺激的迹象都消失了, 微妙的身体高仍在继续,
+,直接进入一个梦境.
+我会回去看看我能不能看更多的头脑电视.
+另一个脑部电影:我突然看到尼基·米纳奇的英国版垃圾流行音乐,
+对于我来说,脑部电影的开始是脑部制造的音频.
+接下来是真正的&quot;电影&quot;开始,
+有些影片非常清晰, 其他影片则不整齐,
+另一个脑部电影:从听一个美国老太太和一位美国老男人说话开始.
+你不能完全理解他们在说什么.
+然后你开始看到一个乡村山顶的电影场景, 然后它消失到声音的来源,
+我觉得很累,所以我准备上床睡觉,期待着睡觉,但是奇怪的脑部电影 (我会稍后谈谈它们是什么) 仍然在继续,这不是真正的梦或睡眠,这是一个非常活跃的状态,除了我也昏迷,感觉更多的身体过程 (想想发烧梦或催眠幻觉).
+我尝试了0.5毫克的埃蒂索拉姆, 但在一个小时后没有什么效果,
+随着埃蒂索拉姆开始起作用, 睡眠开始, 基本上是一个黑洞, 直到凌晨5点半左右,
+脑部图像回来了,
+今天早上有点疲,
+我现在的状态让我感觉有弹性,
+我觉得与爱相协调, 我意识到我需要照顾的部分.
+我正在向生活的过程开大门, 我们都属于这个伟大的梦想,
+~~~~ 没有.
+这是一种非常独特的迷幻/感触剂.
+它具有MDMA,MDA,DMT和5-MeO-DMT的属性,
+我怀疑这种药物作用不同, 取决于剂量的强度.
+低于一定剂量, 睡觉会更容易, 但在一定剂量之后,
+这是一种真正治愈精神错乱的化合物, 我会把这种经历放在我一生中最好的10个中.
+也许这与我生活的现状有关, 我对体力处理的培训, 爱我并支持我的朋友和家人, 以及多年的个人工作.
+克劳迪奥·纳兰乔描述MMDA有自己的天堂和地狱,
+我认为我服用的剂量是上限.
+我认为稍微低一点的剂量, 比如120-150毫克可能更容易管理,
+在适当的监督和指导下进行.
+这不是一个伟大的药物单独在高剂量, 因为多少参考丢失.
+有一个有规律的神经系统, 也有治疗训练,
+我没有经历过任何令人压倒的身体感觉, 感觉有毒, 但我可以感觉到如果我服用更多的副作用会非常不愉快.
+另一个值得注意的事件是自我部分在会议中如此容易出现.
+在某个时刻, 我正在经历我自己作为母亲的诞生, 再现我自己诞生的那一刻, 坚持这一刻,
+我曾经爱过并希望被爱的人拒绝我.
+我看到了与家庭的紧密联系, 在那些可怕的拒绝和遗弃感的另一面,
+我开始把所有这些负面经历看作是教训.
+整个生命都是一系列的教训,
+我一直回想着&quot;这房子在燃烧! 抢走你能拿到的东西!&quot;这句话来自印度的神秘主义者,
+关于&quot;大脑电影&quot;的评论:这种药物的独特特征是我实际上在其他药物中经历过的现象,
+这让我想起了我从大剂量MDMA或MDA下降后的感觉,
+这些乙胺药物有能力进入梦境,
+在200毫克的高剂量下,
+虽然有时有点镇静, 但在整个体验中, 我没有困难保持清醒和深刻的感受.
+在第七或第八个小时, 头脑仍然受到刺激,
+我和我的治疗师进行了一次精彩而富有成效的会议, 我们完成了一些在MMDA会议中出现的身体部分,
+让我感动的是, 这种艰难的经历,
+我非常感激能品尝到这颗美丽而独特的分子,
+我已经到达了永恒的现在.
+感谢我的所有导师和老师,
+感谢我的朋友们, 他们看着我, 支持我度过我的疯狂,
+谢谢那些为这个分子铺平道路的炼金术士们:萨沙·舒尔金和我服用的MMDA的化学家.
+感谢先驱的巫师,僧侣,萨杜,神秘主义者,心理治疗师,精神科医生,心理咨询师,社会工作者,护士和医生,
+感谢不可言喻的存在,这个梦想的奥秘,爱的魔力.
+直到下一次,
+在InnerExplorer
+其他:
+发布时间:2021年9月17日
+MMDA (593):单独 (16),治疗意图或结果 (49),个人准备 (45),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Compound I Had Long Been Interested In
+MMDA
+by
+InnerExplorer
+Citation:   InnerExplorer. &quot;A Compound I Had Long Been Interested In: An Experience with MMDA (exp115680)&quot;.
+Erowid.org
+. Sep 17, 2021. erowid.org/exp/115680
+DOSE:
+T+ 0:00
+200 mg
+oral
+MMDA
+(capsule)
+T+ 7:00
+0.5 mg
+oral
+Etizolam
+T+ 8:00
+1 mg
+oral
+Etizolam
+T+ 14:10
+1 g
+oral
+Tryptophan
+BODY WEIGHT:
+145 lb
+MMDA: A Thorough Review and Bioassay of The Et [title truncated?]
+This had been a compound I had long been interested in, having read about Shulgin&#x27;s experiences with &quot;mind movies&quot; and, more specifically, Claudio Naranjo&#x27;s description of MMDA as a very useful therapeutic agent. Being primarily interested in psychedelic and psychedelic-like compounds for therapeutic use, I was drawn to this for over a decade before it found its way to me. The sample I came into contact with was 99.9% pure MMDA, tested with HPLC.
+In preparation for my first experience with it, I read the PiHKAL entry and Claudio Naranjo&#x27;s book The Healing Journey to get a proper context with the therapeutic concepts and ideas that Dr. Naranjo had formed in relation to this compound and psychedelics in general. His philosophical leanings in regards to psychedelic healing resonated greatly with my own and with my own therapeutic training. I recognize that in a solo self-experiment there are limitations. I won&#x27;t have a therapist, guide, or facilitator present to provide feedback throughout the experience, or to encourage attention in one area over another. As in many of my other self-experiments, I will need to rely on my intention, my own awareness, and my therapeutic skill to lean into what may be uncomfortable and be completely open to what may arise. I have spent several months thinking about this experience, and have waited for my life to be in a somewhat settled place before planning the date. Some things in particular I have been thinking about is the integration of the mystical, which currently appears to permeate every moment of my existence. It is present in a way now that is more grounded than it ever has been, and I have been reaching levels of health and inner peace that have not previously existed in my life. My openness to connection and to being in relationship has also been at an all-time high, and I have grown more accepting of my place in the world and the work that I need to continue doing to feel actualized in this lifetime.
+In addition, I have philosophically been relating to life as a grounded, persistent or stable-state dream. The entirety of our aware consciousness is most closely related to a dream, in that we cannot actually measure consciousness or awareness from outside of consciousness. We are limited in our understanding by the simple fact that we cannot actually step fully outside of experiencing. Even drug experiences operate within this &quot;dream&quot; and occur within the laws that this dream is governed by. I do get the sense that one can become more and more aware within the dream, so that the fact that one is living in a dream and participating in a dream becomes so clear that there is no longer a separation between the dreamer and the one living the dream. It is my belief and experience thus far that this may be the crux of the mystical. The integration of this is the process of letting go of understanding and making space for what can only be felt and perceived. Or, in the words of Claudio Naranjo, &quot;love of one&#x27;s particular circumstances.&quot; This understanding, while languageable, often falls short of true understanding until it is experienced firsthand. There are abundant texts which attempt to describe the process of gaining lucidity into the supposed illusions of reality and I won&#x27;t attempt to go into those here. All this simply to share about my set going into this experience and where my path has brought me up until this point.
+I have adequate support from friends, family, and a therapist in this process; something I have come to understand as essential for any explorer who wishes to gain a grounded and integrated sense of self as part of exploration of altered states of consciousness alongside personal growth. Just as psychedelic drugs hold great capacity for clarity and growth, so too they have capacity to cause greater confusion and an increase of avoidant patterns (speaking from experience).
+My intention for this experience is firstly to learn about the effects of MMDA, to get a greater sense of the mechanism of action and the therapeutic potential that this substance holds and if I may be able to give some new language to it that perhaps has not been elucidated in the recent past. My sense is that this material has been scantly explored, and perhaps the mind of an experienced explorer of these realms might bring language that is more relatable in the fields of psychonautics, pharmacology, and psychotherapy. My next intention, which is no less important than the first, is to be fully open to the experience while respecting the defensive mechanisms that may be present and exploring my capacity to allow myself to experience more intimately and from a different perspective something greater than myself and hopefully arrive at a deeper acceptance of my place in the world and in relationship with others. I would like to forgive myself of my past and I would like to embrace a present and future that is bright, connected, in love with, and in service of others while also finding enjoyment in the time I have here on earth.
+I am curious as well regarding Claudio Naranjo&#x27;s assessment that MMDA produces five particular states of consciousness:
+1. Subjectively very gratifying and may be regarded as a kind of peak experience
+2. Habitual feelings and conflicts are magnified
+3 and 4. Where feelings are not enhanced but physical symptoms or visual imagery are prominent
+5. Lethargy or sleep
+Claudio goes on to say that &quot;Psychosomatic symptoms or eidetic imagery may be present in any of these states, but are most prominent in the third and fourth (as feeling substitutes), while feelings are the most prominent part of the experience in the first two, and a state of indifference (possibly defensive in nature) sets in in the third and fourth and culminates in the fifth. In the latter, as in normal dreaming, there may be much mental activity, but this becomes difficult to grasp, remember, or express. These states may follow one another in a given experience, so that the reaction to MMDA may be initially one of anxiety and conflict until better balance is achieved or somnolence supervenes; or a session may begin with the pleasurable balanced state and then lead into one of emotional or physical discomfort, and so on.&quot;
+-The Healing Journey (2nd Edition), pp. 70-71
+To me, this sounds similar to the kinds of effects I have observed with MDMA in therapy sessions in which the client/patient has highly guarded aspects of self. The dissociation on MDMA can look a lot like &quot;lethargy&quot; or &quot;somnolence&quot;, except that on MDMA most people are not able to stay fully dissociated or asleep (though there are reports of some people experiencing sleep immediately after taking MDMA). Being considerably experienced with MDMA and MDA as well as all other classes of drugs, I am curious about how MMDA will feel and how I might relate to its effects. I hope to be able to translate the experience into a report which will be of use for future researchers and therapists.
+In reviewing one of the experiences described in Sasha Shulgin&#x27;s PiHKAL, (with 225 mg) “I had a strange awareness of my hands in about 20 minutes—not a feeling in them as just that I was attracted to them somehow. Then I began to get fearful, an acute experience of aloneness. I lay face down (a depressed position for me). Next I was talking to the kids at school (an image) or to other teachers. This was very vivid. The scenes at school were more vivid that the real scenes around me here. Those people were much more real. I am actually very sleepy right now during the experiment. Of any experience I have had, this was most like a series of dreams easily remembered. When it was over, I felt as if I had had a long period of sleeping—I had gone to bed and had a series of dream-like states very vivid and colorful and real.”
+In this experience it appears that the individual was confronted with some difficult emotions, and the reaction of the psyche was to withdraw, which the substance supported and attempted to continue to provide a window into the subconscious. Even in the dissociation there was content, which is unique compared to other substances, such as ketamine or even MDMA, where the dissociative reactions can be much more meaningless. I am curious if the scene in the school described above might have held some associative meaning. One can see this accounted for in Dr. Naranjo&#x27;s description of state 2 moving into the states 3 and 4. In my experience, I am hoping that all of my personal work up until this point will be fruitful and allow me to stay fully present throughout the experience.
+Regarding dosage, it is difficult to find definitive information to guide appropriate dosing for a full, immersive experience with this compound. In PiHKAL, Shulgin reports dosage ranges from 100-250mg and unclear descriptions of the duration of its effects. Naranjo does not discuss dosage in his book The Healing Journey. However, Shulgin, Sargent, and Naranjo published a paper entitled “Animal Pharmacology and Human Psychopharmacology of 3-Methoxy-4,5-Methylenedioxyphenylisopropylamine (MMDA)”. In this article, they describe giving MMDA to human subjects in a range of 100-350mg, with the majority receiving 120-150mg. They describe the effective dose level to be at 2mg/kg. In regards to duration of action, onset is said to occur within 30-60 minutes and the effects seem to occur over the course of 4-5 hours.
+For my first experience with this compound, I will take 200mg, which is approximately 3.2mg/kg. There are a few reasons for this choice of dosing. One is that &quot;the psychological effects [of MMDA] were mild&quot; (Shulgin et al., 1973), and I would like to ensure that I have an experience which is in the moderate-strong range. The dose I have chosen is lower than the upper end of the experiments in PiHKAL, and below the maximum doses administered in the journal article cited above. It appears that more negative side effects emerge in doses higher than 250mg, therefore 200mg would likely elicit a full and strong experience while preventing any sorts of negative side effects. An allergy test dose of 20mg (1/6 of lowest effective dose) was taken 4 days before the experiment to test sensitivity. I will describe any effects from the allergy test and then go on to describe the full dosing session.
+~Test Dose~
+20mg MMDA; taken orally in gel cap.
+About 30 minutes post ingestion, there was a slight cognitive shift which could have been placebo, but there was a definite increase in music appreciation.
+At the one hour mark, music appreciation continues, but there is a significant lethargic feeling coming over me - I suddenly feel VERY tired, as if I had taken melatonin or scopolamine or valerian root. This doesn&#x27;t feel like it has any traces whatsoever of an amphetamine or stimulant action. One thing that is different from the aforementioned sleep-inducing substances is that I have noticed an emotional and mental openness that I would associate with mescaline, but without the rapid, disintegrating feeling that often accompanies those drugs effects. The desire to lay down and take a nap is quite strong though! I wonder if a higher dose would knock me right out? I am well rested today, so I don&#x27;t think there is a lack of sleep at play.
+Just past one hour, the sleepiness lifts a bit, and I am just left with a relaxed contentedness. There&#x27;s nothing to be concerned about.
+At the 1.5 hour mark and onward, there was a very mild feeling of being drawn away, like daydreaming. However, if I refocused my attention into my body and the present moment, the present took on a more real than real sense of visual detail and awareness of emotion was amplified considerably.
+At the 3 hour mark I’m still left with the content feeling, though I am still somewhat tired and have a mild headache slightly present but not fully developed. Drinking some water helps this. The tired feeling seems to be unshakeable, lots of yawning like I’m ready for a nap. I have to say though that I rather ENJOY this feeling. It feels very easy and I wouldn’t be opposed to being able to take this on a lazy weekend day on my own. It feels very rejuvenating in ways that MDA or MDMA are not (with those substances there’s more activation and you know you’ll be spent later). I feel that after this wears off I will probably continue to feel pretty good.
+I’m going to give in to a 30 minute nap.
+From hour 3 to 3:45 I laid down and napped. At first, I could feel my consciousness fluttering between an enhanced present awareness of my body and the draw to sleep. I was able to follow some bodily sensations, which led me to a barrage of childhood/teenage memories. I felt the sadness of those times and also felt their connection to the present, which is different from back then. I am adult, the violence and oppression has ended. As I felt this, I just felt this pure sense of being able to finally rest. My cat curled up on top of me and I drifted into sleep. There were many dreams, but I can only remember some of them at the beginning. I remember a being speaking to me, saying “I’ve been waiting such a long time for you, and I’m so glad you’re finally here. You’re finally safe. I have always been here, and always will be.” At some point I lost awareness and was woken up by the alarm I had set. I feel like I could pretty easily go back to sleep, but also feel quite good being awake. I feel refreshed, relaxed, and at piece. And with an appetite! The only way this feels like MDMA or MDA is in the way feelings are enhanced. Again, it will be interesting if a higher dose produces more characteristic entactogen effects.
+At the 5th hour I noticed some PNS activation in the form of underarm sweating, maybe metabolizing into stimulant metabolites? Heart rate is at 71bpm, my resting heartrate is 59bpm.
+At the 6th hour bpm was at 57 and I am tired but not worn out. Healthy appetite.
+Overall thoughts: I think that if I hadn’t been paying very close attention, this dose might not have felt like anything at all besides feeling sleepy. That being said, with careful attention, I felt like I was able to start teasing out some of the effects of this molecule and get a sense for its mechanisms. It is truly one of the more unique and baffling substances I’ve ever taken. It works, but…how? I hope to have a deeper understanding, or at least better questions with the next dose.
+~First Experimental Dose~
+Got all work done in the morning, have a day tomorrow that is free other than a meeting with my therapist. Ate breakfast and then fasted before dosing at 3:20pm. Feeling good about this experiment and curious. I created a playlist that was approximately 4 hours long which had a slight arc to it, but was designed to keep a level of engagement rather than something that was floaty the entire time.
+T+0:00 - 200mg MMDA taken orally in gelcap. Laying down to listen to music with eyeshades.
+T+0:20 - Feeling a slight warmth in my chest, and some anticipatory stimulation, but no significant alerts other than some energy moving in my chest and a deepening appreciation for music.
+T+0:24 - First alert: my chest is really opening up and I can feel energetic movement coming into my throat. Something is definitely building in the stomach/chest area. Relaxing into it.
+T+0:34 - Bam, I have entered into a beautiful awareness. I am weightless, everything is easy. The feelings are ever-growing in waves, but without the urgency or stoning of MDMA.
+T+1:00 - Incredibly powerful somatic medicine. Waves of nausea that are less intense than mescaline but deep in content. Entering into feeling all the areas of conflict in my life while also feeling held. There’s a sense of perfect imperfection, even though I am incredibly uncomfortable. I am here for this.
+T+1:20 - Waves of incredible transcendent bliss coupled with total grounding in the present moment. There is no separation between my experience of having a body and everything in the universe. All of this exists because of love. Also having big waves of discomfort. Holding all unpleasant emotions I avoid. This feels a lot like MDMA but much more lucid and psychedelic.
+T+2:30 - The past hour has been a intense process of finding difficulty, staying with it, and going deeper into trust. This is more of a somatic medicine than MDMA. A deep embodied exploration of every emotional level. At times there has been some confusion, I wouldn’t go higher than this dose. It has a very close resemblance to MDMA in terms of how emotions move on it, but there is less of that “positive push” or euphoria.
+T+3:40 - the main effects seem to be waning, and now shifting into the more drowsy effects. Still quite a bit of somatic tension (processing emotion), not much visual activity throughout this experience. Slowly more windows into the bliss are opening back up. This is truly a peak experience. I have gained a deep perspective of myself, my relationships, and reality. This will be an experience I will be taking a long time to integrate. I would say that this dose is about the equivalent of 350-500mg Mescaline. From a therapeutic perspective MMDA seems useful since nothing feels fabricated and defenses don’t get knocked over, you have to let it all in or you will find yourself trying to stay out of it and missing the whole gift that’s being given to you (which is great feedback to gain awareness about one’s defenses).
+T+4:00 - with eyes closed now, there are vivid “brain movies” which I slip into pretty easily almost without realizing it. There are full situations, people, entirely different syntaxes of speech and made up words but the dream is going on as if aliens were trying to make “human dreams”. These sequences don’t elicit too much emotional response rather than confoundment and total curiosity and laughter. MMDA seems to have more of a “personality” than MDA or MDMA. It feels a bit like the character of entities on DMT.
+An example of a brain movie I actually had:
+With my eyes closed, suddenly I’ve forgotten that I’m laying down on an acupressure mat in my living room. I find myself just scrolling on Facebook and this guy next to me is trying to read my screen. I turn to him and I’m like wtf man and he goes “hang on a sec, I’m just trying to figure out if I’m a cop on here” and in this dream that statement makes perfect sense. No one is phased. But internally as the movie-watcher I’m like wait hang on that can’t be right! And then I realize it’s a dream and I wake up again.
+T+5:30 - Ate some kitchari and moved into the living room. Any signs of stimulation from before are gone, a subtle body high still going, brain movies happen any time I relax and close my eyes for more than 10 seconds. Bam, right into a dream scene. I’m gonna go back in and see if I can watch some more mind TV.
+Here’s another brain movie: I’m suddenly watching some kind of British version of Nicki Minaj garbage pop music, a song I’ve never heard before with a fully choreographed dance routine about a woman and her two lovers.
+It seems that for me, the brain movies start with mind-generated audio. Then the actual “movie” starts with characters, voice-overs and camera work. Some of the movies are very clean and others are disorganized and the talking is out of sync or the video and audio quality go in and out.
+Another brain movie: start out hearing an older American lady talking to an older American man. You can’t quite make out what they’re saying. Then you begin to see a film scene of a hilltop in the countryside before it fades to the source of the voices, which is a group of professional-looking people in their late 50s, early 60s and they’re all talking about the field of psychotherapy and alternative interventions.
+T+7:00 - I’m feeling quite tired, so I get ready for bed and expect to drift off to sleep, but the strange brain movies (I will go into this later to talk about what they are like) are still going and it’s not really dreaming or sleep, it’s a very active state except I’m also lethargic and feeling more of my body’s somatic process (think fever dream or hypnagogic hallucinations). I try .5mg etizolam, but it doesn’t do much after about an hour, so I followed up with another 1mg etizolam, which allowed for sleep.
+T+14:10 - With the etizolam taking effect, sleep came and was mainly a black hole, until about 5:30am where I woke up to feed my cat, took 1000mg of L-tryptophan for a slight feeling of serotonin depletion, and went back to sleep. The brain movies had come back, though they were much slower.
+T+17:00 - Feeling a bit tired this morning but I feel much clearer. My present state feels resilient and not as avoidant of the discomforts of life. I feel in tune with love, and I am aware of the parts of me that need tending. I am opening myself to the process of life, of the great dream we are all a part of that is really ultimately a huge course on love.
+~.~.~
+This is a really unique psychedelic/entactogen. It has attributes of MDMA, MDA, DMT, and 5-MeO-DMT, and yet is completely it’s own thing. I suspect that this drug acts differently depending on what strength the dose is. Below a certain dose, and it will be easier to fall asleep, but after a certain dose, there is enough mental stimulation that I think sleep would be very difficult.
+This is a truly healing psychedelic compound, and I would place this experience within the top 10 that I’ve had in my life. Perhaps it has to do with where I am at in my life, my training in somatic processing, the friends and family who love and support me, and years and years of personal work. I can see how this compound could be truly hellish for some, and it makes sense how Claudio Naranjo described MMDA as having its own unique heaven and hell. I believe the dose I took was at the upper limit. I think a slightly lower dose, such as 120-150mg might be more manageable and not as overwhelming emotionally and physically.
+3.2mg/kg is deep territory and really should be done under appropriate supervision and guidance. This is not a great medicine to do alone at a high dose because of how much reference gets lost. Having a regulated nervous system present that also has therapeutic training can make all the difference. Looking back, I do feel like I made a good decision on dosing, as I didn’t experience any overwhelming physical sensations that felt toxic, but I could feel that if I had taken more the side effects would have been extremely unpleasant.
+Another notable event was the way parts of self showed up so readily in the session. At one point I was experiencing me birthing myself as my mother, and recreating the moment of birthing myself, of sticking with it, of fighting the anesthetic and choosing to be here and live. At another point, I felt all the rejection in my life from people I had loved and wanted to love me. I saw the connection to my family dynamic, and on the other side of those terrible feelings of rejection and abandonment, there was peace. I began to see all of these negative experiences as lessons. In that this entire life is a series of lessons preparing us for what comes next. I kept thinking back to the phrase “this house is on fire! — loot all that you can!” Which is from an Indian mystic who essentially said that the world is in a total state of decay and we must strive to learn as much as possible before our teachers, our planet, this way of living is extinguished.
+A comment on “brain movies”: These unique features of this drug are phenomena that I have actually experienced on other drugs, but not as a primary feature of those drugs. It reminded me a bit of how I felt at times on the comedown from a particularly large dose of MDMA or MDA, where the mind is still doing mental gymnastics while the body is actually quite tired and going into rest mode. Somehow these phenethylamine drugs have a way of weaving into the dream process state while maintaining a degree of lucidity that is not present on other substances. MMDA definitely felt stimulating and much more like MDMA or MDA at the higher 200mg dose. Though there were some points in which it felt slightly sedating, I didn&#x27;t have any trouble staying awake and feeling deeply throughout the entire experience. And, much like MDA, at the 7th or 8th hour, the mind was still stimulated and sleep was not readily accessible.
+The following day I had a wonderful productive session with my therapist, where we were able to complete some of the somatic pieces that had come up during the MMDA session and I was left feeling quite wonderful. I am impressed with the way that such a difficult experience has turned into a beautiful afterglow that has me feeling great, connected to my body, and fully connected to everything in the universe.
+I’m extremely grateful to have gotten to taste this beautiful and unique molecule, and to fulfill a dream of over a decade. I have arrived at the Eternal Now.
+Thank you to all of my mentors and teachers, both formal and informal.
+Thank you to my friends, who see me and support me through my madness and have allowed me to begin to see my light and to teach me that love is not about perfection, but in loving the whole being simply for being.
+Thank you to the lineage of alchemists who paved the road for this molecule to come into existence: Sasha Shulgin and whatever chemist may have made the MMDA that I took.
+Thank you to the pioneering shamans, monks, sadhus, mystics, psychotherapists, psychiatrists, counselors, social workers, nurses, and doctors who have developed tools to navigate and make use of these altered states.
+Thank you to the ineffable Isness, the mystery of this dream, the magic that is Love.
+Until next time,
+InnerExplorer
+Exp Year: 2021
+ExpID: 115680
+Gender: Not Specified
+Age at time of experience: 30
+Published: Sep 17, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MMDA (593) : Alone (16), Therapeutic Intent or Outcome (49), Personal Preparation (45), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

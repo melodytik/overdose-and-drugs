@@ -1,0 +1,306 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉斯特拉蒙尼 - 埃罗伊德探险 - &quot;发现德里&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/datura.html'>← 曼陀罗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉斯特拉蒙尼 - 埃罗伊德探险 - &quot;发现德里&quot;</h1>
+<div class='sub-title'>Datura stramonium - Erowid Exp - &#x27;Discovering Delerium&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Feb 24, 2001 · <a href='https://erowid.org/experiences/exp.php?ID=5261' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我和一个朋友决定尝试一些Datura.
+我觉得身体和心灵都很好,
+我们开始从后院生长的一棵野植物的叶子成一支香烟.
+我会说大约有1.5克的干叶被吸烟.
+我们决定坐下来等待.
+经过近一个小时的时间, 我们同意, 叶子没有明显的效果,
+种子取自同一植物的果与叶子一样.
+在取出种子之前,
+所有的种子都是干燥的,
+总的来说,他们大概超过一千人.
+我们仔细计算出75个种子,
+接下来又等了一小时.
+结果又是没有明显的效果.
+这促使人们吃了75个种子, 总数达到150个.
+我们决定走到一个共同的朋友家,
+在行走时, 达图拉开始表现出效果.
+我感觉比平时更温暖, 身体从头到脚都发热.
+(后来我发现这可能是由于阿特罗平的血管扩张特性造成的) 我没有任何思考问题,
+随着时间的推移, 效果变得越来越强烈,
+我问我的伴侣是否有同样的感觉.
+他也建议我们找个阴凉的地方休息一下.
+只有当我们停下来的时候,
+我测试了我的脉, 得到了120次/分钟左右.
+外面的温度接近100度.
+经过20分钟的休息后, 我们再次开始了我们的目的地.
+我和我的朋友也感觉到热中风的起因,
+总的时间我们躺在阴影里是我不知道的.
+我们的路程是很长的,
+虽然距离不到四分之一英里,但我们觉得好像走遍了苏丹.
+除了口腔干燥之外, 效果并没有变得更加严重.
+似乎每一滴水都从我的身体里被吸走了.
+吞下来很痛苦, 我迫切需要一些水.
+我们在下午2点05分进入朋友家,
+我们为我们的朋友计算出150种种子,
+随着时间的流逝, 我注意到我的瞳孔明显扩张.
+我也难以阅读小字,
+热浪在我的身体中以舒适的速度脉动,
+我和我的朋友都假设躺在我们的背部和休息良好.
+我吃了50个种子 (没有人再吃了).
+我仍然没有注意到心态或运动控制的变化.
+我开始有问题与我的精细运动控制.
+我发现很难移动我的手指,
+我眼睛的视力有所恶化,
+似乎是通过谷物上下移动,然后侧向侧.
+这只持续了2分钟左右, 然而地毯的午睡开始疯狂地.
+我开始经常去洗手间, 因为这是一种大的利尿作用.
+我无法在体内保持足够的水分,
+我不太记得等待太阳落下, 但我确实记得等待太阳落下.
+我下一个清晰的记忆是从窗外看太阳已经落下.
+显然我的心理状态已经转向了缺乏判断力,
+我离开朋友的时间是晚上9点左右.
+我不再感到身体高潮,
+我心脏跳动的速度不堪设想, 但除非我特别检查,
+我走了四分之一的路程, 就开始和我早上和我一起走的朋友聊天.
+他突然转向并躺在一块草地上.
+这让我感到担忧, 因为我知道Datura可能会对人体产生严重的不良影响,
+我开始走到他身边, 想把他抬起来, 或把他带到最靠近的地方,
+我必须在周围寻找他大约30分钟.
+我终于放弃了,
+我开始注意到我视力周边的闪光.
+我四处寻找闪光的源头, 找不到,
+我看到了一个大白色的膨胀物体,
+我走近时发现它很大.
+它的顶部直径约为4英寸,
+然而,这并不是我走过来的原因.
+我感兴趣的是帽子里闪的光.
+这几乎像是某人的大脑中神经元发射的视频.
+我觉得它是真实的,我可以触摸它.
+后来才意识到自己在幻觉中.
+对于我来说,一切都是真实的.
+我在回家的路上不再有幻觉.
+我确实开始有严重的运动控制问题.
+我几乎无法控制我的手,有时我觉得我的膝盖会退缩.
+我开始担心,几乎惊慌失措,
+我只能集中精力继续走路.
+我觉得如果我跌倒了, 我将无法站起来.
+然而我确实安全地回到我的房子.
+到了我家, 我立即查看时间, 惊地发现时间是晚上11点20分.
+步行时间通常不超过20分钟,
+我忘记了那个时候我的肚子大声,
+我记得在电视上听了一个德鲁·凯里的节目.
+这是一个四月节, 里面有弹窗,
+节目即将结束时, 我走进客厅,
+我吃了几匙的谷物,
+电视甚至没有打开.
+我终于做出了分离, 并意识到我一直在幻觉.
+我很快就吃完了,洗了个很长的冷水,然后睡觉了.
+唯一令我困扰的是我的瞳孔一周都没有开通,
+我打电话给他的家, 问他是否回家了, 他接电话.
+我第一句话是:&#x27;好了,你回来了,你不知道我对此有多高兴.
+我们争论了很长一段时间, 因为在我的脑海中,
+他在那里,他躺下.
+然后我找不到他.
+但住在那里的人证实, 那天晚上他从来没有和我一起离开过房子.
+我永远不会再做达图拉.
+这绝对不是一种娱乐性迷幻药.
+实际上它根本不是迷幻药, 它会使你的身体陷入接近死亡的妄想,
+我觉得这很危险,
+它们是真实的幻觉, 这意味着你无法区分幻觉与真实.
+我不建议任何人试图以娱乐目的使用达图拉,
+我觉得,如果我没有像现在那样保持良好的状态,
+如果您确实决定使用datura, 我确实有几个指导方针,
+找到一个可以完全休息的地方.
+您不应该在任何地方行走, 或承担任何重活动.
+在这种情况下,重活动可以被定义为不仅仅是慢慢地移动.
+随时准备足够的水.
+你的喉会变得如此干燥以至于吞都会很痛.
+在任何情况下不要服用任何其他药物, 不管是处方药还是非处方药,
+您必须有清醒的旅行护理人员,
+如果开始生病,
+这只会让你已经干燥的身体更加脱水.
+如果病情恶化,请打电话给救护车,或者请保姆立即送你去医院.
+你应该写下你吃了多少, 植物的哪个部分是来自.
+植物的菌株也很重要, 因为有很多不同类型的Datura, 这是一个医生可能需要的信息, 为了治疗你.
+告诉医生你做了什么,它可以挽救你的生命.
+如果发热变得过于激烈,或者你开始感到有点不舒服,
+这将有助于防止过热.
+没有吸烟或使用任何可能会提高你的心率.
+在使用Datura时,心率已记录为每分钟160次 (每分钟1次).
+这包括吸烟,因为尼古丁是一种兴奋剂.
+无论你做什么,不要试着服用镇静剂,如果你感觉那么糟糕,去医院.
+是的,他们会你的胃, 但有点不舒服比没有生活任何一天.
+我最后的建议是不要这么做.
+其他:
+达图拉 (15):各种 (28),旅行后的问题 (8),健康问题 (27),艰难的经历 (5),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Discovering Delerium
+Datura stramonium
+by
+Jason Goyer
+Citation:   Jason Goyer. &quot;Discovering Delerium: An Experience with Datura stramonium (exp5261)&quot;.
+Erowid.org
+. Feb 24, 2001. erowid.org/exp/5261
+DOSE:
+T+ 0:00
+1.5 g
+smoked
+Datura
+(leaves)
+T+ 1:00
+75 seeds
+oral
+Datura
+(seeds)
+T+ 2:00
+75 seeds
+oral
+Datura
+(seeds)
+T+ 3:30
+100 seeds
+oral
+Datura
+(seeds)
+T+ 4:00
+50 seeds
+oral
+Datura
+(seeds)
+BODY WEIGHT:
+180 lb
+It was a rather hot summer morning around 11:00am, and a friend of mine and I had decided to try some Datura.  I felt good in both body and mind having had a good nights sleep.  We started off by taking some of the leaf of a wild plant growing in the backyard and rolling it into a cigarette.  I would say there was approximately 1.5 grams of dried leaf material smoked.  We then decided to sit and wait for an onset effect.  After a period of almost an hour, we agreed that there was no noticeable effect from the leaf, so we moved to eating seeds.
+The pods from which the seeds were taken had been harvested from the same plant as the leaf.  We had dried the pods for about 2 weeks before removing the seeds.  All the seeds were dry and ranged from a dark brown to black. Total there must have been over a thousand.  We carefully counted out 75 seeds for each of us and ate them as they were.  This was followed by another period of waiting that lasted for another hour.  Once again the concencus was that there was no noticable effect.  This prompted the eating of 75 more seeds, bringing the total to 150.
+At this point we decided to walk to a mutual friends house, and share some of the seeds we had with him.  It was on the walk that the Datura started to show effects.  I felt a bit warmer than usual, and I was having light hot flashes that travled up my body from feet to head. (I later found that this may be caused by the vasculardialating properties of the Atropine) I didn&#x27;t have any trouble thinking, and my motor skills were unaffected.
+As time progressed the effects became more intense, and I noticed that I had stopped sweating and my mouth was quite dry.  I felt as though I should be sweating from the heat radiating off my body, and I queryed my partner as to whether he felt the same.  He confirmed that he did, and he also suggested that we find some shade and rest a bit.  We stopped at a 7-11 store, and checked the time for records sake and saw it was 1:30pm.  It was when we stopped that I noticed my heartrate was well above normal.  I took my pulse and got it at around 120bpm.  We got some large drinks, and sat in the store drinking, and wondering if it was such a good idea to be out in the heat.  The temperature outside was reaching close to the 100 degree mark.
+After a 20 minute rest at the 7-11 we started off again to our destination.  In only 10 minutes of walking I started to feel the beginning effects of heat stroke, and so did my friend, so we once again had to stop and rest.  The total period of time we layed in the shade is unknown to me.  When we felt that it was safe to continue, we walked the rest of the way.  Although it was less than a quarter mile, we felt as if we had walked across the Sudan.  The effects had not intensified much more with the exception of the dry mouth.  It was as if every last drop of water had been sucked from my body (which it had).  It hurt to swallow, and I was in desperate need of some water.
+We got into our friends house at just 2:05pm, and rehydrated ourselves.  We counted out 150 seeds for our friend and took 100 more ourselves.  The same effects we had expirenced before got a bit more intense as time slipped by, and I noticed a definate dialation of my pupils.  I also had trouble reading small print, or seeing smaller objects any  distance.  The waves of heat were pulsing through my body at a comfortable rate, and they made me feel at peace with myself.  My friend and I had both assumed layed out positions on our back and were resting well.
+At around 2:45, I consumed 50 more seeds (no one else took any more).  The same effects continued for a good three hours, and I still noticed no change in mindset or motor control.  However, at around 6:00pm I started to have problems with my fine motor control.  I found it difficult to move my fingers, and pick up small objects.  My eyesight had become a bit worse, and I definitely started to notice a major change in perception.  In particular there was a nail sticking out of the wall in the room that seemed to be moving through the grain up and down, then side to side.  This only lasted for 2 minutes or so, however the naps of the carpet began to twich furiously.  At this point I began having to use the restroom constantly, this being the diaretic properties of the datura.  I couldn&#x27;t keep much water in my body, so I resorted to drinking gatorade.
+I don&#x27;t have much memory of waiting for the sun to go down, but I do remember waiting for that to happen.  The next clear memory I have is looking out the window and seeing that the sun was down.  My state of mind had obviously moved towards a lack of judgment because I decided it was safe to walk home.  The time of my departure from my friends was around 9:00pm.  I was no longer feeling the body high, either I had become used to it, or it had just gone away.  My heart was racing at an ungodly rate, but I didn&#x27;t notice unless I specificaly checked.  When I reached about a quarter of the way home I began to talk to my friend who had been with me earlier in the morning as I walked.  We were having an indepth conversation on a topic which I can not remember, when he suddenly veered off and layed down in a patch of grass.  This alarmed me because I knew that Datura may have sever adverse effects on the body causing coma and or death.  I started walking to over to him so that I might get him up or carry him to the nearest place we could get help when he just disappeared.  I must have looked and yelled around for him for about 30 minutes.  I finally gave up and decided it was best to head to my house.
+It was then that I started to notice flashes of light in the periphrieals of my vision.  I looked around to discover the source of the flashes and could not find one, so I continued walking.  I saw a large white puffy object that resembled a mushroom of some variety I had never seen.  When I approached it, it was very large.  The top had a diameter of about 4 inches, and it had a very stubby stock.  This, however was not what caused me to walk over.  It was the flashes of light inside the cap that interested me.  It looked almost like a video of neurons firing in someones brain.  It was very real to me, I could touch it.  It was not untill much later that I even realized that I had been hallucinating.  Everything was real to me.  I had no more hallucinations on the way to my house.  I did however start to have major motor control problems.  My hands were almost twiching out of control, and it felt as though my knees were going to give out at times.  I began to worry, and almost panicked at the fact that my knees were coming out from under me.  It took all the concentration I had just to keep walking.  At this point I felt that if I had fallen I would not have been able to get back up.  However I did make it safely back to my house.
+Upon arrival at my home I immediatly checked the time, and was flabbergasted to see it was 11:20pm.  A walk that usually takes no longer than 20 minutes took me over two hours.  I forgot about the time when my stomache rumbled loudly and quickly went to make myself a nice cool bowl of cereal.  As I was making my cereal I remember listening to an episode of Drew Carey on the TV.  It was the April fools episode with all the pop-ups like from Pop-up video.  The show was coming to an end as I walked into the livingroom and sat down to eat.  I ate several spoon fulls of cereal and looked up to see what was comming on next.  The TV was not even on.  It was at this point that I finally made a separation, and realized that I had been hallucinating.  I finished eating quickly, took a long cold shower, and went to bed.
+Now as for lasting effects, the only one that plauged me was the fact that my pupils remained completely dialated for a week, and I could not read any small print, or street signs from a distance.  As for my friend who went to sleep in the grass, I called his house to see if he had made it home, and he answered the phone.  The first words out of my mouth were, &#x27;Oh good you made it back, you have no idea how relived I am about that.&#x27;  His reply stunned me, as it still does every time I think about it....  &#x27;I never left the house last night.&#x27;  We argued for a long time, because in my mind it really happened.  He was there, he layed down.  And then I couldn&#x27;t find him.  But It was confirmed by the people who live there, that he never left the house with me that night.
+I will never do Datura again.  It is definitely not a recreational psychedelic.  In fact it is not a psychedelic at all, it causes your body to go into a near death delerium, by raising your body temperature to dangerously high levels, Raising your heartrate to equally high levels, and drying every moisture producing gland in your body.  I found it to be dangerous, and very un-spiritual.  They are real hallucinations, meaning that you can not tell the difference between a hallucination and whats real.  I do not recommend that anyone ever try to use datura for a recreational purpose, or at all for that matter.  I feel to this day, that had I not been in as good of shape as I was that it would have killed me.  However if you do decide to use datura I do have several guidelines that you should follow to help ensure your own saftey, and they are as follows:
+Find a place where you can remain at complete rest.  You should not walk anywhere, or undertake any heavy activity.  A heavy activity in this case can be defined as anything more than moving slowly about.
+Keep plenty of water on hand.  The drying of your glands has an extremely fast and sudden onset, and your throat will become so dry that it hurts to swallow at all.
+Do not under any circumstances take any other drugs whether they are prescription or not, the balance of your body is very precarious when you are having a datura experience.
+It is imperative you have a sober trip sitter available to entire time, so that immediate action can be taken if you take a turn for the worse.
+If you start to feel sick, DO NOT MAKE YOURSELF VOMIT!!!!  This will only dehydrate your already dried out body even more.  If the sickness gets any worse, call an amblulance or have your sitter drive you to the hospital immediately.
+You should write down how much you took, and what part of the plant it came from.  The strain of the plant is also important because there are many differant types of Datura, this is information a doctor may need in order to treat you.  Do not be afraid to tell the doctor what you have done it could save your life.  In the event that the hot flashes become to intense, or you are starting to feel a bit ill, you should fill a bath tub with cold water and get in.  This will help keep you from overheating.
+Do not smoke or use anything that may raise your heartrate anymore.  Heartrates have been recorded at 160 bpm (beats per minute) while on datura.  This includes smoking cigarettes as nicotine is a stimulant.  Whatever you do, don&#x27;t try to take sedatives, if you feel that bad, go to the hospital.  Yes they will pump your stomache, but a bit of discomfort beats not living any day.
+And my last tip is to not do it at all.
+Exp Year: 2000
+ExpID: 5261
+Gender: Male
+Age at time of experience: Not Given
+Published: Feb 24, 2001
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : Various (28), Post Trip Problems (8), Health Problems (27), Difficult Experiences (5), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

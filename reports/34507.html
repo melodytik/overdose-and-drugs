@@ -1,0 +1,170 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>在睡眠之外 -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-trazodone.html'>← 曲唑酮（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>在睡眠之外 -</h1>
+<div class='sub-title'>Trazadone - Erowid Exp - &#x27;Beyond Sleep&#x27;</div>
+<div class='meta'>作者：JackHaven Citation · 日期：Dec 26, 2006 · 剂量：200 mg · <a href='https://erowid.org/experiences/exp.php?ID=34507' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这种药物不是为任何类型的高或.
+需要注意的是,如果每天服用Trazadone作为睡眠辅助剂,可能会对该药物产生不良敏感性,以至于即使服用更高剂量也不会有所帮助.
+我每天晚上都服用特拉扎,
+我也深入使用娱乐性毒品和轻度改变物质作为一种精神手段.
+(我和家人从事医疗领域, 你不应该在没有经验丰富的人帮助你的情况下尝试新药) 我和朋友们聊了一下,
+(我是一个5&#x27;9&#x27;肌肉雄性) 我摄入了200毫克的药丸.
+开始使用2个100毫克的药片.
+很快,大约20分钟后,我开始感到非常昏昏欲睡,无法在没有入睡的危险的情况下工作.
+我认为这将是唯一的效果,所以我休息在沙发上,设置一个钟二十分钟.
+我深深地睡着了, 被钟慢慢唤醒, 奇怪的是,
+我坐在电脑前, 开始阅读各种文章等.
+随之而来的是我身体上成千上万个小针的感觉, 就像一只肢体睡着了之后的感觉.
+我无法集中精力阅读和打字,
+眼睛闭上时, 我遇到了一个我只能描述为地狱的场景.
+闭眼的视觉是生动和快速, 留下燃烧后图像无论我看.
+我看到了无数的酷刑,强奸和谋杀的画面,
+我感到恐惧和不安.
+由于我发现作品中大部分作品都带有糟糕的情景, 让你或多或少地与我们的世界联系在一起,
+恐惧和恐慌的感觉慢慢地离开了我,
+在这种状态下, 我迷失在抽象的思想,
+在这段时间里, 这种&quot;冲动&quot;的感觉变得更加强烈,
+我发现自己从忙的感觉快速下降,我的身体是排水和疲,我很快就快速而深入地睡着了.
+在此期间我没有做梦活动, 我可以记住, 我睡得很深很长一段时间.
+我不认为Trazadone有太多的娱乐用药, 因为它可以带来可怕的视觉,
+我能够克服那天晚上被困扰的生动视觉.
+我还想指出, 视觉效果是以恐怖为基础的,
+尤其是&quot;首尼克·伯格&quot;的视频,
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Beyond Sleep
+Trazadone
+by
+JackHaven
+Citation:   JackHaven. &quot;Beyond Sleep: An Experience with Trazadone (exp34507)&quot;.
+Erowid.org
+. Dec 26, 2006. erowid.org/exp/34507
+DOSE:
+200 mg
+oral
+Pharms - Trazodone
+(pill / tablet)
+BODY WEIGHT:
+240 lb
+The recommended dose for sleep-aid(25-100 mg) is just that. A sleep-aid. This drug is not designed for any kind of high or buzz. It should also be noted that those who take Trazadone daily as a sleep-aid it is possible to become so de-sensitized to this pharmaceutical that not even a larger dose will help you.
+Now to the good part: I take Trazadone as a nightly sleep-aid, as I am afflicted with extreme insomnia. However, I am also deep into the use of recreational drugs and mild-altering substances as a spiritual means. (My family and I are involved in the Medical Field, you should NEVER experiment with new drugs without someone experienced who can help you in a worse-case scenario) I had a talk with my friends, and did a little research to find the highest non-lethal dose it was possible to take for a person of my size. (I am a 5&#x27;9&#x27; muscular Male) I ingested 200 milligrams of the pills. Starting with 2 100 mg pills.
+Very quickly, about twenty minutes or so after the initial dose I began to feel very drowsy and was unable to function without the danger of falling asleep. I assumed that this would be the only effect, so I rested on the couch, setting an alarm for twenty minutes. I slept deeply and soundly, and was pulled awake slowly by the alarm, it is odd that I can actually describe the feeling of waking as a VERY physical and emotional feeling, which I have never felt prior or since this incident. After achieving a fully-awake alert state I sat in front of my computer and began to read various articles and such. It was then that I began to feel a sensation of rushing, with elevated blood-pressure and heart-beat, accompanied by the feeling of thousands of tiny needles across my body, much the way a limb would feel after it has fallen asleep.
+I was unable to concentrate on what I was reading and typing, and my friends&#x27; words seemed to take on different shapes as if they were alive. I was overcome by an overwhelming panic, and upon closing my eyes, I was met with a scene which I can only describe as Hell. The closed-eye visions were vivid and quick, and left burning after-images wherever I looked. I saw countless depictions of torture and rape and murder, I saw flames and death... I was left feeling terrified and upset.
+As I have found works with most bad trips where you remain more or less grounded to our world, I turned on every light I had, bringing my surroundings to a very brightly illuminated setting. The feeling of dread and panic slowly left me, and left a feeling of satisfaction. While in this state, I became lost in abstract thought, and was overcome by happiness. During this time, the elevated &#x27;rushing&#x27; feeling grew even more, as if I had ingested amphetamines instead of tranquilizers.
+It was now approximately one hour and forty-five minutes after the dose, and I found myself dropping quickly away from the rushing feeling, my body was drained and exhausted, and I fell fast and deeply asleep soon after. During this sleep I had no dream activity that I can remember, and I slept very deeply and for a very long time.
+I don&#x27;t think that Trazadone has much use a recreational drug, as it can bring about frightening visuals, which could drive the inexperienced or easily disturbed people well over the edge of their mental cliff. It was my own experience with previous bad trips that I was able to overcome the vivid visuals I was plagued with that night. I would also like to point out that the visuals play on the horror and such that I had already exposed myself to, such as images of violence and death. Especially the &#x27;Beheading of Nick Berg&#x27; video, which affected my greatly, this image repeated itself many times in my minds eye, resulting a very terrible experience.
+Exp Year: 2004
+ExpID: 34507
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 26, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Trazodone (294) : Difficult Experiences (5), Medical Use (47), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

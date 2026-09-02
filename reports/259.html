@@ -1,0 +1,359 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - &quot;账户&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cacti-columnar.html'>← 仙人掌</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - &quot;账户&quot;</h1>
+<div class='sub-title'>Cacti - T. peruvianus - Erowid Exp - &#x27;T. peruvianus Account&#x27;</div>
+<div class='meta'>作者：Mr · 日期：Jun 10, 2000 · 剂量：65 g · <a href='https://erowid.org/experiences/exp.php?ID=259' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>的账户
+- -
+没有.
+不适用
+不适用.
+&quot;T. peruvianus账户:与种的经验 - T. peruvianus (exp259)&quot;.
+美国
+我也想分享我有一次梅斯卡林之旅.
+我认为最好在经历发生后再写一篇,
+我会给你最准确的描述这个物质会让你经历好10到15个小时,
+我自己的背景信息:
+我已经吸毒了七年了,
+我觉得许多药物给我带来了死亡, 只是在我的口袋和灵魂中烧了一个空洞.
+几乎所有我认识的人都因吸毒而被关进监狱或死亡,
+没有人听过这样的演讲?
+我希望人们使用药物, 发现它会带他们去哪里, 这是你的道路和选择,
+实际上, 我认识的最聪明的人也会吸毒,
+让我们希望人们不会在药物和生活中的其他事物上做他们最擅长的事情,
+你说这只是一个西方的东西!
+我认为这是人类的行为.
+只有经过一些更艰难的美斯卡林之旅, 我才真正开始质疑自己和生活中的角色.
+只有在花了十个小时思考之后, 我才真正开始理解我上面提到的哲学信仰的正确问题.
+我已经使用了35到45次酸, 30次,30次圣佩德罗,15次秘鲁火,
+这些是你可能会遇到的经典迷幻药.
+我也做过其他一切:可乐,玻璃,大麻,DMT.
+这些药物都是独特而有趣的,
+我只能使用迷幻药.
+我没有发现任何东西, 也没有从这些其他物质中学到任何东西,
+如果要获得强烈的梅斯卡林来源,
+秘鲁人.
+在所有的T中.
+我试过的Pachanoi, 只有一个像我试过的最弱的秘鲁人一样强大.
+这也是我个人经历,
+我尝试过十种不同的圣佩德罗.
+你最&quot;神奇&quot;的圣佩德罗标本是深绿色的 (是的, 黄色的不太好在我看来,
+但不同地方,不同气候,
+我试过安卡什,还有另外两种未知的T.
+秘鲁人
+这就是T字.
+如果您去正确的幼儿园,
+非常厚, 有时从肋骨到肋骨长达8英寸.
+我记得在圣地亚哥的巴尔博亚公园里看到一只大6x6英尺的标本, 非常漂亮.
+六英寸的仙人掌似乎总是让我在圣佩德罗的两到三英尺的地方.
+我认为它含有更高的梅斯卡林.
+对于圣佩德罗来说, 温度在15到20摄氏度以下是可以承受的 (这取决于压力),
+我建议不要抽取 (疼痛),不要煮好几个小时 (糟糕的疼痛),也不要吃新鲜的 (令人厌恶的粘的疼痛).
+我认为最好的方法就是在黑暗中干一两周.
+我曾经试过用太阳干燥的样本, 发现质量明显下降.
+越多的热量, 越多的化学物质会被分解, 想想吧?
+这样做, 确保你能尽可能多地吃到&quot;好东西&quot;,
+另外,当你把它塞进囊里, 你就不必尝到那可怕的味道,
+我最终干掉了两英尺的T.
+秘鲁人花在黑暗中长达一周.
+我把它磨碎,然后把它塞进95...0个凝囊中,
+我很快就会在接下来的几个小时里发现!
+大部分的T.
+圣佩德罗大约120个囊, 这对一个普通人来说是很好的.
+但由于某种原因, 今晚我感到冒险.
+我在凌晨12点半服用了这些药, 到12点40分我已经消耗掉了它们.
+我吃囊时, 一次可以把3个入喉,
+我不推这样做, 因为你几乎肯定会在短时间内吃这么多就生病.
+只有大约30分钟后才注意到第一种效应.
+我注意到我坐在床上思考我的生活, 我注意到我的感知逐渐改变.
+这种变化实际上并不是很明显, 很多人可能不会注意到它.
+视力逐渐变得更加深入.
+经历大约一个小时后, 显而易见的效果就会被感觉到,
+我记得我开始觉得我的忧虑正在消失.
+我感觉到一个平静的自然能量流了我的整个身体.
+这种平静的感觉很快就开始变得更加强烈,
+视觉部门的第一个标记几乎像感知的波,
+首先,视觉上的出现是相当微弱和微小.
+在服用药物后至少4到5小时, 药物似乎不会达到峰值.
+进入和峰值之间的时间只是能量逐渐积累,
+那些从物体中辐射出来的闪光线是最明显的.
+不同于
+这种平静的品质是两种药物中都无法找到的. 酸很快就会出现,
+似乎每一个想法或感觉都会加剧到我觉得我会在现场放松并疯狂.
+酸是一种非常紧张和忙的强烈变化状态.
+很难专注于任何一件事情.
+如果一个人确实设法专注于一件事,
+我常常觉得我几乎无法控制在酸中脑子里的想法.
+很有趣, 具有独特的体质,
+肯定有一种微弱的三胺感觉,
+似乎比起身体高, 更多的是头高.
+它们让你感到快乐和头,
+梅斯卡林的刺激性比酸或更好.
+它不像酸那样快速,也不像酸那样令人心碎,
+然而,梅斯卡林会让您感到非常兴奋/刺激和.
+如果我选择站起来, 我会想坐下, 让你的身体有些困惑,
+视觉上梅斯卡林在较高剂量时会非常惊人,
+我注意到使用酸, 视觉出现突然和快速.
+你的脑海没有机会构建一个非常大的视觉展示,
+酸的几何图案比梅斯卡林更精细, 并且似乎描绘出更利,更有线,更有结构的幻觉.
+梅斯卡林有更自然的感觉,
+我常常注意到大球体,蜘蛛网的设计,和的图案,
+梅斯卡林的图像结构更自然, 形成的时间似乎比酸的图像要长,
+我在秘鲁的高层旅程中,
+我从来没有见过真正的幻觉在酸, 我已经超过12次击中之前 (7次击中和你的合法疯狂的BULL),
+我只看到酸或任何幻觉剂,非常精确的幻觉几何图案,严重夸张的数字和重量和尺寸的扭曲.
+在物体中也存在波或,
+我已经看到了所有这些东西, 但它们似乎不是在很大/强烈的酸.
+它们确实很少出现,与酸或相比, 但它们在我的脑海中更令人惊叹.
+似乎具有一种可悲的视觉质量.
+它们比酸或精更能扭曲物体,
+面部表情,身体比例,体重和运动协调似乎比酸或更不稳定和动摇.
+酸就像被扔进一个明亮的强烈的日本动画片, 你不知道发生了什么 (如果你是美国人当然), 就像被扔进斯库比杜......有一个团要解开, 一个冒险正在进行中
+这是一次精心策划的探险.
+对于我的旅行,我应该回去.
+无论如何,大约一个小时后,
+如果视觉品质能发挥作用,
+我还想说梅斯卡林是我做过的最好的催情药之一,
+想象一下
+而不是把更多的精力投入到性生活中,
+意识似乎变得非常缓慢, 几乎使我失去时间观念 (这从来没有发生在我服用酸或时).
+我真的不开玩笑.
+这次旅程与我之前的40克的秘鲁旅程不同.
+这比梅斯卡林的效果和我似乎经历的各种阶段更具特色.
+我从来没有在服用这种药物时经历过30到45分钟的,
+也许消化酸有助于分解仙人掌组织,
+不同于或酸, 你很少知道什么时候, 如果有什么时候,
+你通常只能根据事实和文件对药物及其持续时间的说法来衡量.
+这种药物是如此缓慢和舒缓,
+你会知道什么时候达到高峰, 但很难区分过渡.
+我总是在4个小时内达到峰值.
+视觉幻觉几乎在你看的每一个物体中都很普遍.
+图像收缩和放大, 丰富的红色和绿色占据了我的外视.
+红色和绿色似乎是酸和的主要颜色,
+我从电脑前走到床上, 在四个半小时内感觉非常刺激.
+这就是我治愈的原因.
+我躺在床上观察我的手.
+看到红绿灯在我的手指上长大和收缩真是太酷了,
+我甚至可以看到我的手周围的光环, 这就像一个力场, 但你不能看到它,
+我记得我看了一下石膏天花板.
+红色的波浪罩着我的房间.
+我甚至记得有一次我注意到一架红色飞机的轮,
+虽然这不是真正的幻觉 (我还没有见过),
+经过大约20分钟的观察, 我开始感到非常恶心.
+我感觉到我的嘴里有唾液流出来,
+我真的很想把自己的内脏吐出来.
+我希望疾病离开我,我想再次感受到刺激的品质,
+但有些事情阻止了我.
+我很快就感觉到这种可怕的内感压倒了我.
+我开始觉得自己又一次滥用另一种药物, 忽略了它的目的, 忽视了自己.
+我总是会有这样的感觉.
+我很快就站起来,试图走到浴室.
+我害怕面对自己的恐惧,
+我还没有准备好思考我的生活和它将要走向何方,
+我很快就感觉到我的嘴里有唾液流出来,
+我走到所站了十多分钟, 希望疼痛会消失,
+我继续感觉很糟糕, 不管我做什么我都无法吐,
+至少如果我不想吐, 我会确保我不需要再起床几个小时.
+恶心让我两侧都痛, 尤其是左侧.
+接下来的五个小时我只能缩在胎儿的位置上无助地躺在那里,
+有趣的是,就在一小时前,我在天堂,可能是要付出的代价?
+这五个小时让我有更多的思考问题,
+虽然我没有得到很多问题的答案, 至少我现在比以前更好地理解了这些问题.
+经历过的经历让我感觉更强壮.
+现在我至少可以问自己这些问题, 我将有这个经历回想作为未来的自我毁灭行动的提醒.
+尽管我从凌晨3点到8点的时间里忍受了如此多的痛苦,
+现在我觉得我已经明白真正的身体疼痛是什么,
+尽管在早上8点左右, 效果仍然很强烈, 显而易见的痕迹, 颜色, 扭曲,
+我从未经历过最令人难以忍受的身体恶心, 我从未经历过最令人惊叹的实时闭眼视觉 (虽然我可能会在短时间内入睡,但我确实记得感到非常不安,
+我闭上眼睛5个小时, 仍然不记得睡着了.
+我记得我看过异象 (听起来很古怪,我知道) 但我发誓有点我看到真正的异象的想法和思想和理论形式,
+对于恶心, 午后11点或12点左右就会减轻.
+我在那天12点30分参加了一些大学课程.
+我决定步行到学校,
+经过第一堂课后, 效果完全消失了.
+我在12个小时内吃不了东西,
+我整天的肚子都很膨胀.
+落的重点是走到学校的路程.
+尤其是在看起来像10个小时的痛苦黑暗中 (事实上只有4或5个小时).
+如果我所有的时间都不合或听起来不准确, 这实际上是由于整个体验中出现的时间差距和静止.
+我真的觉得活着, 无论恶心我喜欢整个事情,
+我现在把痛苦看作是一种祝福.
+我真的觉得梅斯卡林是幻觉药的美德,
+它包含了我想要的每一个元素.
+我
+我喜欢我经历的不同阶段.
+我发现我最冒险的旅行需要恶心,
+这种药物有时几乎让我保持自我引导, 使我对自己和我做出的愚蠢行为产生了很多疑问.
+我常常在这些想法中停留几天, 并试图避免这些行为.
+对于那些说幻觉剂会扩大大脑的人,
+我认为包括我自己在内的许多人, 大多数时候都说这只是为了逃避现实.
+我不打算把这些胡说八道告诉人们, 幻觉剂是如何改变了我的生活,
+我为那些发表这样的言论的人感到遗憾.
+听起来像
+他们需要感觉自己特别,超越别人才能快乐.
+如果你快乐,社会层次地位就无关紧要,你也不会喜欢物质财富,你也不会去取悦他人 (共依存) 或伤害他人 (社会病态). 抱歉,如果这适用于你,但它适用于我,我们都是人类,不是吗,所以......你说自己矛盾吗?
+证明了我对人类本性的看法.
+我认为幻觉剂不会启发任何人或做任何类似的事情.
+幻觉药物只能消除大脑的过器, 让你更加清晰地关注当前的情况, 以及如何改变,帮助,修复,解决,理解,从中成长.
+它们也具有伟大的艺术品质,
+真正的启蒙不需要药物, 只是一种心态, 这就是为什么我认为任何说他们需要药物来寻找启蒙的人听起来像他们正在寻找更多他们还没有找到的东西?
+我真的认为, 最终的启蒙来自于生活在一个繁荣的,有道德的,有道德结构的生活方式中, 这就是启蒙,
+我不会把药物标记成它不是的东西,
+我知道我冒犯了一些人, 想想你说什么之前, 你说, 这可能是我们在这个社会最大的错误之一,
+我所说的是,根据我的个人观察, 或基于我在反文化中遇到的人的思维方式,
+对于大多数主流人士来说, 保持智慧, 享受乐趣.
+时间表: 259
+单独 (16),回顾 / 总结 (11),健康问题 (27),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>T. peruvianus Account
+Cacti - T. peruvianus
+by
+Mr. Inapplicable
+Citation:   Mr. Inapplicable. &quot;T. peruvianus Account: An Experience with Cacti - T. peruvianus (exp259)&quot;.
+Erowid.org
+. Jun 10, 2000. erowid.org/exp/259
+DOSE:
+65 g
+oral
+Cacti - T. peruvianus
+(plant material)
+BODY WEIGHT:
+190 lb
+I would like to share a mescaline trip I had the other day.  I thought it would be best to write this fresh after the experience occurred, two days ago on October 27th 1999. I am going to give you the most accurate depiction of what this substance is going to put you through for a good 10 to 15 hours, that I feel I can describe accurately
+Background information on myself 6’0: 190 pounds.  I have been doing drugs for seven years now, call it a death trap if you will.  Death is what I feel many drugs have caused me, nothing but burned an empty hole in my pocket and my soul.  It seems nearly everyone I know ends up either in prison or dead as a result of drugs, which is why I have given up the more destructive addictive substances.  Enough of this however right, as if we haven’t heard this speech before?  Oh well, I hope people use drugs and find out where they will take them, its your path and your choice and nobody should be able to inhibit this.  In fact some of the smartest people I know use drugs, but unfortunately, it is all for the selfish or hedonistic reasons.  Let us just hope people don’t do what they do best with drugs and all other things in life, overindulge them (human nature let us not forget).  And you say its only a western thing!  I say it’s a human thing.  Only after some of my harder mescaline trips do I really start to question myself and my role in life.  Only after I have spent a good 10 hours of thinking do I really begin to understand the JUST THE QUESTIONS to some of the philosophical beliefs I stated above.
+I have used acid 35-45 times, shrooms 30 times, San Pedro 30 times, Peruvian torch 15 times, you get the idea.  These are the more classic psychedelics your probably going to run into.  I’ve done everything else on the side as well, coke, glass, smack, DMT.
+These drugs all are unique and interesting in their own way, but most get old fast.  For this reason, I stick to psychedelics.  I have discovered nothing, and learned nothing from these other substances other than how to obtain them on the streets, abuse them, and add more paranoia to my life than need be.
+If a strong source of mescaline is to be desired your best off getting peyote or T. Peruvians.  Out of all of the T. Pachanoi I have tried, only one was as potent as the weakest Peruvians I have tried.  This is from my own personal experience and is as accurate over the past 3 years as I remember.  I have tried over 10 different kinds of San Pedro.  Your most “magical” San Pedro specimens are dark green (and yes the yellow ones aren’t as good in my opinion, iron deficiency perhaps?) they are taller and older.  But it varies from place to place, climate to climate.  I have tried the Ancash, and two other unknown varieties of T. Peruvianus.  The T. Peruvianus is common here in the southwest if you go to the right nursery.  VERY thick, sometimes up to 8 inches from rib to rib.  I remember seeing a large 6 by 6 foot specimen in Balboa Park in San Diego, quite beautiful.  6 inches of this cactus always seems to get me where 2 to 3 feet of San Pedro would.  Since it is hardier, and can take harsher drier environments, I would imagine it has a higher mescaline content.  This only makes sense because it can endure temperatures of under 15 to 20 F unlike (depends on strain)  20 to 26 F for San Pedro (so far as I have observed) and is more drought tolerant than Pedro, which might be why it seems to be more potent (on average for myself).
+To prepare the cactus I would suggest not extracting it (pain), not cooking it for hours on end (messy pain), and not eating it fresh (disgusting slimy pain).  The BEST method in my opinion is to dry the cactus in the dark for a week or two.  The sun does degrade it, as I have tried the same specimen sun-dried and noticed a significant decline in quality. The more heat you apply the more you break down and degrade any chemical,think about it?   Preparing it in this manner, helps ensure that you will eat as much of the “good stuff” as possible without minimal loss from the sun or by boiling water.  Also when stuffed into capsules you don’t have to taste the horrible stuff, which alone can make you gag on the spot.
+I ended up drying 2 feet of T. Peruvians cactus over a week in the dark.  I than ground it up and stuffed it into 95...0 gelatin capsules which came out to over 65 grams (less than I thought) dry. FAR TO MUCH, as I was soon to find out in the upcoming hours!  Most of the T. Peruvians trips I’ve had have been about 50 capsules dry, and San Pedro about 120 capsules, this would be good for an average person in my best judgment. But for some reason, this night I was feeling adventurous.
+I took the pills at 12:30 am, by 12:40 I had consumed all of them.  When I eat capsules, I can stuff about 3 at a time down my throat so it goes by much quicker.  I do not recommend this however, as you will almost definitely get sick from eating this many in such a short period of time. The first effects weren’t noticed until about 30 minutes later.  I noticed as I was sitting on the bed thinking about my life, I noticed a gradual alteration in my perception. This alteration is not really noticeable to a great degree, and many people probably wouldn’t notice it.  It feels like you know something is soon going to happen, and sight takes on a new depth (very gradual).  About an hour into the experience obvious effects are felt, a slight body high which starts to take on waves of euphoria, tingles &amp; chills might soon follow down the spine.  I remember I  started to feel like my worries were slipping away.  I felt like a serene natural flow of energy had overwhelmedt my entire body.  This feeling of peacefulness soon started to grow in intensity, and the visual hallucinations soon persisted.  The first notations in the visual department are almost like a rippling of perception, like everything is shaking in small jitters.  The first visual occurrences are rather weak and minute.  It doesn’t seem like the peak experience comes for at least 4 to 5 hours after the drug has been taken.  The period in-between the come-on and the peak was just a gradual buildup of energy with minor visuals (tracers, waves, flickers of light).  Flickers of light radiating off of objects, are the most noticeable.  Unlike
+acid or shrooms, mescaline has more of a body high that has a peaceful quality you won’t find with either of the two  Acid tends to come on quickly and terrifies me.  It seems like every thought or feeling I have is intensified to the point where I feel like I will loose it at the spot and go crazy.  Acid is a very tense and rushed intense altered state.  With acid thoughts come and go so rapidly that it is hard to focus on any one thing.  And if one does manage to focus on one distinct thing it seems almost like it is forced into the mind.  I often feel like I have very little control over what thoughts will come and go into my mind on acid.  Shrooms are fun and have a unique body high unlike that of acid or mescaline. Definitely has a sort of weak tryptamine feeling which I moderately enjoy.  Shrooms seem to have more of a head high than a body high.  They make you feel happy and giddy, yet at the same time lethargic and unmotivated.  Mescaline will have more of a stimulating quality to it which is more manageable in my mind than acid or shrooms.  It isn’t as speedy and mind crackling as acid, and it doesn’t have the dreamy tendencies many people complain of on shrooms.  However, mescaline can make you feel very stimulated/irritated and shaky.  I often feel like at points I want to sit down but would rather stand up, if I chose to stand up I would want to sit down, sort of leaves your body confused at points, sort of edgy like speed in some VERY distant ways.
+Visually mescaline can be quite spectacular on higher doses, rivaling all hallucinogens I’ve tried excluding DMT.  I have noticed with acid, visuals come on suddenly and quickly.  They come and go so quickly that your mind does not have a chance to build up a very large visual display, or something with bulk so to say.  Acid has much more finely tuned geometric patterns than mescaline, and does seem to portray more sharp, lined, structured hallucinations.  Mescaline has a more natural feel, reminiscent of naturally occurring things you might come across.  I often notice large spheres, spiderweb designs, and splashy patterns that seem to come and go much like acid but in longer intervals.  Visuals on mescaline are more naturally structured and seem to take longer to form than visuals on acid, but when they do they are more discernible.  I have noticed actual figures or images of figures on mescaline that resemble living things on my higher Peruvians journeys.  I have never seen a true hallucination on acid, and I have taken in excess of 12 hits before (7 hits and your legally insane BULL), if that’s the case I should have been locked up years ago).  I have only seen on acid or any hallucinogen, very precise hallucinations geometric patterns, heavily exaggerated figures and distortions in weight and size.  Undulations or ripples in objects are also present, but little to nothing more.  With mescaline I have seen all of these things, but they seem to not be on the large/intense magnitude of acid.  However, I have noticed large figures that form, more bulky and larger hallucinations, they do come few and far between as opposed to acid or shrooms, but they are more spectacular in my mind.  Shrooms seem to have a dreary sort of visual quality.  Shrooms distort objects much better than acid or mescaline and seem to be a little more colorful than the two.  Facial expressions, body proportion, weight, and motor coordination’s seem to be more unstable and wobbly than acid or mescaline. Shrooms are sort of like being thrown into a Peewee’s playhouse episode, running around laughing and jumping &amp; acting uninhibited, acid is like being thrown into a bright intense Japanese anime cartoon where you have no idea what is going on (if your American of course), and mescaline would be like being thrown into Scooby Doo.....there’s a mystery to be solved, an adventure underway, an elaborate expedition.
+Oh yeah as for my trip I should get back to that.  Anyway after about 1 hour the stimulating qualities seemed to subside.  It was if the visual qualities were coming into play and balancing out the aphrodisiac qualities.  I would also like to add mescaline is one of the best aphrodisiacs I have EVER done, rivaling acid and ecstasy by far.  Imagine
+combining acid/ecstasy than throwing a more focused sexual energy or drive if you will into the equation, and you have mescaline.  As for my state of mind,  I would notice consciousness seemed to move incredibly slow almost to the point where I lost all concept of time (which never happens to me on acid or shrooms).  An hour on this drug felt literally like 2 or 3 hours, I’m not kidding.  This trip was different from most of my lighter 40 gram Peruvianus trips.  It was much more distinctive of the mescaline’s effects, and the various stages I seem to go through on it.  I’ve never had a trip come on in 30 to 45 minutes ever on this drug, but I had eaten a small meal prior to the pill consumption. Perhaps the digestive acid helped break down the cactus tissue and release it into my system faster than normal?   since I consumed the capsules in 10 minutes? who knows?
+Unlike with shrooms or acid, you will RARELY know when if EVER at what point the peak comes or goes.  You can usually only gauge it based on what facts and documents state about the drug and its duration period.  The drug is so slow and soothing, yet shaky and restless it’s almost always impossible to notice the transition point.  You will know for sure when you peak but it will be hard to distinguish the transition.  I always peak about the 4th hour + in.  Visual hallucinations are prevalent in almost every object you look at.  Objects contract and enlarge, rich REDS &amp; GREENS predominately engulf my peripheral vision.  Red &amp; Green seem to be the predominate colors of acid and mescaline in my opinion, mainly RED.
+When the peak finally hit, I walked away from the computer, than over to the bed, feeling very stimulated 4 1/2 hours in.  THIS IS WHERE THE HEALING OCCURED for myself.  I was lying on the bed observing my hand.  It was so cool watching the little red and green lights grow and contract all over my fingers, like ivy vines growing up and down a tree trunk and its branches.  I could even see the aura around my hand, it was something like a force field but you couldn’t see it, you just knew it was there.  I remember looking up at the stucco ceiling briefly.  Large waves of red engulfed my room. I even remember at one point noticing the outline of a red plane with a propeller headed toward me for a split second.  Not a true hallucination (I have yet to see one) but probably one of the closest things.
+After about 20 minutes of observation I started to feel terribly sick.  I could feel my mouth salivating and preparing for the dreaded ritualistic vomiting ceremony I have quickly grown used to from these trips.  I truly wanted to puke my guts up to the fullest.  I wanted the sickness to leave me, I wanted to feel the stimulating qualities overwhelm me once again, I wanted to enjoy the rest of the trip.  But something wouldn’t let me.  I soon felt this horrible feeling of guilt overwhelm me.  I started to feel like I once again abused another drug, detracted from its purpose, neglected myself.  These feelings always come to me at one point or another on a mescaline trip.  I quickly got up and attempted to walk to the bathroom.  I feared confronting my fears, which in my mind is the only way you can have a bad or good trip on mescaline (all depends on how you use it).  I didn’t feel ready to think about my life and where it was headed, but I swear to God it was like my entire consciousness was now centered on the pain in my life and I wouldn’t be able to avoid it. When I did manage to get up I quickly felt my mouth salivating and I knew I would puke. I went over to the toilet and stood over it for over 10 minutes hopping the pain would go away, but it didn’t.  I continued to feel crap and no matter what I did I couldn’t puke, so I just went ahead and drank 1/4 a bottle of Pepto Bismo and headed back to the bed.  At least if I wasn’t going to puke I was going to make damn sure I wouldn’t have to get back up for a few more hours.
+The nausea was excruciating, my sides both hurt, my left side in particular.  All I could do was huddle into the fetal position and lie there helpless for the next 5 hours, I was in hell.  Funny, just 1 hour ago I was in heaven, price to pay perhaps? Those five hours truly gave me many more issues to think about than all my other psychedelic experiences combined.  I questioned so many things, and while I didn’t get the answers to a lot of the questions, I at least understood the questions now better than I ever did before.  As a result, I feel much stronger after that experience.  Now I at least can ask myself the questions and I’ll have this experience to think back on as a reminder for future self-destructive actions.
+For as much pain as I endured that time period from about 3 to 8 a.m. about an hour or so after the sun came up, I feel like I now know what the healing process is truly all about.  I now feel like I have a grasp on what true physical pain is, and how to avoid it next time at least.  After about 8 a.m. the effects were still strong, obvious tracers, colors, distortions, but I was definitely out of the peak.  Words can’t describe what I went through in that five hours, the most unbearable physical Nausea I have ever endured, the most amazing real time closed eye visuals I’ve ever had (although I might have drifted in and out of sleep for short periods, but I do remember feeling very restless and not being able to sleep.  I had my eyes closed for 5 hours and STILL don’t remember falling asleep.  I remember seeing visions (sounds corny as shit I know) but I swear there were points where I saw true visions of ideas and thoughts and theories form, all of which I vaguely remember.  As for the nausea, it subsided around 11 or 12 in the afternoon.  I had some college classes I had to attend at 12:30 that day.  I decided to walk to school and enjoy the serenity.  After my first period class, the effects were gone completely.
+I couldn’t eat for another 12 hours, I had no desire in doing so. My stomach felt severely bloated for the entire day. The highlight of the comedown however was the walk to school.  It was quite amazing getting outside, especially after dwelling in what seemed like 10 hours of painful darkness (only 4 or 5 in reality though).  If all my times don’t quite add up or sound accurate, it really is due to time lapses and stand stills that seemed to occur throughout the entire experience.  I really felt alive after that experience, regardless of the nausea I loved the entire thing and I would most certainly relive all of it again.  I see pain now as a blessing.  I truly feel like mescaline is the virtue of hallucinogens, all others seem like a vice to me.  It has every element that I am after.  I
+love the different gradual stages I go through.  Although the Nausea is sometimes prevalent in some of my trips, I have found that my most adventurous trips NEED nausea for me to accept what I’m doing to my body.  This drug almost keeps me guided at times, making me question so much about myself and the stupid actions I take.  I often dwell on those thoughts for days after and try to avoid those actions.  For anyone that says hallucinogens are mind expanding I agree in minor ways.  I think to many people including myself, most of the time say this for an excuse to escape reality.  I’m not going to bullshit people and tell them this crap about how hallucinogens have changed my life and I am enlightened above all others.  I pity people that make those statements.  Sounds like
+someone with poor selfworth that feels they need to feel special and above others to make them happy.  If you were happy, social hierarchical status would not matter, nor would fancy material possessions, nor would you go out of your way to please others (codependency) or victimize others (sociopathy) Sorry if this applies to you but it applies to me, and we are all human aren’t we, so....Contradict myself you say?  Well proves my point about human nature doesn’t it.
+I think hallucinogens don’t enlighten anyone or do anything of that nature. Hallucinogens simply take out the filters of your brain and allow you to focus more clearly on your current situation and how to change, help, fix, solve, understand, grow from it.  They also offer great artistic qualities, which we all know of.  TRUE ENLIGHTENMENT DOES NOT REQUIRE DRUGS, JUST A STATE OF MIND, which is why I think that anyone who says they need drugs to find enlightenment sounds like they are looking for something more that they have yet to find?  I truly do think that ultimate enlightenment comes with living a prosperous virtuous morally structured lifestyle, THAT IS ENLIGHTENMENT, and no drug can provide this, or mimic this, it comes from your heart.  I won&#x27;t label a drug something it is not, nor will I put a positive label on something based on its immediate over long term effects. I know I have offended some people, think about what you say before you say it, that is probably one of our biggest mistakes in this society, People don&#x27;t realize what they are saying anymore.
+What I have stated is to my knowledge either factly based on my own personal observations, or opinion based on mindsets I deal with around  people I run across in the counterculture, make that culture in general period....
+BOTTLE LINE:  Mescaline feels like combining a couple hits of acid with 2 hits of ecstasy for most of you mainstreamers out there, be smart, and have fun.
+Exp Year: 1999
+ExpID: 259
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 10, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cacti - T. peruvianus (69) : Alone (16), Retrospective / Summary (11), Health Problems (27), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

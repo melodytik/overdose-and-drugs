@@ -1,0 +1,320 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>试验一个新朋友</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-methylmethcathinone.html'>← 4-Methylmethcathinone</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>试验一个新朋友</h1>
+<div class='sub-title'>4-Methylmethcathinone &amp; Ketamine - Erowid Exp - &#x27;Testing a New Friend&#x27;</div>
+<div class='meta'>作者：dmtdoodeelsd Citation · 日期：Apr 9, 2008 · <a href='https://erowid.org/experiences/exp.php?ID=69642' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我决定在互联网上搜索梅的供应商, 并进行一项实验,
+我很快找到了两个供应商,并从每一个购买了一个克的样本,以便比较物质,并报告两者之间的任何差异 - - 没有进行实验室测试,我会说物质是相同的,在质地,颜色,气味和形式方面 - - 唯一的主要差异是价格和包装.
+在我继续讲之前, 我先来讲讲一下我的场景和环境, 以及我以前与精神药物有关的经历.
+我现在19岁, 身体和精神都很健康.
+我以前曾经使用过以下物质:
+大麻 (每日吸烟者), , LSD, MDxx, 胺, 可卡因, 胺, , 酸盐, 溶剂, 片 (茶, 代因, 二代因, 片), BZP, MCPP, DXM, 双胺, 卡特 (Catha edulis), 卡瓦 (Piper methysticum), 克拉 (Mitragyna speciosa), 约波烟 (N.
+N-二甲基三胺,N-单甲基三胺,5-甲氧二甲基三胺,布福胺),野生片 (Lactuca virosa),野 (Leontus sp.),圣,皮约特 - 以及一些更&quot;奇特&quot;的RC,如2C-B,PMA,TMA,4-MTA.
+今天,在实验的第一天,我的设置和设置是完美的.
+我一整天都在家里舒服地坐着,
+我昨天喝了4个单位酒精,
+虽然我对服用一种新药有点担心,
+我目前不服用任何处方药, 但每天服用1-2片圣约翰草药,
+有关物质的详情
+常见/街道名称:梅
+化学名称:2-甲基胺-1-p-托利-1- HCL/4-甲基甲基
+物理状态:白色/浅黄色粉末,成分有点&quot;&quot;,虽然分解成细粉末
+臭味:强烈的化学气味,
+这让人想起陈旧的尿液,
+这不是愉快的.
+化学稳定性:在正常储存条件下,在室温下稳定.
+分子式:C11H16NOC1
+分子重量: 213.71
+从小开始.
+危害:毒性未知.
+如果粉末进入这些区域, 据说会刺激眼睛和肺部, 摄入可能会刺激消化道.
+长期使用的危害尚不清楚.
+持续时间:比MDMA短一些.
+实验开始了:
+一个人看电视.
+50mg是仔细测量,粉碎成细粉末,和一半 (25mg) 吸入.
+鼻子和气味的轻微刺痛是不愉快的, 虽然不是无法忍受的.
+15.35 -- 情绪稍微升高, 或许是感觉&quot;有线&quot;的开始, 心率升高.
+强烈的味道和味道滴落在喉的后面.
+15.40 - 吸入另一个25毫克.
+这次的刺痛更为明显, 并且有明显的感觉,
+看电视很有趣,但不像着窗外那样好.
+现在心跳的升高更加明显, 手有点,
+随着一种满足感的增长,
+感觉完全清醒,如果需要的话, 在这个阶段能够正常地与父母交谈.
+15.54 -- 滴滴的味道绝对是可怕的!
+我认为下次我尝试这种化合物, 我会尝试一个口服剂量来绕过这个讨厌的味道.
+虽然我觉得有点醉了, 但我的声音和谈话都没有表现出来.
+一个100毫克小心地测量,粉碎和吸入.
+显而易见的直接影响,明显的头和轻微的&quot;快速&quot;感觉.
+鼻子疼,气味不好.
+感觉很轻松, 没有像MDMA那样强烈,
+心跳升高,手脚变得稍微湿.
+可能是小瞳孔扩大, 但不确定,
+我认为这是一个很好的吸入量.
+我放了一些音乐--&quot;纳古尔音响实验&quot;和&quot;隐形运动&quot;这张专辑, 它融合了dub/2-step/grime,
+非常适合这种经历.
+音乐的欣赏是惊人的, 声音似乎与清晰和有意义的共,
+我感觉很好, 尽管我的手有点湿,
+现在我对电视的兴趣已经完全消失了, 我的大脑太快了.
+我觉得要吸更多, 但刺痛还没有停止,
+我读过人们的报道, 吸入这种物质时,
+滴水的味道仍然很糟糕.
+17.11 -- 瞳孔膨胀和轻微的下巴运动,
+我刚刚从帮爸爸装满慈善活动的车子回来 - - 说话和表现正常甚至不是问题,
+决定测量另一个100mg的吸入量.
+17.15 - - 感觉好像我在帮助父母时达到顶峰.
+我相信当吸入时, 很快就会发生, 但效果也会很快消失.
+17.17 -- 再吸入100毫克, 立即起作用.
+感觉很好,我的速度快,头脑清晰,
+也许我在装载车时没有达到峰值, 最新的排队刚刚补充了我.
+音乐听起来仍然很棒, 尽管除了阅读时可能有轻微的模糊之外,
+这次滴水更严重, 必须不断地喝水来帮助.
+这感觉就像在MDMA上来,但不那么紧张 (我发现当消费的第一大剂量MDMA的晚上,我经历一个紧张在15-45分钟的标志,这不是显而易见的梅).
+17.23 -- 快乐的情绪正在增长,
+鼻子的刺痛减少了.
+不能停止跳动现在极其愉快的音乐.
+爸爸敲了我的门,让我知道他要出门了.
+我发现很难隐藏我的醉酒和感到紧张,希望他快速离开.
+我相信他已经注意到我的大瞳孔和我的下巴的无遮掩的运动,
+没有!
+我不敢相信这些东西是合法的.
+我无法掩饰自己的笑容.
+17.40 -- 听音乐,闭上眼睛, 非常令人满意, 即使没有CEV, 感觉仍然很棒.
+我刚刚磨了牙,它们了,不好意思!
+我的视力似乎变得更加模糊, 对光有轻微的敏感性.
+感觉好像我在最后一句话上达到顶峰,
+我决定摄入一些胺, 想看看它能给这种化合物增添什么样的意义.
+17.48 站起来拿起胺, 我突然头脑发作, 完全意识到自己有多刺激,
+我知道你可能会觉得不可能同时感到刺激和放松,
+17.52 -- 一小部分 (大约30毫克) 胺液在同一个鼻孔中被吸入.
+对于我来说, 这一数量是很小的,
+因此我建议如果您决定混合, 谨慎行事.
+从小开始.
+17.58 -- 基他胺的效果, 即使是如此小的剂量, 也开始产生作用.
+这组合感觉很好.
+这使得梅菲德龙的情感深度, 我发现它缺少.
+音乐听起来仍然令人惊叹, 但现在随着增加K维度,
+我认为K的凸起增加了我的下巴的运动.
+18.06 -- 强烈的放松, 似乎梅菲德龙的效果有所减弱,
+18.17 -- 影响现在正在减少, 降低感觉并不坏,
+也许少量胺的降低效应对该化合物的刺激特性产生了不利影响.
+虽然我在谈话时感到有点&quot;有线&quot;,
+这种下降不像MDMA那么严重, 但更快.
+眼睛不那么开, 鼻子里的粉末气味几乎消失了.
+音乐仍然听起来很好.
+19.15 -- 总基线, 在我的视力残留模糊效应.
+我突然意识到这种药物有厌食效应,
+没有人会在使用MDMA后感到饥饿.
+尽管我处于昏迷状态, 我仍然觉得头脑清醒,
+总结一下:
+它对我的效果与MDMA相似, 用较少的压力更清晰,
+我认为这是一个有趣的新朋友,
+它的令人愉快的效果和短暂的持续时间使它成为常规滥用的高候选者-- 由于它在人类使用的历史短暂,
+试用新药时要记住,绝不可能有所谓的&quot;安全剂量&quot;.
+每个人对精神活性药物的反应都不同,
+让我们一起来看看.
+已使用的证券
+4-甲基甲丁 (458):单独 (16),第一次使用 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+Testing a New Friend
+4-Methylmethcathinone &amp; Ketamine
+by
+dmtdoodeelsd
+Citation:   dmtdoodeelsd. &quot;Testing a New Friend: An Experience with 4-Methylmethcathinone &amp; Ketamine (exp69642)&quot;.
+Erowid.org
+. Apr 9, 2008. erowid.org/exp/69642
+DOSE:
+T+ 0:00
+oral
+St. John&#x27;s Wort
+(daily)
+T+ 0:00
+25 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 0:10
+25 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 1:00
+100 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 1:47
+100 mg
+insufflated
+4-Methylmethcathinone
+(powder / crystals)
+T+ 2:22
+30 mg
+insufflated
+Ketamine
+(powder / crystals)
+BODY WEIGHT:
+50 kg
+Regarding the little information on this new compound, I decided to search the internet for suppliers of Mephedrone and to undertake an experiment in the hope that my experience will help others to decide whether or not to further undertake experiments with this compound themselves. I quickly found two suppliers, and bought a gram sample from each so as to compare the substance, and report on any difference between the two - without performing a lab test I would say that the substance is the same, in terms of texture, colour, smell and form - the only main difference was in the price and the packaging. Before I carry on any further I will explain a little about my set and setting, along with my previous experiences with psychoactives.
+I&#x27;m currently 19 years old and in good mental and physical health. I&#x27;ve had previous experiences with the following substances:
+Cannabis (daily smoker), Psilocybin mushrooms, LSD, MDxx, amphetamines, cocaine, ketamine, diazepam, akyl nitrate, solvents, opiates (poppy pod tea, codeine, dihydrocodeine, opium), BZP, MCPP, DXM, Diphenhydramine, Khat (Catha edulis), Kava (Piper methysticum), Kratom (Mitragyna speciosa), Yopo snuff (N. N-dimethyltryptamine, N-monomethyltryphmine, 5-methoxydimethyltryptamine, Bufotenine), wild opium (Lactuca virosa), will dagga (Leontus sp.), Salvia divinorum, Peyote - and some of the more &#x27;exotic&#x27; RC&#x27;s like 2C-B, PMA, TMA, 4-MTA.
+I have had at least one experience with each of the substances above, with some repeated more often than others -- but just because I&#x27;ve had experiments with a broad spectrum of psychoactives, I wouldn&#x27;t say I&#x27;m totally experienced with all mentioned, although this gives me the opportunity to make fairly accurate comparisons.
+Today, on the day of the experiment, my set and setting are perfect. I&#x27;m sitting comfortably at home with no commitments all day. I consumed 4 units of alcohol yesterday and smoked a small amount of cannabis in the evening but I doubt this will affect my experiment as I&#x27;m well rested, fed and hydrated with a positive mindset. Although I feel a little apprehensive about taking a compound that is new to me, it&#x27;s nothing that a little meditation and good music wont cure. I&#x27;m currently not taking any prescription medications, but take 1-2 tablets of St Johns Wort a day, and sometimes use valerian in the evenings to aid sleep.
+Substance details
+Common/street name: Mephedrone
+Chemical name: 2-Methylamino-1-p-tolylpropan-1-one HCL/4-Methylmethcathinone
+Physical state: Whitish/Light yellow powder, somewhat &#x27;bally&#x27; in composition, although breaks down to a fine powder
+Odour: Strong chemical smell, was apparent even through the packaging. Reminiscent of stale urine, with an undertone of liquorice. Not pleasant.
+Chemical stability: Stable at room temperatures, in closed containers under normal storage conditions.
+Molecular formula: C11H16NOC1
+Molecular weight: 213.71
+Dosage: Has been reported similar to MDMA, from around 50-200mg, but as it&#x27;s a Research Chemical, there is no known safe dose. Start small.
+Dangers: Toxicity in unknown. Powder is said to irritate eyes and lungs if introduced to those areas and ingestion may cause irritation to digestive tract. Dangers of chronic use is not yet known.
+Duration: somewhat shorter than MDMA.
+So the experiment begins:
+15.30 -- Sitting alone watching TV. 50mg is carefully measured, crushed to a fine powder, and half (25mg) insufflated. Slight stinging in nose and smell is unpleasant, although not unbearable.
+15.35 -- A slight uplift in mood, perhaps the beginning of a feeling of being &#x27;wired&#x27;, rate of heart elevated. Strong smelling and tasting drip down the back of throat.
+15.40 -- Another 25mg is snorted. Stinging is more pronounced this time, and with definite feelings of coming up, almost like MDMA but with less push, with soft euphoria.  Watching TV is entertaining but not as nice as staring out the window.
+15.48 -- Elevation of heartbeat is more pronounced now, and hands are slightly shaky, not unpleasantly so though. Soft euphoria seems to be growing somewhat along with a feeling of content. Feel totally alert and would be able to converse normally with parents at this stage if needs be.
+15.54 -- Drip tastes absolutely horrible! I think that next time I try this compound, I&#x27;ll try an oral dose to bypass this nasty taste.
+15.57 --A friend phones me up and we have a half hour conversation, talking flowed easily and although I feel slightly intoxicated it doesn&#x27;t show in my voice or conversation.
+16.30 -- A 100mg is measured carefully, crushed and insufflated. Immediate effects are apparent, a clear headiness and slight &#x27;speedy&#x27; feeling. Nose hurts and smell is not pleasant.
+16.35 -- A rushing feeling and clear euphoria is felt, but not as pushed as MDMA, feels much softer and relaxed. Heartbeat is up and hands and feet become slightly clammy. Perhaps a slight pupil dilation but unsure, my extremities tingle slightly. This is a good amount to snort I think.
+I put on some music -- Nagual Sound Experiment, the album &#x27;Invisible Movements&#x27;, it&#x27;s a merge of  dub/2-step/grime with influences of drum and bass and a hint of psy. Perfect for this experience I think.
+16.42 -- Music appreciation is amazing, the sounds seem to resonate with a clarity and meaningfulness that I get with MDMA. I feel great even due to the fact that hands are slightly clammy and shaky and I&#x27;m sweating slightly (although I don&#x27;t particularly feel my body temperature has risen that much). Cant stop moving to the music and have lost all interest in the TV now, my brain is just going too fast. I feel like snorting more, but the stinging hasn&#x27;t stopped yet and feel I should wait longer. I&#x27;ve read peoples reports about how when snorting this substance, it becomes rather moorish -- I can see what they mean. The drip still tastes awful.
+17.11 -- Pupil dilation and slight jaw movement when talking, not as pronounced as jaw tension experienced with MDMA but almost like when on good cocaine. Just got back from helping my mum and dad load up the car with stuff for a charity event -- talking and acting normal wasn&#x27;t even an issue and didn&#x27;t have to hide my intoxication, although it did feel a bit uncomfortable all the same. Decide to measure another 100mg for insufflation.
+17.15 -- It feels as though I was peaking whilst helping out my parents. I believe when snorted, it has a quick onset but with effects wearing off just as quick.
+17.17 -- Another 100mg in snorted, with immediate effects. This feels good, I&#x27;m sped up and clear headed with the same soft euphoria and a small amount of rushing. Perhaps I wasn&#x27;t peaking whilst loading the car and the latest line has just topped me up.
+Music still sounds great although there&#x27;s little visual effects apart from maybe a slight fuzziness when reading. The drip is even worse this time, having to constantly sip water to help. This feels just like coming up on MDMA, but with less jitteryness (I find that when consuming the first large dose of MDMA of the night, I experience a nervousness at around the 15-45min mark, and this is not apparent with Mephedrone).
+17.23 -- The euphoria is growing, along with the jaw tension. Nose stings less. Can&#x27;t stop bobbing to the now immensely pleasurable music.
+17.24 -- Dad knocks on my door and lets me know he&#x27;s popping out. I find it hard to conceal my intoxication and feel nervous, wishing him to leave quickly. I&#x27;m sure he&#x27;s noticed my large pupils and unconcealed movement of my jaw but don&#x27;t think he&#x27;ll mention anything at a later date. D&#x27;oh!
+17.29 -- I can&#x27;t believe this stuff is legal. Can&#x27;t hide my doped smile.
+17.40 -- Listening to music and closing my eyes is very satisfying, and even with no CEV it still feels great. I just ground my teeth and they squeaked, not nice! My vision seems to be fuzzing a little more and have a slight sensitivity to light. Feels like I&#x27;m peaking on my last line, or the effects seem to be levelling out a little. On this note, I decide to consume a little ketamine, to see what dimension it adds to this kind of compound.
+17.48 -- Upon standing, to fetch my ketamine, I had a sudden head rush and fully realised how stimulated I feel, yet with a totally relaxed feeling at the same time. I know you may be thinking it seems impossible to feel both stimulated and relaxed at the same time but this is how I&#x27;m feeling.
+17.52 -- A small amount (around 30mg) of Ketamine HCL is snorted in the same nostril as the Mephedrone. For me, this amount is on the small side as I use ketamine frequently and have a tolerance, but decided to act with caution, as one should, when mixing RCs with other drugs. The interactions of RCs with other recreational drugs aren&#x27;t well documented, therefore I recommend if you decide to mix, proceed with caution. Start small.
+17.58 -- The effects of the ketamine, even at such a small dose, has started to have an effect. This combo feels good. It brings the emotional depth to Mephedrone, which I found was missing. Music still sounds amazing, but now with the added K dimension, when laying back and closing eyes there seems to be added visual effects, slight patterning and organic forms - nothing geometric though. I think the bump of K increased the movement of my jaw little.
+18.06 -- Intense relaxation, think the effects of the Mephedrone is waning a little, although still feel nice.
+18.17 -- Effects defiantly diminishing now, the comedown doesn&#x27;t feel bad though, just a little &#x27;spacey&#x27;. Perhaps the downing effects of the small amount of ketamine had an adverse effect to the stimulating properties of the compound.
+18.31 -- Friends phoned, and although I felt a little &#x27;wired&#x27; whilst talking, conversation was fine and managed to chat for a while. The comedown is less harsh than MDMA but much quicker. Head feels light and airy, jaw occasionally is tense, eyes are less dilated and the smell of the powder in my nose is all but gone. Music still sounds great.
+19.15 -- Total baseline, with residual fuzzy effects in my vision. What&#x27;s suddenly become apparent to me, is the anorexic effects of this drug, because as soon as its effects wore off I became immediately hungry (I have not eaten since my late breakfast). Becoming hungry straight after the effects of MDMA would not happen with me. Even in the comedown I still felt clearheaded and alert, unlike its cousin MDMA.
+In conclusion:
+Its effects in me were similar to MDMA, clearer with less push, not as empathetic and shorter in duration, stimulating but at the same time with a sense of relaxation. I think this is an interesting new friend, but one which should obviously be treated with respect due to not a lot of information being know about its toxicity, OD dosages and damage of long term usage.  Its pleasant effects and short duration when snorted make it a candidate high up on the scale for regular abuse -- something, which due to its short history of use in human beings, can make it extremely dangerous. Always remember when trying a new drug, that there can no way be what is called &#x27;a safe dose&#x27;. Individuals do respond differently to psychoactives so caution should be taken, upping the smallest dose gradually. Do your research, tread carefully and have fun.
+Exp Year: 2008
+ExpID: 69642
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 9, 2008
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-Methylmethcathinone (458) : Alone (16), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

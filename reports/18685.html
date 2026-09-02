@@ -1,0 +1,252 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的死亡感觉 - 这不是派对药物</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/amt.html'>← AMT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的死亡感觉 - 这不是派对药物</h1>
+<div class='sub-title'>AMT - Erowid Exp - &#x27;Felt Close to Death - This is No Party Drug&#x27;</div>
+<div class='meta'>作者：Clickie Citation · 日期：Nov 7, 2002 · 剂量：42 mg · <a href='https://erowid.org/experiences/exp.php?ID=18685' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我在晚上5点45分左右服用, 而我之前的人则在两小时前服用.
+我们只是在A的房间里呆了一会儿.
+效果需要几个小时才能开始, 我们不断地问对方:&quot;你还在吗?&quot;
+晚上六点半左右.
+我开始觉得很有趣,就像喜剧.
+任何事情都让我心烦意乱,
+没有任何视觉效果.
+我觉得很好, 兴奋...我可以说如果我没有服用德拉玛,
+我使用呼吸技巧来平息我的胃.
+这很好.
+在晚上7:30左右, 视觉开始.
+更多的人出现了.
+图像变大,地毯看上去像是液体,
+图片看起来活动人,
+我认为这是因为我认为它们只是插图,
+这并没有持续很长时间.
+听到我演奏声乐吉他和唱歌, 让我进入一个不同的世界,
+感觉非常好,似乎很容易.
+我的创造力是唯一限制我的东西 (它是无限的).
+我在现场即刻即兴创作歌曲,
+在晚上9点之前.
+越来越多的人出现, 有些人服用药物, 有些人来买.
+我没有意识到这将是一个派对.
+现在街道上都挤满了汽车.
+这一切和住在街对面的警察都导致了偏执.
+我向我的朋友A说:&quot;这里的人太多了&quot;&quot;你必须把一些人从这里带走&quot;&quot;街道上的人太多了&quot;.我开始惊慌失措,因为我的朋友A在房子的监管方面已经失控了,他只是告诉我他不知道该怎么做.
+我打电话给我的朋友&quot;M&quot;, 告诉他来帮我,
+他说他会立即过来.
+感谢上帝.
+在晚上10点之前.
+我等待我的朋友到达,我自己去了地下室.
+我真的很害怕, 想知道远离这些人有没有帮助.
+没有.
+我开始看到丑的面孔.
+我说:&#x27;这不会起作用.
+门越来越响,声音越来越大.
+我开始大汗淋.
+我去找我的朋友A,告诉他我真的很害怕.
+他告诉一些人离开, 因为他可以看到我是认真的.
+人们很, 但有些倒的人一点都不觉得冒犯, 他们自行离开,
+我对此感觉很好, 但这并没有减少恐慌.
+我被困在几个不同的思想循环中,
+我尝试过一切:电视,音乐,书籍,冥想,
+这就是混乱的开始.
+我躺在沙发上,因为我.
+这张毯子不是为了保暖我,
+我发烧了,头发也开始湿了.
+他给我一些水果,条和水.
+我突然想握住某人的手,
+视觉效果非常强烈.
+面孔变成完全不同的面孔, 不仅仅是变化.
+尽管只有A和我在房间里, 我的脑海却让更多的人看着我,
+我朋友M终于到了那里,接管了工作,
+晚上10:30 (是的,只有这么多时间, AMT有严重的时间扭曲...
+我的思想开始失去了意识,
+所有的视觉,好的和坏的.
+偏执症增加到疯狂的水平.
+眼睛的动作模仿梦中的REM睡眠状态,
+有时这些会让我重新站起来,
+每次我&#x27;醒来&#x27;我都会因为痛苦而叫.
+很快,这件事又发生了.
+我坐在汗水和可怕的震动.
+我求我的朋友帮助我一次又一次.
+我再次失去知觉, 只是这次没有任何现实存在.
+我在灰色空间中立/漂浮,
+灰色被压缩成一条黑色的白色线,然后变成一个点,然后变成闪闪发光的光.
+没有人能感觉到我的身体.
+我不知道自己的名字,或者我在哪里.
+我根本不记得曾服用过药物.
+我必须死了,因为我的朋友告诉我我停止呼吸.
+他们喊叫我的名字, 摇我,
+这实际上只持续了几秒钟.
+我不得不吐, 也许是因为德拉胺的作用减弱了.
+现在是晚上11点半.
+我吃了什么都吐了.
+需要一点时间才能真正得到一些东西,
+没有疼痛, 只是因为我的头脑不关心.
+吐后我坐在地板上,感觉好很多.
+我可以说,戒毒期开始了, 但偏执仍然存在于每一个笑声,尖叫,门,
+我穿的衣服已经湿透了, 发烧很高.
+他们考虑医院, 但等了一会儿,
+晚上12点30分, 梦中经常出现叫.
+他们又给我水果和水,
+实际上我很少有能力下尿,
+我一直看着时钟, 发现时间是多么的缓慢, 这让我更加丧.
+在2:30之前.
+影响消退了,对话是可能的.
+我知道自己的名字,知道我做了什么.
+我记得一切 (可怕).
+我知道自己已经死了,或者几乎死了.
+听着一些温和的音乐, 仍然陷入和梦境.
+我的朋友A会因为担心再停车而叫醒我.
+警告:这不是一个派对药物.
+需要一个完全沉默的调解者.
+如果警察出现了, 我们将是绝对无助.
+这是一种强烈的药物,
+不要服用超过初始剂量,因为可能需要长达3小时才能产生效果,这会在您不准备时进入平原.
+在精神上,精神上和身体上做好准备,把自己置于一个不舒服和恐惧的变量减少/消除的地方.
+你会看到你的影子, 你最好在一个地方你准备处理它.
+这会让你感觉安全.
+如果你开始感到偏执,
+这不是玩具; 仔细扩大你的思想.
+时间表: 18685
+导游/保姆 (39),健康问题 (27),不好的旅行 (6)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Felt Close to Death - This is No Party Drug
+AMT
+by
+Clickie
+Citation:   Clickie. &quot;Felt Close to Death - This is No Party Drug: An Experience with AMT (exp18685)&quot;.
+Erowid.org
+. Nov 7, 2002. erowid.org/exp/18685
+DOSE:
+42 mg
+oral
+AMT
+(powder / crystals)
+BODY WEIGHT:
+155 lb
+There were around 5 of us who took the drug along with one dramamine, some had a bowl or two; I had taken it around 5:45 PM, and those before me up to two hours before.  We just hung out for a while in &#x27;A&#x27;&#x27;s room.  It took several hours for effects to start at all, we were constantly asking each other, &#x27;Are you there yet?&#x27;  &#x27;not yet man...&#x27;
+Around 6:30PM. I started to feel funny, as in comedy.  Everything cracked me up, even silly little things.  There were no visuals yet at all.  I felt pretty good actually, excited...I could tell that if I had not taken the Dramamine I would have vomited at this point because my stomach felt a little funny; it was not having fun down there.  I used breathing techniques to calm my stomach.  This worked quite well.
+Near 7:30PM. the visuals started.  A few more people showed up.  Zooming visuals and the carpet looked like a liquid, bubbling and swirling.  Illustrations seemed alive and moving, but still static.  I think this was because I recognized them as illustrations only and wrote them off.  That didn&#x27;t last long.  However I played the acoustic guitar and sang, which put me into a different world, and perhaps those that were listening.  It felt really good; it seemed so easy.  All my skill became automated by it and my creativity was the only thing that limited me (it was limitless).  I improvised songs right on the spot, and in my mind I traveled to places indescribable.
+Up to 9:00PM.  More and more people showed up, some took the drug, some came to buy it.  I didn&#x27;t realize this was going to be a bash.  Parties never come through this neighborhood, and now the streets were lined with cars.  All this and a cop living across the street contributed to paranoia.  I paced around saying to my friend A, &#x27;There are too many people here man&#x27; &#x27;You have to get some people out of here&#x27; &#x27;The streets are full man.&#x27;  I began to panic because my friend A was out of it in terms of regulation of the house, and merely told me that he didn&#x27;t know what to do.  I called my friend &#x27;M&#x27; and told him to come straighten me out, and that there were a lot of people here.  He said he&#x27;d be over immediately.  Thank God.
+Up to 10:00PM.  Waiting for my friend to arrive, I went to the basement by myself. (BAD IDEA)  I was really panicky, and wanted to see if getting away from the people would help.  It didn&#x27;t.  My mind created shadows that looked like people, and I began to see ugly faces looming around.  &#x27;That&#x27;s not gonna work,&#x27; I said.  More and more the doorbell rang, and voices got louder.  I began to sweat pretty hard.  I went to my friend A and told him I was really freaking out.  He told some people to leave because he could see that I was serious.  The people were frumpled, but some who were tripping didn&#x27;t feel offended at all, and left on their own accord, telling me that it was OK, and that they were giving me space.  I felt good about this, but it did nothing for the panic.  I was stuck in several different mind loops, and nothing could occupy my mind instead.  I tried everything: TV, music, a book, meditation, you name it.  That is when the mess started.
+A lay me down on the couch with a thin blanket because I was shivering.  The blanket was not to warm me but just for touch.  I was running a fever and my hair was getting wet.  He fed me some fruit, chips and water.  I had the sudden urge to hold someone&#x27;s hand because something in me knew that something was very wrong.  Visuals were EXTREMELY INTENSE.  Faces morphed into entirely different faces, not just variations.  Even though it was just A and me in the room, my mind MADE several more people watching me, walking through, etc.  FINALLY my friend M got there and took over so that A could watch the remainder of people, who were all in his room.
+10:30PM (yes, only that much time, AMT had serious time-warp..caution to you all.)
+My mind began to slip out of consciousness, and my mind was in a different realm entirely.  Visuals of all sorts, good and bad.  Paranoia increased to delerious levels.  When my mind slipped, eye movements mimicked REM of dreaming, and I convulsed the entire time.  Sometimes these made me rise again, or my friend&#x27;s calling.  Every time I &#x27;awoke&#x27; I yelped in distress.  Soon after this happened again.  I was sitting in sweat with terrible shakes.  I pleaded for my friend to help me over and over again.  Then a powerful thing came; I fell unconscious again, only this time there was no presence of reality at all.  I was standing/floating in gray space, everywhere I looked.  The gray color compressed into a white line in blackness, then to a dot, and then into a sparkling light.  It grew larger and larger, and I knew no body at all.  I didn&#x27;t know my name, or where I was.  I had no memory of taking a drug at all.  I had to be dead, because my friend tells me I stopped breathing.  They yelled my name and shook me, and I snapped back to reality, screaming.  This had actually only lasted a few seconds in real life.
+The little dream snaps kept happening, and then I had to vomit, maybe because the dramamine was wearing off.  It was now 11:30PM.  Harsh heaves threw up anything I had eaten.  It took a little bit to actually get something out, but when it did, it was harsh.  There was no pain, simply because my mind didn&#x27;t care.  After the spew I sat down on the floor, feeling a lot better.  The detox period began, I could tell, but the paranoia was still there at every laugh, yell, doorbell, or argument outside the bathroom.  My clothes were soaked, and the fever was rabid.  They considered the hospital, but waited a little, and moved me into a bathroom farther from the people.
+12:30PM  Constant dream snaps and screaming.  They fed me fruit and water again to keep me concentrated, and for energy.  I actually was able to urinate very seldom with huge effort.  I kept looking at the clock and noticed how slow time was moving and made me even more discouraged.
+Up to 2:30.  Effects wore down and conversation was possible.  I knew my name and what I had done.  I remembered everything (dreadful).  I knew I had died, or close to died.  I mellowed out on the bed, listening to some gentle music, still slipping into convulsions and dreams.  My friend A would wake me for fear of another stop.
+WARNING: THIS IS NOT A PARTY DRUG.  SOMEONE MUST BE COMPLETELY SOBER as a mediator.  Had the police showed up, we would have been absolutely helpless.  This is an intense drug and must not be taken lightly (except in dosage of course).  Do not take any more than the initial dose, as it may take up to 3 hours for effects, which will jump into plateau while you may be off-guard.
+Be spiritually, mentally and physically prepared, and put yourself in a place where all variables of discomfort and fear are reduced/eliminated.  You will look into your shadow, and you had better be in a place where you are ready to deal with it.  Most of all have someone you know well around, it will keep you anchored and feel safe.  If you begin to feel paranoia, tell someone who will understand what you need to feel comfortable immediately.  This is not a toy; expand your mind carefully.
+Exp Year: 2002
+ExpID: 18685
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 7, 2002
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+AMT (7) : Large Group (10+) (19), Guides / Sitters (39), Health Problems (27), Bad Trips (6)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

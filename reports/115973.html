@@ -1,0 +1,503 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>BDB - Erowid Exp - &quot;第一次接触病原体&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bdb.html'>← BDB</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>BDB - Erowid Exp - &quot;第一次接触病原体&quot;</h1>
+<div class='sub-title'>BDB - Erowid Exp - &#x27;First Empathogen Encounter&#x27;</div>
+<div class='meta'>作者：amberdream Citation · 日期：Dec 26, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115973' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>首次接触病原体:BDB HCl
+不太满意生物试验的内容, 但它跟随我的笔记,
+虽然很有趣:)
+药物: (R,S) - 1 - - - 1,3-二-5-) - 2 - 氨基酸 (BDB*HCl)
+意图:自我审视以解决一些个人问题,高兴/抗抑郁效应,好奇心
+强度:中度强度,没有压倒性,总体上是愉快的.
+来源:通过丁合成的piperonal
+背景:对夫妇使用EtOH,大麻/d8-THC,N2O和一些迷幻药的经验.
+除了现在的迷幻药.
+这些药物大约每2 - 4周服用一次,
+没有先前的同理心/内因子的经验.
+动机
+我很久以前就想体验一个同情者.
+我曾经做过MDA,
+由于MBDB和BDB被描述为MDMA和MDA的温和替代品,
+合成BDB比MBDB和我有经验的化学要少一步,
+我对另一项化学项目的工作有点丧,
+幸运的是,与舒尔金不同, 我没有遇到任何问题,
+经历发生在一天后的星期一 (我有免费的:P).
+我目前处于一种类似抑郁症的状态 (未被诊断,
+它们成功地消除了一些小的自杀倾向, 但我仍然没有解决我目前的主要问题之一:
+虽然我以前可以把这些担忧抛开, 但某种形式的精英主义已经入我的生活.
+由于我天生的惰, 导致了,
+有点刺,但没有人说生活应该是容易的,?
+无论如何,我希望一个同情者能够帮助解决这种共, 让我以自尊心去面对我的无意识, 而不是因为在生活中失败了很多次而把自己定为垃圾.
+我只是想有我的第一个同情体验和一点乐趣.
+准备工作
+我在前一天晚上有点犹要服用什么剂量.
+虽然我有不愉快的迷幻旅行经验,
+另一方面, 许多人说他们从来没有恢复过第一次使用MDMA的魔力,
+根据我相对较低的体重和我发现的几份经验报告,
+我建议大家要小心, 每次使用新材料时都要进行剂量调整,
+经验
+设置
+有点疲,偏头痛.
+昨晚睡眠不足,因为失眠只睡了5个小时左右.
+对于我来说还不够.
+虽然白天工作不多,
+情绪不是最好的,相当严厉.
+一个人.
+我可能会打电话给值得信赖的人来提供心理支持.
+设置
+在家里,在公寓里,如果我有心的话,我可能会出去.
+我在家里度过了整个体验.
+时间
+这些时间是基于我在电脑上和实物笔记本上写的笔记.
+时间是24小时的高级格式,并反映当地时间.
+大多数是从我的母语翻译成英语 (只有少数是直接用英语写的).
+为了清晰度和增加经验效应的细节/解释,它们稍稍后修改.
+我试图尽可能地保持原来的语气.
+16:46 (T+0:00) 用190毫克BDB*HCl溶于水.
+味道测试:稍微苦,没有太糟糕.
+2C-B相比之下是令人厌恶的.
+无论如何,我使用了大部份的草糖.
+把制备体积溶液所需的器具放下.
+想到从实验室中摄取190毫克的化学物质是多么疯狂.
+不要吃实验室的化学物质!
+至少我知道是谁制造的...
+17: 01 (T+0:15) 早期中毒迹象.
+疲劳感有所增加.
+头越来越重,思维越来越慢.
+音乐欣赏相对正常, 也许稍微增加.
+阅读论坛的文章, 不能真正思考它们.
+我腿上有轻微的.
+我对自己的电脑键盘感到烦.
+输入卡住了...
+感觉很好.
+17:11 (T+0:25) 把自己包裹在一个柔软的毯子里, 公寓有点冷.
+感觉更好,可爱的.
+这不是很糟糕.
+触觉的感觉得到了提高.
+没有人能让我保持平衡.
+通过我的公寓走路有点麻烦, 步骤有点&quot;醉&quot;.
+有些类似于酒精中毒, 但不同.
+我没有像喝醉或醉时那样感到的感觉.
+[从这里在实体笔记本上的笔记, 不想麻烦键盘问题, 需要躺在床上.
+17:25 (T+0:39) 平衡感严重受损, 醉酒感.
+在走路时惊呆.
+灵巧度受到负面影响.
+17:30 (T+0:44) 跳舞是非常有趣的,
+虽然楼下的邻居不喜欢我大声 (她抱怨我在电脑前一整晚坐着,
+我对音乐的欣赏得到了极大的提高.
+写作感觉非常顺.
+偏头痛仍然存在, 但不是太大的问题.
+感受自己的温暖.
+没有停止跳舞.
+目前还没有.
+无论如何,我还是买了一根口香糖.
+写在我的笔记本中的光速
+至少是这样的感觉.
+非常顺和有趣.
+写作是非常混乱的, 希望以后没有问题解读这些东西.
+虽然手仍然很冷,
+这有点像爱情.
+这就是金币!
+这真是太棒了!
+为了胜利而追求享乐!
+这真是太好玩了.
+偏头痛完全在背景,但可以注意到.
+非常醉酒的感觉.
+没有写作抑制,因此混乱.
+音乐非常好听.
+17:39 (T+0:53) 我希望我可以和我的 (非吸毒) 朋友一起进行语音通话,告诉他们BDB有多棒.
+我相信只有少数人能做到这一点.
+17:40 (T+0:54) 更多的舞蹈.
+脉轻松的每分钟120跳 (升高,但对我来说并不太糟糕).
+跳舞的Cosa Fai费德尔.
+这真是太好了!
+我脸上的最大的笑容.
+我不知道生活还能有这么多乐趣!
+音乐与你在一起听起来更好!
+17:54 (T+1:08) 毯子比清醒时柔软100倍 (清醒时已经非常好).
+沉重,大声的呼吸
+必须叹息几次, 发出奇怪的声音.
+我无法控制自己的快乐.
+在幸福中融化.
+眼睛动 (水平性眼).
+这真是太棒了吧?
+我应该早点尝试使用MDx化合物!
+这种阴影有点烦人.
+18:08 (T+1:22) 我从来没有想过,
+这是一种纯粹的快乐.
+这是一种极好的娱乐药物.
+然而,到目前为止,
+但老实说,我太忙于笑和快乐而不是与自己合作.
+尼斯塔格姆非常常见, 很烦, 因为它使阅读变得更难, 但可以作为包装的一部分.
+我脸和身体都很温暖,
+我不会说BDB感觉像爱情, 但我感觉的情感是有价值的/有点相当.
+很漂亮的
+除了眼睛紧张.
+无法集中精力以避免发生这种情况.
+也许我不应该尝试.
+没有深层次的思想/无意识的联系, 但被幸福所吞, 没有动力尝试认真的内省.
+这种感觉是必须享受的!
+没有深层次的思想/无意识的联系, 但被幸福所吞, 没有动力尝试认真的内省.
+这种感觉是必须享受的!
+我终于能理解那些吃药决定将药物提供给全世界的毒.
+我很想和全世界分享这种感觉.
+除了眼睛的动.
+我希望能够阅读我写的东西而不必集中注意力.
+18:27 (T+1:41) 在我忘了之前: 190 mg. [没有把剂量写在一个永久的地方,想确保我没有忘记.] 阅读文本有问题.
+这是一次眼.
+没有兴趣去追求我的问题.
+这太完美了.
+我喜欢它.
+想知道其他MDx化合物可以比较.
+几乎无法阅读,眼睛紧张... [认真的?
+在这个时候,我们得到你不喜欢阴囊症...]
+18:31 (T+1:45) 通过大量的集中, 阴影可以控制.
+但是为什么要费心?
+阅读这些漫谈,还是什么?
+音乐真是太棒了.
+我无法控制对这种物质的兴奋,
+我希望明天我还能读这些笔记, 写作变得越来越混乱!
+几乎是故意的!
+未来的清醒我! 我相信你的能力,你可以做到!
+嘴里有点干燥.
+水糖!! (哈利·斯泰尔斯).
+18:36 (T+1:50) 关闭,我猜.
+很有趣的是我被这种物质带走了.
+我目前看不到我寻找的内省/心理方面的潜力.
+虽然这种药物可以用于心理治疗, 但至少目前我没有动力去单独旅行.
+可能需要治疗师进行建设性工作.
+18:44 (T+1:58) 告诉XYZ试试BDB*HCl的个人信息.
+我写下自己的感受.
+这么多页面的乐趣!
+坐着时脉为每分钟101次,对我来说是正常的,我是大鸟.
+现在头痛,我不在乎.
+阅读我写的东西需要很大的专注,
+用笔写文字是一件很有趣的事情.
+比在电脑上打字更好,而且速度也足够快. [我打字速度很快,所以我总是喜欢电脑而不是手写,至少在速度方面.] 我很高兴我决定不把这些笔记写进我的普通消费簿, 写得很混乱.
+我可能会把我写的版本打印出来.
+18:53 (T+2:07) 眼睛动很烦人, 但谁在乎,
+让我们吃一个普通菜,或者我买的类水果!
+,这是一个克莱门丁! [我没有最终吃他们,只是打开网围绕他们]非常不安,我的脚.
+(刺激)
+通过PM告诉我享受眼睛的动.
+说实话,我没有真正享受到.
+他给我发了一首精彩的D&amp;B复制曲&quot;旅程&quot;,很好,谢谢XYZ!
+19:02 (T+2:16) 写作是令人讨厌的.
+眼睛的动已经不那么明显了.
+有明显的关节紧张, 但不是太糟糕了.
+需要毯子,否则感觉太冷了.
+我很感兴趣试探这些材料的性兼容性.
+缺少一个女朋友自己会做.
+有点兴奋.
+停下来
+,眼睛. [压抑的性思想或烦在阴影?
+这种经历是如此强烈,
+这是一个令人高兴的时刻!
+19:31 (T+2:45) 我应该服用一个强剂量.
+让我们坚持不减少剂量的政策.
+让我们尝试性表现能力,
+19:40 (T+2:54) 高潮似乎不可能实现...
+给我一个时刻...
+让我们做一个N2O弹,看看我到哪个地方... [原始文本为德国本地人, sic: Erstmal eine Lachgaskartusche scheppern, dann weiterschauen. 不是我典型的语气,我通常试图保持相对正式]头痛可能比起起开始时更明显.
+18:48[sic!] (T+3:02...) 用剩余的N2O弹进行实验完成.
+但对我来说不像迷幻药那样戏剧性/显著.
+让我们再试一次达到高潮吧...
+神是一个谎言.
+吸毒的人.
+[基于互联网的模因] 什么说法生活,?
+没有解决个人问题, 虽然我也没有尝试, 尽管内省的氛围相对友好 (自我接受度增加,
+看看这些精神分裂症的写作 [在这一点上,我检查了日记,到目前为止13页,比我平常的多]
+19:53 (T+3:07) 现在的高兴情绪已经得到控制,
+很高兴能够在第三个小时, 但让我们保持我的原则.
+她会好起来的.
+精神分裂的语
+20:04 (T+3:18) 思想现在清晰.
+轻微的青春症.
+情已经减弱,但依然存在.
+偏头痛仍然存在.
+可能不会离开,至少不是因为BDB.
+无论如何,在这个时刻都没有预期.
+现在我觉得很好,
+我很高兴终于写了很多笔记.
+我通常会沉浸在经历中, 没有心情写笔记.
+这次写作非常有趣.
+现在更有趣的是, 尼斯塔格姆减少了,
+我可能会再次合成BDB*HCl.
+我真的知道为什么那么多的蜂巢时代厨师想用MDMA分发爱情.
+这真的是这样.
+助推已经很好,但现在对我来说太有风险了.
+这真是太遗憾了.
+这种药物很容易被滥用.
+我需要尽快试试其他医生.
+20:13 (T+3:27) 没有进行自我检查.
+牙有点疼,因为.
+放大音乐的音量.
+我认为心理治疗只能在一个清醒的专家手头.
+但生活的乐趣立即增加,
+我终于知道如何再次感到快乐.
+希望这种状态能持续几天或几周.
+20:15 (T+3:29) 悲伤的
+下来了
+我们希望在高原上停留更长时间.
+现在不能改变它.
+想知道BDB*HCl如何在更快的输入血液中上升/下降,
+现在我只能在稀释体积溶液中进行合成.
+除了起初有些恶心, 没有副作用,
+我认为BDB有很大的潜力作为一个派对毒品.
+也可能是与你的伴侣拥抱的好地方.
+20:18 (T+3:32) ,这么多页面...
+我有什么问题?
+虽然我还是有点高兴,
+跳舞仍然是一件很有趣的事情.
+为什么效果消失了?
+20:26 (T+3:40) 情绪有点忧郁.
+很高兴再次参加.
+这种纯粹的高兴情绪不应该被允许.
+我有点难过自己没有进行内省,
+希望抗抑郁药效果能持续一段时间,
+在的流中游泳太忙了,
+也许是另一次.
+有时还会有轻微的阴影.
+现在也许永远.
+这种经历几乎是我预期的.
+220毫克对我来说可能还可以.
+看着一个立体图 (神奇的眼睛图像), 由于眼, 难以固定我的眼睛.
+之后我停止了笔记,
+听Spotify播放列表一段时间, 设置我的电脑 (和音乐) 关闭大约22:00
+我在3点钟醒来, 头痛很严重, 无法入睡,
+我觉得很正常, 考虑到睡眠问题,
+听到一些音乐, 立即感到快乐,
+我希望这种光能留在我身边几天:) 实际上,
+总结
+记住,我可能有点偏见, 因为这是我第一次使用共感器 (第一次使用魔法).
+我可能有点偏见, 因为这是我第一次使用共感器 (第一次使用魔法).
+总体而言,这是一个非常愉快的经历.
+没有下一天的负面影响, 醉酒是非常清晰的,
+尽管我渴望经历更长的时间,
+我不想破坏魔力.
+对于我来说, BDB*HCl 没有任何迷幻的特性.
+很容易处理的材料.
+如果有人问我喜乐主义的, 简单的第一次吸毒经历,
+我必须看看其他同情体如何与之相比.
+遗憾的是,
+障碍可能会降低, 但我必须自己做实际工作/或需要治疗.
+大多数时间都在跳舞或享受音乐.
+实际上, 我根据第二天的经历听到的歌曲编制了一个长达7个小时的播放列表 (当然,
+时间表:115973
+发布时间:2021年12月26日
+BDB (449) : 烂的经历 (4), 抑郁 (15), 修炼 / 合成 (31), 第一次 (2), 孤独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>First Empathogen Encounter
+BDB
+by
+amberdream
+Citation:   amberdream. &quot;First Empathogen Encounter: An Experience with BDB (exp115973)&quot;.
+Erowid.org
+. Dec 26, 2021. erowid.org/exp/115973
+DOSE:
+T+ 0:00
+190 mg
+oral
+BDB
+(liquid)
+T+ 2:54
+1 cart.
+inhaled
+Nitrous Oxide
+(gas)
+BODY WEIGHT:
+61 kg
+First Empathogen Encounter: BDB HCl
+Not quite happy with the bioassay in terms of content, but it&#x27;s following my notes closely, so what can I do... Had great fun though :)
+Drug:	(R,S)-1-(1,3-benzodioxol-5-yl)-2-aminobutane hydrochloride (BDB*HCl)
+Dosage:	190 mg
+Age:	early 20s
+Weight:	~60 kg
+Intention:	introspection to resolve some personal problems, euphoria/anti-depressant effect, curiosity
+Intensity:	moderate – strong experience, not overwhelming, overall pleasant.
+Source:	synthesis from piperonal via nitrobutene
+Background:	Couple experiences with EtOH, cannabis/d8-THC, N2O and a few psychedelics. Straight edge except for psychedelics these days. Those about every 2 - 4 weeks in relatively small dosages. No previous experience with empatho-/entactogens.
+Motivation
+I&#x27;ve been wanting to experience an empathogen for a long time now. I made MDA in the past but ended up tossing it before trying it out. As MBDB and BDB were described as milder alternatives to MDMA and MDA, and I&#x27;m quickly overwhelmed by drugs, I decided to opt for one of them. The synthesis of BDB is one step less than MBDB and chemistry I am experienced with, so I decided to try this one out first. I got a bit frustrated with the workup of another chemistry project, so I wanted to take a break and “challenged” myself to get to BDB on a weekend, starting on a Friday afternoon. Luckily, unlike Shulgin, I didn&#x27;t run into any problems with the preparation of the nitrobutene precursor, so I ended up with enough material for a couple trials by Sunday evening. The experience was made one day later on a Monday (I have those free :P).
+I am currently in a somewhat depression-akin state (undiagnosed, as I don&#x27;t have the motivation to go to a therapist), and I&#x27;m trying to use psychedelics as tools for introspection and resolving my personal problems. They successfully removed some minor suicidal tendencies beginning to manifest, but I still have not tackled one of my current major problems: the dissonance between the accomplishments I expect myself to achieve and the accomplishments I achieve in reality. While I used to be able to brush such concerns away, a form of elitism has creeped into my life. Which – due to my inherent laziness – leads to a paralysis, where I do nothing, afraid of performing below my standards. A bit ironic, but nobody said life is supposed to be easy, heh?
+Anyways, I had high hopes that an empathogen might be able to help resolve this resonance by allowing me to encounter my unconsciousness with self-respect, rather than declaring myself trash for failing myself so many times in life.
+Also, I just wanted to have my first empathogen experience and a bit of fun.
+Preparation
+I was a bit indecisive on which dosage to take the night before. While I do have experience with unpleasant psychedelic trips and how to handle them by myself, I didn’t want to risk too much. On the other hand, many people describe that they were never able to get the magic of their first MDMA trip back, so I was a bit reluctant to waste my material on a too careful dosage. Based on my relatively low weight and the few experience reports I found, the decision to take 190 mg BDB*HCl was made.
+I recommend everyone to be a bit more cautious and doing dosage titration with every new material, particularly if it is a bit obscure.
+Experience
+Set
+A bit tired, weak migraine. Didn’t get enough sleep last night, only 5 h or so due to insomnia. Not enough for me. Wasn’t too productive during the day but cleaned up my apartment entirely.
+Mood not the best, quite stern.
+Alone. Worst-case I could have called someone trustworthy for psychological support.
+Setting
+At home in an apartment, with potential plans of going outside if I felt like it. I stayed at home for the whole experience though.
+Time stamps
+These time stamps are based on notes I took on a computer and in a physical notebook. The times are in superior 24 h format and reflect the local time. Most are translated from my native language to English (with only a few being directly written in English). They are edited a bit in retrospect for clarity and added details/explanations of the experienced effects. I tried to keep the original tone as best as possible though.
+16:46 (T+0:00)  Consumption of 190 mg BDB*HCl dissolved in water. Taste test: slightly bitter, not too bad. 2C-B is disgusting in comparison. Used raspberry syrup for most of the solution anyways. Put away the utensils needed for making the volumetric solution. Thinking about how crazy it is to consume 190 mg of some chemical from the laboratory. Do not eat lab chemicals! At least I know who made it... :D
+17:01 (T+0:15)  Early hints of intoxication. Tiredness is increased a bit. Head getting heavy, thoughts slower. Music appreciation relatively normal, maybe slightly increased. Reading forum entries in [drug chemistry forum, redacted], not really capable of thinking them through though.
+17:03 (T+0:17)  Slight tingling in my leg. Annoyed with my computer keyboard. Enter is stuck...
+17:09 (T+0:23)  Some inner warmth from my chest. Feels good.
+17:11 (T+0:25)  Wrapped myself into a soft blanket, apartment is a bit cold. Feels even better, cuddly.
+17:16 (T+0:30)  A bit of nausea. Not very bad. Tactile sense increased. When I move my head, the motion as felt by sense of balance does not stop immediately. A bit of trouble walking through my apartment, steps are a bit “drunken”. Some parallels to an alcohol intoxication, but different. When I don’t move my head, there is no feeling of spinning as I would experience when drunk or stoned.
+[From here on notes in physical notebook, didn’t want to bother with the keyboard problems and needed to lay down on the bed.]
+17:25 (T+0:39)  Sense of balance heavily impaired, drunken feeling. Staggering while walking. Dexterity negatively influenced.
+17:30 (T+0:44)  Dancing is incredible fun and feels wonderful. Must dance careful and quiet though – neighbor downstairs doesn’t like when I’m loud (she complains about not being able to sleep when I’m sitting in front of my computer overnight, I don’t know how). Appreciation for music greatly enhanced. Writing feels extremely smooth. Migraine still present, but not too much of an issue. Inner warmth.
+17:36 (T+0:50)  Can’t stop dancing. No bruxism yet. Got myself a chewing gum anyways. Writing in my notebook at the speed of light. At least it feels like it. Very smooth and fun. Writing is very messy, hopefully no problems deciphering the stuff later. Hands still cold, but my head feels wonderfully warm touching it. A bit like being in love. BDB is gold! Amazing! Hedonism for the win! So much fun. Migraine completely in the background, but noticeable. Very drunken feeling. No inhibitions writing, accordingly messy. Music wonderful.
+17:39 (T+0:53) I wish I could go on to the voice call with my (non-druggie) friends to tell them how amazing BDB is. [But rational me had no problems preventing myself from this action, I don’t really want my drug usage to become public. I only trust a few people with that.]
+17:40 (T+0:54) More dancing. Pulse at a relaxed 120 bpm (elevated, but not too bad for me). Dancing to “Cosa Fai – Feder”. So good!
+17:45 (T+0:59) Biggest fucking smile on my face. I didn’t know life could still be so much fun! “Music sounds better with you!” (- Stardust). &lt;3
+17:54 (T+1:08) Blanket 100x times softer than when sober (and it’s already crazy good sober). Heavy, loud breathing. Have to sigh a few times, making weird noises. Can’t contain my happiness. Melting in bliss. Eyes jittering (horizontal nystagmus). How amazing is BDB, please? I should have tried the MDx compounds much earlier! The nystagmus is a bit annoying.
+18:08 (T+1:22) I would’ve never expected that it is possible to experience so much concentrated happiness at once. Pure euphoria. Superb recreational drug. However, no introspection so far. But to be fair, I am too busy laughing and being happy than to work with myself. Nystagmus very present, annoying – as it makes reading harder – but acceptable as part of the package. My face and my body feels very warm, both inner warmth and touching it.
+18:15 (T+1:29) I wouldn’t say that BDB feels like love, but the emotion I’m feeling is as valuable/somewhat equivalent. Beautiful. Except for the eye jitters. Not able to concentrate enough to avoid it reliably. Maybe I shouldn’t try. No deep thoughts/link to the unconsciousness, but engulfed in bliss, no motivation to try serious introspection. This feeling must be enjoyed!
+No deep thoughts/link to the unconsciousness, but engulfed in bliss, no motivation to try serious introspection. This feeling must be enjoyed!
+18:21 (T+1:35) I can finally understand all the drug cooks who took a drug and decided to make it available to the whole world. I would love to share this feeling with the whole world. [I will still remain with my decision to only synthesise for myself]. Except the eye jittering. Still don’t like that – I would like to be able to read what I write without having to concentrate.
+18:27 (T+1:41) Before I forget: 190 mg. [Didn’t write down the dosage on a permanent place and wanted to make sure I didn’t forget.] Problems reading text. Fucking nystagmus.
+18:27[sic] (T+1:41) No interest to pursue my problems. This is too perfect. I love it. Would like to know the other MDx compounds to compare. Barely able to read, eye jitter... [Seriously? At this point we get you don’t like nystagmus...]
+18:31 (T+1:45)   With a lot of concentration, nystagmus can be kept under control. But why bother? To read these ramblings, or what? Music is sooooo amazing. Can’t keep my excitement regarding this substance under control, and can’t get it into words. I hope I can still read these notes tomorrow, writing gets messier with each line! Almost intentionally! Have fun, future sober me! :P I’m confident in your abilities, you can do it! Mouth a bit dry. “WATERMELON SUGAR!!” (- Harry Styles). [Big smiley face drawn on the page.]
+18:36 (T+1:50) Jaw clenching, I guess. [Only mild bruxism, but it is there.]
+13:36[sic!] (T+1:50) Quite interesting how much I got carried away by the substance. I currently do not see any potential for the kind of introspection/psycholytic aspects I search for. It’s probably possible to use this substance for psychotherapy, but at least for now I don’t have any motivation to do so on a solo-trip. Probably requires therapist for constructive work.
+18:44 (T+1:58)    Told XYZ about trying out the BDB*HCl per personal message. Notes getting long, motivated to write down what I feel. So many pages of fun! Pulse at 101 bpm sitting, normal for me, I’m a colibri. Headaches present, I don’t care. Takes lots of concentration to read what I write due to the heavy nystagmus. Great fun to write text with the pen. Better than typing on a computer, and fast enough anyways. [I’m a very fast typer, so I would always prefer computer over handwritten when sober, at least in terms of speed.] I’m happy that I decided against writing these notes in my regular consumption book, very messy writing. Will have to enter that retrospectively. [Probably I will just print out the version I wrote here.]
+18:53 (T+2:07) Eye jittering very annoying, but who cares, I’m in a state of bliss otherwise. Let’s eat a mandarin, or whatever citrus fruit I bought! Wait, it’s a clementine! [I didn’t end up eating them though, just opened the net around them] Very restless, jittering my foot. (Stimulation).
+18:53[sic] (T+2:07) XYZ [who has experience with the material] tells me via PM to enjoy the eye jittering. Can’t really enjoy it, to be honest. He sent me an amazing D&amp;B remix, “The Journey”, nice, thanks, XYZ!
+19:02 (T+2:16)   Writing is annoying. [Due to nystagmus.]
+19:28 (T+2:42) Getting used to the eye jittering, but it’s less pronounced already. Noticeable jaw clenching, but not too bad. Need blanket, otherwise it feels too cold. I’m interested in trying out sexual compatibility of the material. In lack of a girlfriend myself will do. Slightly horny. STOP. Ehhh, eye jittering. [Repressed sexual thoughts or annoyed at the nystagmus? Dunno.] This experience is so intensive, almost overwhelming, but very pleasant! Euphoria!
+19:31 (T+2:45) I should’ve taken a booster dose. Well, let’s keep to the no redosing policy. Welp, let’s try out sexual performance capabilities while it still lasts.
+19:40 (T+2:54)    Climax does not seem achievable... Give me a moment... Let’s do an N2O cartridge and see to which place I get... [original text for German natives, sic: “Erstmal eine Lachgaskartusche scheppern, dann weiterschauen.” – not my typical tone, I normally try to stay relatively formal] Headaches probably more noticeable than at the beginning.
+18:48[sic!] (T+3:02...) Experiment with the single leftover N2O cartridge finished. A bit more intense/different than just using N2O alone, but not as dramatic/remarkable as with psychedelics for me. Let’s try reaching climax again... God’s a lie. Do drugs. Masturbate. [Based on an internet meme.] What a saying to live by, huh? No resolution of personal issues, but I didn’t even try, despite the relatively friendly atmosphere for introspection (increased self-acceptance, so it would be possible to address character weaknesses without going into defense – but I would have to do the work). Look at these schizo tweaker writings [at this point, I checked the journal, 13 pages so far, more than usual for me]
+19:53 (T+3:07) Euphoria now contained, hopefully just a wave/break, would like to get there again. Would love to be able to booster at the 3rd hour, but let’s stay with my principles. “She’ll be alright.”
+Schizo ramblings LOL [no timestamp]
+20:04 (T+3:18) Thoughts now clear. Slight bruxism. Euphoria decreased, still present. Migraines still present. Will probably not leave, at least not due to the BDB. Not expected at this point anyways. I still feel good, but the lack of sleep and the migraines are now more apparent. I’m happy to finally have written a lot of notes. Usually, I’m too engulfed in an experience and not in the mood for taking notes. This time, writing was great fun. Even more fun now, as the nystagmus is decreased and I can see shit again. I will probably synthesise BDB*HCl again. As said before, I really know why so many Hive-era cooks wanted to distribute the love with MDMA. It really is that.
+Booster would have been nice, but now too risky for me. What a pity. This drug is quite abusable. I need to try the other MDs ASAP.
+20:13 (T+3:27) No introspection was had. Jaw hurts a bit from bruxism. Turned the volume of the music up. I think psychotherapy is only possible with a sober expert at hand. BUT: joy of life was instantly increased, hammered into my brain. I finally know how to feel happy again. Hopefully, this state will last for a few days/weeks.
+20:15 (T+3:29) Sad. Coming down. Would’ve loved to stay on the plateau for a longer time. Can’t change it now. I wonder how BDB*HCl would come up/come down with a more rapid introduction to the bloodstream, i.e. insufflated, i.v. or rectally administered. Would have to synthesise the material again though, all I have is in dilute volumetric solution now. Apart from some nausea at the beginning, no side effects, if you can look over the slight bruxism and the annoying nystagmus.
+I think BDB has great potential as a party drug. Probably also great for cuddling with your partner.
+20:18 (T+3:32) Oh man, so many pages... What went wrong with me?
+20:20 (T+3:34) Still somewhat happy, but the incredible euphoria left me. Dancing is still great fun.
+20:25 (T+3:39) Why are the effects gone? :(
+20:26 (T+3:40) Mood is a bit melancholic. Would love to take it again. This form of pure euphoria shouldn’t be allowed. I am a bit sad that I didn’t get any introspection, but you get what you ask for, and I didn’t put in the needed work. Hopefully the anti-depressant effect stays for a while, would need it. Was too busy swimming in a stream of euphoria, so constructive work was not possible. Maybe another time. Still slight nystagmus from time to time. Maybe forever now. [Just joking to myself.]
+The experience was pretty much how I expected a roll to be. 220 mg would probably be still okay for me.
+Looking at a stereogram (magic eye picture), problems fixating my eyes due to nystagmus.
+After this, I stopped taking notes and went to bed. Listened to a Spotify playlist for a while and set my computer (and the music) to turn off at approximately 22:00.
+Woke up 03:00 with very bad headaches, which prevented me from sleeping and were thus removed by application of 400 mg ibuprofen at 03:45. After that, I could sleep again and woke up very refreshed at 07:00, feeling pretty much normal, quite good given the troubles with sleeping. Turned on some music, instantly felt happy again, more euphoric than usual. I hope this kind of afterglow stays with me for a couple more days :) Actually, I quite literally &quot;danced through life&quot; for the whole day now.
+Summary
+Bear in mind that I could be a bit biased due to this being my first empathogen (first time magic).
+I could be a bit biased due to this being my first empathogen (first time magic).
+Overall very pleasant experience. No negative effects on the next day, intoxication was very clean, nystagmus/bruxism aside, this didn’t feel &quot;wrong&quot;/toxic in any kind. Despite me yearning for a longer duration of the experience, I feel no trouble keeping up to the recommended 2-3 month break for empathogens. Don’t want to destroy the magic. BDB*HCl didn’t have any psychedelic properties to me. Easy to handle material. If someone asked me for a hedonistic, uncomplicated first drug experience, I’d probably tell them about BDB. I will have to see how the other empathogens compare to it.
+Sadly, the material doesn’t push me towards introspection. Barriers are probably lowered, but I would have to do the actual work myself/or a therapy session is needed.
+Most of the time was spend dancing or greatly enjoying music. In fact, I made myself a 7 h long playlist based on songs I heard during the experience on the next day (of course, I added a couple more, still feeling joyous and motivated).
+Exp Year: 2021
+ExpID: 115973
+Gender: Male
+Age at time of experience: 22
+Published: Dec 26, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+BDB  (449) : Glowing Experiences (4), Depression (15), Cultivation / Synthesis (31), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,216 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>这真是一个漫长而奇怪的旅程.</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/5-meo-amt.html'>← 5-MeO-AMT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>这真是一个漫长而奇怪的旅程.</h1>
+<div class='sub-title'>5-MeO-AMT - Erowid Exp - &#x27;What a Long, Strange Trip ... Indeed&#x27;</div>
+<div class='meta'>作者：Enigma0100 Citation · 日期：May 1, 2009 · 剂量：15 mg · <a href='https://erowid.org/experiences/exp.php?ID=35448' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我在星期五早上醒来时明亮,大约是八点半.
+我没有什么事可做,只能在身心上为晚上做好准备.
+我没有吃任何东西大约12个小时, 我从一个轻微的DXM后光从前一天晚上充满活力.
+我把早晨的时间集中在自己的心理状态和晚上将要发生的事件上 - - 我和两个好朋友要去死者的音乐会,
+我的老朋友,M,有一个好的150毫克的DPT等待他, 和我的另一个朋友,J,要注射一些4-HO-DET.
+我自己也想试驾5MeO-AMT的订单.
+我已经读过这些陷和潜在的危险,
+我把100毫克的粉末倒入100毫升的巴卡迪中.
+现在,我有一个1毫克/1毫升的溶液, 在Robitussin剂量盖的帮助下, 我可以测量出我想要的剂量.
+到了下午4点20分, 我吞下了15毫升的朗姆酒,
+我已经感觉到一种轻微的声,
+[Erowid的注意事项:
+驾驶时喝醉,倒,或极度缺乏睡眠是危险和不负责任的, 因为它危害了其他人.
+不要这样做!
+很遗憾, 这种声伴随着我胃部的恶心.
+过去我可以用脑力抑制胺的恶心, 但几分钟后,
+没错,一到浴室, 我猛烈地冲进了所.
+我立刻感觉好一些,但当我开始走出浴室,
+我开始有点担心, 但在第二次吐之后, 我安慰自己说,
+我不禁开始愚蠢地微笑.
+快速推进三十分钟.
+两人都用过药, 而M对即将到来的DPT经验并没有很好地应对.
+他转过身来对我说:&quot;我觉得我很害怕.
+我认为&quot;,突然吐.
+两名警察正经过.
+我可以模糊地预测他接下来的两小时会是什么样子,
+我告诉J和他的女朋友,M和我要躺在草地上一会儿,我们会在里面见到他们.
+我躺在那里看着我的朋友,
+我在一次又一次地了一小时半.
+显然,这让我有点焦虑, 担心我的朋友的福利.
+许多人走过来问:&#x27;他还好吗?&#x27; 我尽力平息他们的恐惧,同时试图指导我的朋友, &#x27;试&#x27;是关键词.
+最后,他从口袋里拿出了&quot;死者&quot;的票,说:&quot;死者?&quot; 我以为他说&quot;死者&quot;,也就是说,我们要去看死者吗? 我说:&quot;是的,我知道,他下来之后:显然,当时他以为自己已经死了,我的话证实了他的妄想.
+,这是我的错.
+这不是一个很好的方式来平息你的倒的朋友.
+很快安全人员就来了, 告诉我们要么进入会场,
+于是我带他和我自己穿过大门, 我们都没有和门上的保安说话.
+我们找到了我们的朋友和他的女人,坐下来.
+现在,我的记忆开始变得有点模糊.
+我记得躺在草地上, 观看云层在我上面,
+我记得我和两个女孩说话,
+我记得我在一群跳舞的嬉皮士中迷路了.
+我记得我和J一起笑得很开心,
+整个音乐会中, 我有一种持久的和平与共融的感觉,
+与我以前使用DPT和4-HO-DET的经验不同,
+我点了冰的草, 发现交易也很容易.
+奖金!
+简而言之,我们早点离开了音乐会,这让我很丧.
+我们吃了一些哈拉佩诺饼干 (这是我24小时内第一次吃的),
+电影结束后,M离开了,而J退休到他的房间与他的女孩交配.
+想知道我是否还有时间, 我做了一个快速的检查.
+我还能感觉到它的影响!
+幸运的是,第二天我没有什么事可做,
+1,以及大部分的强DDVD光盘1.
+到了D结束时, 凌晨6点过了一会儿, 我开始入睡.
+但这不是一个正常的睡眠.
+随着我漂流, 我的思想开始以听觉和视觉的扭曲表现出来,
+我终于睡了4个小时,然后开车回家, 再睡3个小时.
+我觉得没有什么不正常的, 但我的视力仍然有点偏差.
+总的来说,我对这个物质印象深刻.
+唯一的缺点是恶心,
+我没有经历别人抱怨的头痛.
+我的假设是那些头痛是由脱水引起的,所以我在10到14小时之间喝了很多水.
+我不知道这是不是事实, 但我知道:我喝了一水,
+我期待着在不久的将来,
+其他:
+5-MeO-AMT (104): 节日/Lg.
+人群 (24),音乐讨论 (22),令人愉快的经历 (4)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+What a Long, Strange Trip ... Indeed
+5-MeO-AMT
+by
+Enigma0100
+Citation:   Enigma0100. &quot;What a Long, Strange Trip ... Indeed: An Experience with 5-MeO-AMT (exp35448)&quot;.
+Erowid.org
+. May 1, 2009. erowid.org/exp/35448
+DOSE:
+15 mg
+oral
+5-MeO-AMT
+(liquid)
+BODY WEIGHT:
+258 lb
+I woke up bright and early that Friday morning, around 8:30.  It was my day off and I had nothing to do but prepare physically and mentally for the evening.  I&#x27;d eaten nothing for about twelve hours, and I was energized from a slight DXM afterglow from the evening before.  I passed the morning by focusing on my mental state and the events that were going to occur in the evening - myself and two good buddies were going to the Dead concert, and we would all be on different substances.  My long time friend, M, had a good 150 mg of DPT waiting for him, and my other buddy, J, was going to injest some 4-HO-DET.  Myself, I was going to test-drive my order of 5-MeO-AMT.  I had read about the pitfalls and potential dangers, and I was ready.  Around noon, I prepared my dose by dumping the 100 mg powder I had into 100 ml of Bacardi Limon.  Now, I had a 1mg/1ml solution, and with the help of a Robitussin dosage cap, I could meter out my desired dose.
+At 4:20 pm, I swallowed 15ml of rum and headed to J&#x27;s place, not 5 miles away.  By the time I parked, I could already feel a slight buzz, not unlike my past tryptamine adventures.
+[Erowid Note: 
+Driving while intoxicated, tripping, or extremely sleep deprived is dangerous and irresponsible because it endangers other people.
+Don&#x27;t do it!
+]
+Unfortunately, this buzz was accompanied by a queasiness in my stomach.  Now, in the past, I had been able to quell tryptamine nausea with my mind, but after a few minutes, I knew I would have to head to the bathroom.  Sure enough, As soon as I got to the bathroom, I violently hurled into the toilet.  Immediately, I felt somewhat better, but as I began walking out of the bathroom, I instantly needed to vomit again.  At this time, I began to worry slightly, but I reassured myself after my second puking episode by thinking, well, it sometimes happens, but it&#x27;s all downhill from here.  Sure enough, I could &#x27;feel&#x27; the substance overtake my serotonin receptors, and I couldn&#x27;t help but begin to grin stupidly.
+Fast forward thirty minutes.  Both M and J have dosed, and M is not handling the oncoming DPT experience very well.  Sure enough, when we join the line to enter the concert venue, he turns to me and says, &#x27;Dude, I think I&#x27;m freaking out... I think-&#x27;, and suddenly vomits.  Just as two cops are passing by.  Now, I could tell vaguely what his next two hours were going to be like, as I have had high-dose DPT trips before.  I told J and his lady friend that M and I were going to lay on the grass for awhile, and we would meet them inside.  I laid there while I watched over my friend, who could say nothing but, &#x27;Dude.... duuuude?  I am tripping out.... dude...&#x27;  over and over for an hour and a half.  Well, obviously, this got me a bit anxious and worried about my friend&#x27;s welfare.  Many people came by and said, &#x27;Is he OK?&#x27;  I did my best to quell their fears and try to guide my friend at the same time, &#x27;try&#x27; being the operative word.  Eventually, he fished out the Dead ticket from his pocket and said, &#x27;Dead?&#x27;  Thinking he said &#x27;THE Dead&#x27;, as in, we&#x27;re going to see the Dead?, I said, &#x27;Yeah, man.&#x27;  Now, I only found this out after he came down:  Apparently at this time, he thought that he had died, and my words confirmed his delusion.  Woops, my bad.  Not a good way to calm your tripping buddy down.  Soon after this, security came by and told us we had to enter the venue or leave.  Finally, M was able to think and talk somewhat coherently, so I herded him and myself through the gates, neither of us talking to any of the gate security.  We found our buddy and his woman and sat down.
+Now at this point, my memory begins to get a little fuzzy.  I remember laying on the grass and watching the clouds do a 3-dimensional dance above me, to the rhythm of the music.  I remember talking to two girls with lighted Koosh balls.  I remember getting lost in the middle of a large group of dancing hippies.  I remember laughing my ass off with J, who was still tripping hard by the intermission (unlike M, who was more or less baseline at that time).  Throughout the whole concert, I had a persistent feeling of peace and total communion, due in part to the setting (Dead fans are quite cool and peace-loving), and this feeling made the grin on my face even bigger.  When I conversed with people, talking and forming thoughts was surprisingly easy, unlike my past experiences with DPT and 4-HO-DET.  I ordered a frozen strawberry lemonade, and found that money transaction were rather easy as well.  Bonus!
+Long story short, we left the concert early, much to my chagrin.  Returning to J&#x27;s place, we ate some jalapeno poppers (my first food in 24+ hours) and watched Cowboy Bebop: the Movie.  After the movie, M left, and J retired to his room to copulate with his girl.  Thinking I may still have some &#x27;up time&#x27;, I did a quick time check.  It was 2 am (T+9h) and I was still feeling the effects quite strongly!  Thankfully, I had nothing to do the next day, so I entertained myself by watching a Dave Matthews concert, Kill Bill Vol. 1, and most of the Tenacious D DVD Disc 1.  By the end of the D, it was a little after 6 am, and I was able to begin to fall asleep.  But this sleep was no normal slumber.  As I drifted, my thoughts began to manifest themselves in auditory and visual distortions, not unlike my dreams after taking 6 mg of melatonin.  I did eventually fall into a shallow sleep for 4 hours, after which I drove home and slept for another 3.  When I woke up at 3:30 pm, I felt nothing out of the ordinary, but my vision still strobed a wee bit.
+All in all, I am quite impressed with this substance.  The only downside was the nausea, but it was very slight and was gone by the 2 hour mark.  I experienced none of the headaches that others have complained about.  My hypothesis is that those headaches are induced by dehydration, so I drank a LOT of water between the 10 and 14 hour mark.  I have no real idea if that is a fact or not, but I know this: I drank a ton of water and experienced no head pain.  I am looking forward to more experiences with my little bottle of electric rum in the near future.
+Exp Year: 2004
+ExpID: 35448
+Gender: Male
+Age at time of experience: Not Given
+Published: May 1, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+5-MeO-AMT (104) : Festival / Lg. Crowd (24), Music Discussion (22), Glowing Experiences (4)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

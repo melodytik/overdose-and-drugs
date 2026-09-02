@@ -1,0 +1,414 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>木 - 埃洛伊德的故事 - &#x27;墙上死去的巫师&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/acacia.html'>← Acacia</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>木 - 埃洛伊德的故事 - &#x27;墙上死去的巫师&#x27;</h1>
+<div class='sub-title'>Acacia - Erowid Exp - &#x27;Dying Shaman on the Wall&#x27;</div>
+<div class='meta'>作者：Philemon Citation · 日期：Jan 2, 2007 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=58407' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>(DMT从Maiden&#x27;s Wattle中分离出来,然后抽烟)
+星期六早上11点10分
+设置
+主题坐在一个明亮的房间在一个大床上,安排的枕头舒适的倾斜.
+两个大滑窗,光窗半拉开,通向阳台,阳光从东部透.
+在床上直接安置的固定天花板风扇, 白色的斜坡天花板, 墙壁涂上粉红色的纹理涂料,
+主题与助手之间的距离大约为3米 (因此,助手在录音中偶尔无法听到).
+在会议前几天,主体已经阅读了关于DMT惚和南美巫师经验的文学作品 (Harner等).
+时间间隔以分钟和秒为单位,从药物给药点测量.
+在会话的最后描述阶段,通常只有当药物的某些生理或心理效应在对话中仍然明显时才会给出时间间隔 (见转录结束时的症状时间表).
+翻译
+主题: [在点燃管道时向助理发出最后指示] 重要的是,
+我可能会把它交给你,
+我看不到任何烟雾.
+0.00 [托克]
+主题: [快速开始的药物作用, 通过管道助理] !
+我认为这已经足够了...
+主题: [吟]...耶稣基督...
+[喘气]
+这才是真正的南美产品.
+[沉重的呼吸]
+[喘气]
+[喘气]
+主题:这是医生...
+[微弱的笑声]
+[叹息]
+话题:这是太美丽的解释.
+[笑声]
+[喘气]
+[笑声]
++4.24 主题: [吟]
+[沉重的呼吸]
+我可以看到墙上死去的巫师...
+[沉重的呼吸]
+[增加沉重的呼吸]
+[劳苦的呼吸]
+[沉重的叹息]
+[沉重的呼吸]
+[高兴的笑声]
+我试着和你说话,
+[高兴的笑声]
+[笑声]
+[沉重的呼吸]
+现在你看到这只是一个记忆.
+[助理无声]
+主题: 不,它没有.
+我只是想回忆一下我看到的东西,
+现在已经开始了.
+主题:你能给我一些水吗?
+问题:我认为下楼可能会有...
+助理: [通过水]
+问题:你能关上门吗?
+助理: [关闭门]
+主题:谢谢,助理...
+你还记得我的名字!
++9.39 主题:前几秒钟...或者无论它是什么... ... 我看到的第一件事是房间解体,或者它变得非常精细在它的纹理某种程度上,一切,我的整个视野,
+因为我意识到它真的很强大... 然后我看着天花板... 我现在还有一点点的感觉... ...
+...所以你不需要理解我说的 (笑) 有趣的是我说,我想我记得说,这是一个巫师,然后我看着你,然后是你是巫师,然后有这个令人难以置信的... [叹息] ...这美丽的光环你周围,
+这可能是最好的画,而不是解释... ...
+[助理通过笔和纸]
+主题: 谢谢,很好...
+[主题画在纸上]
+只是很快,你就在那里,有这个... [高兴的笑声]...有这个,所以这就是它看起来像,在最基本的方式,这是你的脸,还有这个...
+真正重要的是我之前看到的,我不能准确地回忆起,但有什么...我可以看到心,像爱心,和这些红丝带再次,这些交错的红丝带... [沉重的叹息] ...这是一个男人,他是一个男性,还有猫,还有女性,也许猫是女性,还有爱心
+听起来像是The Cure的歌曲,但它既有视觉效果又有... 某人与我交流,那是一个巫师,一个医师,他真的...
+有点地狱般的,但令人难以置信的诱惑, 在这个意义上,有这个女性的东西,所有的子和红色,所有的子和红色...
+是一个大猫吗?
+我认为有很多家养的猫, 而不是像美洲虎这样的大猫, 我甚至没有想到美洲虎,
+你说它太美丽,无法描述.
+我希望我能记住它,我可以记住它,我希望我能记住它,我希望我能记住它.
+你说这是一个垂死的巫师...
+主题:我看到他在墙上,是的!
+是的!谢谢助理[笑声],我看到他在墙上,他躺在一个沼泽的血液,就像血,他有头骨周围,就像他躺在这个沼泽的尸体,有血而不是水,和头骨周围他的头像一个光环,他们被吐,这子吐
+这就是所有... [沉重的呼吸] ...但它是最仁慈的,你知道的,和仁慈的因为权力...
+这就像...绝对的仁慈...绝对的仁慈...它是色和红色,
+感觉就像有意识一样... 在某种意义上说,力量是控制恐怖的能力, 心里有如此强烈的恐怖,
+意识是存在的,但它没有屈服于这种恐怖,它没有恐惧,它只是站在那里观看,它是这件事的主人...它可以向其他人展示同样的恐怖,通过掌握它,它变得非常强大...它变得...它有这种惊人的力量...但它选择不表现这种力量...它选择...它是这种令人难以置信的仁慈
+这就好像仁慈与意识是同义词一样.
+[叹息]
+我只是试图解释我看到的东西, 我不是试图发音或任何东西, 我只是试图解释我看到的东西...
+这种意识是巫师的意识吗?
+后来我被带入了巫师的脑海,我看到了完全相同的东西,就好像巫师在给我看这个,这对我来说是药物...
+这是一种善意,这是一种药物,给了我,让我...
+你问了什么?
+你的意识是巫师的意识吗?
+我觉得是巫师表现出这种意识水平, 因为那时我看到那个垂死的巫师,
+他有没有呼吸很重?
+他躺在那里,看起来好像没有生命,全身满了血,他正处于死亡的边缘,
+他有没有特定的种族?
+是的,他是南美人,他是南美人,一个印度人,一个美国土著... [笑声] ...很难相信,也许只是因为我一直在读,
+我在见到他之前看到的东西,
+你让它听起来很抽象...
+我知道,我知道...这就是事情,它们是非常可视和真实的,但是当我把它们翻译成文字时,它们听起来完全抽象,我能听到...听起来像,听起来很陈词滥调,或者听起来...
+红色或色或黄色的光线, 这一切都非常暗示着当你生病时的妄想, 在医院里,你生病了,你变得妄想...
+那是恐怖开始的时候, 那是一个恐怖, 那是当我开始看到这个领域, 有爱心在这些丝带,
+...有这种可怕的恐惧, 和一些非常可怕的... 更多发生了, 但我没有在这里知道, 我的意思是,我几乎不能回忆,
+但这是我想到的东西... 还有黑色的毛皮... 和这个图案... 和某种女性力量...
+因为我已经失去了...
+助理: [听不见:关于开始的经验]
++27.31 主题:我的意思是它是立即的,一旦我抽烟,一切变得非常清晰,然后它就像我在向后移动非常快速,一切变得非常线性...所以你知道Adobe Paintshop,我有,我会给你以后,最好的方式来描述它不是当你点击图像,但当你&quot;寻找边缘&quot;......它提高图像
+这实际上是线条...
+然后,...我想我记得说&quot;,这是真正的南美东西&quot;,我说过吗?
+助理: [没有声音]
+问题:是的,这就是我试图说的... 就好像我心里有疑问,
+是的,我认为这是你说的第一件事之一,
+我觉得我没有办法再做一次, 因为我很快就失去了运动控制,
+我看到了植物...我看到了植物在一个山谷...你看到现在很难...我看到了植物在一个山谷,和植物是药,这是药师给我植物,这很简单...就像我只是从书中读出来,从一个巫师的书,你知道,哈纳的东西... [笑声]
+你想去散步吗?
+助理:你想出去散步吗?
+我不介意散步,我想我已经记得尽可能多的... 我只会慢慢起床,我感觉有些昏迷...
+所以这对你来说和我一样好吗?
+助理: [笑声] 是的!
+主题:这是真的吗?
+助理:...没有!
+主题: [笑声] ,好吧,对不起,它必须是非常无聊的...
+是的.
+我仍然感到相当,当我现在起床我仍然感觉有点浮动...
+助理:你想要一个手吗?
+我以为你会像尤里·加加林那样握我的手.
+主题: [试图站起来]该死的地狱...
+主题:听... [叹息] ...... 我应该说任何更多之前我忘了?
+也许我现在真的会记得更多,如果我出去,只是漫步,因为我有很多东西在录像带上,但它不是很详细,因为它很难记住我看到的... 和墙上的巫师,他只是令人难以置信的...
+我不确定他是不是纯粹的美洲原住民,还是他有一些西班牙血,我不确定... ... 他可能穿着羽毛... 他肯定穿着羽毛,
+也许他有一个骨头的项链或什么,它都是非常骨的...
+我看到的第一件事是令人难以置信的,但我不记得它是什么...我可以看到它,我可以看到模式,就好像它们进入我的身体,它们在风扇周围循环并进入我,这真的是...它的色,它们从红色到色到黄色,如果你能想象到恶心被视觉表达,就像恶心,
+我看到了很多猫在某种程度上, 他们在一个黑暗的房间里, 在房间里有这些红色的光线带在圆圈和波浪中移动,
+这就是巫师意识所克服的恐怖?
+不,这不是恐怖...恐怖是这个东西,我被显示...
+为了猫?
+首先是猫,但我并没有真正看到猫,它只是一个房间的风扇周围的图案,但那里有猫[笑声],不要问我如何,他们不是幻觉猫,他们是幻觉的爱心和红色和色和黄色的光带,
+这更复杂,因为有一些在你的胸部, 有趣的是,我可以在镜子里看到它们...
+在镜子里?
+主题:在镜子里,从后面看...这真是有趣的事情,当从前面看他们时,他们有一种对称性, 但他们在镜子里被完美地反映出来,
+我看到了药物,它是这种植物, 它以这些视觉模式表达...
+这是我记得的全部...
+现在是时候.
+主题的其他观察
+- 药物作用的开始 (瞬间,戏剧性和惊人的) 和视野的破裂可能有听觉的同时发生,
+视觉幻觉在前四分半分钟 (伴随着喊&quot;这是药师&quot;和&quot;它太美丽无法解释&quot;) 建议药物由一个无形的力量,
+这种药物有毒性非常突出.
+这种&quot;毒&quot;或&quot;药&quot;的结构似乎表现在这些早期的幻觉中,
+- 在与&quot;药物&quot;有关的早期经验阶段, 印象是我以前曾经经历过这种情况.
+尼采的意思是&quot;永恒的回归&quot;, 也就是说,我觉得自己是那些生活到达这个结局并服用了这种&quot;药物&quot;的人, 我发现了同样的秘密,
+- 尽管在药物诱导状态下, 视觉的&quot;现实性&quot;是压倒性的,
+- 下面详细的症状时间表表明,该疗程经验是由50-60毫克DMT肌肉内注射的吸入等效产生的.
+- 症状出现后的最初形象在事件发生后的七天内被记住 (或者至少看起来是&quot;记住&quot;),分段的,类似虫的带色,红色,黄色和黑色实际上是蛇从天花板风扇后面出现,似乎有三四个,它们逐渐向我走下来,似乎进入了我的心脏.
+这似乎部分反映了我被某种毒害的想法.
+症状时间表
++0.05: 视觉幻觉的出现,部分失去了运动控制
++0.19:中度恶心开始,心率增加
++0.19-1.57:轻度过度通风
++0.19-8.48:强烈的视觉幻觉,总体的运动控制丧失,自发的头部从一边到另一边的运动只可能间歇性,言语只可能间歇性,强烈的口渴伴随着无法向助手传达问题,连续重/艰苦的呼吸和恶心的重复周期 欢喜伴随着笑声 静止
++8.48:强烈视觉幻觉的减缓,定期恶心的减缓
++8.48-9.02:部分回归和视觉幻觉的结论
++9. 39-38. 34: 运动控制恢复,回忆幻觉经历,持续的意识变化感,没有幻觉,逐渐缓和的重呼吸/轻微的高兴感伴随着笑声,轻微的记忆障碍,身体虚弱
+时间表: 58407
+木 (77):实体/生物 (37),导游/护理 (39),一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Dying Shaman on the Wall
+Acacia
+by
+Philemon
+Citation:   Philemon. &quot;Dying Shaman on the Wall: An Experience with Acacia (exp58407)&quot;.
+Erowid.org
+. Jan 2, 2007. erowid.org/exp/58407
+DOSE:
+smoked
+Acacia
+(extract)
+BODY WEIGHT:
+60 kg
+DMT/5-MeO-DMT Administration Session
+Audio Tape Transcript
+(DMT isolated from Maiden’s Wattle and smoked)
+11.10AM, Saturday 8/6/02
+SETTING
+SUBJECT sitting in well-lit room on large bed, arranged with pillows for comfortable reclining. Two large sliding windows with light curtains half-drawn leading to verandah, sunlight filtering through from the East. Stationary ceiling fan directly above the bed, white sloping ceiling, walls painted with pink-red textured paint, to the right of SUBJECT is a full-length sliding double mirror/wardrobe, in front of which sits ASSISTANT on wheeled office chair. Tape recorder lying at side of bed, distance between SUBJECT and ASSISTANT is some three metres (hence occasional inaudibility of ASSISTANT on recording). In the days prior to the session, SUBJECT had been reading literature on DMT trance and South American shamanic experience (Harner et. al.).
+Time intervals in minutes and seconds are measured from point of drug administration. In the latter descriptive phase of the session, time intervals are generally only given when certain physiological or psychological effects of the drug are still apparent in the dialogue (see Symptomatic Timeline at end of transcription).
+TRANSCRIPTION
+-1.03 SUBJECT: [Issuing final instructions to ASSISTANT whilst lighting pipe] That’s the important thing, to take this pipe in case I pass out…
+-0.31 SUBJECT: I might hand it to you, but in case I don’t…
+-0.18 SUBJECT: I can’t see any smoke…
+0.00 [toke]
++0.05 SUBJECT: [rapid onset of drug action, passes pipe to ASSISTANT] Oh! I think that’s enough… [SUBJECT lies down]
++0.19 SUBJECT: [groan]… Jesus Christ…
+[gasp]
++0.29 SUBJECT: This is the real… South American stuff…
+[heavy breathing]
+[gasp]
+[gasp]
++1.57 SUBJECT: It’s the medicine man…
+[faint laugh]
+[sigh]
++2.54 SUBJECT: It’s too beautiful to explain.
+[laughter]
+[gasp]
+[laughter]
++4.24 SUBJECT: [groan]
+[heavy breathing]
++4.51 SUBJECT: I can see a dying shaman on the wall… um… and there’s…
+[heavy breathing]
+[increased heavy breathing]
+[laboured breathing]
+[heavy sigh]
+[heavy breathing]
+[euphoric laughter]
++8.08 SUBJECT: I’m trying to talk to you but it’s really difficult…
+[euphoric laughter]
+[chuckling]
+[heavy breathing]
++8.48 SUBJECT: You see now it’s just a memory.
+[ASSISTANT inaudible]
+SUBJECT: No, it doesn’t.
+SUBJECT: I’m just going to try to recall what I saw, but it’s really difficult…
++9.02 SUBJECT: Oh, it’s going already.
+SUBJECT: Would you mind getting me some lemonade?
+SUBJECT: I think there might be some downstairs… oh, no, here it is here actually…
+ASSISTANT: [passes lemonade]
+SUBJECT: Could you close the door?
+ASSISTANT: [closes door]
+SUBJECT: Thanks, ASSISTANT…
+ASSISTANT: You still remember my name!
++9.39 SUBJECT: The first couple of seconds… or whatever it was… um… The first thing I saw was the room disintegrating, or it was becoming really fine in its texture somehow, everything, the whole of my visual field, and then it was just… this shattering, just like a shattering… a shattering of this fabric… and then I just had to lie down, because I realised that it was really powerful… then I was looking at the ceiling… and I still have a little bit of the sense of it now… um… and there was something really frightening, and incredibly powerful, and not deathly frightening in the sense of… it was a benevolent spirit, but it had such incredible power, um… so you don’t have to understand what I’m saying [laughter]… The funny thing was that I said, I think I recall saying, it’s a medicine man, and then I looked towards you, and then it was you who was the medicine man, and then there was this incredible… [sigh] …This beautiful halo around you, and it was like the whole thing which I’d seen from the beginning, it was like a geometric pattern, which it’s probably best to draw rather than to explain… um…
+[ASSISTANT passes pen and paper]
+SUBJECT: Oh thanks, great… and anyway, this…
+[SUBJECT draws on paper]
++12.14 SUBJECT: Just making it very quickly, you were there, and there was this… [euphoric laughter]… there was this, so that’s what it looked like, in the most basic way, that’s your face, and there was this… and they were like this… um… interlocking red ribbons moving in a circle. The really important thing was what I saw before, and I cannot recall it exactly, but there was something… I could see hearts, like love hearts, and these red ribbons again, these interlocking red ribbons… [heavy sigh] …and it was this guy, he was a male, and there were cats, and there were females there too, maybe the cats were the females, and there were love hearts, really sounds like a Cure song [laughter], but it was both visual and… um… and it was someone communicating to me, and it was this shaman, this medicine man, but he was really… and he was showing me something, but he was just showing me his own mind, I think, and it was really frightening, I mean the things that were in his mind were like… it was like a hell realm, there was something hellish about it but incredibly seductive, in the sense that there was this feminine thing there, all oranges and reds, all oranges and reds… there was this sort of cat, female cat… um…
+ASSISTANT: Was it a big cat?
+SUBJECT: Um… my idea was there were lots of domestic cats, and it wasn’t a big cat like a jaguar, and I hadn’t even thought of a jaguar until I said it now, obviously it might have formed some sort of expectation, because I’d read about jaguars… but this was someone communicating to me in spirit form… I wish I could remember it…
+ASSISTANT: You said it was too beautiful to describe.
+SUBJECT: Yeah, it still is… I wish I could remember it… I can remember it…
+ASSISTANT: You said it was a dying shaman…
+SUBJECT: I saw him on the wall, that’s right! Yes! thank you ASSISTANT [laughter], I saw him on the wall, and he was lying in a swamp of blood, it was like blood, and he had skulls all around, it was like he was lying on this morass of bodies in a swamp, there was blood instead of water, and the skulls were all around his head like a halo, and they were covered with vomit, this orange vomit, which was coming out of their eyes… [sigh] …and that’s it, that was all there was… [heavy breathing] …but it was the most benevolent thing, you know, and benevolent because of the power… it’s as if, you know, I could do this, but I choose not to. It’s like… absolute benevolence… absolute benevolence… it was orange and red, and there were circulating patterns, asymmetrical circulating patterns…
+It was as though there was a consciousness there as well… [heavy breathing]… In a sense the power was the ability to contain the horror, there was such an intense horror at the heart, but it wasn’t really the heart, because somehow there was consciousness there as well, and it was like “Here consciousness is standing, in the midst of this, and it’s not… it’s triumphant, the consciousness is there, but it’s not succumbing to this horror, it’s not afraid, it’s just standing there and watching, it’s the master of this… and it can show other people the same horror, and through mastering it, it becomes incredibly powerful… it becomes… it has this amazing power… but it chooses not to manifest this power… it chooses… it’s this incredible benevolence, it’s as if somehow benevolence was synonymous with consciousness…. it’s… that’s really it…
+[sigh]
+It’s just a matter of concrete [inaudible], I mean that sounds ridiculous, I’m just trying to explain what I saw, I’m not trying to pronounce or anything, I’m really just trying to explain what I saw…
++21.16 ASSISTANT: Was the consciousness the shaman’s consciousness?
+SUBJECT: It was mine as well as the shaman’s, it was the shaman showing me this, then somehow I… then I was transported into the mind of the shaman, I was seeing exactly the same things, it was like the shaman was showing me this, and this was medicine for me… it was medicine for me… this was the medicine… I’m remembering it as I go there… this was the medicine, I mean this was the benevolence of it, this was a medicine that was being given to me, to make me… better, to heal me in some way…. Um… what did you ask?
+ASSISTANT: Was your consciousness the shaman’s consciousness?
+SUBJECT: Yeah, I think it became mine, I think it was the shaman showing this level of consciousness, that’s how it was, because then I was seeing the dying shaman, and he was lying there in this pool of blood, this swamp… uh…
+ASSISTANT: Was he breathing heavily?
+SUBJECT: Uh… he was dead, he was lying there, it looked like he was lifeless, he was covered in blood, and he was just at the point of dying, the light was flickering out of his eyes, he wasn’t moving, and it was like his eyes were just beginning to glaze over.
+ASSISTANT: Did he have a particular ethnicity?
+SUBJECT: Yeah, he was South American, he was a South American guy, an Indian, a native American… [laughter] …it’s hard to believe, maybe its just because of what I’ve been reading, but he was fucking there, on the fucking wall….
+The things I saw before I saw him, that was incredible…
+ASSISTANT: You make it sound rather abstract…
+SUBJECT: I know, I know… this is the thing, they’re incredibly visual and real, but they sound totally abstract as I translate them into words, I can hear that… and it sounds like, it must sound clichéd, or it must sound… but this is what I saw, and the point being, that the visuality of it was so tied up with its meaning, that I could see things moving around the [ceiling] fan here, and again it was these ribbons of light, of red or orange or yellow light, and it was all very suggestive of delirium when you’re sick, of being in hospital and you’re sick and you become delirious… and… [sigh] …and then there was this… this pattern was moving around… this fucking propeller [the ceiling fan, the word had temporarily escaped the SUBJECT’s recollection]…
+and um… that was when the horror began, it was a horror, that was when I was beginning to see this realm, and there were love hearts within these ribbons which were moving in these circles, and I can’t recall exactly what I saw, I just remember vaguely that I saw lots of cats, lots of domestic cats, and there was something female there, associated with these shapes, and um… there was this terrible fear, and something really horrible… a lot more happened, but I wasn’t here to know, I mean, I can hardly recall it, and I can’t bring it back completely, maybe if one masters the drug in some way, maybe if one was raised with such an incredible thing, one could recall it all better… it was like voodoo as well, I don’t know why it was like voodoo, but that’s something that came to mind… and there was this black fur… and this pattern… and a feminine power of some sort… what was the other question you were going to ask? Because I’ve lost…
+ASSISTANT: [inaudible: concerning beginning of experience]
++27.31 SUBJECT: I mean it was immediate, as soon as I smoked, everything became incredibly sharp, and then it was as if I was moving backwards really rapidly, everything became very linear… so do you know Adobe Paintshop, which I have, I’ll show it to you later, the best way to describe it is not when you pointillize an image, but when you ‘Find Edges’… It sharpens the image and it actually makes lines…
+And then, um… I think I recall saying, “this is real South American stuff”, did I say that?
+ASSISTANT: [inaudible]
++29.20 SUBJECT: Yeah, that’s what I was trying to say… it’s as if there was some doubt in my mind that this stuff was very powerful…
+ASSISTANT: Yeah, I think that was one of the very first things you said, was that [inaudible]
+SUBJECT: Yeah, I think that’s when I handed it [the pipe] to you, when I realised there was no way I was going to be able to take a second toke, because I was very rapidly losing motor control, and I had to lie down…
+I saw plants… I saw plants in a valley… you see now it’s difficult… I saw plants in a valley, and the plants were the medicine, and this was the medicine man giving me the plants, it was so simple… it’s as if I just read it out of a book, out of a shaman book, you know, Harner’s stuff… [laughter]
+Do you want to go for a walk?
+ASSISTANT: Would you like to go for a walk?
++31.00 SUBJECT: I wouldn’t mind going for a walk, I think I’ve recalled as much as I can… I’ll just get up slowly, I’m feeling rather groggy…
+So was it as good for you as it was for me? [laughter]
+ASSISTANT: [laughter] yes!
+SUBJECT: It was really?
+ASSISTANT: um… no!
+SUBJECT: [laughter] Oh, okay, sorry, it must have been really boring… how long did it happen for, about half an hour?
+ASSISTANT: Yeah.
+SUBJECT: I still feel quite buzzy, and as I get up now I still feel a little bit hovery… but it’s a very benevolent drug, it’s not like LSD…
+ASSISTANT: Do you want a hand up? [offers hand to SUBJECT]
+SUBJECT: Oh, sorry, I thought you were going to shake my hand… like Yuri Gagarin [laughter]
+SUBJECT: [tries to stand] Fucking hell… oh my god…
+SUBJECT: Listen… [sigh] …um… should I say anything more before I forget? Maybe I’ll actually recall more now if I do go out and just wander, because I’ve got a lot of stuff on the tape, but it’s not very detailed, because it’s difficult to remember what I saw… and the shaman on the wall, he was just unbelievable… and it’s great that I’ve got these particular walls, this particular paint job, because it has these slightly structured paint brushes, which somehow made it easier, because I could see him here, but he was dark-skinned, just brown-skinned, and I don’t know if he was actually pure native American or if he had some Spanish blood, I’m not sure… um… he might have been wearing feathers… he was definitely wearing feathers, they were red and black feathers, and there was a halo of skulls, and maybe he had a necklace of bones or something, it was all very bony…
+The first thing I saw, that was unbelievable, but I just can’t recall what it was… I can see it, I can see the patterns, and it was as if they were coming into my body, they were circulating around the fan and coming into me as well, it was really… the orangeness of it, they were changing from red to orange to yellow, and if you can imagine nausea being expressed visually, it was like nausea, but then there was this consciousness there, which was this female, that appeared like a cat… I saw lots of cats in some way, they were in a darkened room, and within the room there were these red ribbons of light moving in circles and waves, very serpentine… but what I saw then, that was… I can’t say what it was…
+ASSISTANT: That was the horror which the shamanic consciousness surmounts?
+SUBJECT: No, that wasn’t the horror.. the horror was this thing which I was being shown…
+ASSISTANT: For the cats?
+SUBJECT: With the cats… with the cats, but when I saw the shaman… but first it was the cats, but I didn’t really see cats, it was just this room with patterns going around the fan, but there were cats there [laughter], don’t ask me how, they weren’t hallucinated cats, they were hallucinated love hearts and ribbons of red and orange and yellow light which were segmented like worms, and they were moving in this way around your head like this, and it was more complicated because there were some here around your chest, and the funny thing was that I could see them in the mirror…
+ASSISTANT: In the mirror? [laughter]
+SUBJECT: In the mirror, from behind… that’s the really funny thing, there was a symmetry to them when looking at them from the front, but they were reflected perfectly in the mirror, it wasn’t the same image, it was a reflected image… Then it was like, “well, there’s no point talking to you, because you are the medicine man” [laughter], I mean it was the same medicine man, that’s the whole point. And I could see the medicine, and it was this plant, and it was expressed in these visual patterns… and I saw this valley, where the plant is gathered.
+That’s about all I can remember…
++38.34 (11.49AM)
+FURTHER OBSERVATIONS BY THE SUBJECT
+- The onset of drug action (which was instantaneous, dramatic and startling) and the break-up of the visual field may have had an auditory concomitant, something akin to the sound of plastic film being torn.
+- The visual hallucinations in the first 4 and a half minutes (accompanied by the exclamations “It’s the medicine man” and “It’s too beautiful to explain”) suggested the administering of a medicine by a disembodied power, a medicine which was also a poison. The poisonous aspect of the ‘medicine’ was very prominent. The structure of this ‘poison’ or ‘medicine’ appeared to be expressed in these early hallucinations, something akin to a Paracelsian ‘signature’ possessed by the drug seemed evident in the visual patterning.
+- During those early stages of the experience pertaining to the administration of a ‘medicine’, the impression that this had happened to me before was very strong. There was an inkling of an ‘eternal return’ in the Nietzschean sense, i.e. the impression that I was standing within a long lineage of those who had reached this juncture in their lives and taken this ‘medicine’, and that I had discovered the same secret, or that I was in fact the same person taking this drug in an infinite succession stretching forwards and backwards in time.
+- Despite the overwhelming sense of the ‘reality’ of visions whilst within the drug-induced state, my limited researches on DMT trance and South American shamanism were clearly evident in attempts to make sense of the experience, during both the initial hallucinatory phase and the latter descriptive phase of the session.
+- The symptomatic timeline detailed below suggests that the session experience was produced by the inhaled equivalent of @50-60mg DMT administered intramuscularly.
+- The initial imagery directly after the onset of symptoms was remembered some seven days after the event (or at least it appeared to be ‘remembered’), the segmented, worm-like ‘ribbons’ of orange, red, yellow and black were in fact snakes emerging from behind the ceiling fan, there appeared to be three or four of them, which gradually wound their way down towards me and seemed to enter my heart. This seemed to be, in part, a reflection of the notion that I had been poisoned in some way.
+SYMPTOMATIC TIMELINE
++0.05: Onset of visual hallucinations, partial loss of motor control
++0.19: Onset of moderate nausea, increased pulse rate
++0.19-1.57: Mild hyperventilation
++0.19-8.48: Strong visual hallucinations, general loss of motor control, voluntary head movements from side to side only intermittently possible, speech only intermittently possible, strong thirst accompanied by inability to communicate the problem to ASSISTANT, repeated periods of successive heavy/laboured breathing and nausea – euphoria accompanied by laughter – quiescence
++8.48: Subsiding of intense visual hallucinations, subsiding of periodic nausea
++8.48-9.02: Partial return and conclusion of visual hallucinations
++9.39-38.34: Return of motor control, recounting of hallucinatory experience, lingering sense of altered consciousness without hallucinations, progressively subsiding waves of heavy breathing/ mild euphoria accompanied by laughter, slight memory impairment, physical weakness
+Exp Year: 2002
+ExpID: 58407
+Gender: Male
+Age at time of experience: Not Given
+Published: Jan 2, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Acacia (77) : Entities / Beings (37), Guides / Sitters (39), General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

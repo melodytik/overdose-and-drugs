@@ -1,0 +1,353 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲基 - 埃洛伊德的经验 - &quot;甲基项目&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/methcathinone.html'>← 甲氧卡西酮</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲基 - 埃洛伊德的经验 - &quot;甲基项目&quot;</h1>
+<div class='sub-title'>Methcathinone - Erowid Exp - &#x27;The Methcathinone Project&#x27;</div>
+<div class='meta'>作者：Anonymous Citation · 日期：Jun 14, 2000 · <a href='https://erowid.org/experiences/exp.php?ID=1792' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我找不到其他有关该建筑的资料.
+我发现其中一种同位素有时被称之为甲氨酸.
+,这听起来很熟悉, 由于&quot;甲&quot;是一种酒精,
+结合了这一事实, 乙不过是n-甲基, 很明显: 一个人只需要氧化乙的基组到一个基,
+作为有机化学中的所有东西, 这需要几次尝试 - 我正在想出自己的新合成...
+我提取了乙, 然后添加二酸盐溶液.
+没有发生什么事.
+,这不是很酷.
+我转过身来,抓住一个和我一起上有机化学课的,问她 - - 比如说,如果二酸盐不起作用,你用什么来氧化二级酒精?
+她建议酸,所以我扔了一些.
+很快,我闻到了一些甜味.
+我问:&quot;类的味道很甜,对吧?
+&quot;是的 - - 几乎总是&quot; &quot;这闻起来像一个关键音吗?&quot; &quot;是的.
+这是一件好事.
+我先为它绘制整个该死的结构图.
+她只是看了看,说.
+我实际上去教师那里的安非他命的结构写在一张纸上与dl-phenylalanine旁边,只是看着他们,说&#x27;我如何让这去那,我一直好奇一些自然过程发生在一些植物&#x27;他们给我一个完整的工作合成减少氨基酸.
+他们知道这么多方法, 却不认识毒品的本质 - - 我完全相反 - - 充满了惊奇和问题,
+解决方案变成黑色当我试图干燥它.
+我有一个有效的合成, 根据气味的证据, 但不是一个好的.
+由于埃弗得林的价格高昂, 并且我没有信用卡可以购买, 我转向了流行鼻腔除血剂伪埃弗得林进行进一步的研究 - - 房子里有大量的假埃弗得林,
+这显然是我唯一的命运发生的地方 - - 我最终开发了一种似乎不会与乙作用的合成 (我只试过两次,两次都产生了大量的乙)
+校园里的许多实验室,甚至生物学实验室, 都有大量的子.
+我拿了大概50克的东西, 直到今天,
+我注意到一个奇怪的东西, 当我合成猫...
+我使用的KMnO4越少, 合成效果就越好!
+我最终使用了大约五分之一的理论用量,
+我仍然不确定为什么, 但我怀疑该溶液以某种方式从空气中提取氧气 (可以理解),
+我最后的合成和提取涉及用浸泡在纯净水中的纸巾清洗药片 (使用纯净的,而不是标签,水在这里似乎非常重要.
+我怀疑某种程度上参与了这种反应的抑制, 因为我洗时能闻到的味道) 然后将它们在纯水中,
+我会去除沸的溶液, 并添加大约5mL的HCl从&quot;jasco混凝土清洁剂&quot;每3g的伪.
+我会把混合物起来,然后让它静止下来,用火把上层 (液体) 去掉,然后丢弃填充剂.
+我把KMnO4加入到这个红色的溶液中,
+需要少量, 反应速度越快.
+我还不知道是多少最好,但我用了几滴的混合物我做了大约.
+然后我在微波炉中反复煮沸10分钟,
+通过做一个&#x27;酸盐洗&#x27;我能够得到一个薄的水晶/粉末.
+酸盐洗只包括在干燥物料上倒酸盐,很好地旋转,然后丢弃酸盐 (猫酸盐不会溶于酸盐,至少不太好).
+也会去除令人烦的红色!
+这种粉末在与花生黄油混合时, 给老鼠带来了很大的成, 并且老鼠对甲基丁有着绝对的偏好 - - 始终选择含甲基丁的花生黄油, 而不是含花生黄油,含糖的花生黄油和含伪和的花生黄油.
+我确定甲基因因每毫克引起的可能性是大约两倍 - - 不管甲基是&quot;切断&quot;的,还是仅仅是胺等 - - 在小鼠中.
+时间来了,人类的审判.
+我口服了一剂大约20毫克左右,
+半小时后, 我感觉自己有了很大的进步.
+像我已经喝了400-600毫克的咖啡因,
+只有高是更愉快的.
+之前的经验让我感到放松, 准备好注意.
+梅斯卡丁让我变得傲慢,不安.
+我想要在城市里快速开车,
+我给了一个朋友,
+据我所知, 这是全加州首次吸入甲基 - - 记住,
+所以我从我们躺着的试管中抽出了一些.
+我只是把它塞进管的底部用足够的NaHCO3来中和溶液.
+混合物干燥并开始产生蒸气.
+我用手指堵住了管子,
+我感觉醒了, 但没有那么大的效果.
+然后我吸了一些.
+我认为这是我成为&quot;瞬间上&quot;的时刻. 任何地方的使用者 - - 我给它的人 - - 似乎都同意 - - 与可卡因不同, 吸入甲基是最强的途径进入你的身体系统 (没有人足够愚蠢去试图注射它, 但这可能更强).
+我从来没有像其他人那样睡三四天,
+如果我说了不止一两句话, 就会产生反作用, 让我感到紧张, 烦, 无法集中注意力.
+我更有活力,更能跳跃, 仍然无法集中注意力,
+我仍然设法搞了我的生活, 然而, 我被出了我的房子, 开始住在我的车里, 在任何我能找到微波炉和干机的地方合成猫.
+后来我变得很偏执,
+他们听我说话,和尿-测试我.
+没有药物 (没有测试甲基 - - 他们认为我做的是速度或很多什么?)
+他们说第二天我会得到哈尔多尔镇静我,但我应该去睡在一个房间.
+我认为 - - ,镇静剂,很酷,处方药也是 - -
+绝不要求服用抗精神病药物,
+接下来的几天, 我实在太麻醉了, 无法跟他们争论我的病情,
+虽然我被自愿录取 (我认为 - -  - - 免费的食物和床!
+我有权拒绝药物治疗.
+幸运的是, 哈尔多尔的副作用和它的补充药物,
+他们不得不把我从它, 他们把我放在&#x27;Risperidol&#x27;, 一个新的, 太贵的抗精神病药物 这是一个奇迹药物
+我再次醒悟, 并开始与医生交谈.
+心理医生意识到我比他更了解大脑化学和化学受体, 他们终于听了猫故事.
+他是个上者, 他刚刚患上一种俗称的&quot;安非他命精神病&quot;
+他们让我在子的另一边另一个星期,只是为了安全.
+这是我一生中最无聊的时光.
+然后他们把我从Risperidol中取下来,
+我在那里学到了很多关于我的家人的知识, 但没有人知道我经历了什么,
+我一直在寻找漏洞, 我不得不寻找一种刺激剂 (除了咖啡因),
+他们把我放在里塔林一旦他们确定我可以信任它.
+我讨厌它 - - 里塔林让我一直感到昏昏欲睡.
+我把它放到我的下面, 然后把它送给一个因间歇性使用安非他命和慢性抑郁症而在那里的女人.
+她喜欢这些该死的东西.
+当然,她也没有ADHD...
+后来我离开了康复中心, 搬到了奥克斯纳德.
+我没有猫.
+然后我的房间烧毁了, 我住在车库里两个星期.
+这太糟糕了.
+之后,我搬到了文图拉.
+在遇到一些老朋友后, 我决定让他们也去猫.
+我自己也再次使用了它 - - 两个星期,
+我决定要控制自己.
+有趣的是,我做了. 早上我做了一条线,然后在白天.
+我认为我搞了食谱 (我没有) 并把猫扔掉了!
+在此时,我和许多人注意到了令人惊的事情.
+品牌&quot;苏达菲德&quot;在磨碎时, 微微闻到甲基的味道!
+其他任何降血剂都没有这种特性.
+无论这是否是一个意外, 伯劳斯威尔康姆应该查看它.
+另一方面,也许这就是为什么人们会支付14美元的sudafed而不是3美元的suphedrine.
+两天后, 我陷入了人生中最严重的抑郁.
+这持续了大约3或4天.
+我甚至无法移动 - - 我太丧了,
+我只是躺在沙发上,看电视很丧,试图睡觉.
+我一定每天睡20个小时.
+很有趣,我也没有把这归因于退出,
+我花了大约一周的时间, 回头看自己, 才意识到发生了什么.
+我从那以后就没有做过猫.
+希望有人能研究它与受体结合的相关性以及它对多巴胺和血清素的反吸收的影响,
+这种药物叫做Wellbutrin, 我现在用它来治疗ADHD - - 似乎是猫药和里塔林药之间的平衡.
+唯一让我对威尔巴特林感到遗憾的是它的气味 - - 有时让我想起猫.
+化学结构:
+/ 没有!
+没有!
+没有
+其他: 其他: 其他
+没有!
+没有!
+没有!
+没有
+没有.
+胺 胺 丁
+甲 (在哈特地区发现的)
+和阿德罗尔含有) 和常用的草药成分.
+许多塞尔维亚人)
+其他药物)
+没有.
+_____ HCH _____ OH HCH _____ O HCH 其他
+/ 没有!
+没有人知道.
+没有
+其他: 其他: 其他
+没有!
+没有!
+没有!
+没有
+没有.
+甲胺类伪丁 -或 - 甲丁
+德索克辛,美他德林,德林 (也称为德龙,德林)
+&quot;速度&quot;,&quot;水晶&quot;在的位置上) &quot;杰夫&quot;,&quot;猫&quot;)
+(Sudafed,Suphedrine) 没有任何其他
+(马克西勒特,迷你薄型)
+没有合法的医疗用途的甲或甲.
+没有
+美国
+没有.
+_____ O C布罗 (韦尔布特林)
+/ 没有!
+没有
+&lt; 0 &gt;-C--C--N HCH一种有气味的抗抑郁药
+没有!
+像猫一样有用
+/ HCH在ADHD中是因为它有能力
+这种药物会阻断多巴胺的再吸收.
+截止日期:1792年
+甲基 (81):各种 (28),培养/合成 (31),抑郁症 (15),成和习惯性 (10),火车事故和旅行灾难 (7)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+The Methcathinone Project
+Methcathinone
+by
+Anonymous
+Citation:   Anonymous. &quot;The Methcathinone Project: An Experience with Methcathinone (exp1792)&quot;.
+Erowid.org
+. Jun 14, 2000. erowid.org/exp/1792
+DOSE:
+Methcathinone
+I guess it all started when I heard about a new drug craze that had just been detected in Michigan by the local authorities. I&#x27;d say it was somewhere around the middle of 1993. A year ago I&#x27;d been diagnosed with ADHD, also known as hyperactivity, and I wondered if I couldn&#x27;t make CAT and use it to help me with school in the same manner Ritalin and other amphetamines are used.
+I decided to look into the matter - methcathinone sounded like speed. All I had to go on was that it was made from ephedrine, and that it was named methcathinone. I could find no other references to the compound.
+One day, by chance, as I was looking up the entry for Phenpropanolamine, the active ingredient in Dexatrim, I noticed that one of its isomers was sometimes called cathine. Hmm - that sounds familiar - and being that &#x27;cathine&#x27; is an alcohol of sorts, its ketone complement might just be named cathinone!! Combine this with the fact that ephedrine is none other than n-methyl cathine, and it becomes obvious: one simply needs to oxidize the hydroxyl group of ephedrine to a keytone to produce methcathinone.
+As all things go in organic chemistry, this required a few tries - I was coming up with a novel synthesis of my own... which would have been much easier had I knew then what I do now ;)
+My first attempt involved Ephedrine bought at an outrageous price from the local GNC mart, which incedentially no longer carries them. I extracted the ephedrine and then added potassium dichromate solution. Nothing happened. Well shit, this is uncool. I turned around and grabbed a chick who was in my organic chem class, and asked her - say, what do you use to oxidize a secondary alcohol if dichromate doesnt work? She suggested potassium permaganate, so I chucked some in. Soon enough, I smelled something sweet. &#x27;Ketones smell sweet, right&#x27; I asked.
+&#x27;Yes - almost always&#x27; &#x27;Does this smell like a keytone to you?&#x27; &#x27;Yes. What is it?&#x27;
+I then preceded to diagram the whole damn structure for it. She just looked at it and said wow. I&#x27;ve actually gone up to instructors there with the structure for amphetamine written on a piece of paper with dl-phenylalanine next to it, and just looked at them and said &#x27;how would I make this go to that, i&#x27;ve been curious about some natural processes occuring in some plants&#x27; and they give me a full working synthesis for the reduction of amino-acids. They know so much method but do not recognize a drug for what it is - I am the exact opposite of this - full of wonder and questions but never the right answers.
+In any case, I added way to much permaganate, and the solution turned black when I attempted to dry it. I had a working synthesis, as evidenced by the odor, but not a GOOD one. Because of the price of Ephedrine, and my lack of credit cards for mail order, I turned to the popular nasal-decongestant pseudephedrine for further research - there was tons of it lying around the house, and it&#x27;s reletively cheap, ranging from $3 per 100 for really cheap generic to $14 for brand-name &#x27;Sudafed&#x27;.
+This is apparently where a twist of fate unique to me occured - I ended up developing a synthesis that apparently will NOT work with ephedrine (I have only tried twice and both times produced lots of ephedrine)
+I was pleased with permaganate as an oxidizer - it was strong as far as oxidizers go - and plentiful. vey lab on campus, even the biology labs, had a shitload of it - entire jars just lying around. I took maybe 50 grams of the stuff - and to this day have used very little of it. You see, I noticed a strange thing while I was synthisizing cat... The less KMnO4 I used, the better the synthesis seemed to work! I ended up using about 1/5th what I needed in theory to produce optimal results. I&#x27;m still not sure why, but I suspect the solution somehow pulls oxygen out of the air (understandable) and then uses it, with KMnO4 only initiating the reaction.
+My final synthesis and extraction involved washing the tablets with a paper towel soaked in PUREFIED WATER (using pure, not tab, water seems very important here. Mineral water will work, but not tap - I suspect chlorine is somehow involved in this inhibition of the reaction as I can smell chlorine when I take a shower) then smashing them in pure water until well mashed, then boiling in a microwave. I&#x27;d remove the boiling solution, and add about 5mL of HCl obtained from &#x27;jasco concrete cleaner&#x27; for every 3g of pseudephedrine. I&#x27;d stir the mixture, and then let sit until settled, bringing the top (liquid) layer off with a turkey baster and discarding the filler.
+To this somewhat red solution, I added KMnO4, already disolved. A rediculously small amount - it *IS* needed, and the more you use the faster the reaction goes. I still don&#x27;t know how much is optimal, but I used a few drops of what from a mixture i&#x27;d made with about .5 Molar concentration. Then I boiled this repeatedly for 10 minutes in a microwave, and dried the stuff out to a powder. By doing an &#x27;acetone wash&#x27; I was able to get a flaky crystal/powder. The acetone wash consists of nothing other than pouring acetone over the dried stuff, swishing around very well, and then discarding the acetone (cat HCl wont disolve in acetone, at least not very well). The acetone removes the annoying red color too!
+The resulting powder proved quite addicting to rats when placed in a mixture with peanut butter, and the rats had a deffinite preference for methcathinone - consistently choosing methcathinone-laced peanut butter over both peanut- butter, sugar-laced peanut butter, and pseudephedrine and ephedrine-laced peanut butter. With some methamphetamine obtained from a semi-reliable source, I determined that methcathinone was about twice as likely to cause convulsions per miligram - however the methamphetamine *may* have been &#x27;cut&#x27; or merely amphetamine, etc - in mice. The time had come for a human trial.
+I orally took a dose of about 20mg or so, mixed with orange juice to mask the annoying alkaloidal taste. In about 30 minutes I felt quite speeded up. Like I&#x27;d taken around 400-600mg of Caffeine when I hadn&#x27;t had ANY in weeks! Only the high was more pleasant. Hmm - spiffy - this was not the reaction I had anticipated - previous experience with both ephedrine and amphetamine had left me feeling relaxed and ready to pay attention. Methcathinone made me uppity, and restless. I wanted to party and drive fast all around town, etc.
+I gave some to a friend, who snorted it. This was the first time methcathinone was snorted in all of california to my knowledge - bear in mind that at this time the recipe was not on the internet and was selling for over $100 from person to person - a wholely different and much more difficult recipe it turns out.
+So I smoked some out of a test tube we had lying around. I simply stuck it in the bottom of the tube with enough NaHCO3 to neutralize the solution. The compund dried and began to produce vapors. I stoppered the tube with my finger, allowing little gas to escape, until the tube was full of vapor and my thumb was hot. I took a hit - and felt more awake instantly, but not all that great of an effect.
+Then I snorted some. I think it was at this point that I became &#x27;instantly addicted.&#x27; Users everywhere - everyone I gave it to - seemed to agree - unlike cocaine, snorting methcathinone is by far the strongest route to your bodies system (no one was dumb enough to try injecting it, but that&#x27;d probably be stronger yet).
+I never stayed up for three or four days on it, like other people did, but I think its the ADHD behind that. If I did more than a line or two, it had a reversing effect, making me just jittery, irritated, and unable to concentrate. One line worked best - I was more energetic and bouncy, still not really able to focus my attention, but very hyper and happy. I still managed to screw up my life, however, and got kicked out of my house and started living in my car, synthesizing cat wherever I could find a microwave and a hairdryer to dry it. Eventually I became quite paranoid, and was checked into an institution by my still unsuspecting parents.
+They listened to me talk, and piss-tested me. Nope, no drugs (methcathinone was not tested for - they thought I was making speed or a lot of nothing?) and proceeded to diagnose me as &#x27;Schizoaffective Bipolar&#x27;. They said the next day I&#x27;d be getting Haldol to sedate me, but that I should just go to sleep in a room. I thought - hey, downers, cool, prescription ones too - and said lemme have it now. OOPS. -- never ask for antipsychotic medication, it makes you feel like shit evey time, unless you are psychotic or something naturally --
+For the next couple of days, I was really too damn sedated to argue with them about my condition, nodding out all the time and not being able to even slighly think. I was too sedated to even realize that Haldol was the cause of the problem and kept taking it like a meat-head, even though I was admitted on a voluntary basis (I thought - hey - free food and a bed! I was a total meat- head) and had the right to refuse medication. Lucky for me, the side-effects of Haldol and its compliment-drug, cogentin, which is supposed to prevent side effects, made me totally unable to piss. They had to take me off of it, and they put me on &#x27;Risperidol&#x27;, a new, fucking-expensive antipsychotic that is a miracle-drug for people with schizophrenia, but still useless for normal people.
+I became lucid once again, and started talking with the doctors. Once I had totally confused the psychologists, and the psychiatrist realized I knew more about brain-chemistry and chemical receptors than he did, they finally listened to the cat story. &#x27;Oh, he&#x27;s an addict, and he just had whats commonly called &#x27;amphetamine psychosis&#x27;&#x27; YEP.
+They kept me on the nut-bin side for another week, just to be safe anyways. It was the most boring time of my life. Then they took me off of the Risperidol and sent me over to their rehab-center, across the street.
+I learned a lot about my family there, but no-one knew what I had gone thru, because, quite frankly, all the speed-freaks were the type who stay up for 5 days straight (like michigan cat-freaks you read about now) and the few other people with ADHD there were primarily abusers of downers - typical to ADHD. I&#x27;ve always found loopholes all my life, and I had to find a stimulant (other than caffeine) that still fucks up people with ADHD... silly me.
+They put me on Ritalin once they determined I could be trusted with it. I hated it - Ritalin made me feel drowsy all the time. Every once in a while I stuck the damn thing under my tounge and then gave it to a woman who was there for intermitant amphetamine abuse and chronic depression. She loved the damn things to bits. Of course, she didn&#x27;t have ADHD either...
+Eventually I got out of rehab, and moved to Oxnard. I stayed cat-free. Then my room burnt down and I lived in the garage for two weeks. That sucked. After that, I moved to Ventura.
+And upon meeting a few of my old friends, decided to intrduce them to cat too. I used it again myself - for two weeks, on a much lesser scale and more regularly. I decided I would &#x27;control myself&#x27;. The funny thing is, I did. very morning I took a line, and then again in the middle of the day. Of course, eventually this wasn&#x27;t enough, but for some odd reason, instead of doing more I thought that I had screwed up the recipe (I hadnt) and threw the cat away!
+At this point, me and many others observed something startling. Brand-name &#x27;Sudafed&#x27; when ground up smells faintly of methcathinone! None of the other decongestants had this property. Whether this is an accident or not, Burroughs Wellcome should look into it. On the other hand, maybe that&#x27;s why people will pay $14 for sudafed instead of $3 for suphedrine.
+I went into the deepest depression of my life two days later. It lasted about 3 or 4 days. I mean, I couldnt even move - I was too depressed to eat or even think about doing something as complicated and involved as say, committing suicide. I just layed on the couch, to depressed to watch tv, and tried to sleep. I musta slept about 20 hours a day. Funny, I didnt attribute this to withdrrawl either, but stopped using cat anyways. It took me about another week, when I looked back at myself, to realize what had happened.
+I haven&#x27;t done cat since. Cat is a unique drug, and I hope someone studies its receptor-binding affinities and its effect on dopamine and serotonin reuptake so that I may learn why it and it alone had such a dramatic effect on me. A drug with a similar profile, bupropion, has a tert-butyl group where the methyl is and a chlorine in the 4 position of the benzene ring... this drug is called Wellbutrin and I take it for my ADHD now - it seems to be a balance between the effects of cat and the effects of ritalin. The only thing I regret about wellbutrin is its smell - which occasionally reminds me of cat.
+Chemical structures:
+_____                    _____   OH                _____   O
+/        H  H   H       /       !  H   H         /       !  H   H
+&lt;   0   &gt;--C--C--N       &lt;   0   &gt;-C--C--N         &lt;   0   &gt;-C--C--N
+\_____/   H  !   H       \_____/  H  !   H         \_____/     !   H
+HCH                     HCH                       HCH
+H                       H                         H
+amphetamine           phenpropylamine                cathinone
+(dexedrine, benzedrine   (also known as cathine     (found in the Khat
+and Adderall contain)    and ingredient in          herb, commonly used
+Dexatrim and many          by many Serbians)
+decongestant pills)
+H                       H                         H
+_____           HCH      _____   OH     HCH        _____   O      HCH
+/        H  H   /       /       !  H   /         /       !! H   /
+&lt;   0   &gt;--C--C--N       &lt;   0   &gt;-C--C--N         &lt;   0   &gt;-C--C--N
+\_____/   H  !   H       \_____/  H  !   H         \_____/     !   H
+HCH                     HCH                       HCH
+H                       H                         H
+methamphetamine       pseudephedrine -or-          methcathinone
+(Desoxyn, Methadrine     ephedrine (depending        (aka ephedrone,
+&#x27;speed&#x27;, &#x27;crystal&#x27;      on position of hydroxyl)     &#x27;jeff&#x27;, &#x27;cat&#x27;)
+(Sudafed, Suphedrine)
+(Maxilert, Mini-thins)
+there is no legitimate medical use for either cathinone or methcathinone.
+H   H
+HCH HCH
+/
+_____   O       C              bupropion (Wellbutrin)
+/       !! H   /
+&lt;   0   &gt;-C--C--N  HCH           an anti-depressant that smells
+\_____/     !   H  H            kind of like cat, and is useful
+/          HCH                  in ADHD because of its ability to
+Cl            H                   block dopamine reuptake.
+Exp Year: 1993
+ExpID: 1792
+Gender: Not Specified
+Age at time of experience: Not Given
+Published: Jun 14, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Methcathinone (81) : Various (28), Cultivation / Synthesis (31), Depression (15), Addiction &amp; Habituation (10), Train Wrecks &amp; Trip Disasters (7)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

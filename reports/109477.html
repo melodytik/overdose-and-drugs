@@ -1,0 +1,462 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>首次试验具有惊人的效果</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/doip.html'>← DOIP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>首次试验具有惊人的效果</h1>
+<div class='sub-title'>DOIP - Erowid Exp - &#x27;First Trial Surprisingly Potent&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Dec 29, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=109477' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>第一次试验,令人惊的效果
+通过Xorkoth
+我是一个喜欢并被DOX类物质所吸引的人,
+我很幸运地发现了四种罕见甚至未经研究的DOX,
+现在我已经尝试了
+时间
+一次,有前途的结果.
+美国
+非常有趣,但也令人困惑,有点令人厌恶.
+我从未尝试过DOF, 而DOC是我最喜欢的迷幻药; 自2006年以来,
+我也曾经有过DOM几次, DOI几次, DOB一次... 不过我不能得出很多结论,
+我也曾经用过Alef-1/DOT, 剂量很轻, 太轻, 无法想象它会如何,
+在过去的15年里, 我也服用了太多其他物质,
+我决定DOiP是下一个尝试, 因为它确实有人类使用记录, 与DOF不同,
+在阅读一小部分可恶的多行
+报告和一个单一的提及 (可疑可信) 的100毫克剂量导致了惊人的旅行
+我预计剂量将在20mg左右开始变得有趣,所以我决定服用5mg剂量,
+我决定突然做,从无处不在,当我从一个差事回家, 因为我不期望很多,
+我知道我没有其他计划, 除了完成工作 (我在家工作) 的余下一天和晚上.
+我没有预料到我得到的东西, 下次我会在早上更有意义地服用它.
+试验1 - 2016年11月2日,口服5毫克
+我也服用了2个小 (1-2mg) 的3-MeO-PCP作为多天非常小剂量运行的一部分, 我有时以这种方式使用它来激发轻微的催眠症,
+因为剂量很小, 但它肯定会逐渐改变我的状态.
+这可能在某种程度上影响了这次旅行.
+我希望在没有任何混因素的情况下做出第一份报告,
+我计划做更多的试验, 下一次试验将是相同的剂量,
+下午2点50分
+- 用口服5mg的酒精溶液.
+预计是临界剂量.
+在工作中,一天剩下的时间呆在家里.
+下午3点27分
+- 警报几乎可以肯定, 温暖的光开始发出.
+胃部有点怪异, 类似于D.O.C., 没有什么令人烦的,
+情绪很好.
+工作很好,有足够的专注,与往常没有什么不同.
+下午4点41分
+- 没有真正的发展,仍然温和温和的光.
+没有抑制食欲, 一个大沙拉是美味的,
+开始标签我的药物收藏, 把它放在瓶子里.
+晚上七点
+- 我刚抽了一口大麻, 给我带来了一种轻微的,
+温的光依然存在, 但现在我的头部也发生了轻微变化.
+我发现自己在着某个东西,
+尽管没有任何视觉变化,
+我认为如果我现在在别人身边,
+我注意到我能够非常强烈地专注于任务,
+我一直在做标签, 把我的药物收藏放进珀瓶子里,
+我想知道这会持续多久?
+我记得它比其他DOX的持续时间更短, 很好,
+我身体完全舒适, 我没有感觉到任何身体负荷或刺激.
+血压为116/70和每分钟89次.
+让我感到惊的是,我感觉很放松,
+我今天喝了几次咖啡因, 吸了一些大麻,
+或是DOiP比其他DOX更刺激.
+这比我平常的60-70次静止时的每分钟速率高得多.
+晚上7点15分
+- 吃了一些L-theanine (400毫克) 因为思考我的升高的血压让我更加意识到它.
+我有点不确定, 不确定该怎么做, 不确定要把精力放在哪里.
+我不觉得自己被迫去移动四肢,
+如果我在徒步旅行或其他事情,
+我会停止标签我的收藏, 而是尝试蓝光.
+然后我会尝试音乐.
+现在是晚上,所以在户外活动是不合适的选择.
+晚上7点31分
+- 我已经把很多思想在几个蓝光帖子.
+我感觉到一个可爱的同情感, 我发现自己想要用某种方式说话,
+我敢打与一个朋友对话将是伟大的.
+血压为110/77和73bpm, 所以比上次降低了.
+另外,我的血压实际上比平常的120/80稍低一些.
+但只是稍微, 可能是时间点的东西, 甚至设备的差异 (我的读者有时会不稳定),
+晚上7点53分
+- - 这里确实发生了一次不可否认的旅行, 大麻真的把它带出来,
+我所做的每件事都感觉更加激烈,
+它们确实引起了我的共.
+我感到非常沉浸.
+我还能正常运作, 但我现在肯定在服用药物,
+我有短暂的焦虑,
+事实上,你知道的,这可能是尼古丁戒断.
+五天前我戒烟了, 今天我只喝了一次,
+这实际上确实有点像尼古丁渴望通过轻微的迷幻过器体验.
+我只是把一个入,我们会看到如果改变任何东西.
+现在播放一些音乐,
+晚上8点18分
+- ,该死的
+5毫克的DOIP我猜对我来说真的是一次旅行!
+我把我的乐队在最后一场演出之前的排练设置,
+闭上眼睛听音乐, 让DOiP的效果变得最好.
+我听到音乐的清晰,清晰和深入, 对它的情感反应大大加剧.
+实际上,整个过程中, 我基本上感觉就像我在冲着一种同情药物,
+音乐带来的情绪会让我产生深刻的情感反应,
+我在想自己和我的乐队, 我在想我做得很好的事情, 我可以把更多的东西带进我的演奏,
+剩下的时间我做了非常漂亮的口袋支持东西, 我只是为自己感到骄傲.
+有时候,承认自己做得对是件好事,
+这种药物现在的感觉实际上与我试过的DOX中最类似的DOPr.
+这是一种温暖的光, 似乎是从我的太阳交叉体辐射出来.
+但与DOPr不同的是, 这种运动带有能量,
+这不是一个紧张的刺激, 但它是通过我的四肢.
+这种感觉令人高兴,
+这是一个令人惊的强烈的身体反应, 这使我谨慎采取这太高.
+没有视觉效果, 但当我闭上眼睛时,
+但没有任何真正的发展, 至少在这种剂量.
+主要效应似乎是显著放大情感和同情心,
+音乐是我迄今为止给自己最好的输入, 它在我内产生了非常令人满意和深刻的反应,
+唯一比现在听音乐更好的事情就是和朋友们一起听音乐.
+但是我不想开车, 现在开始已经有点晚了,
+我注意到音乐和我对它的反应让我的心跳非常快,
+我在很多不同的东西上经历过这种情况, 但它在这里相当明显.
+现在我休息了一下, 写下我的观察结果, 我的心率有所下降,
+心率上升比DOC,DOPr,DOET和DOM更高,但最接近DOET,这也显著地提高了心率.
+我不能说其他人的比较.
+我的手在试图保持静止时会轻微, 我的身体总体上有一种微弱的震动,
+虽然它并不令人不快, 但如果它变得更强,
+也有一些轻微的关紧.
+我读过一些关于人们服用20毫克以上的药物的报道, 我很难想象自己想要服用那么多.
+某人声称他服用了100毫克,
+我可能会下次尝试10毫克, 但我可能会做更少的跳跃, 因为这里肯定有一个真正的身体存在,
+这里确实有真正的身体存在, 比我有经验的其他DOX更具刺激性.
+没有.
+我现在要回去听音乐一段时间.
+在晚上9:26
+- 音乐仍然很好.
+我一直在通过短信和一个朋友聊天,
+现在我深深地思考一夫一妻制的奇怪现象.
+我肯定会感觉到, 我会很难让我的女朋友和别人发生性关系,
+但在智力上, 我喜欢完全性自由的想法,
+感觉自己是别人的所有者, 让我感到不安, 主要是因为我感觉到,
+我不知道有多少一夫一妻制是天生的, 有多少是文化编程.
+两者之间的区别就变得很简单.
+人类在很大程度上受到社会编程的影响.
+我最近一直在想.
+要了解一个人,你还必须了解他们的文化.
+每个人都有不同程度,不同方式脱离这种状态, 但没有人能完全摆脱这种状态.
+我注意到最近这种影响的强度有所减弱,
+已经有6个半小时了, 所以一点点下降是个好兆头.
+紧张的感觉已经减轻了一点,
+慢慢地转变为一个非常好的内省场所.
+我觉得想着自己,想着其他事情,
+我心智很敏, 语言流动也很好.
+情已经减弱, 但即使在高峰期,
+我毫不怀疑看着一些美丽的艺术品会带来类似的感觉.
+我感觉很好, 情绪稳定, 宁静,
+时间晚上10点06分
+- 我刚刚开始准备煮2个 Bratwurst,因为我饿了.
+我已经饿了很久了, 但我真的不想做饭,
+我也在瓶装和标签上做了很多工作,
+我发现对话,思考和听音乐更有吸引力.
+我只是意识到 (并接受了) 我不会在激动的情绪中花费数小时的时间,
+晚上11点10分
+- 我一直在看南方公园的剧集, 从它的黄金时代,
+我也吃了几块香肠, 很好, 完全没有抑制食欲.
+事实上我还是有点饿了,所以我很快就会做别的东西.
+旅行的确在逐渐结束,
+我不认为我会睡几个小时,如果我睡到3我会认为这是一个成功.
+但如果它确实会像我怀疑的那样消失, 这意味着有一种可以在一天内舒适地服用的DOX,
+我希望这就是情况.
+我肯定会再次使用它,
+有点欢快,但也深思熟虑和认真.
+这可能是我很喜欢的.
+让我重新想起音乐, 这让我感到非常温暖和充满活力.
+我和很多人一起玩, 这很棒.
+我可以成为一个真正开始成功的乐队的朋友, 这也很酷.
+并且一个朋友可能会搬到这里, 他和我一起演奏贝斯,
+我们正在创造一些非常独特的东西, 我们都感到非常有创造性的满足感.
+想起这些事情, 让我的心率再次升高,
+这种情绪反应一直保持一致.
+在上午12:30
+- 确实有一些残留刺激.
+这不是很糟糕,但我开始想让它消失,所以我可以很快睡觉.
+我刚刚看了一些南方公园的剧集.
+我没有感觉到以前那种惊人的冲动.
+我觉得很愉快,但如果我有一个本佐我可能会在半小时左右.
+但是我没有,所以我们会看到会发生什么.
+上午四点
+- 我已经躺在床上看电视几个小时了.
+我试着把它关掉睡觉,
+现在我觉得我真的可以睡觉,所以我会尝试.
+如果我不想睡觉,比如如果我早4小时服用了这种药,
+* * * * * * * * * * * *
+我终于睡觉了.
+我醒来时是8点半, 很快就睡了, 醒来了几次,
+今天早上我感觉很好.
+身体有微弱的温暖光, 但没有任何残留的刺激,
+在精神上我感觉很正常.
+我对这次审判有不同的看法.
+首先,我发现它在5毫克的剂量中具有惊人的活力.
+我真的期待一个门经验,如果有的话.
+没有太多的报道, 但我记得从阅读可用的信息中, 人们服用了20毫克.
+我意识到我的微剂量3-MeO-PCP可能确实有所影响,
+虽然DOiP的效果不如其他DOX, 但它给我的感觉在某些方面是非常强大的.
+在这个层面上, 完全没有视觉效果.
+但这确实是一种激励.
+这种刺激既比DOC的刺激多,也比DOC的刺激少,
+虽然DOC会使我的血压和心率有所上升, 但主要是给我更多的肢体能量,
+虽然 DOiP 显著地提高了我的心率, 尤其是在我高兴和忙听音乐的时候,
+这种药物的高峰感非常类似于一种同理心的药物,
+虽然我认为如果我早些时候吸草和听音乐, 峰值可能会早些时候被注意到.
+我感觉如此惊人,高兴, 有那么愉快的冲动让我发,让我感到敬畏.
+我通常只能期望从同情药物或AMT (在我的书中至少有一半是同情药物) 那里感受到这样的感觉.
+感觉有点不舒服, 在整个高峰段,
+我感觉有一种模糊的内在焦虑感, 我怀疑这可能是尼古丁戒断,
+我似乎无法轻微解开我的肌肉, 尤其是我的干, 这是一种奇怪的感觉.
+我感觉有些不舒服.
+但同时我感觉非常好, 这也是一个非常愉快的体力高兴感.
+所以这绝对是一个二分法.
+我不想暗示我感到焦虑, 这只是一种微弱的焦虑,
+在情感上,
+想起某种情感情形, 让我发, 让我的眼睛充满情感,
+这让我感觉很好, 如此令人满意的经历.
+我和一个朋友聊了好几个小时, 我很高兴他联系了我,
+我真的感觉到了他的情况,
+显然有更多的同情心.
+我也对自己有很好的感觉, 肯定是自我提升,
+我对自己的音乐和工作做了很多思考, 这既有用又令人满意.
+精神上,我感觉非常分析,
+尤其是在高峰期之后,
+我想谈谈一些事情,
+然而,大约在午夜 (T+9小时左右), 我几乎只是感觉到残留的刺激,
+这很好,因为这表明我们实际上有更短的DOX,
+我曾经不同意这一点, 认为DOC的持续时间是完美的,
+对于我来说,这只是一个小小的变化.
+虽然我在下午3点左右拍摄,
+如果我在中午拍摄, 我认为时间会很完美.
+实际上它是非常独特的, 因为它感觉更强烈的同理心.
+它的某些方面让我想起了DOET, 具体来说, 轻微的紧,同时愉快而激烈的身体感觉, 以及这种感觉的强度.
+然而,DOiP在心理上也非常有价值,令人愉快,有很多内容和,与DOET的奇怪的中立性不同;DOET似乎以一种奇怪的中立和缺乏内容的方式产生了同情心.
+它让我想起了DOPR的体感, 阳光发出温暖的光, 让人感到平静和平,
+我不能评论与精神效应的比较, 因为我迄今为止的一次DOPr试验, 在2.55mg,
+虽然不那么接近,
+对于DOC来说, 至少与DOiP相比,
+另外,正如我所说的,DOC会给我带来更多的运动能量,
+我还遇到的DOC仍然是唯一一个具有神奇的第二阶段平原的DOX,
+虽然这是我第一次抽草, 草真的会入那些根本不存在的东西), 但在峰值之后, 心理和情感效应的下降相对突然 (对于DOX来说,
+所以,你已经知道了.
+我很快会再用5毫克, 那天没有任何3-MeO-PCP, 测试我是否会在这种剂量下再次得到类似的效果,
+我没有期待太多, 但我真的很享受这次旅行,
+我对提高剂量感到有点担心, 也犹不决.
+这并不是说它们是坏的,只是非常明显, 这让我对提高剂量感到谨慎.
+我肯定会下次尝试8毫克,
+或是我当天吃的东西, 或是我早些时候喝的咖啡因.
+吸草后我的心率肯定会增加.
+我不想做出太多的结论,
+总的来说,我对此有很高的希望,
+时间表: 109477
+发布时间:2016年12月29日
+DOIP (784):一个人 (16),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+First Trial Surprisingly Potent
+DOIP
+by
+Xorkoth
+From
+Bluelight Collection
+Citation:   Xorkoth. &quot;First Trial Surprisingly Potent: An Experience with DOIP (exp109477)&quot;.
+Erowid.org
+. Dec 29, 2016. erowid.org/exp/109477
+DOSE:
+T+ 0:00
+200 mg
+Caffeine
+T+ 0:00
+2 bumps
+3-MeO-PCP
+(powder / crystals)
+T+ 0:00
+5 mg
+oral
+DOIP
+(liquid)
+T+ 4:10
+smoked
+Cannabis
+T+ 4:25
+400 mg
+oral
+Theanine
+T+ 5:03
+buccal
+Tobacco
+BODY WEIGHT:
+170 lb
+First Trial, Surprisingly Potent
+by Xorkoth
+I&#x27;m a man who loves and is fascinated by the DOX class of substances, the 2,5-dimethoxy substituted psychedelic amphetamines.  A while back I had the good fortunate to discover where I could get my hands on four rare or even unresearched DOXs, including DOPr, DOiP and DOF, and just a few doses of DOET.  Thus far I have tried the
+DOPr
+once, to promising results.
+DOET
+was very interesting but also puzzling and a bit off-putting.  I haven&#x27;t tried the DOF, and DOC is tied for my favorite psychedelic; I have used it at least a hundred times since 2006.  I have also had DOM a handful of times as well as DOI a few times and DOB once... however I can&#x27;t draw a lot of conclusions about them as during that time I was taking psychedelics way too often and had a lot of tolerance built up.  I also had Aleph-1/DOT once, at a very light dose, too light to get much idea of how it would be, and the rest of my sample degraded in solution, unfortunately.  I&#x27;ve also taken too many other substances to count, over the course of the past 15 years, 14 of those years including various psychedelic tripping.
+So, I had decided DOiP would be the next one to try, since it does have some human use recorded, unlike DOF which has none at all that I can find (nor much to go on to estimate dosages).  In reading the bare handful of crappy several-line
+reports and one single mention (of dubious believably) of a 100mg dose that resulted in an amazing trip
+, I was expecting the dose to start to get interesting around 20mg, so I decided on a 5mg dose, expecting it to be threshold at best and that I&#x27;d work up in subsequent dosages until I found significant activity.  I decided to do it very abruptly, out of nowhere, while I was coming home from an errand, since I didn&#x27;t expect much, figured I&#x27;d get an underdose out of the way.  I had just worked out and I was feeling quite good, and I knew I had no plans other than finishing work (I work at home) for the rest of the day and night.  I wasn&#x27;t expecting what I got, and the next time I take this I will take it in the morning with more intention.
+Trial 1 - 11-2-2016, 5mg orally
+Going into this experience I had had about 200mg of caffeine earlier, and I had also taken 2 small (1-2mg) bumps of 3-MeO-PCP as part of a multi-day very small dose run, I use it this way sometimes to inspire a light hypomania which aids in the creative process.  When using it this way, I don&#x27;t get dissociated, because the doses are so small, but it gradually alters my state for sure.  So it&#x27;s probably a factor to some extent in this trip.  I wanted to make my first report on this without any confounding factors but I decided to try this on a lark, so I apologize.  I plan to do more trials, and the next one will be this same dosage without any 3-MeO.
+2:50pm
+- Ingest 5mg orally in alcohol solution.  Expected to be a threshold dose.  At work, staying home the rest of the day.
+3:27pm
+- Alerts almost for sure, a warm glow is starting to emanate.  Slight stomach weirdness reminiscent of DOC, nothing even annoying, just noticeable.  Mood is good.  Work is fine, plenty of focus, no different from usual really.
+4:41pm
+- No real development, still a mild warm glow.  No appetite suppression, a big salad was delicious, and also got rid of the slight sour stomach.  Going to finish work and start labeling my drug collection and putting it in vials.
+7:00pm
+- I just smoked a hit of weed, and it brought on a light, generic psychedelic amphetamine-style feeling to me.  I am undeniably altered over baseline, the warm glow is still there unabated, but now I have a slight head change too.  It&#x27;s that sort of state where I find myself staring at something intensely without realizing it.  Everything looks a little more intense though there is no visual change.  I think if I was around other people now that I would stumble a little with speech.  I have noticed that I am able to focus in on tasks quite strongly, not that I&#x27;m any better at them, but my concentration on them remains more unbroken than usual.  I&#x27;ve been making labels and putting my drug collection into amber vials for organization and beauty, and it&#x27;s taking a long time, but I&#x27;m pretty engrossed in it.  I wonder how long this will last?  I seem to recall that it lasts for a shorter time than other DOXs, which would be nice as I sort of just spur-of-the-moment took this in the middle of the afternoon.  My body is entirely comfortable, I don&#x27;t really feel any bodyload or stimulation.  BP 116/70 and 89 bpm.  That surprises me, I feel pretty relaxed but my heart rate is up a good bit.  I have had caffeine a couple of times today and I just smoked some weed so I&#x27;ll try again in a little bit.  Either that, or DOiP is more stimulating than some other DOXs.  89bpm is a pretty significant rise over my typical 60-70 resting bpm.
+7:15pm
+- Took some L-theanine (400mg) because thinking about my raised bpm has made me more aware of it.  I have a bit of a sense of being unsure, unsure about what to do, unsure where to put my energy.  I don&#x27;t feel compulsed to limb movement, it&#x27;s more like I want to be doing something different.  Perhaps I would not notice if I was hiking or something.  I&#x27;m going to stop labeling my collection and try Bluelight instead.  And then I&#x27;ll try music.  It&#x27;s night time so outdoor activities aren&#x27;t an option unfortunately.
+7:31pm
+- I&#x27;ve been putting quite a lot of thought into several Bluelight posts.  It&#x27;s really nice focusing on that, I feel a lovely empathetic feeling, and I find myself wanting to really say things in a certain way to best communicate what I mean.  I bet conversing with a friend would be great.  BP is 110/77 and 73bpm, so it&#x27;s lowered over last time.  Also my blood pressure is actually slightly lower than my usual 120/80.  But just slightly, could be a point-in-time thing or even equipment variance (my reader sometimes gets wonky) though it&#x27;s been giving the same general numbers over and over now.
+7:53pm
+- There is an undeniable trip happening here, the weed really brought it out, as is typical.  Everything I&#x27;m doing feels more intense,  I just read a few
+reports, and they really resonated with me.  I felt very immersed.  I can still function normally but I&#x27;m definitely on drugs right now, at least I can tell.  I am getting brief moments of a sort of dull anxiety related to wanting to do something.  Actually, you know what, it could be nicotine withdrawal.  I quit smoking cigarettes 5 days ago and today I&#x27;ve only had a little bit of dip once, quite some time ago.  This actually does feel a good bit like nicotine cravings being experienced through a slightly psychedelic filter.  I just put a dip in, we&#x27;ll see if that changes anything.  Putting on some music now to try listening to music on DOiP.
+8:18pm
+- Well, damn... 5mg of DoIP I guess is really a trip for me!
+I put on the rehearsal set that my band played before our last show, and it was exactly the right thing to do.  Closing my eyes and listening to the music really brought out the best in DOiP&#x27;s effects.  I was hearing the music so crisply and cleanly and deeply, and the emotional response to it was greatly heightened.  In fact, the whole time I basically felt just like I was rushing on an empathogen, I almost could have dropped into that place and time with no other context and thought I was on methylone.  Euphoric tingles everywhere, and emotions from the music cause deep emotional responses in me, bringing up memories in some cases.  Since I was listening to myself/my band, a lot of what I was thinking was about things I did well that I can bring into my playing more, and I was also honestly just basking in the warmth of knowing that the last 2 years of work I&#x27;ve put into music are really paying off, I really didn&#x27;t have any complaints about anything I did, there was a lot of really beautiful stuff that was executed well, and the rest of the time I was doing really nice pocket support stuff, and I&#x27;m just really proud of myself.  Sometimes it&#x27;s good to acknowledge when you&#x27;re doing something right, and pat yourself in the back.
+The feeling of this drug right now is actually most similar to DOPr of the DOXs I&#x27;ve tried.  It&#x27;s a warm glow that seems to be radiating out from my solar plexus.  However unlike DOPr this one comes with energy and a not insignificant amount of physical stimulation.  It&#x27;s not a jittery stimulation but it&#x27;s coursing through my limbs.  It feels euphoric but kind of edgy too.  It&#x27;s a surprisingly strong physical response, it makes me wary of taking this too high.  There are no visuals, but when I closed my eyes I saw a variety of dim visual static and moving blobs, more than normal.  But there was nothing really developed there, at least at this dose.  The main effect seems to be a significant amplification of emotion and empathy, and an increased receptiveness to stimuli.  For me music is by far the best input I&#x27;ve given myself so far, it is producing a very satisfying and deep response in me, I would say to a greater degree than most drugs do.  I could really see it being great for hanging out too, the only thing that would be better than listening to music right now would be listening to music while hanging out with my friends.  But I don&#x27;t want to drive, and it&#x27;s kinda late to start that anyway, plus I saw them yesterday and will see them again tomorrow.
+I noticed that the music and my response to it was getting my heart really pounding, and when this was happening the effects felt the strongest, as if they were rising with my heart rate.  I&#x27;ve experienced this on a lot of different things but it&#x27;s quite pronounced here.  Now that I have taken a break to write my observations, my heart rate has gone down some but it&#x27;s still moderately elevated above normal.  The heart rate increase of this so far is greater than that of DOC, DOPr, DOET and DOM, but closest to DOET, which also quite noticeably raised it.  I can&#x27;t speak to the comparison between the others.  My hands are quivering slightly when I try to hold them still, and my body in general has a faintly quaking quality, like I am holding myself tense just a bit but I can&#x27;t seem to not do it.  It&#x27;s not unpleasant but I could see it becoming negative if it were significantly stronger.  There is some minor jaw clenching too.  I have read reports of people taking more like 20mg of this to trip, and I am having trouble imagining myself wanting to take that much.  Someone claimed to have taken 100mg and had the best trip of their life, but that seems downright foolhardy.  I may try 10mg next time but I may do less of a jump because there is definitely a real body presence here, of a more stimulant nature than the other DOXs I have experience with
+there is definitely a real body presence here, of a more stimulant nature than the other DOXs I have experience with
+.
+I am going to go back to listening to music now for a while.
+9:26pm
+- Music continues to be good.  I have been talking to a friend on texts, and it&#x27;s been nice, it feels good to be able to be there for someone.  Now I&#x27;m deeply pondering the strange thing that is monogamy.  I definitely feel it, I would have a really hard time with my girlfriend having sex with someone else, it would feel really bad, I would feel jealous and possessive.  But intellectually I like the idea of total sexual freedom, and I even think it makes sense.  The feeling of ownership over someone else disturbs me, mostly because I feel it, despite logically thinking that no one has the right to feel like they own some aspect of another person.  I wonder how much of monogamy is innate, and how much is cultural programming.  And when you get down it, the distinction between the two gets pretty chicken-and-egg.  Humans are shaped to a tremendous degree by social programming.  I&#x27;ve been thinking about this a lot lately.  To understand a person you must also understand their culture.  Everyone steps out of that to varying levels, in various ways, but none of us are ever free of it completely.
+I have noticed the effects lessen in intensity recently, which is good.  It&#x27;s about 6 and a half hours in, so a little drop is a good sign.  The tense feeling has lessened quite a bit, the overall state is more comfortable now.  It&#x27;s shifting slowly into a really nice introspective place.  I feel like thinking about myself, and other things, and adding to my understanding of them.  My mind feels sharp, and my flow of words is very good.  The euphoria has reduced, but even during the peak it wasn&#x27;t a given, but rather a response to music, or I suspect, things that inspire me in general.  I have no doubt looking at some beautiful art would have brought on similar feelings.  I feel quite good though, my mood is stable and calm and above average, and my mind is engaged.
+10:06pm
+- I just began preparations to cook 2 bratwursts, as I&#x27;m hungry.  I&#x27;ve been hungry for some time, but I haven&#x27;t really been wanting to actually make food, and I still don&#x27;t, but I decided to just do it.  I&#x27;ve also petered out on bottling and labeling my psychedelic collection after 6 vials were filled and labeled.  It takes a while and I&#x27;m finding it a lot more engaging to converse and think and listen to music.  It&#x27;s not that I won&#x27;t finish it, I just realized (and accepted) that I&#x27;m not going to be spending hours on end with laser focus in a fit of excitement until it&#x27;s done.
+11:10pm
+- I&#x27;ve been watching episodes of South Park, right from the golden age of it, and it&#x27;s been great, such a smart show, and I am finding it wonderfully insightful and hilarious.  I also ate a couple of sausages, which was nice, no appetite suppression at all.  In fact I&#x27;m still a little hungry, so I&#x27;ll make something else soon.  The trip is definitely winding down, but still present for sure.  I don&#x27;t think I&#x27;ll be sleeping for a few hours yet, if I get to sleep by 3 I&#x27;ll consider it a success.  But, if it does fade out like I suspect it will, it means there&#x27;s a DOX that can be taken pretty comfortably in a day without disrupting my sleep.  I hope that&#x27;s the case.  I&#x27;ll definitely take this again, it&#x27;s been surprisingly well-rounded and warm.  A bit jovial, but also thoughtful and earnest.  It may turn out that I like this one quite a bit.  A bit of additional chatting with a friend has just gotten me thinking about music again and it&#x27;s making me feel very warm and vibrant.  I am playing with a lot of people, it&#x27;s awesome.  I get to be friends with a band who&#x27;s really starting to make it, and that&#x27;s really cool too.  And a friend may be moving here who played bass with and was certainly the best fit of anyone we&#x27;ve tried.  Plus, my band is made up of people I am very close with and love, and we are creating something very unique and we all feel extraordinarily creatively satisfied.  Thinking about this stuff got my heart rate to go up a little again along with some rushes of pleasure.  DOiP really seems to facilitate an intense emotional response, that&#x27;s been consistent throughout the whole time.
+12:30am
+- There is definitely some residual stimulation.  It&#x27;s not bad but I&#x27;m starting to want it to be gone so I can sleep soon.  I&#x27;ve just been watching episodes of South Park.  I&#x27;m not feeling much of the earlier rush of awesomeness.  I feel pleasant but if I had a benzo I&#x27;d probably take it in a half hour or so.  But I don&#x27;t, so we&#x27;ll see what happens.
+4:00am
+- I&#x27;ve been laying in bed watching TV for hours now.  I tried a few times to turn it off and sleep, but to no avail.  Now I feel like I could actually sleep, so I&#x27;m going to try.  If I hadn&#x27;t wanted to sleep, like if I had taken this 4 hours earlier, I probably wouldn&#x27;t have minded the light residual stimulation.
+* * * * *
+And I did sleep at last.  I woke up to my alarm at 8:30, and promptly dozed off and woke up a few more times until about 10, and got up to work.  This morning I feel quite good actually.  A faintly warm glow in my body but no residual stimulation at all, it could be my imagination resulting from a slight lack of sleep.  Mentally I feel normal.
+I have mixed feelings about DOiP after this trial.  First of all, I found it very surprisingly active at 5mg.  I was really expecting a threshold experience if anything.  There aren&#x27;t many reports but what I remember from reading the available info is that people were taking it up to 20mg.  I realize that my microdose 3-MeO-PCP probably did affect it somewhat, but I have trouble believing it caused there to be a trip when there would have been nothing before.
+DOiP is certainly less potent than many other DOXs, but the trip it gave me was quite powerful in some ways.  It seemed very focused on my emotional and mental state, and at this level was not visual at all.  But it was quite stimulating.  This stimulation was both more and less than DOC&#x27;s stimulation, a strange juxtaposition.  DOC raises my blood pressure and heart rate a little, but mostly it just gives me a lot of limb energy, which can be good when I want to do something physical, but bad when I&#x27;m trying to sit still or sleep.  DOiP raised my heart rate substantially, especially when I was peaking and rushing to the music, it reached points where it was pounding and I was unable to not notice it, but my limbs felt nice and peaceful, I felt no need to move.
+The peak of this drug felt very much like an empathogen, but with a much greater degree of mental clarity and a calmer overall state of mind.  The peak happened while listening to some of my music, around 8pm (T+5 hours approximately), and it was certainly the highlight of the experience, though I think had I smoked weed and listened to music earlier, the peak would have probably been noticeable earlier.  I was feeling so amazing and euphoric, and there were rushes that were so pleasurable it was giving me goosebumps and making me feel awe.  It was more of an outright, drug-induced feeling of euphoria than I&#x27;ve felt from another DOX, really I generally only expect to feel something like that from an empathogen, or perhaps AMT (which is at least half empathogen in my book).
+At the same time, though, there was an edgy, slightly uncomfortable aspect to the feeling through the entire peak section, which was probably 3 hours long.  I felt a vague sense of underlying anxiety running through it, which I wondered might be from nicotine withdrawal but I don&#x27;t really ever feel nicotine withdrawal to be honest, and after I had a dip it didn&#x27;t change.  It seemed related to the clenched feeling I had in my body; I seemed unable to slightly unclench my muscles, especially my torso, and it was a strange feeling.  I was quivering slightly and the feeling was just a bit uncomfortable.  But I simultaneously felt really good, it was also a very pleasurable and physically euphoric feeling.  So definitely somewhat of a dichotomy.  I want to emphasize I was having a good time throughout the peak, I don&#x27;t mean to imply I was feeling anxious, it was just a faint undercurrent of anxiety, I believe triggered by the physical clenching feeling and the fact that at first i was sitting there without any suitable input.
+Emotionally, I felt absolutely enhanced.  It was like I was feeling everything at 1000% intensity, thinking about an emotional situation I was reading about would give me chills and make my eyes water with emotion and my mind would go off on tangents about it as they relate either to my life or to humanity in general... I would become completely absorbed for a moment, and it made me feel so good, such a satisfying experience.  I chatted with a friend on and off for hours, and I&#x27;m glad he reached out then, because it was really nice to have someone to communicate with directly.  I really felt his situation as he was explaining it and it felt good to be there for someone.  There was definitely an enhanced sense of empathy.  I also was feeling great about myself, definitely an ego boost as from an empathogen but with a definite psychedelic twist too, psychedelic not in an out-there way but in an intensely analytical way.  I thought a lot about my music and the work I put into that, and it was both useful and gratifying.
+Mentally, like I said, I felt very analytical, but mixed with an equal amount of jovial empathy.  Particularly after the peak, I felt quite introspective in a useful and positive way.  I wanted to talk about stuff and reflect on my experience.  However, by about midnight (T+9 hours or so), I pretty much just felt residual stimulation, the mental effects were more or less gone.  This is good because it indicates that we actually have a DOX with a shorter duration on our hands, and that&#x27;s great because I love DOXs, but they do last a bit too long.  I used to disagree with that and think DOC&#x27;s duration was perfect, but as I&#x27;ve gotten older, I feel that it lasts too long by a few hours.  The residual stimulation of DOiP did keep me up for a while.  However, I took it at almost 3pm which is quite late in the day for a DOX.  If I had taken it at noon even, I think the duration would have been perfect.
+To compare it to some other DOXs in effect, I&#x27;d say it&#x27;s actually quite unique in that it felt more intensely empathogenic.  Some aspects of it reminded me of DOET, actually, specifically the slight clenched and simultaneously pleasant and edgy body feel, and the intensity of feeling that was happening.  However, DOiP was also very rewarding and pleasant mentally, there was a lot of content and a lot of euphoria, unlike the strange absent neutrality of DOET; DOET seemed to produce a heightening of empathy in a strangely neutral and content-less way.  It reminded me most of DOPr in terms of body feel, that warm glow emanating from the solar plexus that feels calm and peaceful, but it had significantly more stimulation than DOPr.  I can&#x27;t really comment on the comparison to the mental effects because my one DOPr trial thus far, at 2.55mg, was not at the same level of strength as this, I never really had much develop mentally with DOPr, but the body feels are similar.  Aspects of it reminded me of DOC, too, although less closely for sure.  DOC, at least when compared to this dosage level of DOiP, seems much more classically psychedelic.
+Also, DOC, as I mentioned, produces a lot more movement-style energy in me, but strangely, I find no aspect of the DOC body feel to be actually uncomfortable or edgy.  Also DOC is still the only DOX I&#x27;ve encountered that has that magical second-stage plateau, where the euphoria and empathy and such actually get stronger and then last for a very long time.  With DOiP, there was a peak, relatively surprisingly far in (although that was the first time I smoked weed, and weed really kicks things in that aren&#x27;t there all the way), but then after the peak was a relatively abrupt (for a DOX, it still took hours) drop-off of mental and emotional effects.
+So, there you have it.  I will try this again at 5mg soon, without any 3-MeO-PCP that day, to test whether I will get similar effects at this dosage again, but we may have a relatively potent, shorter-acting, quite nice DOX here with DOiP.  I wasn&#x27;t expecting much, but I really enjoyed this trip, it was pretty wonderful, it was just as much a roll as it was a trip.  At the same time, the clenching and increase in heart rate do make me a little concerned about raising the dose much and a little hesitant to repeat.  It&#x27;s not that they were bad at all, just very noticeable, and it makes me feel cautious about raising the dose.  I mean I will definitely try this at maybe 8mg next, after trying it again at this level.  It could be that that part of it is some interaction with 3-MeO-PCP, or something I ate that day, or the caffeine I had had earlier.  It definitely increased my heart rate after I smoked weed.  So, I won&#x27;t try to draw too many conclusions until I can try it again.  Overall I have pretty high hopes for this, but DOC still ranks number one so far.
+Exp Year: 2016
+ExpID: 109477
+Gender: Male
+Age at time of experience: 33
+Published: Dec 29, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOIP (784) : Alone (16), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

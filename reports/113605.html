@@ -1,0 +1,205 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>对于学生压力而言,</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cannabinoids.html'>← 大麻素类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>对于学生压力而言,</h1>
+<div class='sub-title'>CBD &amp; Escitalopram - Erowid Exp - &#x27;Sleep Aid for Student Stress&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Sep 26, 2019 · 剂量：10 mg · <a href='https://erowid.org/experiences/exp.php?ID=113605' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>大麻素</span></h2>
+<div class='body'>晚上8点我服用了一剂10毫克的
+[可食用的CBD]
+味道很好, 只有微弱的化学后味.
+我从早上7点到晚上7点在大学工作,
+我了解CBD的原因在于我正在寻找一种方法来应对急性和慢性压力.
+今天似乎是一个很好的日子来测试它的有效性作为一个工具来放松和放松没有感觉像沉重的睡眠辅助药一样醉或受损.
+我还在接受抑郁症治疗.
+在过去的2.5个月里, 我每天在中午服用10毫克的Teva-escitalopram (一种SSRI).
+我只是在两周前才开始感受到这种药物的有效性.
+现在我发现我每天的能量回归也同样是慢性压力.
+我在下午服用了正常的剂量.
+现在是我月经周期的第13天,
+我没有喝酒,最后一次喝咖啡是在下午5点左右.
+我最后一次大餐是下午3点半,
+我没有经常吸草.
+如果每月不到一次, 我通常会吸一口,
+晚上9点我换上了睡衣, 和我的猫在床上舒适.
+我还没有注意到任何精神或体力影响,
+或许是因为CBD,或是因为灯光淡,或是因为我试图放松我的思想.
+我让我的思想漫游,
+我开始自慰,
+只有当我高潮时才意识到CBD,
+我意识到我的头轻微, 伴随着温暖的光, 遍及我的整个身体.
+这种光持续了几分钟, 引起一种轻微的高兴感,
+虽然我的下巴仍然紧张, 但整体身体感觉更放松,
+我的头痛几乎完全消失了,
+仍然没有认知障碍.
+我可以清晰地思考和连贯地沟通,
+常常, 在一天充满热情之后, 我会发现我的脑海里总是有很多事情没有做,或者做得不对.
+我感觉到一个轻微的昏昏欲睡的感觉.
+我感觉到一个轻微的昏昏欲睡的感觉在我的身体.
+我感到温暖和放松几乎冥想.
+我试着专注于体内温暖的感觉, 倾听房子里的安静.
+如果我不自觉地决定让身体和下巴放松,
+我正在考虑再服用10毫克剂量,
+晚上11点睡着了.
+我在晚上睡得很好, 即使我的伴侣晚上回来,
+警报时间为7点.
+在不按休息键的情况下醒来.
+我从深度睡眠中醒来时有点昏迷,
+我已经完全放松了和身体,
+我还能安静地躺在我的脚下,
+7:30 起床开始我的一天.
+健康的食欲,没有持续的醉酒感, 只是愉快的放松的身体和心灵.
+旅行顺利,还有助于睡眠.
+已使用的证券
+发布时间:2019年9月26日
+大麻 (596):治疗意图或结果 (49),一般 (1),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Sleep Aid for Student Stress
+CBD &amp; Escitalopram
+by
+lil vincent millay
+Citation:   lil vincent millay. &quot;Sleep Aid for Student Stress: An Experience with CBD &amp; Escitalopram (exp113605)&quot;.
+Erowid.org
+. Sep 26, 2019. erowid.org/exp/113605
+DOSE:
+10 mg
+oral
+Cannabidiol
+(edible / food)
+10 mg
+oral
+Pharms - Escitalopram
+BODY WEIGHT:
+47 kg
+At 8 PM I took a 10 mg dose of
+[CBD edible]. Tasted delicious with only faint chemical aftertaste.
+Before deciding to try the edible I had been experiencing fatigue and a tension headache from being at university from 7 am until 7 PM with very few breaks in my day. Looking for a way to manage acute and chronic stress was how I learned about CBD. Today seemed like a good day to test its effectiveness as a tool to unwind and relax without feeling intoxicated or impaired like heavy sleep aids.
+I&#x27;m also being treated for depression. I take 10 mg of teva-escitalopram (an SSRI) at noon everyday for the past 2.5 months. I only started feeling the effectiveness of this drug 2 weeks ago. It has helped to regulate my mood and energy levels, but I now find with energy returning to my days so too is chronic stress. I took my regularly scheduled dose in the afternoon.
+It is the 13th day of my cycle likely around ovulation. I had no alcohol, and my last coffee was around 5 PM. My last substantial meal was at 3:30 PM, but I snacked through out my night class and did not feel hungry before dosing. I do not regularly smoke weed. Generally, I take a puff if it is passed to me less than once a month, so 10 mg seemed like a healthy dose to start with.
+At 9 PM I changed into my nightshirt and got cozy in bed with my cat. I noticed no psychoactive or somatic effects yet, and my headache was still present if less intense. Possibly because of the CBD or because of dimmed lights or because of trying to relax my mind. I let my mind wander as I scrolled through my phone.
+930 PM Eventually I began to masturbate as another means to relieve tension. I only became aware of the CBD when I orgasmed as it was noticeably more sustained and more relaxed than the day before despite similar routine. I became aware of a slight head rush and an accompanying warm glow that spread through out my entire body. The glow stayed with me for several minutes promoting a mild euphoric feeling similar to after a couple of glasses of wine without the cognitive impairment.
+10 PM my jaw is still tense, but my body overall feels much more relaxed particularly my shoulders and spine. My headache is almost entirely gone, but there is still a dull ache in the temples. Still no cognitive impairments. I can think clearly and communicate coherently, and if anything my thoughts have a slower more collected quality than before the CBD. Normally, after a day of this fervor, I would find my mind racing through lists of things I didn&#x27;t do, or didn&#x27;t do quite right. Instead I feel a gentle drowsiness taking over my body.
+I feel a gentle drowsiness taking over my body.
+I feel warm and relaxed almost meditative.
+1030 PM I turned off the light and tried to concentrate on the warm feeling in my body listening to the quiet stillness in the house. My headache returns if I do not consciously decide to allow my body and jaw to relax. I think about taking another 10 mg dose, but I don&#x27;t want to risk it with lots of school work to do in the morning.
+11 pm fall asleep. I sleep soundly through out the night, even when my partner comes home late, with many vivid dreams that I don&#x27;t recall when my alarm goes off.
+7 am alarm. Wake up without hitting snooze. Somewhat groggy waking up from a very deep sleep, but not in an intoxicated way. My jaw and body are totally relaxed and any sign of the tension headache are totally gone. My cat is still curled up peacefully at my feet, so it must have been a quiet night because often I will roll over and kick him out of bed while I sleep.
+730 am get up and start my day. Healthy appetite, and no lingering  feelings of intoxication just pleasant relaxed body and mind. Successful trip and sleep aid.
+Exp Year: 2019
+ExpID: 113605
+Gender: Female
+Age at time of experience: 28
+Published: Sep 26, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cannabidiol (596) : Therapeutic Intent or Outcome (49), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

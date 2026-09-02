@@ -1,0 +1,196 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>酸-MiPT - Erowid Exp - &#x27;好的,坏的和令人惊的乐趣&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-mipt.html'>← 4-AcO-MiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>酸-MiPT - Erowid Exp - &#x27;好的,坏的和令人惊的乐趣&#x27;</h1>
+<div class='sub-title'>4-Acetoxy-MiPT - Erowid Exp - &#x27;The Good, the Bad and the Amazingly Fun&#x27;</div>
+<div class='meta'>作者：Slimmy Citation · 日期：Feb 25, 2009 · 剂量：20 mg · <a href='https://erowid.org/experiences/exp.php?ID=71383' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我是一名27岁的男性, 身体健康, 体重195磅.
+我在医生的监督下经常运动,饮食健康,服用抗抑郁药Wellbutrin (布普罗).
+我已经多次服用了大多数常见的迷幻药, 并且对&quot;高剂量&quot;很熟悉和舒适,
+我在一个周末的下午独自吞下了20毫克的囊.
+我几乎总是单独旅行, 有些人会认为这是愚蠢或鲁的, 但这就是我喜欢旅行的方式, 因为其他人往往会在旅行时烦, 困惑或分散我的注意力 (也许我只是没有和合适的人一起旅行, 但事实仍然存在).
+我已经学会了如果我开始失去控制,如何应对如果我开始疯狂.
+我没有为此做好准备.
+这很快.
+不是萨尔维亚或DMT快速但比我采取的大部分物质更快.
+经过一个小时, 我感觉比吃过的任何一粒要强得多.
+我只能说这种物质的视觉效果令人难以置信.
+它们确实有那种活的,圆形的的特质,
+楼层只是流动和波动像一个大水体在风天.
+墙壁从正方形转移到平行四边形,
+房间里的每一个物体都在移动,
+它们只是在相互关系中移动, 仿佛某种远程运动在随机地推动着一切.
+整个情况太荒谬了, 我忍不住笑着着看着房间为我跳舞.
+我开始有点焦虑, 因为我试图为意想不到的事情做好准备,
+我对这种物质特别感兴趣的是,
+后来发现这对我来说并非如此.
+开始时,我身上的神经都得很奇怪.
+我最能描述的就是:你有没有在穿着子时, 触摸过点火器,
+想象一下刚刚开始入睡的肢体的, 像这样在你的身体周围传递.
+这不是一个不愉快的感觉, 但它是意想不到的,
+我也开始感到胸部紧张, 几乎没有意识到空气进入我的肺.
+无法感觉到自己的呼吸是让我感到焦虑的一个身体效应, 也是我不喜欢分离的主要原因之一,
+感觉好像有人把一本书的背脊推到我的胸前,
+在这个时候,事情几乎失控了.
+我不喜欢身体上的感觉,
+它们每两三秒就变形,变色,膨胀和收缩.
+在酸和上, 有些东西似乎有更多的视觉潜力,
+在这个物质一切都在移动甚至我的眼角.
+我决定我需要站起来走动, 通过身体向自己证明我很好,
+我打开了一些音乐, 发现自己有着我一生中最强烈的跳舞欲望.
+我不喜欢跳舞,我不擅长跳舞,
+我身体在移动时感到惊,
+在服用药后四五个小时,
+我几乎没有清醒, 但很明显我已经恢复正常.
+很有趣的是,视觉效果仍然很好.
+一切仍然在移动,
+物体不再变形,扩张和收缩.
+我走了出去一会儿,我希望我早些时候有心灵的存在,但它是愉快的,然而.
+我几乎清醒了, 洗, 准备了一顿轻食.
+总之,这是我服用过最有趣的药物之一.
+没有恶心.
+我甚至在高峰时也相对清醒.
+唯一不喜欢的部分是身体上的感觉, 但一旦我不再只是坐在那里看世界&quot;跳舞&quot;,
+这几乎是运动恶心的反面.
+如果我简单地向那些从未服用过这种药的人描述这次的经历,
+已使用的证券
+4-AcO-MiPT (312):一个人 (16),音乐讨论 (22),烂的经历 (4),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Good, the Bad and the Amazingly Fun
+4-Acetoxy-MiPT
+by
+Slimmy
+Citation:   Slimmy. &quot;The Good, the Bad and the Amazingly Fun: An Experience with 4-Acetoxy-MiPT (exp71383)&quot;.
+Erowid.org
+. Feb 25, 2009. erowid.org/exp/71383
+DOSE:
+20 mg
+oral
+4-AcO-MiPT
+(capsule)
+BODY WEIGHT:
+195 lb
+I am a 27 year old male in good health, weighing 195 pounds.  I exercise regularly, eat well and take Wellbutrin (bupropion) for depression under the supervision of a doctor.  I have taken most of the more common psychedelics multiple times and am familiar and comfortable with “higher” doses but I profess no unusual tolerance and don&#x27;t really care to push the limits of what my mind can withstand.
+I swallowed the 20mg in a capsule by myself on a weekend afternoon at my home.  I&#x27;m not sure what type of salt was in the capsule (acetate, fumarate?)  I nearly always trip alone which some would consider foolish or reckless but this is how I prefer to trip as other people tend to annoy, confuse, or distract me while tripping (maybe I just haven&#x27;t tripped with the right people but the fact remains).  Of course there&#x27;s always the danger of a “bad trip” but I&#x27;ve had some trips go terribly wrong alone and I&#x27;ve learned to steer experiences in another direction if I&#x27;m starting to lose control and how to cope if I start freaking out.
+The come-up on the substance was the first thing I was not prepared for.  It was fast.  Not Salvia or DMT fast but quicker than most substances I&#x27;ve taken.  After about an hour I was tripping far harder than on 3.5g of any mushrooms I&#x27;ve ever had.
+The visuals on this substance I can only describe as incredible.  Everything definitely has that animated, rounded mushroom quality to it but the intensity was far higher.  The floor was just flowing and undulating like a large body of water on a windy day.  The walls were shifting from squares and stretching themselves into parallelograms back and forth.  Every object in the room moving but they appeared normal.  They were only moving in relationship to one another and the as if some sort of telekinesis pushing everything around randomly.  The whole situation was so absurd that I couldn&#x27;t help but just giggle and stare as the room did its little dance for me.
+At this point I knew I had gotten myself into a much, much stronger experience than I was expecting and I began to get a bit anxious as I was trying to steel myself for the unexpected not knowing how much further I was going to be taken.  What had particularly attracted me to this substance was the reports of the low amount of body load it caused.  This turned out not to be so true in my case.
+It started with these strange nerve tingles wrapping around my body.  The best way I can describe it is this:  ever touched a lighter to a pair of socks while wearing them to watch the little fuzzy fibers ignite and spread the front of ignition around the sock in a ring?  Imagine the tingle of a limb that was just beginning to fall asleep doing that passing like that around your body.  It wasn&#x27;t an unpleasant sensation but it was unexpected and the random nature of where it was a bit unwanted.  I also began to feel a tightness in my chest and became nearly unaware of air going into my lungs.  The inability to feel my own breathing is one physical effect that always makes me anxious and is one of the main reason I do not like dissociatives because I can never relax without the biofeedback of knowing I&#x27;m breathing.  Then the tightness in my chest became a acute pressure which felt as if someone was pushing the spine of a book onto my chest but from the inside.
+Things were getting nearly out of control at this point.  I did not like the physical sensations I was getting and the open eye visuals were so intense.  Objects were morphing and changing colors completely every two or three seconds and expanding and contracting. On acid and mushrooms certain things seem to have more potential for visuals especially things with lights or patterns.  On this substance EVERYTHING was moving even out of the corner of my eye.
+I decided that I needed to get up and move around to prove to myself by body was fine and sort of grab the devil by the horns so to speak and embrace the crazy new world I was in.  I turned on some music and found myself with the most overwhelming desire to dance I&#x27;ve ever had in my life.  I don&#x27;t like dancing, I&#x27;m not good at it, but I had a blast just dancing around slowly grooving to the music for about an hour.  My body felt amazing when it was moving that it was bordering on euphoric.
+At this point I was starting to come down a bit maybe four or five hours after taking the pill.  I was no where near sober but it was becoming obvious that I was returning to baseline.  Interestingly enough the visuals were still going strong.  Everything was still moving but moving more slowly and with a smaller “range” of motion.  The colors of things were not changing any longer and objects weren&#x27;t morphing and expanding and contracting any longer.  I went outside for awhile which I wish I had had the presence of mind to do earlier but it was enjoyable none-the-less.  I was nearly sober at this point and I took a shower and prepared a light meal.
+In conclusion, this was one of most “fun” substances I&#x27;ve taken.  There was no nausea.  There were no “mind load” and I was relatively clear-headed even at the peak.  The only part I didn&#x27;t like were the physical sensations but once I stopped just sitting there watching the world “dance” and joined it by dancing myself those feelings went away.  It was almost like the opposite of motion sickness.  If I were to describe the experience briefly to people that had never taken it before I would say the following:  this was what I thought acid would be like when all I knew about acid came from movies and TV and brief descriptions of “hard drugs” in health class.
+Exp Year: 2008
+ExpID: 71383
+Gender: Male
+Age at time of experience: Not Given
+Published: Feb 25, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-MiPT (312) : Alone (16), Music Discussion (22), Glowing Experiences (4), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

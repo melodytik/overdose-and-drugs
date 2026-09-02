@@ -1,0 +1,197 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>猫 - &quot;六只猫倒&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/catnip.html'>← 猫薄荷</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>猫 - &quot;六只猫倒&quot;</h1>
+<div class='sub-title'>Catnip - Erowid Exp - &#x27;Six Cats Tripping&#x27;</div>
+<div class='meta'>作者：Pandora Spice Citation · 日期：Jul 10, 2019 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=93055' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>不,这不是一个游泳的变化.
+我有六只猫,我非常关心它们.
+我从一个朋友那里得到了一种强效的猫提取物.
+它是从猫的叶子和花中取出来的, 并悬浮在水中,
+四只猫中有两个在房间里.
+其他人在公寓的其他地方.
+我拿起一只猫的玩具从远处喷它.
+我丈夫和我可以看到阳光开始充满房间.
+我给了另外两只玩具老鼠不同方向的剂量,
+顶层的猫,尼普蒂斯跑到前面.
+顶层的猫,尼普蒂斯跑到前面.
+她的尾巴立即起到一个极端直立的位置,与尖端几乎触摸她的头.
+她打了几次, 攻击了特殊需要的猫, 尼斯, 跑过我,
+尼斯从玩具上得到了几次击中, 立即失去了立足,
+只有一个男性的组,哈瓦那/Horus跳下了我丈夫的膝盖,
+然后他走到一个有毒的玩具,受到了打击,它像墙一样击中了他.
+这让我想起了我对5-meo-DMT的反应.
+他只是走了.
+失落就是站立,跌倒,滚动,.
+最年长和最胖的,塞尔克特从一只老鼠身上得到了几次击中,
+她认为整个场景太过分了, 但她想成为家庭的一员.
+她拿起一只老旧的猫玩具,
+很快她就倒在床上睡着了.
+最年轻的,哈索尔, 接受了几次打击然后退缩试图收集她的智慧下面的办公椅.
+至少我就是这么想.
+我看了一遍,她在重重地标记它.
+我又看了一下, 看到我的小猫在椅子上腿,
+所有的愚蠢都转化为一些昏迷的猫,
+我看着我丈夫, 他已经采取了一个超级语言, 像猫的姿势, 也了下来!
+我丈夫在节日上受臭名昭著的&quot;接触高潮&quot;, 仅仅通过&quot;看毒品&quot;而被人所熟知,
+几个小时后每个人都醒了, 但我可以说, 他们真的有这些邪恶的宿醉.
+除了我的丈夫,他很好,很正常.
+总的来说,我们惊地发现它是多么快,多么强烈地影响了他们
+我们惊地发现它是多么快,多么强烈地影响了他们
+没有.
+取出来的猫液比我曾经使用过的任何叶子,玩具或活植物都强大得多.
+只是偶尔拿下来作为一种特别的享受.
+他们似乎仍然通过嗅着玩具来重新服用.
+我可能会把它们挂起来.
+显然,一点点的时间可以长途旅行.
+其他:
+发布时间:2019年7月10日
+猫 (68):二手报告 (42),家庭 (41),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Getting Rid of Your Physical Books?
+If you have books or periodicals about drugs, contribute them to Erowid!
+Your old books will find a good home in our library or for a supporter. [
+details
+]
+Six Cats Tripping
+Catnip
+by
+Pandora Spice
+Citation:   Pandora Spice. &quot;Six Cats Tripping: An Experience with Catnip (exp93055)&quot;.
+Erowid.org
+. Jul 10, 2019. erowid.org/exp/93055
+DOSE:
+inhaled
+Catnip
+(extract)
+This is a trip report for my cats. No, this is not a variation on SWIM.
+I have six cats and am fairly devoted to them.
+Well, I procured a potent catnip extraction from a friend. Pulled from the catnip leaves &amp; flowers and suspended in water, it was in a spray bottle. Two of the four cats were in the room. Others were elsewhere in the apartment. I picked up a cat toy and sprayed it from a distance. My husband and I could see the aresol begin to fill the room. I dosed two more toy mice in a different direction to spread more extraction around the room.
+The top cat, Nepthys came running forward.
+The top cat, Nepthys came running forward.
+As soon as she hit the aresol in the room her tail immediately perked right up into an extreme erect position, with the tip nearly touching her head. She brrrrrppp&#x27;d, took a few hits, attacked the special needs cat, Neith, ran by me making a bizarre noise I had never heard and stumbled off to pass out in her box.
+Neith took a few hits off a toy and immediately lost her footing, beginning to roll and mark in that extreme catnip-dosed way that cats do.
+The only male of the group, Havana/Horus jumped off of my husband&#x27;s lap and I could just see the aresol settle around him and his intoxication increase as he took a few breaths. Then he walked over to a dosed toy, took a hit and it hit him like a wall. Reminded me of my reaction to 5-meo-DMT. He was just gone. Lost is footing, flopped down, rolled, brrrped. . . . .
+The oldest and fattest, Selket took a couple hits off a mouse and immediately just became rolly-polly.
+Isis, our conservative cat who dissaproves of drug use, decides that the entire scene is way too much but she wants to be part of the family. So, she picks up an old, ratty catnip toy that has NOT been dosed, and begins to play with it. Soon she stumbles off to fall asleep.
+The youngest, Hathor, took a couple hits then retreated to try to gather her wits underneath a desk chair. At least that&#x27;s what I thought. I look over once and she&#x27;s marking it heavily. I look over again and am floored to see my little kitty literally humping the chair leg!
+Sooner rather than later, all of the silliness devolves into some very passed out cats, lazed all over the place. I look over at my husband, and he has assumed a super-languid, cat-like posture and passed out too! My husband, known for getting infamous “contact highs” at festivals, known for tripping just by “looking at drugs,” has managed to cop a contact high off of our cats dosed on catnip!
+A couple hours later everyone is awake but I can tell, they literally have these wicked hangovers. All except my husband, who is fine and normal.
+Overall, we were amazed at how fast it hit them and how strongly it affected them
+we were amazed at how fast it hit them and how strongly it affected them
+. The extracted catnip solution is so much more powerful than any leaf, toy or live plant I have ever worked with.
+My conclusion – this is going up on a very high shelf, to be taken down only once in awhile as a very special treat. That and they still seem to be getting re-dosed by sniffing the toys. I may have to put them up. Clearly a little goes a long way.
+Exp Year: 2011
+ExpID: 93055
+Gender: Female
+Age at time of experience: Not Given
+Published: Jul 10, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Catnip (68) : Second Hand Report (42), Families (41), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

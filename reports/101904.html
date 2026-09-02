@@ -1,0 +1,201 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;一些症状,一些影响&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/lsz.html'>← LSZ</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;一些症状,一些影响&quot;</h1>
+<div class='sub-title'>LSZ - Erowid Exp - &#x27;Some Symptoms, Some Effects&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jul 25, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=101904' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我把一个150微克的药片放到我的舌头上等待.
+我观察到这块纸有点像墨水的味道, 但主要像纸.
+我已经把它放在舌头上5分钟了 - - 没有麻木,
+我决定吞下这张纸.
+上次我服用LSZ时没有任何反应, 服用后大约一个小时.
+我决定在9点45分抽一根.
+我感觉到来自LSZ的东西, 但它很微妙.
+很奇怪,因为它不再仅仅由大麻增加.
+我把关键放在外面,所以我可以把其余的东西留给以后感觉就像我现在开始.
+视觉现象开始发生小变化,
+我还没有扩张, 但我最后一次使用LSZ的实验是在一周前,
+10:19 肯定开始感觉到血清激素活动, 但仍然没有瞳孔扩张.
+可能是因为我上周服用了安非他命,
+视觉现象开始慢慢增加.
+我注意到我的手完全不稳定.
+这与我上次做LSZ时的情况完全相同, 我得到了一些巨大的多巴胺效应,
+它比LSD更能与多巴胺受体结合.
+我也注意到开始紧张.
+10:45am 粘液和唾液的产生增加.
+我看着地板, 发现地毯在模仿.
+头痛已经被发现.
+我开始高峰,多巴胺类焦虑非常强烈,
+我开始再次感觉&quot;好了&quot;.
+胃部不舒服, 已经变得很烦人了.
+我看着我的瞳孔, 它们稍微扩大了.
+视觉是显而易见的, 但不像我的第一个实验.
+接下来的几个小时我躺在床上思考,放松,享受迷幻音乐.
+我觉得我开始下来了.
+我将在舒尔金的评分表中评价这次经历为++级.
+我的最后一个实验是+++.
+现在我觉得自己已经清醒了.
+这是一个值得重复的好经验,
+胃部的不适在这个实验中更加明显.
+我给朋友们这种物质, 他们报告没有焦虑在他们的经历.
+LSZ (609):一般性 (1),未知背景 (20)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Some Symptoms, Some Effects
+LSZ
+by
+DerpFace
+Citation:   DerpFace. &quot;Some Symptoms, Some Effects: An Experience with LSZ (exp101904)&quot;.
+Erowid.org
+. Jul 25, 2017. erowid.org/exp/101904
+DOSE:
+T+ 0:00
+150 ug
+oral
+LSZ
+(blotter / tab)
+T+ 0:45
+1 cig.
+smoked
+Cannabis
+(plant material)
+BODY WEIGHT:
+120 lb
+9:00am I drop 1 blotter(150 micrograms) on my tongue and wait. I observe the blotter tastes like ink slightly but mainly like paper.
+9:05am I have held it on my tongue for 5 minutes now - no numbness which would indicate the substance on the blotter is not a NBOME.
+9:15am I decide to swallow the blotter
+9:30am nothing yet but last time I took LSZ it didn’t take action tell about an hour after taking it.
+9:45am I decide to roll a joint. I&#x27;m feeling something from the LSZ but it’s very subtle.
+9:47am Woah, after having a few puffs my HPPD suddenly increased, odd because it doesn’t increase from just cannabis alone anymore.
+9:50am I put the joint out so I can save the rest for later feeling like I am coming up now. euphoria is noted and is steadily increasing like last time I did LSZ.  Small changes in visual phenomena has started and the sound of everything has changed a bit.
+10:04am I looked at my pupils in the mirror no dilation yet but my last experiment with LSZ was only a week ago and it was double the dose.
+10:19am Definitely starting to feel the serotonin activity but still no pupil dilation. Possibly because I used amphetamines in the last week is why I have yet to see any pupil dilation.
+10:24am I decide to put on music while coming up the visual phenomena is starting to increase slowly.
+10:31am I notice my hands are completely unsteady. This exactly like the last time I did LSZ where I got some tremendous dopamine-type effects probably because of LSZ’s affinity for dopamine receptor. It binds better to most dopamine receptors then LSD.  I also note jaw-tension is starting.
+10:45am Mucus and saliva production has increased. I look at my floor, the carpet is moving around in patterns. Headache is noted.
+11:00am I start peaking the dopamine-type anxiety is very strong I might end up taking benzos to calm myself down.
+11:55am after laying down and getting thru the hellish come-up I start feeling “OK” again. Stomach discomfort is noted and is getting annoying.
+12:47pm I looked at my pupils and they were slightly dilated. Visuals are apparent but not as strong as my first experiment.
+I spent the next few hours laying on my bed thinking, relaxing and enjoying the psychedelia.
+3:15pm I feel like I am starting to come down.
+4:16pm I am coming down still and would rate this experience as being a ++ on Shulgin’s rating scale. My last experiment was a +++.
+5:31pm I feel like I am sober now.
+This was a good experience worth repeating but the come-up of LSZ has always been hellishly anxious for me. The stomach discomfort was more apparent this experiment. I have given friends this substance and they reported no anxiety at all during their experiences.
+Exp Year: 2013
+ExpID: 101904
+Gender: Male
+Age at time of experience: 17
+Published: Jul 25, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSZ (609) : General (1), Unknown Context (20)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

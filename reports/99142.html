@@ -1,0 +1,242 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>6-APB - 埃洛伊德的扩散 - &quot;比我想象的更强大&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/6-apb.html'>← 6-APB</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>6-APB - 埃洛伊德的扩散 - &quot;比我想象的更强大&quot;</h1>
+<div class='sub-title'>6-APB - Erowid Exp - &#x27;More Potent Than I Thought&#x27;</div>
+<div class='meta'>作者：Just A Guy Citation · 日期：Feb 3, 2013 · <a href='https://erowid.org/experiences/exp.php?ID=99142' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我很高兴发现6-APB已经交付了.
+我当时并没有打算试验它, 但既然它已经存在, 我有几天时间恢复,
+我服用了500毫克的来缓解可能出现的紧张,
+以下是从笔记中得到的 (写得非常忙,摇摇欲的):
+含有非常浅色的粒状粉末.
+我用口服3片,然后将一半溶于水中并用直肠.
+我经历了一次轻微的动.
+我发现自己紧紧握着下巴,
+我经历了短暂,轻微的热量和头部压力,
+我觉得这种感觉与我吃时的感觉非常相似.
+我经常到洗手间吐唾.
+我喜欢抽一支香烟, 喝了大约一升水.
+我发现自己要做一些简单的小事,
+我听着一些音乐,并决定画一个浴室.
+我观察到我的瞳孔明显膨胀, 我的脉强烈而快.
+我脚又热又出汗, 但我的手却很冷.
+洗了
+我发现自己在浴上倾倒,
+没有什么结果, 但它缓解了我开始感到的恶心.
+虽然我的身体开始,
+厚厚的雾遮住了我的视野,像看穿雾.
+运动似乎毫不费力,
+我确实感受到这种化学物质的刺激作用.
+身体, 尤其是四肢 (手, 脚, 脸).
+我洗完, 觉得自己裸体很舒服.
+我觉得我已经失去了平衡, 感觉可能会昏.
+我开始出汗,
+但后来我真的感觉更好了.
+我认为我的内体温度可能高, 但我的数字温度计实际上显示LO,
+我很想跳舞,我也跳了,但很快就厌倦了.
+时间真的飞过了.
+我决定关掉所有的灯光, 觉得现在是个很好的时机用自我按摩和来刺激身体.
+我听着弗朗西斯科·塔雷加的音乐, 经典吉他让我的心情充满灵感,
+我开始写作, 写得很抽象,
+我开始感觉自己正在慢慢恢复自我.
+我确实在滚动, 至少我认为滚动是什么, 因为我从来没有使用过狂喜.
+但一切都非常愉快,
+虽然紧得很疯狂.
+接下来的三个小时我玩自己没有高潮,但感觉不错.
+我又喝了一升水.
+我的思想已经回来了.
+我抽了一碗芝士草.
+我终于抽了个大排卵.
+我眼睛大, 仿佛有人给我注入了大液.
+它们只是大黑色的球体.
+我的身体是如此硬和紧张.
+我已经被消灭了.
+我是一个直截了当的人.
+难以排尿.
+我必须站在所前十五分钟试图放松,所以我可以小便.
+它可以抑制肠道和排尿.
+这很好.
+我又抽了一碗大麻.
+我开始放松了.
+我决定吃点晚餐.
+吃了一大盘剩下的食物, 喝了一些水.
+我决定躺下看一部电影.
+我觉得躺下很好, 但我可以说我仍在经历这种化学物质的刺激作用.
+我喝了两杯酒,
+我终于睡了.
+我只有四个小时的睡眠.
+我在一个好地方.
+我还觉得很敏, 仿佛刺激剂还有效.
+我的眼睛已经不再大了.
+如果我愿意,我现在就可以去上班了.
+我喝咖啡,因为我的身体渴望它.
+总体来说:这是一个不应该超过一个月一次的事情.
+它非常强大,比我预期的要强.
+我可能会再做一次,
+这种剂量对我来说是完美的.
+其他:
+6-APB (516):第一次 (2),一个人 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+More Potent Than I Thought
+6-APB
+by
+Just A Guy
+Citation:   Just A Guy. &quot;More Potent Than I Thought: An Experience with 6-APB (exp99142)&quot;.
+Erowid.org
+. Feb 3, 2013. erowid.org/exp/99142
+DOSE:
+T+ 0:00
+150 mg
+oral
+6-APB
+(capsule)
+T+ 0:00
+25 mg
+rectal
+6-APB
+T+ 6:00
+bowls
+smoked
+Cannabis
+T+ 7:30
+bowls
+smoked
+Cannabis
+T+ 8:00
+2 glasses
+oral
+Alcohol - Beer/Wine
+BODY WEIGHT:
+170 lb
+When I returned home from work, I was excited to find that the 6-APB had been delivered. I hadn&#x27;t planned on experimenting with it that day, but since it was there, and I had a couple days to recover, I decided to go ahead with it. I took a 500mg of magnesium to help with any jaw clenching I might experience, and took a multivitamin, and some Vitamin D3. The following comes from notes (in a very rushed, shaky handwriting):
+T+0: The 6-APB came in 50mg green and white capsules containing a very light tan grainy powder. I took 3 orally, and I dissolved half of one in water and took rectally.
+T+1:00: I experienced a slight trembling in my extremities. I found myself clenching my jaw, but I was able to resist the impulse. I experienced short, mild rushes of heat and head pressure, and enjoyed the mild pleasure of coming up. I felt that this come up was very similar to the one I feel when I eat shrooms. Saliva kept filling my mouth and I made frequent trips to the sink to spit. I enjoyed a cigarette and drank approximately a liter of water. At this stage I found myself taking care of short, simple chores like washing the dishes, feeding the dogs, making the bed. I was listening to some music, and decided to draw a bath.
+T+1:15: I observed pronounced dilation of my pupils and my pulse was strong and fast. The warm rushes were more intense, and my feet were hot and sweating, but my hands were cold. Took a bath.
+T+1:30: I found myself leaning over the bath to vomit in the toilet. Nothing came up, but it quelled the nausea I began to experience. My body was starting to get very shaky, but it was pleasurable. A thick haziness obscured my vision, like looking through fog. Movement seems effortless, like my body is self-propelled.
+T+1:45: I&#x27;m definitely experiencing a stimulant effect from this chemical. My body is tingly, especially in my extremities (hands, feet, face). I finished w/ the bath and decided I was very comfortable naked. At this point I feel like the full effect was coming upon me and I was losing balance and felt like I could pass out. I started sweating but I was still enjoying the experience.
+T+2:00: I threw up violently. But boy did I feel better after that. I thought my internal temperature might be running high, but my digital thermometer actually displayed LO, meaning I was my core temp was actually below 95 degrees. I wanted to dance, and I did, but I got bored quickly. The time was really flying by. I decided to turn off all the lights, and felt like now was a good time to physically stimulate my body with self-massage and yoga. I was listening to Francisco Tarrega, the classical guitar helped keep my mood inspired, and my attitude mellow. I started to write in a mad rush and it was pretty abstract but neat.
+T+3:00: I started to feel like I was slowly coming back to myself. (Little did I know that this ride was far from over.) I was definitely rolling or at least what I think rolling is like since I&#x27;ve never used ecstasy. But everything was very pleasurable and just nice! Jaw clenching like crazy though. For the next three hours I was playing with myself to no climax, but it felt good anyway. I drank another liter of water.
+T+6:00: I&#x27;m back to working on projects again. My mind is back. I smoked a bowl of weed, of the “Cheese” strain. I finally jerked off to a massive (biggest ever) ejaculation.
+T+7:00: My eyes are dilated as if I&#x27;d had dilation drops administered. They are just big black orbs. My body is so stiff and tense. I&#x27;m wiped out. I&#x27;m straight shot. Hard to urinate. I must have stood in front of the toilet for fifteen minutes trying to relax so I can pee. It inhibits the bowels and urination.
+T+7:30: I smoked a cigarette. It was nice. I smoked another bowl of weed. I&#x27;m starting to relax.
+T+8:00: I decided to eat some dinner. Ate a big plate of leftovers and drank some more water. I decided to lay down and watch a movie. It felt good to lay down but I could tell I was still experiencing the stimulant effects of this chemical. I chugged two high-proof beers to help bring me down a bit.
+T+10:00 I finally got to sleep.
+T+14:00 I&#x27;m wide awake with only four hours of sleep. I&#x27;m in a good place. I&#x27;m still feeling sharp, like the stimulant is still effective. My eyes are no longer dilated. I could go to work now if I wanted to. I&#x27;m drinking coffee, though, because my body craves it.
+Overall Thoughts: This is something that ought not be done more than once a month. It&#x27;s very potent, much moreso than I expected. I would probably do it again, but like all drugs, I will be sure to be careful. The dosage seemed perfect for me.
+Exp Year: 2013
+ExpID: 99142
+Gender: Male
+Age at time of experience: 35
+Published: Feb 3, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+6-APB (516) : First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

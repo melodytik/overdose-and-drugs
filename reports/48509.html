@@ -1,0 +1,439 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - - &quot;神圣存在的视角&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/cacti-columnar.html'>← 仙人掌</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - - &quot;神圣存在的视角&quot;</h1>
+<div class='sub-title'>Cacti - Trichocereus spp. - Erowid Exp - &#x27;Perspective on a Divine Being&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Apr 15, 2006 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=48509' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我从15岁开始种植.
+发现一个真实Trichocereus Peruvianus标本的发生率为20:1每T.
+帕科诺伊或圣佩德罗仙人掌.
+我尝试了几十个圣彼得罗仙人掌的标本作为过度开采和开采的Lophocereus Williamsi或皮仙人掌的替代品,
+威廉姆斯将在未来50到75年内完全灭绝,
+这种仙人掌常常与仙人掌或仙人掌混,
+如果人们已经采取了所谓的T.
+他们可能吞了一种Psilocereus仙人掌, 在99%的人口中,
+它有蓝色的色调,长长的棘,V形口, 并且垂直生长非常快.
+然而,这棵仙人掌中没有明显的梅斯卡林或氨酸化合物的痕迹,
+我相信已经有几项研究证实了T的精神作用.
+秘鲁人可能是错误的标本.
+我需要两到三英尺长的仙人掌来产生强烈的精神作用.
+我需要6英寸到1.5英尺的距离, 确定出处和环境因素,
+圣佩德罗是一个不那么适应的物种.
+秘鲁人
+这种仙人掌很容易腐烂,烧热,
+没有.
+秘鲁人可以在更干燥,更热,更友好,更有害的环境中生长.
+没有.
+帕卡诺伊喜欢气,它是一种自私的植物,
+桃花是直径较大的仙人掌,因此可以储存更多的水分,而不会出现干燥的风险.
+圣佩德罗T.
+帕科诺亚是一种浅色深绿色的仙人掌,它似乎比其他仙人掌更喜欢其土壤中极高的含量.
+这种仙人掌高大,柱状,绿色浅到中等,棘很短,大小在1/5到1/4英寸之间.
+对于普通人来说, 仙人掌可能是很好的,
+这只野兽可能含有300-500毫克的..
+这种精神药物平均在12~16的T样本中被记录.
+帕丘诺伊
+仅使用绿色组织,因为白色和核心区域完全没有大部分类活性.
+这相当于30克干量Peyote,并抑制药物可能引起的某些恶心情况.
+没有.
+帕科诺亚大约需要60-120克 (干重) 才能产生相当的醇融体验.
+圣佩德罗的问题是仙人掌的变化.
+仙人掌可以在很长的时间和时间框架内改变它的效力.
+圣佩德罗在安第斯山脉,秘鲁和南美高山生长.
+这种仙人掌生长在海拔几千英尺,
+人们发现的大部分产品都是在温室中种植的,
+几乎所有都生长在佛罗里达州的南加州, 这种气候对生长极为有利, 但不适合强迫植物产生更高度的美斯卡林.
+没有.
+秘鲁人是一种耐受性强的仙人掌,
+它从它壮成长的恶劣环境中产生.
+这种木头能忍受极寒,极热和严重的干旱.
+这是人类迄今为止遇到的最耐受,最适应的分子仙人掌之一.
+这棵仙人掌是人类灵魂的典范.
+它生长在适应最有利的条件下, 在极端的热和寒的条件下壮成长, 并且不断地推动其周围环境的边界.
+我有经验表明,这种仙人掌能够将寒冷的环境转化为高度的氨酸,
+我认为梅斯卡林有助于&quot;正常化&quot;灵魂.
+它通过将身体与灵魂矩阵重新连接来实现,
+我个人认为人类拥有传递更高潜意识思想的感觉的能力, 并通过使用扩展性心理热带来转化它 (理论仍在等待).
+所有的人类都拥有这种能力, 但由于他们无法控制的干扰,
+人类有能力进入时空的第四维度,
+我患有精神障碍, 称为精神分裂性人格障碍.
+这与社会病患者的疾病不同,
+我需要利用人类的情感状态.
+我从来没有通过心理治疗,
+为了达到平衡状态, 我通过实现人类无忧感来获得心理稳定.
+我的幸福源于我对人类的漠不关心.
+我认为人类是一个寄生生物,
+人类是一种瘟疫,一种利用自然资源的寄生虫.
+没有其他哺乳动物能像人类那样利用资源.
+我们在这样做方面非常有效.
+我们破坏了大自然的平衡,
+通过伤害其他人类, 我们成为掠食者.
+在这个生存框架中, 它们要么是捕食者,要么是猎物.
+大多数是屠宰的羊羔.
+我利用别人,因为他们利用我.
+剥削是我们本性中的一部分.
+作为中枢神经系统的兴奋剂,
+梅斯卡林会慢慢地让人沉醉, 让人充满平静的高兴感.
+这是一种极致的诱惑药, 伴随着世界上最强烈的高潮释放感.
+在2005年夏天, 我捕获了一只长14到16英尺的Peruvianus,
+这棵仙人掌在一年的时间里开始变淡黄色.
+我试图根除两英尺长的部分, 大部分是灾难性的.
+它们开始腐烂,
+这种颜色从仙人掌的根部蔓延,
+我开始切断受感染的区域, 并保存宝贵的绿色组织区域.
+在7月至11月的生长期内,
+在生长季节的过程中, 开始长大, 变得非常健康.
+这些像仙人掌的标本在极端荒的沙漠环境中经历了六个多月的压力.
+我救出的12英尺长的仙人掌完全在它的根球中腐烂了,
+在2005年12月2日, 我拿出大约5磅的外围四分之一英寸的仙人掌组织,
+我回来第二天,水已经变成了深珀色.
+然后将溶液加热,并让它轻微沸3.5小时.
+实际上,一次45分钟的提取和另外两次25分钟的提取应该将大部分梅斯卡林吸入酸溶液中.
+溶液被煮成大约30司的色液体.
+我决定喝1/5的溶液.
+在冰箱里冷几分钟,然后拿出来.
+我把它带到我的房间, 开始慢慢地喝泡的棕色溶液的味道几乎完全像纯胃酸,
+我在20分钟的时间里消耗了饮料,
+我在网上查看了Alberino白葡萄酒的Peitan 2003葡萄酒的信息.
+北西班牙的白葡萄酒很好.
+传统上是一个凯尔特人地区,美丽的葡萄园.
+到了晚上6点45分,
+我知道梅斯卡林在接下来的一个半小时内会变得非常缓慢, 所以我决定写下一些关于欧洲葡萄酒的信息.
+我还下载了一张T.
+我可能会把它上传到Erowid网站上,
+现在是凌晨12点31分,
+在晚上7点半之前,
+我的意识开始逐渐转变.
+通过一双眼睛, 让我的存在变得不像以前那样.
+如果你的眼睛是色的 (就像我的眼睛一样), 就好像我从更纯洁的角度看着它们,
+它们的深度,细节和色彩似乎越来越大.
+某些感觉包括脑后的开始出现并消失,
+如此温柔地融入了自然的心境,
+梅斯卡林让我和我的身体感到和平,
+也许与氨酸相关的化合物过度刺激了我的新皮质,
+毕竟,意识不过是化学信息,
+这会触发神经递质和荷尔蒙的反应,
+每一秒钟, 大脑都会受到微观化学信号的不断轰炸.
+秘鲁的仙人掌实质上是超级化学高速公路的另一个输入信息,
+我们都拥有这种能力, 不需要任何额外的外部化学物质,
+我们是天生的动物, 具有更先进的小脑, 超越更原始和幼稚的新皮层.
+我们在原罪和救恩之间扎.
+这里面有一个悖论,罪不过是我们原始的小脑取代了我们大脑中的逻辑中心.
+我们大脑的逻辑中心使我们与低级生物有所区别.
+没有它, 艺术, 文化和推理都不存在.
+这些因素使人类物种显著.
+它们能够适应最极端的环境,
+这就是为什么我对仙人掌有如此的亲和力,
+这与我自己的生活有相似之处,
+我无法形容它, 但种植仙人掌已经扩大了我的思想远远超过任何梅斯卡林之旅X1000可以提供.
+这正是仙人掌告诉我要告诉别人的事情.
+我通过它说话,我被迫.
+自然是上帝,而上帝则是宇宙中的每一个原子 (以及无数无数的其他原子).
+自然的简单性是它的深层美丽, 你手中的静脉与树的外部部分和树枝相似.
+我头皮上的头发通过成千上万个多孔的毛囊单元生长, 就像草从下面滋养的土壤沉积中迅速生长一样.
+自然是上帝,因此为了更接近上帝,
+最微不足道的东西是世界上最重要的.
+拾起一块垃圾,然后扔掉.
+种植一棵小树, 一旦成熟, 就能吸收多达2万磅的有毒二氧化物,一氧化碳和有害污染物.
+人类的性格是缺陷的,
+认识和合理化情况的能力.
+每个罪行,每一个脏的行为,每一个恶意的行为都被合理化, 为什么?
+因为它使我们保持正常运作,因此证明了我们天生的原始欲望.
+如果我们想出一个借口,
+我们做得很好!
+这就是我们所做的事情,
+我知道我每一个想法都是自私的动机,
+悖论在于,罪迫使人类的灵魂因为每一个,该死的,孤独的想法,
+然而这种自我动机驱使我们做出了奇妙的事情, 发明了治疗脊髓灰质炎的方法,
+刺的是,罪是我们对外界刺激的基本反应.
+我认为罪是任何对他人或对自己有害的行为.
+通过学习如何产生罪, 我们能够阻止罪的传播.
+我犯了罪, 破坏了我身体的自然平衡,
+通过这个罪, 我得到了洞察为什么我在犯罪,
+总之,罪是你原始的小脑试图覆盖我先进的新皮层.
+因为我的小脑更发达,
+这就是为什么人类的罪恶,背叛,死亡和毁灭,
+更先进的新皮层 (艺术,文化,复杂思维的区域) 只是没有足够的先进和进化来否定更原始的冲动.
+我绝对不赞成这种行为为犯罪行为辩护, 我只是说这可能是它占主导地位的一个原因.
+如果有人想把这一切归咎于社会, 那些在学校搞他们的人,
+消极的刺激会让人变得更复杂,更适应.
+我们需要罪才能在精神上成长,
+对于一个仙人掌来说, 越多的疏忽和干旱,
+对于人类也可以说同样.
+然而, 经历了困难的人类大多都经历了它的贪和破坏性影响.
+自我憎恨,心理困扰和虐待.
+我们不适应周围的环境, 而是变得对环境不敏感.
+这只是我们所有人内在的应对机制.
+但随着我们对日益增多的负面图像,场景和思想变得无敏,
+我们的爱,同情和帮助的能力与我们的意识清晰程度相对应.
+我指的是对我们周围生物的认识,认可和接受.
+这就带我到另一个问题:技术的奇迹.
+它就像一种&quot;弗兰肯斯坦脂肪&quot;的转化脂肪,
+但对我们的饮食来说,
+这是一件好事.
+然而,事实并非如此.
+技术将彻底摧毁我们所知的人类.
+随着我们越来越依赖于它的统治,
+通过电脑, 我们可以购物,约会,
+一个可植入的芯片正在开发中, 允许人们通过眼睛的背部与互联网接口.
+他们已经指定了拥有这个芯片的生物&quot;homo-cyberneticus&quot;,
+技术与人类之间的交叉.
+随着我们的生物学退化和化, 我们的灵魂也会退化.
+我们将会看到,这一切都会发生.
+基因工程将会进化那些能够负担得起这一点的精英.
+我们其他人,在少数特权者与其他人之间,
+通过纳米技术的进步连接到全球网络.
+进一步丧失人类的个性和多样性.
+只有这样, 我们才能充分发挥我们的潜力.
+我已经看过这些事情.
+现在是凌晨1点33分,
+暂停
+我决定冒险到外面, 以满足我对酒精的日益依赖,
+我讨厌这些东西!
+我不能停止放纵和冲动的行为,
+这是一种疾病,
+我现在正坐在这里否定美斯卡林的效果与污染和有毒的发酵酵母废物,
+毒药进入我的口腔, 进入我的食道.
+我几乎想吐口气,因为我知道这是毒药,但毒药却养着我.
+这有没有任何该死的意义?
+我为什么要让自己干燥,吐和总体不适?
+酒精是一种精神上空虚的精神药物,
+没有任何活动,清晰,空虚.
+我的腿变成了灯塔,沉重和孤独,
+首先是平静的,然后是越来越强烈的.
+我开始怀疑我在这种时候,在这种情况下,
+我相信这棵仙人掌告诉我我需要看到的东西.
+我只专注于我的腿,
+我已经完全绘制出科学的位置,成本和消费路线.
+我机械地选择了我喜欢的毒药,然后前往收银机.
+我必须说我感觉到一个可怕的恐惧和厌恶的感觉自己作为我游行上下酒精岛上下探测到我完全无尽的选择消费.
+这就是我从一个充满狂喜的经历中改变心情的时刻,
+我开始对自己内向的感觉.
+一个真正神圣的美斯卡林体验只能伴随着自我检查.
+这就是这种精神药物管理工具的真正潜力和好处.
+如果我没有任何目的就拿走了这棵仙人掌, 那么我就是在低估自己.
+我甚至不想吃它.
+今晚我只是想得到高,我不想想这一切,它只是发生了.
+这就是这种物质的美丽, 这就是它的神圣的存在,
+我应该知道,我已经尝试过所有这些.
+我已经服用了2500毫克的德克斯特罗米多芬,200毫克的二甲基三胺,1500IU的lysergic酸二甲胺,
+(我拿了14个P.
+让我们说我不仅接触了外星人, 我成为了他们的灵魂矩阵网络中的一个).
+我还服用了几克GHB, 发现自己在急诊室醒着,
+显然如果救护人员在20分钟后来, 我和我的朋友会死.
+我说这些话不是为了给人留下印象,
+在过去的两年里, 我逐渐成为一个酒者.
+逐渐成为每天的&quot;定点&quot;或需要.
+我每天喝几司的葡萄酒,
+我没有经历过任何痛苦的长期影响,
+然而, 药物滥用在我看来比吃,睡觉和操的需要更强大.
+它成为脑海中的化学入口点, 解锁每一个小核和垃圾只在一个临时的途径点.
+这就是成的开始, 持续的努力打开脑海中产生多巴胺的通道.
+我们完全无助, 我们的生物学会在10次中9次获胜.
+我们允许身体控制心灵, 这反映了人类缺乏新皮层进化.
+解毒和戒断迫使心灵寻找这些&quot;产生多巴胺&quot;的物质以治愈身体.
+我的意识与现实不相符.
+我总是觉得自己被毁了,
+他从来没有融入,是一个被抛弃的人,
+随着时间的推移, 我开始憎恨人类,
+如果我是一个更高的生物体和有意识的精神状态, 我会为人类的原始和先进能力之间的冲突感到遗憾.
+这是一个我们都知道的地狱, 善与恶之间的战斗.
+地狱就在我们里面,但丁,他迷人了.
+我们的每一个行动,每一个思想, 都注定要毁灭.
+历史是重复的,这是真的.
+地狱是知道我们在做什么,却无能为力.
+现在是凌晨2点33分, 我觉得我在这个大牢房里写作了一永恒.
+我很难记得我写了些什么.
+我写这封信给你, 意识的流动从我的头脑流向我的手指,
+这真是太棒了!
+这就像试图向一个盲人描述蓝色.
+如何向一个罩在绝对黑暗中的盲人解释光明天空的巨大和邪恶之美,
+我将把这段经历留在此.
+我们甚至无法想象, 试图用文字描述梅斯卡林及其对身体和精神产生的一切影响.
+这种故事只是微不足道的, 触及了这个仙人掌希望我向公众表达的内容.
+我写这篇关于梅斯卡林的文章,
+我知道,至少有60次或更多.
+每次我感觉到它帮助我把更多的拼图放在一起,
+我不知道这是否有意义,甚至在我清醒的时候也会有意义.
+但是在这种意识状态和精神的参考, 我相信它会推动我更深入,更努力地探索自己以及如何改进.
+我们生活的目的就是承认我们的问题,
+我们不仅要帮助自己,更重要的是要帮助别人,
+这是我们唯一的救赎, 从地狱, 破坏我们的灵魂.
+我今晚所写的内容是受到来自Tricocereus Peruvianus的神圣生物的梅斯卡林的影响.
+我知道这不是传统的叙述, 但我觉得自由写作的思想是传达神圣实质的最强大工具.
+你不是一个活在精神体验中的人, 而是一个活在人类体验中的精神人.
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Perspective on a Divine Being
+Cacti - Trichocereus spp.
+by
+Mr. Inapplicable
+Citation:   Mr. Inapplicable. &quot;Perspective on a Divine Being: An Experience with Cacti - Trichocereus spp. (exp48509)&quot;.
+Erowid.org
+. Apr 15, 2006. erowid.org/exp/48509
+DOSE:
+oral
+Alcohol
+(liquid)
+oral
+Cacti - columnar
+(liquid)
+BODY WEIGHT:
+200 lb
+I have been growing Trichocereus peruvianus since the age of 15 for well over a decade.  First specimen was obtained in a store in the 1990’s.  This is an unusual phenomenon as I have purchased dozens of Trichocereus Pachonoia specimens from Nurseries, mail order companies, and box appliance stores over the last half dozen years.
+The occurrence of finding a True Trichocereus Peruvianus specimen is 20:1 for every T. Pachonoi or “San Pedro” cactus.  I have tried several dozen specimens of San pedro cactus in substitute to the over-exploited and mined Lophocereus Williamsi or “peyote” cactus which will probably become extinct within a few short decades,  natural L. Williamsi will be completely extinct along the Rio Grande and Chihauaha desert region with the next fifty to seventy-five years.
+This cactus is often confused with Psilocereus or cereus cactus which take on an uncanny similarity.  If people have taken a supposed T. Peruvianus cactus they probably ingested a Psilocereus cactus which to 99% of the population looks identical to Trichocereus Peruvianus.  It has a bluish tint, long spines, a V-shaped notch, and very fast vertical growth.  However, this cactus contains no notable traces of mescaline or phenalanayine compounds, making it psycho actively in void.  It is my belief several studies done on the psychotropic properties of T. Peruvianus were probably on a mis-identified specimen.
+Trichocereus Pachanoi, I will need two to three feet of this cactus to create a full blown psychoactive effect.  With Tricocereus Peruvianus I will need six inches to 1.5 feet determining the origin and environmental factors to which the cactus has been exposed.  San Pedro is a much less adaptive species then T. Peruvianus.  The cactus is very susceptible to over-rot, heat burn, and over watering.  T. Peruvianus benefits in its ability to grow in drier, hotter, and more hospitably detrimental environments.
+T. Pachanoi loves nitrogen, it’s a selfish plant, asking for nutrients constantly in relation to other cactus.  Tricocereus Peruvianus is a larger cactus in diameter, it can therefore store more moisture content without the risk of drying out.  San Pedro “T. Pachonoia” is a light colored dark green cactus which seems to prefer extremely high nitrogen content within it’s soil in proportion to other cactus.  This cactus is tall and columnular, light to medium green, and has very short spines within the range of 1/5 to ¼ inch.  The cactus is probably good for an average person in content of mescaline content.  The beast probably contains anywhere from 300-500 milligrams..  This psychotropic substance is on average recorded within a good 12” to 16” specimen of T. Pachonoai.  Only the green tissue is used as the white and core areas are completely devoid of most alkaloid activity.   This is comparable to a 30 gram dry amount of “Peyote” and inhibits certain nauseous circumstances which the drug may produce.  T. Pachonoia takes roughly 60-120 grams (dry weight) to produces a decent mescaline mind melting experience.  The problem with San Pedro is the variability within the cactus.  The cactus can vary within it’s mescaline potency within a huge duration and time frame.  San Pedro grows within the Andes, Peruvian, and South American High Mountains.  This cactus grows several thousands of feet in elevation from 2000 to at least 3000 meters in elevation.
+Most of what people find is grown in greenhouses, under ideal conditions, and is therefore deficient in desirable amounts of mescaline.  Nearly all is grown in Southern California of Florida, an extremely favorable climate for growth, but unsuitable for forcing the plant to produce higher concentrations of mescaline.
+T. Peruvianus is a hardy cactus into the lower teen temperatures.  It produces it’s mescaline from the inhospitable environment from which it thrives.  The cactus enjoys freezing temperatures, extreme heat, and sever drought.  This is one of the most tolerant and most adaptive molecular cactus that the human race has encountered. This cactus is a paradigm of the human soul.  It grows in the most adaptively advantageous conditions, flourishes in extreme conditions of heat and cold, and constantly pushes the boundary of it’s surroundings.  It is my experience that this cactus possess the ability to transfer frigid conditions into high concentrations of mescaline in a last ditch effort to save itself from frigid cold.
+Mescaline in my opinion helps to “normalize” the soul.  It does so by re-connecting the body with the soul matrix which provides humanity a sense of presence within the natural world.  I personally believe humankind possesses abilities to trans-migrate feelings of higher sub-conscious thought and transmute it through the use of expansive psycho tropics (theory still pending).  All human beings possess this ability but due to their overwhelming limiting distractions they have yet to realize these abilities.  Humanity has the capacity to enter the fourth dimension of time space but has yet the spiritual means by which to follow these doctrines.
+As of this time I have suffered from a psychotropic disorder known as schizoid personality disorder.  This is separate from sociopath disorder in the sense that I find a need to exploit humankind.  I otherwise derive a need to exploit human emotional states.  I never fully developed a sense of true identity through the use of psychotherapy.  In order to achieve a state of equilibrium I derive psychological stability through the use of achieving a sense of human insouciance.  My happiness derives from my disinterest within humanity.  I view humanity as a parasitic organism which ultimately needs to reduce it’s number significantly.  Humanity is a plague, a parasite which exploits it’s natural resources.  No other mammal exploit’s the resources the way humankind does.  We are incredibly efficient at doing so.  We destroy nature’s equilibrium by indulging in self reluctance for our actions.  By harming other human beings we become predators.  They are either the predator or the prey in this frame of existence.  Most are the lamb to the slaughter.  I exploit other people because they have exploited me.  People exploit, it is within our nature.
+As a central nervous system stimulant, mescaline will take the body and mind into a place it has not yet ventured.  Mescaline slowly inebriates the mind, flooding it with a sense of calm euphoria.  It is the ultimate aphrodisiac coupled with the worlds most intense sense of orgasmic release.
+Sometime during the summer of 2005 I took 14-16 feet of Trichocereus Peruvianus and let it callus off for several months.  The cactus had over the course of a year started to turn a faint yellow color.  During this time I took the entire cactus and attempted to root out two foot sections of the cactus, most were disastrous.  They began to rot and start to turn a predominant brown color.  This color spread from the base of the cactus and started to progress northward.  As the “rot” began to move forward I started to cut off the infected areas and saved the valuable “green tissue areas.”
+After a six month period within the growth period between july-novemeber I managed to root over four specimens.  It is quite easy, I rooted two 2 foot specimens and 2 6”inch specimens which during the course of the growing season began to grow big and very healthy.  These specimen of cactus had been stressed in the extreme barren desert-like environment for over six months at a time.  The twelve foot segment of cactus which I saved, completely rotted within it’s root ball and stayed alive for well over a year  before I discovered it’s plight.
+On December 2nd 2005 I took roughly five pounds of the outer quarter inch tissue of the cactus and seeped it in a solution of 10:1 water to citric acid solution to let it thaw out overnight.  When I returned the next day the water had turned a dark amber drown color.  This solution was then heated and left to lightly boil for 3.5 hours.  Realistically one 45 minute extraction and two additional 25 minute extractions should suck most of the mescaline into the acid solution.
+The solution was boiled down to about 30 ounces of sludgy brown liquid.  I decided to drink 1/5 of the solution.  The concoction was chilled in the freezer for a matter of minutes then taken out.  I brought it up to my room and began to slowly sip the frothy brown solution which tasted almost exactly like pure stomach acid, horribly bitter and gag friendly.  I distracted myself as I consumed the drink over the duration of 20 minutes.  I went onto the internet and looked at information on the Peitan 2003 wine of the white varietal Alberino.  North Spain makes some excellent full bodied white wines.  Traditionally a Celtic region, beautiful vineyards.
+As of 6:45 pm I had finished the concoction.  I knew the mescaline would come on incredibly slowly over the next hour and a half so I decided to write out some information on European wines.  I also downloaded a picture of one of my T. peruvianus specimens onto the computer.  I may upload it to the erowid site for reference.
+It is now 12:31 am and I am currently half-way through the experience.  The initial effects did not start to begin until 7:30pm.  As with most of my mescaline experiences my consciousness begins to shift very gradually.  It is as if I am somehow able to objectify my existence through a set of eyes which are not quite the shade I once had before.  If you had hazel eyes (as I do) it is as if I am looking at them from a more pure perspective, say rich viridian green.  Objects seem to take on more depth, detail, and color.  Certain feelings including chills in the back of my head begin to come in and fade out, like ripples in a pond.  So gently does it blend in with the natural state of mind it seems so natural and tranquil.  Mescaline somehow feels at peace with my body in a way no other substance can match.
+Perhaps the phenylalanine-related compounds are over stimulating my hyperactive neo-cortex, but this seems far to superficial to me.  After all consciousness is nothing more then chemical messages sent to receptors from one of our five senses directly to the brain.  This triggers neurotransmitters and hormones to respond accordingly in order to make sense of our outside surroundings.  The brain is constantly bombarded with numerous chemical signatures on a micro-level every second of the day.
+The Peruvian cactus experience is in essence another piece of input information on the super-chemical “highway.”  A divine plant source who allows humankind the opportunity to tap into a fourth dimension of consciousness.  We all possess this ability without the need for any additional outside chemicals but I believe mescaline and other “psychotropics speed up the process” a bit.  Yet we are innately animals with our more advanced primitive cerebellum overriding the more primitive and infantile neo-cortex.  Thus we are left battling between a state of primal sin and salvation.  There within lies the paradox, sin is nothing more then our primitive cerebellum superseding our logic center in the brain. The logic center of our brain is what allows us to differentiate from lower organisms.  Without it art, culture, and reasoning would not exist.  These are the elements which makes the human species remarkable.  Within it’s capacity to adapt to the most extreme circumstances, much like cactus.
+This is why I have such an affinity for cactus, they can endure extreme drought, cold, neglect, and darkness for weeks, months, even years at a time.  This is a parallel to my own life which has been filled with numerous periods of peril, substance abuse, physical trauma, and mental instability.
+I cannot describe it, but growing cactus has expanded my mind far greater then any mescaline trip X1000 could provide.  This ultimately is what the cactus is telling me to tell others.  I speak through it, I am compelled.  Nature is God, and god is nothing less then every atom within the universe (and countless infinite others).  The simplicity of nature is it’s profound beauty, the way the veins in your hand correspond so similarly to outer portions of a tree and it’s limbs.  The way the hair from my scalp grows through thousands of porous follicular units much as grass sprouts up so readily from the nourishing soil deposits below.
+Nature is God, therefore in order to get closer to God I must nurture it and support it.   The most minor and miniscule things are what makes the most difference in the world.  Picking up a piece of trash and throwing it away.  Planting a small tree, which in maturity can suck up as much as 20,000 pounds of toxic dioxins, carbon monoxide, and harmful pollutants once fully mature.
+Human character is deficient, that is its subsequent single greatest strength and weakness.  The ability to acknowledge and to rationalize situations.  It is after all the only thing which keeps us going, every crime, dirty deed, malice behavior is rationalized, why?  Because it keeps us functioning therefore justifying our innately primal urges.  If we come up with an excuse than we can justify our morose, sadistic, and hedonistic ways.  And we do it just fine!  That’s all we’ve ever done and will continue to do.  I know that every thought I perpetuate is completely and selfishly motivated and yet I must enact it in order to sustain my existence.  The paradox is sin compels the human soul because every single, fucking, solitary thought that we have on some sub-conscious, primal, basic, and primordial level is completely self motivated.  Yet this self-motivation propels and compels us to do wondrous things, devise the cure for polio, send a man to the moon, expand consciousness into a fourth dimensional frame.
+The irony is sin is our inherent basic human response to all outside stimuli.  Sin in my opinion is any action which is harmful to that of another being and or oneself.  Yet through our sin we learn and through learning how to produce sin we are able to deter its spread.  I have sinned in disturbing my bodies natural equilibrium by incorporating a foreign psychotropic substance.  Yet through this sin I have been provided insight into why I am sinning and am able to if anything acknowledge its existence.  Bottom line:  sin is your primitive cerebellum attempting to override my advanced neo-cortex.  Because my cerebellum is more evolved it will predominately win out.  This is why human sin, betrayal, death, and destruction supersedes it’s relatively obscure accomplishments.
+The more advanced neo-cortex (area for art, culture, complex thinking) is simply not advanced and evolved enough to deny the more primitive impulses.  I am in no way condoning that this justify criminal behavior, I am only suggesting this is one possible reason for it’s predominance.  If some want to blame it all on society, the people who screwed them over in school, the world, they may.  But if anything, negative stimuli creates a more complex and psychologically adaptive being.  We need sin in order to grow spiritually, a sick yet necessary sadistic game.
+Look at a cactus, the more neglect and drought it receives the more psychotropic energy it channels.  The same can be said for humankind.  However, most of humankind which has endured hardship has encountered its ravenous and destructive effects.  Self-hate, psychological distress, and abuse.  Instead of adapting to our surrounding environment we have only learned to become desensitized to it.  It is simply a coping mechanism which is inherent within all of us.  But as we become further desensitized to increasing negative imagery, scenes, and thoughts, we loose pieces of what makes humanity so special and unique.  Our capacity to love, empathize, and help corresponds to our level of conscious clarity.  What I mean by this is an awareness, acknowledgement, and acceptance of our surrounding biology.  This brings me to another point, the wonders of technology.  It is like a trans fat “Frankenstein fat,“ conveniently and synthetically devised to add to product shelf life.  But destructive in every way to our diet.  A blessing in disguise.  However, far from the truth.
+Technology will completely destroy the human species as we know it.  As we become increasingly dependent on it’s dominance we are slowly disintegrating our communion with nature.  Through the computer we now shop, date, and encounter the outside world without embracing it’s presence.  There is an implantable chip being developed to allow people to interface with the internet through the back of their eye.  They have already designated the being who possesses this chip “homo-cyberneticus,” scary shit!!!! A cross between technology and humanity.  As our biology retrogrades and entropies so will our soul.  We will see, it will all come to pass.  Genetic engineering will evolve the elite upper class who can afford it.  The rest of us, that much more discrepancy between the privileged few and everybody else.  Two hundred years from now we will not recognize ourselves, a new species connected onto a global grid through Nano technological advances.
+A further loss of individuality and diversity of homo-sapiens.  Diversity is after all what nature is inclined to create, only then can we reach our full potential.  I have seen these things.
+Currently 1:33am, I have been writing this entire time.
+“Pause”
+I have just returned from the store at 2:03 am pacific time.  I decided to venture outside in order to feed my increasing dependence on alcohol, the single most destructive, callus, and despicable substance ever to grace humankind.  I hate this shit!!!!!! It is fucking destroying my life and I cannot stop my indulgent and impulsive actions which feed the beast.  It is a disease, progressive and relentless in everybody it embraces.  I am sitting here right now negating the effects of the wondrous and serene mescaline with the polluting and poisonous fermented yeast waste which sits before me in a puke green vessel.  This very second I am relentlessly consuming the poison as it enters my mouth and travels down my esophagus.  I almost want to gag because I know it’s poison and yet poison feeds me.  Does this make any fucking sense?  Why the fuck am I fucking compelled to give myself dry heaves, vomiting, and a general state of malaise.  Alcohol is such a spiritually empty psychotropic the worst of its kind.
+Although I must say the walk to the store was a divine experience.  As I headed out the door the night was still and calm, without  any activity, clear, and empty.  My legs became beacons, heavy and solitude as they valiantly clashed against the sidewalk.  At first calmly then with increasing force.  I began to wonder what was compelling my need to buy alcohol at this hour and under these conditions.  I believe the cactus was telling me what I needed to see.  At the time I only focused on my legs as they firmly lay content on their final destination.  I had completely mapped out the location, cost, and consuming route to a science.  This brought me to the store in utter haste.  I mechanically chose my poison of choice then headed to the cash register.  I must say I felt a horrible sense of dismay and disgust at myself as I paraded up and down the alcohol isle probing up and down at my utterly endless choices of consumption.  This is the point which changed my mood from a lovely ecstasy based experience where I felt compelled to question and probe with love within my heart.  Now is where the mescaline comes in and I begin to embark upon a sense of introversion within myself.
+A truly divine mescaline experience can only be accompanied by self-examination.  This is the true potential and benefit of this psychotropic management tool.  If I take the cactus without a purpose then I am selling yourself sooooooo short. I didn’t even want to consume it.  Tonight I just wanted to get high, I didn’t want to think about all this shit, it just happened.  That is the beauty of this substance, this is it’s divine presence over any other psychotropic substance known to humanity.  And I should know, I have tried them all.  I have taken 2,500 milligrams of dextromethorphan, 200 milligrams of Dimethyltryptamine, 1,500iu of Lysergic acid diethylamide, a probably lethal dose of psilocybin. (I took 14 P. Cubensis mycelium cakes and extracted them into cranberry juice………….lets just say I not only contacted extra-terrestrials, I became one within their soul-matrix network). I also took a couple grams of GHB and found myself awake in an emergency room with half a dozen doctors resuscitating me.  Apparently If the paramedics had came 20 minutes later myself and my friend would have died.
+I say these things not to impress but to disgust by the desire I have within myself to end my life.  I have slowly become an alcoholic over the last two years.  Gradually it has built up to a daily “fix” or need.  I consume several ounces of wine a day, probably at least a gallon or so.  The beauty is I have not experienced any of the agonizing long term effects but I am aware of where this path will eventually lead.  Yet substance abuse is in my opinion more powerful then the need to eat, sleep, and fuck.  It becomes THE chemical entry point within the mind that unlocks every little nuke and crummy at only a temporary waypoint.  That is where addiction begins, the constant seek to unlock these “dopamine producing” entryways within the mind.  We are utterly helpless, our biology will win 9 times out of 10.  We allow the body to be in control of the mind, this refers back to human lack of neo-cortex evolution.  Detoxification and withdrawal force the mind to seek out these “dopamine producing” substances in order to remedy the body.
+My consciousness does not correspond to this frame of reality.  I have always felt maligned and out of place within humankind.  Never fitting in, an outcast, generally sympathetic and of good intentions.  However, over the years I have grown to hate humanity, it is a disease which has run rampant over it’s surrounding environment.  If I was of a higher organism and conscious state of mind I would pity humankind for its utter conflict between it’s primitive and advanced capacities.  This is hell as we all know, the battle between good and evil.  Hell is here within us, fuck Dante, he glamorized it.  It exists within every action we take, every thought we perpetuate, we are doomed to destory.  History repeats itself, this is true.  Hell is knowing what we are doing and helpless to act against it.
+It is 2:33am and I feel like I have been writing in this imposing cell for a fucking eternity.  Honestly looking back over the past few hours I can hardly recall what I have written.  I am writing this to you in a stream of consciousness as it flows from my mind into my fingers triggering the impulses to stroke the keyboard into every single word, syllable, and letter.  What a trip if your tripping!!!! It is like trying to describe the color cerulean blue to a blind man.  How do I explain the vast and malevolent beauty of the luminous sky to a blind man shrouded in absolute darkness, it is absolutely impossible.
+I will leave this experience at that.  It is impossible to even fathom trying to gather into words an accurate account of mescaline and all the effects of what it produces within the body and mind.  This account is simply miniscule in touching the surface of what I acknowledge this cactus wants me to express to the public.  I wrote this account of mescaline more for myself then anybody else.  I have tripped on this stuff more then anybody I know, at least sixty times or more.  And every time I feel that it helps me piece together that much more of the puzzle to my life.  I don’t know if this makes sense, or even will to me when I’m sober.  But in this state of consciousness and reference of mind, I believe it pushes me further and harder into exploring myself and how I can improve.  This is our purpose in life, to acknowledge our problems and improve upon them.  In doing so we will help not only ourselves but more importantly other people and it will be genuine and true.  And this is our only salvation from the hell with which ravages our souls.
+What I have written tonight is under the influence of mescaline derived from Tricocereus Peruvianus, a divine being.  I know this is not a traditional account, but I felt freely written thought is the most powerful tool for conveying this divine substance.
+(Unrecalled source)….You are not a human being living a spiritual experience but a spiritual being living a human experience….
+Exp Year: 2005
+ExpID: 48509
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 15, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Cacti - T. pachanoi (64), Cacti - T. peruvianus (69) : Alone (16), Glowing Experiences (4), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

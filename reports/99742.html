@@ -1,0 +1,174 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>AM-2201和UR-144 - 埃洛伊德的使用 - &quot;副作用&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/am-2201.html'>← AM-2201(合成大麻素)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>AM-2201和UR-144 - 埃洛伊德的使用 - &quot;副作用&quot;</h1>
+<div class='sub-title'>AM-2201 &amp; UR-144 - Erowid Exp - &#x27;Side Effects&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Aug 4, 2015 · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=99742' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我在网上购买了10克AM-2201药.
+我把它和一些不同的草药混合在一起, 最后选择了薄荷, 因为它的甜味,易燃性和化学物质的吸收性都很好.
+我混合了大约1g:1oz, 发现它与普通草药的强度相似.
+吸了几次, 让我的头.
+之后,我似乎习惯了它, 它没有这样的效果.
+这只持续一个小时左右, 这意味着我会想要吸烟60后更多.
+这是一个45...
+三十个...
+20分钟 (这段时间在我服用药物的2-3个月后逐渐减少).
+这种药物会让人上,
+由于其在大脑中半衰期短, 它不会让人梦想不清, 也不会让人在早上昏迷,
+我担心吸分子的想法, 所以当我的10克在3个月后用完, 我买了一些UR-144 (寻找另一个便宜, 高效的香料).
+我先像之前一样混合1g:1oz的薄荷, 发现强度和持续时间与AM-2201相同.
+由于薄荷已经耗尽,我混合了1g的UR-144:10g薄荷.
+我开始吸烟后, 胸部就开始疼痛, 尤其是心脏,
+这种感觉就像水晶在肺部重新结晶 (如果心脏?
+它也是令人不快的强,但不像好的草药.
+我不相信人们会直接蒸发水晶; 他们只是在寻找麻烦.
+继续吸烟太痛苦了, 也让人害怕,
+我终于遇到了一位天然药品经销商,
+这种感觉更有药用性, 并且对我的食欲有好处.
+我没有注意到真正的草药引起的胸部疼痛,
+远离这些东西!
+(YMMV) 在
+但我认为这些香料是危险的, 而天然植物是一种经过验证的药物,
+其他:
+AM-2201 (529),UR-144 (699):健康问题 (27),回顾 / 摘要 (11),不适用 (38)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Side Effects
+AM-2201 &amp; UR-144
+by
+Drago
+Citation:   Drago. &quot;Side Effects: An Experience with AM-2201 &amp; UR-144 (exp99742)&quot;.
+Erowid.org
+. Aug 4, 2015. erowid.org/exp/99742
+DOSE:
+smoked
+AM-2201
+smoked
+UR-144
+BODY WEIGHT:
+185 lb
+Lacking funds and connections to buy real herb locally, I purchased 10g AM-2201 online. After dissolving in acetone, I mixed it with some different herbs, finally settling on spearmint for the sweet taste, good combustibility, and good absorption of the chems. I mixed about 1g:1oz and found that to be of similar strength to average herb.
+The first few times I smoked it, it really seemed to make my head spin. After that, I seemed to get used to it and it did not have such an effect. It only lasts about an hour, which means I would want to smoke more after 60.. 45... 30... 20 minutes (the interval decreased over the 2-3 months I was consuming it). As such it encourages addiction, unlike good herb which leaves me satisfied.
+One seeming quality: due to its short half-life in the brain, it does not cloud one&#x27;s dreams, nor leave one groggy in the morning, as much as the ganja I was familiar with, because it has cleared from the system by that time.
+The thought of smoking a fluoridated molecule was worrying me, so when my 10g ran out after 3 months, I bought some UR-144 instead (looking for another cheap, high potency spice). I first mixed 1g:1oz spearmint as before, and found the strength and duration about the same as the AM-2201.
+After that ran out, I mixed 1g UR-144:10g spearmint (as I had run out of mint). As soon as I began smoking this, I was feeling chest pains, and especially in my heart, like a sharp crystal shard. It feels like the crystals re-crystallise in the lungs (and the heart? if that is possible?). It was also unpleasantly strong, but not like good herb. I can&#x27;t believe people vaporise crystals directly; they are just asking for trouble.
+It was simply too painful to keep smoking this stuff, and scary, when contemplating a possible heart attack, so I quit before finishing that batch. I finally met a dealer of natural medicine and have some money now, so I bought some quality real herb. It feels much more medicinal, and is good for my appetite. I do not notice any chest pains from the real herb, but (after a few days now) I still feel some residual heart pains throughout the day from the UR-144. Stay away from this stuff! (YMMV)
+Thanks go out to Prohibition for encouraging so much new chemistry, but methinks these spices are dangerous, whereas the natural plant is a proven medicine with no serious physical side-effects.
+Exp Year: 2013
+ExpID: 99742
+Gender: Male
+Age at time of experience: 35
+Published: Aug 4, 2015
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+AM-2201 (529), UR-144 (699) : Health Problems (27), Retrospective / Summary (11), Not Applicable (38)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

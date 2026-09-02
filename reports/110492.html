@@ -1,0 +1,462 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的&quot;洪水后奇怪的景象&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tabernanthe-iboga.html'>← 伊博格木</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的&quot;洪水后奇怪的景象&quot;</h1>
+<div class='sub-title'>Tabernanthe iboga (TA extract) - Erowid Exp - &#x27;Bizarre Visions After Flood Dose&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Sep 28, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=110492' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>简介
+这次旅行报告有三个目的: (1) 记录我的经历,以免忘记,尽管考虑到发生了什么,忘记将是不可能的; (2) 找出其他人是否看到了我看到的东西,或者是否其他人在类似的情况下看到了类似的幻影/实体;
+(3) 描述我们使用的程序, 以便未来的&quot;伊博加&quot;心理飞行员可以使用假设-演方法,
+您将在我的洪水后的药量记录中看到的并不是我闭眼或戴眼罩时看到的.
+我的眼睛是开的.
+每次我醒来时, 我都没有经历过体外体验; 我觉醒了, 我移动了我的被,
+尽管眼睛开, 但另一位参与同样的&quot;伊博加&quot;仪式的人,
+洪水剂量
+这一切在第二天晚上开始变得有意义, 一个低沉的/擦爱情声音打断了我这个周末睡觉的第一次机会.
+这听起来像是慢慢地擦一个人的牛仔.
+我觉得在公共卧室做爱是不礼貌的,
+我注意到他们继续穿着那些奇怪的服装, 但这并没有阻止我的求中断:
+我已经了近30个小时,我想睡觉.
+无论我离开还是你离开,这将会发生!
+隔壁的吉尔看着我说:&quot;没有人.
+我转身回到床上,他们仍然在那里.
+他们在那里.
+没有噪音,只是听着和看着我们.
+我拿起手机, 向他们指着主屏幕打开,
+我站着喊道:&quot;我想我已经失去了理智!&quot;
+吉尔问我是否没事,我说没有.
+杰克说他听到脚步离开房间.
+这一刻解释了我整个晚上看到的所有奇怪行为,
+我之前曾尝试过其他源, 包括亚华斯卡,
+我不太喜欢吃一根树皮,
+根据我们的主持人,TA提取物会减少恶心,疼痛,吐,
+仪式于今年早些时候在
+在荷兰的一个舒适的两层楼房子里.
+在周末为6-7人 (最多) 举行仪式.
+我们的仪式由于最后一刻的取消而小.
+我们总共有三个人:杰克,吉尔和我 (姓名已更改).
+每个人都会在家里在18:00h星期五,然后我们了解彼此一段时间.
+为了确保安全, 为了看看是否有人对该物质有过敏反应,
+试验剂量 (剂量1) 是两片:一种是根树皮 (500 mg) 和一种是TA提取物 (500 mg).
+到了中午, 我们被送到床上,
+我使用眼罩保证任何光线都不会影响我的眼睛,
+视觉与其他旅行报告相似: 记忆和过去的场景; 你想处理的问题或担忧; 我看到的视觉主要是灰色,红色,蓝色和绿色,
+我不会讨论我在洪水剂量阶段所见到的大部分视觉, 因为我收到的信息是个人的,
+你会明白为什么当你到达标题为&quot;旅行结束了&quot;的部分时,
+两片TA提取物, 每片500毫克.
+到了4点钟, 我们得到了第三剂:两片TA提取物, 每片500毫克.
+到了6点, 我们得到了第四剂.
+杰克吃了两片TA提取物, 每片500毫克, 吉尔选择不再吃,
+我还没有提到过,
+我们大约每隔两个小时就会服用一次新剂量,
+我们大约每隔两个小时就会服用一次新剂量,
+我需要吐的时候, 脱掉眼罩, 打开眼睛找吐桶, 幻象就停止了.
+只有当我的眼睛被关闭时,
+吉尔在12点左右去了下楼的公共室, 杰克在14点左右下楼.
+我整晚几乎没有睡觉,
+我没有下楼到16:00左右.
+桑德尔发现, 运动一点, 吃一点点的人,
+每个人都放松下楼, 谈论和讨论他们的经历.
+实际上,我相信伊博加是一种非常有趣的物质,
+旅行结束了,或者我认为
+周六晚上21点左右, 杰克,吉尔和我都去睡觉了.
+我们的护理人员会照顾我们, 但我们没有看到他们晚上的其余部分,
+或是我认为.
+我是一个非常不安的睡人无论如何和醒来最小的噪音.
+结合身体疼痛,睡在不属于自己的床上, 和陌生人共用房间,
+我整晚都在翻滚, 不断被奇怪的影像唤醒.
+虽然杰克证实了我所看到的, 但也可能是他脑海中的, 因为我们都服用了同样的物质.
+我从床上翻过头来看房间里发生了什么.
+接下来是我记得发生在这个顺序或多或少.
+白色德鲁伊
+很快我进入我的床上,我感觉到有人在房间里移动.
+我抬起头,看到两个
+穿着白色发光的服装, 类似于黑光的效果.
+我不期望与实体有太多的互动,
+我认为我看到的大部分事情都是由我们的护理员和吉尔做出来的.
+我从那天晚上越来越多地回忆起, 我稍后会讨论的一些事情不可能是他们,
+这是一种奇怪的感觉,
+我们的女护士和吉尔在周末相处得很好, 所以我以为女护士偷偷地走进我们的房间和吉尔玩.
+玩是错误的词, 但当时我觉得她把吉尔叫醒了,
+我注意到两个实体:一个坐在吉尔的床上 (现在我意识到吉尔在那张床上睡着了),
+电话或设备有光紫色的光, 灯光很暗.
+它们靠近他们的手, 它们要么靠在他们的手掌上,
+每次我抬起头来, 他们都慢慢地把头转向我的毛毯.
+我看到他们注意到我,然后我把我的头.
+约20分钟后, 我又了一眼, 恶毒地着我,
+我地叹了口气,希望他们能明白,最后又睡了一会儿.
+在房间里,我认为当时没有,是一个白色的雾,
+我还看到一个白色的帐在房间的中间, 开口朝着吉尔的床,
+灯没有移动.
+他们是蓝色,绿色,色和黄色,也模糊的光,然而雾使灯有点明亮.
+它们只是奇怪的光球,有些大一些小,看起来像球.
+这些实体穿着白色的,像德鲁伊一样的帽子, 带着宽的白色内衣.
+我没有看到他们的脸,
+由于伊博加来自非洲, 这些实体可能有非洲的脸, 但罩衫不允许太多的光暴露他们的脸色.
+每次他们对我微笑, 我都能看到牙之间有空隙.
+机器人
+我又醒来, 发现房间中间有很多东西:家具,搬运箱,地灯,椅子等.
+房间里有一片蓝绿色的雾,
+一个奇怪的小机器人在这些东西周围移动, 离地板几厘米.
+它在静止时有上方L的形状 (如:),并且在房间里慢慢滑动时有数字7的形状.
+它的薄头大约宽2厘米,高2厘米,长14厘米.
+它的体长约35厘米, 具有类似脊椎的结构, 具有浮动关节, 关节在顶部更宽, 底部非常窄.
+背面有四个绿色圆形灯, 最大的在顶部, 最小的在底部.
+在头部前面有一个绿色的光线投射出绿色的圆圈, 它们的尺寸越远, 就越远于机器人的圆形绿色&quot;眼球&quot;或相机屏幕.
+它似乎正在记录或搜索某种东西,
+它扫描了吉尔的脸比房间里的无生命物体更长, 当它接近我时,
+我不想吓它,所以对它微笑.
+然后它继续扫描杰克的床.
+我厌倦了看着它在探,所以我试着去睡觉.
+(这个小机器人在夜间出现了几次, 每次在房间里都有不同的东西,
+另外,小机器人从来没有与其他实体一起出现,总是独自出现.
+尸实体
+我再次醒来时听到声或声,
+这种声类似于有人有
+在旅馆里,当你听到擦床单的声音时,或者在用手擦牛仔时,
+体看起来就像木乃伊, 整个身体被布包裹,
+我称之为木乃伊,
+它们就像是葬礼服装,
+他们躺在房间的中间, 腿稍微高于地板, 双臂在旁边,
+现在回想起来, 我认为男护士在或摸摸女护士或吉尔,
+另一次醒来时, 我看到两位木乃伊站在房间后面,
+两个站在房间后面, 另一个站在床脚下,
+这些木乃伊的服装与前者相同,但它们的前臂在太阳交叉体上被折叠,
+镜像实体
+他们坐在镜子前稍微倾斜在Jill的床和我的,在房间的中心.
+这些人也穿着木乃伊服装.
+他们用蓝色,色,黄色和绿色等光色彩的垂直和水平线画脸.
+他们的头部背部被同样的木乃伊布所覆盖, 但我无法在镜子里看到他们的脸;
+我还以为这是男护理员,或是女护理员,或是吉尔在房间里玩着一些奇怪的游戏.
+我在床上着床单, 他们慢慢地转过头看着我.
+我看着他们,然后回到床上, 希望他们能明白我需要睡眠.
+恐吓这些实体
+我再次醒来, 看到白色的巫师,木乃伊, 和镜子实体在房间里,
+我的手几乎打倒了墙上的灯在我的床上.
+我举起手, 低声向他们保证没有什么坏了,
+我把头放在下面, 再试着睡觉. 我说:&quot;你知道的,
+我认为我有一次暂时的分离, 因为在房间里有三个人,
+我记得自己有点害怕, 想把头埋在沙子里,
+每个人都在一次
+这是晚上最奇怪的时刻之一.
+我抬起头,房间里发生了很多事情.
+我希望在这里强调所有这些视觉在整个夜晚都非常清晰, 完全没有模糊;
+除了之前提到的小机器人, 几乎全息, 我今晚看到的所有其他实体都不透明,
+两位木乃伊在地板上振动,另一位木乃伊躺在杰克的床上,
+在玩的木乃伊上方, 有一个圆形形象,
+只有棺材的干部可以看到.
+黑人女性的形象以45度的角度向我的床倾斜.
+白色的德鲁伊德们也带着他们的帐.
+他们似乎在工作或做研究.
+这就是我对他们的感觉.
+另外,还有一位20岁的非洲部落男子穿着传统服装,
+我在楼梯上看到五个超人,
+第一个似乎是男性, 巨大的, 恶魔, 的头.
+他的头比他的身体更大,像 tarantula 与一个厚的蚊子吸鼻/嘴结合一个案例的
+形表皮
+这种罕见的皮肤病使人看起来像根.
+他穿着,或包含在他的身体, 一种明亮的白色矩形,
+然后有三个女人出现在视线.
+他们都穿着深红色的长袍,发型与女王卫队的头盔相似,看起来像熊皮毛帽.
+每个人都拥抱着一个高个子的金发女人,
+三位女性轮流向高矮的金发女士按上身, 双手按在金发女士的肩膀上,
+这三位女性和主持人消失在走廊, 但这个高大的实体继续着我的方向.
+因为着我意味着好奇心或想要与某人争.
+虽然他着,他从来没有进入房间.
+我相信这有两个可能的原因: (1) 他是一个邪恶的实体, 尊重,或不能参加或破坏, 杰克,吉尔,我,和其他实体的正在进行的伊博加仪式,
+另外值得注意的是,第二天我发现我们房间的窗完全不透明,
+但是我可以透过窗看到这些实体.
+我猜以上事件发生在三点到四点半之间.
+我回去睡觉后, 吉尔和我一直被摩擦的声音唤醒.
+我们都以为是杰克在床上自慰.
+她很高兴我跟杰克说了些什么, 因为她也已经厌倦了.
+她说没有人在那里, 我打开手机灯, 感到害怕.
+可重复性
+由于我已经说过的原因, 我无法深入睡眠或只能短暂地睡觉,
+我读到的伊博加旅行报告只提到洪水期间的异象,
+我建议对未来的Iboga精神探险家进行新的调查.
+在第一个12小时的伊博加仪式结束后, 试着在第二天休息一下,
+吉尔唯一经历的超自然活动是晚上后来的摩擦声音.
+她和男性护理员一起走到海, 睡觉时她已经筋疲力尽了.
+杰克和我很惰 (而且很累),白天睡觉,所以我们很不安,夜晚很容易被这些实体打扰.
+我们经验的特点:
+(1) 服用大量的TA提取物
+没有.
+(2) 其他
+星期五大约22点到22点半开始意愿仪式, 然后在午夜左右躺在床上.
+(3) 这36小时的旅程大致分为3个阶段.
+第一个阶段:从午夜到12:00 (星期六上半天).
+这一阶段代表了死亡过程.
+第二阶段:从12点到午夜 (星期六下半天).
+这一阶段代表了长老和洞察的土地.
+第3阶段:从午夜到12:00 (星期天的上半天).
+这一阶段代表着重生.
+(4) 在第二天晚上21:00至6:00之间似乎有什么特殊的时间.
+也许在这个时候, 布维蒂的传统仪式包括大家跳舞和唱歌,
+(5) 试验小组规模.
+根据我上面的经验,
+在我们的案例中,
+团队规模可能是一个重要的因素.
+存在于床上,在地板上,在周围漂浮,利用房间的空白空间.
+我认为如果有太多iboga参与者或一个狭小的房间,
+我认为这些生物需要空间来做自己的事,
+我感觉到他们想在仪式期间陪伴我们,
+我只是看着,没有向实体求助, 因为我认为我们的护理员和吉尔在玩.
+我不知道这些实体是否会带我们到其他领域如果我们只要求他们作为我们的指南.
+(6) 护理人员不应打扰.
+我认为我们的护理人员不经常来我们的房间,
+我们已经超越了吐,大量剂量阶段.
+如果我们的护理人员一直在检查我们,
+我建议参与者提前使用所, 拿起晚上需要的东西,
+(7) 意图可能在第二天晚上有所影响.
+如果你试图保持整晚, 实体可能会感觉到有人醒着, 他们不会显示自己.
+我确实试图睡觉, 但我在白天休息了,
+我在夜间至少被唤醒了10次, 一旦我仔细观察了周围,
+我每次躺下睡觉时都不会立刻入睡,
+我希望在下次与伊博加合作时, 能与实体进行更多的互动.
+下次我想要坐在床上看他们更长时间, 用手势,微笑, 或许给他们看手机上的照片, 或许给他们看实物照片, 或许给他们带走礼物.
+(8) 为了吸引和看到实体, 或许设置必须感觉像一个仪式.
+如果一个人独自做伊博加或没有传统音乐,
+结论
+我最能解释的就是, 在洪水中看不到这些实体, 因为前12个小时是非常痛苦的体力运动,
+然而,当身体有机会恢复一段时间, 我认为一个高度的ibogaine残留在身体里,
+此外,看到/与实体互动的必要先决条件可能包括由iboga产生的眼睛关闭效应,由iboga产生的心率减慢,以及因睡眠和食物缺乏而疲的身体状态.
+布维蒂人可能不打算在伊博加食用阶段看到最有意义的幻象,
+实际的伊博加体验不仅仅是洪水剂量期间的幻觉; 洪水剂量阶段, 我认为, 是一个必要的前提,
+格雷厄姆·汉考克提出:&quot;大脑是意识的接收器或收发器;作为这样的收发器,意识的接收波长可以调整,从而获得其他层次的现实和居住在这些现实中的智能&quot; (格雷厄姆·汉考克和圣葡萄,伦敦真实采访,YouTube).
+我不相信这些实体和技术的形象是我内在产生的.
+我认为iboga是大脑能够看到通常看不见的东西的工具.
+我敦促未来的iboga参与者尝试我的设置建议,
+布维蒂人说他们能与灵魂和指南交流,
+听起来像是神话和幻想, 但在正确的条件下,
+我希望看到更多的科学方法研究,
+我希望类似的见解和实验能够被分享,
+其他:
+小组 (2-9) (17),实体/生物 (37),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Bizarre Visions After Flood Dose
+Tabernanthe iboga (TA extract)
+by
+deon
+Citation:   deon. &quot;Bizarre Visions After Flood Dose: An Experience with Tabernanthe iboga (TA extract) (exp110492)&quot;.
+Erowid.org
+. Sep 28, 2017. erowid.org/exp/110492
+DOSE:
+T+ 0:00
+500 mg
+oral
+Tabernanthe iboga
+(rootbark)
+T+ 0:00
+500 mg
+oral
+Tabernanthe iboga
+(extract)
+T+ 2:00
+1 g
+oral
+Tabernanthe iboga
+(extract)
+T+ 4:00
+1 g
+oral
+Tabernanthe iboga
+(extract)
+T+ 6:00
+500 mg
+oral
+Tabernanthe iboga
+(extract)
+BODY WEIGHT:
+96 kg
+INTRODUCTION
+This trip report serves three purposes: (1) to record my experiences to not forget them, although forgetting will be impossible considering what happened; (2) to find out whether others have seen what I saw or whether others have seen comparable apparitions/entities under similar circumstances; and (3) to describe the procedures we used so future iboga psychonauts can recreate this experience using the hypothetico-deductive method, i.e. scientific method, approach. What you will read in my post-flood dose account is not something I saw with my eyes closed or while wearing an eye mask. My eyes were open. Each time I awoke from a brief sleep I was not having an out-of-body experience; I was awake, I moved my duvet, and drank from my plastic water bottle. The visions may have been entirely in my own mind—even with open eyes, however, another person who partook in the same iboga ceremony, called Jack, saw what I saw.
+FLOOD DOSE
+It all started to make sense on the second night when a hushed thrusting/rubbing lovemaking sound interrupted my first chance of getting some sleep this weekend. It sounded like slowly rubbing a hand up and down one’s jeans. I think it’s a bit rude to have sex in common sleeping areas and these people, whether staff or guests, needed to stop. I noticed they continued to wear those odd costumes but that did not stop my pleading interruption: “C’mon guys, I’ve been listening to this for a while now, it has to stop. I’ve been up for nearly 30 hours and I want sleep. Either I leave or you leave, this will happen”! Jill in the next bed looked at me and said, “There is no one there”. I turned back to the bed and they were still there.
+They were there
+, not making noise, just listening and watching us. While maintaining my gaze at them, I picked up my phone, pointed the home screen towards them and turned it on and then they weren’t there! I stood and cried out, “I think I’ve lost my mind”! Jill asked if I was all right, I said no. Jack said he heard footsteps leave the room. This moment explains all the other bizarre behavior I saw throughout the night beginning at around 22:00h.
+I tried other entheogens before including ayahuasca, but this was my first time working with iboga. I wasn’t too keen on eating spoonfuls of root bark, so I, like the others, opted for a flood dose of TA extract. According to our hosts, TA extract produces less nausea, pain, throwing up, and you go deeper into the altered state. The ceremony took place earlier this year at
+[a place] in the Netherlands at a cozy 2-story house.
+The three facilitators run the place and do ceremonies for 6-7 people (maximum) on weekends. Our ceremony was small due to last-minute cancellations. There were three of us in total: Jack, Jill, and I (names have been changed). Everyone met at the house at 18:00h on Friday and then we got to know each other for a while.
+T: 0+
+By 22:30h, we participated in an intention ceremony and took a test dose to be safe, to see if anyone had allergic reactions to the substance. The test dose (dose 1) consisted of two tablets: one of root bark (500 mg) and one of TA extract (500 mg). By 00:00h, we were helped to our beds and we would wait for the next dose. I used an eye mask to guarantee that no light whatsoever would affect my eyes even though the room was pitch black. The visions were similar to what other trip reports say: memories and scenes from your past; an issue or concern that you want to deal with; I saw visions primarily in grey, red, blue and green in this order; and I could see through my mask in a Matrix film kind of way. I will not discuss most of the visions I had during the flood dose stage because the information I received is personal and the flood dose stage is not the focus of this experience report. You will understand why when you reach the section titled TRIP IS FINISHED, OR SO I THOUGHT.
+T: 2+
+By 02:00, we were given our second dose: two tablets of TA extract, each at 500 mg.
+T: 4+
+By 04:00, we were given our third dose: two tablets of TA extract, each at 500 mg.
+T: 6+
+By 06:00, we were given our fourth dose. Jack took the full two tablets of TA extract, each at 500 mg, Jill chose not to take any more, and I only chose one additional tablet at 500 mg. I haven’t mentioned it yet, but I want to say here that there is a lot of vomiting throughout this process. We received a new dose roughly every two hours, so the vomiting usually began an hour or so after ingesting the tablets.
+We received a new dose roughly every two hours, so the vomiting usually began an hour or so after ingesting the tablets.
+Also, when I needed to vomit, thus take off my eye mask and open my eyes to find my vomit bucket, the visions ceased. The visions appeared during the flood dose stage only when my eyes were closed.
+T: 16+
+Jill went to the common room downstairs at around 12:00h and Jack went down at around 14:00h or so. I had barely slept the whole night and my body hurt everywhere. I didn’t go downstairs until around 16:00h. Sander has found that people who move a bit and eat a small meal increase their physical recovery and feel much better on Sunday, the day we were supposed to leave. Everyone relaxed downstairs, talked and discussed their experiences. Indeed, I was convinced that iboga was a very interesting substance to work with until…
+TRIP IS FINISHED, OR SO I THOUGHT
+T: 21+ until 30+ (or 21:00h until 06:00h)
+At around 21:00h on Saturday (now, the second night), Jack, Jill and I went to our beds to get some rest. Our trip sitters would look after us, but we didn’t see them the rest of the night, and for good reason: not much happens after the vomit, flood dose stage. Or so I thought. I’m a very restless sleeper anyway and wake up to the smallest noises. Combined with my physical pain, sleeping in a bed not my own, and sharing a room with strangers, I couldn’t sleep. I rolled around all night and was constantly woken up by bizarre images. The images could have occurred in my own mind, and although Jack corroborates what I saw, they may have been in his mind too since we both took the same substance. The following images are what I saw from the purview of my bed by rolling my head to see what was occurring in the room. In what follows is what I remembered to have occurred in this order more or less.
+White Druids
+Shortly after I entered my bed, I sensed that someone was moving around the room. I lifted my head and saw two
+people, about 160 cm, dressed in glowing white costumes, similar to the effect of a black light.
+I wasn’t expecting much interaction with entities, as iboga is a personal, inward experience as opposed to a more outward experience with ayahuasca. Until I had that frightening realization in the Introduction at the beginning of this report, I thought most of the things I saw were done by our trip sitters and Jill. As I remember more and more from this night, some of the things I will discuss later on couldn’t have been them, but for some reason I convinced myself while in that exhausted state that those visions couldn’t have been anyone other than our trip sitters or Jill. It was a bizarre feeling especially when there were more than three entities in the room.
+Our female trip sitter and Jill got along well during the weekend so I thought the female trip sitter snuck into our room to play with Jill. “Play” is the wrong word, but it seemed to me at the time that she woke up Jill to play on their smartphones or something. I noticed two entities: one sat on Jill’s bed (now I realize that Jill was asleep in that bed) and the other was standing, and they were looking into each other’s phones. The phones, or devices, had a fluorescent purple glow and were dimly lit. The devices were so close to their hands that it either rested on their palms or there were no devices at all and the light came from the palms of their hands. Each time I peeked up, they slowly turned their heads towards my ruffling duvet. I saw they noticed me and then I put my head back down. About 20 minutes later, I peeked up again and gave a nasty look, a look that said stop playing around, Jack and I want to sleep. I hissed and sighed for them to get the point and then eventually slept briefly.
+Also in the room, which I thought nothing of at the time, was a white fog, as if someone brought in a fog machine. I also saw a pitched white tent in the middle of the room with the opening towards Jill’s bed, and what seemed to be Christmas lights hovering in the air from the tip of the tent to behind the entities with a final light ending above Jill’s bed. The lights didn’t move. They were blue, green, orange and yellow, also dimly light, yet the fog made the lights somewhat brighter. Also, the lights didn’t have any casings or bulbs; they were just oddly shaped balls of light, some big and some small, looking like orbs. The entities wore white, druid-like hoodies accompanied by baggy white onesies. I didn’t see their faces, but I saw white vertical and horizontal stripes painted on their faces. Since iboga is from Africa, these entities could have had African faces, but the hoodies didn’t allow much light to expose their facial colour. They also had thin fluorescent white painted on black dreadlock-style hair and each time they smiled at me I could see a space in between each tooth.
+The Droid
+I woke up again and noticed lots of stuff—furniture, moving boxes, floor lamps, chairs, etc.—in the center of the room. There was a blue-green haze in the room and the image looked almost like an hologram. A curious little robot was moving around the things, a few centimeters off the floor. It had the shape of an upside “L” (such as: ˥) when still, and the shape of the number “7” as it slowly glided around the room. Its thin head was roughly 2 cm wide, 2 cm high, and 14 cm long. Its body was roughly 35 cm long and had a vertebrae-like structure with floating joints, the joints wider at the top and very narrow at the bottom. There were 4 green circular lights on its back; they were biggest at the top and smallest at the bottom. At the front of its head was a green light projecting green circles increasing in size the farther away the circles were from the droid’s circular green “eyeball” or camera screen. It seemed to be recording or searching for something because it took its time to fully view everything that came into its line of sight. It scanned Jill’s face longer than the inanimate objects in the room and as it approached me—while I rested on my elbow observing it—it stayed fixed on my face as well. It seemed harmless and I didn’t want to scare it so I smiled at it. Then it moved on to scan Jack’s bed.
+I became bored of watching it snoop around so I tried to go to bed. (This little robot appeared several times during the night, each time with different stuff in the room and different quantities of stuff. Also, the little robot never appeared with other entities, always by itself.)
+Mummy Entities
+I woke up again to the sound of buzzing or scratching, the same sound I heard at the beginning of this report. This buzzing sound is similar to someone having a
+wank in a hostel when you hear the sound of rubbing fist on bed sheet or while rubbing your jeans with your hand. The mummy entities looked like mummies: cloth wrapped around their entire body with lots of protruding loose ends. I call them mummies, but not in the traditional Egyptian sense. They were like burial outfits, but much looser than the stereotypical mummy. They lay flat in the middle of the room with their legs slightly above the floor, arms at the side, and they were pulsating/vibrating very quickly. In retrospect, I thought the male trip sitter was shagging or heavily groping either the female trip sitter or Jill and they had put on some kinky outfits. At other waking moments, I experienced the mummies standing, two at the back of the room and the other at the foot of my bed, gazing in my direction.
+I experienced the mummies standing, two at the back of the room and the other at the foot of my bed, gazing in my direction.
+These mummies were dressed as the previous ones except their forearms were folded on their solar plexus and the mummy wrappings were covered over their arms.
+Mirror Entities
+I woke up again to two individuals, presumably a man and woman because of their size, and they were sitting in front of a slightly inclined mirror in between Jill’s bed and mine, in the center of the room. These individuals also wore those mummy outfits. They were painting their faces with vertical and horizontal lines of fluorescent colours, such as blue, orange, yellow, and green. The backs of their heads were covered in the same mummy cloth, but I couldn’t see their faces in the mirror; I could only see the fluorescent colours they were painting on themselves. Again, for some reason, I thought this was the male trip sitter and/either the female trip sitter or Jill playing some weird games in the room. When I ruffled my duvet, they slowly turned their heads to look at me through the mirror. I looked at them and then went back to bed hoping they would get the point that I needed sleep.
+Scaring The Entities
+I woke up again to see the white druids, the mummies, and the mirror entities all in the room going about their business. I had a good look around and when I lifted my duvet in an attempt to get comfortable for my next sleep my hand almost knocked down the wall lamp above my bed. Everyone looked startled and was looking at me, and I put my hand in the air and assured them with a whisper that nothing was broken and everything was ok. (Like I said, I thought our trip sitters were in the room, that’s why I apologized for almost breaking their beautiful wall lamp.) I put my head down, and tried to sleep again.
+I think I had a temporary case of dissociation because more than three entities in the room meant they couldn’t have been the trip sitters and Jill. In retrospect, I do remember feeling a bit scared and thought by putting my head in the sand—or in this case, under my duvet—they would go away.
+Climax Moment—Everyone At Once
+This was one of the weirdest moments of the night. I lifted my head and there was a lot activity in the room. I want to stress here that all of these visions were very crisp throughout the night, not fuzzy at all; they looked as real as waking life, like I could touch them. Apart from the little droid mentioned before which seemed almost holographic, all of the other entities I saw this night were not transparent like stereotypical ghosts, they were whole and intact.
+Two mummies were vibrating on the floor, another mummy lay supine on the end of Jack’s bed—while Jack was in the bed—with its legs pointed straight up and its hands playing with the red window curtain, actually stroking the curtain from behind and moving it forward. Above the mummy who played with the curtain was an oval image of a 50-year-old black woman in a black dress in a coffin. Only the torso portion of the coffin was visible. The image of the black woman tilted at a 45-degree angle towards my bed. The white druids were there as well with their tent. They seemed to be working or doing research. That was the feeling I had from them. In addition to these images, a 20-year-old African tribesman in traditional garb peeked his head around my duvet and our eyes met.
+Then, at the top of the stairs, I saw 5 more entities through our room’s door curtain; all were about 2 meters tall. The first seemed to be male with a big, demonic, mangled head. His head was larger that his body, tarantula-like with a thick mosquito-sucking nose/mouth combined with a case of
+epidermodysplasia verruciformis
+, that rare skin disease that makes people look like roots. His body was slim and he wore, or contained within him, a kind of bright white rectangle and it seemed like he was wearing a futuristic kind of formal suit, similar to a business suit today.
+Then three women came into sight. They all wore dark red robes and had haircuts similar to Queen’s Guard helmets, looking like a bearskin fur cap. Each hugged a tall woman with braided blond hair who seemed to act like a host or an old friend they hadn’t seen in a while. Each of the three women took turns to say hello by pressing their torso against the tall blond woman, placed their hands on the outer shoulders of the blond woman, and embraced each other like how French people give two kisses, one on each cheek. The three women and the host disappeared down the hallway, but this tall entity continued to stare in my direction. I was uneasy and felt uncomfortable by his staring because staring implies curiosity or a desire to confront someone as in a fight. Although he stared, he never entered the room. I believe there are two possible reasons for this: (1) he was an evil entity who respected, or couldn’t participate in or disrupt, the ongoing iboga ceremony of Jack, Jill, and I, and the other entities, or (2) he was a good entity, even though he was extremely hostile-looking and frightening, but he decided to stay put because he sensed I was scared of him. Also worth noting: the next day I discovered that the curtain to our room is not transparent at all; you can’t see anything through it. But I could see these entities through the curtain.
+I’m guessing the above episode happened between 03:00-04:30h. After I went back to sleep, Jill and I were constantly awakened by the rubbing sound. We both thought it was Jack masturbating in his bed. When I piped up at the entities mentioned in the introduction, she was happy that I was saying something to Jack because she had had enough of it as well. When she realized I wasn’t directing my comments towards Jack, she said no one was there and I switched on my phone’s light and became scared.
+REPEATABILITY
+For reasons already stated, I was unable to achieve deep sleep or only achieved brief slept, but I was consistently awakened during the night. Iboga trip reports that I have read thus far only address visions during the flood dose, not after the flood dose.
+I suggest a new angle of inquiry for future iboga psychonauts. After the first 12-hour phase of the iboga ceremony that ends at around 12:00h, try to take naps during the second day so you will not be tired during the second night and can hopefully be awakened/disturbed by entities. The only paranormal activity experienced by Jill was the rubbing sound later in the night. We believe she slept through the night’s activities because she took a long walk with the male trip sitter to the beach and she was exhausted when it was time for bed. Jack and I were lazy (and very tired) and took naps during the day, thus we were restless and easily disturbed by the entities during the night.
+Features of our experience:
+(1) Taking a flood dose of TA extract
+.
+(2)
+Starting the intention ceremony on Friday at roughly 22:00-22:30h, and then lying in bed at around midnight.
+(3) The 36-hour trip schedule was roughly divided into 3 progressions or phases.
+Phase 1: from midnight until 12:00h (first half of Saturday). This phase represents the dying process.
+Phase 2: from 12:00h until midnight (second half of Saturday). This phase represents the land of the elders and insights.
+Phase 3: from midnight until 12:00h (first half of Sunday). This phase represents being reborn.
+(4) There seems to be something special about the time period between 21:00-06:00h on the second night. Perhaps traditional Bwiti ceremonies during this time of night consisted of everyone dancing and singing or maybe the spirits like to come out at this time.
+(5) Experimenting with group size. From my experience above, smaller groups seem ideal. In our case, a small 3-person group seemed to generate amazing results. Group size might be an important factor.
+Entities were on the beds, the floor, floating around and making use of the free space in the room. I think it would be harder to get similar results with too many iboga participants or with a small, confining room. I think these beings need space to do their thing and/or feel more comfortable and welcome. The feeling I got was that they wanted to be there for us during our ceremony and to guide us if we asked them for assistance. I only watched and didn&#x27;t ask for assistance from the entities because I thought our trip sitters and Jill were playing around. I wonder if these entities would have taken us to other realms if we had only asked them to be our guides.
+(6) Trip sitters should not disturb. I think it helped that our trip sitters didn&#x27;t come up to our room very often because we were just trying to rest. We were way past the vomit, flood dose stage. Perhaps the entities would have left the room or not come at all if our trip sitters checked on us all the time. I recommend participants should use the toilet and grab what they need for the night beforehand so trip sitters don’t have to disturb the room, and trip sitters perhaps shouldn&#x27;t come to the room unless participants call their names or are in danger.
+(7) Intention might matter during the second night. If you try to stay up all night, the entities might sense that someone is awake and they will not show themselves. I did try to doze off, but I was rested from my naps during the day, so in theory I was awakened because of my restlessness. I was awakened at least 10 times during the night, and once I had a good look around, I actually tried to get some sleep again. I didn’t fall asleep right away each time I put my head down, but the point is that I tried to sleep and couldn’t because of the amount of activity throughout the night. I want to interact with the entities more the next time I work with iboga. Instead of just looking around and then getting another kip in, the next time I want to sit up in bed and look at them for longer periods of time, make hand gestures, smile at them, perhaps show them photos on my phone, or have physical photos they can look at, or gifts for them to take away.
+(8) In order to attract and see entities, perhaps the setting must feel like a ceremony. Entities might not come if someone does iboga alone or if there is no traditional music played.
+CONCLUSION
+The best way I can explain what is going on here is that it is not possible to see these entities during flood dose because the first 12 hours is such a traumatic physical exercise and the visions are very intense. However, when the body has a chance to recover for a short while, I suppose a high concentrate ibogaine residue is left in the body that acts as a kind of night vision to see paranormal activities that cannot be seen with the naked eye. In addition to this, necessary prerequisites for seeing/interacting with entities might include the shuttering effect in the eyes that is produced by iboga, a slowed heart rate produced by iboga, and an exhausted physical state from lack of sleep and food. The Bwiti perhaps don’t intend to see the most meaningful visions during the iboga consumption stage, either from root bark or TA extract, but rather the most profound exchange of knowledge and interaction with spirits and guides is supposed to occur after the flood dose on the second night of recovery. The actual iboga experience is not only about the visions during flood dose; the flood dose stage, I think, is a necessary prerequisite to prime the mind and body for interacting with multiple dimensions. Graham Hancock posits that “the brain is a receiver or transceiver of consciousness; as such a transceiver, the receiver wavelength of consciousness may be adjusted and thus gains access to other levels of realities and the intelligences that inhabit those realities” (“Graham Hancock and the Sacred Vine”, London Real interview, YouTube).
+I do not believe these images of entities and technologies were produced from within me. I think iboga is a tool for the mind to be able to see what is normally unseen. I urge future iboga participants to experiment with my setting suggestions because I think something is going on during these ceremonies and the influence of iboga makes one more perceptive of it. It’s no wonder the Bwiti say they communicate with spirits and guides in ethereal realms. It sounds like myth and fantasy, but under the right conditions they may have known of a way all this time to communicate with other beings and intelligences that we in the West are now able to experience. I would like to see more research done with more of a scientific method approach that can be duplicated by others. I hope similar insights and experiments are made and shared to discover and explain these phenomena.
+Exp Year: 2017
+ExpID: 110492
+Gender: Male
+Age at time of experience: 25
+Published: Sep 28, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Tabernanthe iboga (200) : Small Group (2-9) (17), Entities / Beings (37), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

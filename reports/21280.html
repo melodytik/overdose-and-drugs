@@ -1,0 +1,210 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我的厨房里面是上帝吗?&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-clonazepam.html'>← 氯硝西泮（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我的厨房里面是上帝吗?&quot;</h1>
+<div class='sub-title'>Morning Glory Seeds, DXM &amp; Clonazepam - Erowid Exp - &#x27;Is That God in My Kitchen?&#x27;</div>
+<div class='meta'>作者：Render Citation · 日期：Nov 7, 2023 · <a href='https://erowid.org/experiences/exp.php?ID=21280' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>我知道我必须尝试早晨的光和咳糖的组合.
+我把6克未经处理的种子碎, 倒出3司的糖.
+我在晚上10点倒入一瓶水中,
+为了获得尽可能多的种子粉末,
+半小时后, 眼睛闭着, 呈现轻微的视觉效果,
+我把3司的糖和一个GoaTranceCD放进我的立体机里.
+在此之后,我不再记得时间.
+听CD听起来真是太棒了, 由于药物的作用,
+我在脑海中想起了一个景象, 我在夜间看到一个开放的田野,
+我觉得这些草代表了DXM, 而则代表了晨光的种子.
+种子中的LSA是DXM的放大器.
+在GoaTrance专辑结束后, 我服用了半毫克的克洛纳泽,
+我听了一段莫扎特的CD,
+每个曲目都有单独的乐器部分, 我可以随心所欲地调整每一个曲目.
+通过这种方式, 我能够辨别音乐结构中的每一个细节.
+音乐变得难以应付, 所以我关掉了音乐, 打开了灯.
+我认为这可能是DXM高剂量的&quot;制&quot;效应, 但事实上我仍然可以看到闪光之间导致我相信.
+声音是边缘的,运动创建了&quot;轨迹&quot;,和物体看起来不成比例.
+我下楼去使用所, 很惊地发现我可以在DXM这么强烈的情况下尿尿.
+我开始看到斑点.
+我意识到我全身都是鲜红的,非常热, 汗水透.
+我惊慌失措, 脑海中出现了&quot;血清激素综合征&quot;这个词,
+我坐在厨房的地板上吃香, 我开始变得非常偏执.
+我听到的声音, 听起来像遥远的声音,
+在木地板的旋转开始倾斜和流,看起来几乎像流的泥.
+我开始有DXM视觉, 眼睛开!
+我把所有的神经元看成一个立方体结构中的光点.
+最上层是我大脑中常用的意识部分,
+然后我感觉到一个意识, 不是我自己的.
+我把所有的神经元看成一个立方体结构中的光点.
+最上层是我大脑中常用的意识部分,
+然后我感觉到一个意识, 不是我自己的.
+每个人都会在某个时刻与集体无意识建立联系, 无论是通过药物,宗教还是社会.
+它告诉我我不应该再吸毒了,
+现在我已经看到所有事件之间的相互联系, 我不再需要做幻觉剂.
+我还说当我有孩子的时候, 我应该告诉他们毒品是坏的.
+我对此感到困惑.
+我问:&quot;我为什么要这样做呢? 毒品可以有积极的作用.
+后来我意识到我小时候第一次喝酒,
+后来我想起自己当时的幻觉,
+那个实体笑了笑,说:&quot;就是这样. 集体最后告诉我的是,如果我在成年时失去生命意义,
+如果我这样做, 它会回来教我更多.
+我发现自己还在着地板.
+我下来看电视, 发现人们的声音有奇怪的效果.
+我在音乐中听到的&quot;多个轨道&quot;效应也发生在声音中.
+一个是普通的声音,第二个是硬的,点击声音 (如&quot;胡卜&quot;中的&quot;t&quot;或&quot;汽车&quot;中的&quot;c&quot;),第三个是摇摆不定,扭曲的音调,
+随着时间的推移, 我开始觉得自己很和愚蠢,
+我在早上7点或8点左右上床睡觉 (仍然受药物的影响),
+这是一个漫长而耗尽的旅程.
+其他:
+发布时间:2023年11月7日
+药品 - 克洛纳泽巴姆 (125),DXM (22),晨光 (38):一个人 (16),音乐讨论 (22),神秘经验 (9),烂的经验 (4),困难的经验 (5),组合 (3),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+Is That God in My Kitchen?
+Morning Glory Seeds, DXM &amp; Clonazepam
+by
+Render
+Citation:   Render. &quot;Is That God in My Kitchen?: An Experience with Morning Glory Seeds, DXM &amp; Clonazepam (exp21280)&quot;.
+Erowid.org
+. Nov 7, 2023. erowid.org/exp/21280
+DOSE:
+T+ 0:00
+6 g
+oral
+Morning Glory
+(ground / crushed)
+T+ 1:30
+3 oz
+oral
+DXM
+(liquid)
+T+ 0:00
+0.5 mg
+oral
+Pharms - Clonazepam
+(pill / tablet)
+BODY WEIGHT:
+135 lb
+After reading about the powerful synergy between LSD and DXM, I knew I had to try the combination of morning glories and cough syrup. While bored on a recent Friday night, I ground up 6 grams of untreated seeds and poured out 3 ounces of syrup.
+At 10:00 PM, I poured powdered seeds into a bottle of water, shook it, and chugged the contents. Then I added some more water and drank that to get as much of the seed powder as I could. An hour and a half later, I had mild closed eye visuals resembling tie-dye shirt designs, with a prevalence of pink and green hues. At this point (11:30 PM) I took the 3 ounces of syrup and popped a goa trance CD into my stereo.
+Past this point I didn’t keep track of time. CDs were amazing to listen to, with slight distortion of pitch due to the effects of the drugs. An image came into my mind, and I saw an open field at night, with frost covering the grass. Somehow I felt that the grass symbolized the DXM, and that the frost was the morning glory seeds. I got the feeling that the DXM was the key player at this point in the experience, and that the LSA in the seeds was an amplifier for the DXM.
+After the goa trance album ended, I took half a milligram of clonazepam, a benzodiazepine. I listened to part of a Mozart CD, and almost cried at its beauty. It felt like I was listening to at least 3 separate tracks at once, each track with a separate instrumental part, and that I could fade each track in and out as I pleased. In this way I was able to discern every detail in the structure of the music. After a while, the music got to be too much to handle, so I turned it off and turned on the lights.
+The strobing was very intense, almost to the point where I thought it could be the “framing” effect of high dose DXM, but the fact that I could still see in between the flashes led me to believe otherwise. Sounds were flanging, movement created “trails,” and objects looked out of proportion. I walked downstairs to use the bathroom, and was surprised to find that I could actually urinate with the DXM going this strongly. After relieving myself, I got very dizzy and started to see spots. I realized that I was bright red all over, very hot, and drenched with sweat. I panicked, the words “serotonin syndrome” coming to mind, but I was lucid enough to calm myself down and get myself a glass of water.
+As I sat on the kitchen floor eating a banana, I began to get very paranoid. I heard humming noises that sounded like distant voices, and every creak I heard was a footstep. The swirls in the wood floor began to tilt and ooze, looking almost like mud flowing. As I stared at this, I started to become very disassociated, and I began to have a DXM visual with my eyes open! I saw all of my neurons as points of light in a cube-like structure. The top layer was the commonly used, conscious parts of my brain, while the lower areas were the subconscious. Then I sensed a consciousness other than my own.
+I saw all of my neurons as points of light in a cube-like structure. The top layer was the commonly used, conscious parts of my brain, while the lower areas were the subconscious. Then I sensed a consciousness other than my own.
+It showed me that everything was connected in some way, and that everyone will connect to the collective unconscious at some point, whether through drugs, religion, or society. It then told me that I shouldn’t ever take drugs again, that it was damaging to my body and mind. Now that I had been shown the interconnection between all events, I didn’t need to do hallucinogens anymore. It also said that when I have kids, I should tell them that drugs are bad. I was confused at this. I asked, “Why I should do that, when drugs can be used positively?” It asked me what my first drug was, and I said alcohol. Then I realized that I had drank alcohol for the first time as a kid *because* I had been told that I shouldn’t, and had to laugh. Then I thought about how delusional I was at the moment, and how this was all in my head. The entity laughed, and said, “That’s the idea.” The final thing the collective told me was that if I ever lost a sense of meaning in my life as an adult, that I should take a couple grams of mushrooms. It promised that it would come back to teach me more if I did this.
+I snapped out of it to find myself still staring at the floor. I watched T.V. as I came down, and noticed some weird effects on people’s voices. The “multiple track” effect I heard with the music was also happening with voices. One track was the normal voice, the second was only hard, clicking noises (like the “t” in “carrot” or the “c” in “car”), and the third was a wavering, distorted tone that seemed to be the pitch of the person’s voice! As time went on, I started to feel very stoned and stupid, and everything started to look like it was viewed through a fisheye lens. I went up to bed at around 7 or 8 AM (still affected by the drugs) and slept until 3 PM. This is a long, draining trip.
+Exp Year: 2003
+ExpID: 21280
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 7, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Clonazepam (125), DXM (22), Morning Glory (38) : Alone (16), Music Discussion (22), Mystical Experiences (9), Glowing Experiences (4), Difficult Experiences (5), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

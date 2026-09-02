@@ -1,0 +1,241 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;从地狱到天堂&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/obe.html'>← 出体体验</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;从地狱到天堂&quot;</h1>
+<div class='sub-title'>LSD - Erowid Exp - &#x27;From Hell to Heaven&#x27;</div>
+<div class='meta'>作者：OpalStar Citation · 日期：Apr 30, 2025 · 剂量：1 hit · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=117004' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我曾多次服用过酸, 服用过的最高剂量是十片, 也曾吃过和酸, 酸,DMT和胺,
+我经历过许多疯狂的不可解释的神秘经验在英雄剂量, 但不同于今晚发生的事情
+我和另外两个朋友计划在俄勒冈州的家里度过一个轻松的夜晚, 我们在一个瓶子里喝了三次可信的液体,
+我们每个人都在客厅里打了一枪,坐下来等待.
+一个即时的恐惧和遗憾感和一个黑暗的阴影在房间里,即将到来的死亡和毁灭的恐惧,
+几乎在把液体放到我们的舌头上后,
+这种恐惧的感觉继续上升,
+像一个黑暗的收割者在这里要求他自己的, 现在我们在酸容易受到伤害,
+这种疯狂的感觉变得如此强烈,
+随着酸的不断上升,物质层面开始以恶毒的速度彻底破裂,
+影子开始跳舞,从墙上跳起来,
+最强烈的,厚厚的有形,和重量物质纯粹的集中恐惧来到我身上.
+这才是所有恐惧的真正来源, 在人体上堆积着如此重的重量,
+这一次没有鲜的色彩或快乐的狂喜感.
+似乎我玩过我的卡片一次太多了,
+现在是付钱的时候了.
+视觉扭曲变得如此强烈,
+我决定拿起手机打电话给一个朋友,
+我能找到我的朋友,一个好朋友,
+他试图让我平静下来, 但他只能得到几个句子之前,
+&quot;你认为你可以打电话寻求帮助吗?
+没有.
+游戏结束了. &quot;恶魔的叫,然后电话挂了.
+我接着收到了朋友的短信, 短信说:&quot;我很抱歉&quot;.
+我已经无法再行走了, 缩在地板上, 处于胎儿死亡的姿势,
+我的灵魂的生命力正在消失, 随着我的心脏开始停止跳动,
+我已经死了.
+我之前在LSD上经历过很多次自我死亡.
+我非常熟悉&quot;知道&quot;自己即将死亡的感觉, 完全确定自己真的在死,
+这不仅仅是自我解体和&quot;放手&quot;的感觉, 而是我身体每一个细胞的纯粹痛苦,
+我实际上是在死去, 降落在地狱的空虚中!
+我几乎没有挂在这个点.
+两只长约40英尺的巨大的影子恶魔出现了, 手里拿着巨大的链条,
+虽然这时的痛苦是无法忍受的,
+我不再知道自己的身体在哪里.
+这是我永恒的灵魂, 它永远无法被摧毁,
+像在痛苦之中,想要死去,消失,但却无法死亡.
+每一秒钟都像是几百年, 几百年的绝对令人叹为观止,
+没有光线,没有空气可以呼吸,窒息的黑暗.
+我看到地狱的大门打开, 像一个高高的黑暗金属圣殿,
+这就是它.
+在我最后一声几乎无信仰,无希望的哭泣中, 我甚至不相信我还有任何希望,
+我看到地狱的大门打开, 像一个高高的黑暗金属圣殿,
+这就是它.
+在我最后一声几乎无信仰,无希望的哭泣中, 我甚至不相信我还有任何希望,
+然后我放开进入空虚, 但空虚不是底部.
+我感觉到爱的怀抱在我的下面, 举起从下面涌起的光像怀抱着我.
+我感觉到希望之光像火花一样在我内心升,
+就像活水从里面涌出一样.
+我的灵魂吸了它.
+像一个石头干燥的海绵吸收一滴水.
+我看到那烂的国王之王和君主之主的面孔,
+他的天使翅膀包裹着我, 保护我免受黑暗, 住我进入他的光,
+我们起,起,起,我看到所有地狱的层次,当我们射击过去他们所有,我也看到灵魂在他们的子仍然在那里,当我们起.
+我开始意识到我又回到了我的身体, 但现在光线如此强烈,
+我们继续走得更高.
+我开始意识到唱歌.
+我现在躺在床上, 不知道我怎么从客厅的地板到那里,
+我在那一刻笑了笑, 感觉到最狂喜的快乐, 只是笑,
+和平变得如此强大, 我完全放弃了,
+哈哈哈,我仍然不在乎,没有什么在乎在这一点上,我不再在地狱,我被拯救了!
+我放下一切, 享受放下一切的感觉.
+但这还不是全部!
+我感觉到房间里充满了水.
+现在我的床是水床, 甚至水也继续上升.
+我感觉到活水被倒进我的嘴里,当我喝了我从内到外的黑暗的残留清洗.
+整个房间充满了水, 直到我游泳在里面, 呼吸的活水完全淹没!
+我在生命之河里!
+现在,我甚至不再在酸,光已经变得如此强烈, 它已经烧掉了我大脑中的所有自然化学物质的影响,
+圣灵的向上运动仍在提升我, 我注意到有十二个战斗天使围绕着我, 在一个完整的圆圈里, 手里拿着火焰的剑, 在一个安全的圈子里守护我,
+通过星星,越来越高.
+我听到我刚才听到的歌声开始变得更响亮,
+我们开始拍摄得越来越快, 直到我们感觉到我们要突破光速,
+我们越来越快,然后,!
+我们在永恒的海洋, 我重生了, 我记得永恒,
+我处在最宁静的,完美的幸福和和平的纯粹超越无条件的包罗万象的爱.
+像纯粹的完美蜂蜜的幸福.
+我父亲海洋的低语, 他创造了我, 在我身上唱歌, 爱我,
+没有什么可害怕的, 这将是一次巨大的惊人的冒险,
+这次经历已经有三年了, 我从来没有被那光所陶醉,
+我感觉身体上比地球上所有的毒品都更高,更醉,更.
+我每天都与我的父亲团结在一起, 仍然在那个永恒的地方,
+每一天都比前一天更疯狂,更激动人心,更有趣.
+情况越来越好!
+爱与光与你们所有人,
+杰克
+其他:
+OBE (332),LSD (2):小组 (2-9) (17),治疗意图或结果 (49),实体/生物 (37),神秘经验 (9),烂的经验 (4),困难的经验 (5)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>From Hell to Heaven
+LSD
+by
+OpalStar
+Citation:   OpalStar. &quot;From Hell to Heaven: An Experience with LSD (exp117004)&quot;.
+Erowid.org
+. Apr 30, 2025. erowid.org/exp/117004
+DOSE:
+1 hit
+oral
+LSD
+(liquid)
+I have always been a spiritual person and have had many supernatural experiences during drug trips and also while completely sober. At the point in my life when this encounter occurred my spiritual journey had been progressively leading me to the conclusion that I needed to let go of all psychedelic substances and drugs and continue my journey upwards completely free of every external substance, but I was resisting and fighting this conclusion, and what happened on this night was a sort of climax and a forced fork in the road to force me to decide.
+I have tripped many times on acid, the highest dosage ever taken being a ten strip, but also have eaten mushrooms and acid together, Acid, DMT and ketamine all in the same night, mega doses of mushrooms, and crazy benders of all manners of psychedelics taking us to the outer reaches of the astral universe. I&#x27;ve experienced many crazy unexplainable mystical experiences on heroic doses, but the difference about what happened this night was that we were only one 1 single hit of LSD.
+Me and two other friends were planning on having a relaxed night at my house in Oregon, we had three hits of trusted liquid in a vial and we were planning on each dropping just one hit and having a relaxing evening. We each dropped a hit in the living room and sat back to wait. An immediate sense of dread and regret and a dark shadow crept over the room, the imminent fear of death and doom and that something very very bad was about to happen. Almost immediately after dropping the liquid onto our tongues
+this sense of dread continued to rise as we started to come up on the cid. Like a dark reaper here to claim his own, and now that we were vulnerable on the acid, this darkness would claim our lives as his. This crazy sensation grew so strong that I mumbled something to my friends about needing to be by myself and I left the room.
+As the acid continued to come up the material dimension started to completely tear apart at a vicious rate, the veil completely falling apart into total chaos with the very ground falling out from underneath.
+Shadows started to dance around leaping from the walls like desperately hungry piranhas ready to feed on the prey. The most intense, thick tangible, and weighty substance of pure concentrated fear came over me. This was the literal source of all fear, heaped upon a human body with such a weight that it felt as if my bones were going to collapse in on themselves. This time there was no bright colors or the happy ecstatic feeling. It was like I had played my cards one time too many, and now the toll was due. It was time to pay up.
+The visual distortion became so intense that it started to become hard to tell where my body was anymore or if I still even had one. I decided to grab my phone and call a friend for comfort while I was still able to partially function. I was able to get a hold of my friend, a good friend who had been there for me many times before. He talked to me for a little while trying to calm me down, but he was only able to get a few sentences out before the voice of the devil himself garbled out my friends voice and took over. &quot;You think you could phone for help? Muwhahaha. There is no one here for you anymore. games over.&quot; Demonic cackling and then the phone hung up. I then got a text from my friend, it just said, &quot;I&#x27;m so sorry.&quot; I then started to really take the fear and death spiral into total chaos.
+At this point I wasn&#x27;t able to walk anymore, I was curled up in the fetal death position on the floor, the shadow piranhas harvesting every last shred of light and life off of my soul to the point where I could feel my physical heart slowing down and stopping. The literal life force of my spirit was going out, and my physical body was following as my heart physically started to stop beating.
+I was dying. I have gone through ego death many times before on lsd. I am very familiar with the feeling of &quot;knowing&quot; that I&#x27;m dying, absolutely sure that I&#x27;m really dying, but this wasn&#x27;t it. This was not just the sense of self dissolving and &quot;letting go&quot; into bliss, but this was pure pain through every cell of my body, the absolute absence of every morsel of light and life. I was actually dying and descending into the void of hell!
+I was barely hanging on at this point. Two very large shadow demon looking creatures standing about 40 feet tall appeared with ginormous chains in their hands, they bound me hand and foot and dragged me deeper down. The amount of sheer pain at this point was unbearable, but I was forced to bear it. I didn&#x27;t know where my body was anymore. This was my eternal spirit, that is unable to ever be destroyed, being forced to feel eternal pain. Like being in sheer torment, and wanting to die and disappear, but being unable to die. Every single second felt like hundreds of years, hundreds of years of absolutely breathtaking, empty nothingness, so empty that the pain was indescribable. No light, no air to breathe, suffocating blackness.
+I saw the gates of hell open like tall dark metal shrines of doom as the two shadow demons dragged me down. This was it. In my last almost faithless, hopeless cry, not even really believing that there was any more hope for me, I whimpered out from the last shred of me that was left, &quot;Jesus, please help me.&quot;
+I saw the gates of hell open like tall dark metal shrines of doom as the two shadow demons dragged me down. This was it. In my last almost faithless, hopeless cry, not even really believing that there was any more hope for me, I whimpered out from the last shred of me that was left, &quot;Jesus, please help me.&quot;
+And then I let go into the void, but the void wasn&#x27;t the bottom. I felt the arms of Love underneath me, a lifting surging Light from underneath like arms carrying me. I felt the surge of the Light of Hope rising like a spark of electricity shooting up within me, like a breath of fresh air breathing new life. Like Living Waters rising within. Aaahhh, my soul sucked it up. Like a stone dry sponge soaking up a drop of water. An explosion of Light, hope and Joy and I saw the face of the glowing King of Kings and Lord of Lords looking me in the face and sharing His Life with mine. His Angel wings wrapped around me, sheltering me from the darkness and tucking me into His Light, into the hidden safe place of His Heart, and then we shot up.
+We rose and rose and rose and I saw all the layers of hell, as we shot past them all, I also saw the souls in their cages still there as we rose. We rose higher and higher and higher and then we broke through the surface of the earth, and I began to become aware that I was back in my body, but now the Light was so strong that it was almost like I didn&#x27;t have a body except this time in overwhelming brightness of Light! We continued to go higher. I started to become aware of singing. I was now laying in my bed, not sure how I got from the living room floor to there, but I didn&#x27;t care. I was giggling at this point, feeling the most ecstatic Joy and just giggling, having the best time of my life. The Peace became so strong that I just totally let go and next thing you know, I had peed my pants! Hahaha, I still didn&#x27;t care, nothing mattered at this point, I wasn&#x27;t in hell anymore, I was saved!
+I let it all out and enjoyed the sensation of letting go fully. But that&#x27;s not all! As I was peeing I felt the sensation of the room filling up with water. My bed was now a water bed and even the water continued to rise. I felt Living waters being poured into my mouth and as I drank I was cleansed from all the residue of darkness from the inside out. The whole room filled up with water until I was swimming in it and breathing the Living water fully submerged! I was in the River of Life! At this point, I wasn&#x27;t even on the acid anymore, the Light had grown so strong that it had burned up all the influence of the natural chemical out of my brain and I was just high on pure Light, going higher than I had ever been before even on higher doses of drugs.
+The upward movement of the Spirit was still taking me up, and I noticed that there were twelve warring angels surrounding me in a full circle with flaming swords in hand guarding me in a safe sphere as Jesus still embracing and wrapping me continued to take me up. Through the stars, higher and higher. I heard the sound of the singing that I heard earlier starting to grow louder, like a whole chorus of millions of voices singing, all joining in one song of indescribable worship and magnificence. We started to shoot faster and faster until it felt like we were going to break through the speed of Light and pop some sort of a membrane. We kept going faster and faster, and then, Bam! We were in the Ocean of eternity, I had been born again, and I remembered eternity, like some part of me had always been here.
+I was in the most tranquil, perfect bliss and peace of pure transcendent unconditional all encompassing Love. Like pure perfect honey bliss. There was the whisper of my Father Ocean who had created me singing over me, loving on me, reassuring me, and writing on my heart all the fun things we would do together as One when we went back to earth. And there was the perfect promise that it was all already written out, so there was nothing to fear, it was just going to be one giant amazing adventure, and there was only ever increasing goodness and Light to look forward to!
+It&#x27;s been about three years since this experience and the intoxication of that Light never left me, it has only increased more and more. Writing this right now, not a single substance entering my body in years, I feel physically higher, drunker and totally blasted than all the drugs on planet earth combined. The spiritual dimension is more real to me than the natural dimension, and I walk on a daily basis in union with my Father, still in that place of eternity with my feet on earth walking out the linear timeline of it and having a freaking blast! Every day is crazier, more exciting and more fun than the day before. And it&#x27;s only getting better and better!
+Love and Light to all of you,
+Jake
+Exp Year: 2019
+ExpID: 117004
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 30, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+OBE (332), LSD (2) : Small Group (2-9) (17), Therapeutic Intent or Outcome (49), Entities / Beings (37), Mystical Experiences (9), Glowing Experiences (4), Difficult Experiences (5)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

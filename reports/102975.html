@@ -1,0 +1,336 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>爱罗伊德的故事 - &quot;我无法说出&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-ho-mipt.html'>← 4-HO-MiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>爱罗伊德的故事 - &quot;我无法说出&quot;</h1>
+<div class='sub-title'>4-HO-MIPT - Erowid Exp - &#x27;Words Fail Me&#x27;</div>
+<div class='meta'>作者：Mobius Citation · 日期：Aug 2, 2014 · 剂量：2 mg · <a href='https://erowid.org/experiences/exp.php?ID=102975' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>简介
+经过多年浏览Erowid上大量的经验报告, 我认为我最近与4ho-MIPT Fumarate的经验是我与迷幻药的经验中最值得写报告的.
+我之前对Miprocin做了大量的研究,
+我决定与另外两位朋友一起进行这次航行,
+我认为这两个人比我更有经验使用常见的迷幻药和改变思想的物质, 然而他们从来没有听说过Miprocin之前几天,
+简短地列出了可能的后果, 足以让他们做出成熟的决定,
+我希望能有一个清醒的保姆, 但不幸的是,
+我认为30毫克是理想的剂量,
+虽然这有点疯狂,
+另一方面D觉得30毫克对他来说真的不够,
+他确实报告了 (而且很明显) 显著愉快的能量激增的2-3小时来和高原,随后是前后步,坐下来,站起来,并执行一个非常有趣的舞蹈/模仿的刻板印象九十年代早期狂欢.
+我决定在旅行前服用2毫克的Etizolam有两个原因.
+首先,最明显的原因是为了消除旅行前的焦虑.
+通过服用抗焦虑药物 (尤其是基于素的药物), 它可以对幻觉体验产生增强/滑作用,
+我个人觉得这可能是真的, 因为我知道我和S确实服用了迪亚泽, 但D没有.
+也许可以假设D在体验之前服用了瓦, 他可能会体验到更少的刺激和更多的迷幻/视觉.
+也许下次我不会服用Etizolam,看看这对我来说是否真的.
+我希望大家知道, 在五天前的3月13日, 我服用了10毫克的米普罗辛,
+我非常欣赏在一个我非常熟悉的自然保护区里散步.
+虽然视觉上什么也没发生, 我确实很享受看着这件事发生,
+我从来很喜欢他/她记录经验的方式.
+我希望他/她不介意我承认这一点,
+这也应该知道,这完全是从记忆中写的,因此,不能给出确切的时间]
+在报告中...
+2014年3月18日
+我建议用以预防恶心和胃不舒服, 因为我们三个人都很喜欢.
+我第一次意识到一个熟悉的感觉我只是下我的和我的子后方大约15-20分钟后吞.
+虽然D说他感觉到更多的是心线和胸部周围.
+我看到了S开始大笑, 很多 [在剩余的旅程持续了一些].
+我注意到对话变得更加容易,
+这种影响在旅途中逐渐减弱.
+我决定躺在沙发上观察不断增长的毛被展现的各种物体在房间里.
+房间一般呈现出粉红色的色彩.
+我认为我可以说一旦我观察到这一点, 我对未来的恐惧消失了,
+我确实开始感觉到一种相当熟悉的触觉刺激,
+我最喜欢腿部的感觉, 尤其是如果我把它们挤在一起,
+我不得不承认, 这种感觉也被观察到我的部区域, 但绝不是性质的, 并没有实际感觉到生殖器 [相反,
+也注意到大量的关紧.
+基本上我是一个扭曲的混乱.
+我真的很喜欢房间角落的孔雀羽毛, 定期增加十倍, 是我见过的最棒的粉红/红色,
+实际上没有人会让它发生.
+随后, 仅仅看着她的笑声就把我撕成碎片.
+我只是笑得比平常更大声, 因为这真是太好笑了,
+我觉得在这个时候, 我意识到我确实在情感上更能控制自己,
+我常常觉得这种恶意在服用Psilocybes时只是一石而已,
+对于Miprocin,情况似乎完全相反.
+我并不是说Miprocin本质上是&quot;善良的&quot;,
+我意识到,如果我在剂量,设置和设置方面做得愚蠢, 难免会发生不良情况.
+我注意到在很多关于米普罗辛的旅行报告中表达了清醒的效果.
+我认为这不仅仅是我的一个暗示, 因为我读到它是这样的,
+这已经成为我现在个人比我与Psilocybes的经验更重视它的主要原因.
+我认为现在已经过去了一个小时,也许只有45分钟.
+我仍然发现自己惊的强烈友好性质的感觉.
+虽然我觉得D的音乐选择,虽然很好,
+我是一个鼓和低音的头, 之前已经创建了一个最喜欢的曲目来听.
+虽然有好几条令人心碎的低音重跳的曲目, 非常喜欢,
+音乐肯定影响了我看到的东西,
+我躺在头顶的木梁是个绝对的奇迹, 液化成木材,水银似的&quot;油在水&quot;混合体, 移动和游泳的节奏和基线我听到的[我不记得确切的轨道].
+我记得有些人认为密普罗辛在闭眼时比开眼时更能让人看到.
+现在我决定闭上眼睛, 换个轨道 (刷新视觉效果),
+我觉得如果有任何黑暗主题浮现,
+在典型的Tryptamine风格几何中, 还有相当多的文艺复兴时期油画,
+我留在这里, 闭上眼睛, 躺下, 完全幸福的剩余最视觉部分的旅行.
+尽管我的头脑非常清晰,
+我不仅仅是对我所经历的美丽感到敬畏.
+我最难忘的部分发生在这里, 主要是因为一个小但个人重要的巧合发生了.
+我意识到我需要让Miprocin指导我, 而不是反过来, 我让所有的视觉和情感表现出来,
+我在想象着自己在一条古老的卵石路上走着,
+遥远的天空从一个美丽的夏天天空变成了一个非常黑暗,密,恶意的风暴 (你经常看到风暴追逐者纪录片中的风暴).
+在左边的小石桥下,一个小溪流相当正常,坐着一棵树看起来相当老,腐烂和几乎黑色.
+我记得这棵树代表着我自身的各种不良,不良习惯,有毒行为,我对他人的态度,
+我对它没有太多的恐惧, 而更多的是阴谋和观察的兴趣.
+尽管我确实感到有些担心,
+我记得我觉得有必要对这棵树做点什么,
+我从桥的右边看到一个古老的小屋 (或许是一家酒吧), 四个或五个妖精类人形出现了 (我想你可以称之为实体).
+我最初感到恐惧, 像是&#x27;,这些人想要什么,
+然后他们对我大喊大叫,我想是英语,也许是迷幻英语.
+想和那棵树一起工作吗?
+我发现我右手有一把斧头 (我是左撇子),
+我不记得斧头是什么特别的,不是神圣的祝福或任何类似的东西.
+在这个发现我很快喊回来[虽然不是大声]
+&quot;是的,请&quot;
+我在树根部进行了第一次大摆动, 预计会开始流血,
+虽然这些人还在接近我, 却对这些生物有着熟悉和友的感觉,
+我笑了笑, 也笑了笑,
+我注意到他们每一次的砍伤都比我自己的尝试更强大.
+他们的身高不超过膝盖.
+我记得我对自己的力量的荒谬性笑得更多,
+,,,,,,,,,,,,,!
+我深深感激这些人来帮助我, 当树几乎被砍掉时, 我们都推了下来,
+我感觉到我的牙充满了电, 吸食DMT会让我感觉如此.
+我放下了斧头,从桥上了一眼, 看着树在水流中摇摆.
+一个人说道:
+&#x27;你需要一把去抓住这些根,你知道吗?
+树的根在疼痛中.
+&quot;我们下次会这样做&quot;,我对他们说.
+他们走了,回到小屋/酒吧.
+暴风雨已经过去,
+我决定脱掉耳机, 再开眼睛.
+我想知道在桥的另一边有什么?
+或许下一次当我得到这些根.
+房间仍在移动和游泳, S 仍难以停止笑,
+我有时会吃一碗果,
+我记得味道显著增强, 尤其是红葡萄,
+对于一个拉斯伯里, D 评论说它为什么看起来有毛.
+我误解了他的意思.
+&quot;为什么这个果是如此的变态?
+我笑得太厉害了, 没有发出任何声音, 我试图呼吸.
+我真的很喜欢这种感觉,
+真正的笑声是一种令人难以置信的感觉.
+我们聊了一会儿,我坐在S旁边的另一边,吃更多的水果,
+这时D做了他的狂欢舞蹈, 得到了更多的笑声,
+他对我说他很失望, 视觉上看不到太多,
+我变成了一个友好的,说话的T-Rex,
+我决定回到原来的沙发上,躺下,重新插上耳机, 思考我与男朋友的关系.
+虽然他看起来很悲伤,真的很悲伤.
+虽然他出生于英国, 但他的脸上却呈现出戏剧的悲伤面孔,
+虽然我知道这次旅程即将结束, 我也不能像在树上那样做很多工作 (当然有男孩们的帮助),
+我们已经有了近七年的远距离关系, 每两个月见一次,
+我意识到他和我一样对这种情况不满.
+我不想与他分开,我不会详细说明,但我希望情况有所不同,我相信他也有同样的感受.
+虽然他看起来不完全像我认识他.
+我记得他曾经和我在一起, 经历可能是+4 [我不想使用舒尔金尺度,
+我觉得现在是个好时机,
+在关门后发生的事件特别好.
+比平时更亲密.
+我只能感谢Miprocin和妖精.
+这是一个很好的机会.
+接下来的几个小时非常优雅, 很多茶, 葡萄和变态.
+这里有很多好感.
+我们开始更自由地聊天, 相互理解, 讲述我们的经历,
+我对Miprocin人如此友好和慷慨表示惊.
+经过几个小时的观看, 我和朋友B一起看了&quot;帕纳斯博士的幻影&quot;之后, 他决定来看看,
+睡眠非常容易, 但不能直接归因于Miprocin,
+我醒来时觉得很新鲜, 迫不及待地想见我的男朋友吃早餐.
+我非常爱他.
+我肯定会再次使用Miprocin.
+仍处于最佳状态.
+我认为自己比以前更有责任心.
+可能是因为他对幻觉药的科学和价值感兴趣越来越大.
+就像格雷厄姆·汉考克所说的,
+精神病药物不是笑话
+我不得不通过说,
+精神药物不是笑话, 但当做得当时,
+,至少对我来说是美妙的
+我希望这篇文章不会太久,
+其他:
+4-HO-MiPT (342):关系 (44),一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Words Fail Me
+4-HO-MIPT
+by
+Mobius
+Citation:   Mobius. &quot;Words Fail Me: An Experience with 4-HO-MIPT (exp102975)&quot;.
+Erowid.org
+. Aug 2, 2014. erowid.org/exp/102975
+DOSE:
+2 mg
+oral
+Etizolam
+30 mg
+oral
+4-HO-MiPT
+(powder / crystals)
+BODY WEIGHT:
+89 kg
+Introduction
+After many many years of scrolling through the vast library of experience reports here on Erowid, I thought that it was this experience with 4-ho-MIPT Fumarate that I had recently which was the most deserving of my experiences with psychedelics to type up a report for. I consider myself to have a decent amount of experience with various substances [ Psilocybes, MDMA, DMT, 2C-I, Ketamine], though as to why I&#x27;ve decided to make this my first voyage to document is probably due to it being the first time I&#x27;ve experimented with a new substance NOT out of a purely recreational circumstance. I had previously done a fair amount of research on Miprocin, or as much as I could gather from the internet. I decided to undergo this voyage with the company of two other friends who I will address henceforth as D &amp; S.
+Both of these individuals I would consider to have vastly more experience with more common psychedelics and mind altering substances than myself, however they had never heard of Miprocin prior to a few days before, yet I feel my explanation of what it is, its structural similarity to the active compound in Psilocybe mushrooms, and a brief listing of possible effects was sufficient enough for them both to make an adult decision to undertake this voyage into the unknown with me.
+Ideally I would of liked to of had a sober sitter for the experience but this unfortunately was not to be, however, in retrospect I don&#x27;t think [at least for myself] it was necessary. I don&#x27;t feel that I was at all over-ambitious with my dosage [in fact I feel 30mg was ideal, maybe even a little low considering it was the Fumarate salt]. I do regret giving S a dosage of 25mg as she was tripping rather hard [perhaps next time 12-15mg would be sufficient] but, as the trip came to a close she expressed her thanks that I decided to give her 5mg less than myself and D and also that she felt it was more enjoyable than her experiences with LSD and mushrooms [which was a relief for me to hear] even though it was a little bit on the crazy side. D on the other hand felt that 30mg really wasn&#x27;t enough for him and did not report any of the typical Tryptamine style visuals that myself and S were experiencing. He did report [and was quite obvious] a significantly pleasurable surge of energy for the 2-3 hours of the come-up and plateau and subsequently was pacing back and forth, sitting down, standing up and performed a very amusing dance/impersonation of a stereotypical early nineties raver.
+As to the why I decided to take 2mg of Etizolam before the trip was for two reasons.
+Firstly and most obviously was to help eliminate any anxiety present [and it was indeed present] before the trip took hold. Secondly, I have read somewhere and I can&#x27;t remember where, that by taking an anxiolytic [particularly Diazepine based ones], it can have an enhancing / lubricating effect on a psychedelic experience especially when in regards to visuals. I personally feel that this may indeed be true given the knowledge that myself and S did take a Diazepine [ S taking actual Valium] yet D did not.
+Perhaps it could be hypothesised that had D taken Valium prior to his experience that he may well of experienced less stimulation and more psychedelia / visuals. Maybe next time I will not take Etizolam and see whether this is true in my case.
+I&#x27;d like to make it known that five days before on the 13th of March I ingested 10mg of Miprocin as a way to get a feel for the character of the substance. This was rather uneventful but was enjoyable as I noticed a strong lift in my mood and very much appreciated walking around a nature reserve that I&#x27;m very familiar with. The timing did coincide with the sun setting and although visually nothing occurred, I did very much enjoy watching this happen over a few cigarettes and some tropical fruit juice.
+[As this is my first report, I am taking example from Morninggloryseeds&#x27; reports as I have always enjoyed his/her style of documenting experiences. I hope he/she does not mind me admitting this and hopefully sees it for the compliment it is meant to be. It should also be known that this is entirely written from memory and thus, exact times cannot be given]
+On with the report…
+March 18th, 2014
+30mg of 4-ho-MIPT fumarate was ingested orally in a roll-up paper and washed down with ginger tea that I suggested to use as a preventative measure against nausea and stomach discomfort should it manifest and because it was enjoyed by all three of us.
+I first became aware of a familiar feeling I had just below my navel and the back of my neck about 15-20 minutes after ingestion. This was also noticed at about the same time by D, though he said it was felt more around his centreline and chest.
+We both remarked at how nice it felt and around this time I saw that S started to giggle, a lot [something that persisted for the rest of the trip]. I noticed how conversation was being spoken more easily and appeared to roll off the tongue faster. This effect diminished later on into the trip.
+I decided to lie down on the couch and observe the ever building plushness being exhibited by the various objects in the room. Everything appearing softer, warmer and the room generally having a pinkish hue. I suppose its fair for me to say that once this was observed, most of my fears over what was to come disappeared though my timing of when this happened maybe a little off.
+I did start to get a rather familiar feeling of tactile stimulation, somewhat akin to MDMA, though not as intensely pleasurable though pleasurable it most certainly was. For example, I most enjoyed the feeling in my legs, especially if I squeezed them together also finding that my toes would curl up almost to the point of cramp but finding this most enjoyable.
+I must admit that this feeling was also observed in my groin area but was by no means sexual in nature and wasn&#x27;t actually felt in the genitals [quite the opposite was later observed whilst taking a leak, hehe, were the hell did it go?], more so in the muscles and tendons around the groin and hip joint. Considerable jaw clenching was also noticed. Basically I was a writhing mess.
+OEV&#x27;s were starting to increase in intensity and beauty, I really liked the peacock feathers in the corner of the room which periodically multiplied tenfold and was the most fantastic pink/crimson I have ever seen [even more so than with the colours often observed with smoked DMT]  accompanied by a model giraffe with a spring for a neck [which was actually there] that would nod its head often, something that does not happen in reality without someone making it happen.
+By now S is laughing so uncontrollably that it becomes infectious and subsequently has me in pieces simply watching her laugh. As amusing as I find this, I don&#x27;t feel that I have to laugh, I simply laugh harder than usual because it is actually hilarious, often though to the point of tears. I think its around this time that I realise that I do indeed feel a lot more emotionally in control and a lot less confused than what is felt by me with Psilocybes. I often feel that the sinister is but a stones throw away when taking Psilocybes and has once or twice actually manifested into something rather dark and very unenjoyable. Quite the opposite seemed to be true with Miprocin. I&#x27;m not suggesting that Miprocin is inherently &#x27;good natured&#x27; but I do get the feeling that this may be true for myself when taking this substance. I do realise that this is not advisable for me to assume to always be the case, I&#x27;m sure if I were stupid with dosage, set and setting, that a bad trip would inevitably occur.
+The effect of being clear headed was something I&#x27;ve noticed being expressed in quite a number of trip reports regarding Miprocin. I don&#x27;t think this was merely a suggestion becoming manifest in myself because I read it to be so, I actually believe and feel it to be a defining property of Miprocin. This has become a major reason why I now personally place it in higher regard than my experiences with Psilocybes.
+I suppose by now an hour has passed, maybe only 45 minutes. I&#x27;m still finding myself astonished at the intensely friendly nature of what I&#x27;m feeling. Though I feel that D&#x27;s choice of music, though fine, is not for me at this time. The eclectic mix of House music was appreciated but I&#x27;m a drum n bass head and had previously created a playlist of favourite tunes to listen to. Most of these tracks were positive in nature and are what are referred to as &#x27;Liquid&#x27; DNB though there were a good few gut-wrenchingly bass heavy jump-up tracks that were greatly enjoyed a brought a rather sinister grin to my face had someone witness me doing so whilst tripping. The music definitely influenced what I was seeing, both open and close eyed. The Wooden beams above my laid down head were an absolute marvel to watch, liquifying into a wooden, mercury-esque &#x27;oil on water&#x27; hybrid, shifting and swimming to the beat and baseline I was listening to [ I can&#x27;t remember the exact track ]. It was about this time that the lovely muscle tremors decided to subside a little [though I wasn&#x27;t saddened by this] and I remembered reading that Miprocin is considered by some to be more visual with eyes closed than open.
+Even though I had at times briefly shut my eyes and it was indeed glorious, I now decided to close my eyes, change the track [refreshing my visuals] and actually try and work with this material as best as it would let me. I felt that if any dark themes bubbled up then I could simply open my eyes again.
+Amongst the typical Tryptamine style geometrics was also a fair amount of Renaissance-oil painting like landscapes opening up and spreading out towards a most serene horizon. Here I stayed, eyes closed, laid down, totally blissed out for the remainder of the most visual section of the trip. Although remarkably clear headed, I did find it difficult [to quote T. McKenna] not to simply be in awe of the beauty of what I was experiencing. It is here that the most memorable part of my voyage took place, mainly because of a small but personally significant coincidence occurred. Once I realised that I needed to let Miprocin direct me instead of the reverse and I allowed all visuals and emotions to manifest, that the music changed track to my second favourite DNB tune of all time [if anyone reading this is interested or into DNB it was Artificial Intelligence - Desperado]. This occurred whilst I was visualising walking down an old cobbled road approaching a bridge. The sky in the distance had changed from a lovely summery sky to a really dark, dense, malevolent storm [the kind that you often see depicted in storm chaser documentaries]. Upon the left hand side of the small stone bridge under which a small stream flowed quite normally, sat a tree that looked rather old, decayed and almost blackish.
+I remember recognising this tree as representing everything ill natured about myself, my bad habits, my toxic behaviours, my attitude toward others that I should have more compassion and love for. It was a disgusting tree, but I didn&#x27;t feel much fear over it, more intrigue and observational interest. Even though I did feel somewhat concerned that it was there, it wasn&#x27;t blocking my path. I remember feeling a sense of needing to do something about this tree, that it didn&#x27;t belong in this most beautiful landscape i was present in, that it was quite insidious and unnatural. Out of nowhere, whilst I was still approaching this tree, I noticed from the right of my vision and beyond the bridge was an old cottage [or perhaps a pub] out of which four or five goblinesque humanoids exited [ I suppose you could call them entities].
+I initially felt a sense of fear, like a &#x27;Oh shit what do these guys want, are they going to mug me, or worse, cast a spell on me&#x27;? Then they shouted to me, I think in english, maybe psychedelic-english.
+&#x27; Wanna hand with that tree bud&#x27;!!!?
+Moments after noticing them with piddly little axes in hand I discovered that I to had an axe in my right hand [i&#x27;m left handed], except mine was much bigger, more my size of axe. I don&#x27;t recall the axe being anything special, not divinely blessed or any such thing. Upon this discovery I quickly shouted back [though not vocally]
+&#x27; Yes please &#x27; !!!!!
+I took the first big swing at the base of the tree, half expecting blood to start pouring out, only to be ashamed at the minimal amount of damage I had done to it. Taking another big swing, whilst the guys were still approaching [ I did have a sense of familiarity and comradeship towards these beings by now] the resulting cut was double that of the first.
+I laughed at this and of the impending embarrassment of being shown how to really chop down such a tree by tiny goblins with tiny axes. When they started to swing at the tree I noticed how every cut they delivered was considerably more powerful than my own attempts. I mean these guys were no more than knee height. I remember laughing more at the ridiculousness of my strength, to which these guys started to laugh with me, all the while merrily chopping. Chopiddy chop chop chop!!!!
+I felt a profound sense of gratitude for these guys coming to help me and when the tree was almost cut through we all pushed [heave-ho style] and sent the tree toppling over the side of the bridge to be washed away by the now torrent of water that was once a stream. As soon as the tree hit the water, this incredible euphoria washed over me, my heart in my throat [ I remember my teeth feeling electric, something I get when I smoke DMT ]. I dropped my axe and peered over the bridge watching the tree bob in the flow of the water. Reminding myself to give thanks to these guys, one spoke out,
+&#x27; Your gonna need a shovel to get at them roots y&#x27;know&#x27;?
+Looking down at where the tree once stood was indeed its roots trembling in pain.
+&#x27;We&#x27;ll do that next time&#x27; I said to them
+Giving thanks to them and waving a deep goodbye for now they left and went back into the cottage/pub. The storm cleared but a little remained yet the euphoria was still quite present. Still clear headed and knowing that I&#x27;m in a psychedelic headspace I decided to remove the earphones and open my eyes again. I wonder what was beyond the bridge? Maybe next time when I get at those roots. The room was still shifting and swimming, S was still finding it hard to stop laughing, which once again put me into tears.
+I had been periodically snacking on a bowl of berries I had bought purposefully for this experience which was being enjoyed all around. I remember taste being significantly enhanced, especially the red grapes, they were so bloody sweet, MARVELLOUS! D remarked on a raspberry and as to why it appeared hairy. S misunderstood him as saying.
+&#x27; Why is this raspberry so pervy &#x27;?
+Well that was it, I erupted into profound laughter, my cheeks ached, my eyes watered, I was laughing so hard I wasn&#x27;t making a sound, I was trying to breath more than anything. I really love that feeling, even when sober. Real deep laughter is an incredible feeling.
+We chatted for a bit, I sat on the other side of the room next to S, snacking on more fruit, I had a couple of cigarettes, though the fruit was far more satisfying. This is when D did his raver dance which got more giggles especially from S who had to duck under a blanket her laughing was so hard. D then related to me his disappointment that he wasn&#x27;t getting much visually, but he was very much enjoying whatever he was feeling. S commented on me turning into a friendly, chatty T-Rex with dinky arms and a blue hat [ I was wearing a blue hat ] provoking more good feelings. At some point [and I guess by now at least two hours had passed] I decided to go back to my original couch, lie down, replug my earphones and ponder on my current relationship with my boyfriend.
+He came to vision rather swiftly, I guess because the trip was starting to wind down, though he looked sad, really sad. He&#x27;s fully Chinese in his ethnicity though British by birth, but his face took on the appearance of the sad side of those two masks associated with theatre, one happy one sad. This troubled me a little and even though I knew the trip was coming to a close and I couldn&#x27;t do as much work as I had done on the tree [with the help from the guys of course] I decided to just project as much love and kindness as I could possibly muster. We&#x27;ve had a rather long distance relationship for almost seven years now, only meeting with each other once every two months, yet texting and chatting every night. I came to the realisation that he was just as dissatisfied with the situation as I am. Not that I ever want to part with him and I shall not go into details but I wish circumstances were different and I&#x27;m sure he feels the same.
+Eventually his features changed for the better though he still didn&#x27;t look entirely like how I know him.
+I remember thinking that had he of been here with me It would of been a possibly +4 experience [ I don&#x27;t want to use the shulgin scale here, although I fully appreciate its value, I just find it hard to quantify my own experiences sometimes, though I suppose in retrospect I would of graded my experience as a mid level +3].
+I feel now is a good time to say that I kind of timed this trip rather well as the next day my boyfriend was due to pop down for a day &amp; night. It was a lovely day, and what happened behind closed doors was particularly good. A lot more intimate than usual. I have only Miprocin and goblins to thank for that. Heheheheh.
+The next few hours were very graceful, lots of tea, grapes and pervy raspberries. A lot of good feelings being thrown about the place. We started to chat a lot more freely and well understood now, relaying our experiences, S still making me and D laugh. I expressed my amazement at how friendly and generous the Miprocin felt. After a few more hours, and after watching &#x27;The Imaginarium of Doctor Parnassus&#x27; with a friend &#x27;B&#x27; who decided to pop round [whom I smoked a couple of spliffs with], I decided it was time to venture off to the other side of town and catch a bus home, and get some sleep. Sleep was very easy but cannot be directly attributed to the Miprocin as it was most likely the MJ in combination with lingering effects. I awoke refreshed, and couldn&#x27;t wait to meet my boyfriend for breakfast. I love him dearly.
+I will definitely be using Miprocin again. Still in a optimal set and setting. I like to consider myself a lot more responsible lately in that regard than I use to be. Probably due to gaining a much more serious interest in the science and value of psychedelics. Like Graham Hancock has said,
+&#x27;Psychedelics are no laughing matter&#x27;
+I&#x27;d have to adjust that by saying,
+&#x27;Psychedelics are no laughing matter, but are great fun when done properly&#x27;
+Miprocin, at least for me was Wonderful
+I hope this hasn&#x27;t been too long winded to read and serves [if only a few] people well.
+Exp Year: 2014
+ExpID: 102975
+Gender: Male
+Age at time of experience: 28
+Published: Aug 2, 2014
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-HO-MiPT (342) : Relationships (44), General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,235 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>环素 - 埃洛伊德 - &#x27;小人&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-cyclizine.html'>← 赛克力嗪（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>环素 - 埃洛伊德 - &#x27;小人&#x27;</h1>
+<div class='sub-title'>Cyclizine - Erowid Exp - &#x27;Tiny People&#x27;</div>
+<div class='meta'>作者：agent23 Citation · 日期：Dec 22, 2004 · 剂量：600 mg · <a href='https://erowid.org/experiences/exp.php?ID=13685' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>我已经服用了二氨酸,二氨酸,麦克利和环氧.
+我首先决定报道环素的情况.
+然而,我会简要地提到这些其他物质.
+首先,我提醒大家不要过多服用这些物质.
+太多可能会导致可怕的,接近死亡的经历.
+我不会说这是一次&quot;糟糕的旅行&quot;.
+我没有感觉到任何负面的情绪,心理或感官影响.
+除非你非常小心量以及你对身体如何处理其他药物的调整.
+我试着将150毫克的氨酸和400毫克的咖啡因混合在一起.
+这使得旅行感觉更好.
+我觉得自己已经醒了.
+我每次使用这些药物, 我都会感到极度昏昏欲睡, 除了梅克利辛 (不那么昏昏欲睡的德拉玛II).
+梅克利辛对我几乎没有任何影响.
+我可以继续正常活动,
+一个朋友说,那种与尼基尔的不是有趣的.
+我试过这个,没有问题.
+我吃了一整包马雷辛.
+马雷是一种非处方的睡眠辅助剂.
+一个包装含有12片,每片50毫克环素,总共600毫克.
+我发现很难集中精力写或保持一条思想的线.
+我会迷失,我的想法会在触线上消失.
+我不得不不断提醒自己在做什么,
+我看了看这些字,
+我记得我认为我看到的词与我正在思考的触线有关.
+就好像我的思想正在取代它们.
+这份报告的某些细节可能缺失,
+身体上的影响是 (对我来说) 不理想的部分.
+我没有生病,恶心,疼痛,太热或太冷,紧张,焦虑,或发烧.
+事实上,很容易暂时&quot;关闭&quot;身体的感觉.
+身体感觉就像在服用止痛药,抑郁药和少许酒精时一样 (虽然不是这样的&quot;乐趣&quot;,也不是那种醉的感觉).
+旅行中最令人烦的特点是难以排尿.
+我每隔几分钟就需要尿一次,
+旅行中最可怕的时刻是我认为自己会停止呼吸,
+我会坐下来,逃到一些思想触点,然后突然意识到我必须呼吸.
+这就好像大脑中控制呼吸的部分变得丧,
+呼吸变得非常低,缓慢,而且很少.
+我没有想到它,直到我担心我可能会停止呼吸.
+另一个有趣的感觉是梦境.
+很容易将我的梦想意识带入觉醒状态,
+如果我不担心会停止呼吸, 我会走得很远.
+我可以完全进入自己, 像在催眠,
+我看着自己还拿着笔在句子中间.
+我注意到我很容易保持自己的地位.
+我还难以吞,害怕会停止呼吸.
+我发现我的手和手臂是色的.
+几次我膝盖都没有感觉, 几乎跌倒了.
+我很难入睡,但我吃了一些东西后就好了.
+我每次只能睡几分钟.
+我不得不站起来走来走去,
+我很难睡觉,经常排尿,
+视觉化更多的是外在的.
+有些类似于LSD, 但感觉不同.
+我坐着着看,视野变得平坦.
+只有没有那种有趣的的感觉 (不闪).
+我在地毯上看到闪电表演.
+我注意到我可以看任何表面,
+我看着我的手,看到细胞分裂.
+我没有像显微镜那样看到我的手,
+如果你闭上眼睛看, 你会发现一个运动的点, 如果你打开眼睛,
+通过观察这些点, 我看到了细胞分裂.
+我也曾经用胺和大麻混合过来.
+就好像我的意识从前脑叶向后移动.
+这可能解释了改变的感知.
+这些毒品的旅行报告中常见的元素是虚构的人.
+我第一次见到一个是我第一次服用150毫克的迪芬胺.
+我着太空, 却碰巧看着墙.
+我家墙上挂着一张的照片,
+我看到一个小人走在画前,
+后来我意识到这是我的第一个幻觉.
+我看着这个人,它变得更加真实.
+这些人像是3D小木偶, 走得很慢.
+似乎通过观察他们我控制他们走的地方.
+让他们走向我很难,甚至不可能.
+我从来没有让一个人接近我.
+我见过的最接近的,距离我们大约6英尺远.
+它们身高只有大约一英尺,
+这似乎表明它们的尺寸与背景的距离成比例.
+它们似乎是由视野中的旋转点组成的.
+像是你把它们投射到幻觉的形象中.
+投射图像的精力越大, 看起来就越真实.
+我看到的不仅仅是小人,
+我从来没有见过像它们一样的生物, 所以我无法确切地说出它们是什么样子或是什么样的身体部位.
+描述这些人的最好方式是, 他们是看不见的,
+这些家伙似乎除了散步外什么都不做.
+我从来没有服用过DMT,
+我不认为它们是相同的,然而.
+这些人根本没有表达出口.
+如果这次旅行给我带来了神秘启示,
+时间表: 13685
+药物 - 环素 (234):未知背景 (20),一般 (1),实体/生物 (37)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Tiny People
+Cyclizine
+by
+agent23
+Citation:   agent23. &quot;Tiny People: An Experience with Cyclizine (exp13685)&quot;.
+Erowid.org
+. Dec 22, 2004. erowid.org/exp/13685
+DOSE:
+600 mg
+oral
+Pharms - Cyclizine
+(pill / tablet)
+BODY WEIGHT:
+175 lb
+I’ve done diphenhydramine, dimenhydrinate, meclizine, and cyclizine. I first decided to report on cyclizine. However, I’ll refer to these other substances briefly.
+Firstly, I caution against taking any of these substances in high amounts. Too much can cause a scary, near death like experience. I wouldn’t say it’s a “bad trip” though. I felt no negative emotional, psychological,  or sensory effects. I caution against mixing these substances with other drugs, unless you are very careful with the amount and how in tuned you are regarding how your body handles other drugs. I tried mixing diphenhydramine (Benadryl), 150 mg with caffeine, 400 mg. That made the trip feel much better. I was much more awake. Whenever I use these substances, I become extremely sleepy, with the exception of meclizine (less-drowsy Dramamine II).  Meclizine hardly does anything to me. On it I can continue with ordinary activities with no problem and it’s harder to induce a trip. A friend said that pot with Nyquil was not fun. However, I’ve tried this and didn’t have a problem with it.
+I took a whole pack of Marezine. Marezine is an over-the-counter sleep aid. A pack contains 12 pills, 50 mg cyclizine each for a total of 600 mg.
+When I sat down to take notes for the trip report I found it very difficult to concentrate enough to write or hold a train of thought. I would drift off and my thoughts would go off on tangents. I had to keep reminding myself what I was doing and my notes were hard to read. I looked at the words and saw different words than the ones there. I seem to remember thinking that the words I thought I saw were related to the tangents I was thinking about. As if my mind was replacing them. Some of the details of this report may be missing because it was difficult to read.
+The physical effects were (for me) the undesirable part. I did not feel sick, nauseous, pain, too hot or cold, nervous, anxious, or feverish. In fact, it was easy to “turn off” physical sensation temporarily. The body feels something like it does when on a pain killer, a depressant, and a little alcohol (although not “fun” like that and not that tipsy feeling). The most annoying feature of the trip is difficulty urinating. I had to pee about every few minutes, each time with less feeling and more difficulty. The scary part of the trip was when I thought I would stop breathing, which I noted a few times. I would sit and escape into some thought tangent and then suddenly realize that I must take a breath. That feels as if the part of the brain that controls breathing becomes depressed and you have to remember to use it yourself. Breathing gets very low, slow and is in quite small amounts. I didn’t think about it until I got worried I might stop breathing.
+Another interesting sensation is the dream-like state. It was very easy to bring my dream consciousness into awakening attention, as if the physical body is really the dreaming body. Conversely, it was easy to attempt astral travel and I think I could have gotten really far if I wasn’t afraid I’d stop breathing. I could go completely within myself, something like in hypnosis except you “feel” it. At one point when taking notes I went off on a thought tangent and I looked at myself still holding pen in mid-sentence. I noted it was very easy for me to hold a position. Also, I had trouble swallowing, got afraid I’d stop breathing. At one point I noticed my hands and arms were orange. When I got up to walk, a couple times I didn’t have feeling in my knees and I almost fell. I had trouble falling asleep, but that was better after I had something to eat. I could only sleep a couple minutes at a time. I had to get up and walk around to get tired again. The next day I had trouble taking a nap, frequent urination, and a hiccup and burping attack while trying to get to bed.
+Visualizations were more external. They changed quickly and some were similar to disassociative drugs and some were similar to LSD, but the feeling was different. I sat staring off and my field of vision became flat. This was something like psilocybe cubensis, only not with that fun trippy feeling (not sparkly). I saw a lightning show in the carpet. I noticed that I could look at any surface and scry with it. I looked at my hand and saw cells dividing. I didn’t see into my hand like a microscope would but within my field of vision over my hand. If you close your eyes and look you’ll notice a field of moving dots, if you open your eyes you can see them there in sort of a 2-D field. I saw the cells dividing by looking at the dots. I had the same experience on ketamine mixed with pot. As if my consciousness moves back in my brain from the frontal lobe to a point further back. That may explain altered perception.
+A common element to trip reports on these drugs are imaginary people. I first saw one the first time I took diphenhydramine 150 mg. I was staring off into space, but I happened to be looking at the wall. On my wall was a framed picture where this little person first appeared. I saw a tiny guy walking in front of the picture and walking across my field of vision. Then it occurred to me that this was my first hallucination. I looked at this guy and it became more realistic. These guys are like tiny 3-D stick figures and they walk very slowly. It seemed like by watching them I controlled where they walked. I could make them walk side to side easily but making them walk toward me was very difficult or impossible. I could never get one to come close to me. The closest I’ve seen one was about 6 feet away. They are only about a foot tall, but I’ve read trip reports where people see them as full size people much further away. That seems to indicate that they are sized in proportion to how far away the background is. When I look objectively at them they appear to be made up of those swirly dots in one’s visionary field. As if you project them to form the image of the hallucination. The more energy you put into projecting the image, the more realistic it looks.
+When I was on cyclizine I saw more than just tiny people, I saw various little creatures. I never saw creatures exactly like them in real life so I couldn’t quite make out exactly what they looked like or what sort of body parts they had. The best way to describe these guys is they are invisible but I perceive that they are there. These guys don’t seem to do anything except walk around. I have never taken DMT as of yet, so I can’t say they are like the “elves” people report from DMT trips. I don’t think they are the same, however. DMT elves sing and these guys don’t show that they verbalize at all.
+If there was a mystical revelation I got from this trip, it would be that nothing HAS to exist, things however do.
+Exp Year: 2000
+ExpID: 13685
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 22, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Cyclizine (234) : Unknown Context (20), General (1), Entities / Beings (37)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,544 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>伊波加因 - 艾罗维德的药物 - &quot;只有善良&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ibogaine.html'>← 伊博格碱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>伊波加因 - 艾罗维德的药物 - &quot;只有善良&quot;</h1>
+<div class='sub-title'>Ibogaine - Erowid Exp - &#x27;Nothing but Goodness&#x27;</div>
+<div class='meta'>作者：Rory Citation · 日期：Oct 28, 2012 · 剂量：30 g · <a href='https://erowid.org/experiences/exp.php?ID=95186' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>伊博加一世 (写于2011年6月5日星期日)
+于是我一直在谈论这件事, 在这个刚刚过去的星期四, 我做到了.
+现在是时候写下来了.
+背景
+我第一次听说伊博加是在布鲁斯·帕里 (Bruce Parry) 接受电台采访时,
+他对我说的有几件事让我印象深刻:这是一次非常积极的经历;这似乎是个人和精神成长的工具;他能够重温过去的经历,并从中获得更大的理解;他能够重温他从别人的角度影响别人的事件.
+我觉得最后一句话是最深刻的:它不仅看起来非常有用,
+当然,没有惩罚的判断 - - 只是记账,
+我觉得帕里已经触及了这一体验,
+我也想做一些事情.
+我读了一些关于它, 我查看了加的航班, 然后我大概把它放在我的脑海里三四年,
+我为什么要吃伊博加
+据报道, 伊博加在此方面成功率非常高.
+我认为这是一种发展灵性联系的手段, 试图超越我长期以来一直意识到的某些情感障碍,
+尤其是在网上打国际象棋 (!).
+我希望这能帮助我不再惰, 不再拖延写作项目,
+原因主要是我觉得我有个问题, 源于我很小的时候,
+从理性上讲,这没有任何意义, 我并不是说这只是一个黑白问题, 一个百分之百的问题, 但它存在, 我可以看到它如何以如此微妙的方式影响我.
+显然,许多月前,当我生活在一个相当激烈的阶段的&quot;精神生活&quot;我觉得我已经跑到一堵墙,我不能进一步深化我的实践:一个朋友做了这些非常棒的天使道阅读告诉我,这是因为问题源自我的童年,因为我没有得到的感觉被想要和爱我的生母
+我无法接受神圣的母亲 (即上帝) 真正想要和爱我.
+我努力克服它,但我不能.
+这是十多年前的事.
+我也看到了这对我与女性的关系有何影响,
+伊博加似乎是找到问题的根源的一种方式,
+我的精神和心理背景
+我认为提及这一点很重要, 因为我相信经验会有所不同,
+我已经12年多没有吸毒了;同时放弃了酒精和咖啡因;甚至在过去的三个月里戒掉了巧克力和糖 (在冬天很上,
+我从来没有吸过烟,我是一个素食主义者.
+我在20多岁的时候经历了一些相当激烈的经历, 大约10年前,
+我正在想起我第一次的视觉探索 - - 在墨西哥海上独自度过六天, 没有任何分心 (包括阅读,写作,,点火) - - 这是一个深深的自我审视和情感体验.
+在那次视觉探索之后 - - 在此之前我已经是个非常沉重和频繁的饮酒者了大约八年 - - 我简单地失去了对酒精的渴望:仿佛它把我带到了我喝酒的主要原因 - - 我想是某种情绪障碍 - - 并且简单地把它移除了.
+没有它, 没有冲动或强迫饮酒, 酒精被视为纯粹的有毒物质, 造成身体和精神失衡, 缺乏任何积极的品质.
+我试图放弃饮酒,但没有解决饮酒的原因,只是为了缓解症状,这是一个斗争和努力,我失败了:我的视觉追求后,所有的欲望都消失了.
+还有:我做了另外两次视觉探索,一个是28天,另一个是6天;在维帕萨纳中心冥想了几个月;跟随阿玛奇 - - 拥抱的圣人 - - 环游欧洲几次;有一些神秘的经历 - - 例如,与一切的统一和我认为与我的灵魂的会面;
+给了我很多好东西 (幸福,和平,意义等等) 和相当多的疯狂 (错觉,混乱,缺乏理解如何在物质世界中生活得好).
+狂喜和疯狂已经显著消退了 (例如, 我认为我至少99%的弥赛亚复杂症已经治愈了!)
+但是我已经分心了...
+伊波加
+我做了我的研究和计算, 我对所发现的感觉很好.
+我发现霍华德·洛茨福和一位英国女性哈蒂·威尔斯的文章特别有用.
+找出我应该吃什么花了一点努力, 但我学会了, 伊波加根是无用的,
+虽然我最终选择了实际的根皮.
+主要是因为它是非洲的基本产品,
+是的,约克郡的紧的股人到最后.
+我订购了25克的东西, 付了大约58英,
+袋子被装满了,最后我拿到了30克的东西.
+我试了一口, 几乎立刻感觉到身体有一些明显的效果.
+这真是太棒了!
+如果这就是一根子会做什么, 想象两袋半的东西.
+我反思了一下,等待合适的时机.
+制剂
+根据我所读到的, 最重要的事情是, 有一个能够支持你经历的伴侣.
+也许甚至可以把自己弄得糟糕,
+一个能做到这一点的人最多30小时.
+最好是有经验的人,
+虽然我确实想到了一些人, 我认为他们不会疯狂,
+尽管如此,
+另一个问题是日落, 我认为一个安静的地方,远离家园,
+但我也没有担心.
+于是我在周三晚上睡觉, 突然觉得我会在第二天醒来,
+对于我来说,这已经很清楚了.
+然后我醒来,另一个声音说,不,这太愚蠢了,
+我接受这一点, 但几分钟后我的室友姆下楼, 告诉我他今天是假日,
+今天是那一天;我会在家里做,毫无疑问一切都会好起来的.
+我在客厅的地毯上搭起帐, 在姆工作的餐桌旁边, 他可以监视我, 我在楼顶的空气床上搭建了一个第二个空间,
+我认为一旦我知道我不会死, 我会上去,
+我把一些碗出来.
+我找到了一些新时代的环境音乐和一些耳机.
+我已经准备好了
+我的期望
+在身体上, 我预计会很糟糕.
+很多恶心和吐:甚至可能会把我自己.
+我认为我将无法移动大约16-30个小时;
+我期待看到异象,进入另一个世界,在那里我会生动地重温我早期生活中的情节,
+我期待得到智慧,教导和清除我的旧包,
+我希望能以新鲜的头脑走出来, 重生, 摆脱创伤和阻碍 (如今的情况),
+我期待自己被,被指明自己的缺点,因为惰,傲慢和缺点而受到惩罚,
+我希望能再次看到我伤害过别人的时刻 - - 我想女性在人际关系中 - - 并且对此有所认识,
+我希望能够破解我自己错误地认为自己不被爱的那一面.
+吃东西
+我在早上10点40分左右吃了第一个伊博加根皮.
+味道实际上很好,有点像薄荷醇.
+我吃了一半,然后,然后吞下.
+吃完30克, 大概需要20分钟.
+我没有忙,我只是放心.
+然后我躺在帐里,戴上耳机.
+首次影响
+很快,我注意到自己的动作,思维,言语都在减慢.
+我不得不起床调整一些东西 (我必须在手机上放一些音乐,
+我意识到这很有趣 - - 对于姆来说,
+我闭上眼睛,安静下来,等待它开始起作用.
+现在,我必须说的是:当这一切完成时, 我意识到它几乎立即&quot;起作用&quot;.
+但因为我期待着比实际发生的更为戏剧性的事件,
+实际上,我并没有觉得与我的正常状态有什么不同, 这通常是观察我的思想,自我审视,探索我的存在,寻求理解的状态.
+我也许错过了一些技巧,
+无论如何,回顾过去, 我确实看到我的思维已经改变了,
+现在我会以一种一般而不那么直线的方式来说道:
+数量和设置
+首先, 我不认为我有足够多的伊波加.
+我开始思考这件事, 虽然我在影响, 也许甚至只是几个小时,
+我认为这是因为我意识到我没有像我预期的那样深入.
+但这就是对期望的问题,不是吗?
+我可能完全错误地认为我没有足够的.
+奇怪的是, 我突然想起了我最早的计算需要大约45克的根皮,
+方程是这样的:
+推剂量 × 体重 = 根皮的数量 × 类含量
+需要我 (我目前的体重为84公斤) 摄入1.26克的伊波加因 (活性成分).
+我的根皮含有3%至6%的化物,
+30克×3至6%=0.8至1.6g的伊波加因
+现在我已经把它打印出来了, 这让我意识到我可能完全错了!
+,好吧:似乎重要的是提到,因为它在我的思想在游览期间.
+虽然我有偏离的心情...
+我认为远离自己的家园绝对是个好主意,
+我觉得,这对我来说总是有好处的:例如,当我尝试写作时,
+例如,无法上网,或者只是远离家里的一切 (,打扫,账单,家务等).
+没有任何能与你的思想交谈的东西在你的周围是专注的好工具:因此撤退的力量和理由.
+我肯定会想到一些与家,与姆有关的事情.
+但对于第一次旅行来说,
+现在也许我可以谈谈实际发生的事情.
+我认为伊博加是一种强大且有益的自我检查工具 (丹尼尔·宾奇贝克在&quot;卫报&quot;上发表了一篇文章,
+几乎立刻, 我的思想都集中在自己身上,
+我开始想起我的前夫, 我与他分居了四年,
+简而言之,我从来没有真正放过她.
+我开始告诉自己我常说的关于她的故事, 如何事情可能会有所不同, 我能做什么 - - 一个故事我经常可以娱乐自己几个小时 - -
+但总是用这两个字断言, 非常直接,非常清晰, 没有什么可争辩的.
+似乎我的心灵简单地接受了这句话的真实性, 经过数小时,数月,数年的思考,
+整个旅行我可能叫她心里,总是以同样的方式:因为它已经在几天.
+情况的真相总是如此:但我以前从未能够看到它并接受它.
+立刻,它已经完成.
+这就像没有什么可说的,它只是... 消失了.
+所以这很好.
+我从早期记得的另一件事是,我可能会想到一些事情,
+接下来, 思想要么消失, 要么我会被教导如何将思想转化为积极的表达.
+我只需要用几句话来表达一种消极的想法,
+我知道最近我有很多负面的想法 - - 恨世界,因为各种原因,等等 - - 但现在似乎没有什么意义,
+没有必要.
+我认为这就是我记得的第一阶段.
+后来我决定上楼躺下.
+很明显我不会死.
+我也很想远离周围的噪音.
+我慢慢地走到我早些时候做过的巢.
+让我感到头, 在各种物体周围发出闪电.
+但是在楼上,我还挺好,还躺在背上.
+躺在我的侧面造成恶心和头, 但在我的背上我很好.
+我又等待它真正起作用.
+第二阶段
+我觉得大约三小时后我就了:了三次,
+吐也绝对不令人讨厌 (尽管我从来没有真正的反感吐).
+经过大约10分钟的时间, 我又吐了, 这次更厉害了,
+总共有三次吐, 总共大概有11到12次吐.
+没有真正的恶心 - - 或者之前,说实话,除非我走路或移动我的头 - - 然后它是回到躺在我的背上和柔和.
+我认为在此之后, 视觉可能已经开始,
+我记得当时我看到一只飞过我的屏幕,
+没有任何可怕的东西, 它们只是在那儿 (也许与非洲有某种联系,
+之后,有许多面孔 - - 其中一些我认得,
+我不时会看到一个黑人男人的脸, 看着我,
+我很想知道这是不是伊博加先生, 我读过的植物之灵.
+他不时地出现, 但我觉得我没有吃足够的根皮来真正进入他.
+我认为这就是主要原因.
+我认为我在下午2点左右吐, 然后视觉和内省可能持续了四到五个小时.
+这都是好东西.
+虽然我继续躺着,闭着眼睛 (现在在我的一边) 至少直到午夜, 当我睡着了.
+我在整个经历中感到非常平静,非常温和,非常满意,
+我仍然没有口渴, 也没有任何脱水感,
+我还在慢慢地移动和思考, 于是我觉得自己已经&quot;完全恢复正常&quot;.
+我现在把这一切都打印出来, 似乎没有任何事件发生 - - 这很有趣, 因为我当时的感觉是这样,
+总的来说,尽管我觉得我没有采取足够深入到一个主要的&quot;突破&quot; - 遇到精神,被显示令人惊叹的事情,得到责备和疯狂的愿景 - 我真的觉得这是一个压倒性的积极和有益的经验,没有任何负面的任何东西.
+没有副作用,没有令人丧的下降, 没有疯狂和奇怪,
+旅行后我感到非常平静和积极, 并且注意到我的存在和思维方式发生了一些真正的改变.
+显然, 能够放弃旧的关系是一个相当重要的步骤 - - 至少,
+似乎那个能让我更好地思考的声音已经融入到我心中,
+我已经有几个月了, 没有感觉到任何迹象.
+我从来没有玩过网上国际象棋, 也绝对不想玩,
+玩到凌晨五点,甚至六点, 玩到我的大脑尖叫不行的时候, 当我多次向自己承诺&#x27;最后一次&#x27;,
+想到我有多么讨厌它, 浪费生命是什么, 就会让我玩,
+我不记得我上次在电脑上上网时没有玩游戏.
+然而,在这里我坐着,在过去的几天里,当我思考它,当它只是一个点击,
+这很重要.
+几乎就像...在伊波加之前, 我可能会对自己说,
+然而我会忽略它.
+伊博加似乎使这个声音 - - 一个智慧的声音,一个敏感的声音 - - 变得如此强大,
+让我不再沉浸在遗憾和负面思想中.
+而不是有任何争论或讨论, 而那个声音失败了,
+而事实上,它几乎已成为不仅仅是主导的声音,
+也许这就是为什么iboga能帮助人们继续前进, 帮助他们摆脱成: 这就像是对抗我们内心深处所知道不好的部分的强大补充.
+知道什么是好的,知道什么是坏的 - - 这是一种恢复平衡的方式.
+我可能不是海洛因成, 但,,你不知道我在国际象棋上有多迷失和多么糟糕.
+如果伊博加已经消除了这种冲动... 那么我不能告诉你它有多棒.
+没有毒品?
+很难将伊博加看作是毒品,
+因为它并没有那种效果.
+对于我来说,这甚至不是&quot;走出去&quot;, 因为我总是知道自己在哪里,
+这确实像是治疗 - - 超越一切,
+我觉得,并希望从中获得明确的长期好处,
+我感觉与以前没有什么不同, 除了, 像我说过的, 我似乎缺少一些对我不好的事情.
+这有多好?
+下一次
+我不想把这件事变成习惯, 而是希望自然地取得这些成果 - - 虽然我猜我们都需要时不时的帮助.
+相信我已经不足,然而,并将需要更强的剂量,即使在经验中我正在制定计划再次这样做.
+如果你要做,做正确的,对吗?
+如果不是, 我至少想知道我做了最好的事情.
+我真的不应该低估这一点, 而且作为一个试验: 我认为我现在对如何进入这个领域有了更好的想法.
+首先,我想要更大的剂量:大概是50克左右.
+远离任何能分散我的思维的东西,远离汽车的噪音.
+我想要一个能完全专注于任务的人陪伴我, 尽管我认为我自己也能做到,
+吐和恶心真的没有什么把我和整个事情是完全比我可能想象的温柔和温柔.
+我必须强调, 我认为这完全是由于我过去的精神练习,
+我认为我会再做一次:我想见伊博加先生!
+他在那里,但只是有点遥远.
+也许在一个月或两个.
+我们会看到...
+我已经错过了一些
+我经常想起我目前的女朋友,
+我还想说我最喜欢的地方, 墨西哥的温泉峡谷, 我们曾经谈过要在这秋天去度过六个月,
+我忘了提一下, 我确实有很多问题,
+不是说我记得具体情况, 但...好吧, 这一切都增加了清晰的感觉,
+另外一个...
+我很快就忘记了这件事,
+很多时候我会想到一些事情,然后想,这个想法是从哪里开始的? 到那时我已经忘记了我在想什么.
+很难坚持任何东西.
+但事实并非如此, 这似乎是关于放手, 通过事物而不是以有意识的,分析的方式进入它们.
+我一直想着我&quot;前一天&quot;做的事情 - - 比如我买的食物,我去过的地方 - - 然后我不得不不断提醒自己,
+这就好像星期四没有发生.
+很奇怪:就像飞越国际日期线或睡一整天和一整晚.
+时间是不同的:虽然我什么都不做,
+! 没有!
+我刚刚回忆起这件事的高潮.
+我不知道我怎么忘了它:当时很清楚,我记得后来告诉姆.
+无论如何,虽然很短,但当时的情景十分戏剧化:我躺着,闭着眼睛, 感觉到这些手要么做了这件事,
+但那时可能立即之后我再次得到的感觉,我没有吃足够的根皮,这是我可能期待下一次.
+我还认为, 在开始的时候, 我有这样的想法, &#x27;什么让你认为我无价值?&#x27; (我认为, 在与某人进行某种想象的对话).
+我感觉自己被这些话所困住, &quot;我无价值&quot;, 它们不断重复, 断断续续地回来: 我觉得我触及了我内心深处的一些隐藏的部分,
+我觉得&quot;我无价值&quot;有点戏剧化 - - 我当然没有这种感觉 - -
+伊博加II (来自德国)
+很快我收到了一百克的伊波加根皮,
+我也没有那份急切期待的20%的免费奖金.
+质量似乎不那么好 - - 里面有更多的白色根,
+这有点令人失望.
+设置
+我去德国7月19日星期二去见米拉母亲, 著名的印度阿凡达我以前见过很多次,
+她每周五到周一都会举办达尔珊节, 我觉得我之前空的几天会成为一个很好的机会去参加达尔珊节:
+我会把我的帐放在一个可爱的女士的花园 веранда.
+我认为一切都是完美的.
+第一个晚上
+在星期三晚上 - - 不,你首先想知道的是我怎么到达那里...
+在那里得到它
+我有点担心通过机场安全检查带着伊博加可能不是最好的主意,
+它有个奇怪的样子,有个奇怪的气味,
+另外,我只能带着手提行李旅行,所以没有办法把它寄进去.
+我决定在透明的塑料袋里取样一些茶, 一些红茶,
+奇怪的是,当我把我的袋子放进扫描仪时,
+第一个晚上
+在星期三晚上我试图得到卡在那个巨大的袋子的树皮:这并不容易.
+这一次, 味道让我想吐: 身体记忆中以前没有吐的记忆.
+一口几乎不可能下来.
+立即开始.
+两口,三 - 然后,从无处不在,我吐出整个血的很多,喷它通过手指,急于覆盖我的嘴;其中一些走了四英尺在空气中,喷门窗在十英尺宽的弧.
+我感觉很糟糕.
+我用一双白色短擦拭了可能的东西,然后睡觉了.
+我知道这不会发生在今晚.
+除了...
+我做了一个非常生动的梦:在梦中,我和我母亲正面对面和非常专注地交谈.
+她会大声说出来, 一字一句, 我会明白我在想的不是简单的沉思,
+于是我记得我的出生,我第一次看着她的脸,
+他们有点令人震惊,残忍,令人难以置信.
+然后她大声说,&#x27;你害怕我.&#x27; 我说,&#x27;不,你害怕我,&#x27;虽然她试图争论,说我是害怕的,我重复了我看到的,它的力量 - - 真理的力量 - - 洗掉了她可能有的任何论点.
+形象就在那里:婴儿的形象,第一次抬头看着母亲的脸, 被一种无法形容的感觉所淹没,
+毫无疑问,这是可能的:她十七岁,她的整个生活瞬间和戏剧性地改变了.
+也许她很害怕.
+这是一个非常生动和非典型的梦.
+我认为这可能是同一个晚上, 另一个东西来到我: 短语&quot;所有面孔都看起来很奇怪&quot;和一整堆相关的装备.
+让我想到,是的,他们是;而且我也一直挂在女性的脸上寻找伴侣时,让我想起过去的女孩,我一直与,其中一些我已经从思考令人难以置信的美丽在开始最终只是认为他们而奇怪的外观,和一个特别谁我喜欢和关心很多,谁我有乐趣的
+但我从来没有真正承诺, 因为我不喜欢她的脸.
+我一直在思考这件事, 我一直在责备自己:这似乎是一种肤浅的方式,
+爱情:一个人的脸的形状与爱有什么关系?
+这是一个愚蠢的决定.
+让我想起我现在的女朋友:她的脸当然不是世界上最美丽的,
+也许我需要这样思考.
+成为史蒂维·万德, 而不是被这样的不成熟方式所蒙蔽!
+第二个晚上
+我开始了我的任务, 带着新的决心, 抛弃了我对恶心, 吐, 完全不可能吃这样一个巨大的袋子这样令人厌恶的产品 (仍然留下, 可能, 大约45克).
+我花了一些时间 - - 可能几个小时 - - 拆掉更大的碎片,坐在阳台上切碎,粉碎,
+我准备好了:我有我的水桶吐, 如果有必要,
+实际上,我认为我根本不需要.
+我的意志力,毫无疑问,这是缺少前一天晚上 - 我不知何故得到通过整个很多它与最小的喧.
+我在我的帐里安顿下来,我做好了准备,等待这些异象,但什么都没有发生.
+没有什么.
+我从今晚什么都想不到除了轻微的失望和我入睡.
+伊博加应该让你保持清醒,但我只是睡着了.
+我甚至没有做梦.
+没有一个洞察力或启示或视觉.
+非常非常奇怪.
+也许这是一个错误的剂量, 也许我得到了我需要的一切从iboga第一次.
+无论如何,我已经完成了.
+虽然我仍然没有逃脱感觉像狗的第二天.
+伊博加III (3个月28天后)
+那么剩下什么?
+因为,与那些只是为了玩的药物不同, 服用伊博加的全部原因是为了达到某种长期目标,
+我相信我已经实现了这一点.
+第一个,我还在下棋!
+没有!
+对于我来说仍然令人惊的是, iboga 已经摧毁了我的习惯 - - 一个非常破坏性的习惯,我也无所不禁承认 - - 我可以在一天的时间里,
+没有什么能取代它, 过去通常是这样 (我离开Facebook也已经五个月了,
+这句话对我没有什么影响,
+我可以在这里打字关于我以前的习惯; 我可以加入利兹大学的国际象棋协会; 我可以在BBC网站上观看一段视频,
+我惊奇地摇了摇头:也许这种东西确实可以消除成.
+接下来我想到的是我对前女友的沉迷,以及伊博加如何在我心中灌输了这个声音,每当我想到她和我们时,都会用清晰而简单的智慧说&#x27;她已经走了&#x27;. 在这个问题上,我不得不报告一点不太成功,因为我已经回到了思考她,
+虽然我肯定不像以前那么糟糕.
+我确实认为我已经&quot;治愈&quot;了 - - 但是,正如我在克服旧习惯,精神治疗等方面所学到的,
+这件事发生在这里,也许有两个原因:一,我已经忘记了她,决定删除我们两人的性感照片,并隐藏其余的照片,这让我回忆起来,即使在那一刻我感觉到了,也让我回忆起她;二,与我的新女朋友在一起,我似乎在比较,对比,看待不同,更好的东西,
+我应该试着戒掉的另一个习惯!
+无论如何, 几个月来, 我已经完全忘记了她,
+虽然它与伊波加之前的情况完全不同.
+故事的道理是:不要留下任何照片!
+我的意思是,有什么意义?
+我为什么要看它们?
+我应该回去删除它们.
+除了这两件事, 我不确定还有什么可说的.
+虽然很难知道这种积极的态度是否留在我身边 - - 我的意思是,当新的思维方式融入并成为常态时,
+其他人的负面态度似乎变得更加明显, 更加奇怪和烦人.
+因为一切都不好吗?
+我们有很多值得感激的东西吗?
+也许这种积极性已经在某个地方扎根了.
+最后的想法
+我认为这对我有长期的好处, 如果我有点意志力,
+其他:
+伊波加因 (28):一般性 (1),回顾性/总结 (11),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Nothing but Goodness
+Ibogaine
+by
+Rory
+Citation:   Rory. &quot;Nothing but Goodness: An Experience with Ibogaine (exp95186)&quot;.
+Erowid.org
+. Oct 28, 2012. erowid.org/exp/95186
+DOSE:
+30 g
+oral
+Ibogaine
+(rootbark)
+45 g
+oral
+Ibogaine
+(rootbark)
+BODY WEIGHT:
+80 kg
+Iboga I (written Sunday 5th June, 2011)
+So I&#x27;ve been talking about it and on this Thursday just gone, I did it. And now it&#x27;s time to write it up.
+Background
+I first heard about iboga during a radio interview with Bruce Parry, talking about his experience taking it with the Bwiti in Gabon. A number of things struck me about what he said: that it was a really positive experience; that it seemed to be a tool for personal and spiritual growth; that he was able to relive past experiences and gain a greater understanding from them; and that he was able to relive events in which he had affected others from their viewpoint. I think it was this last one that I found most profound: not only did it seem incredibly useful, it also tallied with some of what I believe takes place after death - the so-called &#x27;day of judgment&#x27; - when one reviews one&#x27;s own life and gets to see where we did well, and where we fell short. Of course, there is no judgment in the sense of punishment - just an accounting, and a realisation of where one can do better next time around. It seemed to me that Parry had touched on this experience while still in the body. I thought, well there&#x27;s something I&#x27;d like to do too. I read up on it, I looked into flights to Gabon, and then I more or less put it into the back of my mind for three or four years, the idea of iboga surfacing only intermittently until earlier this year, when I found a few places that sold it in Europe.
+My reasons for taking iboga
+A lot of people take iboga in an attempt to break free from some sort of chemical addiction - heroin, alcohol, tobacco, etc - and it reportedly has a very high success rate in this regard. In my case I saw it as a means in which to develop my spiritual connection and to try to move beyond certain emotional blockages which I had been aware of for a long time, but which I hadn&#x27;t been able to overcome. Also, I have felt that lately I had become way too obsessed with the computer, with being online, and in particular in playing internet chess (!). And I suppose I had hoped it would help me to perhaps be a little less lazy, and to stop procrastinating so much with the multitude of writing projects that I long to do and yet avoid like the plague, for one reason or another. The main reason, though, was that I felt that I had an issue which stems from very early childhood, and in particular to do with my mother, which has left me with a deep down feeling of being unloved, or maybe even unlovable. Rationally, it makes no sense, and I&#x27;m not saying it&#x27;s a black and white thing, a hundred percent issue one way or the other, but it&#x27;s there, and I can see how it affects me in such subtle ways.
+Explicitly, many moons ago when I was living a fairly intense stage of &#x27;the spiritual life&#x27; I felt that I had run into a brick wall, that I couldn&#x27;t deepen my practice any further: a friend who did these pretty awesome angel channeling readings told me that it was because of issues stemming from my childhood, that because I did not get the feeling of being wanted and loved by my birth mother, I could not accept that I was truly wanted and loved by The Divine Mother (ie, God). It made sense, and I strove to overcome it, and yet I could not. This was more than ten years ago. I also saw how it was affecting me in my relationships with women and given that I was getting ready to embark on a new one, I really wanted this sorted. Iboga seemed like a way to maybe get to the root cause of the issue - if you&#x27;ll pardon the pun.
+My spiritual and psychological background
+I think it&#x27;s probably important to mention this, as I believe the experience will of course be different and dependent on where a person is coming from, at what stage they&#x27;re at in their life. First off, as I say, any aspect of drug dependency was not an issue for me: I haven&#x27;t taken drugs in over 12 years; gave up alcohol and caffeine at the same time; and have even been off chocolate and sugar for the past three months (was well addicted over the winter, as is my habit - summer off, winter well and truly on). I&#x27;ve never smoked and, not that it makes any difference, I&#x27;m a vegetarian. Spiritually speaking, I had some fairly intense experiences in my mid-twenties, ten or so years ago, which I think do bear some relation to my iboga experience because, it seems to me, they seem to have given results similar to what one might expect from iboga.
+Namely, I&#x27;m thinking of the first vision quest I did - which involved six days alone on a beach in Mexico, free from any sort of distraction whatsoever (including reading, writing, cooking, making fire) - and which was a deeply introspective and emotional experience. After that vision quest - before which I had been a very heavy and frequent drinker of about eight years - I simply lost all desire for alcohol: it was as though it had taken me to the prime reason why I drank - I imagine some sort of emotional disturbance - and simply removed it. Without it, there was no impulse or imperative to drink, and alcohol came to be seen purely as a toxic substance which caused physical and mental imbalance lacking any positive qualities whatsoever. Several times before this I had tried to give up drinking - but without having tackled the cause of my drinking - merely seeking to alleviate the symptoms - it had been a struggle and an effort and I had failed: after my vision quest, all desire was gone.
+Also: I did two further vision quests, one of twenty-eight days and another of six; spent several months meditating in a Vipassana centre; followed Ammachi - the hugging saint - around Europe a couple of times; had a few sort of mystical experiences - eg, oneness with everything and what I believe was a meeting with my/the soul; and in general got very heavily into the God thing, which gave me a lot of good (in the way of happiness, peace, meaning, etc) and a fair bit of mad too (delusion, confusion, lack of understanding at how to live well in the material world). Most of that, however, is years ago, and both the ecstasy and the madness have significantly subsided (for example, I reckon I&#x27;m at least 99% cured of my Messiah complex!)
+But I digress...
+The iboga
+I did my research and my sums and I felt pretty good about what I&#x27;d found. There are some great resources online - lots of first-hand accounts and tips from &#x27;iboga therapists&#x27; - and I found especially useful the writings of Howard Lotsof and an English woman, Hattie Wells. Finding out what I should take took a bit of effort but I learned that iboga root is sort of useless and will make you sick and it&#x27;s actually the rootbark that&#x27;s where it&#x27;s at. This can be bought in various forms - powder, pills, HCl (which I don&#x27;t really understand) - though I ended up going for the actual rootbark itself. A number of reasons for this but mainly because that&#x27;s the base product - ie, what they&#x27;d be eating out in Africa - and because it&#x27;s by far the cheapest! Yep, tight-ass Yorkshireman to the last. I ordered 25 grams of the stuff and paid something like £58, including shipping. The bags arrived overfilled and I ended up with 30 grams of the stuff. The iboga smelled like some sort of tea I&#x27;d had years ago: I tried a pinch and pretty much immediately felt some noticeable effects in my body. Wow! If that&#x27;s what a pinch would do, imagine two and half bags of the stuff. I ruminated on it and waited for the right time.
+Preparations
+From what I&#x27;d read probably the most important thing was to have someone with you who would be able to support you through the experience. Someone who would be able to deal with watching someone puke - and maybe even shit themselves - without freaking out. Someone who could do that for anything up to 30 hours. Preferably someone who was experienced with iboga and knew what to expect. Alas, I didn&#x27;t have anyone I knew who fulfilled this criteria, though I did have a few people in mind who I thought wouldn&#x27;t flip out and who would be supportive and caring and present through the whole thing. In the end, though, I didn&#x27;t bother. Also, the other thing is setting, and I suppose somewhere quiet and away from your home and ideally in nature is the best place for it. But I didn&#x27;t bother with that either. Instead, I went to bed on Wednesday night and just had this sudden sense that I would wake up the next day and do it then. It was sort of clear to me. And then I wake up and another voice says, no, that&#x27;s daft, so many people online say you should never, ever do it on your own. I accept that - but then a few minutes later my roommate Tom comes downstairs, tells me that he&#x27;s got the day off and will be staying at home - his first ever day off while I&#x27;ve been around, as far as I&#x27;m aware - and that pretty much clinches it. Today is the day; I&#x27;ll do it at home and no doubt all will be well. I set up my tent on a rug in the living room, next to the dining room table where Tom will be working, so he can keep an eye on me, and I create a second space up on the top landing, on an air mattress with some blankets where it&#x27;s quieter, darker, and more secluded. I figure once I know I&#x27;m not going to die I&#x27;ll go up there and do the main part of it out of the way on my own. I put out a couple of bowls for puke. I find some ambient New Age music and some headphones. And I&#x27;m ready to go.
+My expectations
+Physically, I&#x27;m expecting to be pretty messed up. Lots of nausea and puking: maybe even shit myself. I think that I&#x27;m going to be incapable of movement for something like 16-30 hours; probably won&#x27;t even be able to see or hear or speak. I&#x27;m expecting visions; to enter into another realm where I&#x27;ll vividly relive episodes from my earlier life; to meet the spirit of the plant - some black guy - and maybe go on a journey to the jungles of Africa. I&#x27;m expecting wisdom, teaching, and the clearing out of my old baggage, answers to my every question. I&#x27;m expecting to come out of it with a new fresh mind, born again and free from traumas and blockages (such as they are) accumulated during a time when I was too young to understand what was happening to me, but could feel it anyways. I&#x27;m expecting to have my ass kicked, to be shown where I&#x27;m lacking, to be chastised for my laziness, my arrogance, all my shortcomings - and to be shown how to move beyond them. And I&#x27;m expecting to see again times where I&#x27;ve hurt people - I&#x27;m thinking women in relationships - and to gain some realisations about that, to feel bad about it, and to see how I can avoid ever doing that again. And I&#x27;m expecting - hoping, really - to crack through that aspect of myself that wrongly believes that I am not loved.
+The eating
+I ate the first iboga rootbark at around 10.40am. The flavour is actually quite nice, a bit like menthol. I take half a mouthful and chew it and swallow it down. It takes, I think, about 20 minutes to eat the whole 30 grams. I don&#x27;t rush it, I just take my time. Then I lie down in the tent and stick on the headphones.
+First effects
+Pretty quick, I notice that I&#x27;m slowing down: my movements, my thinking, my speech. I had to get up a few times to adjust a few things (had to put some music on my phone to take upstairs with me) and it was all pretty comical. I was aware that it was comical - that I must look, to Tom, like the typical tripping druggie - but there wasn&#x27;t really anything I could do about it. I closed my eyes and settled down and waited for it to kick in.
+Now, what I must say here is this: that when it was all done, I realised that it had &#x27;kicked in&#x27; pretty much immediately. But because I was waiting for something a bit more dramatic than what actually happened I didn&#x27;t really recognise it. In fact, I didn&#x27;t really feel that different to my normal state, which is generally a state of observing my thoughts, of being introspective, of investigating my being and seeking understanding. So maybe I missed a trick or two there - though I don&#x27;t really think so. In any case, looking back I do see that my thinking had altered and that I received some pretty profound benefits almost straight from the off.
+And now I&#x27;ll just waffle in a general and less linear way...
+Quantity and setting
+I can&#x27;t go any further in my writing without saying, first of all, that I don&#x27;t think I had a large enough quantity of iboga. I started thinking this while I was under the influence, maybe even just a few hours in, and I was even doing sums and trying to work out where I&#x27;d gone wrong, how much I should have had. I guess I thought this because I realised I wasn&#x27;t going anywhere near as deep as I&#x27;d expected. But that&#x27;s the problems with expectations, eh? And I may be totally wrong with my belief that I didn&#x27;t have enough. But, the funny thing was, I suddenly remembered half-way through that one of my earliest calculations called for something like 45 grams of rootbark - and I of course kicked myself, and immediately made plans to do it again (in amongst everything else that was happening). The equation goes something like this:
+recommended dosage x weight = quantity of rootbark x alkaloid content
+Hattie Wells recommends a dosage of something like 15mg/kg, which would require me (at the monstrous 84kg I currently am!) to ingest 1.26 grams of ibogaine (the active ingredient). Apparently, the alkaloid content of my rootbark was between 3 and 6 percent, therefore:
+30 grams x 3 to 6% = 0.8 to 1.6g ibogaine
+Which, now I&#x27;ve typed it out makes me realise that I may have been totally wrong in all of this thinking! Oh well: seems important to mention that, as it was on my mind during the excursion. And while I&#x27;m in the mood for digression...
+I think being away from one&#x27;s own home is certainly a good idea, and something I&#x27;ll definitely do next time. I think, for me, it&#x27;s generally beneficial in lots of way: for instance, when I try and write, the more I separate myself from things that may have a pull on my mind, the more focused I can be on the task in hand. Not having the ability to go online, for example - or simply being away from the pulls of a house (cooking, tidying up, bills, chores, etc). Not having anything in your vicinity that can speak to your mind is a great tool for focus: hence the power and reason for retreats. Doing it at home, I definitely thought of things to do with the home, with Tom. But for a first trip it was all good lessons...
+And now maybe I can talk about what actually happened.
+So I see iboga, primarily, as a tool in powerful and beneficial introspection (Daniel Pinchbeck titled an article in The Guardian &#x27;Ten years of therapy in one night&#x27;). Pretty much immediately, almost all my thoughts became focused on myself, on my own being, on things that were important to me. Thoughts arose about my ex, who I&#x27;ve been separated from for four years, yet who I&#x27;ve long imagined I might get back with, who I always thought of as &#x27;the one&#x27;. In a nutshell, I&#x27;ve never truly let her go. Yet as the thoughts arose about her - as I began to tell myself my usual story of her, of how things could have been different, of what I could do - a story I could often entertain myself with for hours - pretty much right away another voice cut in with the words &#x27;she&#x27;s gone&#x27;. The first voice perhaps tried to explain, to bring the story back, but it was always cut off with those two words, very direct, very clear, and nothing to argue with. It was as though my mind simply accepted the truth of that statement and instantly, after all those hours and months and years of thinking one way, it started to think another. Throughout the trip I might call her to mind and always it was the same way: as it has been in the days since. The truth of the situation was always that: but I had never been able to see it and accept it before. Instantly, it was done. It&#x27;s as though there&#x27;s nothing more to say about that, it&#x27;s just...gone.
+So that was good.
+Another thing I remember from the early stages was that I might think something, and I would instantly realise that it was a negative thought, and that it didn&#x27;t serve me to think that way. Then the thought would either disappear, or I would be shown how I could turn that thought into a positive expression. After a bit of this, I would only need to be a few words into a negative thought when the thought would die and be replaced by something beneficial. I know of late I&#x27;ve given in to lots of negative thinking - hating the world for various reasons, etc - but now there just doesn&#x27;t seem much point, because ultimately all it does is effect and reflect poorly on me. No need.
+I think that&#x27;s all I remember from &#x27;the first stage&#x27;. After that I decided to go upstairs and lie down there. It was apparent that I wasn&#x27;t going to die. Also, I was disturbed by the noises around me and wanted to be away from them. I got up and walked slowly to the nest I had made earlier. My balance was poor and turning my head at any kind of speed made me feel dizzy and created lightning flashes around various objects. But I made it upstairs fine and lied on my back. Lying on my side created nausea and dizziness, but on my back I was fine. Then, again, I waited for it to really kick in.
+Second stage
+I think I vomited after about three hours: vomited three times and instantly felt better, and figured the trip would begin then. All that came out was the rootbark - though I&#x27;d had some raisins for breakfast - and the puking was in no ways unpleasant (though I don&#x27;t ever really mind puking). About ten minutes later, however, I vomited again, this time much stronger, and again a few minutes after that. In all, three sessions of vomiting, probably about 11 or 12 pukes in total. Just chewed up rootbark and not unpleasant, no real nausea once done - or before, to be honest, unless I was walking or moving my head about - and then it was back to lying on my back and being mellow. I think just after this the visuals may have started, though it could have been before. Started with various little shapes which may just have been eye gunk - couldn&#x27;t really tell - but then I remember distinctly seeing a lizard scuttle across my screen and realising that it weren&#x27;t no eye gunk. This was followed by more lizards, some spiders and scorpions, none of which were in any way frightening, they were just there (thought maybe some connection with Africa, although perhaps also the rainforest ambient music I was listening to).
+After this there were many faces - some of which I recognised, and had some relevance at the time, though I don&#x27;t recall them now - and also cars. Every now and then I&#x27;d get this black guy&#x27;s face appearing, looking at me as though he were checking me out, coming closer and then turning away. I wondered if this was Mr Iboga, the so-called spirit of the plant that I&#x27;d read about. He popped up intermittently but I felt that I hadn&#x27;t eaten enough rootbark to really get into him.
+Mainly, I suppose, that was it. I think I vomited at around 2pm and then the visuals and the introspection may have lasted about four or five hours. It was all good stuff. After that, there was a sense of &#x27;coming down&#x27;, though I continued to lie still and with my eyes closed (on my side now) until at least midnight, when I fell asleep. I was very calm, very mellow, and very content throughout the whole experience, and had no desire for food or drink and felt nothing in the way of thirst or hunger. Indeed, the next morning, despite having drunk nothing for nearly twenty-four hours, I still had no thirst, nor any sense of dehydration, which I believe is common to the iboga experience. The next day, I watched a movie and relaxed until about 5pm - I was still moving and thinking very slowly - at which time I felt like I had returned &#x27;completely to normal&#x27;.
+I type all this now and it all seems rather uneventful - which is quite amusing as it&#x27;s what I felt at the time, and then afterwards, when I realised that certain things had actually happened, I felt that I&#x27;d received a lot. All in all, though, despite my feeling that I didn&#x27;t take enough to go deep enough into a major &#x27;break through&#x27; - to meet the spirit, to be shown mind-blowing things, to get reprimanded and have mad visions - I really feel that it was an overwhelmingly positive and beneficial experience, without anything of the negative whatsoever. There were no side effects, no depressing come down, nothing of the madness and weirdness that one might expect from a so-called &#x27;hallucinogen&#x27;.
+Since the trip I have felt incredibly calm and positive, and have noticed some real changes in my being and in my way of thinking. Obviously, being able to let go of an old relationship is a pretty major step - at least, it is for me, as I really haven&#x27;t been able until now - and the transmutation of negative thoughts into positive seems to have stayed with me. It&#x27;s as though that voice that would butt in and show me a better way to think has integrated itself so that it is now the default rather than the correction and that I immediately jump to the positive thought rather than wallow in negativity. I&#x27;ve been on a bit of a downer for a few months now and I literally feel no trace of that. Also, I haven&#x27;t played a single game of online chess and have absolutely no desire to do so: that&#x27;s pretty amazing. Before the iboga, I might be playing for anything between four and twelve hours a day; would play even when I had other things to do; until the early hours (and I&#x27;m talking, on occasion, like 5 or even 6am); and would play when my brain was screaming no, when I had promised myself &#x27;last one&#x27; several times over, and when I had lost any sense of enjoyment whatsoever. Even thinking about how I hated it and what a waste of life it was would make me play, as though the mere mention of the word &#x27;chess&#x27; triggered the desire to have a game. I can&#x27;t remember the last time I was on a computer, online, and didn&#x27;t have a game. And yet...here I sit, and over the last few days, when I&#x27;ve contemplated it, and when it&#x27;s been but a click away, there&#x27;s nothing in me that wants to play. That&#x27;s pretty major. It&#x27;s almost like...before the iboga, I might think to myself, shall I have a game? and there&#x27;d be a voice in my head that would tell me, immediately, &#x27;no&#x27;. And yet I&#x27;d ignore it.
+It almost seems like iboga has made that voice - a voice of wisdom and a voice of sensibility - so strong that it has become the dominant voice. It&#x27;s the voice that doesn&#x27;t let me dwell on regrets and negative thinking. It&#x27;s the voice that instantly tells me the truth of a situation and of my thinking - and rather than there being any argument or discussion, and that voice losing, as was so often - pretty much always - the case, that voice now wins. And, indeed, it&#x27;s almost as though it has become not just the dominant voice but the only voice. Perhaps that&#x27;s why iboga works in helping people move on, in helping them let go of their addictions: it&#x27;s like an amazingly strong reinforcement in the battle against the part of us that makes us do the things we know, deep down, are bad for us. Always we have a voice that knows what&#x27;s good, knows what&#x27;s bad - and this is a way of redressing the balance. I may not have been addicted to heroin but, wow, you have no idea how lost and how bad I was with the chess. If iboga has removed that urge...then I can&#x27;t tell you how awesome it is.
+Drug?
+It&#x27;s hard to think of iboga as a drug, so different is it from what most of us think drugs to be. It&#x27;s not something you&#x27;d take to get high, to feel ecstatic, because it doesn&#x27;t really have that effect. For me, it wasn&#x27;t even about &#x27;getting out there&#x27;, because I always knew where I was, who I was, and didn&#x27;t really feel that different from my normal state of being. It really was like therapy - above and beyond anything, a deep and focused introspective experience entered into for the long term benefits. There were, I feel, and hope, definite long term benefits from this - and, as far as I can tell, absolutely no side effects, nothing of the negative. Even if things have changed, once the trip is over the overwhelming feeling is of a &#x27;return to normal&#x27;: I feel no different than beforehand, except, as I&#x27;ve said, that I seem to be lacking several things that weren&#x27;t good for me. How cool is that?
+Next time
+I&#x27;d gone into this experience wanting it to be a one time only thing: I don&#x27;t really want to make a habit of this kind of thing and would rather achieve these results naturally - though I guess we all need a helping hand now and again. Having believed that I&#x27;d fallen short, however, and would require a stronger dose, even during the experience I was making plans to do it again. If you&#x27;re gonna do it, do it right, right? So I do think there&#x27;s more to learn from this and - well, if not, I at least want to know that I&#x27;ve given it my best shot. This time was great for what I got from it - I really shouldn&#x27;t underestimate that - and also as a trial run: I think I have a much better idea of how to go into it now. Number one, I want a larger dose: probably around 50 grams I think. Number two, I want to be away from home, away from anything that can divert my thinking, and away from the noise of cars. Number three, I want someone with me who can be totally focused on the task in hand: although, really, I think I would have been equally fine - and maybe better off - doing it on my own, and perhaps would be also next time. The vomiting and the nausea really weren&#x27;t anything to put me off and the whole thing was altogether more mellow and gentle than I could have possibly imagined. I must stress, though, that I think this was entirely due to the spiritual practice that I&#x27;ve done in the past, and I don&#x27;t think it would be the same for people who were coming at it from a markedly different place. I think I will do it again: I want to meet Mr Iboga! He was there, but just a little out of reach. Maybe in a month or two. We&#x27;ll see...
+Bits I&#x27;ve missed
+I thought often about the girl I&#x27;m currently involved with, and that was all really, really good. And also about my favourite place on earth, the hot springs canyon in Mexico, which we&#x27;d talked about going to spend six months in come this autumn, and I really feel like I was getting the go-ahead for that, like it was almost telling me that, more than anywhere, that was my home. And, I forget to mention this, but there really were loads of questions that I had where the answers pretty much instantly came. Not that I remember the specifics but...well, it all adds to the sense of clarity, and the sense of clearing out old debris of thoughts, which is all good. Also...
+My short-term memory was atrocious - and laughably so. Many times I&#x27;d think something, then think, where did this thought begin? and by the time I&#x27;d thought that I&#x27;d forgotten what I was thinking about. It really was very difficult to hold on to anything. But then, that&#x27;s not really the point, it seems to be about letting go, about moving through things rather than getting into them in a conscious, analytical way.
+The next day, I kept thinking of things that I did &#x27;the day before&#x27; - ie, food I&#x27;d bought, some places I&#x27;d been - and I then had to keep reminding myself that all this was actually two days before. It was as though Thursday hadn&#x27;t happened. Very strange: like flying across the international date-line or being asleep for an entire day and night. Time was different: even though I wasn&#x27;t doing anything there was no real sense of it passing or of boredom.
+Oh! Something just came back to me - probably the peak of the whole thing. Don&#x27;t know how I&#x27;d forgotten it: it was very clear at the time and I remember telling Tom about it later. Anyway, it&#x27;s short but was quite dramatic in the moment: I was lying on my back with my eyes closed and I felt these hands either do this thing, or be about to do it, which sort of involved reaching into my rib cages and basically pulling me apart, so that my body shattered and exploded into quite a lot of pieces. At the time I thought that was when I was really going to get into it: but then probably immediately after that I again got the sense that I hadn&#x27;t eaten enough rootbark and that it was something I could perhaps look forward to next time.
+I also think that there was something pretty much right at the beginning, where I had this thought, &#x27;what makes you think I&#x27;m worthless?&#x27; (during, I think, some imaginary conversation with somebody). And then I felt like I got stuck on the words, &#x27;I&#x27;m worthless&#x27; and they kept repeating and coming back intermittently throughout: I felt like I was touching on some deep, hidden part of me, some core belief, a voice or thought that lies beneath a great many other things. I think &#x27;I&#x27;m worthless&#x27; is a bit dramatic - I certainly don&#x27;t feel that way - but I thought it was interesting given the whole &#x27;unlovable&#x27; thing I&#x27;d been thinking of beforehand...
+Iboga II (from Germany)
+Not too long after my first experience I took delivery of 100 grams of iboga rootbark: 50 for me and 50 for a friend. Unlike the first time, however, they hadn&#x27;t overfilled the bags and so I was without the eagerly anticipated 20% freebie. Also, the quality didn&#x27;t seem as good - much more of the white root in there, and much larger pieces of bark, which took a lot of sorting and sifting before I was ready to eat it. Slightly disappointing.
+Setting
+I&#x27;d gone to Germany on Tuesday the 19th of July to see Mother Meera, the reputed Indian Avatar who I&#x27;ve seen on many occasions previously, and who, though mostly a complete mystery to me, I do feel has had a very beneficial effect on my life. She hosts darshans on the Friday to the Monday and I figured the spare days I had beforehand would be an excellent opportunity to take the iboga: Balduinstein, where the darshans are held, is a tiny little nothing village by a river, very quiet and surrounded by hills and trees. I&#x27;d wound up putting up my tent in a lovely lady&#x27;s garden veranda. Everything, I imagined, was perfect.
+The first night
+On the Wednesday evening - no, what you want to know first is how I got it there...
+Getting it there
+I was flying out to Germany; and I was a little bit worried that taking iboga through airport security might not be the best idea, though legal in both countries. It&#x27;s a weird looking bag of twigs and powder; it smells funny; and it&#x27;s got a dubious story, if you decide to tell the truth about it. Also, I only travel with hand luggage so checking it in wasn&#x27;t an option. In the event, I decided to take a sample of teas in clear plastic bags - some rooibos, some loose leaf jasmine - and then I stuffed the iboga into the jasmine box, masquerading it as just another tea. And, amazingly enough, when passing my bag through the scanner, what I&#x27;m sure was a rather dubious looking image didn&#x27;t even raise an eyelid.
+The first night
+On the Wednesday evening I attempted to get stuck in to that monstrous bag of bark: and it wasn&#x27;t easy. This time, the smell made me want to retch: body-memory of previous pukes which simply hadn&#x27;t been there before. One mouthful almost impossibly hard to get down. Immediate gipping. Two mouthfuls, three - and then, out of nowhere, I spewed the whole bloody lot out, squirting it through the fingers that had rushed to cover my mouth; some of it went four feet up in the air, splattering the veranda windows in ten-feet wide arc. I felt like shit. I mopped up what I could with a pair of white shorts and then went to bed. I knew it wasn&#x27;t going to happen this night. Except...
+I had this remarkably vivid dream: in it, I was with my mother and we were talking face-to-face and quite intently. I was thinking things - having insights, realisations - and then she would say them out loud, word for word, and I would understand that what I had been thinking wasn&#x27;t mere musing but the truth. Then I had this image of my birth, of my first glance up to her face, and something hit me about that, and the words &#x27;You were afraid of me&#x27; came into my mind. There was something shocking, brutal, incredible about them. And then she said, out loud, &#x27;You were afraid of me.&#x27; I said, &#x27;No, you were afraid of me,&#x27; and though she tried to argue, to assert it was I who had been afraid, I repeated what had come to me and the force of it - the force of the truth in it - washed away any argument she might have. The image was there: the image of the baby, looking up at its mother&#x27;s face for the first time, and being overwhelmed with an inexpressible sense that this person - the first person - the care-giver - was actually afraid of the thing she was supposed to love. No doubt it&#x27;s possible: she was seventeen, her whole life had instantly and dramatically changed. Perhaps she was afraid. A very vivid and non-typical dream.
+I think it may have been the same night when another thing came to me: the phrase &#x27;All faces are weird looking&#x27; and a whole bunch of associated paraphernalia. It made me think that, yes, they are; and also that I had been too hung up on the female face when looking for a partner, made me think of past girls I had been with, some of whom I had gone from thinking incredibly beautiful in the beginning to eventually just thinking them rather odd looking, and one in particular who I liked and cared for a lot, who I had fun with, felt comfortable with - as well as great sex - but whom I could never quite commit to because I didn&#x27;t like her face. I&#x27;ve mused on this and I&#x27;ve chastised myself for it: seems such a shallow way to be, when it&#x27;s what&#x27;s inside that counts, and when we all get old and wrinkly and weird looking anyways. Love: what&#x27;s the shape of a person&#x27;s face got to do with love? And what a stupid thing to base such an important decision on. Makes me think of my current girlfriend: certainly, her face isn&#x27;t the most beautiful in the world - and yet, personality-wise, I don&#x27;t think I&#x27;ve ever met anyone more suited. Probably that&#x27;s the way I need to be thinking. Oh, to be Stevie Wonder, and not be so blinded by such immature ways of being!
+The second night
+I embarked on my mission with a renewed determination, casting aside any reluctance I had with regard to the nausea, the puking, the sheer impossibility of eating such an enormous bag of such a disgusting product (there still remained, probably, some 45 grams). I took some time - probably a few hours - to break down the larger pieces, sitting in the veranda chopping it up, crushing it down, taking out all the sick-making little sticks of white root and pulling the bark from them with my teeth. I was prepared this time: I had my bucket to puke in and, if necessary, I would eat that puke straight back down. In the even, I don&#x27;t think I needed to at all. The eating was much easier - the strength of my will-power, no doubt, which had been lacking the night before - and I somehow got through the whole lot of it with the minimum of fuss. I settled into my tent; I got ready and awaited the visions; and nothing came. Nothing. I can think of nothing from this night except a mild disappointment and my falling asleep. Iboga is supposed to keep you awake but all I did was fall asleep. And I didn&#x27;t even dream. 45 grams of it and not a single insight or revelation or visual. Very, very strange. Perhaps it was a bum dose, and perhaps I&#x27;d gotten everything I needed from iboga the first time. Either way, I was done.
+Though I still didn&#x27;t escape feeling like shit the next day. ;-)
+Iboga III (3 months and twenty-eight days later)
+And so what remains? For, unlike those just-for-kicks drugs, the whole reason for taking iboga is to attain some long-term goal, something tangible and beneficial that will hopefully stay with you and do you good. Which, you&#x27;ll be pleased to find out, is something I believe I have achieved.
+Number one, I&#x27;m still off the chess! Woohoo! Seriously, it&#x27;s still amazing to me that the iboga destroyed that habit in me - a very destructive habit, I&#x27;ve no problem with admitting - and that I could switch, in the space of one day, and one iboga trip, from a daily 4-12 hour addiction to having zero interest in playing online chess. Nor any other online games: nothing has arisen to replace it, which was usually the case in the past (it&#x27;s also five months since I quit facebook, and six months now I&#x27;ve been chocolate and sugar-free). The word triggers nothing in me; the thinking about it neither. I can type here about my former habit; I can join the Leeds Uni chess society; and I can watch a video on the BBC website where one of their reporters plays UK Grandmaster Nigel Short and think, oh, I&#x27;d like to have a game of chess soon, and still nothing in me wants to find a place to play online. I shake my head in wonder: maybe this thing really does destroy addictions.
+Next thing I think of is the whole issue of being hung-up on my ex, and about how iboga seemed to instill in me this voice that would cut in, whenever I got to musing about her and us, with the clear and simple wisdom that &#x27;she&#x27;s gone.&#x27; And on this subject I have to report a little less success, in that I have gone back to musing about her a bit, and that the &#x27;wise voice&#x27; has died down a little, although I&#x27;m certainly nowhere near as bad as I used to be. I do think I was pretty much &#x27;cured&#x27; - but, as I&#x27;ve learned with overcoming old habits, spiritual healings, etc, it&#x27;s almost as though it&#x27;s possible to regress, and to &#x27;call back&#x27; the thing you wanted rid of - especially if it gives you some kind of comfort, some kind of &#x27;crutch&#x27;. So it happened here, perhaps for two reasons: one, being over her I decided to delete the sexy pictures I had of the two of us together, and hide the rest, and that got me reminiscing and, even at the moment I could feel it, calling her back to mind; and two, in being with my new girlfriend, I seem to be comparing, contrasting, and looking at things that were different, and better, and worse - which is probably another habit I ought to try and stop! In any event, a few months of being well and truly over her have passed and I&#x27;ve slipped back a little into wondering, into thinking about her. Although it&#x27;s nothing like what it was pre-iboga. Moral of the story is: don&#x27;t keep any pictures! I mean, what&#x27;s even the point? Why would I want to look at them? I should go back and delete them all.
+Other than those two things I&#x27;m not sure there&#x27;s much to say. I certainly don&#x27;t feel any negative effects: and though it&#x27;s hard to know whether or not the positivity has stayed with me - I mean, when new ways of thinking integrate and become the norm it&#x27;s not always easy to appreciate them and the changes they represent - I&#x27;d like to think it has: I do feel that it&#x27;s been a long time that I&#x27;ve given into negative ways of thinking, and certainly the negative ways of others around me seems to have become more pronounced, more strange to observe and irksome. Because isn&#x27;t everything fine? And, even if it&#x27;s not, isn&#x27;t there a bright side to look on, don&#x27;t we have a lot to be grateful for? So, yes, maybe that positivity has taken root somewhere within. ;-)
+Final thoughts
+Ultimately, I&#x27;m very glad I did it and I do think it has done me some long-term good which, with a bit of will-power on my part - for example, not sliding back into old ways - I hope will stay with me forever.
+Exp Year: 2011
+ExpID: 95186
+Gender: Male
+Age at time of experience: 35
+Published: Oct 28, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Ibogaine (28) : General (1), Retrospective / Summary (11), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

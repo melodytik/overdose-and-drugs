@@ -1,0 +1,367 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>爱洛伊德的故事 - &quot;控制人的心&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dom.html'>← DOM</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>爱洛伊德的故事 - &quot;控制人的心&quot;</h1>
+<div class='sub-title'>DOM - Erowid Exp - &#x27;Set The Controls for the Heart of the Man&#x27;</div>
+<div class='meta'>作者：77k Citation · 日期：Oct 5, 2000 · <a href='https://erowid.org/experiences/exp.php?ID=3216' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我已经相当确定自从我到达燃烧的人, 我将保存DOM的夜晚的燃烧.
+我过去对DOM的唯一体验是剂量水平稍微过低 (7毫克),
+这将是完美的星期六晚上.
+我首先要总结一下我在&quot;燃烧人&quot;所使用的其他药物, 因为任何在&quot;燃烧人&quot;的专业吸毒者都需要认真思考日常的相互容忍.
+星期二是2C-B,星期三只是GHB,星期四是LSD和MDMA,星期五是.
+我认为我已经戒断了几天的乙胺,
+现在回想起来, 我会说11.3毫克的剂量有所减弱,
+现在我需要描述场景和环境.
+让http://www.burningman.com/详细解释.
+到了沙漠的18个小时内, 我完全和透明地停止了对我所经历的一切不相信.
+这座城市存在于内华达州一片烧焦的性平原上的绝对不太可能,
+我带着一些艺术品.
+我很难让他们设置和正常工作 (花了几天), 我很失望,
+我很丧,因为有时我的艺术不太好,
+在那里的头几天, 我心情有些不好.
+随着其他迷幻药的使用, 我逐渐进入黑岩城的集体潜意识.
+人们开始跟我谈论它.
+他们告诉我为什么喜欢它, 问我如何做到,
+我开始明白&quot;燃烧人&quot;不是一个展示你的技能的地方.
+这是一个表达自己和28000人选择表达自己的地方.
+通过观察你周围无限的艺术品,
+如此基本, 几乎不可能忽视.
+我从一个观众变成了一个参与者.
+我明白这座城市是我的城市, 我在那里的存在对整体来说和其他人一样重要.
+我觉得可以自由地走在任何街道上和遇到的任何人交谈.
+他们是我的邻居和朋友.
+我终于觉得我正确的思维方式来体验燃烧.
+我也觉得我正确的思维方式让仪式透我的灵魂,
+晚上4点半, 我吃了11.3毫克的DOM,
+几位朋友也服用了DOM.
+其他人服用2C-B,LSD,,2C-T-7,MDMA,MDA等等,我相信我已经忘了.
+几乎每一个我的同伴都服用了一些迷幻药物.
+时间在日落时刻流逝.
+我在半小时内得到了第一次警报, 大约一个小时后,
+在接下来的两个小时里, 强度极其平稳地增加,
+在表面上流的色彩.
+那些被压和呼吸的物体.
+听到我们相当强壮的立体声系统的音乐, 听起来更安静,更遥远,
+气温下降,风也开始吹起.
+我意识到我可以详细地听到周围的声音,
+到了黄昏时, 我们营地的兴奋变得明显.
+每个人都在忙着准备好自己的东西, 穿上温暖的衣服,
+我感觉到我的情绪升高, 身体充满活力,
+一个灼热的红色警告火焰射向天空:30分钟到燃烧.
+时间飞逝,我们还没有意识到,另一个火焰.
+我们必须立即去找那个男人.
+我们的一部分人离开了.
+我看到那个男人的双手向天举起.
+我开始跑,快速,对男人.
+这完全是无意识的反应; 我没有告诉自己要跑, 也没有阻止它.
+像磁铁一样吸引着我, 我无法离开它.
+我很快就进入了成千上万的坐着站着,等待和欢呼的人群.
+我意识到我不再觉得自己在.
+我没有看到挥舞着的物体或波的颜色.
+我眼前的景色超越了超现实,
+几乎立即开始了烟火表演.
+一百个火舞者在庆祝者和男子之间的空间中旋转,
+鼓从四面八方.
+人群被千千个灯棒的冷酷化学辐射所照亮.
+这个人被点燃了.
+我能感觉到我的视网膜充满了燃烧的金属的光谱纯度.
+然后一个加压的煤油驱动的火焰喷射器发射了火焰.
+它的门打开了所有的方式和一百英尺的地狱柱子小的男人和照亮的海如白天.
+一个邪恶的黑色云漂浮, 照亮的火焰投的下一个爆炸.
+我深深地思考着燃烧者与自然的关系.
+我们人类,我们28000人, 拖着我们昂贵的玩具来到美国第二大无生命的平面空间.
+在黑岩沙漠的火箭车击破了声音的速度.
+燃烧人并不是一个对环境无害的事件.
+虽然我们严格遵守&quot;不留痕迹&quot;的规则, 我们必须把海留在我们发现的状态下,
+尽管我们带着垃圾, 但我们所产生的污染量与我们舒适的家中所产生的污染量相等.
+我们浴在人类的光荣中, 轻描淡写我们为达到这一点所造成的混乱,
+尽管如此, 银河系仍在我们上面闪闪发光,
+沙漠的长度如此之大,
+尽管我们可以感觉到火焰投器的热量, 也能感受到手握着火焰的激情,
+他倒下了,有些人用全力拉起了他的电缆.
+群众立即冲进,距离火的底部只有五英尺.
+我被周围的人压, 随着人们围绕着火旋转,
+我正处于这个身体核心的前面.
+我脸上流着汗水, 五英尺高的火焰向我们发射数百万瓦的电力.
+许多人带来了一些象征性的东西扔在火上.
+我意识到我没有带来任何东西.
+想了一会儿, 我得出结论,
+我生活中没有任何东西, 我可以用一个物体来象征,
+这令人满意.
+护理人员推过去我, 携带一个太接近火焰的人.
+我看到有人拿着一台巨大的专业摄像机,
+我终于离开了旋转的圈子,
+周围的人穿着闪电线的西装.
+我突然想起自己在倒...
+我无法确定人们在我面前的距离,或者他们走向的方向.
+周围是一片的光点.
+很快之后,我意识到我不知道自己在哪里.
+我可以看到远处的梅斯教堂的塔,
+事实上,我已经不再是我自己了.
+我走来走去, 很少有这样的信心.
+我可以自由地走近艺术品,让它们与我交流; 一个动的气器官安装在银色的汽车上,
+我与从未见过,也永远不会再见到的人交往.
+我从某个向我提供酒精饮料的人那里喝了一口.
+这不仅仅是情绪变化.
+我的自我已经消失了,我甚至没有注意到.
+这不仅仅是DOM的行为, 而是&quot;燃烧的人&quot;令人难以置信的可能性,
+我在远处听到一声声,声和声.
+虽然我看不到它来自哪里,但我的DOM耳朵立即识别出电子从子中被撕裂的声音.
+医生
+梅加伏特已经来了.
+我跑向他的卡车,上面有两个特斯拉线圈, 当它再次发射时,
+灯光照射在线圈是不真实的, 排放本身投射舞蹈, 振动的阴影周围数百英尺.
+医生
+梅加沃尔特自己穿着金属防护服登上卡车顶部, 闪电击中他的头.
+我疯狂地赞扬这个人, 他建造了一个巨大的机器,
+医生
+绝对是&quot;燃烧人&quot;蛋糕上的冰糖,
+在沙漠里, 站在一个绝对致命的电气设备旁边,
+我走向黑灯区, 给DOM视觉提供了战斗机会.
+我走近那些烂,明亮的外墙雕塑, 凝视着它们.
+它们的表面出现了一些图案,
+整个黑灯区就消失在视线中, 几乎是以一种幽默的刻板印象的方式.
+黑灯的深紫色几乎是无底的, 我周围的光灯几乎太亮了,
+整个场景,事实上,似乎倾向左边, 和区没有相同的比例我记得从以前.
+美丽的音乐从虹的舞台上流出.
+我看着他们的面孔, 我能感觉到他们的想法.
+我看着他们眼睛的动作和光线闪在他们的角膜上, 我感觉到他们沉浸在前面的场景中.
+我感觉到我们之间的共同意识和共同幻觉的轮.
+除了音乐之外,黑灯区几乎是寂静的,
+于是我站在火旁呆了几分钟, 然后回到营地.
+我遇到了一位第一次服用DOM的朋友,
+我们决定聚集一大群人参观广场沿线的一些&#x27;夜总会&#x27;.
+现在这个城市从一场全民狂欢演出变成了地球上最伟大的派对.
+美国政府也跟着.
+我没有一点疲, 我准备出去跳舞和聚会几个小时.
+我被音乐吸引了,开始跳舞.
+我站在距离10瓦的阿尔贡激光束5英尺远的地方,
+我被介绍给跟我们一起散步的人,
+我遇到的人普遍充满乐观和欢乐,
+我从脑海中清除了所有的负面想法.
+我被一个经历过天堂的人所充满的纯粹的高兴感... 我还在天堂的中间.
+我们回到营地.
+现在显然是更多毒品的时间了.
+我喝了一些GHB, 开始吸草.
+然后,出了子的盒子.
+我发现+DOM的组合与酸非常相似, 无论是它产生的视觉效果 (在眼前的任何东西上重复的纹理图案) 还是我发现自己的心理状态.
+随着我开始吸入更多的气, 随着GHB的出现,
+我再次感觉到我的自我正在消失.
+时间慢慢流逝,我的耳朵也开始听到我身边的不同声音,
+我开始思考&quot;大问题&quot;
+在人类进化的背景下, 燃烧人有什么意义?
+我到底在做什么?
+人们说&quot;燃烧人&quot;已经不那么好了... 这是否意味着, 因为我觉得&quot;燃烧人&quot;很棒,
+我还想用余生做什么?
+答案是:我需要更多的.
+这不是一个保守的药物使用的时间.
+我经历了30到40次鞭打,
+我感觉到生活中既令人兴奋又令人丧的东西.
+让我觉得我可以解决这些问题,
+我认为这些问题应该得到答案.
+几次鞭打之后, 我开始歇斯底里地笑,
+我又抽了一根.
+太阳开始升起.
+我还在四处走来走去, 看看谁还没有睡觉.
+但仍有一些刺激和思维改变.
+我给了DOM更多的时间,然后试着睡觉,
+整整一天的时间用在了拆除我们的营地.
+我感觉很好.
+星期六晚上在燃烧的人是,在舒尔金的规模,一个加四的经验.
+但DOM本身的成绩只有3分.
+星期六晚上和DOM之间独特的协同作用, 是推动我的旅程跨越了极限,
+人们经常吸毒,
+他们倾听他们熟悉的音乐, 或与他们熟悉的人进行深层次的对话, 或将自己置于他们熟悉的环境,
+但在&quot;燃烧人&quot;的每一件事,
+在&quot;燃烧&quot;期间, DOM对我做的不仅仅是让我以一种不典型的方式看到这一事件.
+它让我看到了自己真的是另一个人.
+我对那一夜的记忆与我自己的自我不完全一致.
+我记得它更像是一个故事或幻想, 而不是&quot;我&quot;实际经历过的东西.
+但我有他们的记忆, 它们不是&quot;我的&quot;,
+它们总是以最真实的意义来说是非凡的.
+作为独立于&quot;燃烧人&quot;的药物,
+我觉得第二天很好,就像我之前说的.
+在整个旅程中,
+虽然有时我担心自己是否能保持冷静, 虽然有时我不知道该怎么做, 要去哪里, 我仍然有这样的感觉, &#x27;我知道我能处理这件事,
+完全相似的进入心灵的裂和边界.
+长度很长, 但感觉正确的严重的探索之旅.
+很遗憾,这种药物非常罕见,
+一个A-加.
+时间表: 3216
+DOM (20):节日/Lg.
+人群 (24), 烂的经历 (4), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Set The Controls for the Heart of the Man
+DOM
+by
+77k
+Citation:   77k. &quot;Set The Controls for the Heart of the Man: An Experience with DOM (exp3216)&quot;.
+Erowid.org
+. Oct 5, 2000. erowid.org/exp/3216
+DOSE:
+T+ 0:00
+11.3 mg
+oral
+DOM
+(capsule)
+T+ 13:00
+3.0 g
+oral
+GHB
+(liquid)
+T+ 13:00
+smoked
+Cannabis
+T+ 13:30
+35
+inhaled
+Nitrous Oxide
+(gas)
+BODY WEIGHT:
+160 lb
+I had been fairly certain ever since I got to Burning Man that I would save the DOM for the night of the Burn.  My one past experience with DOM was at a dosage level that was slightly too low (7 mg), but I could see that it was a drug of the absolute highest quality, in the same class as LSD, mushrooms, etc.  It would be perfect for Saturday night.
+I have to begin by giving a summary of the other drugs I did at Burning Man, because any professional drug user at Burning Man needs to put serious thought into day-to-day cross-tolerance.  Tuesday was 2C-B, Wednesday was merely GHB, Thursday was LSD and MDMA, Friday was mushrooms. I figured that I had abstained from the phenethylamines for a few days, so my 11.3 mg of DOM wouldn&#x27;t be diminished too much.  Looking back, I would say that the 11.3 mg was weakened a little, but the level was still very good.
+Now I need to describe the set and setting.  The setting, of course, is Burning Man (let http://www.burningman.com/ explain in detail).  Within 18 hours of arriving on the desert, I had completely and transparently suspended all disbelief at what I was experiencing.  The sheer improbability of this city existing on a scorched alkali plain in Nevada set a base level of improbability for everything else within the city; it was not possible to shake the feeling that this was a complete fantasyland.
+I had a couple art works that I had brought with me.  I had a hard time getting them set up and working properly (it took several days) and I was disappointed that other people there seemed to have ones that were similar and possibly superior to mine.  I was upset that sometimes my art didn&#x27;t work quite right, and I couldn&#x27;t figure out why it didn&#x27;t work.  I was a little moody for my first couple of days there.  Gradually, and with the aid of other psychedelics, I started to tap into the collective unconscious of Black Rock City.  Once my art was up and semi-working, people started to talk to me about it.  They told me why they liked it and asked me how I did it, and their completely genuine interest in me and my vision began to lift my spirits.  I began to understand how Burning Man is not a place to show off your skills.  It&#x27;s a place to express yourself and to see how 28,000 other people choose to express themselves.  By looking at the limitless types of art around you, you can truly see the infinite expanse of human creativity.  It is both humbling and inspiring in a way so fundamental that it is almost impossible to ignore.
+Now that Saturday had rolled around, I had completed my transition from a spectator to a participant.  Instead of looking at the city and its citizens as something new to explore with caution, I understood how it was MY city, and how my presence there was as important to the greater whole as anyone else&#x27;s.  I felt the freedom to walk down any street and talk to anyone I met.  They were my neighbors and friends.
+I finally felt like I was in the right mindset to experience the Burn. I also felt like I was in the right mindset to let the ritual permeate my soul while I was tripping my ass off, something I was not entirely sure of until today.  At 4:30pm, I ate 11.3 mg of DOM on a fairly empty stomach. Several friends also took DOM.  Others took 2C-B, LSD, mushrooms, 2C-T-7, MDMA, MDA and more I&#x27;m sure I forgot.  Virtually every one of my companions had taken some psychedelic.
+The hours ticked by towards sunset.  I had my first alert within half an hour, and by about one hour I was unquestionably tripping.  The intensity increased extremely smoothly across the next two hours and near sunset, at 7:30 or so, I had just about reached the peak.  Fluid colors rippled across surfaces.  Objects squished and breathed.  Music from our reasonably beefy stereo system seemed quieter and distant, but the music itself seemed alien and infused with meaning.  The temperature dropped and the wind picked up.  I realized that I could hear sounds around me in the greatest detail, and I could localize and recognize noises that came from more than half a mile away across the playa.
+At dusk the excitement in our camp became palpable.  Everyone was rushing around getting their things ready, dressing warmly, smoking pot, getting a bite to eat.  I felt my mood elevated and my body energized from the amphetamine lurking inside the DOM&#x27;s molecular structure.  A searing red warning flare shot into the sky: 30 minutes until the Burn.  The time flew by and, before we knew it, another flare.  We had to get out to the Man, immediately.  A part of our group left.
+We reached Head Way (the inner circular road closest to the Man) and I saw that the Man&#x27;s arms had raised towards the sky.  I started to run, fast, towards the Man.  This was a completely unconscious reaction; I neither told myself to run, nor could I have stopped it.  It pulled me like a magnet and I could not take my eyes off it.  Soon I reached the circle of thousands of people who were sitting and standing, waiting and cheering.
+It was around this time that I realized I didn&#x27;t feel like I was tripping anymore.  I didn&#x27;t see waving objects or rippling color.  Things sounded &#x27;normal.&#x27; The panorama before my eyes was so far beyond the surreal that my brain did not care it was awash in DOM.
+Almost immediately the pyrotechnics began. A hundred fire dancers circled in the space between the celebrants and the Man, making a blurry, dizzying array of flaming yellow trails.  Drums thundered from all sides.  The crowd was illuminated with the cool chemical radiance of thousands of glowsticks.
+The man ignited.  Fireworks exploded out of him and I could feel my retinas become saturated with the spectral purity of burning metal.
+Then a pressurized kerosene-powered flamethrower fired off a tongue of flame.  Its throttle opened all the way and a one hundred foot column of hell dwarfed the man and illuminated the playa like day.  An evil black mushroom cloud drifted up, illuminated by the flamethrower&#x27;s next blast.
+For a moment, I thought deeply about Burning Man&#x27;s relationship with Nature.  We humans, 28,000 of us, drag our expensive toys out here into the second-largest life-free flat space in the United States.  The speed of sound was broken by a rocket car here on the Black Rock Desert. Burning Man does not pretend to be an event that is harmless to the environment.  While we strictly adhere to the Leave No Trace rule, that we must leave the playa in exactly the condition we found it, we run generators, drive cars, and set things on fire.  We pollute the atmosphere, and although we take our trash with us, we generate just as much as when we&#x27;re at home in our comfortable houses.  We bask in the glory of the human species, quietly downplaying the mess we made to get to this point, and stare in slack-jawed awe at the lights of the seven square mile city we build from nothing.
+Yet the Milky Way still glitters above us, putting to shame the piddling multiwatt lasers we shoot at it, and turning away from the city one can only see an endless expanse of night.  The desert is so long that the earth curves down and away by the other side.  We fire off our flamethrower, and although we can feel its heat on our faces and we vicariously experience the thrill of the man holding its throttle, to the timeless mountains around us it is just another Bic lighter of the human race.
+The Man falls down, helped by people pulling with all their might on the cables holding him up.  When he falls, the crowd rises to their feet and rushes inward, five feet from the foot of the fire.  I am crushed by the people around me, and am swept along as the mass of people rotates round the pyre.  I am right at the front of this core of bodies.  Sweat pours off my face as fifteen foot high flames irradiate us with millions of watts of power.  People chant and yell; many have brought something symbolic to throw onto the fire.  I realize that I have brought nothing.  After a moment of thinking, I conclude that there really isn&#x27;t anything that I would want to burn.  There is nothing in my life, that I can symbolize with an object, that I feel the need to cleanse myself of. This is strangely satisfying.
+Paramedics push past me, carrying someone who got too close to the flames.
+I see someone with a gigantic professional video camera, spotlight blazing, and I resist the temptation to push him to the ground.
+Eventually I leave the spinning circle and drift off into the crowds farther out from what used to be the Man.  People dressed in suits made of blinking electroluminescent wire are all around me.  As they jitter and slide across the playa, I suddenly am reminded that I am tripping... I can&#x27;t put my finger on how far in front of me people are, or which direction they&#x27;re headed.  There is just a swirl of dazzling points of light all around me.
+Soon after that, I realize that I do not know exactly where I am.  I can see the Church of Mez&#x27;s tower in the distance, but I still don&#x27;t know how far away from it I am.  In fact, I no longer feel exactly like myself. I&#x27;m traipsing around with a confidence that I have rarely known.  I feel free to approach works of art and let them communicate with me; a throbbing propane-powered organ mounted on a silver car speaks a chaotic language of thumps, wheezes and hisses.  I rub shoulders with people I have never met and will never meet again.  I take a swig of some unknown alcoholic beverage from some guy who offered me some.  This is more than just a mood alteration.  A portion of my ego has slipped away and I didn&#x27;t even notice.  It&#x27;s not just the DOM&#x27;s doing; it is the mind-bending improbability of Burning Man that has chipped away at anything I could use as a frame of reference.
+I hear a hissing, crackling, buzzing noise in the distance.  Even though I can&#x27;t see where it&#x27;s coming from, my DOM-ized ears instantly recognize the sound of electrons being ripped from their subshells.  Dr. Megavolt is here.  I run towards his truck with two tesla coils on top and as it fires off again, shooting 12 foot streamers of energy through the atmosphere, I feel a wave of pure euphoria wash over me.  The spotlights illuminating the coils are unreal and the discharges themselves cast dancing, vibrating shadows for hundreds of feet around.  Dr. Megavolt himself gets up on top of the truck in his protective metal suit and lightning bolts strike his head.  I yell madly in praise of this human who built a giant machine that flexes, stretches, whacks and smashes the electromagnetic field.  Dr. Megavolt is absolutely the icing on the Burning Man cake; the absurdity of a man who calls himself Dr. Megavolt standing next to an absolutely lethal piece of electrical equipment on top of his tractor-trailer to the cheers of hundreds of tripping people in the desert... is just totally ridiculous.
+I wandered towards the Black Light District to give the DOM visuals a fighting chance.  I approached the glowing, bright outer sculptures and stared into them.  Patterns appeared on their surfaces and they stretched a little.  As I walked past them my eyes readjusted to the darkness, and the whole of the Black Light District faded into view in an almost comically stereotypical tripped-out way.  The deep violet of the blacklights was nearly bottomless, and the fluorescent things around me almost too bright to bear.  The entire scene, in fact, seemed tilted a little to the left, and the District didn&#x27;t have the same proportions I&#x27;d remembered from before.  Beautiful music flowed from an iridescent stage. There was a crowd of ghostly-looking people watching the stage, and when I stared at their faces I could sense their thoughts.  I watched the way their eyes moved and the light that glittered off their corneas, and I felt them drinking deeply of the scene before them.  I sensed the common consciousness among us and the contours of this shared hallucination. Save for the music, the Black Light District was nearly silent, populated by mute spirits circling around in awe.
+I was getting pretty cold at this point, so I stood (mesmerized) by a fire for a few minutes, and then headed back to my camp.  When I arrived I met up with a friend who had taken DOM for the first time and was having a fantastic trip.  We decided to gather together a larger group and visit some of the &#x27;night clubs&#x27; along the Esplanade.
+Now the city had turned from an all-out tribal extravaganza into the greatest party on Earth.  The DOM followed in stride.  I was not the slightest bit exhausted and I was ready to go out dancing and partying for hours more.  We hit a couple of rave camps and I was sucked in by the music and started dancing.  I stood five feet away from the beam of a ten watt argon laser and watched the playa dust flash with the glitter of blue diamonds.  I was introduced to people who came along for the walk with us and I felt like they were good friends.  The pervasive optimism and joy among the people I met is unlike anything I think I will ever see again. By the time we decided we should make the 1.5 mile walk back across the open playa to our camp, every negative thought had been wiped clean from my brain.  I had been filled with the pure euphoria of a person who had experienced Paradise... and I was still smack in the middle of it.
+We arrived back at our camp.  It was now clearly time for more drugs.  I drank some GHB and started smoking pot.  Then, out came the crate of whippits.  I initially started off slowly, and I found the nitrous+DOM combination to be very much like acid, in terms of both the visuals it produced (regular repeating patterns texture-mapped across everything in sight) and the mental state I found myself in.
+As I started to inhale more nitrous, and as the GHB came on, the nitrous space was getting freakier and freakier.  I once again felt my ego slipping away.  Time slowed to a crawl and my ears tuned in to different sounds around me that phased in and out.  I started to think about the Big Questions... In the context of the evolution of the human race, what is the significance of Burning Man? What the hell was I doing out here? People say that Burning Man isn&#x27;t as good as it used to be... does this mean that, because I think Burning Man is so great, my standards are lower than other people&#x27;s? And shit, what do I want to do with the rest of my life?
+The answer to these questions was: I need to do more nitrous.  This was not a time to be conservative with drug use.  After plowing through 30 or 40 whippits I had taken a roller-coaster ride through dozens of emotions. I had felt both what thrilled me about my life and what bummed me out. Things that bothered me were presented to me in a way that suggested that I could resolve them and that I would find the right solutions.  Questions that I had felt answerable.  A few whippits later, I was laughing hysterically at the hopelessness of trying to understand the meaning of life.
+I smoked another joint.  The sun began to rise.  Thoroughly baked, I wandered around a little more and checked out who was still awake.  The DOM visuals were mostly gone, but there was still some stimulation and thought alteration.  I gave the DOM a bit more time to wear off, and then tried to go to sleep, which I did at about 7:30 (t+15 hours) without much trouble.
+Next day, I woke up after well under 8 hours of sleep and spent the entire day doing physical labor tearing down our camp.  I felt great.
+Saturday night at Burning Man was, on Shulgin&#x27;s scale, a plus-four experience.  But the DOM, on its own, was only a plus-three.  Burning Man itself is a drug that is fully on par with any psychedelic I have taken, and the unique synergy between Saturday night and the DOM was what pushed my trip over the edge into a life-changing experience.
+Often, people take drugs and then re-experience things they are familiar with.  They listen to music they know, or they have deep conversations with people they know, or they put themselves in environments they are familiar with, like raves.  But everything at Burning Man was something I was experiencing for the first time.  What the DOM did for me during the Burn was not just to let me see the event in an atypical way.  What it did was let me see it as if I were really someone else.  My memories of that night are ones whose context is not exactly in line with the context of my own ego.  When I think back to it, I remember it more as a story or as a fantasy than as something &#x27;I&#x27; actually experienced.  It was something somebody else experienced, but I have their memories, and the fact that they&#x27;re not &#x27;mine&#x27; means they&#x27;ll never be lost in the mass of &#x27;my&#x27; many memories.  They will always stand out as something extraordinary, in the most literal sense of the word.
+DOM, as a drug independent of Burning Man, is almost without flaw. I felt very good the next day, like I said earlier.  My mood throughout the whole trip was positive.  Though at times I was concerned about whether I&#x27;d be able to hold my shit together, and though I sometimes didn&#x27;t know exactly what to do or where to go, I still had the driving feeling of, &#x27;I know I can handle this, just go for it!!&#x27; And the psychedelic qualities of DOM are of the breadth and depth of acid: similar hyperawareness of music, similar visual complexity, and a totally comparable access into the crevices and beyond the bounds of the mind. The length is long but feels just right for serious exploratory trips.  It is unfortunately a very rare drug, but one well worth seeking out and trying.  A-plus.
+Exp Year: 2000
+ExpID: 3216
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 5, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOM (20) : Festival / Lg. Crowd (24), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

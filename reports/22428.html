@@ -1,0 +1,224 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>DXM和脑波发生器程序 - 埃罗伊德Exp - &quot;积极的第三高原体验&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mind-machine-devices.html'>← 心智机器设备</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>DXM和脑波发生器程序 - 埃罗伊德Exp - &quot;积极的第三高原体验&quot;</h1>
+<div class='sub-title'>DXM &amp; Brainwave Generator Program - Erowid Exp - &#x27;Positive Third Plateau Experience&#x27;</div>
+<div class='meta'>作者：user Citation · 日期：Aug 8, 2007 · 剂量：0.5 cups · <a href='https://erowid.org/experiences/exp.php?ID=22428' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>你好.
+我写信给一个关于我昨晚的经历的报告.
+我曾经使用过dxm, 4天前, 但它只是少量,
+昨晚,我喝了半杯16%的酒精, 因为酒精是一种温和的CNS抑制剂,
+总共有536毫克的dxm, 这使我的mg/kg水平达到10左右,
+它们是不同的品牌, 第一个品牌的味道很糟糕,
+幸运的是,下一瓶的味道更轻,
+想确保我不会吐, 并且在dxm被吸收之前,
+我独自坐在黑暗的房间里, 放上电影&quot;巴拉卡&quot;,
+在最初的30-60分钟里, 我只感觉到头, 头,
+我发现自己常常把注意力从电影转移到像窗或衣柜这样的静止物.
+随着对象的关注, 东西开始逐渐消失,
+我保证知道哪些可能是安慰剂效应,
+我注意到我真的开始感觉到它当我看着窗..细节似乎变得越来越白,一切开始旋转.
+我的身体有一种针刺的感觉.然后什么都没有.
+我生活在一个奇怪的世界里.
+我可以发出声音.
+我当时的想法很正常, 我在想以前的阅读经历,
+我开始听一些音乐 - -
+没有.
+巴赫.
+每当我离开我的身体, 我总是来到音乐的世界.
+我决定关掉这部电影,
+我设置了6赫兹的黑白脉冲和多种声音,
+我发现这对离开身体的状态有很大帮助.
+这种情况越来越频繁, 在另一个世界里我感觉到一种奇怪的感觉.
+像我睡着了,但是.
+我无法解释.
+我想起我的家人和我的女朋友. 我试图让回忆回来,回到过去,
+现在发生了一次突破,我不能说这是什么时候发生的.
+我似乎几乎完全失去了短期记忆.
+我记得我在看一部电影, 关于一个失败者独自在他的房间里玩毒品.
+后来我突然意识到这不是一部电影,
+我无法解释.
+但&quot;自我&quot;&quot;,我&quot;&quot;,我&quot;的概念完全是陌生的.
+事件没有主体,事实只是发生了.
+我在看电影,但没有观众,这只是一部电影.
+在这个时候,事情变得非常奇怪.
+我记得起初我很害怕,
+我会考虑做一些事情,比如说&#x27;也许我应该去洗手间&#x27;, 在我完成思考之前我意识到我已经做了.
+我躺在床上想去所,然后我意识到我已经在所里,我认为在回来的路上,
+这种电影现象反复发生.
+我有非常清晰的自我形象,
+我正在看电影, 那个孩子在浴室里, 躺在墙上,
+因此,时间的流动和事件的顺序不是线性的.
+事件的顺序 a b c d 经常流动 a c c d b a c.
+我曾经相信自己是犀牛, 我认为我的床罩是我的身体,
+我记得我在床上醒来很多次, 想这是个什么奇怪的梦, 打开灯,
+它们的尺寸被夸大了.
+我手和身体一样大,等等.
+我记得在经历中和某人交谈, 总有人陪我,
+我现在意识到它们只是&quot;我&quot;的不同部分, 也许这就是我无法理解这个统一的概念的原因,
+我记得梦中失去了身体, 感到非常愉快.
+眼睛会随着电脑屏幕的6赫兹脉动振动.
+无论我演奏的音乐 - - 巴赫,粉红色弗洛伊德,工具,
+旅行持续到凌晨五点左右.
+我开始担心, 因为我读到它持续了6个小时,
+我告诉自己,虽然开始缓慢.
+然后我突然体验到.
+我的生活,过得如此之快,一切都变得杂,
+我一直都是这样,我认识的人不存在,我最爱的女朋友,
+它们是否存在?
+她在哪里?
+然后那个声音笑着说,你看到了,你看到了.
+我发现这很可怕,但幸运的是我很快就睡着了.
+我期待睡觉, 因为我记得读到dxm干扰和抑制后带带皮层的正常功能,
+醒来后,我感觉很好,现在几乎是1点了.
+我觉得有点疲,还有一点头,
+我的反应时间仍然有点慢.
+总的来说,这是一个非常好的经验.
+让我感到丧的是,
+我打算试着解决一些个人问题, 但当事情已经解决了他们太激烈了我认为任何东西.
+我甚至无法理解这个&quot;我&quot;的概念.
+我很想很快再次尝试,
+我至少会努力遵守高原 = 破裂水平的规则 (所以休息三周),
+其他:
+2007年8月8日发布
+DXM (22),思维机器设备 (301):组合 (3),一般 (1),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Positive Third Plateau Experience
+DXM &amp; Brainwave Generator Program
+by
+user
+Citation:   user. &quot;Positive Third Plateau Experience: An Experience with DXM &amp; Brainwave Generator Program (exp22428)&quot;.
+Erowid.org
+. Aug 8, 2007. erowid.org/exp/22428
+DOSE:
+0.5 cups
+oral
+Alcohol - Hard
+(liquid)
+536 mg
+oral
+DXM
+(liquid)
+BODY WEIGHT:
+54 kg
+Hello.  I&#x27;m writing to give a report on my experience last night.  I have used dxm once before, 4 days ago, but it was only a small amount and was taken over a long period of time so the effects were rather weak and shortlasted.
+Last night, I had about half a cup of some liquour of 16% alcohol, as alcohol is a mild cns inhibitor and was recommended to limit nmda antagonist neurotoxicity, in addition to possibly enhancing the effects of dxm in small quantities.  So, following this, I quickly took down two bottles of cough syrup, in total there was 536 mg dxm which brought my mg/kg level to about 10 which is well in the range of a third plateau experience.  They were different brands, the first one tasted really bad, in thinking about it I now feel nauseous, it was a thick and sticky syrup.  The next bottle was thankfully much lighter and helped wash out the taste of the first.  After this I went to brush my teeth, as I wanted to make sure that I would not vomit and get rid of any of the dxm before it is absorbed.  I sat in my room alone, fairly dark, and put on the film baraka and began to watch.  In the first 30-60 minutes all I felt was a light headed feeling, dizziness, and maybe a little bit stoned.  I noticed myself often changing my focus from the film to something stationary like the curtains or my wardrobe.  In focusing on objects things gradually began to fade around, my attention was lost in them.  I made sure I was very aware to what was potentially placebo effects and what was not.
+I noticed I truely began to feel it when I looked at the curtains..the details seemed to get whiter and whiter, everything started spinning.then my vision was gone. My body had a sensation of pins and needles.then nothing. I was in a strange world. I could sound. My thoughts were rather normal, I was thinking about previous experiences I&#x27;d read and enjoying it, then I brought myself out by opening my eyes.  This began to happen more and more, and I listened to some music - j. S. Bach.  Whenever I &#x27;left my body&#x27;, I would always come to this world of music.  I decided after this to turn off the film while I still could and put on a brainwave generator program I had downloaded.  I set it to oscillate at 6 hertz black and white pulse and a varied sound, in the theta range.  I found this greatly aided in these states of leaving the body..  This happened more and more frequently, in the other world I felt a strange feeling.. Like I was asleep.but. I cannot explain.  I thought about my family and my girlfriend.I tried to bring back memories, to go back, but it did not do very much, my thought processes were very normal.
+Now came a break, I cant say when this happened.  My short term memory appeared to have disappeared almost completely.  I remembered I was watching a movie, about this loser messing with drugs alone in his room.  Then it suddenly came to me that it was not a film and this was happening. I cannot explain. But the concept of &#x27;self&#x27;, &#x27;me&#x27;, &#x27;I&#x27;, was totally alien.  There was no subject to the events that took place, things just happened.  I was watching a movie, but there was no watcher, it was just a film.  At this point things became very strange.  I remember that I was frightened initially at a particular occurance.. What would happen, is I would contemplate doing something, like &#x27;perhaps I should go to the bathroom&#x27;, and before I&#x27;d finished thinking about it I&#x27;d realised I&#x27;d already done it.  I was in my bed thinking about going to the toilet, then I just realise I am already in the toilet, I think on the way back, better be careful not to trip over, then I realise my face is already flat on the floor.  The movie phenomenon happened repeatedly.  Somehow I have very clear pictures of myself in situations where I was but I was looking at myself.  I was &#x27;watching the movie&#x27; where the kid was in the bathroom, lying against the wall, bruised, then I suddenly realise it was me, I was back inside, then I was in my bed again.
+Because of this, the flow of time and sequence of events were not linear.. Sequence of events a b c d often flowed a c c d b a c.etc.  At one point I was convinced I was a rhinocerus, I thought my bed cover was my body, and it made sense to me that of course I was a rhinocerus, everyone is, how is it conceivable that we are not?  I remember waking up in my bed many times, thinking what a strange dream, turning the light on, and seeing I am still in wonderland.  The proportions of things were vastly exaggerated.. The ceiling could have been a kilometer away, my hands were as big as my body, and so on.  I remember talking to someone during the experience, there was always someone with me, that I had to look after, and someone else. I realise now they were just all different parts of &#x27;me&#x27;, probably the reason it was impossible for me to understand this unifying concept of me, since there were so many versions of it all existing at once.  I remember the dreaming off, losing the body, it was amazingly pleasurable.  I also found it initially very difficult to shut my eyes, and they would vibrate with the pulse of the computer screen at 6 hertz.  Whatever music I played - bach, pink floyd, tool, all seemed to be in rythm with the theta frequency.
+The trip lasted until about 5 o&#x27;clock in the morning.  By this time I was starting to get worried, as I read it lasts for about six hours, but it had already been more than 9.  The onset was slow though, I told myself.  Then I suddenly experienced. My life, coming through so fast, everything tangled up, and I realised that I had always been insane. That I had always been like this, that many of the people I knew did not exist, that my girlfriend, who I love more than anything, I would never see again.was she real?  Did any of them exist?  Where is she?  And then the voice was laughing and saying, now you see, now you see.  This I found frightening, but thankfully I slept soon after.  I expected sleep, as I remembered reading that dxm interferes and inhibits the normal function of the posterior cingulate cortex, which is thought to be responsible for these self-critical abuses that I experience a lot anyway.
+Well, after waking up I felt quite good, its almost 1 now.  I feel tired and still a bit dizzy, as I havent really slept properly, and also I notice if I close my eyes there are strange blue and black images. My reaction time is still a bit slow and so on.  Overall, it was a very good experience.  It is frustrating that I cannot remember more of it. I intended to try to resolve some personal issues but by the time things had settled in they were too intense for me to think of anything at all. As I mentioned, I couldnt even understand this notion &#x27;me&#x27;.   I feel tempted to experiment with it again soon, but I dont think I will in the very near future.  I will at least try to follow the plateau = break level rule (so a three week break) which I didnt for the mild buzz on friday night.
+Exp Year: 2003
+ExpID: 22428
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 8, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DXM (22), Mind Machine Devices (301) : Combinations (3), General (1), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,287 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾罗维德的研究 - &quot;毁了我的世界&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/acacia.html'>← Acacia</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾罗维德的研究 - &quot;毁了我的世界&quot;</h1>
+<div class='sub-title'>DMT from Acacia confusa &amp; Sleep Deprivation - Erowid Exp - &#x27;Shattered My World&#x27;</div>
+<div class='meta'>作者：Semaviro Citation · 日期：Nov 6, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=108743' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>没有.
+介绍
+对于那些想知道如何服用DMT的初学者来说,
+我每天喝咖啡,每晚抽大麻,
+在此之前, 我对狂喜药,MDMA,MDE,可卡因有过适度的体验, 对胺,甲基,LSD也有过基本的体验.
+我曾经参加过一些极限运动, 我通常喜欢挑战自己做我害怕的事情.
+我喜欢街头赛车,摩托车特技,
+没有任何东西能让我为即将发生的事情做好准备.
+一个.
+准备工作
+我目前居住的地方 (台湾) 价格太贵了.
+经过快速的研究, 结果发现, 树很便宜, 很容易在这些地方找到,
+我用一包香烟的价格买了1公斤的根皮,
+我用一包香烟的价格买了1公斤的根皮,
+结冰,解,混合器,A/B提取 (3次沸),氧化碳基,和一些酒精拉-导致6g的厚,状,深红色粘液.
+没有 - - 下次再试一次.
+我在午夜后做完饭,我们和两个朋友一起做了.
+于是我们决定第二天再试一次.
+我觉得很气, 但没有什么能阻止我.
+清理房子,做好心理准备, 大约已经是午夜了.
+我们设置在我们的客厅, 我们曾经每晚吸烟,
+我们在谷歌上搜索了一些精神疾病的清单 (顺便说一下,这是个好主意).
+我当时不知道昨晚的问题是技术还是纯度, 所以这次我加了30毫克,
+2. 在
+行动
+我只用了一次拖,花了大约30秒.
+拖拉10秒我的视力变得模糊.
+经过另外10秒, 管道的长度似乎是它应该长的两倍.
+让我把一切都放进去, 开始变得奇怪,
+我坚持了大约10秒钟 (尽管时间已经失去了意义), 到最后我感觉完全没有重量,
+我知道如果我不呼吸, 我会死去,
+我看着现实变得越来越遥远,
+然后,在一瞬间,我纯粹的意识漂浮在一个没有空间,无时间的...
+没有自我意识,没有记忆.
+我&quot;看见&quot;花的形象慢慢地在我面前展开, 伴随着灵魂音乐的节奏, 充满了我的整个视野.
+虽然&quot;看到&quot;不是最好的术语, 我意识到形状和颜色,
+由于时间不存在, 我只意识到现在的&quot;视角&quot;,
+我已经忘记了最后一个 (即使现在我知道我有几次视觉,
+我记得视觉效果本身并没有那么令人印象深刻,
+感觉在那里,然而... 人... 绝对惊和敬畏... 超现实超越想象力... 神圣的...
+惊是如此深刻, 仅仅使我震惊和困惑为其余的旅程和下降.
+我没有意识到自己的存在,
+于是我决定吸一口气, 令我惊的是, 我确实这么做了.
+我感觉到它充满了我的胸部, 我感觉到我的身体是一个温暖的, 流体的, 电的东西,
+我感觉到我的身体存在, 但它绝对是不同的&quot;地方&quot;比我.
+我很高兴我还活着.
+我觉得这次旅行应该已经结束了,
+我回来时,我唯一知道的是,我正处于我出发的地方.
+其他一切都是混乱的.
+我周围没有任何有意义的东西.
+我不知道我是谁,为什么我在那里,甚至我在哪个星球.
+在我的记忆中,
+就像他们说的那样 - - 仿佛我刚刚出生在这个世界上,
+我没有认出我周围的任何物体,
+我知道他是我的朋友, 我是安全的.
+这是一种美妙的感觉.
+我敢说它给了我纯粹的普遍爱的感觉.
+顺便说一下,当他经过时, 他实际上在一个地方出现,
+虽然这并没有吓到我, 因为那时我周围的东西最不奇怪.
+终于看到了自己的身体, 认出了自己的四肢, 想到自己是人,
+我仍然不知道手臂和腿的区别.
+我有四条腿和四条手臂, 它们的形状每次变化,
+我知道我们在那儿做了一些让我陷入这种状态的事情.
+我记得想知道我吃了什么,或者注射了什么,或者它是什么.
+我不记得,所以我放弃了,只是观察了一段时间我周围的怪异.
+我记得想知道我吃了什么,或者注射了什么,或者它是什么.
+我不记得,所以我放弃了,只是观察了一段时间我周围的怪异.
+我开始逐一识别和回忆事物,
+我不仅没有意识到有话语和语言存在,
+我第一次问保姆是多久了 (我的声音听起来很陌生,
+什么.该死的.
+完全让人大吃一惊
+结果我的眼睛一直开着!
+什么是?
+我完全困惑了好10分钟, 我能够把它用文字表达出来,
+3. 没有.
+下降
+我记得我可以走路 (吸烟后15分钟),
+我记得我觉得有责任不让任何人得到这个心脏,直到我能告诉他们预期什么.
+我在房子里走了好半个小时, 着我的手掌, 重复说&quot;&quot;,
+后来我把房子打扫好,把房子里所有的香烟都扔掉了,
+4. 没有
+后续行动
+我又没有睡一整夜 - - 这次是出于惊.
+吸烟后一个小时我自己, 但仍然震惊的晚上剩下的.
+我试图理解它8个小时, 直到我终于起床并早点上班.
+奇怪的是,尽管我没有睡72小时,
+我很累,但我仍然对所发生的事情感到平静和兴奋,
+我觉得自己好像从行星之间的过山车上回来了.
+我是,毫无疑问,最激烈的事情曾经发生在我.
+开始用5毫克, 慢慢增加剂量.
+我专注于这样一个想法:在无意识时无法窒息,
+尽管如此,恐惧并没有消退.
+事实上,每次我对这个分子的敬畏也越来越大.
+我在触摸管道之前就开始大声跳动,
+我觉得在滑翔之前我比在微剂量DMT之前更冷静.
+我认为我会在一个月内重复30毫克,
+今天我不想抽烟,但我相信这周我会抽几次.
+现在我看到,经过一系列的旅行, 我的行为确实有所改善.
+我还在吸烟, 但它们的味道很恶心,
+我觉得自己已经睡不着了.
+谢谢你DMT出现在我的生活当我认为我已经弄清楚了, 搞了一切.
+我从来没有如此谦虚, 如此渴望为周围的人和环境做好事.
+谢谢您的关注.
+我希望这能帮助某人决定在第一次访问超空间之前,
+和平 -S
+已使用的证券
+混 (664), 睡眠不足 (140): 准备/食谱 (30), 烂的经验 (4), 神秘的经验 (9), 治疗意图或结果 (49), 第一次 (2), 小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Shattered My World
+DMT from Acacia confusa &amp; Sleep Deprivation
+by
+Semaviro
+Citation:   Semaviro. &quot;Shattered My World: An Experience with DMT from Acacia confusa &amp; Sleep Deprivation (exp108743)&quot;.
+Erowid.org
+. Nov 6, 2017. erowid.org/exp/108743
+DOSE:
+T+ 0:00
+20 mg
+smoked
+Acacia confusa
+(extract)
+T+ 24:00
+30 mg
+smoked
+Acacia confusa
+(extract)
+T+ 0:00
+Caffeine
+(daily)
+T+ 0:00
+Tobacco - Cigarettes
+(daily)
+BODY WEIGHT:
+76 kg
+0. Intro
+This is for DMT first timers who are wondering about the dose, as well as a record for my future self.
+To give you some background, I drink coffee daily, smoke weed nightly, and I&#x27;m addicted to nicotine. Prior to this I had moderate experience with ecstasy, MDMA, MDE, and coke, and basic experience with ketamine, meth, and LSD.
+I did some extreme sports back in the day, and I generally like the rush of challenging myself to do what scares me. I love street racing, motorbike stunts, and speeding.
+None of it could remotely prepare me for what was coming.
+1. Preparation
+A few days ago my weed finished for the first time in a few years, and where I currently live (Taiwan) it&#x27;s way too expensive. After a quick research it turned out that that Acacia Confusa is cheap and easy to find in these parts, and since I wanted to do DMT for a year, I figured this was the time.
+I got 1kg of the root bark for the price of a pack of cigarettes, and got to work
+I got 1kg of the root bark for the price of a pack of cigarettes, and got to work
+- freezing, thawing, blender, Vinegar A/B extraction (3 boils), carbon oxide base, and a few alcohol pulls- resulted in 6g of the thick, waxy, dark red goo. No defat - will try it next time.
+I finished cooking after midnight and we got to it with two buddies. We loaded 20mg each and got barely a threshold experience, so we decided to try again the next day. I actually didn&#x27;t sleep at all that night (I have insomnia without weed), so felt rather grumpy, but nothing was gonna stop me from  it.
+The next day, when I finished cleaning up the house and preparing myself mentally, it was already around midnight. We set up in our living room where we used to smoke up every night, so definitely a comfortable space. My flatmate was sitting for me, and we googled some psybient chill playlist (the best idea btw).
+I didn&#x27;t know at that time whether the problem last night was the technique or purity, so this time I loaded 30mg, just to be sure.
+2. Action
+I took it in in one drag which took some 30 sec. 10 sec into the drag my vision became blurry. After another 10 sec, the pipe seemed twice as long as it should. When I got it all in things began to get weird and unexplainable. I held it in for some 10 sec (though time was already loosing meaning) and by the end of it I felt completely weightless and got the feeling that I could live without breathing infinitely, much like the feeling of breathing under water in a dream. It was pretty cool but I was &#x27;aware&#x27; that if I don&#x27;t breath, I&#x27;ll die, and that thought crept along with me into the trip.
+When I let the smoke out, I leaned back and watched the reality getting more distant - literally, physically moving further away from me. Then, in an instant, I was pure consciousness floating in a space-less, timeless... place? reality? No self-awareness, no memories. I &#x27;saw&#x27; the chrysanthemum visuals slowly unfolding in front of me to the rhythm of the psybient music, filling up my entire vision. &#x27;Seeing&#x27; is not the best term though - rather, I was aware of the shapes and colors - again, much like I&#x27;m aware of the content of a dream. Since time didn&#x27;t exist there, I was always only aware of the present &#x27;view&#x27;, and literally nothing else. That meant that by the time the vision changed, I already forgot the last one (even now I know I had several visions, but I only remember the last one, and barely). I do remember, though, that the visuals themselves were not really that impressive - much like what you can see in the youtube simulations, but even less complex. The feeling of being there, however... man...absolute astonishment and awe... surreal beyond imagination... divine... yeah, divine is the word. The amazement was so deep that it alone made me shocked and confused for the rest of the trip and comedown.
+I wasn&#x27;t quite aware of my own existence for what FELT like 10 min. Then, the breath and not dying issue surfaced in my mind so I decided to take a breath, and to my own surprise, I did. I felt it filling up my chest, and I felt my body as a warm, fluid, electric thing, as if made from vibrating energy. I felt the existence of my body, but it was definitely in a different &#x27;place&#x27; than I was. It was pleasant and peaceful, and I was happy about not being dead. Breathing grounded me very much and after a few breaths, which FELT like another 5 min, I thought that the trip should be over by then and I decided to open my eyes.
+When I got back, the only thing I knew was that I was in the same place I departed from. Everything else was utter confusion. Nothing around me made sense. I had no idea who I was, why I was there, or even which planet I was on. Complete emptiness in my memory. Just as they say - as if I was just born into this world and saw everything for the first time. I didn&#x27;t recognize any object around me for what FELT like another 5-10 min. Then my flatmate passed by while he was walking around the house and I knew that he was my friend and that I was safe. Beautiful feeling. I dare say it gave me the feeling of pure universal love. Btw, when he passed by, he actually materialized in one spot, made two steps, and disappeared again. It didn&#x27;t freak me out though, because it was the least weird thing around me at that time.
+When I eventually looked at my body, I recognized my limbs and thought: &#x27;Riight, so I&#x27;m a human... and we have those things sticking out of our bodies which are very useful for something&#x27;. I still didn&#x27;t know the difference between arms and legs, though. Also, I had 4 legs and 4 arms and their form was changing each time I looked, but I thought it was normal.
+Then, I recognized the coffee table on which our accessories lied and I knew we did SOMETHING there which put me in this state. I remember wondering whether I ate something, or injected something, or what the hell it was. I couldn&#x27;t recall it so I gave up and just observed the weirdness around me for a while.
+I remember wondering whether I ate something, or injected something, or what the hell it was. I couldn&#x27;t recall it so I gave up and just observed the weirdness around me for a while.
+One by one I started recognizing and recalling things, literally as if my mind was a computer mapping out its content after a reset.
+All this time, not only wasn&#x27;t I aware that the thing called speech and language exist - I wasn&#x27;t aware that I&#x27;m able to make sounds. When speech eventually came back, first thing I asked my sitter was how long had passed (my voice sounded foreign, as if somebody else said it from my mouth), being 100% sure it was between 30-45 minutes, to which he answered: less than 5 min. What.The.Fuck. Complete mind-blow. And, what was an even bigger mind-blow, turns out my eyes were open the entire freaking time! Whaaat...!?
+At that time the whole thing still didn&#x27;t make sense to me whatsoever - I was completely confused for good 10 (real) minutes, and I was able to put it in words as you&#x27;re reading them only hours later - hours of constant analytical effort.
+3. Comedown
+When I recalled that I can walk (15 min after smoking), the first thing I did was hiding the spice and equipment. I remember feeling the responsibility of not letting anyone else getting this mindfucked until I can tell them what to expect. Then, I walked around the house for good half an hour with the face in my palms, repeating &#x27;wow..&#x27;, and &#x27;holy fucking shitfuck&#x27;, and &#x27;Thank you&#x27; (though I didn&#x27;t quite know whom I thanked - maybe the spice, or maybe the universe itself for existing). Then I cleaned up the house, got rid of all cigarettes in the house, which I felt repulsing, and went to bed to think.
+4. Follow-up
+Again, I didn&#x27;t sleep the entire night - this time from amazement. An hour after smoking I was myself, but still in shock for the rest of the night. I was trying to make sense out of it for 8 hours, until I eventually got up and went to work early. Curiously, I didn&#x27;t feel bad at all despite not sleeping for 72h. I was tired, but at peace and still excited about what happened to the point that it took effort not to tell everyone around me- including my boss. I felt like I came back from a roller coaster between planets. I was, beyond doubt, the most intense thing that ever happened to me.
+On the next night (yesterday), I did it 3 more times but scaled it waaay down, starting with 5mg and building up the dose slowly over time. I focus on the idea that it&#x27;s impossible to suffocate when unconscious and I slowly learn to let go. The fear doesn&#x27;t subside at all, though. In fact, each time I have more reverence to the molecule. My heart starts pumping almost out loud long before I touch the pipe and my hands shake when I light up. I think I&#x27;m calmer before paragliding than before microdosing DMT.
+I think I&#x27;ll repeat 30mg maybe in a month and I&#x27;ll go for breakthrough... well, when I&#x27;m ready. Today I don&#x27;t feel like smoking, but I&#x27;m sure I&#x27;ll do it a few times this week. Now I see that after the series of trips my behavior did change for the better. I still smoke cigarettes, but they taste disgusting and I sometimes stop half-way through. My sleep problem eased - last night it took me just 2h to fall asleep.
+Thank you DMT for appearing in my life just when I though I had it figured, and fucking it all up. I&#x27;ve never been this humble and I&#x27;ve never felt such a drive to be good for the people around me and for the environment.
+Thanks for your attention. I hope this will help someone decide on the right dose before their first visit to the hyperspace. Peace out -S
+Exp Year: 2016
+ExpID: 108743
+Gender: Male
+Age at time of experience: 27
+Published: Nov 6, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Acacia confusa (664), Sleep Deprivation (140) : Preparation / Recipes (30), Glowing Experiences (4), Mystical Experiences (9), Therapeutic Intent or Outcome (49), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

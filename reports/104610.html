@@ -1,0 +1,325 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>皮拉塞坦和胆 - 埃洛伊德的使用 - &quot;控制&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dreams.html'>← 梦境</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>皮拉塞坦和胆 - 埃洛伊德的使用 - &quot;控制&quot;</h1>
+<div class='sub-title'>Piracetam &amp; Choline - Erowid Exp - &#x27;Control&#x27;</div>
+<div class='meta'>作者：ProffD Citation · 日期：Dec 22, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=104610' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我以前吸过大麻, 但它引起了发作,
+晚上在当地酒吧喝几杯便宜的尾酒.
+我还吸很多烟, 每天可能吸半包.
+我很容易对其他药物产生敏感,
+这是为了记录我生命的最后24小时,
+我昨天下午3点左右收到250克的皮拉塞坦药,
+我立即服用了2克的皮拉和1克的胆.
+我已经听说过其他不同比例的堆,
+我没有感觉到2克的剂量超过一个小时.
+我没有吃东西, 发作轻微的头痛.
+晚上4点左右, 我服用了一剂相当大的皮拉,
+我开始吃晚饭,
+接下来的两个小时里, 我已经把整个公寓打扫干净, 拿出垃圾, 洗碗, 洗完衣服, 并给女朋友写了一封信.
+我意识到自己已经取得了多大成就,
+我很想知道这是否是一种安慰剂效应.
+我内心的科学家想答应,
+我感到温暖,充满活力,有点头,非常专注.
+听力是最显著的效果.
+听力是最显著的效果.
+我觉得我可以听到窗外的松鼠上跳的气体.
+我对周围发生的一切都非常敏感.
+总结这份经验报告, 我会详细描述我服用了哪些剂量以及它们对我有什么影响, 以及我在第一剂剂晚上和第二天的感受.
+接近
+下午3: 00 - 2克口服溶液皮拉塞坦
+1克口服溶液胆二酸盐
+下午4点 - 轻微头痛,心情乐观
+接近
+下午4点15分 - 8克口服溶液皮拉塞坦
+4克口服溶液胆二酸盐
+晚上6点 - 已经完成了整个星期的家务
+感觉温暖,充满活力,非常快乐,非常专注
+听力开始变得更敏和清晰
+晚上7点 - 效果变得不那么明显
+持续的头痛
+开始经常排尿
+接近
+晚上8点 - 口服1酒
+接近
+晚上8:30到达当地酒吧
+晚上8:30-10:30 - 口服5杯酒和口服两杯混合饮料
+接近
+晚上11点到达我的公寓
+立即注意到清醒的效果和更清晰的视力
+整夜 - - 经常醒来排尿
+非常生动的梦和令人眼的恐惧
+第二天早上11:00 仍然被偏执和恐惧所困扰
+仍然经常排尿
+8克口服溶液的2:1皮拉塞坦:胆口服溶液
+吸入了2:1的皮拉塞坦:胆混合物中的4个小
+立即缓解头痛和恐惧
+下午4点 - 写完这份报告, 仍然专注和思考清晰
+之前的时间表提供了关于我何时以及如何服用药物的洞察力.
+下面的几段将更详细地描述上述时间表的后半部分.
+我对皮拉的体验起初是微妙的,
+在我的经验中, 清晰的思维,温暖,视觉和听觉敏,
+关于长时间集中注意力 (8小时以上),幻觉和时间扭曲的报道对我来说是不真实的.
+关于皮拉夸大酒精效应的报道非常准确, 但只是在一定程度上.
+我还觉得喝醉的速度比平时快得多,
+实际上,我的言语 (即使在服用皮拉塞坦药后的几个小时内) 变得更加清晰,更加明确.
+我的词汇更容易获得, 我的句子似乎流动在一起,
+我从来没有觉得自己因服用piracetam而变得&quot;更聪明&quot;.
+这种药物并没有给我任何我以前没有的知识.
+尽管如此,它确实让我以前积累的知识变得更容易获得.
+我觉得我已经进入了我记录过的最深层的记忆.
+我知道世界上任何事,
+云,桌子,苏打水,烤肉,贴纸... 我可以回忆起我视野中的每一个我以为我已经忘记的东西.
+我记忆中的知识是无限的.
+梦是我使用皮拉塞坦的最大缺点.
+梦是我使用皮拉塞坦的最大缺点.
+我会在夜里醒来很多次, 完全被恐惧所困扰, 无法移动,
+梦中充满了我必须做出的深刻心理选择,
+我曾在梦中被迫刺杀和射杀多人以求生存, 阻止连环杀手逃亡,
+这种药物好像控制着我的梦想,
+我在第二天早上醒来时感到内和偏执.
+我觉得我还应该补充说这些梦是非常非常生动的.
+如果它们是好的梦, 与正常的梦相比,
+它们是如此真实,生动,清晰,
+以下是我对服用皮拉和胆的好坏清单:
+优点: 非常专注和充满活力
+不断听到周围的声音
+增强的颜色
+整体幸福和满足感与情绪过度稳定性相结合
+无限制地获取过去的经验,记忆和知识
+快速理解困难概念的能力提高
+缺点:持续的头痛
+经常排尿
+我一生中最可怕的梦
+增加对其他药物的敏感性,如烟草或酒精
+其他:
+梦想 (85),维生素 - 胆 (467),皮拉 (95):各种 (28),组合 (3),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Control
+Piracetam &amp; Choline
+by
+ProffD
+Citation:   ProffD. &quot;Control: An Experience with Piracetam &amp; Choline (exp104610)&quot;.
+Erowid.org
+. Dec 22, 2016. erowid.org/exp/104610
+DOSE:
+T+ 0:00
+2 g
+oral
+Piracetam
+T+ 0:00
+1 g
+oral
+Vitamins - Choline
+T+ 1:15
+8 g
+oral
+Piracetam
+T+ 1:15
+4 g
+oral
+Vitamins - Choline
+T+ 5:00
+12 oz
+oral
+Alcohol - Beer/Wine
+T+ 5:30
+repeated
+oral
+Alcohol
+T+ 8:00
+insufflated
+Piracetam
+(powder / crystals)
+T+ 8:00
+insufflated
+Vitamins - Choline
+(powder / crystals)
+T+ 20:00
+5333 mg
+oral
+Piracetam
+(liquid)
+T+ 20:00
+2667 g
+oral
+Vitamins - Choline
+(liquid)
+T+ 20:00
+insufflated
+Piracetam
+(powder / crystals)
+T+ 20:00
+insufflated
+Vitamins - Choline
+(powder / crystals)
+BODY WEIGHT:
+175 lb
+I feel obligated to start by briefly describing my past experience with various substances.  I have smoked marijuana before, but it induced epileptic fits so I refuse to smoke it anymore.  I am a heavy and frequent drinker, often consuming 10-12 beers a day and finishing the night with a few cocktails or glasses of cheap wine at a local bar.  I also smoke heavily, maybe a half-pack of of cigarettes a day.  I tend to be very sensitive to all other drugs, recreational or prescription, so I try to limit my daily usage to cigarettes and beer.
+This is to document the last 24 hours of my life, of which I have spent the majority on piracetam.
+My 250-gram order of piracetam came in the mail yesterday around 3 in the evening, along with 125 grams of choline bitartrate as a supplement.  I immediately took a 2 gram dose of piracetam with a 1 gram dose of choline.  I have heard of other stacks in different ratios, but I simply mixed the two substances in a 2:1 piracetam:choline ratio.
+I felt nothing from the 2 gram dose for over an hour.  I hadn&#x27;t eaten and developed a slight headache.  Before eating dinner around 4:00pm the same evening, I took a sizable dose of piracetam approximately equivalent to 8 grams, followed by around 4 grams of choline.  I proceeded to eat dinner thinking nothing of the piracetam I had taken.  Within the next two hours I had cleaned my entire apartment, taken out the trash, washed the dishes, finished my laundry, and written a letter to my girlfriend.  When I sat back down to my laptop I realized what I had accomplished and how out of the norm it was for me to have done so much so quickly.
+I thought hard about whether this was a placebo effect or not.  The scientist in me wanted to say yes, but the feeling I was having suggested that it was not.  I felt warm, energetic, somewhat light-headed, and very, very focused.  The most dramatic effect was in my auditory senses.
+The most dramatic effect was in my auditory senses.
+I felt like I could hear the fleas on the squirrels outside my window passing gas.  I was so tuned in to everything that was happening around me.
+To sum up this experience report, I will add a more detailed description of what doses I took and how they affected me, along with a report of how I felt the night of my first dose and the following day.
+Approx. 3:00pm - 2 grams oral solution piracetam
+1 gram oral solution choline bitartrate
+4:00pm - slight headache, upbeat mood
+Approx. 4:15pm - 8 grams oral solution piracetam
+4 grams oral solution choline bitartrate
+6:00pm - Had performed housework for the entire week
+Felt warm, energetic, exceedingly happy, and extremely focused
+Noticed hearing beginning to sharpen and become clearer
+7:00pm - Effects became less noticeable
+Headache persisted
+Began urinating frequently
+Approx. 8:00pm - 1 can of beer ingested orally
+Approx. 8:30pm - Arrive at local bar
+8:30-10:30pm - 5 beers ingested orally and two mixed shots ingested orally
+Approx. 11:00pm - Arrive at my apartment
+Snort two small bumps of piracetam:choline 2:1 mixture
+Immediately noticed sobering effects and clearer vision
+Throughout the night - Repeated waking for urination
+Incredibly vivid nightmares and tear-inducing fear
+Following morning – 11:00am – Still gripped by paranoia and fear
+Still urinating frequently
+8 grams oral solution of 2:1 piracetam:choline oral solution
+4 small bumps of 2:1 piracetam:choline mixture snorted
+Immediate headache and fear relief
+11:30am - Began writing this report but stopped to walk to store
+4:00pm - Finished writing this report, still focused and thinking clearly
+The previous timeline offers insight into when and how I dosed.  The following few paragraphs will describe the latter half of aforementioned timeline in closer detail.
+My experience with piracetam was subtle at first, then very suddenly noticeable after larger doses.  The reports of clear thinking, warmth, visual and auditory acuity, and razor-sharp focus were all very true in my experience.  The reports of long-lasting focus (8+ hours), hallucinations, and time distortion were not true for me.  The reports of piracetam exaggerating the effects of alcohol were very accurate, but only to a certain extent.  I still felt very drunk much faster than I normally would, but I did not stumble or slur my speech.  In fact, my speech (even within just a few hours of ingestion of piracetam) became much clearer and more articulated.  I would not stutter or stammer over words, my vocabulary was more readily available, and my sentences seemed to flow together like they had been sewn in my brain that way.
+At no time did I feel “smarter” from taking piracetam.  This drug did not give me any knowledge that I did not previously have.  It did, however, make the knowledge that I had previously accumulated more accessible.  I felt like I had accessed the deepest memories that I had ever recorded.  Everything I knew about anything in the world was accessible to me.  Clouds, tables, soda, pot roast, sticky notes… I could recall facts about every single item in my field of vision that I thought I had forgotten.  There was no limit to the knowledge that I could recall.
+The nightmares were the biggest downside to my experience with piracetam.
+The nightmares were the biggest downside to my experience with piracetam.
+I would wake multiple times throughout the night absolutely gripped with fear, unable to move and on the verge of tears.  My dreams were filled with deep psychological choices that I was forced to make, such as whether to kill or save one person in order to kill or save another.  At one point in my dreams I was forced to stab and shoot multiple people to stay alive, unsuccessfully prevent a serial killer from escaping, dissect a human skull, and watch hundreds of people die after I failed to defuse a bomb.  It was as if this drug was controlling my dreams, forcing me to fail.  I felt guilty and paranoid when I woke up the next morning.  I feel that I should also add that these nightmares were very, very vivid.  If they had been good dreams they would have been rather satisfying compared to a normal dream.  The fact that they were so incredibly real, vivid, and lucid only seemed to amplify the terror I was feeling.
+Below are my pros and cons list of taking piracetam and choline:
+Pros:  Very focused and energetic
+Constant surround sound hearing
+Enhanced colors
+Overall happiness and contentment combined with mood overstability
+Unlimited access to previous experiences, memories, and knowledge
+Increased ability to understand difficult concepts quickly
+Cons:  Persistent headache
+Frequent urination
+The most frightening nightmares of my entire life
+Increased susceptibility to other drugs, such as tobacco or alcohol
+Exp Year: 2014
+ExpID: 104610
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 22, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Dreams (85), Vitamins - Choline (467), Piracetam (95) : Various (28), Combinations (3), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

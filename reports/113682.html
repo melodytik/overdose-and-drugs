@@ -1,0 +1,291 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>马尔特和大麻 - 埃罗维德展览 - &#x27;天气风暴&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/malt.html'>← MALT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>马尔特和大麻 - 埃罗维德展览 - &#x27;天气风暴&#x27;</h1>
+<div class='sub-title'>MALT &amp; Cannabis - Erowid Exp - &#x27;Weather The Storm&#x27;</div>
+<div class='meta'>作者：Kaleida From Bluelight Collection Citatio · 日期：Nov 4, 2019 · 剂量：50 mg · <a href='https://erowid.org/experiences/exp.php?ID=113682' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>[这份旅行报告是从多个身份的角度写的.
+以下希腊字母已被改为保护无辜者.
+这份旅行报告是德尔塔公司撰写的.
+这是我们第三次使用MALT,
+关于这份报告的第一件重要的事情是我们实际上在前一天也使用了Amanita pantherina
+我们实际上使用了Amanita Pantherina前一天,
+但我们从中没有得到太多.
+我们把4g粉碎起来,放入囊间隔超过一个小时和它是T-15:00之前我采取MALT.
+我们有很轻微的视觉, 无色和简单, 然后我们昏, 有趣的梦想,
+我怀疑, 似乎与我们所经历的没有任何相似之处, 我们不再感到高兴,
+所以,让你想做什么!
+我们想要尝试口服MALT的原因是因为我们已经有很多成功使用MiPT,MPT和DiPT口服,实际上认为前两种 (没有尝试第三种方式) 是更好的口服比吸烟,所以我们实际上决定尝试使用我们所有的基础胺口服而不是看看我们能得到什么不管它是否需要更高的剂量
+尽管幸运的是, 我们似乎很容易受到胺基的作用!
+我无法决定我想要尝试哪一个, 于是我问了几个朋友, 结果MALT获胜,
+据我所知,以前没有关于口服MALT的文献, 所以我们不确定从哪里开始,
+我们还错了, 当我们猜测它的功效吸烟, 我们认为它将是不那么强大比MPT因为4-AcO-MALT是与4-HO-MPT相比, 但50毫克吸烟我们的股至少有40毫克MPT吸烟!
+所以我们试图这次不太高, 令人惊的是我们仍然得到了相当强的效果.
+我们之前的精神药物使用经验包括DMT,MET,MPT,EPT,MiPT,DiPT,MALT,DALT,Psilocybe cubensis,4-HO-MET,4-HO-DET,4-HO-MPT,4-HO-EPT,4-HO-DPT,4-HO-MiPT,4-HO-DiPT,4-HO-McPT,4-AcO-DMT,4-AcO-MET,4-AcO-DET,4-AcO-MALT,4-AcO-DALT,5-HO-DMT,5-MeO-MiPT,5-MeO-EiPT,5-MeO-DALT,Ipomo三色,神经乱,LSD,ETHLAD,AL-LAD,1P-LSD,2C-C,2C-C,2B-C,2C-I,2C-C-C,
+,4C-D,米里斯蒂卡香水,还有MDMA.
+我们最近的旅行是125毫克的4C-D大约两个星期之前.
+化学物质味道很糟糕, 但它留在一块而不是在我们的嘴里分解, 所以它不是那么糟糕.
+- 洗时间了!
+根据我们过去的旅行, 这些事情发生得很快,
+现在我已经从淋浴中出来了, 目前还没有太多明显的,
+我放上粉红乐队的&quot;闪耀你疯狂的钻石&quot;
+我闭上眼睛, 看到一个遥远的地平线, 黑暗的景观, 整个天空都是暴风雨的云,
+在黑暗和阴云的天空下,我们仍然感觉到山顶在我们的头上起,像石石一样,形成地球手指向我们伸展.
+我跟她换了位置, 我们注意到当我们换了位置时, 我们的视角就像有两种不同的身体在山脉的不同部分浮动一样, 当她出门时, 她通过她的身体看到图像, 而我看到她在山上浮动,
+我又闭上眼睛, 看到许多像&quot;圣诞前的梦&quot;中的螺旋式悬崖,
+我开始感觉到房间在我的周围旋转, 像我们吃了或DMT,
+现实开始有点像和LSD一样撕裂, 我们开始得到一些奇怪的3D图像,
+我也开始觉得自己有点麻醉了.
+我把&quot;舒适的麻木&quot; (Comfortably Numb) 放上,
+我觉得Zeta接近切换,我的视觉变得越来越沉重,有烟雾般的视觉效应出现,我们看到自己从第三人称的视角被这些烟雾般的效应所覆盖,
+这些图像是非常真实的, 但它们是内部的, 尽管它们重叠在现实世界,
+我还有一种沉重的镇静感, 有时也会轻微的恶心.
+卡帕出现在独奏中,当她这样做时,她得到了更多的闭眼视觉发展的典型基础和其他强的胺类型,
+在她完成后,我又换了.
+我从收音机上听到麦当娜的&quot;爸爸不要讲道&quot;这首歌,所以我把它放上脑袋里,当我听着和着电视屏幕时,我注意到事情肯定开始有这种状的几何拉拉,世界看起来更加梦幻和视觉,
+我也感受到更多的恶心感觉...
+我在歌曲结束时发, 这有点帮助了恶心的感觉,
+我注意到这绝对是一个活跃的剂量, 但是一个低的, 我大多感觉真的改变了和幻觉效应是非常复杂和令人印象深刻,
+我还注意到这种体验感觉更像是DMT, 而不是MPT的小剂量, 其实MPT也很强,
+我在Zeta的卧室里坐在床上, 她尽可能地把自己投射在我身边 (这是一个有意识的想象力练习),
+这种状态虽然不是完全强烈的, 但在风格上却非常强烈,
+房间正在变成透明的外星飞船墙壁, 当我看着时间, 意识到我们服用药物仅仅一个小时!!
+我认为我们在我的脑海中有点偏离了, 我认为已经过了一个小时了, 突然我明白为什么这仍然变得越来越强烈,
+这种东西真的比我预期的要强得多.
+我把Verve的&quot;苦甜交响曲&quot;放上去, 我和Zeta之间有很多交换,
+我不记得音乐增强是最好的, 但它真的很好,
+从这里到T+1:39, 诚实地说, 我们在笔记中写的几乎都是关于我们如何听音乐, 我和Omicron,Rho和Zeta,
+我们没有太多关于幻觉效应的笔记, 但它们继续存在, 而且它们仍然很强大; 我写的一条笔记是,
+有一刻我看到一个巨大的女人向我伸手, 几十个或几百个手臂在旋转,
+这主要是闭着眼睛, 但我们也仍然有同样的和DMT-
+我决定关闭音乐一分钟, 停下来, 再一次把一切都吸收进来.
+我在T+1:51结束了这条消息, 决定是时候听更多的音乐了.
+我把&quot;动物集体&quot;的歌曲&quot;我的女孩&quot;放上台,
+我可以在脑海中生动地看到周围的纹理, 感觉到它们在我的身体上,
+我认为这是我经历过的最酷的版本之一,但这实际上是我们从至少MiPT和也许MPT中得到的东西之一,但我不确定,也不是从大多数其他迷幻药中得到的,
+我们也吃了一些零食来帮助平息我们的胃.
+在T+2:18,我播放了一首韩国歌曲, 我们的网友回复了我们, 视频中的图片显示太阳在地平线上,
+对于一个没有MAOI的基本胺胺, 绝对不坏!
+我确实是这样, 肯定还在继续, 但最初的强度波似乎有点过去了.
+我听了一些音乐,发了一些信息, 吃完我们的小吃吧, 直到T+2:50时,
+虽然我们在路上感觉很好, 几乎还清醒,
+我们想去的原因是为了尝试吸食大麻,
+在入浴之前, 我们吸了两碗烟, 在回去之前,
+我感到极度高兴和兴奋, 但系统中的其他人感到焦虑
+我感到极度高兴和兴奋, 但系统中的其他人感到焦虑
+我们的情感突然激发, 尤其是我表现出来的情感,
+不是每个人都准备好开始这段艰难的旅程, 所以我们进入充满浴,
+大多数人现在选择不谈论他们的故事, 但我们知道其中一个涉及到他们认为自己处于与其他可能与我们旧的2C-C体外体验相关的社交环境中,
+她不记得动物的具体细节, 只是看到它, 知道即将发生的事情, 感受到与它相关的所有情绪,
+我们认为最可能的原因是当时我们对大麻的耐受性很低,我们和父母一起吸的烟量远远超过我们所需要的,
+但也就是说, 发生这种情况的变形者似乎认为他们也在经历的结果中成长或学习了一些东西,
+虽然我个人仍然在身体里, 但我可以告诉其他人有很多事情正在发生,
+经历结束后, 人们仍然焦虑, 所以我们专注于在浴里试图平静下来,
+虽然现在很难记住,它肯定有马尔特风格,但很多是通过对大麻本身的过度强烈反应来帮助,
+但现在我不能把它带回来,它太抽象了.
+我可以说我们彼此谈了很多关于我们如何推动事情以及它如何影响彼此以及这些经历对我们每个人意味着什么以及我们每个人如何在定期的脚和所有这些方面,
+我们也给朋友发短信,继续听音乐,直到T+5:12,当时Zeta写下了一句话,说我们开始觉得自己越来越醉了,尽管我们仍然可以很好地感觉到MALT,
+换来换来,当我们换来换去,或特别抵制换来换去,或让换来换去慢慢地积累起来,我们会得到一些内在的色彩纷的抽象图像,
+欣赏它也很好, 因为高潮带来的高兴感和麻醉感,
+在等待离开,去处理一些事情.
+现在她已经离开了,我们把美国爸爸! 史蒂夫的顶部与我们的爸爸.
+有时其他人会跳出来检查我们的手机或和我们的爸爸说话,
+我们在T+6:33中注意到,MALT的出现和消失是波浪般的, 波浪几乎可以降到零,然后再次爆发, 这让我们想起很多,
+我们的胃感觉有点不稳定,所以在T+6:52吃了两个Tums或2000毫克碳酸.
+我注意到我还能看到漂浮的彩色静态布纸, 它们几乎看起来像蛇的边缘在流过来,
+在T+7:44时, 我们和父母一起吸了两碗烟, 感觉又有点,
+食物到达时间+7:58很好吃, 我们在时间+8:31吃完.
+我注意到药物似乎终于放松了一些, 这与口服MPT需要的时间相似, 虽然我们仍然可以感觉到这种减少.
+我们再次与他们一起抽了两碗.
+虽然我觉得这部剧情已经结束了,
+我们已经安排了一些深夜计划, 但决定不出去,
+当我们服用MALT时, 我们没想到一个可怕的胺基会持续这么长时间!
+不是因为我现在抱怨.
+现在我自己抽烟, 放电视上一些东西...
+现在我又洗了个, 又抽了我带来的另一碗烟, 大麻实际上还有一些幻觉,
+我们正在昏倒,睡眠不足又开始让我们倒,所以显然这只是在我们的大脑中挂着,直到我们得到一些休息,药物肯定已经很长一段时间了,所以我们去睡觉.
+如果我们不愿意, 我们就不必再去旅行了, 如果我们不愿意, 我们就不必再去旅行了,
+我个人很享受这次经历, 也从中获得了很多东西,
+我们下次服用将超过50毫克, 因为我们希望尝试从中获得更充分的效果, 但我们肯定必须小心对待它,
+对于我们许多人来说是个人的学习经验, 也是整体的学习经验,
+虽然我们通常看到相同的感官信息, 因为这就是这些体外体验的运作方式.
+但这是另一个时间和地点的复杂话题.
+像我之前说过的, 似乎我们比很多人对胺基的效果很敏感,
+这种药物的效果会非常强大, 所以请小心,
+但你不想在糟糕的情况中过度.
+我真的不推从高开始,除非你知道自己的敏感性,坦率地说,50毫克对大多数人来说是很好的,
+这就是现在,直到下一次!
+时间表: 113682
+发布时间:2019年11月4日
+MALT (855):小组 (2-9) (17),音乐讨论 (22),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Weather The Storm
+MALT &amp; Cannabis
+by
+Kaleida
+From
+Bluelight Collection
+Citation:   Kaleida. &quot;Weather The Storm: An Experience with MALT &amp; Cannabis (exp113682)&quot;.
+Erowid.org
+. Nov 4, 2019. erowid.org/exp/113682
+DOSE:
+50 mg
+oral
+MALT
+repeated
+oral
+Cannabis
+[This trip report is written from a multiple-identity perspective.]
+The following Greek letters have been changed to protect the innocent. This trip report is written by Delta.
+This was our third experience with MALT and our first time using it orally. The first important thing to say about this report is that we had actually used Amanita pantherina the day prior, too
+we had actually used Amanita pantherina the day prior, too
+, but we didn&#x27;t get much out of it. We took 4 g ground up and put into capsules spaced out over like an hour and it was something like T-15:00 before I took the MALT. We had very slight visuals that were colorless and simple and then we passed out and had interesting dreams, mostly. It&#x27;s possible that it played a role in the effects we got from the MALT but I&#x27;m doubting it, there didn&#x27;t really seem to be any similarities to what we experienced, and we weren&#x27;t feeling high from it anymore but the time I dosed the next morning. So, make of that what you will!
+The reason we wanted to try MALT orally is because we have had a lot of success using MiPT, MPT, and DiPT orally and actually think the first two of those (haven&#x27;t tried the third this way) are much better orally than smoked, so we&#x27;ve actually decided to try using all of our base tryptamines orally instead and see what we can get out of them regardless of if it takes a higher dosage or not, though luckily we actually seem to be very susceptible to the effects of base tryptamines in general! The beginning of the oral experiment was going to be with either MALT or MET and I couldn&#x27;t decide which one I wanted to try more so I asked a few friends and MALT was the winner, so that&#x27;s what I and we went with. As far as I can tell there is no literature about MALT being taken orally before so we weren&#x27;t sure where to start, we opted for 50 mg because MiPT is very active for us at that dosage but not overwhelming and it&#x27;s thought of as one of the most potent oral base tryptamines to my knowledge, but of course this one is a total unknown. We also were wrong when we guessed its potency smoked, we thought it would be less potent than MPT because 4-AcO-MALT is compared to 4-HO-MPT but 50 mg smoked kicked our ass at least as much as 40 mg MPT smoked! So we were trying to not go too high this time around, amazingly we still got a decently strong effect anyway.
+Our previous experience with psychedelics includes DMT, MET, MPT, EPT, MiPT, DiPT, MALT, DALT, Psilocybe cubensis, 4-HO-MET, 4-HO-DET, 4-HO-MPT, 4-HO-EPT, 4-HO-DPT, 4-HO-MiPT, 4-HO-DiPT, 4-HO-McPT, 4-AcO-DMT, 4-AcO-MET, 4-AcO-DET, 4-AcO-MALT, 4-AcO-DALT, 5-HO-DMT, 5-MeO-MiPT, 5-MeO-EiPT, 5-MeO-DALT, Ipomoea tricolor, Argyreia nervosa, LSD, ETH-LAD, AL-LAD, 1P-LSD, 2C-C, 2C-B, 2C-I, 2C-E, DOC, DOB, 4C-D, Myristica fragrans, and MDMA. Aside from the Amanita panetherina, our most recent trip was on 125 mg of 4C-D about two weeks before this.
+T+0:00 - I take the 50 mg of MALT orally with a peanut butter bar for flavor.... The chemical tasted bad but it stayed in a chunk rather than just breaking up in our mouth so it wasn&#x27;t that bad.
+T+0:03 - Shower time!! These things hit pretty fast based on our past trips and want to get it out of the way.
+T+0:24 - I&#x27;m out of the shower now and not much obvious trippiness has happened yet, but suddenly right before typing this I have some slight sparks in front of me like there&#x27;s a thunderstorm brewing in my mind....
+T+0:26 - I put on Shine On You Crazy Diamond by Pink Floyd! I close my eyes as it&#x27;s playing and I see a distant horizon over a dark landscape with stormy clouds all throughout the sky and an image of the own inner body I identify with as an alter repeated throughout them like visions in the sky, and suddenly feeling high now for sure....
+T+0:31 - Zeta switches out and starts walking around, and as she looks down on the carpet we see a distant mountain range forming under the dark and cloudy sky we still feel over our heads and the peaks of mountain are rising up like stalagmites forming fingers of the hands of the Earth reaching up at us. I switch back out with her and we notice that when we switch, our perspective shifts as if we have two different bodies hovering over different parts of this mountain range, when she&#x27;s out she sees the image through her body whereas I see her floating over the mountains and vice-versa for me, the others who don&#x27;t come out agree that they have this third-person perception too. As I close my eyes again I see many spiraling cliffs like in Nightmare Before Christmas arranged in an artistic geometric shape and there are realistic copies of my body relaxing on each of the cliffs, and it continues transforming into other similarly spinny imagery.
+T+0:36 - I am starting to get some sensations of the room spinning around me like we&#x27;ve taken mushrooms or DMT but the colors are more like LSD which, by the way, also once gave me realistic visuals of storm clouds and lightning and thunder in my head. Reality is starting to rip apart a little bit in mushroom- and LSD-like ways where we&#x27;re starting to get some 3D imagery of strange and erotic images emerging from the disorientation too. I&#x27;m starting to feel maybe slightly anesthetized in a psychedelic way as well.
+T+0:40 - I put on Comfortably Numb by Pink Floyd. I feel Zeta close to switching out and my visuals are getting heavier, there are smokey trailing visuals appearing and we see a vision of myself from a third-person perspective being covered by these smokey trails and suddenly having a big third eye open up out of nowhere on my forehead, followed by more eyes opening up all throughout the smoke. These images are very real but they&#x27;re internal even though they overlap the real world, in the external world itself the visuals are slight, sparkliness and moving textures, general breathing of things, and not much else going on yet. I also have a heavy sedated feeling and sometimes a slight nausea that have been building up.
+T+0:46 - Kappa comes out to groove to the solo, and as she&#x27;s doing so she gets more closed eye visuals developing of typical base and other strong tryptamine kinds where it&#x27;s kind of like they&#x27;re forming into hallways, but it&#x27;s not quite into anything totally solid yet. After she&#x27;s done I switch back out.
+T+0:48 - I have Papa Don&#x27;t Preach by Madonna stuck in my head from the radio so I put it on, while I&#x27;m listening and staring at the TV screen I notice that things are definitely starting to get this mushroomy geometric pull and squeeze, the world looks more dreamy and visual in both an ancient and futuristic sort of way now, sort of a broader breathing effect like DMT going on too, and I also have more of that nauseous feeling....
+T+0:54 - I burped at the end of the song and it helped a bit with the nauseous feeling, sitting in silence for a minute to help myself adjust....
+T+0:56 - Still more burping that helps, I note that this is definitely an active dosage but a low one, I mostly feel really altered and the hallucinogenic effects are very complex and impressive but I can tell they&#x27;re on what would be the lighter end for their own style. I also note that the experience feels a bit more like DMT I think than a similarly small dosage of MPT does, which is otherwise also really strong and kind of superficially similar to MALT for us, and this is the same way we felt about comparing them after smoking too.
+T+1:00 - I go to sit on the bed in our bedroom in Zeta projects herself out next to me as much as she can (a conscious imagination practice effort) so we can sit there together and be a bit intimate and just enjoy the psychedelic experience. The state while not at a completely strong level feels very intense and overwhelming in style and reminds us of past experiences we&#x27;ve had on psychedelics that are really powerful for us. I&#x27;m marveling at how some of the visuals forming around us look like some kind of transparent alien spaceship walls the room is transforming into when I look at the time and realize it&#x27;s only been an hour since we dosed!! I had the time I thought we dosed in my mind a little bit off and I thought it was past an hour already, suddenly it makes sense why this has still been getting stronger and I realize it&#x27;s probably finally about starting to level out by now.... This stuff has really hit a lot harder than I expected it to once again.
+T+1:04 - I put on Bittersweet Symphony by The Verve, there&#x27;s lots of switching between Zeta and I going on and we pace around just thinking about things.... I don&#x27;t remember the music enhancement being the best ever but it was really nice too, it was more than just a backdrop to the thinking but it was also still mainly that at this point.
+T+1:09 - From here to T+1:39 honestly nearly all we wrote in the notes is about how we were listening to music, I and Omicron, Rho, and Zeta, but that&#x27;s all we really felt like doing because we were just flying on a good, clean psychedelic energy and just wanted to think about things to ourselves while moving our body and enjoying the sensory pleasures. We didn&#x27;t make too many notes about the hallucinogenic effects, but they were continuing and they were still quite powerful; one note I did write is that base tryptamine visuals can make other psychedelic visuals seem like a joke at times, there was a point where I was seeing a colossal woman reaching down at me with dozens or hundreds of arms all swirling through a spiral pattern with lots of beautiful and especially purple neon colors around her, the visuals being similar to other tryptamines but especially large and detailed was a bit of a theme with some of them. This was mostly with closed eyes, but we also had still the same kind of mushroom- and DMT-like open eye visual distortions going to some extent throughout all this too, though they definitely did seem to lessen with time. Finally at this end time stamp, I decided to turn off the music for a minute and just stop and take it all in again....
+T+1:45 - At this point I start messaging a friend online briefly about the trip and just to say hello, and I finish the message at T+1:51 and decided it&#x27;s time for more music. I put on My Girls by Animal Collective, and while I was dancing and singing to the music, I started becoming a part of the music video! It begins with the musicians covered in and surrounded by these trippy textures and with these cartoon mouths and I could see the textures around me in my mind&#x27;s eye vividly and feel them on my body and feel myself with the cartoon mouth going along with what I was saying and everything.... This was one of the coolest versions of this I&#x27;ve experienced I think but this is actually one of the things we&#x27;ve gotten from at least MiPT and maybe MPT but I&#x27;m not sure and not from most other psychedelics too, though we have also gotten it from 2C-C and it&#x27;s one of the things about that psychedelic that we find to make it notably alike a base tryptamine. Anyway, after this we just kept switching and listening to more music too, and also ate some snack bar to help settle our stomach. At T+2:18, I put on a Korean song that our online friend messaged us back and the picture in the YouTube video shows a sun over a horizon and suddenly we see that sort of image vividly repeated throughout our headspace in the same that the stormy sky had been present before, and I found it very calming and just fun.
+T+2:23 - First time really thinking about how much time has passed, nearly two and a half hours after dosing, definitely not bad for a base tryptamine with no MAOI! I&#x27;ve really been it, it&#x27;s still going for sure too but the initial wave of intensity seems to be passing somewhat. I listened to some more music, messaged some more, and finished our snack bar, until at T+2:50 when there was a lull between waves of tripping and we felt pretty much sober and functional and we decided by group vote to have us make the extremely short drive to our parents&#x27; house, which I don&#x27;t recommend but we did it anyway. We felt fine and still nearly sober along the way but I can&#x27;t comment on how it would be for an actually difficult drive because this one really takes no time at all and only requires neighborhood roads. The reason we wanted to go is so that we could try smoking cannabis, which we had not yet done up to this point because we didn&#x27;t have any, to see what effect it had on the experience, and also to take a bath and meditate after we did so.
+T+3:03 - We smoke two bowls with them before getting in the bathtub, and long before getting back there we can feel the intensity cranking back up hard. I am feeling extremely euphoric and stimulated but some others in the system are feeling anxious
+I am feeling extremely euphoric and stimulated but some others in the system are feeling anxious
+and there is some triggering going on by the sudden extreme release of feelings that we have and especially that I&#x27;m displaying, especially sexually. Not everyone is ready to let go into the trip that is coming on hard now so we get into the filling up bathtub hoping to calm down, but as soon as we hit the water multiple alters go into brief out-of-body experiences. Most of them are choosing not to talk about their stories currently, but we know that one involved them thinking they were in a social situation with the other alters that may be connected to our old 2C-C out-of-body experience, but another was actually Omicron&#x27;s who thought she was about to be killed by a wild animal. She doesn&#x27;t recall specific details of the animal, just seeing it and knowing what was about to happen and feeling all the emotions connected to it, and she was understandably shocked after it happened, as were the others with their experiences that generally seemed to be negative. The most likely culprit for this we think is the fact that our cannabis tolerance was low at the time and the amount we smoke with our parents is much more than we need or smoke on our own because their lifetime tolerance is high, we really smoked more than we should have and knew it at the time but did it anyway, but hopefully we&#x27;ll learn better in the future now. But that being said, the alters who this happened to seem to think they grew or learned something as a result of their experiences too, it wasn&#x27;t just wholly negative, just an extremely strong and unexpected trip-blip, so be warned! Personally, I remained in-body myself, but I could tell the others had a lot going on seeing them being wrapped in patterns in the distance in our headspace.
+At first after the experiences ended people were still anxious so we focused on trying to calm down more in the tub, but after that started passing and we started discussing internally things got a bit smoother again. Again the only notes we really took mostly involved what music we were listening to, but we were tripping pretty hard again now after smoking the cannabis though in ways that are hard to remember now, it definitely had the MALT style still but a lot of it was assisted by the overly powerful reaction to the cannabis itself, and there was definitely some stuff going on I wish I had written down but I just can&#x27;t bring it back now, it&#x27;s too abstract. I can say though that we talked a lot with each other about how we each push things and how it affects one another and what these experiences mean to each of us and how much each of us are still on board with regularly tripping and all that, and we came out of it feeling stronger and still positive in the end. We texted a friend a bit too and continued listening to music until T+5:12 when Zeta made a note that we were starting to feel more so just stoned now even though we could still feel the MALT pretty well for what it is, and shortly after we were getting out of the tub to go try to enjoy what was left of it in a different way.
+T+5:39 - When we switch or especially resist switching or have a switch slowly build up we get some inner colorful abstract imagery similarly to tripping normally, even while sober I mean, and it is much crazier than it normally is right now, the MALT is making it very, very psychedelic. It&#x27;s nice to look at, and also nice because the euphoria and anesthesia from the high helps override the other symptoms of oncoming switches like headaches. Snacking a little bit passing the time waiting for our mom to leave and go take care of some errand.
+T+6:03 - She&#x27;s gone now and we put on the American Dad! episode Top of the Steve with our dad. Sometimes the others pop out to check things on our cellphone or talk to our dad a bit and we just sort of watch TV and chill like this for a while. We noted at T+6:33 that MALT very much feels like it comes and goes in waves that can go down to almost nothing and burst back up again in a way that reminds us a lot of mushrooms, and we currently feel like we&#x27;re on an especially high up wave again despite not having smoked anything still since the first couple of bowls. Our stomach felt a little unsettled too so at T+6:52 ate two Tums or 2000 mg calcium carbonate.
+T+7:33 - We ordered Chinese food for dinner and while waiting I notice that I&#x27;m still getting another flash of drifting colorful static sheets that almost look like they had edges of snakes flowing through them and I&#x27;m reminded of videos we&#x27;ve seen of visuals of ayahuasca, which we haven&#x27;t taken ourselves (or DMT orally in any other way). At T+7:44 we smoke two more bowls with our parents and feel like we&#x27;re tripping pretty hard again, though in part just from the continuing disorientation and exhaustion at this point. The food arrives at T+7:58 and it&#x27;s delicious, and we finish eating at T+8:31.
+T+9:29 - Still just watching TV with our parents and vegging out at this point, I make a note that the drug feels like it&#x27;s finally let up somewhat more now, which is similar to about how long it took MPT orally for us to do so too, though we can still feel this dwindling a little bit.
+T+9:38 - We smoke two more bowls with them again.
+T+10:26 - The episode we were watching ends, and I still feel super out of it but probably more baked than tripping or psychedelically high by now, but still feel like I&#x27;m feeling it trailing out for sure though....
+T+12:03 - We had some late night plans scheduled but decided not to go out because we still didn&#x27;t feel good to drive even after all this time. When we took the MALT we didn&#x27;t expect a freaking base tryptamine to linger for this long! Not that I&#x27;m complaining now.
+T+12:26 - Parents have gone to bed and I&#x27;m smoking a bit more to myself now, and put something on TV....
+T+14:48 - Still stumbling around at night, taking another bath now and smoking another bowl I brought in there, the cannabis actually still has the visions going a bit, colorful cartooning stuff when zoning out that reminds me a little bit of DMT.
+T+17:33 - We&#x27;re passing out and the sleep deprivation is starting to make us trip again so obviously this is just going to hang around in our brain until we get some rest, the drug has definitely largely worn off quite some time ago now, so we go to bed.
+After this trip, we felt extremely satisfied and like we wouldn&#x27;t really have to trip again for some time to continue that satisfaction going if we didn&#x27;t want to, which is also how DOB made us feel recently, but we still ended up tripping again like a week after this anyway which is more frequent than normal for us, so make of that what you will. I personally really enjoyed this experience and got a lot out of it but obviously it was very intense and at times dark for some of us so it&#x27;s not all sunshine and rainbows. The next time we take it will be more than 50 mg because we would like to try to get a fuller effect out of it still, but we will definitely have to be careful to treat it with respect and closely monitor set and setting and cannabis intake if we use it at all, because this one clearly has the potential to get very intense very quickly. Still, it was a learning experience in more than one way, both individually for many of us and as a whole such as helping us further understand the differences between what each of us alters in the system experiences when we take psychedelic drugs, like for instance if one of us gets a certain type of hallucination that the others don&#x27;t see even though we normally see the same sensory information, since that&#x27;s how these out-of-body experiences seem to work. But that&#x27;s a complex topic for another time and place.
+As I said earlier, it seems like we are pretty sensitive to the effects of base tryptamines compared to a lot of people, so I would expect that many others may need more than 50 mg of MALT orally to experience these same kinds of effects as we have. However, I&#x27;m sure there are others out there who are similarly sensitive to us, and the effects of this drug can be very powerful, so please be careful and stay safe if you try it yourself! It can be very worthwhile and fascinating but you wouldn&#x27;t want to overdo it in a bad situation. I really wouldn&#x27;t recommend starting very high until you know your own sensitivity, honestly 50 mg may be fine for most even just as a taster, but I&#x27;m just hesitant to recommend anything higher than I&#x27;ve taken yet too.
+That&#x27;s it for now, until next time!
+Exp Year: 2019
+ExpID: 113682
+Gender: Female
+Age at time of experience: 28
+Published: Nov 4, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MALT (855) : Small Group (2-9) (17), Music Discussion (22), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

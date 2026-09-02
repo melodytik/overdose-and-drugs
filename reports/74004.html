@@ -1,0 +1,183 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4-AcO-DiPT - Erowid Exp - &quot;轻松地进行&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-aco-dipt.html'>← 4-AcO-DiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4-AcO-DiPT - Erowid Exp - &quot;轻松地进行&quot;</h1>
+<div class='sub-title'>4-AcO-DiPT - Erowid Exp - &#x27;Doin&#x27; It Light &#x27;n Easy&#x27;</div>
+<div class='meta'>作者：Phantasmanaught Citation · 日期：Sep 23, 2008 · 剂量：17 mg · <a href='https://erowid.org/experiences/exp.php?ID=74004' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>天气:晴朗,温度高达70度
+其他: 10毫克Hydrocodone在上午11点30分左右服用,治疗背痛,下午3点时仍有轻微的副作用.
+精神状态:由于水的下降, 有点烦躁,
+我把粉末倒在舌头下, 喝了一大口水.
+我还没见过有味道最糟糕的RC.
+我在家里做了点清洁,然后上楼准备和我可爱的妻子一起在自然中散步,
+我终身的忠诚的清醒护理人妻子开车,
+我发现自己走得不舒服地快, 正如我经常在服用迷幻药时所做的那样, 我试图在脸上虚假微笑,
+车辆的声和摇摆使这一阶段变得非常不愉快,
+我感觉好像我的大脑被一个中等粒度的砂纸擦拭了.
+我们到达了一处美丽的河,
+我从车里下来时, 感觉脚很不稳定, 脱离和困惑, 但我脚下的坚固地面的感觉, 与移动的汽车相比, 是一个受欢迎的变化, 我立刻开始感觉更好, 更舒服.
+尽管像风一样来袭,但在短时间内,事情开始平稳一点,除了由于过度刺激而发作的一些,我开始觉得身体负载的分心减少,并能够沉入并更多地享受周围环境.
+我认为我在为一段艰难的旅程, 但随着它来了, 事情已经平稳到一个容易加2在舒尔金的规模.
+我们沿着河流走, 让赤脚沉入泥土,
+我对陌生人的印象是温暖而舒适的. 虽然我很高兴看到他们,
+这种物质轻微地打开了心脏.
+虽然我们正处于一个独特的自然区域,
+这种风景肯定是受到物质的启发, 但它是微妙的.
+我感觉与周围环境的联系更加密切,
+我从来没有觉得无法沟通, 也没有担心自己表现得很奇怪.
+我和妻子一起散步, 看着各种可怕的爬行物在泥中滑行,
+我们终于回到车里了.
+我感觉没有任何不良影响, 除了比平时在自然中悠散步后更疲.
+我们一起享用了一顿美味的饭.
+我在T+4:00时还没有完全达到基线, 还有点困惑在设置DVD播放器上看电影,
+晚上10点睡觉有点困难 (T+7:00), 但没有什么不用贝纳德里尔来解决的,
+总的来说,我会给这个物质一个积极的评价,
+所以我认为下次我会服用更高的总剂量, 但将其分成两个单独的剂量,
+我希望有更多的心理活动,
+我发现这种剂量是一种非常微妙的物质.
+其他:
+4-AcO-DiPT (55):一个人 (16),自然/户外 (23),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Doin&#x27; It Light &#x27;n Easy
+4-AcO-DiPT
+by
+Phantasmanaught
+Citation:   Phantasmanaught. &quot;Doin&#x27; It Light &#x27;n Easy: An Experience with 4-AcO-DiPT (exp74004)&quot;.
+Erowid.org
+. Sep 23, 2008. erowid.org/exp/74004
+DOSE:
+17 mg
+oral
+4-AcO-DiPT
+(powder / crystals)
+BODY WEIGHT:
+165 lb
+Substance: 	17 mg 4-ACO-DiPT taken orally at 3:00 PM
+Date:		September 7, 2008
+Weather:	Sunny, a pleasant 70 degrees
+Other: 	        10 mg Hydrocodone taken at about 11:30 AM for back pain, still feeling  minor effects at 3:00 PM.
+Mental Set: 	A bit irritable from the Hydrocodone comedown, but otherwise feeling pretty relaxed and calm.
+T+00 - I poured the powder under my tongue and took a large swig of water. My tongue was assaulted by the worst tasting RC I have ever experienced.
+T+15 - I did a bit of house cleaning, then headed upstairs to get ready to go for a walk in nature with my lovely wife, I noticed first alerts as I put on my socks.
+T+20 - My terminally dedicated sober sitter wife took the wheel and drove us along the highway to an appropriate spot where I could experience the drug in an outstanding natural setting.  As we zoomed down the highway towards our destination, I found myself coming up uncomfortably quickly, and as I often do when taking psychedelics, I was attempting to hold a fake smile weakly upon my face, with the motivation of tricking myself into believing I was having fun.  The rumble and sway of the vehicle made this phase most unpleasant, and I was feeling a strong compulsion to get the hell out of the car.  I felt as if my brain was being buffed with a medium grain sandpaper.
+T+30 - We arrived at a beautiful spot along a river bank, in a gorge as wide and deep as it was breathtaking.  When I got out of the car I felt rather unsteady on my feet; detached and confused, but the feeling of solid ground beneath my feet was a welcome change from the moving automobile and I immediately began to feel better, more at ease.
+T+45 - Despite coming on like a hurricane, in a short time things began to smooth out quite a bit, and other than some trembling due to excess stimulation, I was beginning to feel less distracted by the body load and was able to sink in and enjoy my surroundings more.  I had thought I was in for a rocky ride, but as quickly as it had come, things had leveled out to an easy plus 2 on the Shulgin scale.
+T+1:00 to T+2:30 - We walked along the river, letting our bare feet sink down into the mud, which felt amazing against the bottom of my feet.  There was a benign nature to this experience, and although there were many other people in the area, I didn’t have the associated feeling of being overly conspicuous that I often have when tripping.  my impressions of strangers were warm and comfortable. This substance was mildly heart-opening.
+Visually, there didn’t seem to be a lot going on, although we were in an outstanding natural area that was amazing in it’s own right.  At times there was a gentle swaying or breathing on the landscape that was certainly inspired by the substance, but it was subtle.
+I was feeling more connected to my surroundings, and more open emotionally to those around me. Stopping to talk to a stranger on the shore was easy and at no point did I feel unable to communicate nor was I concerned that I was acting strangely.  My wife and I had a wonderful walk together, looking at various creepy crawlies slithering in the mud, and taking silly pictures of each other walking along a precipice alongside the river.  Eventually we made our way back to the car.  The substance was definitely wearing off, and I felt no ill effects from the come-down, other than being a bit more tired than I ordinarily would be after a leisurely stroll in nature.
+T+3:00 Back at home, I took a bath and prepared for dinner. I felt comfortable and hungry and we enjoyed a delicious meal together.  I wasn’t quite at baseline at T+4:00, and still had a bit of confusion setting the DVD player up for a movie, but effects were very minor by this point.  Sleep was a bit difficult at 10:00 PM (T+7:00), but nothing that wasn’t solved with a Benadryl, and in the morning I felt awake and refreshed.
+Overall, I would give this substance a positive review, although at this dose it wasn’t overly impressive.  The come-up was abrupt and intense but it soon leveled off, so I think next time I will take a higher total dose, but administer it in two separate doses spread say an hour apart.  I would have liked to have a bit more psychological activity, and I definitely would have enjoyed more visuals.  I found this to be a very subtle substance at this dosage.
+Exp Year: 2008
+ExpID: 74004
+Gender: Male
+Age at time of experience: Not Given
+Published: Sep 23, 2008
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-AcO-DiPT (55) : Alone (16), Nature / Outdoors (23), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

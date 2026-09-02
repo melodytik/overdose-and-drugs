@@ -1,0 +1,327 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2C-D - Erowid Exp - 一个短途旅行</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-d.html'>← 2C-D</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>2C-D - Erowid Exp - 一个短途旅行</h1>
+<div class='sub-title'>2C-D - Erowid Exp - &#x27;A Short Hike&#x27;</div>
+<div class='meta'>作者：xdrc From Bluelight Collection Citation · 日期：Oct 21, 2024 · 剂量：30 mg · <a href='https://erowid.org/experiences/exp.php?ID=118443' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>物质: 2C-D HCl (2,5-二甲基-4-甲基乙胺)
+目的:&quot;迷幻再校准&quot;, 愉快的徒步旅行, 探索2C-D的空间,
+目的:&quot;迷幻再校准&quot;, 愉快的徒步旅行, 探索2C-D的空间,
+情绪良好, 尽管半周前对兴奋剂的滥用感到不满.
+背景:在山区徒步旅行时, 外面天气很好.
+报告:
+我已经计划在酒后徒步旅行了一段时间了.
+单人徒步旅行自然是内省的,
+理想的一天来临, 我抓住了机会.
+我很高兴能在周内在更少的人群中徒步旅行.
+实际上,我几乎没有遇到人.
+梅斯卡林和2C-E被认为是有竞争力的物质, 因为这两种药物似乎完全适合徒步旅行 (可能是所有的乙烯胺),
+在2C-B和2C-D之间, 我选择了后者,
+我乘坐2C-D车. 车上有很多人,
+在大约100毫升中溶解的30毫克2C- D.
+味道相当微妙,不愉快, 但在这种稀释没有问题.
+我耳机上的音乐越来越烦人.
+我在公共场合出行时有点紧张,
+我还想听森林和大自然的声音.
+我意识到我的头脑是如何被清理的 - - 塔布拉拉萨.
+我感觉很好.
+没有.
+我在脑海中发现了一种微弱的,
+温暖的太阳用柔软的光线轻轻抚着我的脸.
+我在电话上写信的能力有点受损.
+这是2C-D对我本周早些时候滥用兴奋剂的警告吗?
+可能.
+我正在打哈欠, 头部是非常明显的,
+走路有点受损, 就像在沉重的船上一样,
+我从身体中收到一些奇怪的信号.
+我不得不抓住我的阴毛, 感觉有点不舒服在我的身体 (但没有恶心!),
+这些奇怪的信号消失得很快.
+没有.
+我在路边漂流一点.
+在远处,错误的图案识别让我看到一个直立的狐尾,
+结果是一棵枯的色棕.
+长时间的打哈欠,有点疲劳.
+在路边的树干上有.
+它们的表面已经被晨露凝结成大滴.
+从远处看, 它看起来像闪光的网.
+我被它催眠了,走得更近拍照.
+整体气氛是神奇的.
+可能20-25毫克就足够了.
+在精神上, 我觉得我已经远离了很多.
+但我仍然感觉很好.
+走路时使用智能手机也变得越来越难.
+为什么PsychonautWiki Journal应用程序没有一个大按来创建一个新的时间呢?
+我该如何使用这个高吗?
+我在走路时漂流到梦幻的景色中.
+这意味着我会沉浸在深深的思想中, 感觉有点迷,
+我必须提醒自己专注于前进的道路.
+选择了从简单的路上转向, 而是上升到一个有着美景的地方.
+原本我打算走简单的路径,
+现在我走在需要坚定脚步和良好的健康的道路上.
+我对后者并不满意.
+我的心跳非常快,
+我必须重新开始定期炼!
+我担心目前的方法对我目前的精神状态来说有点过于技术化,
+我在沉浸在思考和质疑自己的理智之间, 爬上这个相当技术性的坡道,
+我终于发现了这个景色.
+岩石和景观是用油画绘制的,非常类似于2C-E的视觉效果.
+很遗憾, 我没有试着握手寻找标记物 (这就是2C-E的狂热!).
+在山谷的树枝之间,
+我对这剂2C-D的视觉活动感到惊.
+我没有预料到这一点.
+我继续前进, 只是为了让我知道我在哪里.
+这是因为另一个登山者到达了山顶.
+尽管如此, 他会怎么办? 尽管如此,
+幸运的是,他不是一个言语的家伙,
+我还在着石头爬下来.
+走路时,我对时间流逝的感觉完全淡了.
+我又一次陷入了技术领域.
+我脑海中不停地想:&quot;这对你来说不是很危险吗?
+另外,我觉得我能够感知更远的昆虫.
+我觉得自己和它们是大自然的一部分.
+身体完全没有麻烦.
+除了我的子很轻微的紧张, 身体负荷或恶心是零的.
+最重要的是我手没有精神问题 (由于去年经历的血管收缩创伤).
+我知道我一生中曾经走过这条路,
+只是向前走.
+我完全被自己包裹在里面.
+我正在拍摄我周围的风景.
+太阳在树木之间闪, 叶子在各处, 草在闪, 秋季的颜色被2C-D放大.
+让人震惊,即使我清醒.
+感觉2C-D使我能够从这次徒步旅行和大自然中提取更多的能量.
+感觉2C-D使我能够从这次徒步旅行和大自然中提取更多的能量.
+我觉得自己是大自然的一部分.
+我不明白为什么我们人类--包括我自己--选择摧毁我们的息地,
+这次徒步旅行的天气非常好.
+漂亮的云,否则是蓝天.
+没有太冷,没有太热.
+更好的几乎是不可能的.
+我绝对在下降.
+走路也会让人更轻松.
+2C-D是如此短, 在徒步旅行中可以完成2次甚至3次的旅行.
+我必须再次定期炼, 我必须摆脱我的兴奋剂习惯.
+也许2C-D会让这些发现 (不是说它们是大新闻...) 坚持下去:让我做2C-DO!
+我已经徒步走了前10公里,
+虽然其他徒步旅行者迎接我说&quot;早上好!&quot;我已经在&quot;好天!&quot;
+我觉得从基线没有任何变化,
+没有头痛,没有脑雾,没有残留刺激,昏迷,没有任何紧张.
+一个零.
+没有.
+结束了.
+后果:
+在接下来的一周里, 他还滥用了一些兴奋剂, 更糟糕的是,
+最终终结为处理剩余的东西 - - 对我来说是典型的循环.
+也许经过这段时间的禁欲我终于可以保持强大.
+我会尽我所能.
+很遗憾2C-D并不是我希望得到的缓解和说话.
+结论:
+总的来说,这次旅行感觉很好,
+我决定再多走一次.
+2C-D正逐渐成为一个有用和可信的盟友, 就像我心爱的2C-B一样.
+它们的用途有所不同,2C-B更能触动灵魂,温暖灵魂,为灵魂提供护理,2C-D则更适合内省.
+旅行期间, 我也想到了它们的相对作用.
+我得到了公式 (2C-B在毫克) = 5毫克2C-B + 0.5 * (2C-D在毫克).
+对于我来说,10毫克2C-D的强度与10毫克2C-B相当,
+这一次,二三四并没有特别自省,
+它尽其所能影响我改变,
+不幸的是,这在兴奋剂方面并没有成功.
+对于定期的炼,
+时间会告诉我们.
+2C-D非常适合徒步旅行.
+但它有点短暂,几乎令人失望.
+我认为2C-D的旅行长度受到剂量的影响,
+经验中使用50毫克的药物大约5小时,而大多数药物在3小时后就过去了.
+完全清醒的头脑能让我专注于保持良好的节奏.
+尽管时间有限,
+尤其是在徒步旅行期间.
+也许我会选择更低的剂量.
+虽然景色令人叹为观止, 但由于地形,
+无论如何都值得.
+时间表: 118443
+发布时间:2024年10月21日
+2C-D (103):自然/户外 (23),一般 (1),公共空间 (博物馆,公园等) (53)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Short Hike
+2C-D
+by
+xdrc
+From
+Bluelight Collection
+Citation:   xdrc. &quot;A Short Hike: An Experience with 2C-D (exp118443)&quot;.
+Erowid.org
+. Oct 21, 2024. erowid.org/exp/118443
+DOSE:
+30 mg
+oral
+2C-D
+BODY WEIGHT:
+60 kg
+Substance: 2C-D HCl (2,5-dimethoxy-4-methylphenethylamine hydrochloride)
+Dosage: 30 mg, p.o., dissolved in water
+Age: mid 20s
+Weight: ~ 60 kg
+Intention: &quot;psychedelic recalibration&quot;, having a nice hike, exploring the space of 2C-D further, search for direction in life.
+Intention: &quot;psychedelic recalibration&quot;, having a nice hike, exploring the space of 2C-D further, search for direction in life.
+Set: mood is good, although a bit unhappy about stimulant abuse half a week ago.
+Setting: perfect weather outside, during a hike in a hilly area.
+Report:
+I had planned to do a hike under the influence for a while now. Solo-hikes are naturally introspective and this state can be further enhanced by a psychedelic. The ideal day came up, and I took the opportunity. The area I&#x27;m hiking in is rather popular, so I welcomed being able to do it under the week with less people around. In fact, I barely met people. Mescaline and 2C-E were considered as contenders for substances to take, as both seem perfectly adequate for hiking (as probably all phenethylamines), but as dinner with friends was scheduled for the evening, I opted for a much shorter experience. Between 2C-B and 2C-D, the choice fell on the latter, as I wanted to explore this compound more.
+T0:00
+After walking a bit faster to get away from the fellow (and slow) hikers which were spat out by the train, I take the 2C-D. 30 mg 2C-D hydrochloride dissolved in about 100 mL. The taste is rather subtile, not pleasant, but in this dilution not a problem.
+T0:20
+The music on my headphones is increasingly annoying. I&#x27;m a bit on edge during trips in the public, which is why I prefer to hear other people early. Also, I want to listen to the noises of the forest and nature. I realise how my mind gets cleared - tabula rasa. I&#x27;m feeling well.
+T0:22
+I recognise a faint tingling in my head, slight mood-lift.
+T0:27
+The warm sun is caressing my face with its soft rays gently. My ability to write on the phone is a bit impaired. My heart is feeling uncomfortable - is this a warning amplified by the 2C-D concerning my stimulant abuse earlier this week? Possible.
+T0:29
+Definitely a clear phenethylamine alert: I am yawning, the tingling in the head is very noticeable, the path is shifting ever so slightly in my vision. Walking is a bit impaired, as if being on a heavy, inert ship on waves. For a short time, I receive a few weird signals from my body. I have to scratch my pubic hair, feel a bit unwell in my body (but not at all nauseated!), I have to equalise pressure despite not much change in elevation so far. Those weird signals disappear as quick as they arrive.
+T0:34
+I&#x27;m drifting to the side of the path a little bit. In the distance, false pattern recognition makes me see an upright foxtail for a split second. It turns out to be a withered orange-brown fern. Long yawns, bit of tiredness.
+T0:41
+Tree stumps at the side of the path have mushrooms on them. The morning dew has condensed to big droplets covering their surfaces. From afar, it looks like nets of glitter. I&#x27;m hypnotised by it and go closer to take pictures. The general atmosphere is magic.
+T0:42
+Probably 20 - 25 mg would have sufficed. Mentally, I feel like I&#x27;ve drifted away a lot already. But I still feel well. Using my smartphone - while walking, no less - becomes harder with each step. Why does the PsychonautWiki Journal application not just have a big button to create a new timestamp? How am I supposed to use this high?
+T0:45
+I&#x27;m drifting into dreamscapes while walking. That means I get sunken deep in thought, feel a bit disorientated, not really awake. I must remind myself to concentrate on the way forward.
+T0:55
+Made the decision to take a turn from the easy way, and instead go upwards to a place with a good view. Originally I meant to stay on the easy paths, so I can take my girlfriend to a beginner hike. Now I am on paths which require surefootedness and good fitness. I&#x27;m not happy with the latter. My heart is pumping quite fast for those couple steps. I must begin to exercise on the regular again! I am worrying that the current way is a bit too technical for my current high state of mind, but the place I&#x27;m at right now is more secure again.
+T1:05
+Between sinking into thoughts and questioning my sanity going up this rather technical incline with ladders and poorly secured steps, I remind myself to concentrate to avoid dangerous missteps. I have finally arrived at the view. The rocks and landscape are painted in oil, very similar to visuals frequently to be had on 2C-E. Sadly I don&#x27;t try shaking my hand to look for tracers (which 2C-E is wild for!). Between the branches of the trees in the valley, little peacock eyes are staring back at me. I&#x27;m took by surprise of the visual activity of this rather tame dose of 2C-D. I would have not expected this. After drinking a bit of water and moving my hoodie to the backpack, I am continuing on my way. This is due to another hiker arriving at the peak. It&#x27;s next to impossible he will realise I&#x27;m tripping, and even so, what would he do - but nevertheless, I feel a bit uneasy and want to be left alone. Luckily, he is not one of the talkative guys and I had already greeted him further down.
+T1:09
+In the meanwhile, I climbed down the boulder again. During my walk, my feeling for the passage of time is completely dulled.
+T1:17
+I am yet again at quite technical terrain. My mind switches back and forth between the thought &quot;isn&#x27;t this a bit dangerous for you, as high as you are?&quot; and the most magnificent views, still in oil painting style. Also, it feels like I&#x27;m able to perceive insects farther away. I feel at one with them as part of nature. The body is not troublesome at all. Aside from a very slight tension in my neck, zero bodyload or nausea. Most importantly no psychosomatic problems with my hand (due to a traumatising vasoconstrictively perceived experience last year).
+T1:29
+I know I&#x27;ve hiked this trail a lot in my life, nevertheless I have lost my sense of orientation, I am living in the moment. Simply walking forward. I&#x27;m completely wrapped in myself. (original text full of typos)
+T1:32
+The beauty of nature makes me almost cry, I&#x27;m taking a video of the scenery around me. The sun is shining through between the trees, everywhere on the leaves and the grass dew is sparkling, the autumn colours are amplified in perception by the 2C-D. Stunning, even if I was sober. It feels like the 2C-D enables me to extract more energy from this hike and nature than normal.
+It feels like the 2C-D enables me to extract more energy from this hike and nature than normal.
+I feel like a part of nature. I am at loss why we as humanity - myself included - choose to destroy our habitat due to lack of longterm thinking ability, greed, plain stupidness. The weather is perfect for this hike. Nice cumuli clouds, otherwise blue sky. Not too cold, not too hot. Better is almost impossible.
+T1:55
+I am definitely on the comedown. Walking is less disorientating.
+T2:25
+2C-D is so short, it would be possible to take 2, or even 3, complete trips during a hike. I am reflecting what I was shown by this trip: I have to exercise regularly again, and I must get rid of my stimulant habit. Maybe the 2C-D will make those realisations (not that they are big news...) stick: make me 2C-DO! It&#x27;s still before noon, and I&#x27;ve already hiked the first 10 km and had a trip. While the other hikers meet me with a &quot;good morning!&quot;, I&#x27;m already at a &quot;good day!&quot;.
+3:31
+I feel no changes from baseline anymore, however slight. No headaches, no brain fog, no residual stimulation, grogginess, no tension anywhere. Zero. Nada. Over and out.
+Aftermath:
+Still abused some more stimulants in the following week, worse yet, got into a bit of mephedrone too next to the 2-FA. Finally culminated in the disposal of whatever was left - typical cycle for me. Maybe after this time of abstinence I can finally remain strong. Will do my best. Unfortunate that the 2C-D was not the relief and talking into senses that I had hoped for.
+Conclusion:
+Overall, the trip felt really good and like what I needed. I resolved to trip more often again. 2C-D is manifesting itself more and more as a useful and trusted ally, just like my beloved 2C-B. They slightly vary in their uses - 2C-B is more soul-touching, warming, balm for the soul, whereas 2C-D I find more useful for an introspective time. During the trip, I also thought about their relative potencies. I came up with the formula (2C-B in mg) = 5 mg 2C-B + 0.5 * (2C-D in mg). That is right, 10 mg 2C-D feels comparable in intensity as 10 mg 2C-B for me, which is remarkable, whereas this 30 mg trip felt like about 20 mg of 2C-B.
+This time, the 2C-D wasn&#x27;t particularly introspective, but I think I had a good and valuable time anyways. It did its best to affect change in me, however much it could do at this dose. Unfortunately this wasn&#x27;t successful when it comes to the stimulants. Will have to wait a bit more regarding regular exercises, so far it is looking promising. Time will tell.
+2C-D is very good for hiking. But it was a bit short, almost disappointingly so. My hypothesis that the trip length of 2C-D is affected a lot by dosage was confirmed with this trip once more. 50 mg experiences go into the direction of 5 h, whereas this was mostly over by 3 h. Being completely clear-headed very fast enabled me to focus on keeping a good pace. Despite of my time constraints, I ended up at more than 28 km.
+I welcome another opportunity with this amazing substance, especially during a hike. Maybe I would choose the dosage a bit lower. While the views were breathtakingly visual, it did feel a bit irresponsible due to the terrain. Was worth it anyways.
+Exp Year: 2024
+ExpID: 118443
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 21, 2024
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-D (103) : Nature / Outdoors (23), General (1), Public Space (Museum, Park, etc) (53)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

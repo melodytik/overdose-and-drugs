@@ -1,0 +1,275 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>德米特 - 埃洛伊德的 探险 - &quot;龙与自我&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2-me-dmt.html'>← 2-Me-DMT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>德米特 - 埃洛伊德的 探险 - &quot;龙与自我&quot;</h1>
+<div class='sub-title'>DMT - Erowid Exp - &#x27;The Dragon and the Self&#x27;</div>
+<div class='meta'>作者：The Wizard Citation · 日期：Jan 16, 2013 · 剂量：90 mg · <a href='https://erowid.org/experiences/exp.php?ID=92052' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>虽然这是我第一次真正的经验与DMT我有广泛的经验主要是与LSD和psilocybin从我十几岁到二十多岁.
+我曾使用LSD和psilocybin来加强冥想和意识内省.
+在我继续前进之前, 我想提一下我没有读过或了解过这种物质,
+我的人生经历完全是主观的,
+在我的生活中, 我已经彻底利用和享受了源物,
+随着时间的推移, 我越来越多地了解服用这些物质所涉及的尊重.
+这不是孩子们的游戏.
+这种经验是迄今为止最广泛的,
+我打算扩大自己的意识, 看看我能在短时间内,
+我称之为&quot;第一次&quot;的经历, 尽管我试过一小部分的DMT,
+(与我即将披露的情况相比, 第一个样本没有什么效果...) 我将在本文结束时简要解释这次经历的过程.
+无论如何, 我已经完成了多次提取和测试了产品前几天所以我决定今晚是晚上看看我是否可以有深度和变革的经验
+我女朋友今晚很累, 所以她不想吃, 但她告诉我,
+我选择用我大水管, 把大麻灰放进碗里, 用子把大量的黄白色的DMT (90毫克) 放到灰上,
+我没有服用任何其他补充剂或草药.
+我打开了一些藏语冥想音乐,
+我深呼吸, 抓住水管.
+我检查了我的时钟在12:00am然后采取一个银河的打击和休息在沙发上,
+我感觉到我的头向左倾斜, 忽然失去了与身体的联系,
+我首先想到的是,好吧,这一次你做到了.
+你把太多的东西放进去.
+我感觉不到自己的身体, 但从技术上讲我还是能看到,
+我的意识被凝结在我的视野中, 我感觉像一个能量或思想的身体.
+我觉得我的意识就像在眼睛的水平上,
+我从身体中分离的过程非常突然,惊人,突然.
+我花了很长一段时间才从一个意识层次转移到另一个意识层次的&quot;黑暗&quot;中恢复清醒.
+我突然发现自己在外太空,或某种空间.
+我知道我存在, 但不是我,我的朋友和家人所知道的正常的&quot;我&quot;.
+我只是一个观察者, 我还没有任何线索,
+我最初非常惊.
+我忘了我是谁.
+我已经忘记了自己在第三维度的一切.
+我没有时间感.
+我无法呼吸,我无法感觉到心跳,
+没有任何语言可以表达这段经历,
+我无法移动, 因为我真的没有自我.
+我发现自己是一块能量意识悬浮在一个黑暗的多维空间里,
+(它看起来像一块巨大的空间碎片向我漂浮.) 当我试图把注意力集中在上面时,
+波浪能量从我感觉到的地平线发出,
+我听到:&quot;这就是爱&quot;, 我感觉到一种无法写在纸上的爱与和平.
+这种爱与我独自冥想时所感受到的相似, 但更强烈,
+我感觉到很多电.
+闪光照亮了我所在的空间, 让我感到死亡和离开身体的感觉越来越强烈.
+在这个时候, 我相信我永远在这个空间.
+尽管我最初感到惊,
+我突然意识到自己已经死了, 必须放手,
+它是多个星系的大小, 它辐射各种颜色的电能.
+虽然我没有&quot;耳朵&quot;,
+我突然听到&quot;,这是你的频道.
+你正在建立这个频道.
+让这种传输体现出来. 我当时想, 我的频道上还有什么呢?
+我看到了一个&quot;佛&quot;在一个广场,
+我不知道他们为什么在那里,但我觉得没问题.
+我读过这些宗教,
+其他两个方块有龙, 方块的角落上有旋转的阴阳符号.
+我还以为自己已经死了,
+我与这些实体保持了长久的交流.
+我忽然被一个在构造中的缺陷所分散.
+这似乎是一个&quot;模糊&quot;不属于我的视野.
+我开始听到冥想的音乐,
+我试图重新集中精力在佛陀和希瓦身上,
+每一首CD上的歌曲都代表着一个不同的心脏点, 我突然意识到这首音乐来自我的客厅.
+我听到自己在沙发上着, ,我明白你的意思了. (这可能是我当时发出的振动音的口语翻译) 我说完这句话, 佛陀和希瓦惊地看着我, 颜色变了.
+他们把手指放在嘴唇上,
+我立刻说,
+我非常抱歉.
+我不想用那个声音说话.
+我开始意识到我并没有死, 而是离开了我的身体,
+我越是失去了焦点, 开始意识到我躺在沙发上的三维自我,
+我开始感觉到自己的心跳,
+我感到有点恐慌.
+我突然听到, 聚焦于我们.
+请不要专注于自己.
+你不能跟我们说话.
+你必须重新调整.
+下一轮再来吧.
+让我忘记自己躺在沙发上.
+我可以感觉到我的心跳停止了.
+经历了几秒钟,
+我又听到:&quot;我们必须去另一边, 你就可以回到你刚才的位置.
+我又一次发现自己处于悬浮的空间中,
+我听说,这是自我的一部分,自私. 它们看起来像恶魔和妖怪云,
+我回答说:&quot;是的,这是有道理的.
+形成一个白色的正方形, 围绕着一个模糊的恶魔脸,
+奇怪的是我听到另一个&quot;我&quot;的版本说:&quot;是的,
+我开始看到不同的模糊形状,
+然后我听到&quot;,你看到吗?
+它们就像季节一样.
+一些东西是建成的,有些东西是被拆毁的.
+我再次回答说:&quot;是的,这很有意义&quot;. 然后我听到一个安抚的声音说:&quot;不要开始认为你会永远这样,它总是在变化.
+我眼中的视野被高速光线和的声音所包围.
+我开始被这些幻象所吞, 再次开始相信我已经死了,
+我再次回到我开始探索的黑暗空间.
+我觉得这里很舒服, 但我感觉到两大力量在我的两边汇聚.
+我再一次没有自我感觉.
+我只是一个中立的观察者.
+在我的左边出现了一个宇宙力量, 我认为是阿兹特克或玛雅战士,
+(是的,上面有红色的十字架) 它们在这个漂浮的星系中碰撞,
+我深深地沉浸在这个视觉中, 我当时甚至没有意识到冥想的音乐来自客厅.
+我看到的实体都在跟着音乐跳舞和战斗, 甚至在音乐转变之前, 它们的颜色和尺寸都在变化,
+我突然听到, 这些力量在道上发生冲突. 然后声音说,
+我突然感觉到视野的振动, 我开始看到不同的符号和图像.
+有些是有组织的, 有些是非常混乱的,
+我感觉好像我在穿过这些图像,
+听到一个讲述我所看到的声音, 我开始觉得自己越来越接近自己的身体和起居室.
+我能感觉到自己的眼睛和脸.
+接下来是我的胸部,手臂和腿.
+我终于开眼睛, 房间里的一切都在振动,
+时间是凌晨12:21
+整个体验花了21分钟.
+感觉就像是一永恒.
+我感到非常兴奋,
+我拿出笔记本电脑开始打字,
+我感觉到与那个空间的联系,
+这是我第二次尝试,第一次我故意只服用极少量的药物,
+(我认为我有初学者的运气) 第一次体验主要是视觉体验, 没有体外体验,
+我觉得有趣的是,我又回到了那个地方,因为我采取了一定火量,以确保深度骑行.
+我从来没有经历过这样的自我冲击.
+这是一种没有恐惧的死亡味道.
+(虽然我很惊) 这是一个很自然的,更简单的转变.
+这绝对是教育性的, 值得学习, 掌握这种经验的顺性.
+在21分钟之内, 能够了解到感受和信息的价值,
+我觉得自己比很久以前更活了起来.
+似乎&quot;自我&quot;可以阻碍这些体验的顺.
+我真的以为自己已经死了,
+现在我已经感受到过渡, 也许下次我不会认为我会死.
+虽然这并不重要.
+我期待着在这个频道上建立更多...
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>The Dragon and the Self
+DMT
+by
+The Wizard
+Citation:   The Wizard . &quot;The Dragon and the Self: An Experience with DMT (exp92052)&quot;.
+Erowid.org
+. Jan 16, 2013. erowid.org/exp/92052
+DOSE:
+90 mg
+smoked
+DMT
+(powder / crystals)
+BODY WEIGHT:
+185 lb
+Although this is my first real experience with DMT I’ve had extensive experiences primarily with LSD and psilocybin from my late teens to late twenties. I’ve used LSD and psilocybin for meditative enhancement and consciousness introspection. Before I go any further I want to mention that nothing I’ve read or learned about this substance, which was a lot prior to taking DMT, prepared me for what actually happened tonight. My experience is entirely subjective and may or may not correlate with other individual’s experiences. In my life I’ve thoroughly utilized and enjoyed entheogens for personal and spiritual growth. I’m learning more and more as time goes on about the respect involved in taking these substances. They are not child’s play. This experience is by far the most expansive with many stones left to turn. My intent was to expand my consciousness and see how deep I could go in a short time span due to the substance’s effect.
+I’m calling this experience the ‘first’ although I had tried a very small sample of the batch of DMT I had extracted to see if I was heading in the right direction a few days prior. (That first sample did nothing compared to what I&#x27;m about to divulge...) I’ll briefly explain how that experience went at the end of this testimonial. Regardless, I had finished multiple extractions and had tested the product a few days prior so I decided that tonight was the night to see if I could have a deep and transformative experience like I had researched and read about for quite some time. My girlfriend was very tired tonight so she did not want to partake but she informed me that she would be nearby in case I needed anything. (I love her, she’s the greatest) I chose to use my large water pipe and loaded some cannabis ashes in the bowl, set a high amount of yellowish white DMT (90mg) on the ash with some tweezers then covered it with a little bud I had grown in my garden earlier this year. I did not take any other supplements or herbs. I turned on some Tibetan meditation music and centered myself for a few minutes. Once I felt grounded I took a deep breath and grabbed the water pipe. I checked my clock at 12:00AM then took a galactic hit and relaxed on the couch while exhaling sweet smoke of cannabis and Deem…….
+As soon as the back of my head touched the pillow I muttered, “Oh wow…”, and I felt my head tilt over to the left as I suddenly lost connection with my body and felt the couch sink into the ground. The first thing I thought was, “Well buddy, you did it this time. You put too much in there. You’re in it for the long haul…way to go.” I couldn’t feel my body but I could still technically ‘see’ and had a field of vision. I wasn’t exactly physically high since I had no physical body, my consciousness was condensed to my field of vision and I felt like a body of energy or thought. My consciousness felt as if it was around eye level to a few inches higher. The separation from my body was very abrupt, startling, and sudden. It took me a second to gather my wits through the ‘blackness’ of transfer from one level of consciousness to the other. I suddenly found myself in outer space, or some sort of space. I knew I existed, but not as the normal ‘me’ that I, my friends and family know. I was simply an observer, of what I had no clue yet, and my ego had been completely smashed and obliterated to a pulp. I was extremely startled at first. I forgot who I was. I had forgotten everything about myself in the 3rd dimension. I had no sense of time. I couldn’t breathe, I couldn’t feel a heartbeat but I did feel a never ending burst of ‘energy flame’ residing in what would be my heart if I had one. Words really don’t give this experience much justice so please bear with me….
+I couldn’t move since “I” really didn’t have a self to move with. I found myself as a piece of energy consciousness suspended in a dark multidimensional space with what I perceived to be an even darker ‘line’ in the distance that seemed to be rotating my way. (It sort of looked like a huge piece of space debris floating towards me.) When I tried to focus my attention on it, it would grow another line that would pop out of one of the sides of the initial line. Suddenly, there were flashes of wave energy that originated from what I perceived to be a horizon in the dark distance behind the line. I then heard, “This is love,” and I felt a level of love and peace that I can’t really put on paper. This love was similar to what I had felt when meditating alone without substances but much stronger and coupled with visuals and sounds that linked to my feelings at a higher vibrational level. I felt a lot of electricity. The flashes lit up the space I was in and the feeling of being dead and away from my body grew. At this point I believed I was in this space forever. Although initially startled, I had no problems with being there whatsoever.
+Once I realized that I was dead and I had ‘let go’ and was startled by this HUGE golden dragon that burst out of the horizon. It was the size of multiple galaxies and it radiated electric energy of various colors. Although I had no ‘ears’ I could still hear. I suddenly heard, “This is your channel. You’re building this channel. Let this transmission be manifested.” I then thought, “What else is on my channel?” After thinking this the black space shattered and I was suddenly floating in front of four squares that were connected and formed a cross in the middle. There was what I perceived to be a ‘Buddha’ in one square and ‘Shiva’ in another. I had no idea why they were there, but it seemed ok to me. I’ve read on these religions but have held no particular following or dedication to either. The other two squares had dragons and there were spinning yin yang symbols on the corners of the squares. At this point I thought I was still dead and I had been there forever.
+I stayed and ‘communicated’ with these entities for what appeared to be an eternity. (We were exchanging what I perceived to be vibrational tones and pings) I was then suddenly distracted by a ‘blemish in the construct. It seemed to be a ‘blur’ that didn’t belong in my field of vision. Once I noticed this I started to hear the meditation music and felt a split in reality. I tried to refocus on the Buddha and Shiva as they would flow with the Tibetan meditation music that I had playing back in our dimension of reality. Every track on the CD represented a different chakra point and I suddenly realized that the music was coming from my living room. As soon as I realized this I stared at the Buddha and Shiva for some reason and I heard myself on the couch muttering, “Ah, I see what you mean.” (This may have been the spoken translation of the vibrational tone I was sending at that very second) Right after I said this the Buddha and Shiva looked at me startled and changed color. They put their fingers on their lips and said, “Sssshhhhh”. I immediately said, “Oh my. I’m so sorry. I didn’t mean to talk with that voice.” My field of vision started to morph in and stretch in a chaotic manner. The square started to spin and I started to realize that I wasn’t dead but that I was out of my body and due to return at some point. The more I lost focus and started realizing my 3rd dimensional self laying on the couch, the more distorted the square and figures became. I started to feel my heartbeat and it was racing at high velocity. I felt a little bit of panic. I suddenly heard, “Focus on us. Please stop focusing on yourself. You can’t talk to us with him. You must recalibrate now. Come back next round.”
+I then felt the urge to focus more intensely on my surroundings so I could forget I was lying on the couch. I could feel my heartbeat going away. It took a few seconds but I found myself feeling ‘detached’ from my body again. I then heard, “We must go to the other side so you can return to where you were just at.” I faced a new challenge with the sudden shift from higher to lower consciousness in the middle of the vision. I found myself once again in a suspended space but there were dark shapes and humanoid forms floating around everywhere. I heard, “This is part of the self, selfishness.” They looked like demon and goblin clouds but they weren’t threatening in any way. I replied, “Yes, that makes sense.” For some reason I then realized that I had the ability to zoom in and out to pinpoint anything I wanted to see in extreme detail. A white square would form around a nebulous demon face and would become more detailed and animated. What’s strange here is that I heard another ‘version’ of myself annotate, “Yes, everything must be categorized. Everything has its purpose.” I started to see different nebulous forms ranging from ebony to bright white.
+I then heard, “You see? They are like seasons. Things are built and things are broken down. It’s a beautiful cycle.” I once again replied, “Yes, that makes sense.” I then heard a soothing voice say, “Don’t start thinking that you’ll stay like this forever, it’s always changing.” I then experienced another round of visual ‘seasons’ of positive and negative energy in my field of view and saw various beautiful nebulous blasts of what appeared to be cosmic rays and explosions. My field of vision was engulfed in high speed lights and animated whizzing sounds. I started to get engulfed in the visions and began to once again believe I was dead and traversing some other dimensional plane for eternity….
+The lights and sounds suddenly stopped and I was once again in that dark space where I had started the quest. I felt comfortable here but I felt the presence of two large converging forces on either side of me. I once again had no sense of ‘self’. I was more of a neutral observer. To my left appeared a cosmic force of what I perceived to be Aztec or Mayan warriors and to my right appeared a force of what appeared to be Knights Templar in full armor and shields. (Yes, with red crosses on them.) They were clashing in the middle of this floating galaxy with vivid colors and bursts of sounds and lights. I was so deep into this vision that I wasn’t even realizing at the time that the meditation music was coming from the living room. It seemed to blend in with the vision perfectly and the entities I was seeing were intelligently dancing and fighting to the music and even changing their colors and dimensions moments before the music would transform at critical note changes as if they knew what parts were coming up. I suddenly heard, “These forces are clashing for channels.” The voice then said, “There’s way more here than meets the eye.”
+I suddenly felt a vibration in my field of vision and I started seeing different symbols and images all around. Some were organized and some were very chaotic and dismembered. (Complete random images) I felt as if I was flying through all of these images, like going through a tube. After what felt like an eternity of gathering random information while hearing a narrative voice explaining what I was seeing, I started to feel myself getting closer to my body and my living room. I could then feel my eyes and face. Next, my chest arms and legs. I finally opened my eyes and everything in the room was vibrating and the meditation music was still humming away. It was 12:21AM. That entire experience took 21 minutes. (I think that’s a fairly long time compared to average) It felt like an eternity. I was very excited to say the least and I had a strange vibrational body high. I pulled out my laptop and started typing…..this was an amazing first experience. I felt a connection to that space that I can’t really explain any further.
+This is the 2nd time I’ve tried it and the first time I purposefully only took a miniscule amount to make sure that my extraction had gone well. (I’m thinking I had beginner’s luck) The first experience had mainly visuals, no out of body experience, but I saw a Golden dragon, Aztecs, Mayans and squares with figures in them. I find it interesting that I went back to that place again; since I took a sure fire amount to ensure a deep ride. (Sure fire amount for me, 90mg) I’ve never experienced an ‘ego smash’ like that as well. It was a taste of death that held no fear at all. (Although I was startled) It was very natural and more of a simple transition. It’s definitely educational and worth learning to master the smoothness of the experience. I find it very interesting and valuable to be able to learn about what is perceivably an eternity’s worth of feelings and information in 21 minutes. Being startled like I had been really woke me up and I feel more alive now than I have in a long time. It seems that the ‘self’ can get in the way with the smoothness of some of these experiences. I seriously thought I had died and traveled to another reality. Now that I’ve felt that transition maybe I won’t think I’m dying again the next time. Not that it really matters. I’m looking forward to building more on this channel…
+Exp Year: 2011
+ExpID: 92052
+Gender: Male
+Age at time of experience: 31
+Published: Jan 16, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2-Me-DMT (453) : General (1), First Times (2), Mystical Experiences (9), Entities / Beings (37), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

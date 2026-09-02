@@ -1,0 +1,335 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我看到最生动的幻觉&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/benzydamine.html'>← Benzydamine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我看到最生动的幻觉&quot;</h1>
+<div class='sub-title'>Benzydamine &amp; Caffeine - Erowid Exp - &#x27;I See the Most Vivid Hallucinations&#x27;</div>
+<div class='meta'>作者：nickop01 Citation · 日期：Nov 11, 2020 · <a href='https://erowid.org/experiences/exp.php?ID=113554' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>准备:
+在250毫升99%的异醇中溶解了2个Tantum rosa囊.
+在有盖的容器里彻底混合.
+将溶液倒入玻璃碗中,将几乎所有的盐留在混合容器中.
+放置风扇并将其转向高速,以吹空气在碗中的溶液上,同时将烟雾排到外面.
+在24小时后或没有液体后从通风中取出,然后露面存储2-3天.
+将白色残留物从玻璃上除并用黄油刀/平头螺丝刀放入密封容器,留下透明的凝.
+这种方法产生了几乎完全没有盐的胺的非常高度.
+使用这种方法,我从10个囊中提取了4.88g纯胺 (1个囊=0. 5g).
+用囊去除不好的味道和口腔/喉麻木 (是一种表面麻木剂).
+个人吸毒史:酒精,大麻
+经验报告:
+凝囊正如预期的那样起作用.
+00h49min 迄今为止没有任何效果.
+我感觉到一个轻微的警告,
+00h55min 感觉有一种光环, 眼睛似乎在摇,
+01h05min 眼睛突然干燥,醉酒感加剧,身体感觉有点沉重.
+我立起身, 本能地把耳机的线拔掉,
+难以集中注意力.
+我在周围视野中看来有些物体在摇摆,动或移动.
+我听到厨房里听起来像音乐, 我的室友一定回家了,
+开始注意到典型的情绪影响 (即将到来的死亡感,焦虑,焦虑,恐惧,恐惧).
+黑暗加剧了所有精神错乱药物的影响, 使得水上旅行成为一个重要的情感挑战.
+01h40min 情绪效应加剧,不断感觉有人或某物在我背后,听觉幻觉在我背后呼吸
+我看着咖啡色桌子的边缘, 背后是白色的墙壁.
+我在我的直接视觉 (即直接看幻觉) 看起来像空气流如果一个人能看到这样的事情,微小的半透明的,旋风和空气的流.
+它们出现在我的办公桌边缘附近,
+几分钟后, 我看到一些半透明的小蜘蛛在边缘上来回走动.
+如果我长时间观察一只单独的蜘蛛, 它就会解体成灰云.
+01h55分钟 难以集中注意力/使用单词,手轻微.
+非常令人兴奋的感觉.
+桌边的透明蜘蛛就像繁忙的街道,
+它们会开始做一些奇怪的事情, 比如攻击其他蜘蛛或变成一个小鹿或房子,
+我把手伸到桌边, 蜘蛛就移到我的手上.
+开始看到经典&quot;轨迹/流体/条纹&quot;的第一个迹象.
+如果这是服用子的主要效果, 那么他们真的不应该服用子.
+02h10min 感到突然的寒, 也害怕背后的事情.
+我穿上了我的克.
+我开始看到面孔,头部和手在无生命的物体和结构.
+有些物体似乎像灵魂一样移动.
+房间的角落里一堆假皮毛突然比我见过的任何东西都更有威胁感,
+恐惧感似乎不是我在这次旅行中可以选择的,
+厨房里的幻觉音乐现在听起来像播客.
+耳机在子上播放音乐, 但戴在耳朵上, 听不到任何声音.
+我感到身体疲, 目前还没有任何刺激作用.
+桌边的蜘蛛现在从边缘爬向键盘,
+现在蜘蛛在我不直接看鼠标的时候, 爬过鼠标.
+在房间里我现在看到黑色的蜘蛛在每一个黑暗的角落,角落,等,无论哪里有阴影.
+它们看起来更真实.
+我已经有一段时间感觉到随机的,刺痛和刺痛,
+在我房间的角落里, 我看到一个长得像一条的黑腿,
+然后又一个,现在是四个.
+然后四个在对面的墙上.
+它们实际上是长而的手指.
+眼睛就像两个亮点, 像阴影般的圆圈里, 那就是他们的头部, 然后它开牙的嘴巴, 无声叫, 冲向房间的中心,
+显然,明亮的光线会阻碍黑暗的幻觉,
+我感觉到像小蜘蛛腿一样的东西在我的裸体手和子脚上爬行,
+03h35min开始清醒,所有的效果都在消失.
+感觉自己90%清醒,感觉更有活力.
+04h00min 剂量: 700mg (1个囊与红牛一起追逐)
+现在我无法区分偏执的想法和外围视觉中的幻觉.
+我感到极度脱水.
+房间似乎比平时更黑暗.
+我突然感到非常温暖.
+04h25min 头部和身体的重量正在慢慢恢复.
+无线耳机连接耳机线的幻觉再次在我的外视系统中出现.
+这最后一个囊有小破裂,导致吞时少量泄出.
+我知道人们所说的可怕的味道是什么,
+我现在听到厨房里的对话和从房间对面的角落里低声的声音.
+我觉得这声像是无形的听觉云向厨房移动,
+我注意到我必须把耳机的音量提高很多 (我会后悔的).
+05h15min 显著的时间扩张感, 以及痛苦的针刺.
+我不知道我是否只是极度脱水,
+可能是两者.
+我感到头.
+我注意到更多活跃的小径.
+07h30min 几乎与第一剂的效果相同.
+我去使用洗手间, 听到一群蜜蜂在天花板风扇里.
+我很疲, 几乎昏, 不知道是睡眠不足, 上腺素后疲劳,
+我看到最生动的幻觉:动物,灵魂,很多很多很多的蜘蛛, 在房间的每一个黑暗的地方,
+我看着一只蜘蛛, 它会变成一只小动物,
+现在蜘蛛已经在我的身体上 (虽然每次只有2-3只):脚,腿,胸,手臂,子,耳朵,头.
+我感觉到,针刺和偶尔的刺痛在我的整个身体, 所有幻觉.
+我看到一个非常大的蜘蛛与小蜘蛛的军队在她的背上 (可能数百) 从角落视出来,走向我,
+但在走了几英尺之后, 它就转身回来, 消失在阴影中.
+我仍然有充满活力的幻觉和情绪效应,
+听音乐会让我感到更疲, 就像我能体感到听到和理解音乐所需的努力.
+这可能是幻觉,也可能是瞳孔扩张.
+其他幻觉和效应仍在继续,
+我听到音乐/播客在厨房的突然回归
+我看到一个成年人像&quot;戒指&quot;的女孩和医疗账簿小丑之间的杂交, 跟着我, 偷.
+它们会消失,当我看到了角落,然后把他们的头/脚/身体在几秒钟后看不到.
+我不得不把它们放在我的身后,以免看到它们.
+我不再感到任何身体幻觉.
+我感觉很不舒服, 像是流感,
+我已经准备好睡着了,
+幻觉正在消退,我可以换衣服,闭上眼睛,没有太多问题.
+我每隔10分钟醒来一次, 仿佛我在跌倒,
+在我生命中,只有几次我感到如此疲.
+结果我只能睡1个小时,
+尤其是在赤脚上,
+但现在的路径与以往不同.
+我移动眼睛后, 它们就像任何明亮的光源的轮,
+我的眼睛感到非常疼痛和胀.
+我觉得,但我不确定, 因为我很难将眼睛集中在房间里任何黑暗的点上.
+我感觉非常脱水, 但比以前更少.
+子水对我有很大帮助,
+在过去的11个小时里, 我喝了多少水, 可能6升.
+感觉不那么感冒,更轻微的宿醉病.
+15小时40分钟时间扩张肯定消失了.
+我不知道是否还在黑暗的角落里,
+我仍然无法专注于我房间里的小黑暗事物.
+我在房间的角落里听到微弱的呼吸声.
+我还会偶尔感到.
+我根本看不到任何路径,
+我累了,但不像以前那样疲不堪.
+我在房间的角落里听到了远方的声音,
+我仍然感觉到残留的情感影响和偶尔的/针刺.
+感觉,不适,绝对没有清醒.
+感觉大部分是清醒,突然的能量涌入.
+旅行结束了.
+现在我知道我记得一切非常清晰.
+这次旅行几乎完全符合我的研究预期, 除了持续时间与剂量没有线性关系.
+结论:胺不是一种娱乐性毒品.
+妄想并不是一件好事.
+我没有享受
+我的旅行.
+我无法完全描述我在旅途中看到的所有可怕的事情,
+时间表: 113554
+2020年11月11日发布
+胺 (730): 单独 (16), 实体/生物 (37), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+I See the Most Vivid Hallucinations
+Benzydamine &amp; Caffeine
+by
+nickop01
+Citation:   nickop01. &quot;I See the Most Vivid Hallucinations: An Experience with Benzydamine &amp; Caffeine (exp113554)&quot;.
+Erowid.org
+. Nov 11, 2020. erowid.org/exp/113554
+DOSE:
+T+ 0:00
+1 g
+oral
+Benzydamine
+(capsule)
+T+ 0:00
+oral
+Caffeine
+(liquid)
+T+ 4:00
+1 g
+oral
+Benzydamine
+(capsule)
+T+ 4:00
+oral
+Caffeine
+(liquid)
+BODY WEIGHT:
+160 lb
+PREPARATION:
+Dissolved 2 sachets of tantum rosa into 250ml of 99% isopropyl alcohol. Mixed thoroughly in container with lid. Poured solution into glass bowl, leaving almost all of the of salt behind in mixing container. Placed fan and turn to high speed to blow air over solution in bowl while venting fumes outside. Removed from venting after 24 hours or after there was no liquid left, and left uncovered in storage to dry for 2-3 days. Scraped white residue off glass and into sealable container with butter knife/flat head screwdriver, leaving transparent gel behind. This method yielded very high concentration of almost totally salt-free benzydamine. Using this method I was able to extract 4.88g pure benzydamine from 10 sachets (1 sachet = 0.5g benzy). Used gelatin capsules to eliminate bad taste and mouth/throat numbness (benzy is a surface numbing agent).
+PERSONAL DRUG HISTORY: Alcohol, marijuana
+EXPERIENCE REPORT:
+00h00min DOSE: 1000mg (2 capsules chased with a redbull)
+00h10min No bad taste or numbness in mouth or throat, gel capsules are working as intended.
+00h49min No effects so far.
+00h50min I feel a slight warning that something is coming but it seems like it&#x27;s probably mostly just paranoia.
+00h55min Feeling of an aura, eyes seem to waver, and I have a heady feel like sativa.
+01h05min Eyes are suddenly dry, heady feeling has intensified and body is feeling slightly heavy. As I stood up, I instinctually went to unplug the wire to my headphones, except I&#x27;m using my wireless ones (it&#x27;s a hallucination).
+00h10min Difficulty concentrating.
+01h35min Objects seem to be wavering, wiggling or moving in my peripheral vision. I hear what sounds like music from the kitchen, my roommate must be back home, but when I go check, they&#x27;re not there, no lights are on anywhere except my room. Starting to notice the classic emotional effects (feelings of impending doom, anxiety, jumpy, fear, terror). Darkness intensifies all of the effects of deliriants, making water trips a significant emotional challenge.
+01h40min Emotional effects intensifying, constant feeling of someone or something behind my back, auditory hallucination of breathing behind me
+01h45min I look at the edge of my brown desk, behind which is a white wall. I see in my direct vision (i.e. looking directly at the hallucination) what looks like air turbulence if one could see such a thing, tiny translucent ripples, whirlwinds and currents of air. They appear close to the edge of my desk then disintegrate after several seconds into a cloud of transparent ghost-like ash. After a few minutes I see small translucent spiders going back and forth across the edge. If I look at one individual spider for long enough it will disintegrate into the ash cloud.
+01h55min Massively difficult to concentrate/use words, hands shaking slightly. Very, very heady feeling.
+02h00min More transparent spiders on the edge of the desk, like a busy street, some of them are bigger now. When I look at a single spider, it starts to do weird things, like attack other spiders or shapeshift into a tiny deer or house, then disintegrating once again into an ash cloud. I stick my hand onto the edge of the desk and the spiders move over top of my hand.
+02h05min Starting to see the first signs of the classic &quot;trails/streamers/streaks&quot;. If this is the main effect a person taking benzy wants to see they really shouldn&#x27;t be taking benzy.
+02h10min Feeling sudden chills and also fearful of things behind my back. I put on my jacket. In my peripheral vision I start to see faces, heads and hands in inanimate objects and textures. Some objects seem to be moving like spirits. A pile of faux fur in the corner of my room suddenly feels more threatening than anything else I&#x27;ve seen so far and I don&#x27;t know why. It appears as though feeling terror is not a choice during this trip but something I must cope with.
+02h20min The hallucinated music from the kitchen now sounds like a podcast. My headphones are around my neck, playing music, but when I put them on my ears, nothing is actually playing. I feel physically exhausted, no stimulant effects so far. The spiders on the edge of the desk are now crawling away from the edge towards the keyboard, but fade out before getting more than a couple inches.
+02h30min Spiders are now crawling over top of the mouse when I&#x27;m not looking directly at it. In the room I now see black spiders in every dark corner, nook, etc, wherever there is shadow. They seem more real.
+02h45min Have been feeling random itches, tingles and pinpricks for a while, but now I&#x27;m certain that I&#x27;m feeling tactile hallucinations.
+03h00min A dark spirit appears: in the corner of my room I see what looks like a fuzzy black leg of a very large spider curl around the corner of my shelf. Then another, now four. Then four more on the wall opposite. They&#x27;re actually long, jagged fingers. I&#x27;m looking directly at the small spectre as their head slides into view, their eyes are like two bright spots in the shadow-like circle that is their head, then it opens it&#x27;s toothed mouth in a silent roar, and rushes towards the center of the room, but disappearing far before it reaches me. It appears that bright light keeps away the darker hallucinations, but enables the more bright transparent hallucinations.
+03h05min I feel what seems like tiny spider legs crawling across my bare hands and socked feet, but nothing is visible.
+03h35min Starting to sober up, all effects are fading.
+03h50min Feeling 90% sober, as well as feeling more energetic.
+04h00min DOSE: 700mg (1 capsule chased with a redbull)
+04h10min At this point I am unable to distinguish between paranoid thoughts and actual hallucinations in my peripheral vision.
+04h20min I feel extremely dehydrated. The room seems darker than usual. I am feeling very warm suddenly.
+04h25min Head and body heaviness are slowly returning.
+04h40min The hallucination of the headphone wire to my wireless headphones twitches in my peripheral vision again.
+04h45min This last capsule had small tear, resulting in a small amount of benzy spilled out while swallowing. I know what people mean by the awful taste, also the back of my mouth and throat feel numb.
+05h10min More auditory hallucination, I&#x27;m now hearing conversations in the kitchen and whispering voices from the opposite corner of my room. The whispers seem to move like an invisible auditory cloud towards the kitchen, I feel as if the voice-cloud brushes by my legs by mere inches. I notice I have to turn the volume up on my headphones by a lot (will regret that later).
+05h15min Feeling significant time dilation, as well as painful pin pricks all over. I can&#x27;t tell if I&#x27;m just extremely dehydrated or if my numb throat is just making it difficult to swallow. Probably both. I feel dizzy. I notice much more vibrant trails.
+07h30min Much the same effects as the first dose up until now. I went to use the washroom and heard a swarm of bees buzzing inside the ceiling fan.
+08h00min I&#x27;m getting physically exhausted, almost blacked out, not sure if the cause is lack of sleep (started trip at bedtime), post-adrenaline fatigue or high dosage.
+08h30min Reach peak, I see the most vivid hallucinations: animals, spirits, lots and lots and LOTS of spiders everywhere, in every dark spot of the room, every shadow cast by my blanket, by clothes on the floor, inside pockets of my clothes. When I look at a single spider it shapeshifts into a small rodent, then a cockroach, then a snake, then a lizard, then some other strange creature, without end. The spiders are now on my body (though only 2-3 at a time): feet, legs, chest, arms, back of neck, ears, head. I feel tingles, pinpricks and the occasional jabbing pain all over my body, all hallucinated. I look into the darkest corner of the room and see a very large spider with army of tiny spiders on her back (likely hundreds) peek out from corner and walked towards me, and a feeling as though it is coming directly for me. However, it turns back around after walking a couple feet and disappears into the shadows.
+08h35min Comedown is taking much longer, and I&#x27;m still having episodes of vibrant hallucination and emotional effects, that come and then subside like waves.
+08h45min I have been listening to music from the start up until now, had to turn it off, listening to music makes me feel more exhausted, like I can physically feel the effort required to hear and understand the music.
+09h15min The lights brightened suddenly, a couple times, which is either a hallucination or pupil dilation. Other hallucinations and effects still going on, though less vivid. I hear the sudden return of music/podcast in kitchen
+10h15min I went to get more water, saw a shockingly vivid hallucination in my peripheral vision of an adult person who looked like a cross between the &quot;The Ring&quot; girl and the heath ledger joker, following me and peeking around the corners. They would disappear when I looked right at the corner, then poke their head/feet/body out a few seconds after looking away. Had to keep them behind me to not see them.
+10h30min I am no longer feeling any physical hallucination. I feel very strong malaise, like a flu, and also have a migraine, including sensitivity to noise and bright light. I am ready to fall asleep any second, but I hear and feel bugs crawling into ear when I try to close eyes for too long.
+11h00min Hallucinations are subsiding, I am able to change clothes and close my eyes without too much issue.
+15h00min I kept jumping awake every 10 minutes like I was falling or something touched me or a loud noise, all hallucinations. I have only felt this fatigued a few times in my life. In the end I am only able to get 1 hours sleep and then 2 consecutive hours sleep after waking up every 10min for a while. I feel lingering tingles and spiders, especially on my bare feet, as well as lingering emotional effects. Trails are very vivid, but they look different now than any other time. They appear as outlines of any bright light source after moving my eyes, like a ghost image/outline. My eyes feel really sore and swollen. The shapeshifting snake/cockroach in the darkest corner of my room, which has been there since not long after my second dose is still there I think, but I&#x27;m not sure as I&#x27;m having trouble focusing eyes on any dark spots in room. I feel very dehydrated, but less so than before. Coconut water helped a lot, I was getting over hydrated. I can&#x27;t remember how much water I drank in the last 11 hours, possibly 6 litres. Feeling less flu-sick, more mild-hangover-sick.
+15h40min Time dilation gone for sure. I can&#x27;t tell if the cockroach is still there in the dark corner or if it&#x27;s just vision memory. I still can&#x27;t focus on small dark things in my room. I hear very faint breathing in the corner of my room. I&#x27;m still getting the occasional tingle. I don&#x27;t see any trails at all, even when dimming the lights, but emotional effects increase when doing so. I&#x27;m tired but not nearly as exhausted as before.
+15h45min I hear distant talking in the corner of my room, but only for 5 seconds.
+16h30min I&#x27;m still feeling residual emotional effects and the occasional tingle/pinprick. Feeling vertigo, malaise, definitely not sober.
+17h30min Feel mostly sober, sudden rush of energy. The trip is over. After reviewing and editing my notes, I now know that I remembered everything in perfect clarity. This trip went pretty much exactly as I expected from my research, aside from the duration not being related linearly with dosage.
+CONCLUSION: Benzydamine is not a recreational drug. Being delirious is not fun.
+I did not enjoy
+my trip. I cannot possibly fully describe all of the terrifying things I saw during my trip, but I will remember it all forever.
+Exp Year: 2019
+ExpID: 113554
+Gender: Female
+Age at time of experience: 32
+Published: Nov 11, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Benzydamine (730) : Alone (16), Entities / Beings (37), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

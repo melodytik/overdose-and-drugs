@@ -1,0 +1,209 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>对于自己的理智感到恐惧</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mdpv.html'>← MDPV(浴盐)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>对于自己的理智感到恐惧</h1>
+<div class='sub-title'>MDPV - Erowid Exp - &#x27;Fearing for My Sanity&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jul 28, 2011 · <a href='https://erowid.org/experiences/exp.php?ID=89526' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我在网上订购了一些MDPV, 它在我可怕的旅行前一周左右到达这里.
+我每天会做几次 (通常是把香烟浸进去,
+星期三我的小&#x27;吸烟器&#x27;在邮件中到来, 这就是我的失败的开始.
+我填充了小吸入器, 遇到了一些有兴趣尝试的朋友.
+晚上12点半左右, 两个人第一次打了 (另一个人睡着了),
+我朋友在我来之前已经喝了几个小时了 (他很醉了),
+他的室友无法再入睡, 最终我们就坐在一圈里谈论一切, 我们的头脑每秒有1000个想法,
+由于我们旋转的方式和我的&quot;耐受性&quot; (我发现它比我想象的要低得多) 我每次旋转都得到2-3次击球.
+终于我们整晚醒了, 大约在早上8点30分,
+[Erowid的注意事项:
+驾驶时喝醉,倒,或极度缺乏睡眠是危险和不负责任的, 因为它危害了其他人.
+不要这样做!
+由于我打得太多, 鼻子里有大块, 水滴到胃里.
+走到他的车 (距离他不到一英里, 步行要花近一个小时),
+我开始服用药物的朋友很冷静, (因为他必须开车) 非常专注.
+他写下所有这些想法在笔记本 (32页的时间我们完成) 和自己说话.
+我开始感到有点恶心 (这对我来说很罕见,
+我吐在他的后座的塑料袋里, 没有人注意到,
+我不时地服用小剂量 (一旦我开始感到恶心我试图停止).
+吸了几碗大麻 (我通常要吸很多,
+我开始感到疯狂.
+我一直着镜子里的朋友 (几个小时, 无论我多么努力, 我都无法转眼,
+由于我不能说话,我开始给他们发短信,尽管他们坐在我面前,我告诉我的另一个朋友 (他写了很多) 我觉得我的身体被别人控制,并没有回应我的思想 (这是我生命中唯一一次我实际上无法控制我的身体,我以前做过离散
+但这是不同的我实际上是为了控制我的身体而战,
+我们在下午中午返回学校,
+我们在吸烟之前接了一个朋友,然后我真的感到疯狂.
+我一直着我的朋友开车和我的朋友我们刚刚起 (我是一个男人, 他们是男人) 无论我如何努力强迫我的眼睛看不去他们不会 (即使当我用手遮住我的眼睛, 我的手会留下一个小&quot;视孔&quot;打开, 如果我关闭它会发生别的东西,
+我一直着男生 (我不是同性恋, 也从来没有想过自己是同性恋,
+我最终回到我的房间, 但决定因为大麻通常帮助我下来放松决定去吸烟碗 (与另一群朋友).
+我无法说话,当我试图给我正在吸烟的朋友发短信时, 我会看着键盘,
+我开始感到恐慌, 我一直在给朋友发短信,
+我不能放心,当我们离开他的公寓乘坐公共汽车回到校园我只是一直着着随机的男人在公共汽车上.
+我不想周围有很多人, 所以我决定留在外面抽一支香烟 (我把毛衣罩抬起, 面对墙壁,
+我回到我的房间, 偏执开始了.
+看到两名警察走过来 (他们通常每隔几天都会巡逻我住的宿舍),
+我有视觉和听觉幻觉 (我妄想的任何东西都变得真实), 我试着睡觉, 但只有几个小时, 第二天仍然无法控制我的身体 (一直着男孩), 不能分辨前一晚的现实和幻想
+我开始更加恐慌 (我删除了前一天晚上的所有短信,
+我最后一次服用药物已经72个多小时了,我仍然感到疯狂和失控 (主要是我的眼睛,我可能控制,但我不相信自己).
+我没有吃太多,睡太多,或喝太多水.
+我曾几次想去医院, 因为我感到疯狂和失控.
+我害怕离开我的房间,甚至去吃饭.
+我也曾经非常丧, 几乎自杀 (我不会自杀,
+我很害怕, 我觉得我已经疯了.
+经过我经历的经历, 我还在经历它的后果.
+无论你对其他兴奋剂和一般药物有多么有经验,
+我把剩下的东西扔掉了, 并且决定尽量保持清醒 (我经常抽烟/喝酒, 随机使用其他毒品 - - LSD,DMT,,MDMA,DXM,可乐,阿片类药物,JWHs,还有很多其他药物) 但由于这对我造成了什么,
+如果我不快恢复正常, 我已经考虑过自杀.
+没有人会让你这么做.
+[报告的剂量:在24小时内重复30次]
+时间表: 89526
+过量使用 (29), 抑郁 (15), 困难经历 (5), 小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Fearing for My Sanity
+MDPV
+by
+Tom H.
+Citation:   Tom H.. &quot;Fearing for My Sanity: An Experience with MDPV (exp89526)&quot;.
+Erowid.org
+. Jul 28, 2011. erowid.org/exp/89526
+DOSE:
+repeated
+insufflated
+MDPV
+(powder / crystals)
+oral
+Alcohol
+repeated
+smoked
+Cannabis
+BODY WEIGHT:
+200 lb
+I ordered some MDPV off the internet and it arrived here a little over a week before my terrible trip. I would do a little a few times a day (usually dip a cigarette in it, which just made me focused) and occasionally a little bump.
+On a Wednesday my little &#x27;snuff inhaler&#x27; came in the mail, and that was the start of my downfall. I filled up the little inhaler and I met some friends who were interested in trying it. Later that night at around 12:30AM two of us did our first hit (the other was asleep) and every 15 minutes or so we would take another hit. My friend had been having drinks for a few hours before I came (he was pretty tipsy) and I had a few with him while we were doing the MDPV. At around 3 his roommate woke up and decided to take a hit (expecting to go  back to sleep), his roommate couldn’t get back to sleep and eventually we were sitting around in a circle talking about everything our minds going at 1000 thoughts per second and talking about everything. While we were sitting in the circle we kept taking hits (literally passing it around without breaks longer than 10 minutes between hits), because of  the way we were rotating and my “tolerancy” (which I discovered was a lot lower than I thought) I was getting 2-3 hits per rotation.
+Eventually we stayed up all night and at around 830AM decided to go drive around and smoke some bud.
+[Erowid Note: 
+Driving while intoxicated, tripping, or extremely sleep deprived is dangerous and irresponsible because it endangers other people.
+Don&#x27;t do it!
+]
+Before we left I decided to snort some water so it would be better distributed, but since I had been hitting so much there were large clumps in my nose and the water made it drip into my stomach. Eventually we made it to his car (less than a mile away and it took us almost an hour to walk there) we were seriously fucked up, but each was reacting in our own way.  The friend I had started taking the doses with was chill and (since he had to drive) was really focused. The friend who woke up was writing down all these ideas he had in a notebook (32 pages by the time we were done) and was talking to himself.  I was stuck in the back seat and began to feel a bit nauseous (which is rare for me, I’ve only thrown up twice while on anything). I threw up in a plastic grocery bag in his back seat, no one noticed and I barely did either. I kept taking little doses every now and then (once I started feeling really nauseous I tried to stop).
+We ended up driving around for 450 miles (they missed classes and we were still going) and smoked a few bowls of some great weed (which usually I have to smoke a decent amount but  on MDPV I was super sensitive). I started feeling crazy. I couldn’t form words (terrible cottonmouth and just unable to speak) and I kept staring at my friend in the rearview mirror (for hours and hours, no matter how hard I tried to I couldn’t look away, even if I was trying to look out the window my eyes would just stare at him). Since I couldn’t talk I started texting them even though they were sitting in front of me, I told my other friend (who was writing a lot) that I felt like my body was being controlled by someone else and wasn’t responding to my mind (it’s the only time in my life I’ve actually been out of control of my body, I’ve done dissociatives before but this was different I was actually fighting my body for control and it was winning). We made it back to school mid afternoon and decided to smoke another bowl to relax and hopefully crash.
+We picked up a friend before we smoked and then I really felt crazy. I kept staring at my friend driving and my friend we just picked up (I’m a guy and they’re guys) and no matter how hard I tried to force my eyes to look away they wouldn’t (even when I covered my eyes with my hands, my hands would leave a little “peek hole” open and if I closed it something else would happen that would let me see them). We decided to go grab a bite to eat and I kept staring at guys (I’m not gay, nor ever have thought about being gay but my eyes kept staring at them not checking them out but just staring and would follow them or stare at them out of the corner of my eye). I eventually made it back to my room, but decided since weed usually helps me come down and relax decided to go smoke a bowl (with another group of friends). After smoking weed it felt even worse, I couldn’t speak and when I tried to text my friends I was smoking with I would be looking at the keyboard but my eyes (still not under my control) would look at my friends. I began to freak out and kept texting my friend what was happening, and he said to just chill. I couldn’t chill and when we left his apartment to ride the bus back to campus I just kept staring and staring at random guys on the bus.
+We got off a few stops too early and they wanted to eat something, I didn’t want to be around a lot of people so I decided to stay outside and smoke a cigarette (facing a wall with my sweatshirt hood up so my eyes wouldn’t stare at people). I made it back to my room and the paranoia set in. I looked out of the peep hole in my door and saw two cops walk by (they usually patrol the dorm I live in every few days) so I texted all of my friends that live in my hall and was freaking out. I was having visual and auditory hallucinations (anything my paranoia thought of became real), I tried to sleep but only got a few hours and the next day still had no control over my body (kept staring at guys) and couldn’t tell what was reality and fantasy from the night before, so I began to panic even more (I deleted all my texts from the night before because I thought the cops would look through my phone).
+It has been over 72 hours since I last dosed and I still feel crazy and out of control (mainly my eyes, I might be in control but I don’t trust myself). Haven’t eaten much, slept much, or drunk much water. I’ve wanted to go to the hospital a few times, because I feel crazy and out of control. I’m scared to leave my room, even to go get food. I’ve also been very depressed, and semi-suicidal (I wouldn’t kill myself, but life has no meaning). I’m very scared and feel like I’ve gone crazy permanently. I would not recommend this drug to anyone after the experience I’ve had and I’m still living through the repercussions of it. So please, never do this no matter how experience you’ve had with other stimulants and other drugs in general. I threw out what was left and have decided to try and stay sober for the rest of my life (I smoked/drank regularly and did other drugs randomly- LSD, DMT, Shrooms, MDMA, DXM, Coke, Opiates, JWH’s, and many many more) but since what this has done to me I want to become normal again (back to the way I was and in control) and never do drugs again. If I don’t go back to normal soon, I’ve thought about killing myself. Please please please never do this  or you could possibly turn out like me and fear for your life and sanity.
+[Reported Dose:	Repeated 30 times over 24 hours]
+Exp Year: 2011
+ExpID: 89526
+Gender: Male
+Age at time of experience: 18
+Published: Jul 28, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDPV (377) : Overdose (29), Depression (15), Difficult Experiences (5), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

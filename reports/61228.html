@@ -1,0 +1,313 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>mCPP和GBL - 埃罗维德的经验 - &quot;世俗的,糟糕的,可怜的皮佩拉辛&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/piperazines.html'>← Piperazines</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>mCPP和GBL - 埃罗维德的经验 - &quot;世俗的,糟糕的,可怜的皮佩拉辛&quot;</h1>
+<div class='sub-title'>mCPP &amp; GBL - Erowid Exp - &#x27;Mundane, Crappy, Poor Piperazine&#x27;</div>
+<div class='meta'>作者：Splatt Citation · 日期：Mar 6, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=61228' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>为了缓解我第一次mCPP实验的胃部和恶心问题, 以及其他许多药物.
+在一些卷纸中滴下85-95毫克的mCPP,然后去洗.
+有些颜色开始比平常更加突出, 但它们不是通常的虹组合,
+更多的是棕色,灰色,黄色和深色.
+我开始讲述我正在做的事情,
+我感觉到一些微微的东西, 但确实还没有真正的效果.
+我开始感到恶心, 口周围的唾液比平时更多.
+我也开始感到消化不良,
+我开始连续几次打喷, 鼻子也堵住了.
+药物似乎没有解血能力.
+眼睛也在. 眼睛也在.
+脸上似乎有点紧张,
+换句话说我感觉不太好, 但我尽量不让这种感觉阻碍一个可能的好体验.
+眼睛看起来完全没有膨胀,
+我开始在皮肤上感到一些奇怪的感觉.
+我在其他报道中读到的那些&quot;冷热&quot;的开始.
+视力变得更糟, 阅读变得更难,
+这似乎改变了我的视力,
+类似于在阿片类药物下阅读变得更加困难.
+21:20 [T+0:45] 颜色并不是更明亮的, 但无论我看什么, 主要的颜色似乎更突出,
+只是在所里吐.
+我吃了七个小时前. ,我知道.
+我吃了几个小时后的烤面包和奶酪饼干没有.
+如何做到这一点?
+我开始感觉有点热, 额头上有一点汗水.
+这听起来不像我在精神病或MDxx.
+听起来很正常, 但偶尔我可以说服自己.
+我闭上眼睛, 只有很轻微的&quot;我在做什么&quot;或脱离感觉.
+开始随机出现血管或压力点抽以及随机快速尖的疼痛,
+脸部有点垂下, 虽然感觉比实际下降要多.
+我脚变得不安, 我一直在伸展脚顶,
+我现在注意到一些中等变形和变形正在发生, 但视觉停止一旦我意识到这是同步到我的浅呼吸.
+我开始有这种感觉, 我的前面的牙或顶部的牙或推出更多,
+感觉热量没有得到正确的调节, 肌肉不断地烦,
+我认为身体的兴奋程度不高, 而精神的兴奋程度则很低.
+我不是一个暴力的人, 但我发现一些强迫的图像在我的脑海里, 殴打尸体刺地有趣,
+似乎让我强迫的黑色幽默.
+这种药物破坏了我的创造力或驱使我像往常一样疯狂,
+现在我确实在服用药物.
+我不觉得这种药物有很多它自己的性格,
+无聊很快就会变成一种焦虑或只是一种总体的渴望,
+我不喜欢面部紧张, 鼻有着奇怪的反应,
+我还没有被任何完全的兴奋所占据,
+我确实伸出了手臂和背部, 感觉很好,
+虽然到目前为止, 恶心并没有像在第一个半小时的MDMA中那样严重.
+这一定是峰值或接近它现在没有任何方向的推进.
+这是无聊的.
+随机的疼痛和紧张感持续存在.
+我肯定更愿意保持清醒.
+我正在考虑把我剩余的GBL我一直保存来纠正事情.
+22:10 [T+1:35] 没有新的或更强的效果.
+脸上还是一样的发红,胀的感觉
+现在恶心又开始升.
+我很有气体.
+我的嘴里没有令人愉快的味道.
+这些寒冷的冲动在哪里?
+我只是觉得过热比服用药物更糟.
+现在我知道高潮并没有变得更好或更强烈.
+我在过去的半小时里一直在网上与某人交谈.
+我没有动力在黑暗中散步,
+我还觉得脸上有点红, 眼睛下面有点紧张.
+我还在吹风机上汗水.
+我现在感觉不到恶心或感觉所有这些可怕的效应.
+但我确实感觉有点太热了,
+我一直在跟同一个人说话, 因为最后一个时间, 通常这不是我会选择做什么时服用化学物质, 远离它.
+如果我在里面, 电脑的唯一用处就是播放音乐或观看有趣的东西.
+但我发现我必须对药物做些什么来克服其副作用.
+我无法融入周围环境,
+我现在注意到,当我躺下凝视时, 我会看到周围的视觉移动,
+当我专注于某个物体,图片或图案时, 就不再有任何动作.
+感觉仍然处于同一个平静的水平, 所以我在汁中加入了2.1毫升纯净的GBL.
+虽然G已经开始起作用, 但我并没有过度镇静或放松,
+没有令人惊叹的协同效应,
+我也没有感觉到全力G效应,
+这两者似乎在某种程度上互相抵消.
+我剩下的G只有0.7毫升.
+再次用汁混在一起.
+00:00 [T+3:25] 更多的相同.
+感觉没有什么不同, 稍微低于背景的mCPP声,
+我可以享受G的某种效果.
+任何时间和地点的奇迹药物!
+00:15 [T+3:40] 感觉有点饥饿我去吃一些Wet Bix与牛奶作为chems,特别是GBL引起一些肠道问题给我和一些粗的肠道运动.
+纤维通常会修复一些.
+00:20 [T+3:45] 检查眼睛,它们稍微扩大了.
+我坐了几分钟, 消化食物, 感受剩下的G感觉.
+00:30 [T+3:55] 感觉有点像我在吸毒, 但没有身体刺激,
+坦白说,我更愿意在毒品下跌中, 因为这仍然很微妙.
+我打电话给一个朋友,
+他告诉我他的网络还在下降,所以我告诉他重新输入他的密码.
+他告诉我没有用处, 因为他没有触及路由器配置中的密码,
+我告诉他以一种非常&quot;知&quot;的方式去尝试.
+他这样做,
+00:45 [T+4:10] 我觉得睡觉不会那么容易,
+这不是性毒品.
+太多的上下,当勃起它不是强大的像像单独的G甚至在麻醉下降.
+更多的像我可以在几个MDMA药丸后得到硬的,也就是说不是最伟大的.
+经过多次上下排精, 排精的强度和感觉都不如吸毒,
+我认为可能因为维亚格拉是皮佩拉, 这种药物可以帮助实现更好的勃起,
+我希望我有更多的G,所以我可以吹出 (G-睡眠)
+不是说它在做什么,只是让我的头脑保持清醒,
+虽然有点热, 但不像以前那么糟糕.
+我从来没有感受到人们所说的冷热.
+睡觉似乎还没有那么容易, 所以我在网上玩了一小时的经典虚幻锦标赛,
+02:45 [T+6:10] 睡眠比我想象的要困难, 但没有像在吸毒时试图入睡的快速闭眼电影,
+在晚上做了一些很奇怪的梦.
+我有时会重复一个梦, 乘坐公共汽车, 沿着一条风, 非常狭窄,
+像往常一样, 一个我过去的朋友像鬼一样跟我说话.
+他告诉我, 通过自杀, 他被困在边缘世界, 不能进步, 只能生活在这个地区 (他从悬崖跳下, 类似于我的梦),
+在找到一个无可击的计划让他活着回来之后,他最终决定他最好留在境中,因为他会让自己,家人和朋友或类似的人失望.
+现在他有自己的个人生活.
+很奇怪的梦,就像我的朋友真的和我交流.
+梦想可以如此强烈和妄想, 甚至比幻觉旅行更强烈.
+我在中午左右醒来, 感觉很正常.
+没有下降,但我的额头仍然感觉比它应该更热.
+在这次实验之前, 我曾试过mCPP, 服用65毫克,
+我觉得如果我向正面的方向推进自己,
+两小时后我感觉到了一种镇静效应, 如果我微笑,
+我不打算再去尝试这种药物.
+浪费时间,对我来说也没有什么好处.
+它不以任何方式,形状或形式类似于MDMA.
+它更像是一些脏的,平淡的兴奋剂没有积极或激励的推动没有实际的身体兴奋剂除了副作用.
+我会把剩余的给一个朋友,
+其他:
+2007年3月6日发布
+mCPP (102):一个人 (16),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Mundane, Crappy, Poor Piperazine
+mCPP &amp; GBL
+by
+Splatt
+Citation:   Splatt. &quot;Mundane, Crappy, Poor Piperazine: An Experience with mCPP &amp; GBL (exp61228)&quot;.
+Erowid.org
+. Mar 6, 2007. erowid.org/exp/61228
+DOSE:
+T+ 0:00
+4 tablets
+oral
+Ginger
+(extract)
+T+ 0:10
+90 mg
+oral
+mCPP
+(powder / crystals)
+T+ 2:53
+2.1 ml
+oral
+GBL
+(liquid)
+T+ 3:20
+0.7 ml
+oral
+GBL
+(liquid)
+BODY WEIGHT:
+112 kg
+20:25 [T-0:10] Dropped four tablets of ginger root powder extract, to help with stomach and nausea issues I had with my first mCPP experiment, and a lot of other drugs.
+20:35 [T+0:00] Dropped 85-95mg of mCPP in some rolly paper and then go and have a shower.
+20:50 [T+0:15] Some colours are starting to stand out more than usual, but they are not the usual neon-grouped ones that stand out on say 2C-B, MDMA/MDA or LSD. More the browns, greys, yellows and darker colours. I am starting to narrate what I am doing and about to do in my head a bit more. I am feeling something ever so slightly, but definitely no real effects yet.
+21:10 [T+0:35] Starting to feel nauseous and more saliva is building around my mouth than usual. I am also getting indigestion feelings and feel burpy. Starting to sneeze a few times in a row and my nose is rather blocked. The drug does not seem to have decongestive abilities. I am constantly getting gaggy feelings which are not comfortable and my eyes are running.
+My forehead feels rather tight and tense, as does most of my face seem like it is under some sort of tension. I have got a semi headache and in other words I am not exactly feeling great but I try not letting this come up feeling hinder a possible good experience. Eyes do not appear dilated at all and the skin of my arms and hands feels rather sticky, like on mushrooms.
+21:15 [T+0:40] Started feeling some weird extra sensations on my skin. Could be the start of those &#x27;cold rushes&#x27; I have read about in other reports. Vision has become worse, harder to read, but not because I feel high, dizzy or am hallucinating. It just seems to have changed my vision somewhat in a non psychedelic way. Similar to how reading becomes harder on opiates.
+21:20 [T+0:45] Colours arent exactly brighter or anything, but anything I look at, the dominant colour seems to stand out much more, and so will all other things in my peripheral vision of that colour.
+21:22 [T+0:47] Just threw up in the toilet. Somehow some shitty sweet and sour pork microwave meal came up and I ate that about 7 hours ago. But some toast and some crackers with cheese I ate many hours after that did not. How does that work?
+21.25 [T+0:50] Starting to feel a bit hot and have a fair bit of sweat on my forehead. Just put on some music (a freeform hardcore set) and it doesn&#x27;t sound like I&#x27;m on a psych or MDxx. Sounds pretty normal but every now and then I can convince myself otherwise. I close my eyes and am only just able to get a very slight &#x27;I&#x27;m on something&#x27; or dissociate feel. Starting to get random blood vessel or pressure point twitches and also random quick sharp pains, they are pretty tolerable though.
+21:30 [T+0:55] Face is drooping somewhat, although it feels like it is dropping much more than it actually is. My feet are getting restless and I keep stretching the top of my foot and fidgeting them a lot. I now notice some medium warping and morphing going on but the visuals stop as soon as I realise it was in sync to my shallow breathing. I start to get that feeling that my front top gums or top teeth or pushing out more, that I get on ecstasy.
+21.35 [T+1:00] Feels like heat isnt being regulated properly and getting constant muscle annoyances, such as twitching and continuous jumping. So far I don&#x27;t rate the body high very good at all, and the mental high is lacking severely.
+21:40 [T+1:05] I&#x27;m not a violent person at all, but I found some forced images going on in my mind of beating up dead corpses sarcastically funny, but I didn&#x27;t laugh about it. Seems to bring out my forced dark humor.
+21:45 [T+1:10] This drug has ruined my creativity or drive to be a bit insane like I usually am, or just do weird shit, walk funny or make weird noises and talk to myself in a different character like usual. I am definately &#x27;on&#x27; a drug now. I don&#x27;t feel this drug has much of it&#x27;s own character, and what little character it has is pretty uninteresting. Boredom quickly turns into a sort of anxiety or just a general feeling of wanting it to be over, not because its bad, but because I would rather be sober.
+I do not really like the facial tension I get on it, it&#x27;s doing something weird to my sinus, and it is making breathing slightly harder. I am still not taken over by any complete high yet, like a stream of consciousness or just any complete and continuous effects. I did stretch my arms and back though and it felt pretty good, but it probably would normally too. So far though nausea isn&#x27;t as bad as it is in the first hour and an half on MDMA for me.
+22:00 [T+1:25] This must be the peak or nearing it now and there is no push in any direction. This is boring at best. Random pains and tensions are persisting. I would definitely rather be sober. I am thinking of having the remainder of my GBL I have been saving to straighten things out.
+22:10 [T+1:35] No new or stronger effects at all. Same old flushed, puffy face feeling. Still got the shitty facial tension and now the nausea is creeping back up. I am very gassy. There are less than pleasing tastes in my mouth. Where are these cold rushes? I just feel overheated worse than on pills.
+22:35 [T+2:00] Nothing has changed really, I now know that the high isn&#x27;t getting any better or more intense. I have been talking to someone on the internet for the past half hour or so. I don&#x27;t have the motivation to go for a walk in the dark, and feel it would be uninteresting at most anyway. Still feel hot like my face is flushed red, and feel tension under my eyes. I am still sweating with my fan on.
+22:50 [T+2:15] Unless it is because I am still engaged in an internet conversation I am not feeling nauseous or feeling all the shitty effects as much now. But I do feel a bit too hot to be comfortable, maybe even hotter than before.
+23:25 [T+2:50] I have been talking to the same person since the last timestamp, normally this is not what I would choose to do when taking a chemical, far from it. The only use of a computer would be to play music or watch something trippy if I am inside. But I find I have to be doing something on the drug to overcome its side effects. I could not just melt into my surroundings and enjoy any type of trip or feeling. I notice now that when I lay back and stare I get moving peripheral visuals, like something continuously moving away or scrolling in a certain direction. When I focus on that object, picture or pattern directly there is no moving anymore.
+23:27 [T+2:53] The feeling is still pretty much at that same uneventful level so I have 2.1ml of pure GBL in some orange juice.
+23:40 [T+3:05] The G has kicked in but I&#x27;m not overly sedated or relaxed, I just feel better as expected. There is no amazing synergy at all, unlike meth and G which feels wonderful. It&#x27;s like I am not feeling the full G effect either, or the mCPP much anymore. Somehow, it is like they have both cancelled each other out to a degree.
+23:55 [T+3:20] I have the rest of my G which is only about 0.7ml. Mixed with orange juice again.
+00:00 [T+3:25] More of the same. Not really feeling any different, slightly down from the background mCPP buzz which is actually what I wanted. The G is having some effect which I can enjoy. G really is the wonder drug for any time and place!
+00:15 [T+3:40] Feeling kind of hungry I go and eat some Weet Bix with milk as chems, especially GBL cause some gut problems for me along with some gross bowel movements. Fiber normally fixes it somewhat.
+00:20 [T+3:45] Check eyes, they are ever so slightly dilated. I sit back for a few minutes to digest the food and feel the rest of the G feeling.
+00:30 [T+3:55] It feels a tiny bit like I am on a meth comedown, but without the body stimulation, and the mind isn&#x27;t the same mechanical and habit-based structure like on meth or its comedowns. To tell the truth I would rather be on a meth comedown as this is still pretty subtle at most.
+I ring a friend to see what he is doing. We talk shit for a while, he tells me his net is still down so I tell him to retype his password in. He told me there would be no use as he hasn&#x27;t touched the password in his router configuration or any settings at all. I tell him to try it in a very &#x27;knowing&#x27; way. He does so and it connects instantly.
+00:45 [T+4:10] It feels like sleep won&#x27;t be all that easy so I opt to masturbate for a while to help with sleep. This would not be a sex drug. Too much up and down and when erect it isn&#x27;t as strong as like on G alone or even on a meth comedown. More like the kind of hard on I can get after a few MDMA pills, i.e. not the greatest.
+01:20 [T+4:45] After a lot of up and down I cum and its not near as intense ejaculation wise or feeling wise as meth, but I think the G made it feel better than it would of, and it was better than a sober orgasm. I thought maybe because viagra is a piperazine this drug could help achieve a better erection, but then I remember BZP which I had no hope of getting it up on (or after) at all.
+Wish I had more G so I could blow out (G-Sleep) as I am over this drug, and over being awake. Not that it is doing anything it&#x27;s just keeping my mind a bit awake, but my body doesn&#x27;t feel stimulated besides my jaw slightly. Still a bit hot but nowhere near as bad as before. I never got those cold rushes people talk about.
+01:30 [T+4:55] It feels like sleep still won&#x27;t be all that easy so I go and play some classic Unreal Tournament online for about an hour then go to bed.
+02:45 [T+6:10] Well sleep is harder than I thought, but no rapid closed eye movies like when trying to sleep on meth, and no eye tension from trying to keep my eyes shut, just semi-awake boredom.
+Had some pretty weird dreams through the night. A repeated dream I get at times of being driven on a bus down some really winded, very narrow, bumpy hill-side road and other cool scenery, to some pool caves where everyone goes after it has rained for a few days.
+Then as usual a friend from my past talks to me as a ghost. Telling me how by killing himself he is stuck in limbo and cannot progress and can only live in this area (he jumped off a cliff similar to the one in my dream), and needed my help to get him back into the real world. After finding a fool-proof plan to get him back alive, he decides in the end it is better for him to stay in limbo as he would disappoint himself, family and friends or something like that. And has his own solo life now in limbo. Very odd dream, it is like my friend really is communicating with me. Dreams can be so intense and delusional, even more so than a psychedelic trip.
+I woke up some time around midday feeling pretty normal. Not down at all but my forehead still feels hotter than it should be.
+I have tried mCPP once before this experiment, at 65mg with a 25mg booster about an hour and a half into it. I had similar side effects as above, especially nausea and didn&#x27;t really enjoy it, but I thought if I made a push on myself in a positive direction I could enjoy the experience. I felt a sedated effect about 2 hours later, where if I smiled I could trick myself into thinking &#x27;this is okay&#x27; for a few seconds, but beside that I didn&#x27;t enjoy it.
+I&#x27;m not going to bother trying this drug again. It is a waste of time and has no decent effects for me at all. It is not in any way, shape or form MDMA-like. It is more like some dirty, uneventful stimulant with no positive or motivational push with no actual physical stimulant properties besides the side effects. I&#x27;ll be giving away the rest to a friend who can maybe get something positive from it.
+Exp Year: 2007
+ExpID: 61228
+Gender: Male
+Age at time of experience: Not Given
+Published: Mar 6, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+mCPP (102) : Alone (16), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

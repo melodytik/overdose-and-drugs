@@ -1,0 +1,175 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我觉得非常正常&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/lobelia-spp.html'>← Lobelia spp.</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我觉得非常正常&quot;</h1>
+<div class='sub-title'>Lobelia inflata - Erowid Exp - &#x27;I Felt Extraordinarily Normal&#x27;</div>
+<div class='meta'>作者：riburr Citation · 日期：Nov 30, 2017 · 剂量：3 seeds · <a href='https://erowid.org/experiences/exp.php?ID=92200' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>美国东部常见的一种开花的野生植物.
+它含有多种类,最常见和最受研究的类.
+最近有研究比较了洛贝林与甲基 (Ritalin) 在治疗注意力缺陷多动症 (ADHD) 的有效性.
+临床比较和Ritalin在网上可以找到,
+这种植物在美国东部很常见.
+它们的使用记录可以追溯到17世纪.
+它有几种常见名称,其中包括印度烟草和吐草.
+其他种类的洛贝利亚包括红衣花, 这种美丽的花植物在溪边发现, 和花园的装饰花品种.
+我不知道这些其他物种和品种是否具有精神活性.
+这种植物发展成尖的身材.
+花朵和小种子在上升的尖端附近发育.
+我选择三个种子, 每个比花园豆还小,
+我选择三个种子, 每个比花园豆还小,
+这样一来,你就会感觉到有热感,
+吞后,热感会充满喉,胸部,并在胃部有所减轻.
+喉和胸部有奇怪的刺激感,
+吐反射非常强,
+一个凉爽的饮料有助于缓解症状.
+这种不愉快的感觉在30分钟内消失.
+在15到20分钟内,
+我觉得这种感觉很神奇,
+如果像我一样, 脑子里总是有雾,
+这就像清凉干燥的风吹散了清晨的雾,
+一切都变得更加清晰,清晰,明确.
+思想和任务组装成一个逻辑和高效的顺序.
+我感到非常正常,非常直观,超正常.
+能够为自己的立场辩护和提出反驳.
+这种影响持续了几个小时.
+晚上晚些时候只有正常的疲劳的一天花了好.
+但与新鲜的材料相比, 这种方法根本不适合.
+非常新鲜和较旧的配方和提取物之间存在很大的质量差异.
+其他:
+洛贝利亚种类
+(327) : 提高工作效率 (50), 后视 / 总结 (11), 单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>I Felt Extraordinarily Normal
+Lobelia inflata
+by
+riburr
+Citation:   riburr. &quot;I Felt Extraordinarily Normal: An Experience with Lobelia inflata (exp92200)&quot;.
+Erowid.org
+. Nov 30, 2017. erowid.org/exp/92200
+DOSE:
+3 seeds
+sublingual
+Lobelia spp.
+BODY WEIGHT:
+200 lb
+Lobelia inflata is a flowering wild plant common to the eastern U.S. It contains several alkaloids, the most prevalent and most studied is lobeline. There has been recent research comparing the effectiveness of lobeline with methylphenidate (Ritalin) in the treatment of attention deficit hyperactivity disorder (ADHD). Clinical comparisons with Ritalin are available online and are what most interested me in this plant.
+As I said, the plant is pretty common in the eastern United States. There are written records of use going back to the 1700s. It has several common names, Indian tobacco and vomitwort among them. Other species of Lobelia include the Cardinal flower, a beautiful flowering plant found near streams, and ornamental flowering varieties developed for the garden. I don&#x27;t know if these other species and varieties possess psychoactive properties.
+The plant develops a spike stature. Flowers and small seedpods develop close to the ascending spike. I chose to chew three seedpods, each smaller than a garden pea and hold them sublingually for several minutes before swallowing.
+I chose to chew three seedpods, each smaller than a garden pea and hold them sublingually for several minutes before swallowing.
+Immediately, a hot sensation is noticed, and copious saliva is produced. Upon swallowing, the hot sensation fills the throat, chest and diminishes somewhat in the stomach. There is weird feeling of irritation in the throat and chest, kind of a choking cough, but not intense. A *very* strong vomit reflex is not uncommon. A cool drink helps to alleviate the symptoms. The unpleasant sensations disappear within about 30 minutes.
+Within 15 or 20 minutes there is a very noticeable clearing of the head. I find this sensation amazing, similar to the way Ritalin clears the fog and allows me to focus. It is very pleasant if you&#x27;re beset like me with a persistent brain fog. It&#x27;s like a cool, dry breeze dispersing the morning haze, or wipers and spray clearing away the pollen, dust and smashed insects off a dirty windshield. Everything is clearer, sharper, more defined. Thoughts and tasks assembled into a logical and efficient order. I felt extraordinarily normal, very straight, supernormal. I engaged several family members in good conversation, able to defend positions and offer counterarguments. The effects continued for several hours. Late in the evening there was only the normal tiredness of a day well spent.
+It can be found as an extract w/alcohol, but this does not compare with the fresh material, at all. There is a profound qualitative difference between very fresh and older formulations and extracts.
+Exp Year: 2011
+ExpID: 92200
+Gender: Male
+Age at time of experience: 54
+Published: Nov 30, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Lobelia spp. (327) : Performance Enhancement (50), Retrospective / Summary (11), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

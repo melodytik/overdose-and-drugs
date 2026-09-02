@@ -1,0 +1,525 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>4-甲基化物 - 化物 Exp - &quot;清晰但无聊&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-fluoromethylphenidate.html'>← 4-Fluoromethylphenidate</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>4-甲基化物 - 化物 Exp - &quot;清晰但无聊&quot;</h1>
+<div class='sub-title'>4-Fluoromethylphenidate - Erowid Exp - &#x27;Clear but Boring&#x27;</div>
+<div class='meta'>作者：Anatoli Smorin Citation · 日期：Aug 5, 2021 · <a href='https://erowid.org/experiences/exp.php?ID=115534' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>七篇关于我与各种化学物质的经验的详细记录,
+每份报告都记录了30天使用的单一物质.
+目的是让每种材料都能展现出它的优缺点.
+总结报告中对我对每种材料的经验进行了简短的描述和比较,以及对每种物质的其他完整经验报告的链接.
+背景信息
+我认为自己在吸毒领域的精通程度很高.
+之前的经验包括10多年的阿片类药物,兴奋剂和迷幻药物.
+我使用的药物有很多包括新型的研究化学物质,
+我对4F-MPH的个人经历有点有限, 但我已经经历了足够多的试验,
+过去这种物质的应用既是为了强化表现, 也是为了从强化表现过于愉快的转变,
+我将把过去留在过去, 专注于我30天的计划摄入4F-MPH的细节.
+这篇简短的介绍旨在让读者了解我与这种化学物质的个人经历.
+这份报告使用了大量的笔记以及在经历期间录制的音频记录.
+4F-MPH是一种粉末材料,每个剂量都是在新校准的毫克 (000克) 尺度上制备的.
+这种化学物质是通过经过高度审查的化学家采购的,这些批次的纯度超过98%.
+一个第三方实验室完成了NMR分析并对其进行分析,以验证化学物质符合广告.
+如果口服,则在吞前将粉末放入囊中.
+我对4F-MPH没有任何耐受性,
+研究时间表:
+我的摄入时间表如下:
+1/30日:口服12毫克
+第二/第三十天:口服24毫克
+3/30日: 12毫克 吸入
+4/30日:休息日
+5/30日: 15毫克 吸入
+第6天/第30天:口服30毫克
+7/30日:20毫克口服
+8/30日:T + 00:00 20毫克口服
+T + 02:10 10毫克 吸入
+9/30日:T + 00:00 5毫克 吸入
+T + 00:45 7毫克 吸入
+T + 01:45 15毫克 吸入
+T + 03:15 10毫克 吸入
+T + 06:33 50毫克 吸入
+T + 07:52 61毫克 吸入
+10/30日:休息日
+11/30日:休息日
+12/30日:T+00:00 15毫克 吸入
+T + 01:10 25毫克 吸入
+第13/30日:休息日
+14/30日:T + 00:00 18毫克 吸入
+T + 03: 09 40毫克口服
+15/30日:休息日
+第16/30天: 23毫克 吸入
+第17天/第30天:休息日
+18/30日:T + 00:00 14毫克 吸入
+T + 02:12 14毫克 吸入
+T + 03:55 25毫克口服
+T + 06:14 40毫克 吸入
+T + 08:10 30 mg 吸入
+第19/30日:休息日
+20/30日:休息日
+第21/30天:19毫克口服
+22/30日:T+00:00 17毫克口服
+T + 02:15 22毫克 吸入
+23/30日:休息日
+第24日至第30天:T+00:00 14毫克口服
+T + 03:33 30 毫克 吸入
+T + 03:59 20毫克 吸入
+25/30日: 9毫克 吸入
+26/30日:休息日
+27/30日: 22毫克 吸入
+28/30日: 27毫克 吸入
+29/30日:休息日
+30/30日:T + 00:00 10毫克 吸入
+T + 02:20 13毫克 吸入
+T + 03:55 20毫克 吸入
+药物使用情况
+T + 06:22 10毫克 吸入
+时间表. 持续时间详情
+虽然开始,持续时间和强度取决于剂量,我当天吃了什么,我的心情,以及其他无数因素, 我构建了下面的摘要来描述我在&quot;平均&quot;一天感受到某些类型的影响.
+我经常重新服用这种化学物质,但我会试图概述单剂量以及多剂量在下面的每一个时间段的感觉.
+我通常更喜欢吸气作为服药途径而不是口服,因为它更快地开始.
+我还发现要达到相同的效果强度,
+一个囊被吞下,或微细粉碎的粉末被吸入.
+吸入剂量有时会在六到七分钟内迅速地进入.
+平均而言,在吸气20分钟内达到±水平.
+对于口服, 我只会在这个时间线结束时开始感受到效应.
+气喘,像往常一样,感觉更震动;离基线的偏离更明显.
+我通常可以指明一个确切的时刻,
+在此期间,口服剂量将真正上线,当然达到±水平.
+像上面暗示的那样,口服的ROA远比吸入物质更顺.
+我通常会服用15%或更高的剂量, 仅仅是因为药物开始缓慢,
+无论ROA如何,在该时间段内,我会达到每日剂量的最高强度水平.
+在这个时间段内, 可能发生各种各样的影响.
+接下来我们将开始重复剂量.
+对于较轻的初始注射剂量, 我会准备在一个小时左右服用更多.
+我知道这个水平的平原不会持续很长时间; 也许是三十到四十五分钟.
+没有强剂, 能量和警觉性会在两个小时后显著下降.
+这是一个漫长而令人失望的旅程.
+在口服剂量的情况下,我不会在这个时间段结束之前达到顶峰.
+我可能已经达到最大的效果强度, 并开始了漫长的缓慢的旅程.
+较大剂量,可能还有一些强化离开去后几个小时.
+在这两种情况下, 突出的感觉是温和的警觉和模糊的感觉不是清醒.
+后者是&quot;子上的头发&quot;感觉, 暗示某种精神活动即将发生,
+这种物质从来没有达到, 在任何剂量任何超出什么感觉像是极度清醒和警觉,
+任何口服剂量都会在此时达到峰值.
+较小的数量将在三小时后开始下降.
+在此时间内,如果不加上强剂,注入剂量肯定会达到峰值,并且很可能会大幅下降.
+在这份报告的最后一篇关于时间表和持续时间的评论中, 您将看到, 这份报告的部分更倾向于描述效应本身; 在这段时间里, 往往没有太多可以讨论的东西,
+在六小时的标志我会低于±即使是最大的我的剂量, 没有任何助推器, 无论ROA.
+考虑到这两种ROA的持续时间差异很大,我偏爱吸气可能看起来很奇怪.
+为什么要经历一下又一下, 又要经历整体的麻烦, 每天准备更多的剂量,
+答案在于我感觉到不同药物使用方法的效果有所不同.
+而口服方式更顺, 没有一些不太理想的效果,
+不幸的是, 这是一个平稳的过渡到无处.
+没有人能让我兴奋.
+我一直在等待着登结束并变成一座壮丽的长峰.
+而是逐渐消散,变成平稳的下降.
+经历似乎从来没有以任何有意义的方式当我口服剂量.
+至少在吸气方面, 我得到了一些有益的效果.
+由于吸入是我最喜欢的4F-MPH摄入方式, 有很多天服用一个或多个额外剂量.
+这种物质是宽恕和容易重新剂量.
+整个月, 我从来没有感到过度刺激或不舒服的重灌太频繁或太高的数量.
+这种化学物质的重复剂量的缺点是,
+基本上,尽管多次剂量和ROA, 4F-MPH从来没有我需要它做什么.
+我唯一能得到的就是更多的&quot;meh&quot;.
+如果在初始剂量开始时服用,则持续时间会延长约75%:如果在T+2: 00服用大剂量强剂,则4 - 5小时的体验可以变成7个小时以上的体验.
+延长时间因初始剂量与复剂剂的比例,复剂剂的时间以及服用多于一个额外剂量的情况而异.
+期望,希望和担忧
+这种物质在我之前的试验中已经有点多了,所以我有点担心它的成性质会导致一个令人不快的30天,
+我知道4F-MPH有助于长时间保持警觉,
+我从来没有尝试过这种物质.
+我不清楚自己是否能专注于正确的任务,
+这是我最没有经验的物质,
+我希望我以前使用它时所经历的觉醒会转化为一种轻松而高效的集中状态.
+我知道这种物质不会让我感到高兴,
+我曾经试过几次在紧迫的情况下使用这些材料娱乐, 发现它非常令人失望.
+总的来说,我认为这可能是一个很好的日常驾驶;低风险,高回报.
+最喜欢的部分
+定期使用4F-MPH最好的部分是每天能量的增加,
+我可以在工作中保持精力,
+我不像清醒的时候那样容易被消防演习或同事的愚蠢要求激动.
+不仅让我更容易忘记负面情绪,而且让我感觉到自己的成就也很棒.
+让我有了更多的机会
+尤其是在工作日晚些时候, 当我服用强剂时,
+我最喜欢的4F-MPH的单一效果是我能够用一根快速的粉末抹去任何疲劳.
+如果我睡不好,前一天晚上过分聚会,或者工作时间过长而感觉疲; 4F-MPH 只是足够的推动力来清除雾并让我恢复生命.
+最不喜欢的方面
+我最不喜欢在一个月内定期服用4F-MPH的方面,
+专注,更敏的思维,更有创造性的思维,精神长寿,
+尽管对剂量,ROA,时间表,饮食和其他强化杆进行了许多试验,
+除了没有达到所需效果的强度外,该物质还产生了显著的不良影响.
+我很少从4F-MPH中感受到有用的刺激,
+我会有持续的刺激使得难以入睡,但也因为4F-MPH让我渴望一个&quot;真正的&quot;刺激体验后的一天不满意的剂量.
+周日我宁愿在正常睡眠时间内休息, 但反而多次加上刺激剂,酒精或其他物质,
+越多的4F-MPH剂量在一整天,
+休体验本身并不是不愉快或污染的, 但作为我使用的物质直接影响使自己在工作中更有效率, 这是一个明显的负面影响.
+经过这些深夜之后的几天,
+对面的
+提高了效率.
+中立方面 附加评论
+关于4F-MPH的大部分是中性的.
+效果是中途的; 相当平淡而不是明显的积极或消极.
+我可以说,这种物质,即使是来自同一批材料,
+对于我来说, 里程是平淡而不足的.
+偶尔出现的热和轻微的手, 在我吸入的剂量中会出现一半,
+由于手指, 我只需要脱下一层衣服,
+胃口
+这种药物几乎在所有剂量中都对我有轻微的食欲抑制.
+我不得不强迫自己吃东西,
+随着4F-MPH鼓励我跳入其他兴奋剂或物质, 这变得越来越有问题.
+一整天,晚上,晚上没有任何食物,
+生物识别
+- 起始重量: 179 磅
+- 最终体重:175磅 我认为抑制食欲可能在轻微的减肥中起到了很小的作用.
+我有足够多的时间不吃饭, 我可以合理地看到摄入卡路里的减少是减肥的原因.
+没有任何特别值得注意的情况, 没有任何定期的减慢或加快.
+我不得不追逐一只逃到外面的狗.
+我检查了心率, 发现心率为每分钟145次,
+- 性影响:在经历的高峰时, 我会有短暂的性欲,
+我没有从表演或享受的角度来看,
+- 睡眠影响:这种物质确实使得入睡变得更加困难.
+这也正确,即使在我早上服用单剂量, 变得更加明显,
+我发现我可以用5-15毫克的佐尔皮来解决这个问题, 我每周几天服用类似的剂量,
+没有发现梦想回忆或主题的变化.
+心理上的影响
+- 创造力:从4F-MPH中得到的创造力提升很少.
+我在零天的笔记中提到过以不同的方式思考, 提出出似乎超出正常清醒状态的解决方案,
+- 聚焦:虽然没有什么壮观的,
+我在某个特定时刻的注意力比急剧增加更突出的是我在一个主题上保持注意力的能力在更长的时间内增加.
+我不太常看手机, 完全专注工作30分钟到1小时,
+我有时会在短暂的休息之后, 直接重新投入到另一段不间断的工作时间.
+虽然这似乎是理想的增强工作的物质, 由于某种原因我仍然没有感觉像我取得了更多,
+- 社会影响:4F-MPH月份是在COVID-19隔离期间,我完全在家工作.
+我没有与同事进行面对面的交流.
+我工作的团队每天都通过短信和视频聊天联系,
+肯定没有躁狂或过度说话的问题.
+在这里报告的很少.
+情绪的影响
+我选择将这部分分为时间段, 因为在月底回顾我的笔记后,
+下面的评论几乎适用于所有4F-MPH日.
+- 中期经验:在4F-MPH经验的中期,
+笑得比正常人多, 或是说我对同事不那么气和不那么气.
+其他80%的时间我的心情是, 一种混合的不受影响, 或稍微丧和烦,
+- 下降:来自4F-MPH的下降本身并没有发挥太大的心理作用.
+从中期经验到基线的回程也没有太多的精神场所变化.
+我从来没有经历过任何宿醉,也没有发现任何持续的后果.
+这无疑给我带来了无数的宿醉症状.
+也许4F-MPH确实有其作为煽动者的宿醉成分.
+身体上的影响
+虽然一般来说是温和的, 但4F-MPH的表现是相当典型的刺激剂.
+我经常在额头,背部和脚部发出轻微的汗水,尤其是在服用药物后的第一小时左右.
+我常常在一个小房间的暖气器上下关闭, 穿上子,
+我常常在使用兴奋剂时会感到这种不适, 但在4F-MPH时更为明显,
+我没有任何胃部不适或恶心或头的问题,
+尽管我做了轻微的炼,比如从办公椅上快速休息,
+根据我笔记中的数据,当我服用4F-MPH时,我的心率在狗30到45分钟后,比没有服用4F-MPH时高10%.
+组合方式
+我与4F-MPH结合使用的大多数其他物质都会压倒它.
+其他材料也许是轻微强化了基础层的无聊刺激剂,
+我与4F-MPH结合使用的大部分物质并不是为了提高我的工作能力.
+他们是严格的娱乐.
+- 大麻:这是我在白天与4F-MPH结合使用的一种物质,
+我试图,有时成功地, 增加刺激剂到一个点, 我会得到一个小的能量冲和更快,更集中的思想.
+我在工作中也会感到不舒服.
+我觉得这两种物质的混合并不愉快.
+- 酒精:我更喜欢酒精.
+我发现与4F-MPH相结合, 我可以消耗更多的酒精,
+如果我想夜喝酒, 这可能是一个有用的组合,
+除了这一个协同作用, 我的笔记没有评论任何其他效果感觉作为这两个化合物一起摄入的结果.
+- MDMA:我只服用了一次MDMA和4F-MPH.
+这是一个更高剂量的学习辅助驱使我渴望感受到适当的高兴刺激的例子.
+尽管一天内服用了多次4F-MPH, 其中一些剂量更大, 但MDMA在4F-MPH开始出现时就完全超过了4F-MPH.
+有一个小的机会, MDMA的强度增加 (估计&lt;10%) 通过有额外的兴奋剂在我的系统.
+类似于MDMA组合, 我服用了4-FA, 由于4F-MPH无法完全消除它带来的,
+我觉得这两种药物之间没有任何协同作用.
+一旦4FA开始上升, 它的电动滚将我的4F-MPH感觉能力完全抹去了.
+- 在4F-MPH期间, 我曾两次与DMT结合使用.
+另一次是用香, 香是吸烟的.
+我感觉到4F-MPH矿石的存在比任何其他化合物都更强烈.
+两种体验的共同主题是闪闪发光的电线轮,
+这可能是巧合,但我不认为.
+另外,在这些组合体验中, 我感觉更加清醒.
+剂量较低,23毫克的水晶DMT和四次未加权的Changa.
+尽管如此,与我通常对这些数量的DMT的反应相比,
+这是一种愉快的感觉; 快速的出现比正常的不那么令人震惊,
+奇怪的是,4F-MPH作为一种兴奋剂对DMT有镇静作用.
+两次重复服用4F-MPH后大约一个半小时服用了DMT.
+- 基他胺:再次,
+我把这个分离剂和我的学习辅助混合了三次, 每次我都很难说4F-MPH已经被服用了.
+不同于胺和其他兴奋剂, 我没有注意到任何显著的强化.
+- 二:本月我服用了多种二,
+我在工作中很喜欢这种组合, 但这并不奇怪,
+较高的4F-MPH剂量与较低的子剂量相结合,
+如果我在工作日结束后晚上服用类药物, 我发现需要大约20%的物质来达到与我没有服用4F-MPH的日子相似的影响.
+我与4F-MPH结合服用的类药物是:克洛纳佐拉姆,埃蒂佐拉姆,阿尔普拉佐拉姆,弗卢阿尔普拉佐拉姆和弗鲁尼特拉泽帕姆.
+结果. 摘要.
+4F-MPH对我来说并不是一个闪耀的明星.
+尤其是在工作环境中提高自己的表现的背景下,
+如果我不坚持30天的时间表, 我可能会放弃这种化学物质后, 也许只有少数试验.
+4F-MPH的使用案例当然有,例如在夜间开车时保持警觉.
+偶尔我会得到一个小的初步冲动, 我喜欢, 但这是一个刺激, 感觉空洞和无用.
+这有时会让我追求更合法的兴奋剂.
+总的来说, 几乎任何我可以想象想服用兴奋剂的场景,
+对于使用这种物质一个月来说, 最好的一点是, 经验中很少有负面因素.
+对于一个物质来说,
+我不会再用4F-MPH进行实验; 我给了它更多的假动摇,
+时间表: 115534
+发布时间:2021年8月5日
+4-甲基 (728):不适用 (38),性能增强 (50),回顾/总结 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Clear but Boring
+4-Fluoromethylphenidate
+by
+Anatoli Smorin
+Citation:   Anatoli Smorin. &quot;Clear but Boring: An Experience with 4-Fluoromethylphenidate (exp115534)&quot;.
+Erowid.org
+. Aug 5, 2021. erowid.org/exp/115534
+DOSE:
+4-Fluoromethylphenidate
+(daily)
+BODY WEIGHT:
+175 lb
+F-MPH – Clear but Boring
+This report is part of an eight-report collection. The collection consists of
+a summary report
+that is retrospective and generalized in nature as well as seven [of which this is one] more detailed chronicles of my experiences with various chemicals used intentionally for work or study enhancement. Each report documents a single substance used for thirty days. The idea was to give each material a chance to show its strengths and weaknesses.
+The summary report has shorter descriptions and comparisons of my experiences with each material, as well as links to the other full-length experience reports for each substance.
+Background Information
+I consider myself to be well versed in the realm of substance use. Previous experiences include opiates, stimulants and psychedelics spanning over more than a decade.  A fair amount of my substance usage history includes novel research chemicals often in less than common combinations.
+My personal history with 4F-MPH is somewhat limited, but I’ve gone through enough trials with the material to believe that I have a good sense of how my mind and body reacts with me.
+The applications of this substance in the past have been either for strictly performance enhancement or a transition from performance enhancement that got a little too enjoyable, leading to moreish dosing with the intent of shifting from work to fun.
+I’ll leave the past in the past and focus on the details gleaned from my thirty days of scheduled ingestion with 4F-MPH.  This brief intro is designed to level set readers to my personal history with this given chemical.
+This report was written using extensive notes as well as audio recordings taken during the experiences.
+The 4F-MPH was a powder material and each dosage was prepared on a freshly calibrated milligram (.000 gram) scale. The chemical was sourced through a highly vetted chemist and these batches were tested at a &gt;98% purity. An NMR analysis was completed and analyzed by a third party lab to verify the chemicals were as advertised.  If taken orally, the powder was placed into a capsule before swallowing.
+I did not have any tolerance to 4F-MPH coming into the beginning of my month of using the substance.
+Study Timeline:
+My ingestion schedule was as follows:
+Day 1/30: 12 mg Oral
+Day 2/30: 24 mg Oral
+Day 3/30: 12 mg Insufflated
+Day 4/30: Off Day
+Day 5/30: 15 mg Insufflated
+Day 6/30: 30 mg Oral
+Day 7/30: 20 mg Oral
+Day 8/30: T + 00:00 20 mg grams Oral
+T + 02:10 10 mg Insufflated
+Day 9/30: T + 00:00 5 mg Insufflated
+T + 00:45 7 mg Insufflated
+T + 01:45 15 mg Insufflated
+T + 03:15 10 mg Insufflated
+T + 06:33 50 mg Insufflated
+T + 07:52 61 mg Insufflated
+Day 10/30: Off Day
+Day 11/30: Off Day
+Day 12/30: T + 00:00 15 mg Insufflated
+T + 01:10 25 mg Insufflated
+Day 13/30: Off Day
+Day 14/30: T + 00:00 18 mg Insufflated
+T + 03:09 40 mg Oral
+Day 15/30: Off Day
+Day 16/30: 23 mg Insufflated
+Day 17/30: Off Day
+Day 18/30: T + 00:00 14 mg Insufflated
+T + 02:12 14 mg Insufflated
+T + 03:55 25 mg Oral
+T + 06:14 40 mg Insufflated
+T + 08:10 30 mg insufflated
+Day 19/30: Off Day
+Day 20/30: Off Day
+Day 21/30: 19 mg Oral
+Day 22/30: T + 00:00 17 mg Oral
+T + 02:15 22 mg Insufflated
+Day 23/30: Off Day
+Day 24/30: T + 00:00 14 mg Oral
+T + 03:33 30 mg Insufflated
+T + 03:59 20 mg Insufflated
+Day 25/30: 9 mg Insufflated
+Day 26/30: Off Day
+Day 27/30: 22 mg Insufflated
+Day 28/30: 27 mg Insufflated
+Day 29/30: Off Day
+Day 30/30: T + 00:00 10 mg Insufflated
+T + 02:20 13 mg Insufflated
+T + 03:55 20 mg Insufflated
+R + 04:59 30 mg Oral
+T + 06:22 10 mg Insufflated
+Timeline | Duration Details
+While the onset, duration, and intensity varied depending on dosage, what I had eaten that day, my mood, and a myriad of other factors, I constructed the summary below to describe when I felt certain types of effects on an “average” day.  I often re-dosed this chemical, but I’ll try and outline what a single dose as well as multiple dosages felt like in each of the time ranges below.  I generally preferred insufflation as a route of administration over the oral option due to the faster onset.  I also found that I had to dose significantly higher orally to achieve the same levels of effects intensity.
+T + 00:00
+A capsule was swallowed or a finely crushed line of powder was insufflated.
+T + 00:08 – T + 00:25
+Insufflated doses would creep in sometimes as quickly as six or seven minutes.  On average, I’d reach a ± level within twenty minutes of insufflation.  For an oral ingestion, I would only just begin to feel the effects towards the end of this timeline.  Insufflation, as per usual, felt more jolting; the departure from baseline more obvious.  With this route of administration there was usually an exact moment I could point to when I “could feel it working”.
+T + 00:20 – T + 01:00
+An oral dose would be coming truly online during this period, certainly reaching a ± level.  As hinted at above, the oral ROA was by far a smoother transition than snorting the substance.  It was such an exaggerated difference, that I typically dosed 15% or more higher when taking orally, just because of the slow onset and the fact that I enjoyed the slight rush of energy and good feelings that accompanied the insufflated dosages, or the larger encapsulated ones.
+T + 00:45 – T + 01:45
+Regardless of ROA, I’d reach the highest level of intensity for the day’s dose during the period of time.
+T + 01:00 – T + 02:00
+A wide array of effects could be going on during this stretch of time.  Re-doses would start to come into play.  For a lighter initial insufflated dose, I would be ready to take more at around the one hour mark.  As peak intensity was reached, I knew that the plateau at this level would not last particularly long; perhaps thirty to forty-five minutes.  Without a booster dose, the energy and alertness would be decreasing significantly by the two hour mark.  The taper off the highest plateau of effects was a long and frankly underwhelming journey.
+In the situation of an oral dosage, I wouldn’t be at the peak until close to the end of this time period.  On smaller dosages I might have reached maximum effects intensity and begun the, the long slow journey to baseline.  Larger doses, might still have some intensifying left to go after a couple hours.  In both of these cases, the prominent feelings were mellow alertness and a vague sense of not being sober.  The latter was a “hair on the back of the neck” feeling that something psychoactive was about to happen, but I could never put my finger on it.  The substance never reached, at any dosage anything beyond what felt like being extremely awake and alert, no euphoria, body high, or anything even vaguely recreational.
+T + 01:45 – T + 03:00
+Any oral dosage would have reached its peak by this time.  Smaller amounts would be starting to commence the come-down by the three hour mark.  An insufflated dose not accompanied by a booster would certainly have peaked and likely be receding strongly during this time frame.
+T + 03:00 – T + 06:00
+As you will see in the final commentary regarding timeline and duration directly below, as well as in the sections of this report more geared toward describing the effects themselves; there wasn’t often much to discuss in this time period that hasn’t been touched on in earlier ones; mild boring stimulation that left me disappointing.  At the six hour mark I would be below a ± for even the largest of my dosages, without any boosters, regardless of ROA.
+Given the large difference in duration between the two ROA’s discussed, my preference for insufflation might seem odd.  Why suffer a back-drip and go through the overall hassle of more dosage preparation; weighing out, crushing up, etc. each day.  The answer lies in the differences I felt between the effects of the different administration methods.  While the oral route was smoother and didn’t have some of the less desirable effects like tremors and heat flashes.  Unfortunately, it was a smooth transition to nowhere.  The pick-me-up factor was never significant.  I was always waiting for the come-up to finish and turn into a magnificent extended peak.  Instead, the come-up would dissipate, turning into a smooth come-down.  The experience never seemed to arrive in any meaningful way when I dosed orally.  At least with insufflation; I got some beneficial effects.
+With insufflation being my favorite way to ingest the 4F-MPH, there was a good number of days where one or more additional dosage was taken.  This substance was forgiving and easy to re-dose.  Throughout the month, I never once felt overstimulated or uncomfortable from re-upping too often or in too high of an amount.  The downside to re-dosing this chemical, is that it didn’t really do that much.  Essentially; despite multiple dosages and ROA’s, 4F-MPH never did what I needed it to do.  All I could ever get was more “meh”.  The duration would be extended by about 75% if taken while the initial dosage was still coming on: a 4-5 hour experience could turn into 7+ hour experience if a large booster dosage was taken at T + 02:00.  The extension was variable depending on the ratio of initial dosage to the booster, timing of booster, and if more than one additional dosage was taken.
+Expectations | Hopes | Concerns Going In
+This substance has been a bit more-ish in my previous trials so I was slightly concerned about the addictive qualities leading to an unpleasant thirty days of constantly trying to fight the urge for more.  I knew that 4F-MPH had the ability to offer extended periods of alertness, having used it to avoid sleep in the past.  I hadn’t ever tried to work on the substance though.  It wasn’t clear if I would be able to focus on the correct tasks or if I’d be too easily distracted as I can be on other stimulants.  This was the substance I had the least experience with out of the ones that are a part of this collection of reports.  I was hopeful that awakeness I’d experienced while using it previously would translate to a light and easy state of high functioning focus.  I knew the substance wasn’t going to be euphoric or overload me with stimulation and body high.  I’d tried a few times before in a pinch to use the material recreationally and found it extremely disappointing.  So overall, I thought this might be a great daily driver; low risk, high reward.
+Favorite Aspects
+The best parts of using 4F-MPH regularly was having increased levels of energy every day and feeling a little bubbly most of the time.  On the best of days I was able to stay on task at work and enjoy an upbeat mood.  Time would fly by and I wasn’t as easily agitated by fire drills or silly requests from coworkers as when I’m sober.  Not only did negative things glance off me easier, but accomplishments felt amazing.  Even small victories brought a big smile to my face.  I felt like I was glowing, especially in the later part of the workdays where I took booster doses that encroached on recreational intensities.  My favorite single effect from the 4F-MPH was that I was able to erase any tiredness with a quick little line of powder.  If I didn’t sleep well, partied a bit too much the night before, or was feeling worn out from extended work hours; the 4F-MPH was just enough of a boost to clear the fog and bring me back to life.
+Least Favorite Aspects
+Hands down, my least favorite aspects of spending a month regularly dosing 4F-MPH was the fact that it didn’t really produce the effects I was hoping for.  Focus, sharper thinking, more creative thoughts, mental longevity, and an overtly positive attitude: none of these were experienced on a regular basis, to the degree in which I wanted.  Despite many trials of dosages, ROA’s, timelines, diet, and other potentiation levers, I was never able to crack the code and achieve much in the way of effective performance enhancement.
+In addition to falling short in terms of the intensity of the sought after effects, this material produced significant undesirable effects.  I rarely felt a useful stimulation from 4F-MPH, but the material too often led to late nights.  I’d have lingering stimulation making it difficult to fall asleep, but also from the fact that the 4F-MPH left me craving a “real” stimulant experience after a day of unsatisfactory dosing.  On weekdays that I would have preferred to wind down within the confines of my normal sleep schedule, I instead, several times, threw additional stimulants, alcohol, or other substances in the mix, chasing the feelings I had been wanting all day.  The higher the 4F-MPH dosage(s) throughout the day, the more likely it seemed I ended up getting a bit rowdy by the end of the evening.  The recreational experiences themselves were not unpleasant or tainted, but as a direct effect from a substance I was employing to make myself more efficient at work, this was a clearly negative effect.  Operating hungover and on little sleep the days after these late nights was the
+opposite
+of increased efficiency.
+Neutral Aspects | Additional Commentary
+A lot about 4F-MPH was neutral in general.  The effects were middle of the road; pretty bland and not overtly positive or negative.  I can comment that this substance, from this same batch of material even, was far more effective for at least two other individuals that I am close with.  As with all substances; you mileage may vary, and for me, the mileage was bland and inadequate.  One thing that didn’t bother me, but wasn’t positive, was intermittent hot flashes, and minor hand tremors that would occur on about half of my insufflated dosages, but none of my oral ones.  These were only intense enough to make me take a layer of clothing off and mistype a few things due to trembling fingers.
+Appetite
+There was slight appetite suppression on almost all dosages of this substance for me.  Most multi-dose days I had to force food into myself until I was well into the comedown.  This became increasingly problematic when the 4F-MPH encouraged me to jump into other stimulants or substances.  A full day, evening, and late night without much, if any food, almost never makes me feel great the following day.
+Biometrics
+- Starting weight: 179 lbs
+- Ending weight: 175 lbs – I think the appetite suppression may have played a small role in this minor weight loss.  There were enough days that I skipped meals that I could reasonably see the decrease in caloric intake being the cause for the weight loss.
+- Heart Rate Notes: Nothing exceptionally noteworthy – no slowing or quickening on a regular basis.  There was one instance where I was on a higher dosage of the substance and had to chase after one of my dogs who escaped outside.  I took my heart rate immediately after retrieving them and found my heart rate to be at 145 BPM, which was certainly a combination of the stimulant as well as the unexpected adrenaline releasing high intensity exercise.
+- Sexual Effects: Towards the peak of the experiences, I would get fleeting desires for sex, more than an average day.  The few times these were acted upon, I didn’t not any particular change in the experience; either from a performance or enjoyment perspective.
+- Sleep Effects: This substance did seem to make it more difficult to fall asleep.  This was true even on days where I took a single dose ion the morning, and became more pronounced, as one might expect, the more booster dosages that were added.  I found that I could squash the issue with 5-15 milligrams of zolpidem, which I take in similar dosages for diagnosed sleep-onset insomnia several nights per week.  No change in dream recall or subject was detected.
+Mental Effects
+- Creativity: Very little creative boost ever resulted from the 4F-MPH.  On zero days did my notes mention anything in the realm of thinking in different ways, coming up with solutions that seemed out of line for a normal sober state, suggesting that the substance wasn’t helping me solve questions or challenges  from any unique angles or mental perspectives.
+- Focus:  Although nothing spectacular, there was some increased ability to focus.  More prominent than an acute increase in my focus at any given time was an increase in my ability to maintain attention on a topic for longer periods of time.  I checked my phone less often, staying completely on task for thirty minutes to an hour without sidetracking or taking a break.  After a small break, I could sometimes dive right back into another good chunk of uninterrupted work time.  While this seems ideal for a work enhancing substance, for some reason I still didn’t feel like I was achieving much more, despite my less frequent breaks.
+- Social Effects: The month of 4F-MPH was during the COVID-19 quarantine, and I was working entirely from home.  As such, I had no in person interactions with coworkers.  My immediate work team touches base via both text and video chats on a daily basis, and I did not find myself acting any differently during these than I would sober.  There was certainly no manic or overly-talkative issues.  Very little to report here.
+Mood Effects
+I chose to divide this section into portions of time because after reviewing my notes at the end of the month, the most distinct patterns of mood changes were correlated to specific timelines.  The comments below held true for nearly all of the 4F-MPH days.
+- Mid Experience: During the middle of the 4F-MPH experiences there was a wide variety of commentary in my notes looking back across the month.  About 20% of the days I made comments such as: “better than a natural good mood”, “smiling more than normal”, or something about how I was less grumpy and short tempered with co-workers.  The other 80% of the time my mood was, a mix of unaffected, or slightly frustrated and annoyed because I was hoping for effects from the 4F-MPH that never came.
+- Come-Down: The come-down from the 4F-MPH itself didn’t play much of a mental role.  By nature of the fact that the peak of most of the experiences wasn’t all that intense, the return trip from mid experience to baseline didn’t involve all that much in terms of changes in mental place.
+- Next Day(s): I never suffered any hangover or detected any lingering effects into the day following a 4F-MPH experience.  As mentioned above, the 4F-MPH was at times a catalyst for using other substances, which most certainly gave me a myriad of hangover symptoms.  So in a round about way, perhaps the 4F-MPH did have a hangover component via its role of an instigator.
+Physical Effects
+Although generally mild across the board, the physical presentation of 4F-MPH was pretty typical for a stimulant.  I often developed a light sweat on my forehead, upper back, and feet, especially during the first hour or so after taking a dose.  This became annoying as I was often turning off and on a small space heater and putting socks on and then shortly after taking them off.  This cycle of discomfort often happens to me on stimulants, but it was more noticeable with the 4F-MPH because none of the annoyance was masked by euphoria or at least justified by desirable effects.
+I didn’t have any stomach discomfort or issues with nausea or dizziness that can accompany over stimulation from substance use.
+Even when exercising lightly, such as the quick breaks from my office chair where I do some jumping jacks, push ups, and squats, I didn’t find my heart rate increasing much more than it would on a sober day.    Using the data from my written notes, my heart rate after walking the dogs for thirty to forty-five minutes was &lt;10% higher on the days I took 4F-MPH compared to the days I did not.
+Combinations
+Most other substances I used in combination with 4F-MPH overwhelmed it.  Perhaps other materials were mildly intensified by the base layer of the boring stimulant, but I found this negligible if it did indeed exist at all.  Most substances I combined with the 4F-MPH were not intended to enhance my abilities at work.  They were strictly recreational.
+- Cannabis: This is a substance I combined with 4F-MPH during the day while still working.  I tried, sometimes with success, to boost the stimulant to the point where I would get a small rush of energy and faster, more focused thoughts.  The times I was not successful in achieving this, I would end up too stoned and uncomfortable to be productive at work.  In the end, I didn’t find these two substances enjoyable to mix.
+- Alcohol: I rather enjoy alcohol.  I found in combination with 4F-MPH I could consume more alcohol while feeling less of its effects.  This could be a useful combo if I was trying to stay up late and binge consume booze, but there are plenty of other stimulants I’d choose over 4F-MPH for this purpose.  Beyond this one synergy, my notes didn’t comment on any other effects felt as a result of these two compounds being ingested together.
+- MDMA: I took MDMA just once with the 4F-MPH.  This was one of the instances where higher doses of my study aid drove my desire to feel proper euphoric stimulation.  Despite the day involving multiple dosages of 4F-MPH and some of these on the larger side, the MDMA completely overtook the 4F-MPH the moment its onset began.  There is a slight chance that the intensity of the MDMA was increased (estimated &lt;10%) by having the additional stimulant in my system.
+- 4-FA:  Similar to the MDMA combination; I took 4-FA after feeling fiendish from the 4F-MPH not fully scratching the itch it created by offering a faint hint of euphoric stimulation.  Much like the MDMA, I didn’t feel any synergy between these two substances.  Once the come-up began in earnest on the 4-FA, its electric pumping roll obliterated my ability to feel the 4F-MPH at all.
+- DMT:  Twice during the 4F-MPH month I combined it with DMT.  One time was with crystalline material that I vaporized and the other was with changa, which was smoked.  Somewhat surprisingly, this was the substance that I felt the presence of the 4F-MPH ore than any other combination.  The DMT visuals seemed to sparkle more than normal, with shimmering electric outlines as a common theme in both experiences, beginning to end.  This could have been a coincidence, but I think not.  Additionally, I felt a bit more lucid during these combo experiences.  The DMT dosages were lower, twenty-three milligrams of crystal DMT and an un-weighed four hits of the changa.  Even so, compared to how I’d normally react to these amounts of DMT, I felt less swept away by the psychedelic.  This was a pleasant feeling; the rapid come-ups were less jarring than normal and the peak of the experiences more peaceful than normal.  Oddly, the 4F-MPH, as a stimulant, had a calming effect on the DMT.  The DMT was taken about an hour and a half after my last re-dose of 4F-MPH on both occasions.
+- Ketamine:  Once again, I found very little synergy in this combination.  Three times I mixed this dissociative with my study aid and each time I could barely tell the 4F-MPH had been taken at all.  Unlike ketamine and other stimulants, I didn’t note any significant potentiation.
+- Benzodiazepines:  I took a variety of benzos during this month, but felt it made sense to lump them together since they all reacted very similarly when combined with 4F-MPH.  I actually enjoyed this combination during the work day, but that’s not particularly surprising given that I enjoy the relaxation and anti-anxiety effects of benzodiazepines in general.  Higher dosages of 4F-MPH paired with lower benzo dosages resulted in a lovely calm focus that kept anxiety related to work stress at bay and but avoided the sleepiness that can sometimes plague me when taking benzos during the work day on their own.  If I was taking the benzos in the evening, after the work day had closed, I found that it took roughly 20% more material to achieve similar effects to days when I had not taken any 4F-MPH.  The benzos I took in combination with 4F-MPH were: clonazolam, etizolam, alprazolam, flualprazolam and flunitrazepam.
+Outcome | Summary | Takeaways
+4F-MPH was not a shining star for me.  Especially in the context of trying to improve my performance in a working environment; the substance was almost a complete flop.  Had I not been committed to the thirty day schedule, I would have abandoned this chemical after perhaps just a handful of trials.  There are certainly use cases for utilizing 4F-MPH, such as staying alert for an overnight drive.  Occasionally I’d get a small initial rush that I enjoyed, but this was followed by a stimulation that felt hollow and useless.  This occasionally made me chase after a more legitimate stimulant high.  Overall though, almost any scenario in which I could imagine wanting to take a stimulant, I could easily come up with a substitute for 4F-MPH that would do a better job.  The best thing about using this substance for a month was that it had very few negative components to its experiences.  For this to be the highlight of a substance, is disappointing.  I won’t be experimenting any further with 4F-MPH; I gave it more than its fake shake and it simply didn’t do it for me.
+Exp Year: 2020
+ExpID: 115534
+Gender: Male
+Age at time of experience: 30
+Published: Aug 5, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-Fluoromethylphenidate (728) : Not Applicable (38), Performance Enhancement (50), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,178 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>让它留在一个袋子里</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pcp.html'>← 苯环利定</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>让它留在一个袋子里</h1>
+<div class='sub-title'>PCP - Erowid Exp - &#x27;Moral: Leave it in the Baggy&#x27;</div>
+<div class='meta'>作者：Hakushon Citation · 日期：Jul 21, 2008 · 剂量：4 lines · <a href='https://erowid.org/experiences/exp.php?ID=63397' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>很久以前,但我记得就好像今天早上.
+我在二十多岁的时候吃了,喝了,吸了,吸了,吸了,吸了,注射了,
+我和我认识的每一个人, 都经常把任何出现的东西都起来,
+无论如何,这天有人碰巧来过我的地方着一个袋子充满天使尘埃.
+看起来像是可卡因, 但更多的...
+我很热衷,之前没有尝试过.
+我们四个人轮流抽出几句话.
+我们可能会做了整个袋子,这已经倾倒在一个小托盘在中间的低表,没有一个组装,其固有的蛋的性质是来前面有点,和其鼻孔是过度刺激的沉重的鼻,突然打喷,吹整个剩余的托盘的内容到堆在桌子下面.
+我已经发了, 已经发了.
+我开始对他大喊大叫, 称他为我一直想称之为我在短暂的生活中遇到的许多子,
+我发现自己在地毯上, 试图从林般的纤维中吸取散布的粉末.
+现在谁是个混蛋?
+我突然意识到我比以往任何时候都更糟糕,
+像我服用大量LSD,大麻油,片,静脉内可卡因或咳药 (也许不是咳药) 时,
+这种精神炸弹让我结了.
+现在的年轻人可能会这样做.
+我感到羞愧和卑微, 因为我的同事对我深深的蔑视.
+我曾经试图从莱斯博斯岛的边缘回来, 她对我的行为表示了极大的恐惧,
+其他人只是叹了口气, 慢慢和悲伤地分离到旧金山的下午雾.
+我只能抽一些,试着平静下来.
+我也在&quot;种子和茎&quot;中,
+我只能躺下做个手淫, 也许还要洗个淋浴, 最好是冷的.
+我很快就陷入梦境, 漂流到一个漂浮的高处.
+我以为PCP已经消失了, 被我的无可原谅的暴发和男子气概的表现所消散.
+我可能有多错?
+随着我越来越深入地沉思着我那么人性化的思维, 我感觉到深深的水从我内心的深处涌出.
+我开始哭泣, 身体, 水床的波浪让我摇, 像新生儿一样.
+开始我为自己的恐惧,不安全感和深深的失望而哭泣, 后来逐渐扩展到对所有人的同情心,
+终于我都哭了起来, 我的身体和感觉都融化了,
+我原谅了自己,你看,剩下的只是纯粹的无调节的意识.
+我从来没有想到它从几次的令人讨厌的化学物质.
+我从未有过这样的自由和幸福感, 即使是我最爱的圣礼,酸.
+这种状态持续了无限期, 在几秒钟内,
+写这篇文章的35年后,
+后来有人告诉我,我看过&quot;蓝珠&quot;.
+我只知道我永远不会忘记, 即使我再活35年.
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Moral: Leave it in the Baggy
+PCP
+by
+Hakushon
+Citation:   Hakushon. &quot;Moral: Leave it in the Baggy: An Experience with PCP (exp63397)&quot;.
+Erowid.org
+. Jul 21, 2008. erowid.org/exp/63397
+DOSE:
+4 lines
+insufflated
+PCP
+(powder / crystals)
+BODY WEIGHT:
+125 lb
+It&#x27;s a long time ago, but I can remember it as if it were this morning. More so than most other substances that I ate, drank, smoked, hotknifed, balooned, snorted or injected during my twenties - it was a busy time for psychon(a)uts. I, and practically everyone I knew, was routinely hoovering up anything that came along, and as much as there was, until it was all gone. Anyway, this day someone happened to come round to my place toting a baggy full of Angel-dust. It looked like cocaine, but more...er...dusty. I was mad keen, having not tried it before.
+The four of us present proceeded to snort a few lines each, in rotation. We probably would&#x27;ve done the whole bag, which had been dumped out on a little tray in the middle of a low table, had not one of the assembled, whose inherent asshole-nature was coming to the fore somewhat, and whose nostril was over-stimulated by heavy snortage, suddenly sneezed, blowing the entire remaining contents of the tray onto the shag-pile beneath the table. To say I was a mite miffed would be an understatement – I was livid, apoplectic already. I started yelling at him and calling him everything I had always wanted to call the many cunts I had encountered in my short life, but had hitherto always been too meek to squeak.
+Next thing I knew I found myself groveling on the rug, trying to snuffle up the diffused powder from among its jungle-like fibres. Now who was the asshole? As suddenly as the sneeze had burst from the hapless guy’s nozzle, the realisation imploded upon me that I was more fucked-up than I had ever been in my life, in the sense that I was totally out of control and in a psychopathic state of mind. Much more out of control than when I had taken hefty doses of LSD, hash-oil, opium, intra-veinous cocaine, or cough-medicine (well, maybe not the cough-medicine). This psychic bombshell froze me in my tracks. Mr Hyde in da house as the youth of today might have it.
+I felt humiliated and humbled as my co-dusters hurled dagger-looks of deep contempt at me. One of the women, whom I had for weeks been trying to coax back from the ledge of Lesbos, expressed her utter horror at my behaviour, and stormed out, never to return. The others just sighed and split slowly and sadly into the San Francisco afternoon fog. All I could do was smoke some reefer and try and mellow out. But I was “down to seeds and stems again too” to quote a popular beat combo of the time. Nothing else for it, I’d have to lie down and have a wank, and maybe take a shower too, preferably cold. The comforting slosh of the waterbed (yeah ok I know) quickly lulled me into a reverie, and I drifted off into a floaty high.
+I thought the PCP was all over, dissipated by my unpardonable outburst and show of macho aggression. How wrong could I be? As I meditated ever deeper upon the volatile nature of my oh-so-human mind I felt profound tears welling up from the very depths of my being. I began to weep with body-wracking jolts, the resulting waves of the waterbed rocking me like a newborn baby. I just cried and cried, at first for all my own fears, insecurities, and deepest disappointments, then gradually expanding into a feeling of empathy for all, including the clumsy guy who had sneezed so many centuries ago in the next room.
+Eventually I was all cried out, and my body and I-sense had melted away leaving my awareness centred in an apparently infinite sky-like blue void. I had forgiven myself, you see, and what was left was a pure unmodulated consciousness. I never would have expected it from a few hits of a nasty chemical. I never had such a feeling of freedom and bliss before, even from my most beloved sacrament, acid. This state lasted for an eternity, wrapped up in a few seconds, or at most, minutes. I can still almost taste it as I write, 35 years after. Somebody who knows more about such things than I later told me that I had seen “The Blue Pearl”. All I know is I’ll never forget, even if I live another 35 years.
+Exp Year: 1972
+ExpID: 63397
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 21, 2008
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+PCP (113) : Small Group (2-9) (17), First Times (2), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

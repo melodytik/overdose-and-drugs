@@ -1,0 +1,250 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>果2 - 果2 - &quot;生命太短&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tma-2.html'>← TMA-2</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>果2 - 果2 - &quot;生命太短&quot;</h1>
+<div class='sub-title'>TMA-2 - Erowid Exp - &#x27;Life is Too Short&#x27;</div>
+<div class='meta'>作者：Kapitan Citation · 日期：Apr 18, 2012 · 剂量：30 ml · <a href='https://erowid.org/experiences/exp.php?ID=94421' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我最近第一次尝试了30毫克TMA-2.
+我是一名22岁的男性,体重约150磅.
+经历了一些艰难的经历,
+这是我第一次接触迷幻安非他林.
+我在2011年底从一个小型的美国供应商那里获得了TMA-2的样本.
+我一直在寻找这个化合物多年, 我觉得很幸运终于发现它.
+在我的RC粉末收藏中, 它不会粘在我使用过的袋子或瓶子的侧面.
+这真的是块.
+我不知道是基,还是盐.
+我从此经历, 寻找一些关于我生命方向的洞察力.
+这是冬季假期.
+我几乎完成了化学学位, 动物学是我的专业, 我有很好的平均成绩,
+我是否想去研究生院,或者进入某种医学专业?
+也许我应该休息一年,去一些音乐节和燃烧的人.
+或许我应该试着找一份工作,
+但这些问题是前几个月我心目中最重的.
+经过一个星期的计划之后, 我决定和我的女朋友K一起尝试这种药物,
+我们三个人会在K的家里见面,
+我的女朋友曾经尝试过酸,和2C-T-7.
+我们在下午1点半服用了药物, 寒冷但晴朗的一天,
+由于这不是我的学校, 我对这个校园不太熟悉,
+我至少一个小时没有感觉到什么.
+根据我的经验, 任何2C都在90分钟后才起作用, 而梅斯卡林则需要更长的时间.
+我还没有完成我们的散步,
+这就像一个内在的能量构建, 一点点的头脑变化, 大约一个小时或一个半小时.
+我已经服用了四次梅斯卡林, 而这些东西开始比梅斯卡林更快地出现.
+我很难描述最初的效果,
+这更像是梅斯卡林, 但有更多的身体能量.
+几乎没有视觉变化, 直到我完成了.
+我们回到K的房子不久后第三个小时,在这一点上我们几乎达到高原.
+视觉障碍是, 其他人报告,
+如果我在经验中期寻找它, 就会发现一些微小的视觉动作, 大约两到四个小时,
+如果我真的看了看, 窗户上有一张斑马纹的窗,
+颜色更加和.
+在K的沙发上有一朵多彩的花纹, 吸引了我的注意,
+形状似乎有点爆发,以及.
+这些视觉变化与我在梅斯卡林中所经历的相似: 颜色变得更加强烈,形状更加明确,而不是爬行,移动的图案.
+我从仙人掌那里得到的东西都没有什么强化.
+我对这种药物的视觉效果并不感兴趣.
+另一方面,闭眼的视觉效果非常有趣.
+在这方面,TMA-2更接近梅斯卡林.
+在我的视野中, 似乎围绕着几个重心, 或许是旋.
+这让我想起了2C-E.
+我也想起一些更连贯的闭眼视觉场景,
+到了高潮时, 我看到像一朵白色的花, 融化成一股, 融入一条彩色的牛奶河.
+很漂亮的
+经历的情感方面是非常温和的, 但这可能只是我选择的旅行环境的结果.
+很少有人感到高兴.
+但不是像酸或2C-B那样特别有趣.
+我和女朋友在一起, 希望这次经历能催化一些情感对话或联系,
+总体而言,谈话没有增强或抑制.
+我确实在酒后得出了一个结论:多年来,
+我使用了催化剂来解决我已经意识到的问题,
+这是少年吗?
+也许我错过了整个点的脚.
+这有什么好玩的呢?
+不幸的是,
+这可能是经历中最糟糕的一面.
+我服用的2C乙胺有内在紧张,血管收缩和心率升高的特征,
+这种东西有类似的效果,
+梅斯卡林在身体上比这东西清洁得多.
+我和女朋友在下车时发现关节疼痛.
+我感觉自己在经历大部分时间都在喉里着一堆鼻子.
+我手掌总是出汗, 双手也很冷.
+我经历了轻微的, 但没有什么太糟糕.
+另一件好事是,与梅斯卡林不同,
+这主要只是一个一般的刺激不舒服.
+也许这可以通过另一次散步来缓解, 但在大多数情况下, 我满足于在我们到达高原后,
+我不认为我们中的任何一个得到了大约六个小时.
+我们说话,但不是过度.
+我们有一些很好的对话, 但没有真正深刻或特别洞察力.
+虽然我感觉到这样一个明显的刺激,我没有愿望站起来或移动.
+这是一个非常... &#x27;冷静&#x27;的刺激.
+这是药物的作用,还是正常的无聊?
+也许这就是2C-C的样子?
+不幸的是,我没有尝试过那个,所以我不能比较.
+影响在9点左右迅速减弱.
+十个小时后, 我觉得舒服驾驶, 所以我们离开K的房子不久后11:30.
+我们听了BT的&quot;二进制宇宙&quot;, 听起来也像往常一样令人惊叹.
+在一点贝纳德里尔的帮助下, 能够在凌晨1点之前轻松入睡.
+第二天,我感觉不太好.
+我还有一些关节疼痛,
+我比平时晚睡觉更累.
+我整天有点恶心.
+我觉得我的身体不喜欢这种化合物,
+对于我来说,简而言之, 30毫克的TMA-2 感觉就像从来没有真正起作用的梅斯卡林.
+脑部空间有点类似, 但缺乏很明显的&quot;去过&quot;的经验
+这可能是相对较低剂量的结果, 我真的不知道.
+个人来说,我会很惊如果这种东西能够催化这种异世界, 另类现实体验
+这完全不像2C化合物.
+如果我再次服用, 我可能会增加剂量, 或许是40毫克,
+我可能不会再服用这种药物.
+很高兴有机会试用它, 只是因为它的历史意义, 揭示了关于5HT2A受体的胺结合部位的关键,
+我会服用任何2C药物,
+生命太短, 没有必要浪费在TMA-2试验上.
+其他:
+TMA-2 (112):一般 (1),第一次 (2),音乐讨论 (22),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Life is Too Short
+TMA-2
+by
+Kapitan
+Citation:   Kapitan. &quot;Life is Too Short: An Experience with TMA-2 (exp94421)&quot;.
+Erowid.org
+. Apr 18, 2012. erowid.org/exp/94421
+DOSE:
+30 ml
+oral
+TMA-2
+(powder / crystals)
+oral
+Diphenhydramine
+(pill / tablet)
+BODY WEIGHT:
+150 lb
+I recently tried TMA-2 for the first time, at 30mg. I&#x27;m male, 22, and ~150lbs. I have previous experience with 2C-I,B,E,T2, and Mescaline. I hadn&#x27;t ingested any psychoactive in almost a year, following a few difficult experiences. This was my first experience with a psychedelic amphetamine.
+I acquired this sample of TMA-2 in late 2011 from a small, underground, US-based vendor. I&#x27;ve been on the lookout for this compound for years, and I feel lucky to have come across it, at long last. It&#x27;s almost white, but with a brown tint, and unique among my collection of RC powders in that it does not stick to the side of the bags or vials I&#x27;ve had it in. It&#x27;s really clumpy. I have no idea if it&#x27;s the base, or a salt.
+I went into this experience looking for a bit of insight concerning the direction of my life. It&#x27;s winter break. I&#x27;ve almost completed my chemistry degree, with a zoology minor, and I have a great GPA, but I&#x27;m not entirely sure where I want to go from here. Do I want to go to graduate school, or into some kind of medical profession? Maybe I should take a year off and hit up some music festivals and Burning Man. Or perhaps I should just try to find a job with my degree as-is. First world problems, to be sure, but they are the main things weighing on my mind during the preceeding months.
+After planning this experience for about a week, I decided that I would like to try this substance with my girlfriend, and my friend K, who is studying psychology at a different college. The three of us would meet at K&#x27;s house, and take 30mg of the TMA-2 in the early afternoon. K and I have quite a bit of experience with exotic entheogens. My girlfriend has tried acid, mushrooms, and 2C-T-7 on a few occasions.
+We dosed at 1:30 in the afternoon on a cold but clear day, and went for a walk around campus about 30 minutes later. As this isn&#x27;t my school, I&#x27;m not very familiar with this campus, and I think I&#x27;ve explored it more while tripping on various psychoactives than I have sober. I didn&#x27;t really feel much for at least an hour. This is consistent with my other experiences with phenylethylamine hallucinogens; in my experience, none of the 2Cs kick in until about 90 minutes, and mescaline takes even longer.
+Before our stroll was over, though, I felt the first alerts. It was like an inner energy building, and a bit of a head change, at around an hour or and hour and a half. I&#x27;ve done mescaline four times, and this stuff started to come up more quickly than mescaline ever did for me. The initial effects are difficult for me to describe, but the onset was certainly not similar to a 2C drug. It was more like mescaline, but with more body energy. There were almost no visual changes until after I had finished coming up. We arrived back at K&#x27;s house shortly after the third hour, at which point we had almost reached the plateau.
+The visual disturbances were, as others have reported, like a more subdued version of mescaline. There was a tiny bit of visual movement in patterns if I looked for it during the middle of the experience, around two to four hours, but nothing too crazy. K had a zebra-pattered drape over his window, and it kind of warbled and flowed a bit if I really looked. Colors were more saturated. There was a multicolored flower print on K&#x27;s couch that kept catching my eye, because it was so saturated and beautiful.
+Shapes seemed to pop a bit, as well. These visual changes are not unlike what I&#x27;ve experienced on mescaline: rather than seeing crawling, moving patterns, colors get much more intense, and shapes are more defined. All together, though, it was nothing like general intensification-of-everything that I got from the cactus. I wasn&#x27;t really impressed by the open-eye visual aspect of this drug.
+The closed-eye visuals, on the other hand, were interesting. TMA-2 was closer to mescaline in this respect. There were some multicolored, very intricate, tesselating patterns that swirled and moved, seemingly around several centers of gravity, or maybe whirlpools, in my field of vision. It reminded me a bit of 2C-E. However, my mind also conjured some more coherent closed-eye visual scenes, similar to what I experienced on mescaline. For example, before I went to sleep after the trip, I made love to my girlfriend, and as I came to the climax, I saw something that resembled a white flower melting into a whirlpool in a river of colored milk. Beautiful.
+The emotional aspect of the experience was very subdued, but that may have just been a result of the setting I chose for the trip. There was very little to no euphoria. It was altering my consciousness, but not in a particularly &#x27;fun&#x27; way like acid or 2C-B. I was with my girlfriend, and had hoped that maybe the experience might catalyze some emotional conversation or bonding, but that never happened. Overall, conversation was not enhanced or inhibited.
+I did come to one conclusion while under the influence: For years, I&#x27;ve looked to psychedelic drugs to force me to confront issues that I don&#x27;t want to confront while I&#x27;m sober. It&#x27;s almost like I&#x27;m normally, &#x27;emotionally lazy,&#x27; and have used entheogens to make myself work through problems that I&#x27;m already aware of, but don&#x27;t want to admit that I&#x27;m aware of. Is this juvenile? Perhaps I&#x27;m missing the whole point of tripping. Where is the FUN?!
+Unfortunately, the body load was very significant. This was probably the worst aspect of the experience. On the 2C phenylethylamines I&#x27;ve taken, there&#x27;s a kind of inner tension, vasoconstriction and elevated heart rate that characterises the come-up, but which melts away as the trip really begins around the second hour. This stuff had a similar effect, except it never melted away. Mescaline was much cleaner on the body compared to this stuff. My heart rate was elevated to about 120bpm for the entire ~9 hour main body of the trip, and both me and my girlfriend noticed soreness in our joints as we were coming down. It increased mucous production for a couple of us as well, and I felt like I had a wad of snot in the back of my throat for most of the experience. My palms were consistently sweaty, and my hands were cold. I experienced mild bruxism, but nothing too bad. One good thing was that, unlike mescaline, none of us experienced much nausea from this substance. It was mostly just a general stimulated uncomfortableness.
+Perhaps that could have been relieved by taking another walk, but for the most part, I was content just to park myself on K&#x27;s couch after we hit the plateau. I don&#x27;t think any of us got up much for about six hours. We talked, but not excessively. We had some good conversations, but nothing really deep or particularly insightful. It&#x27;s strange; although I felt such a marked stimulation, I had no desire to get up or move around. It was a very ... &#x27;chill&#x27; stimulation. Was this an effect of the drug, or just normal boredom? Maybe this is what 2C-C is like? Unfortunately, I haven&#x27;t tried that one, so I can&#x27;t compare.
+The effects dropped off pretty rapidly at around the ninth hour. After the tenth hour, I felt comfortable driving, so we left K&#x27;s house shortly after 11:30. On the way home, we listened to This Binary Universe by BT, which was only about as mind-blowingly amazing as it normally is. With the help of a bit of benadryl, were able to fall asleep easily before 1AM. The next day, I don&#x27;t feel so great. My joints are still a bit sore, and I have a mild headache. I&#x27;m more tired than can be accounted for by simply getting to sleep later than usual. I slightly nauseated for the whole day. I get the feeling that my body doesn&#x27;t like this compound, or maybe one of its metabolites.
+To me, in a nutshell, 30mg of TMA-2 felt kind of like mescaline that never really kicked off. The head space was somewhat similar, but lacked the very marked &#x27;de-filtering&#x27; of experience that always characterized mescaline&#x27;s effects for me. That could have been a result of the relatively low dose, I don&#x27;t really know. Personally, though, I would be surprised if this stuff is capable of catalyzing the type of otherworldly, alternate-reality experience that high-dose mescaline can produce. It was not like a 2C compound at all. If I were to take it again, I might almost like to increase the dose a bit, to maybe 40mg, but I&#x27;m hesitant to do so because the body load was already so uncomfortable on the dose I took. All things considered, I probably would not take this drug again. It&#x27;s neat to have been given the chance to try it, if for nothing more than its historical significance in elucidating something critical about the serotonin binding site of the 5HT2A receptor, but I think I see now that this drug is kind of ... obsolete. I would take any 2C drug, or especially mescaline, over this stuff. Life is too short for me to waste it on further TMA-2 trials.
+Exp Year: 2011
+ExpID: 94421
+Gender: Male
+Age at time of experience: 22
+Published: Apr 18, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+TMA-2 (112) : General (1), First Times (2), Music Discussion (22), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,344 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉 - 埃罗伊德的故事 - &quot;疯狂的嘴&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tropane-plants.html'>← 托烷类植物</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉 - 埃罗伊德的故事 - &quot;疯狂的嘴&quot;</h1>
+<div class='sub-title'>Datura - Erowid Exp - &#x27;Mouth of Madness&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jan 10, 2004 · <a href='https://erowid.org/experiences/exp.php?ID=29874' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>在高中我有一个朋友一直在读卡洛斯·卡斯塔内达.
+卡洛斯写道雅基族巫师唐胡安·马图斯, 他通过摄入皮约特,达图拉等物质进入灵界.
+于是他受到了唐胡安的启发,
+我们对这次经历的程度没有做好准备,
+我吃了一大匙新鲜的成熟种子.
+露西和波洛吃了类似的数量.
+90%的故事是我最好的朋友杜吉告诉我的,
+基本上,我记得,是在午夜吃种子,
+只是完全缺乏平衡,口腔和喉严重干燥和疼痛, 以及一些清醒的幻觉.
+这感觉并不愉快,只是不舒服.
+我一直在吸烟, 烟都会消失, 我和一个来自日间营地的朋友聊天,
+我还记得在楼上的所里了,
+我还记得清理一下,洗掉一美元的票,
+我真的不确定这是否发生了,当我去检查时, 美元已经消失,
+后来露西说她模糊地记得在我的浴室里吐,
+美元仍然不见.
+波洛,露西和我都非常疲和昏昏欲睡,我们都去睡觉了.
+我做了一个梦,
+第二天早上,我被电话的响声唤醒了.
+露西和波洛已经离开了.
+我接了电话.
+没有人知道.
+时间?
+你还好吗?
+我:...很好.
+有什么问题?
+我是什么名字?
+告诉我我的名字!
+我:你该死的......杜吉.
+停止和我在一起.
+我不是!
+你记得昨晚发生了什么?
+我:我不听这些...
+只是帮我一个忙,看看冰箱的顶部.
+我:哈哈
+你把我的狗的食物盘放在冰箱的顶部.
+很好的一!
+没有,混蛋,你做了!
+我:不管怎样,再见.
+我来了
+我上楼, 看到我的房子一片混乱.
+我发现墙上挂着的电话挂在挂上,前门开,门口的桌子翻了过来,地板上的花瓶破碎了,
+我开始感到恐慌.
+我真的以为杜吉只是在开玩笑... 但他从来没有开玩笑.
+所以戴夫来帮我打扫.
+我发现花瓶的所有碎片都被打破了,
+这很奇怪.
+我们清理好后, 杜吉开始告诉我发生了什么事.
+他回到我的房子, 也许一个小时后, 我已经睡觉了.
+他发现我穿着拳击, 疯狂地在厨房里寻找东西.
+它们还没有被打破.
+他叫我的名字,但我没有注意,只继续打开和敲打抽和柜.
+他喊道:&#x27;蒂姆!
+我转过身来,看着他烦.
+我说:&#x27;什么!
+&quot;你在做什么?&quot;
+&quot;我正在找我的Windows 95磁盘&quot;. 我用一个刚刚被问到他的阴茎是什么人的表情和语气说.
+我转过眼睛,走向我的餐桌,停下来一会儿挂在墙上一个 loogie.
+杜吉非常困惑.
+我说,看着桌子.
+&quot;我不是&quot;,杜吉说.
+&quot;不是你!
+我说这在同一个&quot;我必须总是重复明显&quot;的语气.
+&#x27;蒂姆! 这是一件好事.
+你有什么问题?
+&quot;你是谁?&quot;
+我是你最好的朋友!
+我试着记住
+&quot;...约翰&quot;
+&quot;没有.
+&quot;...杰克?&quot; 没有.
+&quot;没有!
+你甚至不认识一个叫杰克的人.
+&quot;&quot;的意思是&quot;&quot;
+我是杜吉!
+这到底是怎么回事!
+&quot;,是的...杜吉.
+我在墙纸上吐了另一根大.
+&#x27;蒂姆! 这是一件好事.
+这是你的房子.
+让我们一起来看看.
+&quot;好吧. &quot;
+我在地板上吐唾.
+&quot;这是什么,蒂姆?
+&quot;,至少我没有在墙上吐唾.
+我从桌子上拿起一匙, 似乎试图吸烟.
+我假装用一个隐形的打火机点燃它,然后深呼吸.
+我给大卫一个子.
+他把匙从我手里拿走了.
+我走开,拿起狗的食物碗, 走下楼,
+&quot;她不需要它,我不喜欢她无论如何&quot;,我说,要么预测他的问题,或者也许只是对自己说话.
+我打开冰箱,开始挖掘我的拳击手的口袋...
+我很渴了.
+我认为我没有任何变化&quot;,我看着杜吉.
+&quot;你不需要零钱,这是你的房子.
+这就是你的爸爸!
+&quot;好吧,你有五十美分吗?&quot;
+&quot;当然可以.
+他伸手拿出一杯冰茶给我打开.
+我只喝了一口,放下,拿出一新鲜的,打开,喝了一口,放下,伸手再喝一口......
+&#x27;你已经失去了你的思想,你意识到...,&#x27;说杜吉.
+我疯狂地笑着在冰箱上.
+我走向我的卧室,错过了门口,
+大卫帮助我.
+显然波洛和露西已经离开了.
+&quot;露西去哪里了,蒂姆?
+她去见了阴影的人.
+很快之后,我认为,杜吉成功地让我上床睡觉,然后他回家了.
+这是一个学校的夜晚.
+我不确定是我回来做那些事情,还是波洛和露西回来做它们.
+我猜我永远不会知道.
+露西在床上醒来, 腿和脚泥和擦伤, 没有回忆她如何到达那里.
+波洛也在家醒来了.
+这些人没有开车, 也没有住在我附近.
+这很奇怪.
+我可能忘记了部分...
+我听过多吉讲这个故事很多次,
+故事在我的高中获得了传奇的地位.
+其他朋友的故事中的亮点:
+- 乔西比吃了一些,放上了&quot;劳动者死亡&quot;,然后通过无线电与杰里·加西亚聊了整晚.
+- 斯洛皮,坐着枪在移动的汽车, 看到一个黑人男人在后座坐着一把小枪.
+他从车里逃出来.
+- 6月虫吃了一些之前他的家庭晚餐.
+他是在我的朋友O&#x27;Dells地下室吸烟.
+他通过时,地下室和其他人消失了, 他坐在他的餐厅桌上, 伸出手臂,
+他不得不原谅自己从桌子上锁定自己在他的卧室.
+其他药物你吃,你就像,&#x27;,这是&#x27;在吉姆森草,你就像&#x27;,这是正常的.你永远不知道你是幻觉...
+不推...除非你是一个巫师
+时间表: 29874
+达图拉 (15):小组 (2-9) (17),导游/护理 (39),实体/生物 (37),不愉快的旅行 (6),艰难的经历 (5),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Mouth of Madness
+Datura
+by
+Timmy
+Citation:   Timmy. &quot;Mouth of Madness: An Experience with Datura (exp29874)&quot;.
+Erowid.org
+. Jan 10, 2004. erowid.org/exp/29874
+DOSE:
+1.5 Tbsp
+oral
+Datura
+(seeds)
+smoked
+Tobacco - Cigarettes
+BODY WEIGHT:
+145 lb
+In High School I had a friend who had been reading Carlos Castaneda. Carlos wrote about the Yaqui shaman Don Juan Matus, who would access the spirit world by ingesting peyote, datura, etc... So he, inspired by Don Juan, went on one of his expeditions to find herbs and came back with a tupperware full of the spiny pods. It would be an huge understatement to say that we were unprepared for the extent of the experience.
+I ate a heaping tablespoon of fresh, mature seeds.  Lucy and Pollo had eaten similar amount.
+90% of this was told to me by my best friend, Doogie, who witnessed my discent into madness.
+Basically, what I remember, is eating the seeds around midnight, with Lucy and Pollo. It was kind of like being really drunk...except for the TOTAL lack of equilibrium, serious dryness and soreness of the mouth and throat, and some lucid hallucinations. It didn&#x27;t feel enjoyable...just uncomfotable really.
+I kept smoking ciggarettes that would dissapear and I talked to a friend of mine from day camp who I hadn&#x27;t seen in maybe 7 years, before he dissapeared, and I realized he wasn&#x27;t ever there to begin with. I vaguely remembered finding my upstairs toilet had been puked on(not in), with a dollar floating on top. I also vaguely remember cleaning it up, washing the dollar bill off and hanging it to dry. I really wasn&#x27;t sure if this had happened and when I went to check it the dollar was gone and the toilet was a little too clean. Later Lucy said she vaguely remembered puking in my bathroom, but we&#x27;re still not sure if it was real or not. The dollar is still missing.
+Pollo, Lucy and I all got extremely fatigued and sleepy and we all went to bed.
+I had a dream where I kept walking into the wall.
+I was woken up the next morning by the phone ringing. Lucy and Pollo were gone. I picked up the phone.
+Doogie: Tim? Tim? Are you okay?
+Me: Uhm... fine. What&#x27;s wrong?
+Doogie: What is my name? Tell me my name!
+Me: Fuck you......Doogie. Stop fucking with me.
+Doogie: I&#x27;m Not! What do you remember from last night.
+Me: I&#x27;m not listening to this....
+Doogie: Just do me a favor and look on top of the fridge.
+Me: Haha. You put my dogs food dish on top of the fridge. Good One! cockhead.
+Doogie: No, asshole, you did!
+Me: Whatever, goodbye.
+Doogie: I&#x27;m coming over.
+I go upstairs, where my mom&#x27;s house is in total disarray. I find the wall mounted phone hanging off the hook, the front door standing wide open, the table in the entryway over turned, a broken vase on the floor....and, it was Halloween, so we had this dish of candy corn....someone went through maybe 75 pieces of candy corn and bit off only the orange half. I start freaking out.
+I had really thought that Doogie was just joshing me... but he never took jokes that far. So Dave comes over and helped me clean up. I found all of the pieces of the vase, broken where they lay, except for a very large section that was hidden behind the curtain on the other side of the room. Strange.
+After we had cleaned things up Doogie proceeded to tell me what had happened.
+He had come back over to my house maybe an hour after I had gone to bed. Apparently he found me, wearing only my boxers, frantically trying to locate something in my kitchen. Things had not been broken yet. He said my name, but I paid no attention, only continued to open and slam drawers and cabinets.
+&#x27;TIM!&#x27; He shouted.
+I turned around, looking at him with annoyance. &#x27;What!?&#x27;
+&#x27;What are you doing?&#x27;
+&#x27;I&#x27;m looking for my Windows 95 disk.&#x27; I said this with a expression and tone of voice of someone who had just been asked what his penis was for.
+I rolled my eyes and walked off toward my dinner table, stopping for a moment to hock a loogie on the wall. Doogie is very confused.
+&#x27;Don&#x27;t fucking leave!&#x27; I said, looking at the table.
+&#x27;I&#x27;m not,&#x27; said Doogie.
+&#x27;Not You! The candlesticks!&#x27; I said this in the same &#x27;must I always restate the obvious&#x27; tone.
+&#x27;Tim! What the hell is wrong with you?&#x27;
+&#x27;Who are you?&#x27;
+&#x27;I&#x27;m your best friend!&#x27;
+I try to remember
+&#x27;Ummmm...John&#x27;
+&#x27;No.&#x27;
+&#x27;Ummmm...Jake?&#x27;
+&#x27;NO! You don&#x27;t even know anybody named Jake.&#x27;
+&#x27;Ummmm...&#x27;
+&#x27;I&#x27;m Doogie!! What the fuck!!&#x27;
+&#x27;Oh yeah....Doogie.&#x27;
+I spit another substantial hocker on the wallpaper.
+&#x27;Tim! This is your house. Have some respect, STOP SPITTING ON THE WALLS!&#x27;
+&#x27;Okay.&#x27;
+I spit on the floor.
+&#x27;What the fuck, Tim?&#x27;
+&#x27;Hey, at least I didn&#x27;t spit on the wall.&#x27;
+I grab a spoon off the table and seem to be trying to smoke it. I make as if I&#x27;m lighting it with an invisible lighter and take a deep breath.
+&#x27;eer.&#x27; I offer David the spoon.
+&#x27;No thanks.&#x27; He takes the spoon away from me.
+I walked away and grabbed my dogs food bowl and went downstairs; down to my fridge where I carefully place the dish on top.
+&#x27;She doesn&#x27;t need it, and I don&#x27;t like her anyway,&#x27; I said, either anticipating his question or maybe just talking to myself.
+I open my fridge and begin digging into the pockets of my boxers...except they didn&#x27;t have pockets.
+&#x27;I&#x27;m so thirsty. I don&#x27;t think I have any change,&#x27; I look at Doogie.
+&#x27;You don&#x27;t need change, this is your house. That&#x27;s your pop!&#x27;
+&#x27;Okay....do you have fifty cents?&#x27;
+&#x27;Sure.&#x27;
+He reaches in and pulls out a Brisk Iced Tea and opens it for me. I take a single sip, set it down, pull out a fresh can, open it, take a single sip, set it down, reach for another....Doogie stops me.
+&#x27;You&#x27;ve lost your mind, you realize...,&#x27; says Doogie.
+I cackle maniacally and spit on the fridge.
+I walk toward my bedroom, missing the doorway and walking squarly into the wall. David helps me. Apparently Pollo and Lucy had already left.
+&#x27;Where did Lucy go, Tim?&#x27;
+&#x27;She went to see the shadow people.&#x27;
+Not long after this, I think, Doogie managed to get me into bed and go to sleep, then he went home. It was a school night. I&#x27;m not sure if I got back up and did those things upstairs or if Pollo and Lucy came back and did them. I guess I&#x27;ll never know for certain. Lucy woke up in her bed, legs and feet muddy and scraped, with no recollection of how she got there. Pollo woke up at home too. These people didn&#x27;t drive and they didn&#x27;t live close to me either. Odd.
+I&#x27;m probably forgetting parts... I&#x27;ve heard Doogie tell this story so many times, but I&#x27;m pretty sure I did other stuff too. The story gained somthing of legendary status at my highschool.
+Highlights from some of my other friends stories:
+-Josippi ate some, put on Working Man&#x27;s Dead, and proceded to talk to Jerry Garcia all night long via his radio.
+-Schloppy, sitting shotgun in a moving car, saw a dark man with a tommy gun sitting in the back seat. He bailed from the car.
+-June Bug ate some before his family dinner. He was in my frend O&#x27;Dells basement smoking a bong. When he passed it, the basement and all the other people dissapeared and he was sitting at his dining room table, arm outstreched, while his family stared at him. He had to excuse himself from the table to lock himself in his bedroom.
+Other drugs you eat and you&#x27;re like, &#x27;hey, that&#x27;s trippy&#x27; On jimson weed, you&#x27;re like &#x27;hey, that&#x27;s normal.&#x27; You NEVER know that you&#x27;re hallucinating... it&#x27;s just like a waking dream.
+Not recomended...unless you&#x27;re a shaman
+Exp Year: 1997
+ExpID: 29874
+Gender: Male
+Age at time of experience: Not Given
+Published: Jan 10, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : Small Group (2-9) (17), Guides / Sitters (39), Entities / Beings (37), Bad Trips (6), Difficult Experiences (5), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

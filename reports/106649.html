@@ -1,0 +1,295 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾罗维德旅行 - 我的40小时之旅</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bk-2c-b.html'>← bk-2C-B</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾罗维德旅行 - 我的40小时之旅</h1>
+<div class='sub-title'>bk-2C-B - Erowid Exp - &#x27;My 40-Hour Trip&#x27;</div>
+<div class='meta'>作者：GoreblogVariety Citation · 日期：Nov 16, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=106649' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>9.2分之一
+这篇文章记录了我过去两天的生活,
+这是我过去两天对一种叫BK-2CB的物质进行的一次疯狂旅行的报告--
+我从来没有享受过它的父亲化学品, 我以前的精神药和解离剂经验是15g的P.
+但没有任何东西能接近这种化学物质.
+这是一个当地花园, 周围的森林和草; 这是夏天的中间, 天气很好,
+星期三下午3点, 我摄入了2个110毫克的BK-2CB颗粒,
+我读到它们的纯度为99.9%,
+我离开家走了35分钟到下一个城镇,
+周三下午3点35分 - 头皮有轻微的刺痛, 感觉像蜘蛛在我的头发里奔跑.
+我遇到B和T, 他们每人吃了一粒110毫克的药丸.
+我们抽烟,等待S到来.
+星期三下午3点50分-S到达并吞下其中一个颗粒.
+我们在周围玩, 吸更多的香烟直到我们开始感觉到毒品.
+星期三下午4点40分-我们现在都在,
+这与MDMA的自我自信和高兴感相似.
+我注意到它缺乏我在西时所经历的焦虑和恶心.
+我和B在肘部和膝盖上感到痛, S说他吃了药丸后, 感觉好像大脑了30分钟.
+星期三下午4:55我们去森林抽烟.
+我们会见两位亲密的朋友 (J和R),
+星期三下午5:20-另一个朋友到达 (D).
+这种草真的是让人开始旅行, 视觉效果是疯狂的.
+周围的树木似乎有紫色和蓝色的孔雀在树叶之间筑巢.
+我和S要去小便, 膀突然释放, 让我觉得我没有任何液体,
+尽管在此之后, 我意识到这是多么愚蠢, 我再次感觉很棒.
+星期三晚上5点45分-我们吸了最后一支烟,
+我和B决定回到森林里去探索一下.
+我们发现一半的金属椅子, 改变了我们的思想相信是一个叫&quot;框架&quot;的物体.
+我们决定它需要跟我们一起,
+这就是它变得非常奇怪的地方.
+星期三晚上6点,我和B决定把D带到树林里,
+他坐在木头上, 吸着一些气.
+虽然他疯狂的在气体我和B问他向我们指导的母亲框架的方式,他挥舞他的手臂和指点在一个随机的方向.
+我们跟随他的指示, 在树林中间找到一辆购物车,
+显然我们对此感到疯狂,
+我和B决定把原来的框架插入新的主框架 (把椅子腿放进购物车) 相信它在影响下是最重要的.
+我们试图深入森林, 但决定不去, 担心我们刚刚做的事情对世界其他地方是好还是坏.
+这种药物让我们发疯了.
+星期三下午6:40-回到花园, 我们与其他人见面,
+这一次,我们带着T.
+我们看到一只蜘蛛把一只被捕的卷进了它的网.
+这很有趣,所以决定卷起一支香烟,看看这个戏.
+星期三晚上7点,我,B和T进入森林.
+树木似乎在互相低声说话.
+这让我们有点害怕, 因为我们认为&quot;框架&quot;想要我们离开.
+但我们勇敢地向前走,
+我们向T展示了主框架并试图让他理解它, 但他阻止我们并透露他已经知道,
+的
+我们决定深入森林寻找更大的框架.
+星期三晚上7点37分, 我收到J的短信, 她告诉我她和R需要去,
+看着我的手机是疯狂的.
+这些字母跳起跳下,
+我很难回复短信,
+周三晚上7点45分S打电话给我说他刚刚花了40分钟在花园里漫步,
+我们都笑了笑,他告诉我们要玩得开心,我们都通过电话向他道别.
+周三晚上8点, 我,B和T仍在树林里,
+我告诉我的朋友, 我们都笑了,
+我从此时刻开始失去时间的概念.
+我们找不到更大的框架,
+我们同意我应该爬上一棵树,
+半路上我踩到一根坏的树枝,
+我们三个人都同意&quot;框架&quot;试图杀死我们, 我们不应该在森林里.
+尽管像以前一样, 我们把它的抵抗视为挑战,
+经过长时间的探寻,
+我们前面是一片覆盖着树木的大沼泽, 想想一个红树林沼泽,
+整个沼泽看起来就像木制的蜘蛛网.
+显然这看起来很疯狂, 而,我们都同意我们已经发现了框架的联系.
+我们讨论了&quot;框架&quot;可能甚至不是一个物体, 而是它在我们周围连接着一切,
+我们三个人突然感到害怕, 认为我们知道太多了.
+我们很快找到出森林的路.
+周三晚上10点15分, 我再次检查我的手机,
+现在的视觉效果是如此强烈.
+现在的视觉效果是如此强烈.
+绿色的树木看起来黄色,我看到的一切波浪和.
+蓝色和紫色的孔雀无处不在,
+我喜欢它.
+周三晚上10点20分-T决定这对他来说太多了,
+他走回家,把我和B留在草地上.
+我们决定吸气,坐在木上, 俯着森林.
+我还在,吸气非常激烈, 我失明了大约30秒,
+我们也决定休息一天, 穿过小和森林回家的漫长路程,
+在回家的路上, 我听着&quot;小毛云&quot;的&quot;球体&quot;,和&quot;哈尔基安&quot;的&quot;轨道&quot;的重复.
+我甚至无法描述这种经历!
+星期三 11:02-我回家吃了一大碗我最喜欢的谷物,
+我退到我的房间里, 还在, 打开Funkadelic的&quot;脑&quot;,
+我上床开始给朋友发短信, 等药物消退.
+没有.
+星期四凌晨三点, 我还清醒,
+我把我房间里的海报拆下, 因为我觉得它们在喊我,
+我总是想自己会是个什么样子的女孩,
+非常奇怪的头部空间.
+星期四上午4点32分 - - 旅行甚至没有消失.
+我不能睡觉所以躺在床上着我的幻觉中的迷幻, 希望它会停止,因为我很累.
+我注意到我全身都, 感觉像是有虫子爬过我的脸,
+很奇怪和不舒服,但我已经习惯了.
+星期四早上7点, 我听到我哥哥上学,
+我试着听音乐, 但它只是混我的大脑所以我恢复胎儿位置.
+星期四上午九点--耶稣基督.
+我担心我现在处于药物诱导的精神病.
+我下楼吃更多的谷物, 看到一些我真的不想看到的东西.
+我下午4点有牙医预约.
+现在我可以清楚地看到, 但墙壁仍在呼吸,
+旅行没有停止的迹象, 这变得荒谬.
+我喜欢迷幻药, 但在这一点上已经23个小时了,
+星期四下午三点半, 我去看牙医,
+我在去之前检查我的瞳孔, 它们就像是餐盘, 这让我很偏执.
+我觉得我周围的每个人都来自另一个维度,
+我需要重新塑造假牙, 这需要注射,和砂纸.
+我觉得外星人正在对我进行手术.
+星期四下午4点45分-我从牙医那里回来,吃了一顿正确的饭.
+感觉有点正常了, 但我的视力仍然很波,
+我花了整天在这个可怕的边缘.
+星期五凌晨2点左右, 我终于睡着了.
+尽管我的大脑很混乱,
+我意识到没有明显的下降, 或者我睡过它.
+不会把BK-2CB当作一种弱的合法药物, 它可以是非常强大的迷幻药,
+这次旅行持续了17-18个小时.
+我用了两倍的剂量, 几乎40个小时的时间里,
+已使用的证券
+2017年11月16日发布</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>My 40-Hour Trip
+bk-2C-B
+by
+GoreblogVariety
+Citation:   GoreblogVariety. &quot;My 40-Hour Trip: An Experience with bk-2C-B (exp106649)&quot;.
+Erowid.org
+. Nov 16, 2017. erowid.org/exp/106649
+DOSE:
+T+ 0:00
+220 mg
+oral
+bk-2C-B
+(pill / tablet)
+T+ 0:00
+smoked
+Tobacco - Cigarettes
+T+ 0:55
+smoked
+Cannabis
+BODY WEIGHT:
+9.2 st
+Bare in mind this post documents the past 2 days of my life and is almost definitely going to be long.
+This is my report on an insane trip I&#x27;ve had over the past 2 days on a substance called BK-2CB- a legal analogue of the once popular 2CB. I never had the pleasure of its father chemical and my previous experience with psychedelics and dissociatives has been 15g of P. sclerotia (psilocybin truffles), a medium dose of DXM and 150ug of 1P-LSD. I&#x27;ve also had much experience with MDMA if you count that, as some people do. But nothing comes close to this chemical.
+Setting- A local flower garden and the surrounding woods and meadows; it&#x27;s the middle of summer and the weather is lovely so this is very pleasant.
+Wed 3:00pm- I ingested 2 of the 110mg BK-2CB pellets that were acquired from a very trusted vendor. I read that they were 99.9% pure although obviously I can&#x27;t be sure of the truth in that. I left my house and walked the 35 minutes to the next town over, where I was meeting my close friends who we&#x27;ll call B, S and T.
+Wed 3:35pm- Slight tingle in my scalp, feels like spiders are running through my hair. I meet B and T and they ingest one of the 110mg pellets each. We smoke cigarettes and wait around for S to arrive.
+Wed 3:50pm- S arrives and ingests one of the pellets. We goof around and smoke more cigarettes until we begin to feel the drug.
+Wed 4:40pm- We&#x27;re all tripping now, although visuals are non existent at this point. The come up is very enjoyable and we&#x27;re all having a great time, it&#x27;s not dissimilar to that of MDMA with waves of self confidence and euphoria. I notice it lacks the anxiety and nausea I experienced with psilocybin. However, me and B experienced a niggling pain in our elbows and knees and S said that he felt as though he had brain freeze for 30 minutes after ingesting the pellet.
+Wed 4:55pm- We go into the woods and smoke a joint. We meet 2 of our close friends (J and R) in there and retreat back to the flower garden for a few more joints.
+Wed 5:20pm- Another friend arrives (D). The weed has really set off the trip and the visuals are insane. The ground looks like it&#x27;s made of water and the surrounding trees seem to have purple and blue peacocks nesting everywhere amongst the leaves. Me and S go off for a pee and the sudden release of my bladder makes me feel like I have no fluid left in me at all including water and blood, I get scared at this thought and vomit. Although after this, I realise how stupid that was and I&#x27;m feeling great again.
+Wed 5:45pm- We smoke our last joint and are tripping hard. Me and B decide to go back into the woods and explore a bit. Whilst in there we find half a metal chair that our altered minds believe is an object called &#x27;The Frame&#x27;. We decide it needs to come with us and bring it back to the flower garden.
+This is where it gets very weird.
+Wed 6:00pm- Me and B decide to take D into the woods with us believing that there must be more to the Frame. He sits down on an a log and huffs some butane. Whilst he is delirious on the gas me and B ask him to show us the way to the Mother Frame and he swings his arm and points in a random direction. We follow his directions and find a shopping trolley in the middle of the woods exactly where D pointed. Obviously we go insane at this, even though it was probably complete coincidence. Me and B decide to plug the original Frame into the new Mother Frame (put the chair leg into the shopping trolley) believing it to be of the upmost importance whilst under the influence. We try to go deeper into the woods but decide against, anxious if what we have just done is good or bad for the rest of the world. This drug is making us loopy.
+Wed 6:40pm- Back at the flower garden we meet up with everyone else, though it&#x27;s not long before me and B feel the strong urge to go back into the woods and explore further. This time, we take T with us. On the way in we notice a spider spinning a caught fly into its web. This is so interesting that decide to roll a cigarette and watch the spectacle.
+Wed 7:00pm- Me, B and T enter the woods. The visuals are strong as ever and trees seem to be whispering to each other. This slightly frightens us as we think the Frame wants us out. But we brave forward and go deeper into the woods. We show T the Master Frame and try to make him understand it but he stops us and reveals that he already knows and that the Frame is much bigger and isn&#x27;t just as small as this trolley in the woods. Wow. We decide to further into the woods seeking the even bigger Frame.
+Wed 7:37pm- I get a text from J, she tells me that her and R need to be going as they have other commitments and that D has work in the morning so is leaving too. Looking at my phone is crazy. The letters jump up and down against each other, jostling for room in their little boxes. I reply to the texts with difficulty and me, B and T continue our adventure.
+Wed 7:45pm- S calls me and tells us he&#x27;s just spent the last forty minutes wandering around the garden and is leaving to go to his girlfriend&#x27;s house. We all laugh about it and he tells us to have fun, we all say goodbye to him through the phone.
+Wed 8:00pm- Me, B and T are still in the woods and the knotweed, nettles and trees around me are urging me to leave the forest, whispering to each other and telling me to get out. I tell my friends this and we all just laugh, taking their insults as a challenge. I lose track of time from this point. We can&#x27;t find the larger Frame though we are certain it must be around. We agree that I should climb a tree to see if I can spot it from higher up. Around half way up I step onto a bad branch and it snaps sending me plummeting to the ground. I get back up and all three of us agree that the Frame is trying to kill us and that we shouldn&#x27;t be in these woods. Although as before, we take its resistance as a challenge and continue on. After what seemed like ages we found what we were looking for. Before us was a large swamp covered in trees, think of a Mangrove swamp, but you don&#x27;t get those where I live. The branches wound around, tied into each other and connected up until the whole swamp looked like some sort of wooden spider web. Obviously this looked insane whilst tripping and we all agreed that we have found the nexus of the Frame. We discuss that maybe the Frame isn&#x27;t even an object and that it&#x27;s all around us connecting everything instead, like the midichlorians in Star Wars. Suddenly all three of us get frightened and agree that we know too much. We quickly find our way out of the forest.
+Wed 10:15pm- I check my phone again and realise we were in the forest for over 2 hours. We&#x27;ve been tripping very hard for nigh on 7 and a half hours and the visuals at this point are so intense.
+We&#x27;ve been tripping very hard for nigh on 7 and a half hours and the visuals at this point are so intense.
+Green trees look yellow and everything I look at waves and jitters. There are blue and purple peacocks nesting everywhere making the world seem bursting with colour even though the sun is going down. I love it.
+Wed 10:20pm- T decides that it&#x27;s been too much for him and calls it a day even though his pupils are like dinner plates haha. He walks home leaving me and B alone in the meadow. We decide to huff some gas and sit on a wooden fence looking into the forest. I&#x27;m still tripping absolute balls and sucking the gas is so intense, I go blind for around 30 seconds and my vision is consumed by pure psychedelia and colours that I&#x27;ve never even seen before. Once the gas is gone we decide to call it a day too, but take the long way home through the lanes and woods, still tripping as hard as ever, it hits me that this trip is lasting so long. On the walk home I listen to Little Fluffy Clouds by The Orb, and Halcyon On and On by The Orbital on repeat. I can&#x27;t even describe that experience!
+Wed 11:02- I arrive home and eat a large bowl of my favourite cereal whilst talking to my mother (she had no idea haha). I retreat to my room still tripping balls and turn Maggot Brain by Funkadelic on, one of my favourite songs to hear whilst tripping. I get into bed and just begin texting my friends, waiting for the drug to fade off. It doesn&#x27;t.
+Thurs 3:00am- I&#x27;m still wide awake and am almost blind from the visuals. I take the posters in my room down since I think they&#x27;re shouting at me and I swear Han Solo on my Empire Strikes Back poster is changing his stance every time I look at him. It&#x27;s around this time that I keep thinking about what I would look like as a girl, I come to the conclusion that it would be Carrie Fisher. Very weird headspace.
+Thurs 4:32am- The trip isn&#x27;t even fading. I can&#x27;t sleep so just lie in bed staring at the psychedelia in my vision and wishing it would stop since I&#x27;m so tired. I notice that I&#x27;m itching all over and it feels as though bugs are crawling over my face, a phenomenon I usually get when I&#x27;m tripping indoors. Weird and uncomfortable, but I&#x27;m used it.
+Thurs 7:00am- I can hear my brother going to school and the trip is still strong as ever. I try to listen to music but it just fuzzes my brain so I resume the foetal position.
+Thurs 9am- Jesus Christ. I get worried that I&#x27;m now in drug induced psychosis. I go downstairs to eat more cereal and see something I really didn&#x27;t want to. I have a dental appointment at 4pm.
+Thurs 11am- I can now see clearly but the walls are still breathing and fractals are everywhere.
+Thurs 2pm- The trip is showing no signs of stopping and this is getting ridiculous. I love psychedelics but at this point it&#x27;s been 23 hours and it&#x27;s taking the piss.
+Thurs 3:30pm- I leave for the dentist and can hardly function. I check my pupils before I go and they&#x27;re like dinner plates which makes me very paranoid. The waiting room is packed and I feel like everyone around me is either from another dimension or just not connected to the rest of the human race- very weird. I needed to have my fake teeth remoulded which involves injections, buzz saws and sandpaper. As you can imagine it was torture and I felt as though aliens were operating on me.
+Thurs 4:45pm- I&#x27;m back from the dentist and ate a proper meal. Feeling somewhat more normal but my vision is still so wavy and the psychedelic headspace refuses to leave. I spend the rest of the day in this horrible limbo.
+Fri 2:00am- Around this time I finally fall asleep.
+Fri 9:00am- I wake up and am definitely out of the trip despite a very muddled brain. I realise there was no noticeable comedown, or that I slept through it instead.
+TLDR; don&#x27;t treat BK-2CB as some weak legal high, it can be a very strong psychedelic in the right dose and it lasts for a very, very long time (for me anyway). T, S and B took 110mg and said the trip lasted around 17/18 hours. I doubled that dose and was tripping very hard for nigh on 40 hours.
+Exp Year: 2015
+ExpID: 106649
+Gender: Male
+Age at time of experience: 18
+Published: Nov 16, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+bk-2C-B (618) : Multi-Day Experience (13), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

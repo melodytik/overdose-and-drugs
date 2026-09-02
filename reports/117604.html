@@ -1,0 +1,224 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 埃洛伊德 - &#x27;不是那么温柔的老师&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/breathing.html'>← 呼吸法</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 埃洛伊德 - &#x27;不是那么温柔的老师&#x27;</h1>
+<div class='sub-title'>Psilocybin Mushrooms - Erowid Exp - &#x27;Not So Gentle Teachers&#x27;</div>
+<div class='meta'>作者：ceganoodle Citation · 日期：Dec 2, 2023 · <a href='https://erowid.org/experiences/exp.php?ID=117604' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>背景/意图:这是我和我的朋友一起去的旅行.
+这是在下午早些时候开始.
+我主要的意图是:原谅一个朋友在生日那天在酒中肆无忌地行事,
+- 开始禁食
+在6分钟内清理了批次.
+0:20 - 中枢神经系统激活,一般刺激,并保证这些具有适当的效力.
+0:30 - 视觉变得明显.
+我注意到我公寓窗外的各种各样的树木充满了色彩.
+0:45 - 感到不安, 觉得我必须从心灵中清除对朋友的仇恨.
+我开始写日记, 注意到精神疾病的相对性, 个人问题和性格怪癖的普遍性; 结论是恨我最亲密的朋友最终就是恨自己.
+很快, 我开始幻觉到我笔记本里以前存在的草图出现在笔记对面的空白块上.
+这与一个强烈的感恩死,震撼了我从我的床上.
+1:00 - - 经过一些呼吸练习,音乐的改变,以及与朋友交往的重视; 我开始感觉好得多.
+我开始在公寓周围跳舞,
+我也参加了健身运动.
+我突然意识到一个月前我和我的伴侣发生了极端残酷的争.
+发生在我被关在一个小屋里,
+我感觉到一股强烈的内浪潮,
+我们有史以来最糟糕的争, 被我对前任的陈述所抛弃.
+我觉得自己被藐视和评判,
+想自杀的想法短暂地穿过我的脑海, 但从来没有真正娱乐.
+我觉得自己被带回了战斗的时代,
+我开始和朋友聊天.
+虽然说话有所帮助,
+这感觉不像是治疗创伤, 而更像是意识到内和创伤未得到解决.
+我也觉得我的手臂看起来像孩子的手臂,
+1:45 - 我试着冥想, 闭眼的视觉让我觉得我可能能够逃避我的问题通过升起我的自我.
+经过更多的冥想, 我的自尊心变得更加软化,
+我试着冥想, 闭眼的视觉让我觉得,
+经过更多的冥想, 我的自尊心变得更加软化,
+时间开始变得毫无意义.
+我觉得自己正被金老师评判,
+我求她原谅我的傲慢和优越感.
+对于对我的伙伴的轻视,
+我很快就感觉到了一些类似小丑的存在,
+很快我就确信这只会把我拖到地狱.
+我花了很多时间去看热器, 实体强调排斥有毒的态度和行为,
+我和另一间房间的朋友一起出去.
+尽管我经历了艰难的时光,
+虽然我无法摆脱不安的感觉.
+4点多或少的清醒.
+一些身体负荷和宿醉效应, 而不是后光.
+我喝了一些红色静脉克拉来缓解, 效果很好.
+影响指数强度度表 (1-6):
+视觉效果: 4
+自我检查:5
+凝聚力:3
+机身负荷: 4
+灵性/神秘主义: 4
+已知主观影响: 身体: 抑制食欲,镇静,过度打哈欠,瞳孔扩大
+认知:焦虑,情绪强化,同情力增强,沉浸力增强,音乐欣赏力增强,记忆力增强,思维加速,清醒,抑郁,混合情绪,思维循环,认知失调/高兴 (不同时),自主语音交流,清醒, Deja Vu,抑郁,内省,正念,自杀想法
+精神上的提升
+感官:色彩增强,敏度增强,外围信息误解,呼吸 (流动,呼吸),感知扭曲,亮度变化,对内在意识机制的视觉暴露,几何学,内部幻觉 (第二级),自主实体,味觉抑制,嗅觉抑制,预期反应,记忆重播,场景和情节
+结论: 这无疑是一个治疗性的经历,
+我仍然对被挖掘出来的压抑记忆感到不安.
+我必须对它们进行修复, 也可能需要去看心理治疗师,
+也许需要更高的剂量.
+其他:
+发布时间:2023年12月2日
+(39), 呼吸 (470):一般 (1), 艰难的经验 (5), 烂的经验 (4), 神秘的经验 (9), 实体/生物 (37), 关系 (44), 治疗意图或结果 (49), 小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Not So Gentle Teachers
+Psilocybin Mushrooms
+by
+ceganoodle
+Citation:   ceganoodle. &quot;Not So Gentle Teachers: An Experience with Psilocybin Mushrooms (exp117604)&quot;.
+Erowid.org
+. Dec 2, 2023. erowid.org/exp/117604
+DOSE:
+T+ 0:00
+3.75 g
+oral
+Mushrooms
+T+ 8:00
+oral
+Kratom
+(liquid)
+BODY WEIGHT:
+180 lb
+Context/Intent: This was a trip I took with my friend serving as the trip sitter. It was started in the early afternoon. My primary intention was: to forgive a friend for acting recklessly on benzos on my birthday, facing my fear of pushing to higher doses, and reflecting on the month anniversary of my sobriety from cannabis.
+-2:00 - Started Fasting
+0:00 - Ate the mushrooms with cheez-its, cleared the batch within about 6 minutes.
+0:20 - CNS Activation, general stimulation, and the assurance that these mushrooms were of proper potency.
+0:30 - Visuals becoming apparent. Noticed the assortment of trees outside my apartment window was highly saturated with color.
+0:45 - Feelings of unease, felt like I had to purge the hate I had for my friend from my soul. Started journaling in my sketchbook, noting the relativity of mental illness and the universality of personal problems and personality quirks; concluding that to hate my close friend is to ultimately hate myself. Soon after, I started hallucinating sketches that existed previously in my notebook appearing on the blank patch opposite my notes. This in tandem with an intense grateful dead jam, jolted me from my bed.
+1:00 - After some breathwork, a change in music, and an emphasis on socializing with my friend; I start to feel significantly better. I start dancing around my apartment, grooving out and walking myself softly to the nearing peak. Also did calisthenics.
+1:15 - My friend goes to the bathroom, and I have a sudden realization of the extremely brutal fight I’d had with my partner just over a month prior. The fight occurred while I was in a k-hole, and in the same apartment I was currently in. I felt an intense wave of guilt for my part to play in the fight. The worst fight we’d ever had, spurned by a statement I’d made regarding my ex in the throws of a K-hole. I felt scorned and judged by what I felt were the presence of entities. Thoughts of suicide briefly crossed my mind but were never truly entertained. I felt like I had been transported back to the time of the fight, and was concerned I had tainted my ability to trip in this apartment.
+1:30 - I start talking to my friend. The talking helps, but the general feeling of unease doesn’t really go away. This feels less like a therapeutic remediation of trauma, and more like a realization of guilt and trauma left unresolved. It’s around this time I also feel like my arms look like that of a child’s, likely a reaction to my perceived vulnerability.
+1:45 - I try meditating, and my closed-eye visuals give me the sense that I may be able to escape my problem by ascending from my ego. After meditating some more, my ego is very softened, however, I still feel shitty, and I retreat to my bedroom.
+I try meditating, and my closed-eye visuals give me the sense that I may be able to escape my problem by ascending from my ego. After meditating some more, my ego is very softened, however, I still feel shitty, and I retreat to my bedroom.
+2:00 - Time starts to become meaningless. I feel like I’m being judged by the Golden Teacher, an entity I’ve attached to my favorite strain, and often pay homage to at the beginning and end of the trip. I beg her forgiveness for my arrogance and superiority complex. I apologize for the wrongs slighted at my partner. It doesn’t seem to do much, and I soon feel the presence of Jester-like entities, laughing at my condition. I get the notion that perhaps I need to stand up to these bullies, and very quickly I’m assured that will only drag me down to hell. I spend a lot of time looking into my radiator, the mushroom entities emphasizing the expulsion of toxic attitudes and behaviors, and reinforcement of healthy practices.
+2:30 - Coherency starts to return to me, and I go hang out with my friend in the other room. Despite my rough time, the abundance of trips shows me that it’s not ultimately a big deal. We fool around mid-journey, and I relax; although I can’t escape the feeling of unease.
+4:00 - More or less sober. Some body load and hangover effects instead of an afterglow.
+8:00 - Body load persists, I drink some red vein kratom to mitigate and it works great.
+Effect Index Intensity Scale (1-6):
+Visuals: 4
+Introspection: 5
+Cohesion: 3
+Body Load: 4
+Spirituality/Mysticism: 4
+Noted Subjective Effects: Physical: Appetite Suppression, Sedation, Excessive Yawning, Pupil Dilation
+Cognitive: Anxiety, Emotion Intensification, Empathy Enhancement, Immersion Enhancement, Increased Music Appreciation, Memory Enhancement, Thought Acceleration, Wakefulness, Addiction Suppression, Mixed Emotions, Thought Loops, Cognitive Dysphoria/Euphoria (Not simultaneous), Autonomous Voice Communication, Catharsis, Deja Vu, Depression, Introspection, Mindfulness, Suicidal Ideation, Spirituality Enhancement
+Sensory: Color Enhancement, Acuity Enhancement, Peripheral Information Misinterpretation, Breathing (Flowing, Breathing), Perceptive Distortion, Brightness Alteration, Visual Exposure to Inner Mechanics of consciousness, Geometry, Internal Hallucination (Level 2), Autonomous Entity, Gustatory Suppression, Olfactory Suppression, Anticipatory Response, Memory Replays, Scenarios and Plots
+Conclusion: Certainly a therapeutic experience, and the knowledge that it wasn’t gonna be fun definitely helped me accept the bleak nature of the trip early on. I’m still left with feelings of unease from the repressed memories being unearthed. I’m gonna have to work on them, and will likely have to either see a therapist or have a more guided trip. Perhaps a higher dose would be necessary.
+Exp Year: 2023
+ExpID: 117604
+Gender: Male
+Age at time of experience: 24
+Published: Dec 2, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms (39), Breathing (470) : General (1), Difficult Experiences (5), Glowing Experiences (4), Mystical Experiences (9), Entities / Beings (37), Relationships (44), Therapeutic Intent or Outcome (49), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

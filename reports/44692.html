@@ -1,0 +1,228 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>猫 - 虫 - &quot;无聊和失眠&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/catnip.html'>← 猫薄荷</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>猫 - 虫 - &quot;无聊和失眠&quot;</h1>
+<div class='sub-title'>Catnip - Erowid Exp - &#x27;Boredom and Insomnia&#x27;</div>
+<div class='meta'>作者：Nakor Citation · 日期：Apr 24, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=44692' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>背景和信息
+今晚我有点无聊.
+最近我做了很多关于合法药物的研究,
+今天我订购了一些这些东西, 蓝莲花, 刺, 叶,
+我也想吃科拉坚果和克拉, 但店里没有了.
+这份订单需要一段时间才能到达我家,
+是的,我有点像一个瓜.
+我喜欢编程,学习或阅读.
+我也喜欢电子游戏,电影,
+我在学习时发现了一件有点奇怪的东西.
+猫草茶.
+现在我通常是一个非常谨慎的吸毒者.
+我通常不会碰到任何我不至少知道一点,我不血的关心别人对我的想法.
+我一直是个坚强的思想者,有点固.
+强大的幻觉剂通常对我来说不是一个好主意.
+我曾经很喜欢Shrumz... 但经过几次非常糟糕的戏剧之后,
+尽管我很谨慎,
+什么是正确的?
+据我所知,喝茶时会轻微镇静你,
+我喜欢镇静剂, 不幸的是, 我一直在研究合法药物的原因是,
+程序和事件
+(+0) 其他
+我开始把我们从老猫那里得到的剩余的猫草放进这个茶的东西里, 我在抽里找到了 (价值2茶匙). 我煮了一些水,
+我把一些桃糖和一些糖添加.
+我坐在床上喝茶, 时间不到一分钟.
+(+6) 时间
+我一直在阅读关于子糖的文章,
+我开始感觉到我的身体有很小的变化.
+一个轻微的平静的感觉伴随着一点额外的惰.
+(+12) 时间
+我决定用同样的荷载出另一杯茶 (无论如何我已经没有了).
+我醒来时发现我的腿有点重,
+实际上我感觉很好.
+虽然我通常不会把它定义为醉了,
+我做茶,然后坐下来,让它20分钟.
+(+35) 其他
+现在我已经完全没有这种感觉了.
+尽管如此,我还是有点放松.
+我起床把糖和糖添加到新茶中.
+胸痛对我来说是很正常的, 尽管我几年前已经戒烟了,
+忽略了胸部疼痛,我喝了茶,然后坐下.
+我会在5分钟内喝完.
+(+40) 时间
+基本上已经回到高峰强度 (这不是很高).
+我的腿又重了,我感到舒服.
+事实上,我感觉比以前更舒服了.
+我注意到,虽然我在睡眠周期的这个时候 (睡眠周期是异常的,混乱的) 感到疲,但我没有那种通常伴随疲的焦虑和动的能量.
+这是一个很好的改变, 因为那种焦虑的感觉很糟糕.
+(+50) 其他
+我现在已经半正常了.
+尽管如此,我还是很放松.
+我觉得我可以睡觉,这对我来说是不正常的.
+胸痛有点回来了, 这意味着两件事之一 (或可能是一个完全未知的我猜).
+或是胸部疼痛一直在过去一小时, 茶就让我没有注意到它们,
+我猜他们一直都在那里, 因为茶似乎确实具有一些镇静作用.
+结论
+如果我再做这种茶,
+桃糖和糖非常好.
+这很酷,因为我讨厌咖啡和几乎所有的茶.
+其他品质是可以的,
+其他:
+2007年4月24日发布
+猫 (68):一般情况 (1),健康问题 (27),健康益处 (32),第一次 (2),独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Boredom and Insomnia
+Catnip
+by
+Nakor
+Citation:   Nakor. &quot;Boredom and Insomnia: An Experience with Catnip (exp44692)&quot;.
+Erowid.org
+. Apr 24, 2007. erowid.org/exp/44692
+DOSE:
+T+ 0:00
+2 tsp
+oral
+Catnip
+(tea)
+T+ 0:35
+2 tsp
+oral
+Catnip
+(tea)
+BODY WEIGHT:
+240 lb
+BACKGROUND AND MISC INFO
+I was somewhat bored tonight.  Lately I&#x27;ve been doing A LOT of research on legal drugs and have chosen a few that I&#x27;m interested in trying.  Today I ordered some of these things, Blue Lotus, Prickly Poppy, Salvia leaves, and it came with some free amanita muscaria mushrooms.  I wanted Kola Nuts and Kratom as well but the store was out of them.  It will however take a while for this order to make it to my house so I was doing some more research for fun. Yes I&#x27;m a bit of a geek. Fun for me is programming, studying, or reading. I also love video games, movies, and music however.  So, while I was studying I came across something I thought was a bit odd.
+Catnip Tea.
+Now normally I&#x27;m an extremely cautious drug user.  I generally don&#x27;t touch anything I don&#x27;t at least know a good bit about, and I don&#x27;t bloody well care what anyone thinks of me for it.  I&#x27;ve always been strong minded and somewhat stubborn lol.  I am very high strung I guess you could say and powerful hallucinagens are often not a good idea for me.  I used to love shroomz...but after a few really bad comedowns I have pretty well written them off.
+Despite my cautious nature however I decided to try this Catnip Tea out. What the hell right?  From what I had read it would mildly sedate you when drunk as a tea, but there aren&#x27;t many reports from people having done this.  I love sedatives unfortunately and the reason I have been researching legal drugs is because I&#x27;m a bit of a Percoset addict and if I had alternatives it could help me from constantly escalating.
+PROCEDURE AND EVENTS
+(+0)
+I started out by putting the remainder of the Catnip that we had from our old cat into this tea steeper thing that I found in a drawer (2 teaspoons worth.)  I boiled some water and poured it in the mug with the steeper and I let it sit for 20 mins.  When it was done I added some cherry syrup and some sugar for flavour.
+I sat down on my bed and drank the tea fairly quickly...under a minute.  (+1)
+(+6)
+I have been reading articles on Nutmeg, another legal drug that amuses me, but does not in the least interest me.  I am beginning to feel a very slight difference in my body at this point in time.  A slight calm feeling accompanied by an extra bit of indolence.
+(+12)
+I decide to make another tea out of the same steeper load (I don&#x27;t have anymore anyway).  I get up and notice my legs feel a bit heavy, but not uncomfortable.  I feel pretty good in fact.  Not really stoned as I would normally define it, but good and fairly relaxed.  I make the tea and then sit down while it steeps for 20 mins.
+(+35)
+By this time I do not really feel any of the high at all.  I still feel a bit relaxed however.  I get up to add the syrup and sugar to the new tea.  While up I notice moderate chest pains...but I can not tell you whether it was resulting from the tea or not, as chest pains are a bit normal for me, even though I quit smoking cigs years ago and VERY rarely smoke weed anymore.  Ignoring the chest pains I touch up the tea and sit down.  I drink it over a period of maybe 5 minutes.
+(+40)
+The high has essentially come back to the peak strength (which isn&#x27;t very high).  My legs are again heavy and I feel comfortable.  In fact I feel possibly more comfortable than before.  I notice that while I am as tired as I normally am at this time of my sleep cycle (abnormally rampant and chaotic as that is), I do not feel the anxious jumpy energy that is normally accompanied with the tiredness.  This is a nice change since that anxious feeling sucks.
+(+50)
+I am semi-normal at this point.  I still feel pretty relaxed however.  I think I can sleep, which is not normal for me.  The chest pains have returned a bit, which means one of two things (or possibly a completely unknown I guess).  Either the chest pains have been there for the whole last hour and the tea just made me not notice them when it was peaked, or the chest pains are caused by the tea.  My guess is that they were there the whole time, as the tea does certainly seem to possess some sedative qualities.
+CONCLUSION
+If I ever make this tea again, it will be because I really enjoyed the flavour.  It worked very well with the cherry syrup and the sugar.  This is cool because I hate Coffee and almost all Teas.  The other qualities of it are ok but not really worth the trouble.
+Exp Year: 2005
+ExpID: 44692
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 24, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Catnip (68) : General (1), Health Problems (27), Health Benefits (32), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

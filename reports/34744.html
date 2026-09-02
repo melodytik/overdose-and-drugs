@@ -1,0 +1,174 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 埃洛伊德 - &quot;持续的痛苦&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/chloroform.html'>← 氯仿</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 埃洛伊德 - &quot;持续的痛苦&quot;</h1>
+<div class='sub-title'>Chloroform - Erowid Exp - &#x27;Persistent Misery&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jul 9, 2006 · <a href='https://erowid.org/experiences/exp.php?ID=34744' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>吸入剂</span></h2>
+<div class='body'>我最近从我工作的实验室里拿出了一些,
+晚上,我把几毫升的纸巾放在一个塑料袋里, 然后我呼吸出来 (我不想把浸泡的纸巾直接放在我的皮肤上,
+我在床上准备睡觉时使用它.
+蒸汽的气味非常甜美.
+这就像糖气.
+如果我一次呼吸过多, 我往往会很难吐口气 (我的喉不让它下来),
+我吸了几口气, 但并没有太大的效果, 直到我开始在肺部保持气体.
+我逐渐放松了心情, 感觉很好 - - 我对此很满意,
+我开始听到耳朵里的声音,
+如果我付出一点努力, 我可以开眼睛,
+我记得最后一件事就是把塑料袋封起来,
+第二天早上我醒来时感觉很好.
+我发现我真的不能做任何事情. 我发现我真的不能做任何事情.
+后来我的膀确实需要排空,
+我在一天中所做的任何事情都会让我完全疲不堪,
+我一天中的大部分时间都在床上, 觉得太累了, 无法起床 (虽然大部分时间都很清醒, 无法入睡).
+我认为可能直接影响了我的情绪.
+我在下午又睡着了 (外面甚至是阳光明,
+我很少像那一天那样痛苦... 我真的很同情那些患有慢性疲劳综合征的人,
+我已经用这种方式试过三次化剂,
+我很高兴我现在没有这样的感觉!
+疲劳程度似乎与我使用的剂量有关, 而不是我使用的深度.
+我也试着将可代因与它混合, 但这基本上是浪费好的可代因 (它本质上是一个非常友好的,
+我绝对不会再使用.
+我已经扔掉了任何我剩下的供应, 并不想再闻到它的病态甜蜜的醉酒.
+其他:
+(250) : 疾病 (27), 抑郁症 (15), 回顾 / 总结 (11), 独自 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Persistent Misery
+Chloroform
+by
+Phthalo
+Citation:   Phthalo. &quot;Persistent Misery: An Experience with Chloroform (exp34744)&quot;.
+Erowid.org
+. Jul 9, 2006. erowid.org/exp/34744
+DOSE:
+repeated
+inhaled
+Chloroform
+(gas)
+BODY WEIGHT:
+132 lb
+I recently took a little bit of chloroform from the lab where I work to try it out. At night, I put a few milliliters on a tissue and put the tissue into a plastic bag, which I then breathed out of (I didn&#x27;t want to put the chloroform soaked tissue directly against my skin in case I had an allergic reaction to it).
+I used it when I was lying in bed, ready to sleep. The vapour smells very, very sweet. It&#x27;s like sugar gas. If I get too much in a single breath, I tend to gag quite badly (my throat just won&#x27;t let it down) but breathing in some air with it helps it. I took several breathes of it but didn&#x27;t get much effect from it until I started actually holding the gas in my lungs for a while. I gradually became kind of relaxed and spaced out, and it was quite a nice feeling - I was quite happy with it in the way that I get happy with most depressants.
+As I breathed more and more, I started to get a whining sound in my ears followed by a numbness in my hands and then other limbs. I could keep my eyes open if I put a bit of effort into it, but wanted to see where this would go, so kept breathing it. The last thing I can remember is sealing the plastic bag and putting it down beside the bed before I must&#x27;ve drifted off to sleep.
+I woke quite easily the next morning feeling ok. The soporific effects of the chloroform had left me by this stage (it was probably 9 or 10 hours later) but I found I couldn&#x27;t really be arsed to do anything. Eventually my bladder convinced me that it really did need emptying, so I went to the toilet and came back totally exhausted. Anything I did for the rest of the day left me totally run down and worn out like that, and it was *not* pleasent.
+I spent most of the day in bed, feeling too knackered to get up (although mostly too awake to sleep)... It was such a depressing experience that I think the chloroform may have been directly effecting my mood by this stage. I was so miserable that, during the afternoon, I fell asleep again (and it was even sunny outside but I had my curtains closed and was still in my pajamas) and had a dream about how terrible my life was and in the dream I tried to drown myself with the help of a young child. No I&#x27;ve suffered from depression for quite some time, and am on Venlafaxine for it at the moment, but I have rarely been so miserable as I was that day... my heart really goes out to people with chronic fatigue syndrome, who have to put up with this all the time.
+I&#x27;ve now tried chloroform three times in this way and can confirm that I definitely leaves me feeling totally exhausted and miserable the next day. The last time I did it was the day before yesterday, and I am grateful that I am that I&#x27;m not feeling like that now! The extent of the exhaustion seems to be related to how much chloroform I use, rather than how deep I go with it. I&#x27;ve also tried mixing codeine with it, but it&#x27;s basically a waste of good codeine (which is essentially a very friendly, albeit addictive drug) - I can&#x27;t really feel its warmth when I&#x27;ve used even just a little chloroform.
+I&#x27;m certainly never going to do chloroform again. I&#x27;ve thrown out any supplies that I had left of it, and don&#x27;t ever want to smell its sickly sweet intoxication again.
+Exp Year: 2004
+ExpID: 34744
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 9, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Chloroform (250) : Health Problems (27), Depression (15), Retrospective / Summary (11), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>5-MeO-DiPT</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>5-MeO-DiPT</h1>
+<div class='sub-title'>5-MeO-DiPT</div>
+<div class='meta'>药理类别：致幻剂</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span></span><span class='mv'>5 · 极强</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属列管/非法物质，持有、使用、贩卖均可能触犯法律，且成瘾与急性风险高。Erowid 上收录 263 篇体验报告（本页已译部分）。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（263 篇）</h2>
+<div class='item'><h3><a href='../reports/21398.html'>五米奥二和大麻 - 艾罗维德的经验 - &quot;偏执,我知道我是&quot;</a></h3><div class='meta'>Jul 8, 2004 · 剂量 35 mg</div><div class='ov'>我很期待这次体验, 我和七个朋友一起度假, 住在海房子里, 我们早上8点起床, 接下来的15到20分钟, 鼻子里滴下来的味是令人厌恶的, 我们都试着吃糖果来掩饰味道, 结果不好. 我们最好的办法是喝水,躺下等它过去. 我…</div></div>
+<div class='item'><h3><a href='../reports/20055.html'>5Meo- DiPT和Effexor XR - Erowid Exp - &quot;与Effexor混合的不良经验&quot;</a></h3><div class='meta'>Jan 24, 2003 · 剂量 20 mg</div><div class='ov'>简而言之,我强烈建议在服用SSRI时不要服用福克西,</div></div>
+<div class='item'><h3><a href='../reports/17958.html'>5-MeO-DiPT - 耳膜外表 - &quot;包裹在疼痛中&quot;</a></h3><div class='meta'>Oct 6, 2002</div><div class='ov'>昨晚是我生命中最糟糕的一晚. 我知道底部是什么感觉. 这一切始于我和朋友M一起参加当地家庭聚会. 我们喝了几杯酒,警察来了,每个人都走了. 我们有钱买更多的酒, 所以我们聚集了几个人 (5) 回到她的房子. 虽然我在第三…</div></div>
+<div class='item'><h3><a href='../reports/36193.html'>5-MeO-DiPT - Erowid Exp - &quot;紧急旅行&quot;</a></h3><div class='meta'>Aug 23, 2006 · 剂量 23 mg</div><div class='ov'>我发现自己有偏执的感觉, 像有人在看着我. 动作痕迹很轻微令人不安, 虽然有明亮的灯光, 它们变得有趣. 黑暗的影子更可怕,更令人不安. 我看着云层和树木, 形状开始以一种不祥的方式形成. 我看到的只有黑暗天使,头骨,恶…</div></div>
+<div class='item'><h3><a href='../reports/5487.html'>布普罗 (Wellbutrin),5-MeO-DiPT和2C-T-7 - 脑膜扩散 - &quot;对于任何使用Wellbutrin的人来说,这是一个重要的警告&quot;</a></h3><div class='meta'>Mar 5, 2001 · 剂量 300 mg</div><div class='ov'>因此,任何使用Wellbutrin的人, 我强烈建议避免使用5-MeO-DiPT和2-C-T-7.</div></div>
+<div class='item'><h3><a href='../reports/174.html'>5-MeO-DiPT - Erowid Exp - &quot;风暴的眼睛&quot;</a></h3><div class='meta'>Jul 13, 2000 · 剂量 100 mg</div><div class='ov'>风暴的眼睛 5-MeO-DiPT的使用 &quot;风暴之眼:与5-MeO-DiPT (exp174) 的经验&quot;. 昨晚,我决定采取大约. 我想要这样做, 原因与Kinievel想要用摩托车跳过大峡谷的原因相同 - - 因为这是危…</div></div>
+<div class='item'><h3><a href='../reports/17031.html'>5-MeO-DiPT - Erowid Exp - &#x27;混&#x27;</a></h3><div class='meta'>Aug 25, 2002 · 剂量 80 mg</div><div class='ov'>有一天晚上我吸了一些5-Meo-DiPT. 我没有很好的测量工具, 但我有250毫克, 得到一个小小的. 没有发生任何事情,所以我静静地吸了一点 (估计大约是20毫克). 我感觉到其他使用者所说的&quot;身体负荷&quot;. 我很失望…</div></div>
+<div class='item'><h3><a href='../reports/37331.html'>5-MeO-DiPT &amp; DXM - 伊洛伊德 Exp - &quot;通过空间,时间和关系&quot;</a></h3><div class='meta'>Sep 3, 2006 · 剂量 20 mg</div><div class='ov'>几周后, 我和两个最好的朋友将会分开. 我们决定一起听音乐和玩游戏. 我们决定服用第二位朋友带来的药物, 朋友1摄入600毫克的DXM, 朋友2摄入20毫克的5-Meo-DiPT, 我摄入两种物质. 朋友#2是一位经验丰…</div></div>
+<div class='item'><h3><a href='../reports/22618.html'>5-MeO-DiPT和氧化物 - 脑外探险 - &quot;穿越头脑空间和时间&quot;</a></h3><div class='meta'>Jun 18, 2006 · 剂量 17 mg</div><div class='ov'>总的来说,这是我迄今为止最好的旅行之一.</div></div>
+<div class='item'><h3><a href='../reports/38709.html'>4-Ho-DiPT,5-MeO-DiPT 和 迪亚泽巴姆 - 脑膜扩散剂 - &quot;泰塞拉克&quot;</a></h3><div class='meta'>Feb 2, 2005</div><div class='ov'>我很想试试. 现在,我已经知道, 我是一名20多岁的男性, 曾经使用过多种类型的迷幻药, 我遇到了人生的十字路口, 具体来说是从第七个,冠状轮. 我有一个朋友,我认识他十多年了,他也经历过迷幻药作为我的&quot;生命线到现实&quot; …</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 263 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

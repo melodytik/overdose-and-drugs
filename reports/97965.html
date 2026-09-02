@@ -1,0 +1,816 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>魔法与癌症:我的神奇的神秘疗法?</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/psilocybin.html'>← 赛洛西宾(裸盖菇素)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>魔法与癌症:我的神奇的神秘疗法?</h1>
+<div class='sub-title'>Magic mushrooms and cancer: My magical mystery cure?</div>
+<div class='meta'>作者：Taboola by Taboola Sponsored Links Sponso · <a href='https://erowid.org/experiences/exp.php?ID=97965' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>感谢您的报名
+请刷新页面或导航到网站上的另一个页面自动登录
+请更新浏览器以登录
+跳到内容
+打开全部菜单
+亚洲版
+英国版
+美国版
+西班牙语版
+登录
+记录
+在
+新闻
+奖金
+运动
+声音
+文化
+生活方式
+印度最佳
+旅行
+更多
+滑动下一个文章
+解雇
+生活方式
+健康与家庭
+其他特点
+魔法与癌症:我的神奇的神秘疗法?
+幻觉药物在20世纪70年代被逐出临床场景之前,
+现在他们回来了, 埃里卡·雷克斯抓住了自愿参加试验的机会
+艾丽卡·雷
+星期三 2012年10月17日
+复制链接
+书签
+评论
+进入评论
+书签的流行
+从书签中删除
+关闭一个小吃
+改变状态:Erica Rex参与了&quot;魔法&quot;中的活性成分psilocybin的试验
+美国
+戴维·桑迪森
+) 在
+获取&quot;足够健康&quot;新闻通讯, 获取关于如何过上更健康,更快乐,更长寿的建议
+通过哈利·布尔莫尔的电子邮件
+通过哈利·布尔莫尔的电子邮件
+电子邮件
+* 没有
+报名
+我希望收到来自&quot;独立报&quot;的报价,活动和最新消息.
+阅读我们的
+隐私声明
+在我的右视野里像水一样流着三条深红光线.
+在距离中距离的深度,
+一个长时间的小提琴独奏使天空变黄, 带来了一颗彗星的尾巴,
+我吃了一粒囊中含有精神病药物,
+我志愿成为约翰霍普金斯大学医学院行为药理学研究小组 (BPRU) 的科学研究对象, 作为临床试验的一部分,
+这项研究旨在测量该药物在缓解与癌症相关的焦虑和抑郁症方面的效果.
+目前只有两项正在进行的临床研究,
+另一个计划将于明年初在英国开始.
+这种药物在英国或美国没有合法使用.
+我在2009年被诊断出患有乳腺癌.
+经过瘤切除和放射治疗一年, 现在服用芳酶抑制剂,
+没有人会让我感觉到我有多么难过.
+我开始在网上寻找一种不杂乱,不太痛苦的自杀方式.
+无论是在英国还是美国, 在那里我接受了手术, 医学都在寻找疾病的治疗方法和拯救生命方面表现出色.
+所有这些卓越的做法造成了一种空白, 在这种空白中,
+我在癌症患者中很常见.
+我们痴迷于生存和未来为我们准备的东西.
+医生不应该帮助我们.
+结果,我很高兴在从临床领域长期流离失所后, 幻觉剂正在复苏.
+在1970年代禁止使用之前,  псилоцибин 和 LSD 已被处方给大约4万名研究对象, 其中包括患有癌症, 酒者,抑郁症和强迫症患者.
+结果显示, 帮助人们克服痛苦,恐惧,强迫行为和心理隔离,
+在适当的临床环境下服用后, 幻觉剂会减轻症状并改善治疗结果,
+许多患者经历了精神启蒙, 他们感觉到与宇宙的结合,
+科学家们已经等了很长一段时间,
+&quot;我们有30年时间准确地练习我们在psilocybin治疗之前对受试者说的话&quot;,BPRU的研究人员之一Bill Richards说,
+&quot;信任,放手,开放&quot;
+推广的故事
+adidas官网 低至4折 夏日限定 大夏日 超抵优惠
+立即选择购买
+取消
+由 塔博拉
+由 塔博拉
+赞助链接
+赞助链接
+推广链接
+推广链接
+在巴尔的摩诊所进行的科学研究试验中,
+在我们正式被录取到研究中之前, 我们会被选出心理,情感和身体问题.
+给患有精神病或精神分裂症的人服用西可能会带来灾难.
+许多志愿者在一天后被送回家.
+&quot;设置和设置&quot;是幻觉剂辅助疗法的关键因素.
+&quot;设置&quot;是指&quot;心态&quot; - - 患者对幻觉体验的心理和情感态度.
+&quot;环境&quot;是物理和社会环境,即房间或空间本身,以及体验期间与主体同在的人.
+&quot;设置&quot;必须包括愿意向排斥或吓人的想法和图像, 而不是试图逃离它们.
+&quot;设置和设置&quot;的方程式的一部分包括完全信任导师,
+在一天的过程中, 形象和感受可能是美丽而超越的,
+四位不同的心理治疗师和研究协调员采访了我数小时.
+他们问一些问题,比如说:&quot;如果你一整天都要恶心,你能忍受吗?&quot;以及&quot;你有没有想过有人或其他生物只向你传递秘密的密码信息?&quot;
+我填写了50多页的问卷, 包括对乐观与悲观的评价,疼痛量表,抑郁量表,
+我每15分钟检查一次血压,
+身体检查往往会发现受试者自己不知道的疾病.
+心律失常或肝功能稍微不正常, 酒精或毒品的痕迹也会导致您被排除在外.
+所有的感受和经验,从童年创伤到对内心冲突的态度,都受到审查.
+导游必须尽可能多地了解,
+他们经常这样做.
+我在每天的测试后会见了行为生物学和神经科学教授, BPRU的研究主任罗兰·格里菲斯.
+&quot;你必须以极端的好奇心来对待这段经历&quot;,他说.
+然后他会问我:&quot;你对上帝有什么看法?
+我们死后到哪里去?&quot; 我不知道答案.
+到了第三天, 我感觉好像被剥了皮.
+但我已经通过了,
+我被带到一个轻微照明,舒适的客厅, 邀请我躺在沙发上听音乐.
+然后我吞下了一个紫色的囊.
+后来,当我深入吸毒世界时, 我发现自己身处钢铁工业区.
+我意识到我对我的两个活着的兄弟姐妹的敌意.
+一位坐在长桌的女士, 戴着网帽, 穿着白色衣服, 忙着工作,
+&quot;你可以把它放在这里&quot;,她说.
+所以我做到了.
+杯子里充满了我对兄弟姐妹的热情.
+&quot;我们将把它放在这里&quot;,她说,并把它放在桌子上在房间的后面.
+接下来她就直接回到工作位,
+我在那一刻,我的导游弗雷德问我发生了什么事.
+我讲述了这个场景,然后我开始大笑.
+我自己的笑声出现在我在午夜蓝色,云彩的天空中,
+我同时处于两个地方, 无论是在会议室, 和导游交谈,
+不是所有受试者都会在他们的课程中获得超越的全方位体验,
+我没有,起初很失望.
+但随着时间的推移, 我意识到我获得的东西是不可估量的.
+作为一个在宇宙中占据某个空间的人, 我对自己的感觉也改变了.
+后来,当我与临床医生和导游谈论幻觉时, 我发现他们为我提供了一些关于我生活,我的感受和自我感觉的深刻真理.
+我对自己的判断已经有所减弱.
+我现在能够对自己有更多的同情心.
+我不再担心未来, 癌症是否会复发, 我是否会独自死去.
+在精神指导和谈话治疗之间提供神经化学桥梁.
+药物的治疗价值完全取决于患者在治疗期间的感受和感知以及他或她之后处理记忆的方式.
+药物让病人从自我中得到一段小小的假期, 让他们有时间生活, 没有那种不停的烦, 不停地担心诸如:&quot;现在我没有工作, 我怎么能活下去?&quot;
+&quot;这种药物是一种骨架钥匙,
+这是一种治疗加速剂.
+不能并且可能永远不会用幻觉药作为每日药片来治疗.
+患者只能在诊所或医院接受一次或两次治疗,
+强烈的影像和情感需要在整个经历中做好准备和引导,
+我们必须尊重环境.
+理查兹博士说, 给幻觉剂以任何其他方式是&quot;偏执,焦虑和灾难的秘方&quot;.
+这些药物的治疗价值完全取决于患者在治疗期间的感受和感知以及他或她之后处理记忆的方式.
+患者在服用银素时经历超越性高峰期,
+随着人口老龄化, 越来越多的人面临临终身问题和长期疾病, 改善息治疗的需求以及精神心理方面的考虑正在改变医学实践的方式.
+在英国,使用西治疗抑郁症的临床试验将于2013年1月开始.
+伦敦帝国理工学院大脑科学系神经心理药物学科主任戴维·纳特负责.
+他回答说:&quot;我们会改变法律.
+我希望他是对的.
+加入我们的评论论坛
+加入激励人心的对话,跟随其他独立读者,看看他们的回复
+评论
+推广的故事
+adidas夏日折上折 低至4折! 官网限定 BIG SUMMER 登場
+精选产品买2件即享额外8折,即刻来选择回几套夏日OOTD啦!
+在
+赞助
+赞助
+立即选择购买
+取消
+一位亿万富翁的阅读清单:古巴人说每个人都应该知道的5本书
+闪光主义杂志
+在
+赞助
+赞助
+取消
+國最強賢內助降臨,穿上黑絲不僅性感,戰力更是UP UP!最多女將的三國遊戲就在皇者天下
+可别被她的温柔面孔欺骗,拥有国之母让你一統三國不是梦,最强三國策略游戏,无需下载,点开即可玩!真实还原三國戰場,文官武將任你差遣,周周開新服,等你来称皇!
+皇者天下
+在
+赞助
+赞助
+玩游戏
+取消
+由 塔博拉
+由 塔博拉
+点击这里了解更多
+- 没有.
+在
+赞助
+赞助
+取消
+你永远不会关闭你的电脑.
+新的游戏2026:免费玩.
+全球战斗基地
+在
+赞助
+赞助
+现在播放
+取消
+上班偷薪水必玩!打开网页偷偷修仙,佛系挂机不爆肝也拿神装.
+仙網遊劍破八荒免安裝即時玩!掛機爆神裝,浪漫結雙修.台港玩家都在瘋,立刻開啟極致修仙之旅!
+剑破八荒
+在
+赞助
+赞助
+现在注册
+取消
+由 塔博拉
+由 塔博拉
+这可能会让你感兴趣!
+- 没有.
+在
+赞助
+赞助
+取消
+劉關張傳奇再現,漢等你來復興!三十六計,兵不厭詐;排兵布陣,智取天下!最強三國策略遊戲,無須安裝,網頁即開即玩!
+最Y5游戏平台等你来开战, 率领各路豪杰馳战场, 你将成为乱世军师, 利用智慧与策略击败敌人, 成为笑纳疆土的最强者!
+皇者天下
+在
+赞助
+赞助
+玩游戏
+取消
+上班偷偷掛機,下班神裝滿地! 免下載點開網頁即時開戰.
+仙網遊劍破八荒免安裝即時玩!掛機爆神裝,浪漫結雙修.台港玩家都在瘋,立刻開啟極致修仙之旅!
+剑破八荒
+在
+赞助
+赞助
+现在注册
+取消
+阅读更多评论
+关于崩的评论
+在市场前交易的优势:交易美国顶级股票24/5
+交易2,100多个股票差价合约 (CFD) 昼夜以超快的执行速度和灵活的杆. 证券交易涉及重大风险.
+在
+赞助
+赞助
+了解更多
+取消
+足球
+赫尔斯的梦想开始在英超联赛生活继续与考文特利的胜利
+取消
+在家新闻
+英国男子在新加坡航空公司飞机在5秒内落178英尺时遇难
+取消
+由 塔博拉
+由 塔博拉
+由...提供
+- 没有.
+在
+赞助
+赞助
+取消
+新闻
+萨拉·弗格森将在国外几个月后返回英国生活
+取消
+为什么希腊酸奶和香不是你认为的好早餐
+牛奶,咖啡或杏仁奶又如何呢?
+你的早餐并不像你想象的那样好,
+通过独立奖金推广
+在
+赞助
+赞助
+取消
+黄金在2026年升 聪明的交易者已经进入市场
+不要错过黄金的势头.
+在我们的平台上使用杆和零佣金进行差价合约交易.
+在
+赞助
+赞助
+了解更多
+取消
+由 塔博拉
+由 塔博拉
+以上内容你可能感兴趣
+- 没有.
+在
+赞助
+赞助
+取消
+30年經典,仙劍奇傳集大成之作,無須安裝即開即玩
+經典流傳三十載,期待與你再續仙緣......你還記得李遙和靈兒那段神話般的愛情嗎?誠摯邀請你與我們一起重溫不朽傳奇
+仙剑奇传-新的开始
+在
+赞助
+赞助
+玩游戏
+取消
+健康与家庭
+癌症的主要风险发现
+取消
+在家新闻
+据报道, 萨拉·弗格森准备返回英国
+取消
+年长先知道的事
+想要开学得多,一定要知道高級學生必修『貨』!由即日起至2/9,精選開學裝備低至85折! 一齊升班先備『貨』!
+IKEA香港 宜家家居
+在
+赞助
+赞助
+立即选择购买
+取消
+由 塔博拉
+由 塔博拉
+想了解更多?点击这里
+- 没有.
+在
+赞助
+赞助
+取消
+在家新闻
+村庄的板球运动员筹集了资金,
+取消
+最受欢迎的
+美国考虑对英国提出关于福克兰群岛的最后通
+癌症的主要风险是吸烟或阳光.
+加利福尼亚男子因彩票奖金75万美元而输了诉讼
+赛蒙·考威尔的第一位替代人宣布了美国有才华
+朱莉亚·罗伯茨说她永远不会忘记多莉·帕顿的建议
+热门视频
+帕西·肯西特说她在与利亚姆·加拉格结婚时&quot;失去了自己&quot;
+蝙蝠在睡觉时爬进女人的嘴里
+纵火犯在半夜焚烧汽车时点燃了自己的手
+公告
+88岁的奥斯卡获奖演员,
+关于指控杰森·阿尔代抄袭的学术人员的重大更新
+蓝如何给意大利的渔业造成1.7亿英的损失
+国家彩票中奖号码和雷球周六8月29日
+旧农民年鉴发布2026-27年冬季预报
+由 塔博拉
+由 塔博拉
+推广链接
+DBS私人贷款-今日重整债务,累积财富第一步!
+星展银行
+了解更多
+取消
+2026年最真实的游戏
+全球战斗基地
+现在播放
+取消
+随时随地观看您最喜欢的电视节目
+科技大片
+取消
+马克·库班每天阅读3个小时.
+我每天晚上管理两页.
+我给了他30天的时间.
+闪光主义杂志
+取消
+最好的5种面部纹护肤品
+美容评论杂志
+了解更多
+取消
+朱雀青龙现世,全新战场开启!
+成吉思汗3 在线国际版
+玩游戏
+取消
+阅读下一个
+美国考虑对英国提出关于福克兰群岛的最后通
+癌症的主要风险是吸烟或阳光.
+加利福尼亚男子因彩票奖金75万美元而输了诉讼
+赛蒙·考威尔的第一位替代人宣布了美国有才华
+朱莉亚·罗伯茨说她永远不会忘记多莉·帕顿的建议
+联系我们
+联系我们
+我们的产品
+登记
+新闻通讯
+今天的版本
+安装我们的应用程序
+档案
+其他出版物
+国际版
+在西班牙语
+独立的阿拉伯
+土耳其独立
+独立的波斯语
+独立的乌尔都语
+标准
+额外的
+拼图游戏
+所有主题
+投注提供
+最新的交易
+竞赛和报价
+独立广告
+独立点燃
+综合组织
+在&quot;独立报&quot;工作
+法律问题
+行为准则和投诉
+贡献者
+关于cookie的政策
+隐私政策
+用户政策
+关于现代奴隶制的声明
+感谢您的报名
+请刷新页面或导航到网站上的另一个页面自动登录
+请更新浏览器以登录</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Thank you for registering
+Please refresh the page or navigate to another page on the site to be automatically logged in
+Please refresh your browser to be logged in
+Jump to content
+Open full menu
+Asia Edition
+UK Edition
+US Edition
+Edición en Español
+Log in
+Log
+in
+News
+Premium
+Sport
+Voices
+Culture
+Lifestyle
+IndyBest
+Travel
+More
+Swipe for next article
+Dismiss
+Lifestyle
+Health &amp; Families
+Features
+Magic mushrooms and cancer: My magical mystery cure?
+Hallucinogenic drugs showed great promise as therapeutic treatments before they were banished from the clinical scene in the 1970s. Now they&#x27;re back, and Erica Rex jumped at the chance to volunteer in trials
+Erica Re
+Wednesday 17 October 2012 01:10 BST
+Copy link
+Bookmark
+Comments
+Go to comments
+Bookmark popover
+Removed from bookmarks
+Close popover
+Altered state: Erica Rex took part in trials of psilocybin, the active ingredient in &#x27;magic mushrooms&#x27;
+(
+David Sandison
+)
+Get the Well Enough newsletter with Harry Bullmore for tips on living a healthier, happier and longer life
+Get the Well Enough email with Harry Bullmore
+Get the Well Enough email with Harry Bullmore
+Email
+*
+SIGN UP
+I would like to be emailed about offers, events and updates from The Independent. Read our
+Privacy notice
+A symphonic note lit three strands of deep-red light trickling like water in my right visual field. Deeper tones were huge blue clouds in the middle distance, pouring from above. A prolonged violin solo turned the sky yellow, and brought with it a comet&#x27;s tail of body parts flying from the upper left of my visual field to the lower right, disappearing behind me.
+This happened within the first hour of my swallowing a capsule of psilocybin, the psychoactive ingredient in &quot;magic mushrooms&quot;. I&#x27;d volunteered to be a scientific-research-study subject at the Johns Hopkins University School of Medicine&#x27;s Behavioural Pharmacology Research Unit (BPRU) as part of a clinical trial to test the hypothesis that psilocybin can help cancer patients to regain a sense of existential meaning in the face of their disease. This study is designed to measure how well the drug does in alleviating the anxiety and depression associated with cancer. There are currently only two such clinical studies under way using this drug, both of them in the US. Another is scheduled to begin here in the UK early next year. The drug is not available legally for any other use in the UK or in the US.
+I was diagnosed with breast cancer in 2009. A year on from a lumpectomy and radiation therapy, now on aromatase inhibitors, my prognosis seemed good. But rather than cheerfully getting on with life, I was spending most days at my desk crying. I began searching the web for a way to kill myself that wouldn&#x27;t be either messy or too painful.
+Both here in the UK and in the US, where I had my surgery, medicine excels at finding cures for disease and saving lives. All that excellence has created a kind of void, wherein treatment of the disease has trumped the human needs of those being treated. My demoralisation is common among cancer patients. We obsess about survival and what the future holds for us. The system isn&#x27;t structured to help doctors to help us.
+As a result, it&#x27;s a good thing for me that after a long banishment from the clinical scene, hallucinogens are making a comeback. Prior to their 1970s prohibition, psilocybin and LSD were prescribed to around 40,000 research subjects, among them people with cancer, alcoholics, and those suffering from depression and obsessive-compulsive disorder. The results showed remarkable promise in helping people to overcome pain, fear, compulsive behaviours and psychological isolation. Following a dose administered in a proper clinical setting, hallucinogens diminish symptoms and improve therapeutic outcomes for months, even years, afterwards. Many patients undergo a psychospiritual epiphany, wherein they feel a union with the Universe and sense life has meaning beyond what&#x27;s happening in the physical body.
+Scientists have been waiting a long time for the tide to turn. &quot;We had 30 years to practise exactly what we tell study subjects before their psilocybin sessions,&quot; said Bill Richards, one of the researchers at the BPRU who successfully treated terminally ill patients with hallucinogens at the Maryland Psychiatric Research Centre from the early 1960s until the centre was shut down in 1977. &quot;Trust, let go, be open.&quot;
+Promoted stories
+【adidas官網 低至4折】夏日限定 BIG SUMMER 超抵優惠
+adidas 香港官方網上商店
+立即選購
+Undo
+by Taboola
+by Taboola
+Sponsored Links
+Sponsored Links
+Promoted Links
+Promoted Links
+Volunteers for the psilocybin scientific- research trial visit the Baltimore clinic twice, receiving a low dose of psilocybin on one visit and a moderately high dose on the other. We&#x27;re screened for mental, emotional and physical problems before we&#x27;re officially admitted into the study. Giving psilocybin to people who have underlying psychotic disorders or schizophrenia can be catastrophic. Many volunteers are sent home after a day.
+&quot;Set and setting&quot; are key factors in the hallucinogen-assisted therapy equation. &quot;Set&quot; refers to &quot;mindset&quot; – the patient&#x27;s mental and emotional attitude towards the hallucinogenic experience. &quot;Setting&quot; is the physical and social environment – the room or space itself, and the people who are present with the subject during the experience.
+&quot;Set&quot; must include a willingness to move towards repellent or frightening thoughts and images, rather than trying to flee from them. Part of the &quot;set-and-setting&quot; equation includes complete trust in the guides, trained psychotherapists who remain throughout the entire session. The images and feelings can be beautiful and transcendent, or terrifying and disgusting – or all of these over the course of the day.
+Four different psychotherapists, and the study&#x27;s co-ordinator, interviewed me for hours. They asked questions such as: &quot;If you had to spend the day being nauseated, could you tolerate it?&quot; and &quot;Do you ever think there are people or other beings who are transmitting secret coded messages to you alone?&quot;
+I filled in more than 50 pages of questionnaires, including assessments of optimism and pessimism, pain scales, depression scales, queries about my lifestyle and my habits, as well as one called Assessment of Spirituality and Religious Sentiments. My blood pressure was monitored every 15 minutes for two hours. The physical exams often uncover maladies subjects themselves aren&#x27;t aware of. Borderline diabetes, heart arrhythmia or slightly off-par liver function will get you excluded, as well as traces of alcohol or drugs. All feelings and experiences – from childhood trauma to attitude to internal conflicts – are subjected to scrutiny. The guides have to know as much as possible so they can be supportive if complex or painful feelings arise. They often do.
+I met with Roland Griffiths, professor of behavioural biology and of neuroscience and the study director at the BPRU, after each day&#x27;s battery of tests.
+&quot;You have to approach this experience with radical curiosity,&quot; he said. Then he&#x27;d ask me: &quot;What do you think about God? Where do we go when we die?&quot; I didn&#x27;t know the answers.
+By the end of the third day, I felt as though I had been flayed. But I&#x27;d passed, and I was in.
+When my session day arrived, I was brought into a softly lit, comfortably decorated lounge, invited to lie down on a sofa and listen to music. Then I swallowed a purple capsule of psilocybin.
+Some time later, when I was deeply within the world of the drug and the imagery it evoked, I found myself inside a steel industrial space. I became aware of my animosity towards my two living siblings. A woman sitting at the end of a long table, wearing a net cap, white clothes, and working busily, turned and handed me a Dixie cup.
+&quot;You can put that in here,&quot; she said. So I did. The cup filled itself with my bilious, sibling- directed feelings. &quot;We&#x27;ll put it over here,&quot; she said, and placed it on a table at the back of the room. Then she went matter-of-factly back to work, along with now-numerous busy women. At that point, my guide Fred asked me what was happening. I recounted the scene and then I began to laugh out loud. My own laughter appeared to me in a midnight-blue, cloud-dark sky as an effusion of twinkling gemstones. I was in two places at once, both in the session room, talking to my guide, and in the other world of the drug, with its own aesthetics and its own logic.
+Not all subjects have an all-encompassing transcendent experience during their sessions, wherein they feel a profound oneness of all things, a union with the Universe or with God. I did not – and was at first disappointed. But as the months have passed, I realise what I did gain is immeasurable. Since my session, my mood has improved, and my sense of myself, as a person occupying a certain space in the Universe, has altered. Later on, when talking about my hallucinations with the clinicians and my guides, I found they provided me with some profound truths about my life, my feelings and my sense of myself. My tendency to judge myself with a kind of murderous harshness has ebbed. I&#x27;m now able to feel more compassion towards myself. I no longer spend days worrying about the future, and about whether I&#x27;ll have a cancer recurrence, or whether I&#x27;ll die alone.
+Psilocybin works by providing a neurochemical bridge between spiritual guidance and talking therapy. The drug&#x27;s therapeutic value depends entirely upon the patient&#x27;s feelings and perceptions during the session and the way he or she processes the memories afterwards. The drug allows patients a mini-holiday from their own egos, a span of time to exist without that nattering part of us that constantly worries about things such as: &quot;How will I survive now that I don&#x27;t have a job?&quot; and &quot;I wonder if my ex has started seeing somebody else.&quot;
+&quot;The drug is a skeleton key which unlocks an interior door to places we don&#x27;t generally have access to,&quot; Dr Richards said. &quot;It&#x27;s a therapeutic accelerant.&quot;
+Treatment with hallucinogens cannot – and probably will not ever – be given as a daily pill. Patients will have one or possibly two sessions in a clinic or hospital setting, and no more. The powerful images and emotions require preparation and guidance throughout the experience, which generally lasts from four to six hours. Set and setting have to be honoured.
+Giving hallucinogens any other way is &quot;a recipe for paranoia, anxiety, and disaster&quot;, Dr Richards said. The therapeutic value of these drugs depends entirely upon the patient&#x27;s feelings and perceptions during the session and the way he or she processes the memories afterwards. Patients who undergo a transcendent peak while taking psilocybin describe it as among the most meaningful events in their lives.
+As the population ages, and more people face end-of-life issues and prolonged illness, the demand for improved palliative care and the inclusion of psychospiritual considerations is altering the way medicine will be practised.
+In the UK, a clinical trial using psilocybin to treat depression is due to begin in January 2013. David Nutt, director of the Neuropsychopharma-cology Unit in the Division of Brain Sciences at Imperial College London, is in charge. When I asked him about the therapeutic obstacles presented by legal bans against psychoactive drugs, he said: &quot;We&#x27;ll change the law.&quot;
+I hope he&#x27;s right.
+Join our commenting forum
+Join thought-provoking conversations, follow other Independent readers and see their replies
+Comments
+Promoted stories
+【adidas夏日折上折 低至4折！】官網限定 BIG SUMMER 登場
+精選產品買2件即享額外8折，即刻嚟揀返幾套夏日OOTD啦！
+adidas 香港官方網上商店
+|
+Sponsored
+Sponsored
+立即選購
+Undo
+A Billionaire&#x27;s Reading List: 5 Books Cuban Says Everyone Should Know
+Blinkist Magazine
+|
+Sponsored
+Sponsored
+Undo
+吳國最強賢內助降臨，穿上黑絲不只性感，戰力更是UP UP！最多女將的三國遊戲就在皇者天下～
+可別被她的溫柔面孔騙了，擁有吳國之母讓你一統三國不是夢，最強三國策略遊戲，無須下載，點開即可玩！真實還原三國戰場，文官武將任你差遣，周周開新服，等你來稱皇！
+皇者天下
+|
+Sponsored
+Sponsored
+玩遊戲
+Undo
+by Taboola
+by Taboola
+点击这里了解更多
+-
+|
+Sponsored
+Sponsored
+Undo
+You will never turn off your computer again.
+New game 2026: Play for free.
+GlobalBaseCombat
+|
+Sponsored
+Sponsored
+Play Now
+Undo
+上班偷薪水必玩！打開網頁偷偷修仙，佛系掛機不爆肝也拿神裝。
+仙俠網遊《劍破八荒》免安裝即刻玩！掛機爆神裝，浪漫結雙修。台港玩家都在瘋，立刻開啟極致修仙之旅！
+《劍破八荒》
+|
+Sponsored
+Sponsored
+現在註冊
+Undo
+by Taboola
+by Taboola
+这可能会让你感兴趣！
+-
+|
+Sponsored
+Sponsored
+Undo
+劉關張傳奇再現，蜀漢等你來復興！三十六計，兵不厭詐；排兵布陣，智取天下！最強三國策略遊戲，無須安裝，網頁即開即玩！
+最夯Y5遊戲平台等你來開戰，率領各路豪傑馳騁戰場，你將成為亂世軍師，運用智慧與謀略擊敗敵人，成為笑納疆土的最強霸者！
+皇者天下
+|
+Sponsored
+Sponsored
+玩遊戲
+Undo
+上班偷偷掛機，下班神裝滿地！免下載點開網頁即刻開戰。
+仙俠網遊《劍破八荒》免安裝即刻玩！掛機爆神裝，浪漫結雙修。台港玩家都在瘋，立刻開啟極致修仙之旅！
+《劍破八荒》
+|
+Sponsored
+Sponsored
+現在註冊
+Undo
+Read More Comments
+Collapse Comments
+The Pre-Market Trading Advantage:Trade Top US Stocks 24/5
+Trade 2,100+ stock CFDs day or night with ultra-fast execution and flexible leverage.Trading in securities involves significant risk.
+IC
+|
+Sponsored
+Sponsored
+Learn More
+Undo
+football
+Hull’s dream start to Premier League life continues with Coventry win
+Undo
+home news
+Tragedy as UK man dies when Singapore Airlines flight plunges 178ft in five seconds
+Undo
+by Taboola
+by Taboola
+由...提供
+-
+|
+Sponsored
+Sponsored
+Undo
+news
+Sarah Ferguson to return to living in UK after months abroad
+Undo
+Why Greek yoghurt and bananas aren’t the good breakfasts you think they are
+Alan Titchmarsh says avocados are bad for the planet, but what about yoghurt, coffee, or almond milk? Your breakfast isn’t as as good as you think – here’s why.
+Promoted by Independent Premium
+|
+Sponsored
+Sponsored
+Undo
+Gold Is Surging in 2026 — Smart Traders Are Already In
+Don&#x27;t miss the gold momentum. Trade CFDs with leverage and zero commission on our platform.Trading derivatives involves high risk to your capital.
+IC
+|
+Sponsored
+Sponsored
+Learn More
+Undo
+by Taboola
+by Taboola
+以上内容你可能感兴趣
+-
+|
+Sponsored
+Sponsored
+Undo
+30年經典淬鍊，仙劍奇俠傳集大成之作，無須安裝即開即玩～
+經典流傳三十載，期待與你再續仙緣......你還記得李逍遙和趙靈兒那段神話般的愛情嗎？誠摯邀請你與我們一起重溫不朽傳奇～
+仙劍奇俠傳-新的開始
+|
+Sponsored
+Sponsored
+玩遊戲
+Undo
+health &amp; families
+Leading risk for cancer revealed – and its not smoking, alcohol or the sun
+Undo
+home news
+Sarah Ferguson set for move back to Britain, reports say
+Undo
+Senior 先知道的事
+想要開學慳得多，一定要知高級學生必修「貨 」！由即日起至2/9，精選開學裝備低至85折！ 一齊升班先備「貨 」!
+IKEA Hong Kong 宜家家居
+|
+Sponsored
+Sponsored
+立即選購
+Undo
+by Taboola
+by Taboola
+想了解更多？点击这里
+-
+|
+Sponsored
+Sponsored
+Undo
+home news
+Joy as village cricketer raises cash to fly helicopter from wedding to play at Lord’s
+Undo
+Most popular
+US considers new ultimatum to UK over Falklands
+Leading risk for cancer revealed – and its not smoking or the sun
+California man loses lawsuit over $750,000 lottery prize
+Simon Cowell’s first replacement for America’s Got Talent announced
+Julia Roberts said she’d never forget Dolly Parton’s advice
+Popular videos
+Patsy Kensit says she ‘lost herself’ during marriage to Liam Gallagher
+Bat crawls into woman’s mouth as she sleeps
+Arsonist sets fire to own hand while torching cars in middle of night
+Bulletin
+Oscar-winning actor, 88, tops the classical charts with new album
+Major update on academic who accused Jason Arday of plagiarism
+How Blue crabs caused £170m in damage to Italy’s fishing industry
+National Lottery winning numbers and Thunderball for Saturday 29 Aug
+Old Farmer’s Almanac releases 2026-27 winter forecast
+by Taboola
+by Taboola
+Promoted Links
+DBS私人貸款-今日重整債務，累積財富第一步！
+星展銀行
+了解更多
+Undo
+The most realistic game of 2026
+GlobalBaseCombat
+Play Now
+Undo
+Watch your favorite TV content anywhere, anytime
+Techno Mag
+Undo
+Mark Cuban Reads 3 Hours a Day. I Was Managing Two Pages a Night. I Gave His Way 30 Days.
+Blinkist Magazine
+Undo
+Top 5 Face Creams For Deep Wrinkles
+Beauty Review Magazine
+Learn More
+Undo
+朱雀青龍現世，全新戰場開啟！
+《成吉思汗3 Online》國際版
+玩遊戲
+Undo
+Read next
+US considers new ultimatum to UK over Falklands
+Leading risk for cancer revealed – and its not smoking or the sun
+California man loses lawsuit over $750,000 lottery prize
+Simon Cowell’s first replacement for America’s Got Talent announced
+Julia Roberts said she’d never forget Dolly Parton’s advice
+Get in touch
+Contact us
+Our Products
+Subscribe
+Register
+Newsletters
+Today’s Edition
+Install our app
+Archive
+Other publications
+International editions
+Independent en Español
+Independent Arabia
+Independent Turkish
+Independent Persian
+Independent Urdu
+The Standard
+Extras
+Puzzles
+All topics
+Betting offers
+Latest deals
+Competitions and offers
+Independent Advertising
+Independent Ignite
+Syndication
+Working at The Independent
+Legal
+Code of conduct and complaints
+Contributors
+Cookie policy
+Privacy policy
+User policies
+Modern Slavery Statement
+Thank you for registering
+Please refresh the page or navigate to another page on the site to be automatically logged in
+Please refresh your browser to be logged in</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>裸盖菇(半裸盖伞)</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>裸盖菇(半裸盖伞)</h1>
+<div class='sub-title'>Mushrooms - P. semilanceata</div>
+<div class='meta'>药理类别：致幻剂</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span></span><span class='mv'>5 · 极强</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属列管/非法物质，持有、使用、贩卖均可能触犯法律，且成瘾与急性风险高。Erowid 上收录 75 篇体验报告（本页已译部分）。常见给药途径：口服、吸入/吸烟。报告中出现的剂量：3 g、5.0 g、3.5 g、1.75 g、500 mg。报告类型分布：Combinations(17)、First Times(11)、Difficult Experiences(10)。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（75 篇）</h2>
+<div class='item'><h3><a href='../reports/28212.html'>和 - - - &quot;完全与我的预期相反!&quot;</a></h3><div class='meta'>May 20, 2005 · 剂量 500 mg</div><div class='ov'>我常常在自己陷入的困境中过于困难 (太忙,太社交) 对于我来说&quot;心脏&quot; (MF) 太过分了, 我发现,如果我服用1/4到1/5克安非他胺硫酸粉末 (通常是吸入,但口服也有效) 在我放下药片之前或同时,LSD会减少视觉效果…</div></div>
+<div class='item'><h3><a href='../reports/10413.html'>- P.semilanceata,哈希和萨尔维亚神 - 埃罗伊德 - &quot;现实的薄组织&quot;</a></h3><div class='meta'>Aug 18, 2004</div><div class='ov'>烟草 - 烟草 剂量 自由帽子 (干燥) - 1.4克 - 口服. 未知种类的 (干燥) - 1.7克 - 口服. 在水管中吸烟. 在水管中抽烟. 设置和思维方式: 两位参与者都很高兴刚刚搬进新公寓. 所有易碎的物品和电…</div></div>
+<div class='item'><h3><a href='../reports/19069.html'>- P. semilanceata 和大麻 - 埃罗维德 Exp - &quot;滑入身份不明的状态&quot;</a></h3><div class='meta'>Sep 22, 2005</div><div class='ov'>虽然我觉得它们很愉快, 我没有真正的旅行, 只是一个非常&#x27;高&#x27;的感觉. 经历始于我好朋友F和朋友的家, 他的房子非常适合吸毒的体验, 因为它有冷静的照明, 闪光灯, 很多鼓和低音音乐, 充足的水, 充足的空间和没有楼梯 …</div></div>
+<div class='item'><h3><a href='../reports/29453.html'>- , 激情花, 大麻和 - 埃洛伊德 - &quot;我死了, 在那一天重生&quot;</a></h3><div class='meta'>Jun 30, 2005</div><div class='ov'>由于即将到来的假期, 我没有计划这次旅行, 但是在和一个老朋友聊天时, 他决定用15毫克的2C-B开始圣诞节庆祝活动, 我认为自己是一个相当有经验的旅行者, 我曾多次服用过LSD,2C-B和其他一些迷幻药物. 我之前做过…</div></div>
+<div class='item'><h3><a href='../reports/117348.html'>三环抗抑郁药会影响吗?</a></h3><div class='meta'>Sep 30, 2023</div><div class='ov'>为了体验: 常用的药物:阿米特里普提林,阿塔坎德,特尔法斯特. 其他药物: # 意图 一个朋友明天在野外举办一个仪式. 我不确定我的偏头痛预防药是否会干扰. 我不确定我的偏头痛预防药是否会干扰. 网上几乎没有关于三环抗抑…</div></div>
+<div class='item'><h3><a href='../reports/111992.html'>- 和 - - &quot;我试图稍微减肥&quot;</a></h3><div class='meta'>Apr 10, 2020</div><div class='ov'>对于来说,切除西塔洛普拉姆 关键字: 第一次使用, 生 前言: 我已经在SSRICitalopram上了很长一段时间, 现在已经过了大约10个月了, 我感觉不那么丧, 我正在寻找的答案. 我试图在吃之前稍微戒掉SSRI.…</div></div>
+<div class='item'><h3><a href='../reports/91669.html'>- P. semilanceata 和大麻 - Erowid Exp - &quot;与其他菌株的比较&quot;</a></h3><div class='meta'>Feb 5, 2020</div><div class='ov'>我首先想说这份报告比体验更具体. 试着发现它们之间的差异. 我开始把一八分之一压成汁, 我开始抽几碗烟, 因为这能让我的精神状态和恶心得到改善. 我已经熟悉我们的露营地. 我知道所有海和森林的通道都在哪里. 00:20=…</div></div>
+<div class='item'><h3><a href='../reports/101167.html'>- - - 在挪威我们称之为&quot;飞&quot;</a></h3><div class='meta'>Sep 21, 2019 · 剂量 3 g</div><div class='ov'>强大的Psilocybe Semilanceata旅行 我和我的四个朋友从牛和羊群的田野收集了大约1500种 (Psilocybe semilanceata, 在挪威我们称之为&quot;fleinsopp&quot;). 我们花了大约10…</div></div>
+<div class='item'><h3><a href='../reports/104257.html'>德米与虫 - 埃洛伊德的经验 - &quot;令人惊叹的协同作用&quot;</a></h3><div class='meta'>May 17, 2019</div><div class='ov'>T0:45毫克吸烟的DMT (与少量大麻混合) 时间+30分钟:1,7克干燥的Psilocybe semilanceata (约60个片) 与水一起服用. 这份报告记录了我对吸烟的DMT和自由帽的经验. 我是一名男性, …</div></div>
+<div class='item'><h3><a href='../reports/36715.html'>- P.semilanceata,4-HO-MiPT 和大麻 - &quot;U-turns&quot;</a></h3><div class='meta'>Sep 8, 2005</div><div class='ov'>精神状态:平静,兴奋,整天心情愉快. 胃里的食物: 胃是空的 含有: 20 种Psilocybe semilanceata, 15 毫克4-HO-MiPT和大麻 在我的地区种植了第一种 (Psilocybe semila…</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 75 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

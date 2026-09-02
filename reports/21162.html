@@ -1,0 +1,284 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>巧克力和 (可食用) - 爱洛伊德</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/chocolate.html'>← 巧克力</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>巧克力和 (可食用) - 爱洛伊德</h1>
+<div class='sub-title'>Chocolate &amp; Mushrooms (edible) - Erowid Exp - &#x27;The Peak of the Day&#x27;</div>
+<div class='meta'>作者：cicp420 Citation · 日期：Feb 9, 2023 · 剂量：2.5 g · <a href='https://erowid.org/experiences/exp.php?ID=21162' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>美国
+我是16岁的
+我曾经吸很多草药, 但现在我做了毒品检测,
+我喜欢, 我认为它们是地球的好礼物.
+我觉得它们是一种扩大大脑的体验, 真正让我与大自然联系起来,
+这是一个关于我最&quot;感动&quot;的旅行的旅行报告,
+我的朋友和我都吃了巧克力.
+每个含有2.5g的.
+我们已经计划了整天.
+我们背着一个装有大量音乐的背包,我们带着眼镜,我们有一份要做的事情列表,
+时间大约是11点45分,
+我决定在10分钟后走出去,
+我很喜欢从天空下降的雪,
+我开始在Fuse的车道上了10分钟.
+我走过街道, 走进一片雪地, 想了很多,
+我知道这不是自然界的现象, 而是人类改变了景观, 使这座山变成了这样.
+我开始思考这样的小山是否存在.
+无论如何,我开始在雪地里玩,然后决定去看看福斯,看看他怎么样.
+我再次走进他的车道, 改变了主意.
+我想要更多的黑客.
+所以我开始破解.
+我袋子的颜色开始泄漏, 因为它被雪湿了.
+我看着我的手,看到我的手上的蓝色斑点.
+我意识到我的手看起来很奇怪,不成比例.
+我开始倒了.
+我注意到我的手有多奇怪, 手上的蓝色斑点有多奇怪, 我开始感受到我绝对喜欢的难以形容的感觉.
+部分焦虑但部分空虚的灵魂.
+没有坏的意思,但就像我所有的内心都在外面.
+在我的胸前.
+我决定与Fuse分享这些信息, 我走进去, 看到他四处走来走去,
+我说&#x27;人,我感觉到它,哈哈哈&#x27;他回答&#x27;人.
+所以我们决定我们需要脚杯.
+我走到柜台, 拿着一篮装满眼镜,
+我把它们戴上了,然后就不戴了.
+在这个时候,它是12:10左右.
+我女朋友的停在车道上把她送下来,
+我已经倒了.
+我的女朋友从来没有倒过.
+我们想提升我们的旅程, 所以我们去了电脑室, 听了一些狂热的音乐, 看了一些狂热的程序,
+眼镜开始振动, 我看到了振动的视觉,
+我注意到现在是12点33分,
+我们得出的结论是因为那天的高峰期.
+这是在中间,它不能更快乐.
+我注意到现在是12点33分,
+我们得出的结论是因为那天的高峰期.
+这是在中间,它不能更快乐.
+我是&quot;什么人?&quot;他说&quot;我爸爸在家.
+我回答说:&quot;是的,我会保持低音.
+所以我脱了眼镜.
+戴上它们.
+把它们脱下来.
+戴上它们.
+然后终于把它们脱下来.
+子保持他的.
+我们走进厨房,他的父亲说&#x27;这是什么.
+我很高兴我脱掉了自己的眼镜.
+我和女朋友坐在厨房里,
+他的父亲跟我谈论学校,和化工作,我告诉他我做得很好.
+然后我把注意力转移到那只狗身上, 那个救世主, 这就是我可以玩的东西,
+你的所以cuuuute!&quot;和Fuse的爸爸认为没有它.
+没有.
+我们终于离开了.
+他甚至忘记了他的克, 我们只有1张CD.
+没有人知道.
+我们走在Fuse的房子后面的石路上, 这条路看起来像是液体.
+这是一个流动.
+我戴上了眼镜, 视觉效果更好.
+我看着石, 看到颜色在变化,
+这很难解释,但它看起来很酷.
+我们决定走在Fuse的房子后面的一些小径.
+我们走来走去,
+我是在乌托邦.
+我在路上走了一会儿.
+他和我的女朋友聊了一会儿, 当我回来的时候,
+所以我决定加入.
+这棵树在地面上像一个尖的三角形.
+他看起来像切舍尔猫.
+这很酷.
+我们走来走去,我对社会感到愤怒.
+我把我的背包扔在地上说&#x27;该死的这个人,有什么用?
+这是该死的塑料,我不想要那种狗.
+福斯说&#x27;男人,拿起你的塑料.
+这是我现在对自己说的最重要的一句话.
+所以我拿起我的塑料, 我们走了一些.
+我看着一棵树, 棕色的不同色调相互交融, 这真是疯狂.
+我们谈论我如何想在野外, 和走鹿, 在森林里与他们一起跑步, 快乐.
+我在想鹿是如何不逃避乌和火,
+乌和鹿会在我们背后开大火和抽烟吗?
+不,他们没有.
+我决定穿过森林.
+这是一个好时光.
+然后我掉进一堆棍子, 得到一些讨厌的狗, 我以为是鹿的狗在我身上.
+这些鹿该死的.
+他们逃离我,然后设置陷的狗,让我落入.
+我只想抚摸他们,和他们一起抽烟.
+我和Fuse有更多关于谁能理解的深入对话,
+我们在森林里待了两个小时,
+我们不得不在某个时候,它变冷.
+于是我们打电话给Sidra (我的朋友,
+赛德拉带我的女朋友回家,然后我们去了商场.
+我还在,虽然没有那么强,我下来了.
+我们有中国菜.
+这真是太棒了.
+那个打电话给我们的女士看起来像一只.
+她是一个羊.
+我猜我没有像我想的那样下来.
+我吃了我的中国和我们决定去看电影.
+我们认为&quot;戒指之王2&quot;会增强我们的旅程.
+这部电影很糟糕.
+没有足够的颜色为一个的人.
+我和Fuse离开商场, 我们见到一些人并与他们交谈,
+我们重新进入电影并完成了它, 看到最后的战斗场景,
+然后我们离开了.
+我意识到如何过我的生活, 而不是社会希望我成为的那种人,
+接受生活中发生的事情并使用&quot;这就是它&quot;的口号.
+快乐吧...
+和平
+没有.
+已使用的证券
+发布时间:2023年2月9日
+巧克力 (182), (39):各种 (28),治疗意图或结果 (49),个人准备 (45),自然/户外 (23),家庭 (41),神秘体验 (9),发光体验 (4),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Getting Rid of Your Physical Books?
+If you have books or periodicals about drugs, contribute them to Erowid!
+Your old books will find a good home in our library or for a supporter. [
+details
+]
+The Peak of the Day
+Chocolate &amp; Mushrooms (edible)
+by
+cicp420
+Citation:   cicp420. &quot;The Peak of the Day: An Experience with Chocolate &amp; Mushrooms (edible) (exp21162)&quot;.
+Erowid.org
+. Feb 9, 2023. erowid.org/exp/21162
+DOSE:
+2.5 g
+oral
+Mushrooms
+(edible / food)
+oral
+Chocolate
+(edible / food)
+BODY WEIGHT:
+173 lb
+I am 16 years old. I used to smoke a lot of herb, but now I get drug tested, so I only smoke once a month.  I love shroomz and I think they are a great gift from the earth. I think they are a mind expanding experience that really connects me to nature and I can perceive the way things are meant to be.  Here is a trip report about one of my most &#x27;touching&#x27; trips, it had a major effect on my life and the way I lead it.
+My friend and I both consumed a mushroom chocolate. Each contained 2.5g of psilocybin mushrooms.  We had planned out the whole day.  We had a backpack with lots of music, we had our tripping glasses and we had a list of shit to do to occupy our minds. It was around 11:45 when we each ate our chocolates and consumed 3 vitamin c pills each.
+I decided around 10 minutes later to go outside because it had started to snow.  I was liking the snow falling down from the sky and was engulfed by the thought of each snowflake being totally unique.  I started to hackie sack in Fuse&#x27;s (my tripping companion) driveway for about 10 minutes.
+Then I walked across the street and into a field of snow, I was thinking a lot but I had not yet started to trip.  I walked down a hill and knew it was not an occurrence of nature and that humans had altered the landscape to make this hill the way it was. I started to think about if little hills like this existed in nature. Anyways, I started hackie sacking in the snowy field some more then decided to check on Fuse and see how he was doing.  I walked into his driveway again and changed my mind. I wanted to hackie sack some more.  So I started to hack.  The colors from my sack started to leak because it had gotten wet from being in the snow.  Just then I looked at my hand and saw the blue stains on my hand.  I realized my hand looked odd, disproportionate.
+I had started to trip.  After I noticed how odd my hand was looking and how odd the blue stain on my hand looked, I started feeling those indescribable feelings that I absolutely love.  Partial anxiety but partial emptiness of the soul. Not in a bad way, but like all of my insides are outside.  Right next to my chest. I decided I should share this information with Fuse so I walked inside and saw him walking around in circles looking for shit to put in his tripping bag.  I said &#x27;man, I&#x27;m feeling it, hahaha&#x27; he replied &#x27;man. Me too&#x27;  so we decided we needed tripping glasses.
+I walked over to a counter with a basket filled with glasses and went through about 3 pairs before I found the perfect one.  I put them on and left them on. At this time it was about 12:10.
+My girlfriend&#x27;s mom pulled into the driveway and dropped her off, so I went out and greeted them. I was tripping hard.  My girlfriend has never tripped.
+We wanted to enhance our trip so we went to the computer room and listened to some trippy music, looked at some trippy programs and basically tripped out. At this point my glasses started to vibrate, I could see that vision of a vibration, like the glasses were expanding while on my face.
+I noticed it was now 12:33 and commented on how 12 was such a good number.  We came to the conclusion that it was because it was the peak of the day.  It was right in the middle, it couldn&#x27;t be happier.
+I noticed it was now 12:33 and commented on how 12 was such a good number.  We came to the conclusion that it was because it was the peak of the day.  It was right in the middle, it couldn&#x27;t be happier.
+At this point Fuse yelled out &#x27;Oh Shit!&#x27;  I was like &#x27;what man?&#x27; and he said &#x27;my Dad&#x27;s home. Are you cool&#x27; I replied &#x27;yeah dude, I&#x27;ll hold it down&#x27;.  So I took my glasses off. Put them on. Took them off. Put them on. Then finally took them off. Fuse kept his on.  We walked into the kitchen and his dad says &#x27;what is this. The sunglasses brigade?&#x27; I am glad I took mine off.  Me and my girlfriend sat in the kitchen while Fuse ran around looking for the last minute things for the trip bag.
+His dad talked to me about school, and about makeup work, and I told him I was doing ok. Then I diverted my attention to the dog, that savior, it was something I could play with and it wouldn&#x27;t seem like I was fucked up, I could make squeaky voices and say &#x27;Oooohhh, little doggy. Your so cuuuute!&#x27; and Fuse&#x27;s paps thought nothing of it.  Phew.  We finally left.  Fuse realized he did nothing he had intended too, he even forgot his jacket, and we only had like 1 CD.  God dammit.
+We walked down a gravel road behind Fuse&#x27;s house and the road looked like it was liquid.  It was flowing.  I put my glasses back on and it enhanced my visualizations. I looked at the gravel and the colors were morphing and switching spots. It&#x27;s hard to explain but it looked so fucking cool.  We decided to walk on some paths behind Fuse&#x27;s house.  We walked around and I was so connected with nature.  I was in utopia.  Fuse decided to smoke a bowl and I walked around by myself on the paths for a bit. He talked to my girlfriend for a bit, and when I came back it seemed as if they were having a fun conversation. So I decided to join in.  Fuse was sitting on a fallen down tree, but this tree had broken about 15 feet up so it was like an acute triangle on the ground. He looked like the cheshire cat. That was cool.
+We walked around and I got angry at society. I threw my backpack on the ground and said &#x27;fuck this man, what use does that have? Its fucking plastic, I don&#x27;t want that shit&#x27;.  Fuse said &#x27;man, grab your plastic. Think of when the trips over, you&#x27;re gonna want that shit.&#x27; That was one of the most important concepts that I still tell myself now when I trip.    So I grabbed my plastic and we walked some more.
+So we were sitting talking about how the trees looked fucked up and they were bending and I looked at a stump and the different shades of brown were flowing into each other, it was wild.  We talked about how I wanted to be in the wild, and walk with the deer, run with them in the forest and be happy.  I was thinking about how deer don&#x27;t run away from crows and turkeys, but they run away from us. Do crows and deer hang out and have bonfires and smoke joints behind our backs? No, no they don&#x27;t.  At that point I decided to run through the forest. That was a good time.  Then I fell into a pile of sticks and got some nasty shit that I thought was deer shit on me. Curse those deer.  They run away from me then set traps of shit for me to fall in.  All I wanted to do was pet them and smoke with them.  Fuse and I had more deep deep conversations about who &#x27;gets it&#x27;, those concepts I only get when expanding my mind with psilocybin.
+It had been about 2 hours in the forest and we decided we should get back to society. We had to at some point, and it was getting cold.  So we called up Sidra (my friend who trips, but was not tripping at the time, he was our driver).  Sidra brought my girlfriend home and then we went to the mall.  I was still tripping, not as hard though, I was coming down.  We got chinese food. It was great.  The lady who rung up our bill looked like a gazelle.  She was a gazelle.  I guess I wasn&#x27;t coming down as much as I thought I was.  I ate my chinese and we decided to go to a movie. We thought The Lord of the Rings 2 would enhance our trip.
+Well, the movie sucked. Not enough color for a tripping person. So me and Fuse left and walked around the mall, we saw some people and talked to them, at his point my trip was almost over.  So we re-entered the movie and finished it, saw the last battle scene, I guess it was cool.  Then we left.
+It was a great trip and I realized how to live my life and not be the kind of person society wants me to be, to be unique and no typical.  To be ok with the things that happen in life and use the slogan &#x27;it is what it is&#x27;.  Be happy...
+PEACE
+Cicp420
+Exp Year: 2002
+ExpID: 21162
+Gender: Male
+Age at time of experience: 16
+Published: Feb 9, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Chocolate (182), Mushrooms (39) : Various (28), Therapeutic Intent or Outcome (49), Personal Preparation (45), Nature / Outdoors (23), Families (41), Mystical Experiences (9), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

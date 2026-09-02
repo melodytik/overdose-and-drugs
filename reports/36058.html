@@ -1,0 +1,165 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>瓦莱里安 - 埃罗维德 探险 - &quot;承担负担&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/valerian.html'>← 缬草</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>瓦莱里安 - 埃罗维德 探险 - &quot;承担负担&quot;</h1>
+<div class='sub-title'>Valerian - Erowid Exp - &#x27;Bearing the Burden&#x27;</div>
+<div class='meta'>作者：In6games Citation · 日期：Oct 28, 2009 · <a href='https://erowid.org/experiences/exp.php?ID=36058' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我是一个虔诚的宗教人士, 我投入极大的精力和精力来照顾我的灵魂.
+我知道大多数人可能会觉得教会/犹太教堂/清真寺/寺是入院的最后一站,
+我现在正处于人生的十字路口 (担心如何继续为大学提供资金,搬到新城,日常的压力和压力,
+我不了解你们,但我喜欢独处... 我的房间绝对是我的避难所.
+我通常在感到恐慌发作时, 或是当我想故意改变我的意识流时,
+对于我来说, 瓦莱里安是极其精神活跃的.
+有时太强烈了,如果我忘记我刚刚接受了它 (如果你认识我,你会知道我忘记为什么我走过一个房间有时) 它击中了我,所以很难现实停止一秒,只是&quot;挂在那里&quot;一分钟,直到我调整.
+这种感觉持续很长一段时间,
+身体会减慢速度, 但头脑会以较慢的速度释放思想,
+有时它是如此强烈, 我只需要躺在我的床上在一种昏迷//, 直到它消失.
+标签上写着&quot;在操作机器或驾驶时要小心&quot;.
+是的,但我现在甚至不能移动.
+我猜我们人类确实需要不断的刺激, 因为即使在我被一些疯狂的Indica (大学课程让轮子在运动中, 但每个人都知道&quot;Bis是最终的&quot;高等&quot;教育) 我总是找到时间打破我的精神和评估神学.
+焦虑就会消失.
+我曾经在宿舍喝过两片香, 不仅让我的脑子空白了所有想法,
+那里没有什么,但空气,家伙!
+然后一切都转向了我的脚, 我觉得我喜欢这个, 直到我不得不躺在沙发上,
+至少对我来说, 真正的灵魂净化.
+我通常要躺下,在床上漂浮,直到它消失.
+我喜欢它有抗性质, 因为我可能需要一种抗药.
+像我说的,也许因为我很有精神倾向, 毒品对我来说比其他人更有影响.
+我跟随那个拿撒勒人,
+我只知道, 草是我新选择的草药,
+时间表: 36058</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Bearing the Burden
+Valerian
+by
+In6games
+Citation:   In6games. &quot;Bearing the Burden: An Experience with Valerian (exp36058)&quot;.
+Erowid.org
+. Oct 28, 2009. erowid.org/exp/36058
+DOSE:
+repeated
+oral
+Valerian
+(capsule)
+BODY WEIGHT:
+230 lb
+I&#x27;m a deeply religious person, and I exert energy of great intensity and effort into the care of my soul. I realize that most people might feel that church/synagogue/mosque/temple is the last stop to being institutionalized, but for me, struggle in the spiritual life fumigates my life with a great deal of profundity.
+I&#x27;m at a crossroads in life right now (worrying about how to continue financing college, moving to a new town, everyday stress and strain, I guess) and I have found that Valerian root quiets my anxieties and calms me so that my mind moves slow enough for me to hold onto thoughts and figure out where I am going with my life (or, rather, where life is taking ME). Don&#x27;t know about the rest of you folks, but I love my solitude...my room is definitely my sanctuary. I usually take Valerian caps either when I&#x27;m feeling a panic attack coming on or when I want to deliberately change my stream of consciousness.
+For me, Valerian is extremely psychoactive. A strong and immediate come on, sometimes too strong if for some reason I forgot I&#x27;ve just taken it (if you knew me you&#x27;d know I forget why I walked across a room sometimes) it hits me so hard reality stops for a second and just sort of &#x27;hangs there&#x27; for a minute until I adjust. Then a creeping kind of mellow feeling (euphoric, really) that lasts for a good long time and leaves me with a nice afterglow. The body slows down, but the mind releases thoughts at a much slower rate so I can get control of my mind and meditate. Sometimes it&#x27;s so intense that I gotta just lay on my bed in a kind of coma/cocoon/shell until it wears off. The label says &#x27;Use caution when operating machinery or driving&#x27;. Yeah, but I can&#x27;t even MOVE right now. I guess we humans really do need constant stimulation, cause even back in the day when I was blunted off some mad crazy Indica (college classes keep the wheels in motion, but everyone knows the &#x27;Bis is the ultimate &#x27;higher&#x27; education) I always found time to break into my spirit and take stock of the theological.
+Anxiety just melts away. Side note - I did try 2 Xanny tabs one time chillin&#x27; in my dorm and it emptied not only my brain of all thought, but my head of my brain as well. Nothing in there but air, dude! Then it all went to my feet and I was like, &#x27;I think I like this&#x27; - until I had to crash on the couch cause my feet were just bouncing all over the place.
+Anyway, Valerian is the ultimate in stress relief and at least for me, really soul cleansing. Safely relives anxiety cause I usually have to lay down and just sort of levitate there on the bed till it wears off. And yo, I like that it has anti-spasmodic properties, cause I probably need an anti-spasmodic ;-).
+Like I said, maybe because I&#x27;m so spiritually inclined drugs hit me harder than most. As for me, I follow the Nazarene, but I give props to all the seekers out there. All I know is, Valerian is my new herbal of choice cause I don&#x27;t rock the ganj anymore (too expensive).
+Exp Year: 2004
+ExpID: 36058
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 28, 2009
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Valerian (48) : Retrospective / Summary (11), Health Benefits (32), Therapeutic Intent or Outcome (49), Glowing Experiences (4), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

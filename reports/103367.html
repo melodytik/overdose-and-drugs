@@ -1,0 +1,234 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>一个PVP - Erowid Exp - &#x27;太多的副作用&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/alpha-pvp.html'>← α-PVP(火焰)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>一个PVP - Erowid Exp - &#x27;太多的副作用&#x27;</h1>
+<div class='sub-title'>a-PVP - Erowid Exp - &#x27;Great High Couple Too Many Side Effects&#x27;</div>
+<div class='meta'>作者：toastedjelly Citation · 日期：Apr 30, 2015 · <a href='https://erowid.org/experiences/exp.php?ID=103367' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>这对我的狗露西来说是第一次.
+没有真正的比较, 因为她已经远离了麻醉,可卡因,毒等.
+她只能使用快速和addys.
+晶体有点模糊,然后分解成白色,稍微粘的粉状.
+没有预料到这一部分, 因为它留下了一些粘性粘合剂类型的残留在她曾经使用的刀片粉碎一些它.
+经验:从她的嘴到我的指尖:
+总体而言很愉快.
+严的剂量适度.
+这种药物需要一些时间才能起作用,
+清理,组织,工作得疯狂.
+她在3个小时内完成了一整天的工作.
+她觉得自己快乐,说话,聪明,有成效.
+主要高持续了大约3小时, 直到它开始慢慢消失.
+心率升高和不安感开始出现,
+那些不太理想的副作用似乎在高潮消退后还会持续很长时间.
+这种情况并不是很糟糕, 头痛等等, 但该死的,
+她说她会推安眠药或类似的作为几乎必须要下来部分.
+对于她来说, 房子里没有这样的东西是很糟糕的.
+最后她说她一直想重新服用.
+我们都知道她不应该这样做,所以我阻止了她,
+或是很容易引起暴饮暴食?
+她说她很好奇这可以替代她每周服用两次左右的阿德拉尔.
+经验:很高兴我们读到这些东西, 她准备做一个脂肪线大约30毫克的阿迪粉碎和切成两半.
+她告诉我这些东西是微妙的和强大的.
+&quot;请小心犯错误,并从小剂量开始!
+我们不是试图告诉你如何享受这种东西, 但除非你有经验与这种化学物质特别, 请采取小数量和工作你的方式与漂亮大休息之间.
+在第二个小时结束时, 你很可能仍然处于高峰状态,
+我们不禁要指出这一点,
+没有真正明显的味道通过吸管, 但她擦干净的刀片和把残留直接在她的湿舌,
+就像一辆死去的汽车电池被浸泡在停滞的红牛中.
+这是她的话,不是我的.
+虽然不太好吃,但也没有让人吐.
+她告诉我们,在最初的15分钟里, 她没有感觉到什么.
+她开始慢慢地感受到一种生产力和精力.
+她说这感觉不像阿德拉尔或里塔林,
+她的大脑正在发射800个气!
+她觉得自己是个天才,
+她发现他们正在挖掘和扩大外面的花园,
+音乐听起来非常好.
+非常非常好.
+没有人听说过看电视或长时间静坐, 至少直到最后.
+她说我们应该重新注射, 某人需要血压药 (每日10毫克的低剂量,
+她坐在电脑前, 开始翻阅她为某个客户设计的广告设计,
+每个人都因为这个原因而落后于工作.
+在这里,她用新的眼睛看到了这件事.
+想法在左右飞翔, 速度比我们能尝试或写下来更快.
+现在这些伟大的想法已经传到每个人身上.
+很难集中注意力, 但她确实做到了.
+每个人都在下午做了很多工作.
+她开始担心的事情可能永远不会完成.
+这让她/我们/我们所有人都变成了创造力.
+这种东西可以持续很长时间.
+也许下一次没有重新给她.
+唯一的问题是,高的,高效的,大脑细胞发射在所有的圆柱体,一切都很棒的阶段生物死后2-2.5小时左右,然后一个留下一个仍然奔跑的心和最有可能一些失眠与完全缺乏食欲和脱水.
+我们一直试图强迫自己喝水,
+似乎也会引起胃气.
+但这只是这个采样器.
+胃痛不同于饥饿痛, 很多吐和放... 只是干净的, 没有气味的空气.
+我们将离开这个.
+她完全远离某些事物, 对其他事物保持适度.
+虽然这只是她第一次服用的第一天 (半夜) 的结尾.
+仍然清醒.
+仍然没有食欲, 但现在胃.
+她每天下午4点和5点15分服用25毫克.
+我们是雄性,而露西是我们令人难以置信的野牛.
+我们说我们30多岁.
+我们身高6英尺2英尺3英尺,体重170磅, 所以我们很瘦.
+过去的经验:大麻 (很多)  (如果我们能得到它) 酸和大约半打次.
+大多是20多岁的青少年, 最近几个月里每个人都做过一次.
+我们没有,也不打算得到试剂试剂盒.
+她在过去一年中三次拿起5-10克的袋子 (速度过快),
+已使用的证券
+阿尔法-PVP (585): 单独 (16), 和习惯性 (10), 第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Great High Couple Too Many Side Effects
+a-PVP
+by
+toastedjelly
+Citation:   toastedjelly. &quot;Great High Couple Too Many Side Effects: An Experience with a-PVP (exp103367)&quot;.
+Erowid.org
+. Apr 30, 2015. erowid.org/exp/103367
+DOSE:
+T+ 0:00
+oral
+Pharmaceuticals
+(daily)
+T+ 0:00
+25 mg
+insufflated
+alpha-PVP
+(powder / crystals)
+T+ 1:15
+25 mg
+insufflated
+alpha-PVP
+(powder / crystals)
+BODY WEIGHT:
+168 lb
+This was and is a first for my dog Lucy.  We read and read as many experiences we could of previous users of the stuff.  We had no real comparison here as she&#x27;s managed to stay away from meth, coke, crack etc.  Speedpaste and addys are as far as she goes.
+Crystals are slightly foggy and break up into a white, slightly sticky powder-ish form.  Wasn&#x27;t expecting this part, as it left some sticky glue type residue on the blade she had used to crush some of it.
+Experience:  From her mouth to my finger-tips:
+Overall enjoyable.
+SERIOUSLY dose in moderation.  The stuff takes some time to kick in, similar to a gel tab and stays around for quite a while.  It had her off her ass and cleaning, organizing and working like crazy.  She made it through almost a full day of work in a 3 hour period.  She felt happy, talkative, smart and productive.  Main high lasted about 3 hours until it started to slowly wear off.  Elevated heart rate and restlessness began to  kick in and stick around for hours afterwards. Side effects which are not so desirable seem to stick around much longer after the high goes away.  The comedown isn&#x27;t terrible in terms of a headache or anything, but damn it that poor girl&#x27;s heart doesn&#x27;t need to seriously calm the shit down.  She says she would recommend sleeping pills or similar as almost a must to have for the come down part. It sucks kinda hard for her that there is nothing like that in the house :(
+Lastly she said she&#x27;s been wanting to redose most the entire time.  We both know she shouldn&#x27;t and so I have stopped her from this, but this stuff seems pretty addictive according to her.  Or very uh...binge prone inducing?
+In careful moderation, She said she&#x27;s curious to see if this can replace her 2 or so times a week usage of Adderall.
+The experience:  SO glad we read up on this stuff as she was set to do a fat line about the size of a 30mg Addy crushed and cut into two.  She informed me this stuff is subtle and powerful.  &#x27;PLEASE ERR ON THE SIDE OF CAUTION AND BEGIN WITH SMALL DOSES!  PLEASE ALLOW ABOUT 45 MINUTES FOR FULL EFFECTS TO HIT YOU BEFORE RE-DOSING!&#x27; We aren&#x27;t trying to tell you how to enjoy this stuff but unless you have experience with this chemical SPECIFICALLY, please take small amounts and work your way up with nice large breaks in between.  By the end of the 2nd hour you will most likely still be peaking but also feeling the crazy elevated heart rate.  We couldn&#x27;t help but point that out and hope someone out here heeds the advice.
+No real noticeable taste through the straw, but she wiped clean the blade and put the residue directly onto her wet tongue and it tasted very odd is all she would say.  Sort of like a dead, old car battery that&#x27;s been soaked in stagnant redbull.  Her words, not mine.  It wasn&#x27;t too tasty, but didn&#x27;t make anyone want to throw up.
+She told us she didn&#x27;t feel much of anything the first 15 minutes.  Then a slow and subtle force of productivity and energy began to take hold of her. She said it didn&#x27;t feel like Adderall or Ritalin but something only remotely similar.  Her brain was firing on 800 cylinders!  She felt like a genius and started to handle some of the chore things around the house that are usually avoided.  She found them digging out and expanding their garden outside and planting the entire thing (first hour or so of usage) we were very talkative but it all felt natural and purposeful.  Music sounded SOOO GOOD on this stuff.  Very very good.  Nobody hear watched tv or sat still long, at least not until the end.
+After the garden she said we should redose for the fuck of it someone needed their blood pressure pill (low daily dose of 10mg prescribed as preventative due to family history) to attempt to combat the pending racing of their heart.  She sat at the PC and started to fly through some ad designs she&#x27;d been working on for a client of someone&#x27;s that had literally been halted for lack of solid design and ideas. Everyone was falling behind in their work because of this.  Here, she saw this thing with new eyes.  Ideas were flying left and right, faster than we could try them or even write them down.  It was GREAT, but almost to a fault the pace these great ideas were coming at everyone now.  It felt kinda hard to focus, but she did manage for a while.  Everyone got a LOT of work done that afternoon.  Stuff that she started to worry might never get done.  Felt like it turned her/we/everyone into a creative force of awesome.
+The stuff lasts for quite some time.  Maybe next time no redosing for her.  The only problem is that the high of it, the productive, brain cells firing on all cylinders, everything is awesome phase beings to die after 2-2.5 or so hours and then one is left with a still racing heart and most likely some insomnia to go with the complete lack of appetite and dehydration.
+We keep trying to force ourselves to drink water, but cant seem to make it happen?  Also seems to cause a gassy upset stomach.  But that&#x27;s just this sampler here.  Stomach pains different from hunger pains and lots of burps and farts...just clean, non-smelling explelled air.
+We&#x27;ll leave with this.  We recognize that she has a somewhat addictive personality which is why she stays completely away from certain things and practice great moderation with others....except for herb I mean.  This stuff though it&#x27;s only the end of the first day (middle of the night) of the first time she&#x27;s had it. Still wide awake. Still lacking appetite but now stomach is growling.
+She took it at 4 and 5:15 pm dosed at 25mg each.  We&#x27;re male and Lucy is our incredible pitbull.  We would say we&#x27;re early 30&#x27;s.   Tall like 6 foot 2&#x27;-3&#x27; and weight at 170lbs so we&#x27;re pretty fucking lanky.
+Past experiences:  Marijuana (lots)  Adderall (when we can get it) acid and shrooms about a half dozen times each.  Mostly in late teens early twenties and each one once recently in the last couple of months.  Speedpaste from the SR so purity is always up in the air as we don&#x27;t have and don&#x27;t intend to get reagent test kits.  She&#x27;s picked up a 5-10 gram bag (speedpasted) on 3 occasions over the last year and enjoyed every wet drop with my SO.
+Exp Year: 2014
+ExpID: 103367
+Gender: Male
+Age at time of experience: 32
+Published: Apr 30, 2015
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+alpha-PVP (585) : Alone (16), Addiction &amp; Habituation (10), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

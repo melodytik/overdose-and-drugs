@@ -1,0 +1,373 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;能量与我进行交流&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dipt.html'>← DiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;能量与我进行交流&quot;</h1>
+<div class='sub-title'>DiPT - Erowid Exp - &#x27;Energies Were Communicating With Me&#x27;</div>
+<div class='meta'>作者：Morninggloryseed Citation · 日期：Jun 6, 2003 · 剂量：70 mg · <a href='https://erowid.org/experiences/exp.php?ID=24311' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我不太确定今晚会发生什么,
+尤其是在我第一次尝试新材料时.
+我已经使用了这种化学物质几年了, 但从来没有尝试过, 因为直到我最近读到的一些报告,
+但最近在TIHKAL之后发表的报道引起了我的好奇心, 这表明它不仅仅是一个听觉扭曲器,
+经过这么长时间之后,
+我不想让它变得太激烈, 因为这是我第一次尝试药物,
+我很容易对三胺很敏感,
+现在我无法控制,因为剂量已经确定,物质已经被权衡和封装.
+这种纯白色的晶体材料有轻微的醇气味, 但与DPT或AMT的强烈气味相去甚远.
+这更让我想起了DMT.
+我将与M分享这篇文章,
+他对迷幻体验并不陌生,
+这将是我们第二次一起旅行,
+我们的第一个迷幻体验是在几个月前,
+这对我们两人来说是一个很棒的结合体验, 我们度过了一个绝对深刻和奇妙的时光.
+我已经忘了它们的好处.
+但这将是另一个报告!
+无论如何,这是一个美丽的夜晚在科罗拉多州.
+非常温和的温度,没有风带给我们寒冷.
+非常适合探索大自然.
+天空稍微阴暗, 月亮和星星大部分都被遮住,
+我没有太担心.
+毫无疑问DipT摄入会导致瞳孔膨胀,
+我们的计划是吃囊,抽一点大麻,然后散步到我们的腿决定带我们去的地方.
+我们每个人穿上一些温暖的衣服晚上徒步旅行, 开始享受一个漂亮的碗大麻.
+或许半小时后:
+我们都感觉到某种东西,
+我注意到身体有一些温暖, 感觉很幸福,
+我认为这种感觉可以称之为轻微的高兴.
+已经完毕了, 我们要走走.
+第二天:
+这真是太棒了!
+迪普特超出了我所有最疯狂的期望.
+我和M开始我们的步行, 感觉到的只是我提及的一段时间的初始温暖.
+我们甚至在徒步旅行中说,如果我们每人服用100毫克的DipT而不是70毫克,那一晚可能会更有趣.
+效果保持在这种温和水平至少一个小时.
+虽然事实并没有什么不同, 但事实却有所不同. 虽然我从不同的角度看世界,
+我朋友说,除了感觉到身体的温暖之外, 他没有注意到这一切.
+他希望青会在外面唱歌, 寻找伴侣, 显然听到这些声音会很有趣,
+虽然我们要走的路长约两英里半, 但我是个很健壮的骑自行车的骑手,
+在徒步旅行的某个时刻,
+我甚至注意到一些轻微的尾行和颜色增强当我看得足够好.
+我只能把它们描述为能量和光的闪光.
+这让我想起了闪电镜.
+评论说我的声音对他来说似乎有点低,
+尽管如此,我自己的言语对我来说仍然很正常.
+经过一个好小时的步行, 我们到达了M想要参观的公园,
+不幸的是,那天晚上只有几只青在唱歌,
+青对我来说听起来很正常, 但我们的声音肯定会变得越来越多.
+他们听起来更深,有点沉默.
+这就好像是我们声音的中和高频率除了, 只有低频率才能听到.
+让我想起我通过电子图形等分器的声音.
+我们坐在长椅上,
+我从一个轻微的加1到一个令人印象深刻的强加2在五分钟的时间里.
+我们在当地公园里听着青互相交谈.
+我没有注意到声音变化以外的声音扭曲, 经历的强度却迅速升高到非常强烈和意想不到的程度.
+虽然DiPT的效果完全不像MDMA, 但它是我能想到的唯一能让我想起在中毒阶段感受到的&quot;&quot;,轻微的感官增强和对M的同情感.
+除了音频变化, 与MDMA的主要区别在于, 这种迷幻药没有MDMA那种看似强迫的积极情绪方向,
+另一种不同之处在于,有明显的胺感,而不是MDMA的胺/胺感.
+我和M坐在公园的长椅上, 似乎是无时无刻的,
+只是躺下听他讲述的内容,
+有时我几乎觉得我的灵魂存在是我们所说的话.
+现在我完全处于药物的影响之下,
+我感到非常震惊.
+我预计这部作品只会有音频扭曲和身体声.
+我在经历一个令人难以置信的强度的迷幻之旅.
+我完全忘记了时间,所以我不知道我们在公园里停留了多久,
+他说那里充满了来自老灵魂的能量, 我们应该去那里.
+虽然它位于一个活跃的工厂后面, 他认为我会对这个地区留下深刻印象.
+我毫不犹地同意了,
+走路对我来说有点困难,
+他评论说DIPT使他的眼睛对黑暗更加敏感.
+尽管我们都服用了相同的剂量,
+实际上我对此有点不满, 因为我沉浸在药物的作用中,
+我认为这只是因为那天晚上不是他获得高峰体验的时机.
+在某种意义上说,这很好,因为他扮演了导游的角色.
+我肯定没有条件指导我们去任何地方.
+虽然我完全熟悉我们所走的徒步路线, 因为它是我几乎每天骑自行车的路线的一部分, 如果没有他的帮助, 我会很迷路.
+接下来是一条快速流动的小溪. 接下来是一条快速流动的小溪.
+由于近来我们遭受干旱的州受到大量降雨的祝福,
+我们在水边找到了一块石头,
+我觉得这时我才真正达到顶峰.
+这种强度让我震惊.
+我可以看到和感觉到像古老的能量在我周围.
+思想像河流中的水一样流过我的脑海.
+我能够清楚地思考我的生活,
+我知道这是一个非常特别的地方.
+我在黑暗中处理物体时很不协调, 所以我要求M给我们包装一碗大麻,
+我们抽了烟,然后M宣布他想要几分钟独处.
+我对此完全没问题,他离开了小溪的稍远处,
+这时发生了一件非常特别的事情.
+我已经感觉到我身边的多种不同能量,
+科罗拉多州充满了这些能量,
+在过去,我在山上有过一些令人难以置信的超自然联系,
+这些能量决定直接与我互动.
+虽然这从来没有吓到我.
+我知道这些是善良的灵魂, 他们没有伤害我,
+他们很好奇我是谁, 我在那儿做什么.
+我闭上眼睛, 看到各种形式的光和能量,
+每一个动作似乎都有意义,
+有些能量通过一系列的声音,声和点击来与我交流.
+这是一种我从未想过的沟通方式.
+这听起来非常像电脑,
+我再次闭上眼睛,坐在我的岩石上,祈祷,并向这些生物发送积极的振动和能量,
+现在我觉得我是在调情一个罕见而又有福的加4人.
+虽然在纯粹的意义上我坚信宇宙中的一切都是相互关联的, 这些能量并不是我自己的延伸.
+超越我的灵魂,超越我的正常存在.
+他们正在调查我是谁,我到那里去做什么.
+我建议我们回家, 因为我们还有很长的路要走.
+我真的想在药物效果衰退之前回来,
+只有我们声音的深化, 但他早些时候注意到的轻微的闭眼视觉和心理内省,
+我注意到药物对身体的影响有所减弱, 主要是三胺的身体声,
+现在它似乎不仅降低了八度左右,
+我不得不反复问M是否觉得我的声音是正常的.
+他报告每次似乎比正常稍低,但在大多数情况下,它听起来像它总是做.
+我听到的变化是如此惊人的, 我几乎无法理解,
+但人们永远无法真正理解这样的音频感知变化会有多大影响, 直到他们亲自体验到.
+我知道DIPT将是一次独特的经历,
+终于,经过一段疲的步行和几碗大麻, 我们回到我的公寓.
+我也很丧... 至少我这么认为.
+我决定播放一些音乐,
+接下来发生的事情对我来说,
+杰斐逊飞机的首张专辑&quot;杰斐逊飞机起飞&quot;的首张录音.
+让我进来
+我眼睛开,然后我的下巴从字面上落到地板上,
+吉他的声音好像是通过数字八度设备传输的信号.
+一个便宜,低质量的一个.
+听起来像是制品, 听起来像是数字剪辑.
+数字剪辑发生在数字录音机上录制的音乐比设备能够接收的声音更大时,导致显著的点击噪音.
+我觉得我听了这首歌三四次,
+我不敢相信化学物质会造成这样的扭曲.
+不幸的是,M没有经历过这些.
+对于他来说,录音听起来像他们总是这样做.
+在听到这张唱片的几首歌之后,
+白
+这首歌来自杰斐逊飞机的第二张专辑.
+这也是DiPT带来的巨大变化.
+格雷斯·斯利克听起来像一个男人!
+有趣的是,并非所有的噪音都受到DiPT的影响.
+在第一首歌的开头,
+她有一些有趣的汽车
+似乎他们总是这样做.
+但当乔尔玛的吉他开始演奏时,
+我明白有人说[因DIPT中毒]的和不存在.
+录制我们自己的音乐也很有趣 (我是一名音乐制作人, 拥有家庭录音室),
+我终于把音乐关掉了,
+我们谈了一会儿我们的经历, 然后M说他准备好睡觉.
+他退休到我的客房, 我打开新闻赶上世界.
+我服用了三毫克的黑激素和一些镇静剂 (含有蜂和激情花的草药安眠药), 最终毫不费力地睡着了.
+我整个晚上都睡得很好.
+到了早上,我们都觉得很好地休息了,M很善良地带我们出去吃早餐.
+没有任何的酒感或宿醉.
+我对自己的经历感到非常高兴和感激.
+他表示他对DIPT没有得到更多效果感到有点失望,
+无论如何,他说,总是有下一次.
+肯定会有这样的情况.
+结论:
+我不得不说我对DiPT非常印象深刻.
+我真的认为 (对我而言) 这种药物可能是个保鲜品.
+换句话说, 我实际上会用它来获取洞察力和解决问题.
+只有少数我尝试过的奇特合成迷幻药物能真正适合这个类别.
+我觉得它们和经典的,经过检验的,真正的原体一样好,
+为了评估它们对我有什么作用, 并且看看它们是否有能力产生持续且有价值的灵性体验,
+如果我发现他们没有, 我只能忘记他们, 继续前进.
+我必须承认我真的很喜欢做一个试验小猪.
+我意识到我正走入未知的海域,
+我也认为开车在高速公路上几乎是自杀,
+让一切都平衡.
+这次旅行发生在我生命中经历了一些重大变化的时候.
+我已经搬走了.
+这是我生命中第一次, 我不和别人住在一起.
+之前我要么住在父母家,要么住在女朋友家.
+我对自己学到了一些我不确定在其他情况下会学到的东西.
+我也即将进入研究生院, 这意味着我成为一名执照的私人心理治疗师的梦想将会成真.
+一个新的篇章开始了!
+让我获得一些非凡的个人见解, 在我目前的环境中,
+我永远感激那天晚上学到的东西.
+我不知道这种DiPT的体验是否只是宇宙的一次罕见的礼物,
+我将等待好几个月, 试图通过尽可能在类似的环境中服用相同的剂量,
+我没有从DiPT中得到任何真正的负面副作用.
+有时我会听到&quot;腹部&quot;, 这基本上意味着轻微的恶心.
+但这是如此温和, 几乎不值得一提.
+我有时也会感到腹部有点膨胀,气体充.
+但这又是非常温和的, 并没有太大的烦.
+身体上的高潮本身感觉很棒.
+这种药物有着独特的味道.
+另外,第二天,M和我都没有注意到任何听觉扭曲.
+其他报道称它们可能持续24小时.
+我希望后续的实验能像这次一样有趣和有价值.
+很高兴有新的盟友.
+时间表: 24311
+小组 (2-9) (17),实体/生物 (37),自然/户外 (23),烂的经历 (4),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Energies Were Communicating With Me
+DiPT
+by
+Morninggloryseed
+Citation:   Morninggloryseed. &quot;Energies Were Communicating With Me: An Experience with DiPT (exp24311)&quot;.
+Erowid.org
+. Jun 6, 2003. erowid.org/exp/24311
+DOSE:
+70 mg
+oral
+DiPT
+BODY WEIGHT:
+150 lb
+5/25/2003
+Perhaps a half-hour before the substance was ingested:
+I’m not really too certain what to expect tonight but I sure am getting excited!  This especially tends to happen when I am trying a new material for the first time.  I have had this chemical for a few years now but I never got around to tasting it because until a few recent reports I have read, DiPT seemed like nothing more than mere “novelty drug.”  There was never much of an interest in trying it just so I could hear people’s voices sound like frogs and robots.  But curiosity sparked by recent reports written after TIHKAL which suggested it was more than just an auditory distorter, as well as the gentle encouragement of a few folks I know whom have sampled the material and loved it, had finally gotten to me.  Now after all this time I am ready to give this stuff a go.
+I don’t want it to be too intense since it is my first try with the drug but I think seventy milligrams will be enough to provide full effects without bowing me over.  I tend to be very sensitive to tryptamines, and actually most psychedelics when I think about it, so I am sure I’ll get to where I want to be with this dosage.  Oh well, it is all out of my hands now as the dose-level has been already been decided and the substance has already been weighed out and encapsulated.  The pure-white crystalline material has a slight indole smell, but nowhere near as pungent as DPT or AMT’s overwhelming odor.  It reminds me more of the smoother sent of DMT.
+I am sharing this material, as well as the evening, with M who is a newer friend of mine.  He is no stranger to the psychedelic experience, but is also trying DiPT for the first time.  This will be our second trip together, and it is always a joy to do this sort of thing with new people.  Our first psychedelic experience was a couple of months ago and it involved a few grams of dried psilocybin mushrooms and then some ketamine during the comedown.  It served as a great bonding experience for the both of us, and we had an absolutely profound and fantastic time.  It was my first time with psychedelic mushrooms in many years, and I had forgotten how good they really are.  But that will have to be for another report!
+Anyway, it is a beautiful night here in Colorado.  Very mild temperatures, and there is no wind to bring us a chill.  Perfect for exploring nature.  The sky is slightly overcast so the moon and stars are covered up for the most part, but there is still plenty of light for us to see.  I’m not too worried.  The dilated pupils that will no doubt result from DiPT ingestion are sure to make us more sensitive than usual to the darkness of the night.  Our plans are to eat the capsules, smoke a little pot, and then take a walk to wherever our legs decide to bring us.  We each get into some warmer clothes for the evening hike and begin to enjoy a nice bowl of marijuana.
+Perhaps a half-hour later:
+We are both feeling something, but it is not really a reaction I can readily define.  I notice some body warmth, generalized feelings of happiness for simply being with my friend and my two pet cockatiels who are on my shoulders, and also just for being alive.  I guess this feeling can be called a gentle euphoria.  The bowl of pot is finished so we are going to take off on our walk.
+The day after:
+Wow!  DiPT exceeded any and all of my wildest expectations.
+M and I began our walk and felt nothing more than the initial warmth I mentioned for some time.  Both of us even commented at one point during the hike that the night might have been much more interesting had we each taken one hundred milligrams of DiPT instead of just seventy.  The effects stayed at this mild level for at least an hour.  The only other thing I noticed in the beginning was that everything appeared to be normal, yet somehow things were “different.”  It was though I was seeing the world from a different point of view, although things didn’t actually look any different.
+My friend commented that he noticed none of this beyond the feeling of warmth in his body.  M had decided to take us to a park he was familiar with in the hopes that the frogs would be out singing and looking for a mate, which would obviously be interesting to hear with the audio distortions DiPT is known to produce.  The walk we were going to take was approximately two and a half miles long, but I am a regular bicycle rider in excellent shape, so I did not worry or anticipate any troubles.
+At some point during the hike, we both began to notice a distinct “tryptamine” body buzz.  I even noticed some mild trailing and color-enhancement when I looked hard enough for it.  There were also some closed-eye visuals that I can only describe as flashes of energy and light.  It reminded me of a stroboscope.  M said he noticed the CEVs somewhat and commented that my voice seemed a little lower to him, and soon after he said that I noticed the same in his voice as well.  However my own speech still sounded normal to me.  After a good hour or so of walking we reached the park M had wanted to visit and went to find a nice place to sit and chill.
+Unfortunately there were only a few frogs singing that night because of the cloud cover and lack of any significant moonlight.  The frogs sounded normal to my ears, but our voices were definitely becoming more and more altered as each moment went by.  They sounded deeper, and a bit muffled.  It was as if the middle and higher frequencies of our voices’ sound spectrum had been filtered out, allowing only the lower ones to be heard.  I was reminded very much of running my voice through an electronic graphic equalization device.
+We sat down on a bench and then all at once the DiPT hit me very strongly.  A powerful wave took over me and I went from a mild plus-one to an impressively strong plus-two in the space of perhaps five minutes.  We were in the middle of a local park listening to the frogs and talking to each other.  At this point, I did not notice a whole lot in the way of audio distortions other than the vocal changes but the general intensity of the experience was rapidly climbing to a very powerful and unexpected degree of power.
+Although the effect of DiPT was NOTHING at all like that of MDMA, it is the only material I can think of that reminded me of the “rushiness”, mild sensory enhancement, and empathetic feelings towards M that I experienced during this phase of the intoxication.  The main difference though from MDMA, apart from the audio changes, was that this psychedelic didn’t have the seemingly forced positive mood direction of MDMA, although I did feel absolutely fantastic and was thoroughly enjoying myself in every way.  Another difference was that there was a distinct tryptamine feeling, instead of MDMA’s amphetamine/phenethylamine feel.
+M and I sat on the park bench for what seemed to be a timeless period and engaged in some of the deepest and most insightful conversations we have ever had between the two of us.  It felt so absolutely delightful to just lay back and listen to what he had to say.  At times it almost seemed as though my soul existence were the words we spoke.  By this time, I was fully under the influence of the drug and now was at a complete and intense plus-three.  I was absolutely shocked.  I expected nothing more than audio distortions and a body-buzz from this material.  But I was experiencing a full-blow psychedelic trip of incredible intensity.
+I had completely lost track of the time, so I have no idea how long we actually remained in the park but eventually we decided to continue on with our hike.  M had a place in mind that he said was full of energies from old souls and that we should go there.  Though it was located behind an active factory, he believed I would be impressed with the area.  I agreed without a second thought, so off we headed to this place that I had never been.  Walking was a little difficult for me because it was a bit dark and my gait was a little unsteady.
+M had no trouble walking and he commented that the DiPT made his eyes much more sensitive to the dark.  Although we had both taken the exact same dosage, we were obviously on two different levels.  I felt a little bad about it in fact because I was so immersed in the effects of the drug, while M experienced very little besides the audio changes, a body-buzz, and some minor closed-eye visuals.  I think it simply came down to the fact that the night was just was not his time for a peak experience.  In a sense, it was good that it worked out as it did because he played the role of the guide.  I was certainly in no condition to direct us anywhere.  Although I was completely familiar with the hiking trail we were on, as it is a part of my almost daily bicycle route, I would have been very lost without his help.
+Eventually we made our way to the spot behind the factory that M had in mind, which was next a very fast-flowing creek.  The water was incredibly high due to the large amount of rain our drought-stricken state had been blessed with recently.  We found a rock right next to the water and we both sat down.  I think it was at this point that I really began to peak.  The intensity was shocking to me.  I could see and feel what felt like ancient energies all around me.  Thoughts flowed through my head like the water in the stream.  I was able to think so clearly about my life and the current direction it seemed to be heading towards.  I knew this was a very special place to be in.
+I was quite uncoordinated when it came to handling objects in the dark so I asked M to pack us a bowl of marijuana, to which he happily obliged.  We smoked it and then M announced he wanted a few moments to be alone.  I was completely fine with that and he took off a little further down the creek leaving me alone on the rock to be with my thoughts.  This is when a very special event occurred.
+I had already felt the presence of several different energies around me since we had arrived but I paid no real attention them.  Colorado is full of these energies, so it was nothing too unusual for me.  In the past I have had some incredible paranormal contacts in the mountains, and most of those times were without the aid of a psychedelic.  But now that I was away from M, these energies decided to interact directly with me.  There was the distinct feeling that I was no longer alone, though at no time did this frighten me.  I knew these were benevolent spirits and they meant me no harm, nor did I mean them any.  But I was in their territory and they were curious as to who I was and what I was doing there.  I closed my eyes and I could see various forms of light and energy moving in organized fashions.  Each movement seemed to have meaning though I was unable to really make sense of it all.
+Some of the energies were communicating with me through a series of tones, beeps, and clicks.  It was a method of communication that I had never even dreamed about.  This was very computer-like, yet it sounded completely natural and organic.  I closed my eyes again, sat on my rock, prayed, and sent positive vibes and energy to these beings and immediately I felt them returning the same happy vibes right back to me.  At this point I think I was flirting with the rare and blessed plus-four.  Although in the purist sense of the matter I strongly believe all things in the universe are interconnected, these energies were not any kind of an extension of myself.  It was something beyond my soul, and beyond my regular existence.  These were the true “locals” of the area, and they were investigating who I was and what I had come there for.
+After some time M had come back from his journey upstream and I suggested we make our way home, as we had a long walk ahead of us.  I really wanted to get back before the drug wore off so I could explore the effect of DiPT on music.  M reported he felt very little from the material anymore, save for the deepening of our voices, but the mild closed-eye visuals and mental introspection he noticed earlier was definitely coming to an end.  I noticed a decline in the physical effects of the drug, mainly the tryptamine body-buzz, and the open and closed eyed visuals, but the effects of the substance on my own voice for some reason seemed to become even stronger.
+Now it was seemingly not only lowered an octave or so, but the actual tonality and harmonic structure also was rapidly changing in quite a dramatic fashion.  I just could not get over how this chemical caused my brain to process sound, and I had to repeatedly ask M if my voice sounded normal to him.  He reported each time that it seemed slightly lower than normal, but for the most part it sounded as it always was did.  But the changes I heard were so dramatic I could scarcely fathom it was only in my head, and I was totally flabbergasted.  Of course I acknowledged the DiPT produced the changes, but one can never really understand how dramatically such changes in audio perception will affect them until they personally experience it.  I knew DiPT would be a unique experience, but this was beyond anything from even my wildest dreams.
+Eventually, after a slightly exhausting walk and a few more bowls of pot, we made it back to my apartment.  By this time, M was feeling next to nothing from the DiPT and I was mostly down too…or so I thought.  I decided to put on some music to examine the most well known aspect of the drug.  What happened next was as profound and dramatic to me as meeting the energies by the stream earlier in the trip.  The first recording I put in was from Jefferson Airplane’s debut record, “The Jefferson Airplane Takes Off.”  When I heard the first tube-distorted guitar notes of
+Let Me In
+, my eyes opened wide and then my jaw literally dropped to the floor in complete shock and amazement.
+The guitar sounded as if the signal was being run through a digital octave device.  A cheap, low quality one at that.  It sounded tinny and synthetic, and it had what sounded like digital clipping blips.  Digital clipping occurs when music is recorded louder on a digital recorder than the device is capable of receiving, resulting in a prominent clicking noise.  I think I listened to that song three or four times in a row just out of sheer amazement.  I just could not believe a chemical could cause such distortions.  Unfortunately, M experienced none of this.  To him, the recordings sounded as they always did.
+After hearing a few more songs from that record, I put on
+White Rabbit
+from Jefferson Airplane’s second album.  Again, the changes produced from the DiPT were dramatic.  Grace Slick actually sounded like a man!  Interestingly enough, not all noises seemed to be affected by the DiPT.  The drums in the beginning of the first song,
+She Has Funny Cars
+, seemed as they always did.  But when Jorma’s guitar began to play, it seemed to be at least an octave lower than normal, and it sounded completely out of tune.  I understood what someone meant when they said (of DiPT intoxication) harmony does not exist.  It would have been interesting to record some of our own music (I am a music producer and have a home recording studio) but we were both exhausted from the long walk and didn’t feel like doing much but sitting.
+Eventually I turned off the music and M and I smoked some more pot.  We talked for a bit about our experiences, and then M said he was ready for bed.  He retired to my guest bedroom and I turned on the news to catch up with the world.  I took three milligrams of melatonin and some calms-forte (an herbal sleeping pill that contains hops and passion-flower) and eventually drifted off to sleep with no difficulty.  I slept well throughout the night.
+In the morning, we both felt well rested, and M was sweet enough to take us out and treat us to a nice breakfast.  There was no washed-out feeling or hangover at all.  On the contrary, I felt absolutely euphoric and grateful for what I had experienced.  M said he was a little disappointed that he did not get more effects from the DiPT, but said he was happy to be my guide.  Anyway, he said, there was always a next time.  And there will be for sure.
+Conclusion:
+I must say that I am really very, very impressed with DiPT.  Although one exposure is not enough to judge the value of any compound, I really think (for me) that this one may be a keeper.  In other words, it is one I would actually use for the purpose of obtaining insights and problem solving.  So far there have only been few of the exotic synthetic psychedelics I have tried that I can really say fit into this category.  2C-I, 2C-T-7, DPT, and methylone come to mind as being materials I feel are just as good as the classic tried, tested, and true entheogens like LSD, MDMA, mescaline, and psilocybin.
+Usually with the exotics chemicals, I take them two or three times for the purpose of evaluating what they do for me, and seeing if they have the possibilities of producing consistent and valuable entheogenic experiences with minimal disturbing side effects.  If I find that they do not, I simply forget about them and move on.  And I must admit I really enjoy being a guinea pig.  I am aware I am stepping into uncharted waters, and taking unknown risks.  But I also think highway driving is near suicide and I live in a small town without one.  So it all balances out.
+This trip occurred at a point in my life where I am going through some major life changes.  I have moved out to be on my own.  And for the first time ever in my life, I do not live with another person.  Previously I have either resided with my parents or a girlfriend.  One really gets to know whom they are when they live alone and I have learned things about myself that I’m not sure I could have under any other circumstances.  I am also about to enter graduate school, which means my dream of becoming a licensed private psychotherapist is going to come true.  A new chapter has begun!  This DiPT experience allowed me access to some fantastic personal insights, which have proven to be very valuable to me in these existing circumstances, and my current quest to finally become my own independent person.  I am forever grateful for what I learned that night.
+I don’t know if this experience with DiPT was just a one-time rare gift from the universe, or I am somehow ultra-sensitive to this compound and I had what is (for me) a typical reaction to the dosage I took.  I am going to wait a good few months and try to find out by taking the same dosage in as similar a setting as possible before the summer months, and the beautiful weather they bring, comes to an end.
+One final comment is warranted:  I did not have any real negative side effects from DiPT.  At points, there was what I’d call a “tummy rumble” which basically means slight nausea.  But that was so mild it is hardly worth mentioning.  At times I also had a bit of a bloated, gassy feeling in my lower stomach.  But again, it was very mild and not much of an annoyance at all.  The body-high itself felt great.  There was a clean-feeling tryptamine buzz but with a little unique flavor all its own.  Also, neither M nor I noticed any auditory distortions the next day.  Other reports had suggested they could last up to twenty-four hours.  I hope subsequent experiments prove as interesting and valuable as this one.  It’s nice to have new allies.
+Exp Year: 2003
+ExpID: 24311
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 6, 2003
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DiPT (110) : Small Group (2-9) (17), Entities / Beings (37), Nature / Outdoors (23), Glowing Experiences (4), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

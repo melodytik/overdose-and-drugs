@@ -1,0 +1,271 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>和LSD - 埃洛伊德的故事 - &quot;的状态&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tryptamines-substituted.html'>← 取代色胺类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>和LSD - 埃洛伊德的故事 - &quot;的状态&quot;</h1>
+<div class='sub-title'>LSD &amp; Lithium - Erowid Exp - &#x27;The Fugue State&#x27;</div>
+<div class='meta'>作者：ElPP Citation · 日期：Nov 12, 2020 · 剂量：2 hits · 途径：吸入/吸烟 · <a href='https://erowid.org/experiences/exp.php?ID=100886' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>幸运的是,我很幸运,但如果我的两个清醒的朋友不在那里我不会在这里写给你,
+时间是下午3点半,我们服用了酸.
+朋友告诉我吞下这张纸, 我也这样做了, 因为我不想浪费一些.
+起初,我有点担心.
+也许这太多了,因为它是双层.
+不管怎么说
+我还是这样做了.
+我们决定在跌倒之前先买香烟.
+我们回到家里,一切都开始了.
+我知道发生了什么事.
+旅行已经开始.
+下午4点, 效果越来越强烈, 我甚至在喝水后吐,
+但没有迹象表明我无法处理.
+我们玩了大约一个小时.
+下午五点,
+这时下雨了.
+影响越来越强烈.
+声音似乎有所延迟.
+我可以听到朋友的声音在回声和它被推迟.
+我认为,酷这很棒.
+我们回去,然后决定在门廊上抽一支烟.
+接收到了.
+雨是美丽的
+一切都是如此美丽.
+我对世界感到敬畏.
+我的朋友说他看到了道路的波浪,但我没有.
+雨滴看起来好像它们被画在上面.
+晚上六点
+我决定打电话给我的朋友来保姆, 因为我觉得自己已经无法控制了自己.
+这太激烈了,我几乎无法控制自己.
+我们决定上楼看Netflix.
+我去了另一个房间,收集我的想法.
+糟糕的想法,我达到顶峰.
+这是我旅程中最有力的部分.
+我是如此无能,我只是在地上,和认为狗我认为我已经采取了太多
+我是如此无能,我只是在地上,和认为狗我认为我已经采取了太多
+我担心我会永远这样, 但这不是真的.
+我对时间的感知被击中了.
+我不知道自己该怎么办.
+我觉得自己无能为力,如此小,如此小, 然后我的头告诉我让它停止.
+让它停止.
+让它停止.
+我是在死吗?
+我觉得我已经死了.
+我被告知要跟随白色的灯光.
+你的头发还在跳动, 你还在呼吸.
+直到,感觉好像没有.
+晚上7点,我和一切都是一体的.
+我已经成为一个人.
+我在自尊的死亡中受苦.
+我告诉我的朋友,我一直重复.
+我坐在地上.
+我已经无法再忍受了.
+我开始质疑我现实中的每一个方面, 并得出结论,
+晚上7点半, 开始状态.
+我开始用颜色思考,你想要黄色,我差点尿到自己身上,你想要棕色,我差点尿到自己身上,
+我不想闻起来.
+黑人,死亡,库尔特·科拜恩,我住在附近的朋友有枪.
+我一直在问我的朋友.
+当你死的时候会发生什么?
+我甚至要求他们杀了我.
+红色的
+,什么流血,为什么你想要血?
+钢琴在楼上,钢琴的线.
+砍头的行为.
+没有血.
+红色的
+黑色的
+死亡
+你需要的是白光.
+你想要的是白光.
+寻找白色的光.
+让我们去拿枪.
+杀死所有的人和你自己.
+杀了这个人,他就是一切的错.
+杀死自己.
+晚上8点,其他朋友也来了, 他们知道我有自杀倾向.
+他们竭尽全力帮助我,但没有成功.
+我没有感觉到任何东西.
+我已经失去了感觉的能力,
+我不会做任何事情.
+我从床上站起来,被要求去打酒乒乓球, 我不愿意.
+我被要求上楼抽一支烟, 我无法爬楼梯,
+我的朋友把我抬上楼梯.
+我只是一个外.
+我觉得自己太小了.
+我是一无所有.
+我什么都没有感觉到.
+终于他们把我带到外面了, 我处于这样的状态,
+我内心的想法被摧毁了.
+黑是白,而白是黑.
+一切都被颠倒了.
+我的大脑没有任何意义.
+我们上楼去我朋友的房间, 他们把我放在床上,
+我试着入睡,我想我做,当我醒来
+时间是九点半.
+我醒来时检查我的手机.
+我的大脑还在玩游戏, 但随着时间的推移,
+它告诉我接受现实.
+我做,一切都恢复正常.
+我可以以连贯的人性方式思考.
+我告诉我的朋友酸是很棒的.
+他告诉我,你已经结束了吗?
+他看起来很惊.
+我说是的,但我还有一些旅行的残余.
+这是我经历过的最强烈的经历.
+我真的觉得自己死了,重生了.
+状态是一种非常慢性抑郁症.
+这也发生在瞬间,与一个坏的想法.
+我不愿意让任何人经历我经历的.
+我很幸运,最终一切都顺利.
+我想再次使用酸, 但下一次, 我会确保我没有一个月的.
+其他:
+发布时间:2020年11月12日
+LSD (2),药物 -  (91):健康问题 (27),医疗用途 (47),组合 (3),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+The Fugue State
+LSD &amp; Lithium
+by
+ElPP
+Citation:   ElPP. &quot;The Fugue State: An Experience with LSD &amp; Lithium (exp100886)&quot;.
+Erowid.org
+. Nov 12, 2020. erowid.org/exp/100886
+DOSE:
+2 hits
+oral
+LSD
+(blotter / tab)
+oral
+Pharms - Lithium
+(daily)
+BODY WEIGHT:
+160 lb
+Thankfully, I was fortunate, but if my two sober friends were not there I wouldn&#x27;t be here writing to you, but six feet under and with my mother crying over me.
+It was 3:30 PM, we took the acid. My friend told me to swallow the paper, so I did, because I did not want to waste some. At first, I was a little bit wary. Maybe this is too much because it was double coated. Meh, whatever. I did it anyway. We decided to get cigarettes first before we tripped. We got back to the house and it all began. I could tell something was happening. The trip had started.
+4:00 PM, The effects were getting stronger, I even puked after drinking water, I guess my body was not liking that paper. But no signs of me not being able to handle it. We played Smash Bros. for about an hour.
+5:00 PM,
+It was raining. The effects kept getting stronger and stronger. Sound seemed to be delayed. I could hear my friends voice in echoes and it was delayed. I thought, cool this is awesome. We went back inside, and then decided to smoke a cigarette on the porch. It picked up. The rain was beautiful. Everything was so beautiful. I was in awe of the world. My friend said he saw the road wave, but it didn&#x27;t to me. The rain droplets looked like they were drawn on.
+6:00 PM. I was starting to peak and it was too much, I decided to call my friend to come babysit because I didn&#x27;t feel in control anymore. It was too intense, I was barely holding it together.
+6:30, friend gets to the house and we decide to go upstairs, to watch some Netflix. I went to another room, to gather my thoughts. Bad idea, I peaked. This was the strongest part of my trip. I was so incapacitated I just crashed on the ground, and thought shit I think I have taken too much
+I was so incapacitated I just crashed on the ground, and thought shit I think I have taken too much
+, and feared I was going to remain like this forever, but that wasn&#x27;t true. My perception of time was just shot. I didn&#x27;t know what to do with myself. I felt so impotent, so small, so little, then my head told me to make it stop. Make it stop. Make it stop. Was I dying?  I think I&#x27;m dying. Follow the white light, I was told. But no you can&#x27;t die, you&#x27;re a perfectly healthy person, your hair [heart?] is beating, you are still breathing. Until, it felt like it didn&#x27;t.
+7:00 PM, I was one with everything. I had died as a person. I was suffering from ego death. I told my friends, I kept repeating it. I was sitting down on the ground. I couldn&#x27;t keep it together anymore. I started to question every aspect of my reality and came to the conclusion that us humans have all these concepts that help us make sense of our realities, but what is a concept?
+7:30 PM, beginning of the fugue state. I started thinking in colors, you want yellow, I almost peed myself, you want brown, I almost shat myself but something stopped me. I didn&#x27;t wanna smell. Black, death, Kurt Cobain, my friend that lived nearby has a gun. I kept asking my friends. What happens when you die? I even asked them to kill me. Red. Ooze, what oozes  blood, why do you want blood? Piano upstairs, piano wire. Decapitation. Blood. Red. Black. Death. Light, you want white light. You want the white light. Seek the white light. Let&#x27;s go get the gun. Kill everyone and yourself. Kill this guy he is at fault for everything. Kill yourself.
+8:00 PM, other friends arrived, they knew I was suicidal. They tried their hardest to help me, but to no avail. I didn&#x27;t feel anything. I had lost the ability to feel, and did not know what I wanted. I wouldn&#x27;t do anything. I got up from the bed and was asked to play beer pong, I wouldn&#x27;t. I was asked to come upstairs for a cigarette, I couldn&#x27;t climb the stairs, I just stood there looking down. My friend carried me up the stairs. I was a shell. I felt so little. I was nothing. I didn&#x27;t feel a thing. Finally they got me outside, and I was in such a state, I couldn&#x27;t light my own cigarette.I couldn&#x27;t even hold it. My inner thought was destroyed. Black was White, and White was Black. Everything was inverted. My brain wasn&#x27;t making any sense.
+8:30 PM, we go upstairs to my friend&#x27;s room, they lay me on the bed and both sit around me. I try to fall asleep, I think I do, when I wake up
+9:30. I wake up and check my phone. My brain is still playing games on me, but it stops with time. It tells me to accept my reality how it is. I do, everything goes back to normal. I can think again in a coherent human way. I tell my friend acid was awesome. And he tells me is it over for you? He looks very surprised. I said yeah, but I still had some remnants of the trip in me.
+This was the most powerful experience I have every had to endure. I literally felt I died and was reborn. The fugue state was a very chronic depression. It happened in an instant too, with one bad thought. What I went through, I don&#x27;t wish upon anyone. I was lucky that everything turned out fine in the end. I want to do acid again, but the next time around, I&#x27;m gonna make sure I&#x27;m not taking any lithium for a month.
+Exp Year: 2013
+ExpID: 100886
+Gender: Male
+Age at time of experience: 19
+Published: Nov 12, 2020
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2), Pharms - Lithium (91) : Health Problems (27), Medical Use (47), Combinations (3), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

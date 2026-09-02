@@ -1,0 +1,273 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-ho-mipt.html'>← 4-HO-MiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</h1>
+<div class='sub-title'>4-HO-MiPT &amp; Cannabis - Erowid Exp - &#x27;Pleasant and Satisfying&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Sep 22, 2024 · <a href='https://erowid.org/experiences/exp.php?ID=118298' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>使用米普罗辛的第一次经验
+一些信息:
+我是一名19岁的西班牙男子,
+在那次旅行之前, 我曾经有过大麻,,4-HO/AcO-MET,LSD,2C-D,2C-B-FLY,Salvia Divinorum,Nitrous,DCK,DMXE,MXP,Kratom,酒精,蓝莲花,尼古丁,哈特 (卡西诺),莱昂和哈尔.
+我总是对所有化合物进行大量的研究 (即使是那些我不感兴趣服用的化合物),并从低/中剂量开始,
+我没有服用任何副作用,
+设置:
+我会独自在我的房间/花园里,我的卧室是花园里的一个房间,与我的家人住的房子分开.
+他们知道我对精神活性化合物感兴趣,
+设置:
+很长一段时间的朋友在我的家里为她的年度夏季一周半在我的地方和早上离开了.
+我很高兴我们度过了美好的时光, 虽然她离开我有点难过,
+我感到兴奋和舒适
+我感到兴奋和舒适
+试试那种有趣的4-化合物.
+22:20 (T+0:00): 在用水吞下之前, 我将25mg的4-HO-MiPT包装在卷纸中.
+舌头上有一种苦味 (有点酸味) 的化学味道,
+我决定抽三支烟:第一支是含有CBD, 帮助缓解可能出现的恶心,
+22:45 (T+0:25):我觉得我正在出汗,出现轻微的恶心 (因为我以前吃了一顿轻食,经常感觉到经典的体力负荷影响),它绝对感觉像典型的一样,我决定快速洗,在倒之前感到清爽.
+我在淋浴的边缘发现了光视角扭曲和颜色衍射.
+尤其是视觉效果, 通常需要一段时间才能开始.
+我也感觉有些恶心, 当我移动, 但当我不移动,
+我准备好了以后的绘画用品,
+随着恶心,轻微的体力刺激和进入迷幻精神空间,
+我点燃了我的CBD烟斗, 缓解恶心, 放松身心,
+我开始感觉到CBD能缓解恶心和身体紧张.
+我可以更好地沉浸在第一效果中.
+感受到了快乐的光,
+我可以看到我的子的纹理几乎形成了图案,
+我在外面太热了 (可能是温度升高/控制抑制,
+现在可以很好地控制恶心,
+23:15 (T+0:55):身体负荷比我目前的常见体验要多一点 (更多的温度控制抑制,更少的身体紧张),但仍然可以承受.
+我坐下,我的办公桌是用漆漆的木制成的,
+壁面上有书架上写着关于迷幻药物,生物学和爬行动物的书, 还有很多很酷的物品,
+我拿出我的笔和标记,开始画.
+我周围的纹理有时会非常激烈地融化, 但令人惊的是,
+另一方面, 颜色总是非常明亮和和,
+听到音乐的感受会得到提升, 音乐会让我沉浸在其中 (听到很清楚, 虽然声音很低) 感受到高兴和高兴的感觉,
+23:30 (T+1:10): 身体刺激+身体紧张和放松+高兴的交替周期变得相当激烈.
+视觉图像现在随时存在, 基本形状和图案的微妙闭眼视觉 (CEV) 出现, 慢慢移动和变形.
+我觉得很有创造力, 找出东西画的想法也没问题, 彩色很合乎逻辑, 看起来很棒.
+在一个强烈的放松和开放的视觉阶段, 我暂时躺在床上伸展和放松.
+床和毯子舒适, 如果天气不那么热,
+我眼睛都闭着, 看到比以前更复杂,
+23:42 (T+1:22):我现在又回到了外面,我注意到尽管视觉很强烈,我现在应该已经达到/超越顶峰,头部空间仍然很清晰和刺激 (保持相当功能,比更少的混乱,但对我来说仍然更像是一次旅行而不是4-HO/AcO-MET).
+如果外面不那么热, 感觉会更舒服 (我会在冬天试一试,
+音乐听起来仍然很好, 我可以完全沉浸其中.
+在这种剂量和没有草, 效果肯定是存在的 但过了上来阶段我觉得我可以表现得很正常如果需要的话.
+23:50 (T+1:30):我想尝试与大麻的协同作用 (请注意,我是一名日常吸烟者,有耐受性,在吸烟多年来我从未感到任何引起焦虑的效果,甚至在吸烟后,即使与迷幻药结合的以前经验也很少是负面的),在那个时候,经验感觉比4-HO/AcO-MET或2C-D更像是一次旅行,但不如
+这种体验比4-HO/AcO-MET或2C-D更像旅行,
+我希望这种组合能带来更多的精神效应和头部空间.
+经过几次吸气, 我可以清楚地感觉到效果的加剧.
+23:55 (T+1:35):在房子前,距离我的卧室几十米, 有一个游泳池,
+我打包了一些东西,决定在那里抽烟.
+扭曲物体和环境的行为与相似.
+我坐在游泳池旁, 黑暗中看起来像一个深空,
+由于太阳的黎明时间太晚, 光线污染, 没有明星可见.
+尽管如此,我仍在着深蓝的天空, 突然间,几何图案开始在我的视野边缘形成,
+我终于享受了眼前开放的清凉视觉, 和朋友们的美好回忆.
+现在感觉更像是旅行, 因为我的头脑空间和认知效应正在上升, 转变为一种更迷幻的精神状态.
+我更深入地沉浸在自己的思想中,
+00:42 (T+2:22):我认为这是我迄今为止尝试过的最好的绘画/艺术组合之一.
+虽然效果仍然很明显, 创造力也很好.
+我真的很容易画出我的线条, 随时思考接下来要做什么,
+身体负荷是存在的,但在很大程度上是可以承受的 (我通常很容易受到身体负荷的影响,因为大多数朋友在相同的剂量下不会像我一样受到影响).
+开放眼睛的视觉效果有时很明显,
+00:50 (T+2:30):在画的时候, 我感觉比以前更疲, 这导致我经常闭上眼睛,
+我非常欣赏, 考虑到我不常得到复杂的 CEV.
+我在外面停下来吸一半剩下的CBD.
+01:00 (T+2:40):在过去的10分钟里, 我在外面吸烟, 眼睛闭着, 看到非常详细而强烈的视觉效果,
+我很高兴能够亲眼目睹这些.
+我完全沉浸在音乐中, 几乎觉得它愉快地围绕着我 (类似于我在DCK等镇静药时感受到的).
+我真的很喜欢与大麻的协同作用, 因为对我来说, 大麻在很大程度上加强了积极的影响, 而没有影响过多的负面影响 (我觉得它特别加强了视觉和心理效应,
+在那个阶段,我注意到轻微的血管收缩和身体紧张,
+02:00 (T+3:40):我现在正在下来,冷却和吸入,血管收缩和身体紧张有点更多,
+我有更多的想法继续绘画而没有时间把它们写在纸上.
+02:10 (T+3:50):小便稍微困难 (可能是因为血管收缩),但我通过专注和放松来克服.
+虽然有些视觉扭曲仍然存在,但在此时效果已经大大减弱.
+03:00 (T+4:40):仍然有一些光效应,我用光的残留刺激来整理我的卧室和旅行中使用的东西.
+现在我只能在电脑上看一些东西,
+我几乎总是用素 () 下来.
+我觉得有点困难睡觉,但也因为我用了相当晚 (仍然觉得一些身体刺激和快速的想法).
+我也经历了一种非常复杂的CEV体验:一个大合成结构, 由许多分数组成,
+经历非常愉快和令人满意, 但第二天早上我真的很喜欢它,
+第二天,除了一点疲劳 (也是由于睡眠不足造成的) 之外,
+我将进一步研究这种化合物.
+感谢您的阅读,
+时间表: 118298
+发布时间:2024年9月22日
+4-HO-MiPT (342):一般 (1),组合 (3),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Pleasant and Satisfying
+4-HO-MiPT &amp; Cannabis
+by
+MineCamo
+Citation:   MineCamo. &quot;Pleasant and Satisfying: An Experience with 4-HO-MiPT &amp; Cannabis (exp118298)&quot;.
+Erowid.org
+. Sep 22, 2024. erowid.org/exp/118298
+DOSE:
+T+ 0:00
+25 mg
+oral
+4-HO-MiPT
+(powder / crystals)
+T+ 0:40
+smoked
+Cannabis - High CBD
+T+ 1:30
+smoked
+Cannabis - High THC
+T+ 2:30
+smoked
+Cannabis - High CBD
+BODY WEIGHT:
+60 kg
+First Experience With Miprocin
+A few informations:
+I am a 19 yo male living in Spain, quite interested in psychedelics and psychoactive compounds in general. Before that trip I had previous experiences with Cannabis, Mushrooms, 4-HO/AcO-MET, LSD, 2C-D, 2C-B-FLY, Salvia Divinorum, Nitrous, DCK, DMXE, MXP, Kratom, Alcohol, Blue Lotus, Nicotine, Khat (Cathinone), Leonurin and Harmin/Harmalin. I always do a lot of research on all compounds (even ones am not interested in taking) and start with low/medium doses, weighed on a calibrated balance (supposedly precise but errors of a few mg are expected). I do not take any side treatment but am a daily weed smoker.
+Setting:
+I will be alone in my room/garden, my bedroom is a room in the garden separated from the house where the rest of my family stays. They know I am interested in psychoactive compounds and know I do so with care (my parents have had various experiences with psychedelics and still occasionally have some today) so I feel very safe in that setting.
+Set:
+A long time friend was at my house for her annual summer week and a half at my place and had left in the morning. I am happy about the good time we had, altho logically a bit sad she left, I feel like I can enjoy some time alone and decide to try out 4-HO-MiPT which gives a new interest to the day. I feel excited and comfortable
+I feel excited and comfortable
+to try that interesting 4-Hydroxy compound.
+22:20 (T+0:00): I pack 25mg of 4-HO-MiPT in a rolling paper before swallowing it with water. Licking my spatula I have a bitter (and little acidic) chemical taste on the tongue, certainly a special taste but not disturbing. I decide to roll 3 joints for the experience: a first one with CBD to help with possible nausea in the come up without giving psychoactive effects and 2 with regular weed&amp;hash to test the interaction later.
+22:45 (T+0:25): I feel that I am sweating and  a light nausea appears (was prepared since I ate a light meal before and often feel the classical bodyload effects on come ups), it definitely feels like a typical shroom come up, I decide to take a quick shower to feel refreshed before tripping.
+22:50 (T+0:30): I had light perspective distortions and color diffraction on the edge of the shower tiles. I am positively surprised about the rapid onset of effects (considering I do not have an empty stomach), and especially visuals which usually take a while for me to start. Small waves of euphoria are appearing which could be caused by the chemical or just the excitement of the effects beginning, I also feel a bit of nausea when I move around but it subsides when not in movement.
+23:00 (T+0:40): I prepare my drawing stuff for later and head out to sit right next to the door outside. The come up is quite intense as the nausea, light physical stimulation and entering a psychedelic mind-space make up for a little chaotic beginning of experience. Nevertheless I am now outside, everything is ready, and I light up my CBD joint to help with nausea and chill out to better settle with the arrival of the effects.
+23:05 (T+0:45): The CBD did well to help with nausea and against the little body tension I was starting to feel. Feeling less bodyload and with music in my ears I can better dive into the first effects. Light waves of euphoria are present, as well as first light visuals. I can see the texture of my trousers almost arranging in patterns and a few organic textures around momentarily lightly melting.
+23:10 (T+0:50): I am too hot outside (probably some temperature increase/control suppression but it’s also still 28°C outside so doesn’t help), so I decide to save the half of that CBD joint for later and head back in. The nausea is now very manageable and feel its time for drawing.
+23:15 (T+0:55): Bodyload is a little more present than my usual shrooms experience so far (more temperature control suppression, little more body tension) but remains largely bearable. I sit down, my desk is made out of varnished wood and has colored drawers which I often enjoy having in sight while tripping (especially when colors get vivid and the wood veins start wobbling). On the wall facing me are my shelves filled of books about psychedelics, biology and reptiles, and quite a sum of cool object like bones, gemstones and masks that are very cool to watch while tripping. I take out my pencils and markers and start drawing.
+23:20 (T+1:00): Textures around me are melting quite intensely at times but surprisingly visuals on my paper aren’t too intense which is quite handy for drawing (noting that the visuals tend to come by waves being quite benign at times but also intense in cycles of ~10-20mins). Colors on the other hand are constantly feeling very bright and saturated which is satisfying when adding colors with my alcohol markers. Lastly I note that my appreciation of music is uplifted being very immersed (and hearing it very clearly altho it’s on a low volume on my speaker) as waves of euphoria/body high feelings synchronizing with the beats (Mostly listening to french rap as it is my maternal language, as well as a some Mac Miller and psych rock as I love their trippy vibe and of course work great when tripping).
+23:30 (T+1:10): The alternating cycles of physical stimulation + body tension and relaxation + euphoria are getting quite intense. Visuals are now quite present at all times and have subtle closed-eyes visuals (CEV) of basic shapes and patterns appearing and slowly moving and morphing.
+23:35 (T+1:15): Visuals are still amplifying, and I feel quite stimulated creatively, I have no problems finding ideas of stuff to draw and coloring is logic and looks great. During an intense phase of relaxation and open eye visuals I momentarily lay on my bed to stretch and relax. The mattress and blanket feel comfy and if it wasn’t that hot I feel like I could stay hours just chilling on it. During that whole time I am eyes closed and witness CEVs more complex than the last ones and very geometric in appearance.
+23:42 (T+1:22): I am now back outside, I note that despite visuals being intense and that I should be reaching/passed peak by now, the headspace stays quite clear and stimulating (staying quite functional, much less confusion than shrooms but still feels more like a trip than 4-HO/AcO-MET for me). I feel like there is a warm body high that would be more pleasant if it wasn’t so hot outside (love to try it in winter see if it’s more pleasant). Music still sounds great and I can fully immerse in. At this dose and without weed, effects are surely present but passed the come up phase I feel like I could act pretty normal if needed.
+23:50 (T+1:30): I want to try the synergy with weed (note that I am a daily smoker, with tolerance, that I never felt any anxiety-inducing effects in years smoking and that even previous experiences combined with a psychedelic have very rarely been negative even after smoking), at that point the experience feels much more like a trip than 4-HO/AcO-MET or 2C-D but less than shrooms
+at that point the experience feels much more like a trip than 4-HO/AcO-MET or 2C-D but less than shrooms
+, so I am hoping that the combination will bring more to the mental effects and headspace. After a few puffs, I can clearly feel an intensification of the effects.
+23:55 (T+1:35): In front of the house and a few dozen meters from my bedroom is a swimming pool that has a view opening between the trees and buildings revealing the sky. I pack a few things and decide I will smoke my joint there. Distortions of objects and environment are quite similar to mushrooms. I sit by the pool that looks like a deep void in the dark, and have very cool distortions of the neighbor’s house, lit up by the street light. Music sounds very deep and as I lift my eyes up to the sky, I note that it is cloudless and because of the sun-dawn being so late and of the light pollution, no stars are visible. Nevertheless I keep staring at that dark blue sky when suddenly, geometric patterns start forming on the sides of my vision and mesmerizing perspective distorsions make me feel like my vision is constantly staring deeper into the void.
+00:10 (T+1:50): I finish the joint enjoying the cool open eye visuals in front of me and remembering nice memories with friends. I head inside back to my drawing, the THC synergy is very nice and it now feels more like a trip as my headspace and cognitive effects rise shifting to a more psychedelic mental state. I am more deeply plunged inside my thoughts and visuals are now more synchronized with my thought patterns.
+00:42 (T+2:22): I think this might be one of the best compounds for drawing/art I tried so far. The somewhat calm and clearer headspace is practical as I can focus, tho the effects are still clearly present and the creativity boost is nice. I really have no problem drawing my lines and fluidly thinking about what to do next which can become quite hard under influence of other molecules. Body load is present but largely bearable (I am usually quite prone to body load as most friends won’t be as affected as me on that point at same dosages). Open-Eyes visuals are very present at times but really come by waves.
+00:50 (T+2:30): While drawing I feel a little more tired than earlier which leads me to often closing my eyes causing cool CEVs. On one of those closed-eyes pause, I have very intensely visuals of triangles and geometrical fractals in perpetual movements, which I really enjoyed considering I don’t often get complex CEV. Feeling my eyes a little tired from drawing I take a small pause outside to smoke the half of CBD joint I have left.
+01:00 (T+2:40): During the last 10 minutes smoking outside, I kept having phases of very detailed and intense closed-eyes visuals followed by a lot of distortions and OEV on the surroundings when opening my eyes. These were the most detailed CEV I had ever experienced and was very grateful to have just witnessed those. I am fully immersed in the music and almost feels like it’s pleasantly surrounding me (similar to what I have felt on sedating dissociative like DCK). I really enjoy the synergy with cannabis as it, for me, intensifies largely the positive effects without affecting too much negative ones (I feel like it especially intensified the visuals and mental effects that where, at that dose, a little lacking compared to shrooms). I note a light vasoconstriction and body tension at that stage but quite negligible.
+02:00 (T+3:40): I am now coming down chilling and drawing inside, the vasoconstriction and body tension are a little more present but still feels ok compared to other come-downs. Still some nice creativity boost, I have more ideas to continue the drawing than time to actually put them down on paper.
+02:10 (T+3:50): Light difficulty urinating (probably because of vasoconstriction) but I overcome it just concentrating and relaxing. At that point effects have quite diminished altho some visual distortions are still present.
+03:00 (T+4:40): Still have some light effects, I use the light residual stimulation to tidy up my bedroom and stuff I used during the trip. I will now simply watch something on my computer outside smoking my last joint while effects fade out and let me to a level where I can sleep. The comedown is quite smooth, and I have very little watery eyes and stuffed up nose which I almost always have on psilocin (shrooms) comedowns.
+I felt a little difficulty sleeping but also because I dosed quite late (still feels some physical stimulation and quick thoughts). Getting closer to actually falling asleep (was kind of half awake - half asleep) I also had a very complex CEV experience: a large synthetic arranged structure, composed of many fractals in constant organic movement, and in dark tone colors. The experience was very pleasant and satisfying but really enjoyed it the next morning as I was falling asleep at the moment. The next day I had very little after-effects outside of a little tiredness (also caused by the lack of sleep). 4-HO-MiPT is a very enjoyable compounds and I will research this compound much further.
+Thanks for reading and stay safe :)
+Exp Year: 2024
+ExpID: 118298
+Gender: Male
+Age at time of experience: 19
+Published: Sep 22, 2024
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-HO-MiPT (342) : General (1), Combinations (3), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

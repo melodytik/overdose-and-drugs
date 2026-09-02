@@ -1,0 +1,253 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2C-P和2C-D - 星球探测器 - &quot;空间时间和颜色的融合&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-p.html'>← 2C-P</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>2C-P和2C-D - 星球探测器 - &quot;空间时间和颜色的融合&quot;</h1>
+<div class='sub-title'>2C-P &amp; 2C-D - Erowid Exp - &#x27;A Blend of Space Time and Color&#x27;</div>
+<div class='meta'>作者：CallMeGhost Citation · 日期：Dec 9, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=110047' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>在这次旅行报告之前,
+我研究了这些物质, 但不知道它会持续18-20小时.
+我基本上要和文森特·高一起工作一整班.
+请不要犯同样的错误.
+这绝对是一个美丽的旅行, 非常惊人的头脑空间 (但你会注意到我不得不一个同事50美元帮助我在工作)
+没有.
+我曾经在2cp和2cd上有过一个非常强烈的迷幻体验.
+于是我决定去破产,
+2cp是极其强大的,比2ci或2ce更强的重量我会假设.
+我在10点下班,回家,在10点半之前打扫和准备好,
+嘴里有一种快速的感觉, 像我在热饮中烧伤了舌头,
+几乎没有机会感觉到味道很糟糕/苦.
+接待时间大约一个小时,也许不到一小时.
+我感到寒冷,我不得不用几张毯子遮住自己,
+在黑暗中我感觉到一个奇怪的身体声,
+也是看到CEV,主要是绿色,蓝色和粉红色的斑点,
+虽然天黑, 但很难看到.
+我一直在想什么是视力.
+我一直觉得自己是一个点在点上, 试图区分自己, 我越高越意识到我只是一个点, 其他一切都是由我组成的,
+我收到非常开放的,随机的深思熟虑的信息.
+我说&quot;信息&quot;是因为它们不是思想.
+一个&#x27;思想&#x27;将是源于思想者之内的东西.
+这些&quot;信息&quot;完全是随机的,零星的,
+我记得我去买一碗麦片, 因为我饿了, 当我爬楼梯时,
+我试图以一种奇怪的方式为自己辩解.
+试图说服自己,世界不是一个四周六万英里的大世界, 而是一个无限小的点,
+每天的怪事,对吗?
+我在黑暗中也感觉到事情变得很奇怪, 我到处看到阴影,
+我决定在两个小时后打开灯,
+这让我想起了旧的Windows屏幕保护程序, 或是Windows媒体播放器的背景音乐,
+我会看到正常的东西, 但它会很深,
+我不得不让其他感官接管, 这很酷.
+在初始剂量大约4小时后,我重新服用了7mg2cd.
+我原本打算拿2cp, 但读错袋由于扭曲图像.
+我原本打算拿2cp, 但读错袋由于扭曲图像.
+我提前约一周计划了这次旅行, 将选择范围缩小到2ce,2cd或2cp,
+我原本打算再服用2片, 但现在却有两种药物.
+情况从激烈到疯狂.
+我开始在手机上玩游戏后重新注射, 只是不能在半小时后.
+我打开灯,发现自己在我的房间里,
+一切都是滴水,模糊,和深.
+墙壁有曲线,去厨房是个麻烦,因为我现在得非常辛苦 (可能在重新注射后一个半小时),我叫醒我的狗吃更多的谷物,不得不停止运动.
+更多的奇怪的想法,
+我通常不会这么强烈的旅行除非它的600+麦克风的LSD.
+我意识到它不会及时完成工作, 让我舒服, 至少我的身体会休息.
+绿色和紫色的斑点被非常明亮的相机闪光所取代,
+我以为有人入房子, 必须让自己确信地下室没有人.
+旅行的第一部分我只抽了一次.
+我还在.
+视觉上,我已经服用了300毫克左右的LSD.
+现在我要下火车,有人告诉司机,我已经停了九站,我飞得超高,飞得很高,已经11个小时了,
+在9:45,我穿上服装.
+我去上班,我只需要洗碗和准备.
+我告诉主厨我很糟糕,如果他帮我做准备, 我会付钱给他, 把他抽出来 (请不要这样做) 他真的很生气,
+我仍然得到了相机闪光灯,
+像一个不知名的女士一样出汗,
+奇怪的想法仍然充斥着我的思想是什么?
+我应该更好地计划, 因为我没有时间听到耳朵之间的细胞告诉我的手臂中的细胞如何避免溶解.
+我确实设法完成了我的准备工作,
+我可以感觉更好.
+在午餐前的四个小时里,
+快速前进到午餐吗?
+让我的身体自动驾驶, 无望地告诉它赶快!
+我看着自己工作,直到时钟敲了下午2点.
+我吃了一些塔科,然后睡了一会儿,
+我大约在2点15分醒来.
+我在想&#x27;我已经死了&#x27;.
+我在某种程度上处于死后的地狱中,
+眼前看起来没有什么熟悉的 (我睡在朋友的车里).
+我甚至无法分辨眼睛是否开放或闭着,
+我慢慢意识到&#x27;我&#x27;就是那个外星人.
+幽灵的概念是如此令人困惑.
+我无法坐下来试图弄清楚, 因为我没有身体,
+我是一个巨大的东西里面的微小点, 慢慢变得像我的身体一样熟悉.
+我觉得当我睡着的时候,我的大脑被暴露在那个单一的点子,那个单一的神经元或原子或任何思想起源的地方,
+这是一种非常奇怪的感觉.
+就像意识到你脑海中的声音, 正在读这句话的声音, 不是以前的声音.
+就像那个声音是别人或是别的东西.
+到了晚上6点左右, 它们只剩下一些运动,
+我仍然看到很多动作, 但它比以前更加顺,
+总的来说,我会再做一次,
+仅仅用2cp和2cd的剂量, 效果并没有那么好,
+让我的脑海漫步,思考某些植物为什么会有这样的行为,什么是&quot;颜色&quot;,我们如何评价速度 (它与空中的人相比如何?
+在月球上?
+在另一个星系?) 简单的想法
+(26) 组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>A Blend of Space Time and Color
+2C-P &amp; 2C-D
+by
+CallMeGhost
+Citation:   CallMeGhost. &quot;A Blend of Space Time and Color: An Experience with 2C-P &amp; 2C-D (exp110047)&quot;.
+Erowid.org
+. Dec 9, 2017. erowid.org/exp/110047
+DOSE:
+T+ 0:00
+12 mg
+oral
+2C-P
+(powder / crystals)
+T+ 4:00
+7 mg
+oral
+2C-D
+(powder / crystals)
+T+ 10:30
+smoked
+Cannabis
+BODY WEIGHT:
+140 lb
+I would like to add a note of responsibility before this trip report. I researched these substances but had no idea it would last 18-20 HOURS. I had to work basically a whole shift tripping with Vincent van Gogh. Please don&#x27;t make the same mistake I did. This was absolutely a beautiful trip, very amazing headspace (but you will note I had to bribe a coworker with $50 to help me out at work)
+.
+Once I had a very potent psychedelic experience on 2cp, and 2cd. I had a few experiences under my belt at &lt;9mg 2cp. I decided to go for broke and do a whopping 12mg that night. 2cp is extremely potent, stronger by weight than 2ci or 2ce I would suppose.
+I got off work at 10, got home, cleaned up and ready by 10:30, weighed it out, put the powder on my tongue, and waited. There was a real quick sensation in my mouth like I had burned my tongue on a hot drink, a small spot in my mouth that was kind of tingly numb, and then the roof of my mouth feeling the same. It was numb fairly quickly barely a chance to register that it tasted bad/bitter.
+The come up was about an hour, maybe a bit less. I felt cold, I had to cover myself with a couple blankets to stay warm.
+In the darkness I got a weird body buzz, like I couldn&#x27;t not move, was feeling quite restless. Also was seeing CEV, mainly green, blue, and pink blobs, similar to what else I&#x27;ve reported on 2cx, and slightly similar to what I saw extremely early on in my psilohuasca trip. I had the feeling after about an hour that it was hard to see, even though it was dark.
+I got a feeling of &#x27;What is sight?&#x27; Kept getting weird thoughts like that in my head. &#x27;Where am I?&#x27; And I kept getting a feeling of being a dot on top of a dot, trying to distinguish myself, and the higher I got the more I realized I was just a dot and everything else was made up of me, and I was made up of everything else. Extremely open minded and random deep thought provoking messages came to me. I say &#x27;messages&#x27; because they weren&#x27;t thoughts. A &#x27;thought&#x27; would be something that originated within the thinker. These &#x27;messages&#x27; were completely random, sporadic, and out of context. I remember going to get a bowl of cereal because I was hungry, and as I climbed the stairs I got one that was along the lines of &#x27;if up is up and down is down, how is it for someone in Europe, Asia, etc. Their up is not my up, and my down is not the same as them.&#x27; And I was trying to justify it in such a weird manner. Like trying to convince myself that the world didn&#x27;t exist as a large 26,000 mile around globe, but more like an infinitesimal speck, and therefore I could be in my kitchen while also in my bed at the same time.
+Everyday weirdness right?
+Even in the dark it felt like visually things were getting weird, I saw shadows everywhere, even when I knew there was nothing there.
+I decided to turn on the lights after about 2 hours, and yes things were weird. Reminded me of an old windows screensaver, or the windows media player music background, the kind where the background stays normal and they have a little swirling thing bouncing everywhere. I would see normal things but it would be really deep, and layered with different patterns on them. Really difficult to focus on looking, so I had to let my other senses take over, which was kind of cool. After about 4 hours from the initial dose, I redosed with 7mg 2cd. I had meant to grab the 2cp, but read the wrong bag due to warping images.
+I had meant to grab the 2cp, but read the wrong bag due to warping images.
+I had planned this trip out for about a week in advance narrowing my selection to 2ce, 2cd, or 2cp, and I left the two &#x27;top picks&#x27; where I could get to them for a redose. I had planned to redosed on 2cp, but instead now had a two-drug trip. Things were about to go from intense to insane.
+I started playing around on my phone after the redosed, and just couldn&#x27;t after about half an hour. I turned the lights on to find myself in my room, a la Salvador Dali meets van Gogh. Everything was dripping, blurring, and deep. Walls were curvy and going to the kitchen was a hassle as I was now tripping extremely hard (maybe an hour and a half after the redosed) I woke my dog up getting some more cereal and had to call it quits on movement.  vWent back to my basement where I stretched my body to keep the blood flowing.
+More strange thoughts, and really hard tripping. I don&#x27;t normally trip that hard unless its 600+ mics of LSD.  I realized it was not going to be done in time for work, and got comfortable, so at least my body would be rested. CEV dominated my vision as the green and purple blobs were replaced by extremely bright camera flashes, from somewhere behind me (some crazy hallucinations, I was in the complete darkness) which illuminated the room to the point where I could see things. Everything was really wavy (I thought someone had broken into the house at one point and had to reassure myself that no one was in the basement).
+Around 9 am I got up and smoked some weed, which I only managed to smoke once during the first part of the trip. I was still tripping hard. Visually, I was at about 300 mics or so of LSD. At this point: I wanna get off the train someone tell the driver mine was nine stops ago, I&#x27;m flying supercalifragilisticexpialadociously high and its been 11 hours almost I didn&#x27;t plan on being this high!
+At 9:45, I suit up. I go into work all I gotta do is wash dishes and prep. I tell the head cook I&#x27;m fucked up and if he helps me on prep I&#x27;ll pay him and smoke him out (please don&#x27;t do this) he was really pissed, but I was really apologetic, I definitely still didn&#x27;t want to be seeing the surface of everything melting like so much burning plastic. I was still getting the camera flash things, but much less often.
+I was incredibly hot, sweating like a woman of ill repute in a socially unforgiving religious structure. Weird thoughts still pervading my thoughts what gives? Ok, they were not bad at all just I was now working, I should have planned much better as I don&#x27;t have time to hear my cells in between my ears telling the cells in my arm how to keep from dissolving. I did manage to get my prep done, without help but still. I could have felt much better. I probably had about 6-7 bathroom breaks in 4 hours before lunch.
+Flash forward to lunch? That&#x27;s kind of what I did, putting my body on autopilot, telling it hopelessly to hurry up! Watching myself work until the clock struck 2pm. I grabbed a couple tacos and took a nap managing to get comfortable.
+I woke up at about 2:15. &#x27;I am dead&#x27; I was thinking. I was somehow in some afterlife hell, and I couldn&#x27;t figure out where &#x27;I&#x27; was. Nothing in front of me looked familiar (was sleeping in my friend&#x27;s car). I couldn&#x27;t even tell my eyes were open or closed or what was going on. Just the sensation that something completely alien was going on, and slowly realizing that &#x27;I&#x27; was that alien thing. The concept of Ghost was so confusing. I couldn&#x27;t sit and try to figure it out cause I didn&#x27;t have a body I was a tiny speck inside of a great big humongous thing which was slowly becoming more familiar as my body.
+I was a tiny speck inside of a great big humongous thing which was slowly becoming more familiar as my body.
+It felt as if when I had been sleeping, my brain had been exposed to that ONE speck, that ONE singular neuron or atom or whatever where thought originates and that I was hearing its unfiltered voice since I started tripping, and now that it realized that my &#x27;self&#x27; was paying attention, it was bringing more attention to it&#x27;s &#x27;self&#x27;. It was a very weird sensation. Like realizing the voice in your head, that voice which is reading this very sentence to You right now, is not the same voice as it has been. Like that voice is someone or thing else.
+I woke up, and tried to get more rest, and by around 6pm, they were down to just some movement, so like 50-75 mics of LSD. I was still seeing a lot of movement, but it was a whole lot smoother than it was before, and I could ignore it and work.
+All in all, I would do it again, but I would plan it better. 2cp and 2cd in less than those doses on their own haven&#x27;t lasted me that long, so it really surprised me. It was fairly comfortable, as &#x27;I&#x27; just let go and washed dishes like an automaton, and let my mind wander, thinking of things like why certain plants behave the way they do, what &#x27;color&#x27; really is, how we could really rate speed (how does it compare to someone in the air? On the moon? In a different galaxy?) Simple thoughts lik
+Exp Year: 2016
+ExpID: 110047
+Gender: Male
+Age at time of experience: 30
+Published: Dec 9, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-D (103), 2C-P (305) : Various (28), Multi-Day Experience (13), What Was in That? (26), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

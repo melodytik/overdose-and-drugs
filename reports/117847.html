@@ -1,0 +1,798 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾哈瓦斯卡 - 艾罗维德药 - &#x27;让自己被鱼吞&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/huasca-group.html'>← Huasca Group</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾哈瓦斯卡 - 艾罗维德药 - &#x27;让自己被鱼吞&#x27;</h1>
+<div class='sub-title'>Ayahuasca - Erowid Exp - &#x27;Allow Yourself to Be Devoured by the Alligator&#x27;</div>
+<div class='meta'>作者：the Alligator&#x27; Spiral Erowid Zip Hoodie T · 日期：Jan 13, 2025 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=117847' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这里是我日记的成绩单,
+(编写于1912月28日开始的文章.
+原本写在我的日记中.
+我注意到这篇文章的写作风格是被维多利亚时代探险家的灵魂所占据,
+像是最近的一天,场约瑟夫康拉德.
+这确实很自负,所以从现在开始,请耐心听我说!
+我可以肯定地说, 我在这里使用的任何形式的语言,表达,图像或沟通技巧来解释或描述事件,
+我相信有共同的主题和经验, 经历过这种经历的人可以通过这种药物来见证.
+我希望澄清一下, 这是我个人经验.
+我不打算与将来可能想体验阿雅华斯卡的任何人分享这本日志,
+像我已经提到的, 我所经历的幻象几乎不可能仅仅用文字和语言再现.
+实际的视觉体验超出了我的沟通能力.
+视觉表现也无法完全捕捉我经历的幻象的活力,活力和超现实性.
+这种奇怪的经历与我们日常的清醒现实几乎没有任何相似之处.
+旅行中没有任何东西是容易识别的,
+除了我现在写下来的最模糊的描述.
+旅行中没有任何东西是容易识别的,
+除了我现在写下来的最模糊的描述.
+动物只是动物的暗示, 面孔只是面孔或表情的模糊感觉.
+另外,在描述所见到的图像时, 视角,空间和时间是从不同的角度看的,
+甚至我们主观地认为理所当然的颜色和形状也无法用它们的强度,生动性和多样性来描述.
+必须接受这些描述是任意的,甚至是无意误导,
+尽管如此,如果你已经读到这么远,
+这次旅行分为三部分. (这部分是我日记的原始记录.
+我没有编辑原本的日记草案,
+因此,事件的发生方式可能有些混,
+经历之后的第二天早上, 其他12位经历者也认为这次旅行有三个不同的段落.
+但这主要是他们经历的幻觉形式和强度之间的区别, 而不是他们的情感经历和心理状况的强度.
+对于我来说,这次旅行的三个不同段落如下:
+一个.
+引入的世界.
+2. 在
+梦的世界.
+这篇文章只是针对我个人经验而编写,
+现在回想起来, 事件似乎不那么令人伤心.
+我在旅行后不久就得出了这样的结论,
+我最初的想法是惩罚,惩罚,迫害,嘲笑,欺负或挫折的阶段.
+我甚至认为&quot;炼狱世界&quot;这个词是合适的.
+但希望避免任何与神学或灵性有联系的描述,
+像这篇经历回顾中的大部分内容一样,
+3. 没有.
+问题领域.
+简要介绍这些异象.
+我认为这一切都发生在一个二维平面上.
+没有可识别的视角,距离,深度或空间感觉.
+这很像一个2D动画, 展开成一个不断变化的平面画面.
+如果有任何深度和方向运动的感觉,
+像在下面观看一个曼德尔布罗特集的微分缩放视频.
+[删除链接]
+但即使是作为一个例子使用的曼德尔布罗特集的视频也具有误导性和局限性,
+旅行中任何运动的暗示都是多向的和多维的.
+有时是多层的, 但最终仍然在二维平面上发挥作用?
+没有我们所知的空间, 就像我们日常的3D世界一样.
+我将试图带领您了解由阿雅华斯卡药物引起的幻象.
+介绍阶段 (基本的视觉描述)
+介绍阶段从黑暗的&quot;正常&quot;意识中开启,
+视觉上这些图像形成的图案有油残留在水池上漂浮,
+另一种描述方式是,墨水对水的化效应?
+有机,塑性,球状,状,流体形状, 变成有机,活体实体的表现.
+我会稍后解释介绍阶段的视觉和心理内容.
+现在,它们主要是土色,如泥绿色和黄色,棕色,橄,色,深紫色,深红色等.
+开始时的颜色仍在光镜的光散射的光端.
+尽管在一开始还没有油或气泡的虹色.
+随着更多的发现,颜色的强度增加了.
+这里需要注意的是,颜色总是被视为光的颜色,光的色彩和强度的差异,而不是被想象为这个领域的对象所赋予的颜色,例如,在画布上绘制的不透明颜色.
+所有这一切都在黑暗的背景下发生.
+(我一直在回顾这个想法, 视觉是一个平面上的二维现象.
+这种视觉体验与我们正常的现实完全不同,
+在视线的外围,在我更广的内视线的黑暗角落,
+他们被一个看不见的手画出来.
+它们只是对这些事物的建议, 但它们足够熟悉作为这种正式和公认的视觉语言的表现.
+梦阶段 (基本视觉描述)
+梦阶段与入门阶段完全相反.
+现在一切都被强加/叠加在令人难以想象的明亮白色背景的光线上.
+穿过这个世界, 分裂光线, 形成了单色的几何形图案,
+它们可以处于静止状态,也可以处于流动的反复运动状态,有时会脉动/振动.
+这些模式的清晰度和定义是难以想象的清晰.
+(再次,我把这归结为用头脑看到,而不是用物理视觉感觉).
+我会将单色背景图像描述为蜘蛛网或一块破碎的玻璃,
+通过玻璃玻璃仍然可以看到背景, 但与眼睛视觉不同的是, 背景也处于焦点.
+在移动时, 它看起来像鱼或爬行动物的.
+每一刻都有两件事情在视觉上发生, 虽然它们叠加在一起,
+破碎的玻璃背景/前景, 移动的叠加在它同时或反之!
+但这只是我在日记中填补最初的想法.
+它们在移动时会向内或向外移动, 不断吞形状并用新的形状取代.
+标志在这个破碎的背景上投射出来.
+图像和动画原始的面孔非常强烈和生动的颜色的光.
+它们会出现突然的颜色变化和明显的振动.
+颜色的强度超过了这个领域所见的任何东西,
+它们是虹色的,闪闪发光.
+在许多叠加的图案和颜色.
+相比之下,面孔通常是平的,颜色被屏蔽 (如基本动画或简单的计算机绘图程序中使用的).
+再次,二维图没有深度, 除了你从技术图中得到的三维深度幻觉?
+我觉得这是一场梦的原因之一,
+然后突然开始滚进或滚出去,
+这也会让人感觉到一个时代, 甚至是无穷无尽的恐慌!
+在这个世界里, 强化我对梦的认识.
+(再一次,以后的视角).
+没有任何东西可以比较或回忆, 在经历期间, 从我的记忆到任何视觉我可能在我的&quot;正常&quot;清醒意识.
+这让我感到恐慌.
+只有后来通过同意自我服从和放弃我以前感知到的任何&quot;现实&quot;,
+而是这种强度和对永恒的恐惧使我陷入恐慌状态.
+视觉开始减弱,让我进入下一个阶段. 视觉开始减弱,让我进入下一个阶段.
+问答阶段 (基本的视觉描述)
+在视觉上,很难描述&quot;问&quot;阶段,因为它与前两个领域相比,在我的经验中更具心理性.
+我发现很难记住它.
+也许是因为我必须解散我的大部分自我,我的自我感觉,
+我还记得前两个世界仍然存在, 但现在它们交织在一起.
+它们的强度也被减弱了.
+现在已经出现了前面所说的&quot;入门阶段&quot;的有机生物,
+我还可以从我的&quot;正常&quot;意识状态和梦境状态中看到更多可识别的图像.
+虽然没有叙事的图像,或任何感知景观的图像是向我揭示自己.
+这是一个动画或漫画的二维平面.
+但反思一下, 这不是正确的!
+我记得现在有一种深度.
+动物图像在一个虚拟的3D视图中移动
+飞来飞去, 在我周围旋转.
+它们有体积和深度, 但仍然是透明的框架,
+我看过一些关于阿雅华斯卡的视频.
+我相信这可能会影响我写作时的记忆.
+更多关于这些实体的内容...
+亚亚瓦斯卡仪式
+我们在医疗中心见面,
+在下午四点左右.
+仪式将于大约上午4点开始.
+晚上七点.
+在这个仪式上有12个人要喝阿雅华斯卡,
+所有人都想喝阿雅瓦斯卡.
+房间的布置非常简单,周围有十二张床,
+第四面墙是帮忙安排他们的椅子和睡觉安排.
+十二张床上有一张枕头,一张被子,一个眼罩,一瓶水和一个洗碗碗,
+在第一小时到达, 最后几个在下午6点前.
+我们的团队领袖和助手们.
+我们讨论了晚上的动态, 以及必须严格执行的规则,
+我们有机会简短地介绍自己,
+参与者大致分为曾服用过阿雅华斯卡的患者和第一次服用阿雅华斯卡的人.
+在短暂的仪式之后,
+然后我们被要求单独走到小组的领袖面前, 拿一小杯亚亚瓦斯卡, 回到床上等待每个人得到药的份量.
+我们都得到了大致相同的份额.
+现在我们被告知如果我们想要的话,我们会稍后得到第二份.
+一旦每个人都准备好了, 一个简短的祝福, 然后我们被要求喝药.
+我在仪式前做了一些研究, 其中一个是液体的外观和味道.
+这两种预想都与我经历的现实背道而.
+我被引导相信这种药物会是深棕色或红棕色的液体.
+但在我们的案例中,
+(虽然它确实有一个深棕色/黑色残留在玻璃的底部.
+我被告知要用一点水冲洗下来, 因为这基本上是药物.
+味道会非常苦, 而在这种情况下,
+我们所接受的药物更像是饮用淡淡的泥水.
+这也让我想起了我以前喝过的魔法.
+我相信这两种观察对经验的发展有影响.
+我在心理上给自己卖了一个无法克服的假设.
+也可能会影响和污染经验[1].
+吃完药后, 我们都躺在床上, 戴上眼罩.
+通过扬声器播放林的声音,
+(我现在发现这些歌曲在阿雅华斯卡仪式被称为&quot;伊卡罗斯&quot;).
+个人而言,我和一整天之前一样平静.
+我对自己感到完全平静, 我觉得导致我到达这个时刻的事件已经被预定了.
+我觉得我在安全的手中,
+我从第一次联系雅华斯卡仪式的组织者时就有了这种感觉.
+虽然兴奋越来越大, 但焦虑却很小.
+虽然兴奋越来越大, 但焦虑却很小.
+在这本日记中, 时间顺序很难准确,
+这是&quot;引入王国&quot;的开始.
+在我内心的黑暗中, 有机球体的缓慢运动开始形成.
+形状是随机的, 就像岩灯中的油一样, 只是在二维平面上平坦.
+然后慢慢地,它们开始形成基本的生命体.
+但没有任何可以描述为清醒意识领域的生物.
+(甚至没有梦境的意义).
+它们更像是动物的暗示 (包括人类形式).
+随着它们与球状形状的区别越来越大,
+从我的内部视觉边缘构建的形式 - 鼻子,嘴,牙,多个眼睛和四肢成为可识别的.
+但它们都随机地被放置在各自的形状上.
+例如,你通常认为头部的特征,如眼睛,嘴,鼻子,
+举一个例子,想想毕加索,沙加尔或马蒂斯的艺术 (建议).
+我开始笑,因为他们看起来很熟悉?
+(我很意外地开始笑了, 后来在仪式结束后,
+她说我的笑声有点令人惊, 但它确实为仪式设定了基调.
+其他人也提到了我的笑声不是他们期望的,
+我开始笑的原因是我以前在LSD和psilocybin旅行中见过类似的幻象.
+我认为在那一刻,我知道接下来会发生什么.
+笑声让我感到解脱, 因为我可能在熟悉的地区.
+有机形状现在开始采取更多的个体形式,成为个体.
+现在他们开始拥有自己的个性.
+他们似乎在互相交流. 很快,
+虽然我不记得它们发出声音?
+更多的是他们之间语言和沟通的建议,
+他们似乎互相质疑这个陌生人是谁,我.
+我在他们的世界里做什么?
+我有强烈的感觉这些实体与我分开, 这也让我笑了这一切的奇怪.
+起初,他们没有以任何方式威胁.
+感觉更像是我迟到了一个聚会, 或许没有被邀请?
+然后事情突然发生了变化.
+他们的面孔从恐惧的微笑变成了脸,甚至愤怒,
+很难说出他们表情和手势的真实解释,
+一个形状变成另一个形状.
+我只是觉得我在他们中间有点不受欢迎,
+为了解释我当时缺乏焦虑的原因, 现在回想起来, 我认为我还能控制我的心理能力,
+我不认为我害怕他们, 因为, 我仍然可以逻辑地/理性地推断,
+我还认为, 通过这种对意识的双重控制, 旅行不会变得更加激烈,
+(我是多么错误的!)
+尽管我认为这些实体只是我当时的潜意识 (想象) 的产物.
+我也开始得到一种强化的建议, 它们也可能是我完全无法控制的独立实体.
+我可能已经不像以前的药物那样熟悉.
+我只是在享受它的戏剧性,
+这就像在我的内心世界里看着一些奇怪的卡通.
+我仍然觉得我在与这些实体的遭遇中掌控了一切,
+因此,如果需要,可以关闭它.
+他们似乎接受我不是威胁, 他们似乎接受我, 邀请我和他们一起走更远.
+他们似乎在向我示意, 让我走向前方,
+他们似乎把我介绍给其他类似的实体.
+这场戏是在一个平面二维表面上演的,
+但仍有深度,距离和视角的建议.
+然后事情又发生了变化.
+灯光和颜色的强度增加到更生动的颜色.
+虽然大部分还是绿色, 但更强烈.
+有机球形图像现在改变了,
+,卵巢和多个乳房的形式, 在这些乳房是其他形式哺乳.
+它们仍然在动物/人类上重叠,
+更多的球形形状诞生, 然后它们以同样的方式继续生长和重生.
+所有的油,,没有制服的方式.
+就像灯或油混合水一样.
+在这座二维剧院里, 一切都在运动和流动,
+像是在密集的水母群中游泳的建议.
+我注意到景色正在分裂成三层水平面.
+这远远超出了我正常的视野范围.
+下层现在有吸引人的面孔和女性形状,
+中间是相当黑暗的, 有形状, 大多是嘲笑的脸,
+由于某种原因, 中间的形状警告我不要抬头看.
+他们的面孔和手势现在更加明显和可识别.
+虽然我对这个清醒的世界并不熟悉, 但足以让我通过手势与他们沟通.
+我不能把内心的目光抬到顶层看它.
+我试图抬起我的眼睛对我上面的实体, 我的整个内心世界陷入了完全黑的黑暗.
+没有幻觉,没有内在的光, 只有一个完全无尽的黑暗.
+虚空与&quot;泡&quot;的比较是截然不同的,
+我第一次脱下眼罩, 惊慌失措地坐起来.
+我当时认为, 通过笑的面孔 (以及我的精神能力所剩下的信息), 停电的原因是因为我被责备或挑战,
+我现在记得这种感觉, 这种新的实体是真实的,
+这些实体在那个时候对我来说变得明显,
+我现在正处于另一个意识层面的存在之中,
+我对自己的表现并不满意.
+(显然,事后我对此表示怀疑.
+但当时它是真实的,
+我认为这是我的无礼, 作为回应, 强制执行完全的停电.
+这与旅程的前半小时完全不同,
+我觉得这是一种实体的直接攻击或惩罚,
+我意识到我必须为自己的无知向实体提出某种形式的内部 (心理) 道歉,
+我对自己的错误做出了充分的悔,
+但我必须从头开始.
+现在他们嘲笑我的傲慢和愚蠢. 现在他们嘲笑我的傲慢和愚蠢.
+现在他们开始把我当作一个不守规矩的孩子,
+在整个旅程中, 嘲笑的面孔是唯一的常态.
+我开始把他们看作是我的导师.
+(在仪式两三天后, 他们仍然在我的内心的阴影和角落里潜伏!)
+它们会让我意识到顶层实体的力量.
+这一次我要表现出真诚的敬意.
+(现在这一切似乎很奇怪,
+我知道这只是几十分钟的时间.
+我记得我一直在听的沙曼颂歌几乎没有继续下去,
+但现在我已经从清醒的意识中漂流到一个真实的或被认为的另一个领域.
+这一切都变得真实了.
+我开始相信最好是遵守他们的规则并表现出一些敬意.
+(我以开放的心态来到阿雅华斯卡的体验.
+我听说过一些人相信通过阿雅华斯卡,
+他们遇到了与自己分离的实体.
+这是否真实或只是幻觉是有争议的
+我只能记得我在阿雅华斯卡的经历,
+但与梦境的状态截然不同.
+我意识到要走得更远,
+我第一次开始感到焦虑.
+似乎这个实体知道什么会吓到我 (我最大的内心恐惧).
+我不再觉得这一切都是我想象的产物或潜意识的作用.
+这实体足够强大, 能够进行惩罚, 而我相比之下,
+我知道许多人曾经使用阿雅华斯卡作为药物.
+我认为这是我与阿雅华斯卡母亲的接触的开始,
+(我知道这可能会在我的旅行中发生,所以我在某种程度上为此做好了准备.
+我被允许把目光向上转移, 看到周围的嘲笑的面孔 (从现在起我会称之为嘲笑的面孔,
+在黑暗中, 我看到一个巨大的面孔,
+头部是中央和有点延长.
+视觉的颜色主要是紫色和绿色,其特征被白色蓝光突出显示.
+我能给出最接近的视觉参考是&quot;外星人&quot;电影插图家H.R.
+吉格尔.
+但它并没有像他的形象那样可怕,丑,机械,黑暗和威胁.
+这更为柔软,有机,活,女性化,
+(我记得我又笑了,但这次是因为我通过了考试而感到十分放心.
+我对接下来在仪式中发生的事情有模糊的双重记忆, 印象是时间和事件开始重叠,
+我无法确定正确的时间顺序或哪个领域, 内心的阿雅华斯卡视觉或我正在观看的仪式室现实?
+对于发生了什么,正在发生什么,
+我也认为我做了一个错误的选择,
+这受到了房间中其他地方发生在&quot;正常&quot;清醒现实中的影响.
+清醒的现实 (没有闭上眼睛看到外在的现实), 从此以后我将试图用对决形式来描述事件.
+清醒的,外在的现实将在方括号中描述如下[也,斜体的脚本].
+我最近得出的结论是,
+由于我内在和外在视觉模糊, 时间和空间的溶解, 我用括号和斜体编辑它,
+我不知道这是否正确的文学手段来描述事件,
+眼罩让我感到烦,
+这感觉像是控制.
+我脱下来坐起来.
+这是自从戴上眼罩以来我第一次环顾房间.
+在仪式开始之前, 组织者在介绍中警告我们不要脱眼罩.
+让我更加怀疑即将发生的阿雅华斯卡体验是否真实?
+我对组织者在阿雅华斯卡的作用下对我进行控制的担忧也更加强烈.
+我在仪式日期之前与组织者讨论过这些问题.
+这首次环顾房间并不是一件不愉快的事,
+这首次环顾房间并不是一件不愉快的事,
+房间仍然可以识别,光已经改变到晚上的黑暗.
+组织者点燃了,
+我可以看到主办方在房间里四处走动,
+类似于90年代初使用MDMA的效果,
+我从我的观点看到了我的脚.
+这不是我期望看到的位置.
+我的脚似乎比我的头高得多.
+仿佛我躺在一个45度的角度到地板.
+在房间的背景下,
+我的身影是黑的, 完全没有特征.
+房间里看起来像是一个空洞,
+闪闪发光的白色光线从我的四肢中部到我的手和脚的尽头.
+从我的下巴,心脏区域开始, 光线传到我的手指和手的尖端.
+只是一个切割出来的黑色身体形状的轮.
+它看起来像一个图,一个躺着的身体的表现.
+这并没有让我感到困扰.
+我觉得自己有点迷失方向, 一旦我确信我还能与&quot;正常&quot;现实联系,
+这一次没有眼罩,
+眼罩被打开后, 视觉几乎立即变得更加强烈,
+除了顶层的巨人实体 (我不记得在旅行中再次感觉到它的存在吗?)
+三层剧院及其居民正在发生变化,
+视觉现在将自己分成两个垂直的半部分.
+黑暗从左到右的渐变.
+在我的视线的右边, 一个明亮的白色光.
+这一切都是误导性的, 更好的说法可能是, 我现在同时拥有双重视觉,
+视觉仍然是中心的,
+球状的有机斑块正在转化为彩色的圆形光雾云,
+仿佛我被运送到外太空, 看到真正的星云.
+旋转的阴云现在开始向后和向上伸展,形成一个倒置的,旋,龙卷风,道结构,在它的中心是黑暗的印象,就像一个黑洞在空间 (尽管彩色的圆形光的星云,它使得图像不可能合理化?
+我被吸引到黑暗中的宇宙旋的开口,
+我认为我的眼睛在这一点上是短暂的开放,或者我打开他们避免恐慌设置.
+在我的视线左边,房间是相当黑暗,但我的右边的走廊到所是明亮的照亮.
+25.05.20 注意:由于事件的重叠性质, 这里排序完全错误.
+我当时很清楚我的内在和外在的视觉正在融合并影响事件.
+[我会把这放在这里,但我不确定我第一次注意到这个.
+似乎被带到另一个地方和时间.
+现在我的眼睛已经开, 观察房间, 我现在不知何故回到另一个地方,
+现在我又回到另一个地方,
+我们在LSD上做得太过分了, 在很短的时间内服用了多片药,
+另外,我们还喝了其他毒品和酒精.
+我曾试图从我的记忆中消除.
+这一夜带来了一段精神痛苦,焦虑和抑郁,
+我现在正处于同一个房间里.
+我觉得自己已经了,躺在一边,头贴在地板上,不能动,甚至不能说话!
+就像我在那个遥远的夜晚一样.
+如果我闭上眼睛,然后如今, 视觉是可怕的强度.
+我无法摆脱那些令人憎恨的噪音和声音.
+现在就像那时一样, 时间已经被移走了,
+我当时也经历过这样的经历, 是否是一种自我实现的预感,
+恐慌和混乱是相同的, 这就是仪式开始崩, 变成我在经历后的几个月内反思的坏旅程]
+我又闭上眼睛, 看到内在的世界,
+视图现在被分为两个垂直部分,
+在左边的状星云与黑暗相对应, 在右边的黑暗中出现超明亮的白光.
+随着内心的恐惧不断增长, 我有意识地决定摆脱和黑暗,
+我说有意识的决定, 我可能意味着惊慌失措的决定!
+几乎立即我意识到这是一个错误的判断.
+自从举行仪式以来,
+我相信从此它开始对我的经历产生负面影响,
+其他更为激烈的外界影响让我感到丧, 但当时和现在的想法是, 我选择头跑进&quot;梦世界&quot;, 糟糕的旅程开始了.
+一旦被白色光所消耗, 视觉的强度就会爆炸.
+这种古怪的几何世界是全新的强度层次, 它把我从清醒现实中分离出来.
+颜色是如此鲜, 超越了我们在清醒时所看到的任何东西.
+我会说虹灯, 但更生动,
+除了笑的面孔 (我的指南) 他们仍然是平坦的颜色,不透明,这区分他们从颜色和运动的爆炸存在于这个领域.
+(尽管它们是平的,不透明的,在颜色上被屏蔽.
+这些颜色也非常明亮和生动.
+像你在PC上的绘图程序中发现的那样).
+嘲笑的面孔又被叠加或融入了明亮的刻板形状的几何世界,
+例如,当你试图观察外界时, 闪电灯留在视网膜上的残留斑点.
+两者都同时被视为重要, 但与你的焦点互换.
+现在一切都以自我吞的方式移动, 滚进然后滚出去,
+(见上文的曼德尔布罗特设置视频).
+几何形状的古典形图案由/板组成, 它们都在自己上折叠, 创造出无数的移动图案.
+这使我感到恐慌.
+它们以某种方式进化为其他东西,
+甚至是作为一个独立的实体.
+我相信这超出了我的想象力和潜意识,
+经历之后, 我再也无法在我的想象中复制它.
+(除了在我入睡之前微小的见,甚至没有.
+但无论我多么专注, 它都不会显现出来.
+这就是下一个领域的开端, 那个领域我当时认为是一种梦,
+但事实上,回想起来,我意识到这是一个考验,一个试验,一个过渡仪式,可以这么说?
+我很快得出结论,这是一种极端的强硬爱,
+我知道,即使在那时, 我必须通过它来达到整个经验的目标.
+这只不过是为了消灭我的思想和自我.
+放弃我所认识的一切和每一个人,
+[房间里有可怕的噪音.
+我认为它来自扬声器.
+我不知道是药物扭曲了音乐,还是他们故意演奏了这可怕的电子机械声音.
+我曾经经历过一种LSD曲解音乐的经历,
+我开始感到很丧.
+我担心会导致仪式的发生.
+我越来越烦.
+我坐起来,脱下眼罩,
+我现在头痛很厉害, 越来越严重.
+听到来自扬声器的声音会加剧痛苦和烦.
+房间很黑暗, 仪式主办人正在场地中间跳舞.
+他们似乎对我们/我无所知.
+群体的领导人干涉了音响系统, 这让我更加愤怒.
+最终,活动主持人
+走向我的地方.
+我们讨论噪音/音乐.
+他的脸看起来像我可以直接透过他的皮肤看到下面的头骨, 它已经被叠加的代表的脸 奇迹国里的爱丽丝经典的切希尔猫插图和一个子.
+他的脸占据了我的视野,
+这可能听起来像梦,但当时它对我来说是安慰的,我不能解释为什么? [2]
+组织者以噪音/音乐为理由,
+后来想起来, 我不记得他给我的确切答案.
+虽然这听起来像是新时代或佛教的鱼哲学,
+我躺下,再次戴上眼罩, 回到了内心的幻象中.
+我试图找到解决电子噪音问题的方法, 但头痛仍然加剧.
+我试图找到解决电子噪音问题的方法, 但头痛仍然加剧.
+头痛越来越严重, 疼痛难以忍受.
+我头部似乎已经胀成两倍, 双手也无感.
+我坐起来,再次脱下眼罩.
+我的双手看上去胀,
+房间仍然可以辨认, 但我仍然有回忆,
+我完全困惑和迷失方向]
+&gt; 这里是我认为我与
+这位活动主办人的脸上是子?
+这就是我停止写这篇故事的地方.
+但下面是我日记中的标题列表,
+02-09-21 开始写作了吗?
+关于此次事件的进一步写作提醒:
+意识到房间里的其他人在哭泣,尖叫等等.
+我笑了,然后被组织者提醒第二天早上?
+感到恶心,吐开始上升,但无法吐.
+干燥的,饮用水.
+坚持病态的, 让我牢记&quot;现实&quot;并抑制恐惧.
+我旁边的人不停地清洗.
+厌恶我们现实中的污秽.
+看到自己是&quot;肉&quot;的身体,
+视肉身为第三个人的实体.
+有一个轻微的体外体验.
+在肉身上翔,照顾它.
+轻微的清洗.
+不知该问什么问题的丧!
+没有清洗,没有吐,再次感到丧.
+另一个恐慌的时刻,
+在波兰服务员的帮助下.
+一只舒缓的手放在心上.
+像X射线一样的视力.
+一切都在再次发生变化.
+让我们放心.
+我与我的折磨者/我自己达成协议.
+我的条件,在天堂与我心爱的家人.
+我意识到我爱我的家人超过任何东西.
+我还没有准备好放手.
+我的幼稚的头脑向我指出.
+我同意暂时放弃自我, 接受我对现实的理解是幼稚的.
+这是一个改变步伐.
+终于可以放手了.
+进入问题领域.
+愚蠢的问题,即时答案.
+我已经知道答案的更好的问题.
+一切都是如此明显.
+在我的内心世界被动物的幻象包围.
+让自己被鱼吞.
+和平
+在狂喜的浪潮中漂流回现实
+完全与世界融为一体.
+旅行即将结束
+下来,不想离开.
+没有完成的事.
+我意识到自己的期望太高了,
+我的意图是弱小的,我的问题是不够强大的.
+错过了一个机会, 不仅是因为我不信任活动的组织者.
+你不相信我喝了阿雅华斯卡吗?
+一种深深的悲伤感和一点背叛.
+这是一个错失的机会.
+醒来了
+努力与小组一起完成早晨的形式.
+没有对组织者的信任.
+在家
+我心爱的家人
+试着写下自己的经历.
+在效果之后.
+尽管如此,
+成为一个福音派的阿雅瓦斯卡!
+考虑再试一次.
+两年后,我有什么想法?
+[1] 在旅途中,我似乎说服了自己,我实际上是喝了神奇的.
+尤其是在后来的视觉,感觉和周围的环境重复和重演几乎与我25年前经历的糟糕的之旅相同.
+整个经历都受到这种坚持不的想法的影响.
+[2] 自从服用了阿雅华斯卡之后, 我看了电影&quot;蓝&quot; (美国版无删减).
+在电影中, 主角在药物影响下与巫师的互动,
+这部电影有很多特殊效果, 几乎捕捉到了我自己的旅行的精髓和图像.
+但其中一个显著的区别在于电影中的黑暗和可怕的画面.
+我没有经历过这种情况.
+积极的形象与我的经验相近.
+我自己的旅程的光泽和色彩比电影中描绘的更加强烈.
+[3] 这并不是唯一的事情.
+正如我在第1点中提到的,还有其他影响导致经验的负面方面.
+电子音响可能是整个体验中最具影响力的负面方面.
+时间表: 117847
+雅华斯卡 (8): 艰难的经历 (5), 音乐讨论 (22), 实体/生物 (37), 一般 (1), 团体仪式 (21)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+Allow Yourself to Be Devoured by the Alligator
+Ayahuasca
+by
+Simon C
+Citation:   Simon C. &quot;Allow Yourself to Be Devoured by the Alligator: An Experience with Ayahuasca (exp117847)&quot;.
+Erowid.org
+. Jan 13, 2025. erowid.org/exp/117847
+DOSE:
+oral
+Ayahuasca
+“Allow yourself to be devoured by the Alligator”
+On the 21-09-19 I attended an ayahuasca ceremony in
+Denmark.  Here is a transcript of my diary covering the events. (Drafted on word starting on the 28-12-19. Originally written down in my diary 22-09-19).
+25.05.20 Note: Reading this back today, I notice that the writing style is that of a man who has been possessed by the spirit of a Victorian explorer in some dark mythic continent. Like a latter-day, pound shop Joseph Conrad. Very pretentious indeed, so bear with me from here on in!
+The first thing I can say with any certainty is, that any form of language, expression, imagery or communication technique I will use herein to explain or describe the event will fall painfully short of what “really” happened that evening, but I will try and give you the reader loosely some idea of what the experience of taking ayahuasca felt like for me.
+A very important point here, although through research and hindsight, I believe there are common themes and experiences witnessed through the medicine by people who have undergone the experience. I would like to make clear that this is very much my personal experience. And to add a caveat, I don’t intend to share this journal with anyone who might want to experience ayahuasca in the future, in a hope that I do not taint or add bias to the possible future experience for others.
+As I have already mentioned, the visions that I experienced are almost impossible to recreate in words and language alone. The actual visual experience is beyond my poor communication skills. And even the visual representations one can find in videos showing the content of the ayahuasca experiences I have watched since the event, don’t fully capture the vibrance, vivacity, and ultra-reality of the visions that I experienced.
+The strangeness of the content of the imagery of the experience bear little to no resemblance to our everyday waking experience of reality. Nothing on the trip was easily recognized, and therefore open to description. Other than by the vaguest of descriptions that I here now write down.
+Nothing on the trip was easily recognized, and therefore open to description. Other than by the vaguest of descriptions that I here now write down.
+An animal is only a suggestion of an animal, a face is only a vague sense of a face or an expression. Then add to the description of the images witnessed that perspective, space and time was viewed on a different plane, the task of truly describing the event is vast. Even colours and shapes that we subjectively take for granted cannot be described by their intensity, vividness our multiplicity. Ultimately these descriptions I try to share with you must be accepted as being arbitrary and even unintentionally misleading, as I don’t have the literacy skills to fully do them justice. Nevertheless, if you have read this far, this disclaimer is not going to stop me trying!
+The trip, for me, was defined in three clear segments. (this subheading is how the original entries of my diary look. I have not edited the original diary draft to explain the chronological events of the ceremony more clearly. So, there may be some confusion in how the events unfolded and there may be further repetition on certain subjects).
+The morning after the experience, some of the twelve other people who shared the experience also thought that trip was in three distinct segments for them also. But this was mostly the distinction between the form and intensity of the visions they experienced, rather than the intensity of their emotional experience and psychological condition. For me the three distinct passages of the trip were as followed:
+1.	The Introduction realm.
+2.	The Nightmare realm. (This title is just personalised to my experience, so it might be not the case to other ayahuasca users experience. The word nightmare might be a bit strong to use, as looking back now, the events seem less traumatic. I came to this conclusion of being a nightmare soon after the trip, and it really isn’t the description I am after. At the time, during the trip, my initial thought was for words like; punishment, chastisement, persecution, mocking, bullying or the frustration phase. I even thought of the word purgatory realm would be appropriate. But wanted to steer clear of any descriptions that had a connection to theology or spirituality to avoid bias. Like most of this review of the experience, at the time, during the trip, I had a clear vocabulary to describe the sensations I experienced far more clearly!).
+3.	The Questions realm.
+As a brief overview of these visions. All played out on what was perceived by me as a two-dimensional flat plane. There was no identifiable sensation of perspective, distance, depth or space. It very much had the appearance of a 2D animation unfolding into a constantly morphing flat tableau. If there was any sensation of depth and directional movement it came across as an optical illusion. Something akin to watching a Mandelbrot Set fractal zoom video below.
+[link deleted]
+But even this video of the Mandelbrot Set used as an example is misleading and limited, by only giving the sensation of forward movement into a distant location. Any suggestion of movement during the trip was multidirectional and multidimensional. Sometimes multilayered but ultimately still being played out on a 2D plane? (A paradox/oxymoron there maybe?) There was no space as we know it, as in our everyday 3D world.
+So, with all this in mind I will try to attempt to lead you through the visions I had induced by the ayahuasca medicine.
+The Introduction Phase. (basic visual description)
+The Introduction phase opened up from the darkness of “normal” consciousness while lying with my eyes closed and blindfolded. Visually the images made patterns that had the quality of oil residue floating on a puddle, or soap on a bubble against a dark background.
+Another way to describe it is, as the marbling effect of ink on water maybe? Organic, plasticine, globular, waxy, fluid shapes that morphed into representations of organic, living entities. I will explain the visual and the psychological content of the Introduction phase later.  For now, they were mostly earthy colours, such as muddy greens and yellows, browns, olive, ochre, dark purples, dark reds etc. The colours at the beginning were still on the muted end of the diffraction of light through a prism. Yet at first still without the vibrant iridescent quality of oil or bubbles. The intensity of the colours increased as more was revealed.
+A note here, the colours are always to be regarded as being that of light, and light’s variance in terms of colour and intensity, and not imagined as colours attributed to objects in this realm, for example, opaque colours painted on a canvas.
+All this was being played out on a background pallet of darkness. (I keep returning to this idea that the visions were a 2D phenomenon on a flat plane. Distinctly a different visual experience from our normal reality, or even in our dreaming state where perspective and depth are in play).
+On the periphery of the vision, in the dark corners of my broader inner vision, what I would describe as mathematical formulae, symbology from physics, diagrams of chemical structures and other technical type drawings made from white light. Which appeared then receded in the margins of the vision by overlapping each other as they were drawn out by an invisible hand. Again, these were only suggestions of such things, but they were familiar enough as being representations of such formal and recognised visual language.
+The Nightmare Phase. (basic visual description)
+The nightmare phase was in complete contrast to the introduction phase. Everything now was imposed/superimposed on an unimaginably bright white background of light.
+Travelling across and through this realm breaking up the light were monochrome geometric kaleidoscopic patterns made up of unlimited geometric tiles of varying sizes. They could either be still or in a fluid repetitive movement, sometimes pulsating/vibrating. The clarity of focus and definition of these patterns were unimaginably crisp. (Again, I put this down to seeing with the mind, rather than the physical optical sense).
+When still, I would describe the monochrome background imagery as a spider web or a smashed plane of armoured glass which is still intact. So that you can still see the background through the glass pane, but unlike ocular vision, the background was also in focus. When in movement it had the appearance of scales on a fish or reptile. Again, with hindsight, there are two things (at least!) visually happening here in each moment, though superimposed and suggesting depth, both are in crystal clear focus. The smashed glass background/foreground, with the moving scales superimposed over it at the same time or vice versa! But this is just me filling in the gaps after my initial thoughts in my diary). When they moved, they moved inward or outward on themselves constantly devouring the shapes and replacing them with new ones.
+Projected on to this smashed/scales background (foreground!) were symbols. Figures and animated rudimentary faces of highly intense and vivid colours of light. There would be sudden colour shifts, and distinct vibrations. The intensity of colour was more than anything seen in this realm, as again it was more like pure light rather than material substance. It was iridescent and shimmering. Overlaid with many superimposed patterns and colours. In contrast to this, the faces were usually flat, blocked colour (like used in basic animation or simple computer drawing programs).  Again, 2D no depth, apart from the illusion of 3D depth you would get from a technical drawing?
+One of the reasons that I perceived this as a nightmare realm was that the images would remain static for what felt like an age. Then suddenly start rolling in or out of itself in an endless repetitive kaleidoscopic pattern. Which would also feel like an age, even endless to the point of panic!
+Also, in this realm, to intensify my notion of a nightmare. (Again, with hindsight). There was nothing that I could compare or recall, during the experience, from my memory to any visual anchor I might have had in my “normal” waking consciousness. It was unrelenting in its intensity which brought on panic in me.
+Only later through agreeing the submission of ego and renouncing anything from my perceived prior “reality” would it allow me some respite from this nightmare realm. It wasn’t so much the visons, but the intensity and the fear of permanency that was frightening me into a state of panic. Once I accepted that I would have to dissolve my ego, and with some reassurances from my then perceived tormentors. the visions began to subside in their intensity and let me progress to the next phase.
+The Questions Phase. (basic visual description)
+Visually it’s hard to describe the Questions phase as it was more psychological in my experience compared to the previous two realms. I’m finding it hard to remember it visually. Maybe because I had to dissolve most of my ego, my I-sense before I could move onwards in the trip?
+I can vaguely remember there were still the visions of the two previous realms, but now they were intertwined. They were also toned down in intensity. There were still the intense geometric, kaleidoscopic, repetitive patterns of the nightmare realm, and now the previously suggested organic, living entities of the Introduction phase were present and interwoven. There was also more recognizable imagery from my “normal” state of consciousness and dream state. Although there was no narrative to the imagery, or any perceived landscape the imagery was revealing itself to me. Again, it was the 2D flat plane of an animation or comic book. But this is not correct on reflection!
+25.05.20 edit: There was now a form of depth I remember. The “animal” images moved in a virtual 3D vista. Flying in and out of view, swirling around me. They had body and depth but were still transparent frameworks made of light. I have watched several videos on ayahuasca imagery since the ceremony. I believe that this might be influencing my memories as I write now.
+More about the content of these entities next…
+The Ayahuasca ceremony 21.09.19
+To start over again; we all met at the health centre
+at around 4pm. The ceremony was to start at approx. 7pm. Twelve people were to be taking the ayahuasca at this ceremony, observed and assisted by four helpers. All would take the ayahuasca. The room was set up very basically, with twelve mattresses placed around the room on three sides facing a makeshift altar that was flanked by large speakers. The fourth wall was for the helpers to arrange their chairs and sleeping arrangements. On the twelve mattresses were a pillow, a duvet, a blindfold, a bottle of water and a washing up bowl for the purging which comes from taking ayahuasca. Most of the group arrived in the first hour, and the last few came before 6pm.
+When all had arrived, we had an introduction to our group leader and helpers. We discussed the dynamics of the evening, plus rules that would have to be strictly applied for things such as safety etc. Then we had a chance to give a brief introduction of ourselves, and a testimony on our intentions for our visit, and reasons for taking ayahuasca.
+The group was roughly divided between people who had taken ayahuasca before and others for which this was the first time. After a brief ceremonial event the ayahuasca was brought into the room in two small bottles. Then we were all asked to come up individually to the leader of the group, take a small cup of ayahuasca and return to our mattress and wait for everyone to receive their portion of the medicine. From what I could see, we all received roughly the same portion. At this point we were told that we would be offered a second portion later if we wanted it. Once everyone was ready, a short blessing was made and then we were asked to drink the medicine.
+One of the few things that I researched before the ceremony was what the liquid would look and taste like. Both these preconceived expectations went against the reality of what I experienced. I was led to believe that the medicine would be a dark brown or reddish-brown liquid. But in our case, it turned out to be a light mushroom colour. (Although it did have a dark brown/black residue in the bottom of the glass. Which I was told to wash down with a little water as that was essentially the medicine). And that the taste would be very bitter, which in this case it wasn’t. The medicine we received was more like drinking weak tasting muddy water. It also reminded me of magic mushroom brews that I had taken in the past. I believe these two observations had a later effect on how the experience unfolded. Where I psychologically sold myself a false premise that I could not overcome. And which might have influenced and tainted the experience [1].
+After taking the medicine, we all lay back on our mattresses with our blindfolds on. The leader of the group started playing jungle sounds through the speakers interspersed with tribal, ethnic chanting and other forms of world music. (I have now discovered these songs at ayahuasca ceremonies are called, Icaros’).
+Personally, I was as calm as I had been all day leading up to this moment. I was completely at peace with myself, and I felt that events that had led me up to this moment had been preordained. I felt I was in safe hands, and no harm would come to me. I had felt like this from the first moment I had contacted the organisers of the ayahuasca ceremony. There was a growing excitement but little anxiety.
+There was a growing excitement but little anxiety.
+From now on in this diary, chronological order is difficult to be precise with, but after about twenty minutes of lying in the blindfolded darkness, monitoring my inner self, something started to happen. This was the beginning of the Introduction Realm.
+As described earlier, slow organic globular movement started to take shape in the darkness of my inner world. The colours were muted muddy colours and the shapes were random, like oil in a Lava lamp. except flat on a 2D plane.
+Then slowly, they started taking the basic shape of what could be described as living organisms. But nothing you could describe as living creatures in the waking consciousness realm. (Not even in a dreaming state sense). They were more like suggestions of animals (Including human forms).
+As they became more distinct from the globular shapes, I could now make out more details. From the forms building in the fringes of my internal vision- snouts, mouths, teeth, multiple eyes and limbs became recognizable. But they were all randomly situated over their individual forms. For example, features you would normally associate with heads like eye’s, mouth’s, noses, would be found all over their shapeshifting bodies. Think of the art of Picasso, Chagall or Matisse for an example (suggestion).
+As they came into view I started to laugh, as they seemed familiar? (That I started to laugh quite unpredictably, was later pointed out to me by one of the helpers after the ceremony. She said my laughter was a little surprising, but it really set the tone for the ceremony. Others had also mentioned to her that my laughter was not what they were expecting and calmed them down).
+Unbeknown to everyone (I suppose?), was that the reason why I started laughing was that I had seen visions like this before on previous LSD and Psilocybin trips. I thought at that moment, I kind of knew what was coming next. It was all very familiar, so the laughing was a kind of relief that I may be in familiar territory.
+The organic shapes now started to take more individual forms, became individuals. Now they stared to take personalities of their own. I could make out suggestions of expressions on their fluid faces, and they appeared to be communicating with one and another. Although I can’t remember sounds coming from them? Again, it was more like suggestions of language and communication between them, and then me.
+They appeared to be questioning each other about who this stranger, me, was. And what was I doing there with them in their realm? Here I had a strong feeling that these entities were separate from me, again which made me laugh at the strangeness of it all.
+At first, they were not threatening in any way. It felt more like I had walked late into a party, uninvited maybe? Then it changed quite suddenly. Their faces went from fearful smiles to grimaces, to even anger as they moved in and out of the shadows, checking me out, and dissuading me from coming any closer. It was difficult to tell what the real explanations of their expressions and gestures were, because nothing is solid. All is fluid as one shape morphs into another. I just got the feeling I was a little unwelcome amongst them, an unwanted inconvenience to them and their existence.
+To explain my lack of anxiety at this point, with hindsight, I think I was still in control of my mental faculties, I had enough acuity to evaluate what was going on. I don’t think I am frightened of them because, I can still logically/rationally deduce that they may just be figments of my imagination, hallucinations. I also thought that with this dual control over consciousness, the trip would not get so much more intense, as the visuals were already impressive. (How wrong I was!).
+Even though I think these entities are just products of my subconscious (imagination) at the time. I also begin to get the strengthening suggestion, that they could also be separate individual entities that I have no control over at all.  But even with the dawning realization I might not be in the familiar territory as I have experienced with previous types of medicines. I’m just enjoying the theatre of it, as I have mentioned above. It is like watching some weird cartoon being played out in my inner world. I still feel that I am in control in this encounter with these entities, real or imagined. And therefore, can switch it off if needed.
+After a short while they seem to accept that I’m not a threat, and they appear to accept me, and invite to go further with them. (there’s a feeling of forward motion here. Like entering a grove or a forest) They appear to be gesturing me to come forward, and then gesturing to me to look deeper into the murk. Where they appear to introduce me to other similar entities ahead. (I have said several times already that this theatre was all played oud on a flat 2D surface, like an animation. But there are still suggestions of depth, distance and perspective). Then things change again.
+Quite suddenly (or now I think I might have been distracted by the novelty the characters were playing out in front of me?), the intensity of the light and colours increased to much more vivid colours. Still mostly greens, but much more intense. The organic globular images now change to include what looks like female genitalia. Vaginas, ovaries and forms with multiple breasts, at these teats are other forms suckling. Still all overlayered on animal/human like globular, organic forms.
+From these suggested female shapes even more globular shapes are birthed into the tableau, and then they go on to grow and rebirth in the same manner. All in an oily, waxy, ununiformed manner. Just like a Lava lamp or oil mixing with water. Everything is in motion and fluid on this 2D theatre, but there is still a feeling of forward motion, or falling through the figures. Like the suggestion of swimming through a dense shoal of jellyfish.
+While this is going on, I notice that the view is dividing in to three horizontal planes. Well wide of my normal scope of optical vision. The bottom level now has the beckoning faces and the female shapes and is quite vivid and bright. The middle is quite dark and there are forms, mostly sneering faces, moving in it. The top is the darkest and for some reason the middle shapes are warning me not to look up into it. Their faces and gestures are much more pronounced and recognizable now. Still not in any way familiar to this waking realm, but expressive enough for me to communicate with them through gestures. (mental gestures in my case maybe?).
+Then I feel a new entity has entered the top tier, and I am not allowed to lift my interior gaze to the top tier to look at it. When I do try to lift my gaze to the entity above me, my whole inner world is plunged into complete black darkness. There are no visions, no inner light, nothing but a complete endless void of darkness. The comparison of the void to the blob word is in stark contrast, the polar opposite. The first time this happened I took my blindfold off and sat up in panic.
+I assume at the time, and the messages I get from this through the sneering faces (and what&#x27;s left of my mental capabilities), that the reason for the blackout, is that I am being castigated or challenged for being insolent and I’m not showing enough respect to the new entity in the upper tier of my vision.
+Here I now remember a feeling that this new entity was real and a separate entity from me, my inner self and my mind. These entities it was becoming apparent to me at the time weren’t some trick of my subconscious. I was now in the presence of something from another level of consciousness, an alien reality. And it wasn’t too pleased with me, and how I was presenting myself. (Obviously with hindsight I question the validity of this. But at the time it was real, very real).
+The hovering entity above when encountered with what I deduced was my impertinence, was in response, enforcing the complete blackout. This was such a dramatic shift from the first half hour of the trip, where it felt I was free to explore without any restriction. This to me, felt like a direct attack or punishment by the entity, and it took me several blackout knock downs to realise what was happening.
+After several blackouts, I realised that I had to make some form of internal (mental) apology to the entity for my ignorance, and only then would I be permitted to start again with the visions by the entity. Once I had made sufficient repentance for my mistake, was I then allowed to go through the introduction process again.  But I must go through the process of starting from the bottom again.
+So, this would start by introducing myself again to the grimacing faces, who were now mocking me for my arrogance and my stupidity. Now they started treating me as an unruly child, and this became the tone of the trip from now on. The sneering faces were the one constant throughout the trip. From here on in, I began to regard them as my guides. (They were still visibly lurking in the shadows and corners of my inner world two or three days after the ceremony!).
+They would, I suppose, make me aware of the power of the entity in the top tier. And this time I was to show true reverence. (It all seems strange now, this experience appeared out of time. But I had just enough grasp on the waking consciousness to know it was only tens of minutes. I seem to remember thinking the shamanic chant I had been listening to had hardly moved on at all, that also kind of anchored me into the moment). But now I was drifting out of the waking consciousness into a real or perceived Other realm.
+This all now felt real. I now remember thinking at the time that there was a strong possibility that these were separate entities, and I started to believe that it was best that I played by their rules and show some reverence. (I came to the ayahuasca experience with an open mind. I had heard of the stories of people believing that through ayahuasca they would be transported to another dimension. A new dimension where they had encountered entities separate from themselves. Whether this was true or just hallucinations is up for debate. All I can remember of my ayahuasca experience is that I was now in the presence of something I had no control over, something real and separate. But very different from say the state of dreaming).
+It dawned on me that to go further I would have to show some form of reverence. The plunging into darkness was unsettling, and for the first time I started to feel anxiety.  It was like the entity knew what would scare me (My greatest innermost fears). I no longer felt that all of this was a figment of my imagination or the workings of the subconscious. This entity was powerful enough to dole out punishment, and I was weak in comparison to have any control over it.
+As mentioned above, I was aware of the Mother Ayahuasca testimonies many people had experienced under the medicine. So, I took this to be the beginning of my encounter with Mother Ayahuasca and showed reverence to the entity above me. (I was aware that this situation could happen on my trip, so I was in some ways prepared for this to happen). With this reverence in place, I was then allowed to direct my gaze upwards by the surrounding sneering faces (as I will refer to them from now on, or sometimes the mocking faces maybe, both descriptions don’t fully convey their expressions and gestures), and was allowed to look at the entity above me.
+There in the darkness above me was the massive face of what looked like the head of a praying mantis/ woman’s face hybrid, with branches/horns/vines flowing out of its head stretching to the far corners of the upper tier. The head was central and a bit elongated. The colours of the vision were mostly purple and green, with its features were highlighted with white-blue light. The nearest visual reference I can give it is the work of the Alien movie illustrator H.R. Giger. But it wasn’t horrifying, ugly, mechanical, dark and threatening as his imagery is. This was instead softer, organic, living, feminine but extremely powerful...awe inspiring. (I remember laughing again, but this time out of sheer relief that I had somehow passed a test!).
+Here now, I have a blurred dual recollection of what happened next during the ceremony, the impression is that time and events began to be overlapping, superimposed over each other? I can’t pin down the correct chronological order or which realm, the inner ayahuasca visions or the ceremony room reality I’m viewing? There’s still some confusion here to what happened, was happening. I also thought (think) that I made a choice, the wrong choice I believe, which defined the trip from here on in. It was influenced by what was happening elsewhere in the room in “normal” waking reality. The waking reality (viewed outer reality without the eyes closed), and from this point on I will try to describe events using a duel form of expression. The waking, outer reality will be described in square brackets as such below [also, script in italics].
+Edit 20-05-20. I have concluded recently that the experience during the ceremony was in the following order below. Because of the blurring of my inner and outer vision, and the dissolution of time and space, I have edited it using brackets and italics to make some sense of the complete confusion in my original journal. I don’t know if this is the correct literary device to use to describe events, but for my purposes it will have to do!
+[The blindfold is annoying me; it feels too tight. It feels like control. I take it off and sit up. This is my first look around the room since putting the blindfold on. Taking the blindfold off was something the organisers cautioned us from doing in the introduction before the ceremony started. Which at the time increased my suspicion of the validity of the coming ayahuasca experience with them? It also reinforced my worries and my concerns about control by the organisers while under the effects of ayahuasca. These concerns I had spoken about with the organisers prior to the ceremony date.
+This first look around the room was not unpleasant, but it was intense.
+This first look around the room was not unpleasant, but it was intense.
+The room was still recognizable, the light had changed to the dark of evening. The organizers had lit candles and put low lights on. In the semi-darkness I could see the organisers moving around the room, and they were engulphed in a colourful phasing/streaming visual effect. Similar to what you would get from taking MDMA in the early 1990s, but much more intence and vibrant.
+Against this I looked down my reclined body from my point of view to my feet. It was not exactly in the position I was expecting to see it. My feet appeared to be much higher than my head. As if I was lying at a forty-five-degree angle to the floor. And it was almost comically large against the background of the room. My silhouetted body was jet black, with no features at all. It looked like a void within the room, a cut out space removed from reality. Against this black form or lack of form, brilliant white chevrons of light pulsed down my limbs from the centre to the ends of my hands and feet. Starting from under my chin, the heart region, the light pulsed out to the tips of my toes and hands. Again the vision was not really looking like my body, just a cut out black body shaped silhouette.  It looked like a diagram, a representation of a reclining body.]
+This did not really trouble me too much. I felt a little disorientated and once satisfied that I could still connect with “normal” reality, I lay down again and closed my eyes. This time without the blindfold which had been bothering me.
+With the blindfold off, almost immediately the visions intensified in colour, light and movement. All the faces and animals were still here with me, apart for the giant entity from the top tier (which I have no recollection of sensing its presence again during the trip?).
+The three-tiered theatre and its occupants is changing, and a different aspect of the vision is taking place. The vision is now dividing itself in to two vertical halves. There is a gradient of darkness from left to right. A bright white light is dawning at the far right of my vision.
+Again, all this is misleading, a better way to put it maybe, is that I now have simultaneous dual vision superimposed across my inner vision of light and darkness. The visions are still central but are diminishing into another form. The globular organic blobs are metamorphosing into a colourful circular nebulous cloud of light which is starting to rotate against the dark background. As if I have been transported into outer space and am witnessing actual nebulae. The spinning nebulous cloud is now beginning to be stretched backwards and upwards into the form of an inverted vortex, whirlpool, tornado, tunnel structure, at its centre is darkness like the impression of a black hole in space (although the colourful circular nebula of light that surrounds it makes that image impossible to rationalize?). I am being drawn to the opening of this cosmic vortex within the darkness, and panic is rising.
+[I think my eyes are briefly open at this point, or I’m opening them to avoid the panic setting in. To my left of vision, the room is quite dark, but to my right the corridor to the toilet is brightly lit up.]
+25.05.20 Note: The order is all wrong here because of the superimposed nature of events. What was clear to me at the time was that both my inner and outer vision were converging and influencing events.
+[I’ll put this here, but I’m not sure when I first noticed this. At some point I opened my eyes and seem to have been transported to another place and time. With my eyes now open and observing the room, I was now somehow back in another place where I had experienced a bad trip during my college years twenty plus years in the past.
+I was now somehow back in another place where I had experienced a bad trip during my college years twenty plus years in the past.
+We had overdone it on LSD, taking multiple tabs in a very short period, we had 100’s in our possession, so God only knows how many we took? As well as this, we had consumed the usual cocktail of other drugs and alcohol. It was a hateful night that I had tried to eliminate from my memories. A night that brought on a period of mental anguish, anxiety and depression that took at least a year to climb out of.
+I was now very much in that same room as back then. I had the feeling I was paralyzed laying on my side with my head pinned to the floor, unable to move, or even talk! Just as I had been that distant night. If I closed my eyes, then as now, the visions where frightful in their intensity. The blasting relentless kaleidoscopic visions accompanied with hateful noise and sounds I could not escape from.
+Now as then, time had been displaced, and I could not tell if this was a past memory, or it was prescience. At the time I also experienced this, was this a self-fulfilling premonition, a mild personal Ouroboros that I could not escape from. The panic and confusion were the same, and this is where the ceremony started to fall apart and turn into the bad trip I was to reflect on over the coming months after the experience]
+I close my eyes again and the inner world vision has somehow mimicked the outer view. The view is now divided into two vertical segments of gradient darkness and light. With the vortex nebula against the darkness to the left, and the dawn of an ultra-bright white light rising out of the darkness to the right. With fear building within me, I somehow make a conscious decision to free myself from the vortex and the darkness and focus on the light to the right. When I say conscious decision, I probably mean panic-stricken decision!
+Almost immediately I realized that this was somehow a mistake of judgement. And it has been nagging within me since the ceremony. I believe it began to taint my experience negatively from here on in and has caused me much soul searching since. There were other more drastic external influences that really bummed me out to come, but my thoughts then as well as now are, I chose to run headfirst in to the “Nightmare Realm” and the bad trip began [3].
+Once consumed by the white light, the intensity of the visions exploded. As described above in the description of the visions of the ‘Nightmare realm’ this kaleidoscopic geometrical world was a whole new level of intensity, and it separated me from all sense of the waking reality.
+Against the unimaginable brightness of the white light that pervades everything there, the colours were so vivid they were beyond anything seen in this the waking realm. I would say neon, but even more vivid, intense and bright. Shimmering and vibrating faceted like diamonds, all except for the sneering faces (my guides) they were still flat colored, opaque, which differentiated them from the explosion of colour and movement that existed in this realm. (Although they were flat, opaque, blocked in colour. These colours were also fantastically bright and vivid. Like you would find on a drawing program on a PC).
+Again, the sneering faces were superimposed or incorporated into the bright kaleidoscopic geometrical world, but at the same time appeared separate, above or beyond. Like for example, the residual blotches of patterns left by a flashlight retained on the retina as you also try to view the outer world. Both are viewed simultaneously but with prominence interchangeable to your focus.
+Everything now was moving in a self-devouring way, rolling in and then out on itself, like a snake uncoiling infinitely. (See the Mandelbrot sets video above). Geometrical kaleidoscopic patterns made up of scales/plates all folding over themselves and creating a myriad of patterns in motion. Offset with over long periods of complete stillness of the vision in my internal vision that brought on panic in me.
+They were somehow evolving into something else, and it was not something that I could recognize as being alive or organic. Or even as being separate entities. It was so fantastic; I believe that it is beyond my imagination or my subconscious to create, even if I wanted to. And I’ve not been able to replicate it in my imagination in any way since the experience. (Except for minute glimpses before I fall asleep, and not even that. There is light and some form of matrix, pattern, but it won’t reveal itself no matter how hard I concentrate).
+This was the beginning of the next realm, the realm I thought of at the time as something of a nightmare or even at times it felt like torture. But really, with hindsight, I realized it was a test, a trial, a rite of passage so to say? I soon concluded it was a form of tough love in extremis, delivered by an unseen hand or from my inner self maybe? I knew, even then, that I had to get through it to get to the goal of the whole experience. It involved nothing else but dissolving my mind and ego. Giving everything and everyone I knew up, and as we will come to shortly ‘allowing myself to be devoured by the alligator!’.
+[Horrible noise in the room. I think it’s coming from the speakers. I can’t tell if it’s the medicine distorting the music or if they are actually playing this terrible thumping electronic mechanical sound by intention. I have experienced LSD distorting music until it becomes unrecognisable before. I’m beginning to get really annoyed. This feels like control by the organisers of the ceremony, something I was concerned about leading up to the ceremony. I’m getting more and more annoyed.
+I sit up, take my blindfold off and try to get the attention of one of the organisers. I now have a terrible headache, which is getting worse and worse. The sounds coming from the speakers are intensifying the pain and annoyance.
+Everything is distorted, the room is quite dark, the ceremony organisers are dancing (?) in the middle of the floor. They seem oblivious to us/me. The leader of the group is meddling with the sound system, which is making me even more angry.
+Eventually the event leader
+came over to me. We discuss the noise/music. His face looks like I can look directly through his skin to see the skull beneath, and it has been superimposed with the face of representation of the Alice in wonderland classic Cheshire Cat illustrations and an anaconda. His face takes up my whole field of vision, as if he’s only centimeters from my own face. This might sound nightmarish now, but at the time it was reassuring for me, I can’t explain why? [2].
+The organizer rationalized the problem with the noise/music, which at the time, appeared to make some sense to me. On later reflection I can’t remember the exact solution he had given me. It seemed like some half-baked “New Age” or Buddhist cod-philosophy, but it was enough to distract me. I lay down and put my blindfold on again and returned to the inner visions. I tried to find some solution to the electronic noise problem, but the headache still intensified.
+I tried to find some solution to the electronic noise problem, but the headache still intensified.
+The headache is intensifying, the pain is unbearable. My head feels as if it has swollen to double its size, I have no feeling in my hands. I sit up and take the blindfold off again. My hands appear to be visually swollen, they looked like oversized vegetable tuba’s and are grey with black fingernails. The room is still recognizable, but I am still having flashbacks to the room I had the bad trip in while at college. I’m completely confused and disorientated]
+&gt; Here is where I think I had the conversation with
+the event organizer whose face was superimposed with the anaconda?
+This where I stopped writing this story. But below is a list of headings from my diary to prompt further writing.
+02-09-21 Starting writing again maybe?
+Reminders for further writing on the event:
+Being aware of others in the room crying screaming etc.
+Me laughing, and being reminded by the organisers the morning after?
+Feeling nauseas, vomit beginning to rise, but unable to vomit. Dry heaving, drinking water. Clinging to the sick bowl to keep me grounded in “reality” and hold back the fear.
+The guy next to me purging relentlessly.
+Being disgusted with the filth of our reality.
+Seeing myself as the “meat” body, and separation from it. Regarding the meat body as a 3rd person entity.
+Having a mild out of body experience. Hovering above the meat body and tending for it.
+Slight purging.
+Frustration of not knowing what questions to ask!
+No purging, no vomit, getting frustrated again.
+Another moment of panic,
+Helped by the Polish attendant. A soothing hand on the heart.
+X-ray like vision.
+Everything is changing again.
+Calming down.
+A deal with my tormentor/myself. My terms, a place in heaven with my beloved family.
+I realise I love my family more than anything. A long way from being ready to let go.
+My infantile mind pointed out to me.
+Agreeing to losing the ego for now, acceptance that my grasp on reality is childlike.
+A change of pace.
+Letting go at last.
+Entering the question realm.
+Foolish questions, instant answers.
+Better questions that I already know the answers to.
+Everything is so obvious.
+Surrounded by visions of animals in my inner world.
+My Mantra is given to me, “allow yourself to be devoured by the alligator”.
+Peace
+Drifting back into reality on a wave of ecstasy
+Totally at one with the world.
+The trip is ending
+Coming down, don’t want to leave.
+Unfinished business.
+A realization that my expectations were too high, I foolishly expected to meet God! And my intentions were weak with my questions not strong enough.
+A missed opportunity not helped by my distrust of the organisers of the event.
+Not convinced I took Ayahuasca?
+A deep feeling of sadness and a little betrayal. An opportunity missed.
+Awake
+Struggling to get through the morning formalities with the group. No trust in the organisers.
+Home
+My beloved family.
+Start trying to write about my experience.
+After effects.
+Still disappointed.
+Becoming an evangelical for Ayahuasca!
+Contemplate trying again.
+Two years later, what are my thoughts?
+[1] I seemed to have convinced myself during the trip that I had actually taken a magic mushroom brew. Especially as the later visions, sensations and surroundings revisited and replayed were almost identical to a bad mushroom trip that I had experienced twenty-five years earlier. The whole experience was tainted by this persistent thought.
+[2] Since taking the Ayahuasca I watched the film ‘Blueburry’ (Renegade for US release). In the movie, the two world depictions of the interaction between the protagonist while under the influence of the medicine, and the shaman are very close to the image I am recounting. There are lots of special effects in the film that nearly capture the essence and imagery of my own trip. But one dramatic difference is the darkness and horrific images in the film. This I didn’t experience. Where the positive imagery is quite close to my experiences. The luminescence and colours of my own trip are far more intense than those portrayed in the movie.
+[3] This was not the only thing. As I’ve mentioned already in point [1], there were other influences that led to the negative aspects of the experience. The electronic sound which I will come to later was probably the most influentially negative aspect of the whole experience.
+Exp Year: 2024
+ExpID: 117847
+Gender: Male
+Age at time of experience: 55
+Published: Jan 13, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Ayahuasca (8) : Difficult Experiences (5), Music Discussion (22), Entities / Beings (37), General (1), Group Ceremony (21)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

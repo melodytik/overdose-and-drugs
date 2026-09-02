@@ -1,0 +1,274 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>虽然令人失望, 但并非全部垃圾</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mdpt.html'>← MDPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>虽然令人失望, 但并非全部垃圾</h1>
+<div class='sub-title'>MDPT - Erowid Exp - &#x27;Disappointing but Not Complete Junk&#x27;</div>
+<div class='meta'>作者：jezy Citation · 日期：Feb 3, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=112817' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>美国
+(粉末/晶体)
+乙胺
+美国
+3&#x27;,4&#x27;-甲基二氧化-N-三-丁甲 - MDPT (tBuONE)
+首先,我还有两个学期的大学.
+我一直在努力保持专注, 完成任务,
+我订购了MDPT, 认为它是另一种物质,
+他们没有取消,而是给了我双倍的钱.
+我曾经使用过的兴奋剂:BK-MDMA,MDMA,可卡因,甲基,安非他命,非处方多动症药,咖啡因,美,
+我喜欢兴奋剂, 因为它们让我比正常脑雾更有生产力.
+经过查看MDPT, 我意识到我没有得到我认为的产品.
+太多的MBXX物质.
+我注意到它几乎没有任何信息.
+没有经验,除了这一个,没有剂量信息,没有ROA方法,
+我发现一个帖子指示从300-500毫克开始,
+我还发现了相互矛盾的信息,
+后者似乎更有可能, 因为它通过所有ROA起作用, 而我认为前药需要口服才能完全被肝脏代谢.
+我不确定.
+经验报告中缺乏细节,
+晚上11:33 - 500毫克 (口服): 胃空,自下午2点以来没有吃东西.
+开始感觉到一些...
+我认为.
+可能是安慰剂.
+上午12:45 - 130毫克 (口): 感觉更有活力.
+没有烧伤.
+1:07AM - - HR是66岁, 感觉刺激和说话.
+没有太多的欣喜,如果有的话.
+我发现自己经常要跑去所, 通常是刺激剂起作用的迹象,
+开始有轻微的张.
+我会吸入另一个100毫克.
+没有烧伤,滴水轻微.
+1:59AM - 300mg (口服): 肯定感觉到刺激,高兴,说话.
+这不是很强大.
+我没有注意到任何副作用.
+我还没有像我希望的那样强烈地感觉到它.
+感觉好像我在滚动,但不是,这样一个戏弄.
+鼻子里已经堵住了.
+现在感觉很好.
+不想下来.
+仍然感觉很好.
+感觉大致相同, 似乎有点不确定.
+我头痛,鼻子也堵住了.
+虽然做一些有成效的事情.
+6:29 AM - 仍然在继续,头痛是困扰我服用泰伦醇.
+8:14 AM - 几乎完成了2g, 服用了另一个Tylenol和头痛消失了.
+试着吃完剩下的,然后再服用一些埃蒂索拉姆.
+我慢慢地吸入了其余的物质, 大约200毫克.
+现在看来效果似乎没有什么不同.
+虽然清醒, 埃蒂索拉姆正在让我感觉更好.
+休息HR在76
+很快就开始玩Overwatch, 很享受,
+我也开始学习FL Studio.
+我不认为这是一种很好的药物, 除了轻微的情绪提升和清醒,
+确实感觉更像是甲基, 而不是布罗普里昂,
+我建议不要花钱买它,
+我认为口腔和鼻腔的路径很好,直肠的管理可能会感觉更好,
+虽然有娱乐的潜力, 但很难达到,
+尽管如此, 经历并没有完全让我失望.
+让我们说它是相当令人失望的.
+没有太多的高兴感.
+时间表: 112817
+发布时间:2019年2月3日
+MDPT (861):一个人 (16),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Disappointing but Not Complete Junk
+MDPT
+by
+jezy
+Citation:   jezy. &quot;Disappointing but Not Complete Junk: An Experience with MDPT (exp112817)&quot;.
+Erowid.org
+. Feb 3, 2019. erowid.org/exp/112817
+DOSE:
+T+ 0:00
+500 mg
+oral
+MDPT
+(powder / crystals)
+T+ 0:56
+300 mg
+oral
+MDPT
+(powder / crystals)
+T+ 1:12
+130 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 1:56
+100 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 2:26
+300 mg
+oral
+MDPT
+(powder / crystals)
+T+ 2:49
+90 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 3:37
+130 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 4:34
+50 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 5:12
+70 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 6:15
+70 mg
+insufflated
+MDPT
+(powder / crystals)
+T+ 8:45
+repeated
+insufflated
+MDPT
+(powder / crystals)
+T+ 0:00
+Etizolam
+BODY WEIGHT:
+155 lb
+3&#x27;,4&#x27;-Methylenedioxy-N-tert-butylcathinone - MDPT(tBuONE)
+Well to begin, I have two semesters of college left. I have been struggling keeping focus and finishing tasks and have been browsing for RCs that may possibly aid me until I can get a therapist to help. I ordered MDPT thinking it was a different substance, I did not read the letters close enough. They wouldn&#x27;t cancel it but instead gave me double.
+Stimulant wise I&#x27;ve done: BK-MDMA, MDMA, Cocaine, Meth, Amphetamine, OTC ADHD Meds, Caffeine, Mephedrone, and potentially some others. I love stimulants as they allow me to become 100x more productive than I am with my normal brain fog.
+After looking up MDPT, I realized I did not get the product I thought I was. Too many MBXX substances. I noticed that there was hardly any information on it at all. No experiences except the one here, no dosage information, no ROA methods, nothing really. I found a post that instructed to start from 300-500mg so I thought that was my best bet. I also found conflicting information such claiming it was a prodrug and others claiming it was an analog of Methylone. The latter seems more likely because it works via all ROAs, while I think a prodrug would need to be taken orally to be fully metabolized by the liver. Not sure.
+Please excuse the lack of details in the experience report because I was preoccupied doing other things.
+11:33PM - 500mg (Oral): Empty stomach, haven&#x27;t eaten since 2pm.
+12:29AM - 300mg (Oral): Starting to feel something... I think. Probably placebo.
+12:45AM - 130mg (Snorted): Feeling more energetic. No burn.
+1:07AM - HR is 66, feeling stimulated and talkative. Not too much euphoria if any.
+1:29AM - I find myself having to run to the bathroom often, usually a sign of a stimulant working however might&#x27;ve just be because I ate a big meal last night.  Getting slight jaw tension. Going to snort another 100mg. No burn, drip is mild.
+1:59AM - 300mg (Oral): Definitely feeling the stimulation, euphoria, talkativeness. It&#x27;s not very overpowering. I haven&#x27;t really noticed any side effects.
+2:22AM - 90mg (Snorted): Still not feeling it as strongly as I&#x27;d like. Feels like I&#x27;m rolling but not, such a tease. It&#x27;s getting really clogged up in my nose.
+3:10AM - 130mg (Snorted): Feeling pretty good. Don&#x27;t want to come down.
+4:07AM - 50mg (Snorted): Still feeling nice.
+4:45AM - 70mg (Snorted): Feels the same for the most part, seems to be coming down a little not sure.
+5:48AM - 70mgish (Snorted): Getting a headache and my nose is clogged up. Doing some productive stuff though.
+6:29AM - Still going, headache is bothering me took a Tylenol.
+8:14AM - Nearly finished the 2g, took another Tylenol and the headache is gone. Gonna try to finish the rest and then take some etizolam.
+8:14AM to 10:41AM - I slowly snorted the rest of the substance, about 200mg. Didn&#x27;t seem to make any difference in effects at this point.
+10:41AM - Coming down, starting to get drowsy although wide awake, the etizolam is making me feel better. Resting HR is at 76.
+Most of the time I was just playing Overwatch and enjoyed it and felt it improved my aim. I also started learning FL Studio. I wouldn&#x27;t say this is a good drug for really anything other than a mild mood lift and awakeness, the required dosage is just too high. It did feel more like Methylone than Buproprion as I&#x27;ve had both. I would recommend not spending money on it and only take it if offered for free and be careful. I think oral and nasal routes work just fine, rectal administration probably feels better but I wasn&#x27;t really up to it.
+So While there is some recreational potential, it&#x27;s hard to reach and not worth the time or effort. Still though, wasn&#x27;t completely disappointed with the experience. Let&#x27;s just say it&#x27;s pretty underwhelming. Not much euphoria.
+Exp Year: 2019
+ExpID: 112817
+Gender: Male
+Age at time of experience: 24
+Published: Feb 3, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDPT (861) : Alone (16), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,222 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>编解 - 脑膜 - &quot;浮动的快乐,随后是呼吸衰竭&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/codeine.html'>← 可待因</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>编解 - 脑膜 - &quot;浮动的快乐,随后是呼吸衰竭&quot;</h1>
+<div class='sub-title'>Codeine - Erowid Exp - &#x27;Floaty Bliss Followed By Respiratory Failure&#x27;</div>
+<div class='meta'>作者：Respiratory Failure&#x27; Floaty Bliss Followe · 日期：Jul 7, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=112962' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>我是一个相当有经验的吸毒者,
+我在青春期后期和成年后的整个生活中一直是个吸毒者, 伴随着多种类型的MDMA,可卡因,,胺和,
+现在我正在攻读研究生学位, 并且得分很高 (事实证明我学了哲学).
+无论如何,大约一年前, 当我头痛的时候,
+这是我第一次真正的可代因体验, 在120毫克的第一剂量我感到难以置信.
+我不想把这些东西扔进垃圾桶. 我不想把这些东西扔进垃圾桶.
+2018年春天, 我慢慢地把这些药丸吞掉, 发现它们的成潜力非常高, 但由于供应有限, 我设法把药丸量化,
+我忘记了可代因,直到今年冬天,
+我忘记了可代因,直到今年冬天,
+这种温暖和舒适的感觉又回来了.
+我相信这药物终于可以帮助我克服社会焦虑和压力 (我已经用过醇治疗这种情况,
+我买了自己的药, 这次是60毫克的可代因酸盐药.
+只有这些药物使我过量服用了.
+我会详细介绍那天晚上的时间表, 因为我很震惊服用药后多久才开始过量服用.
+我在酒吧, 不是喝酒,
+我开始感到温暖和舒适,所以再服用60毫克的药片,
+我认为我已经做了足够的研究来找到240毫克的安全剂量
+我认为我已经做了足够的研究来找到240毫克的安全剂量
+所以我又吃了两粒药.
+现在我感觉非常幸福,比平常更幸福,我弹钢琴和唱歌,
+晚上9点10分,我的同事打电话告诉我她要回家.
+她问我是否想在房子外面见她, 享受在城市里散步,
+这使得我消耗的可代因总量增加到300毫克.
+我已经抽了一根大约0.25克大麻的烟,
+21.35 我感觉非常棒.
+我从来觉得可代因是温暖的, 但这是我第一次理解它是什么样的&quot;漂浮&quot;.
+感觉就像我和我的伙伴一起飞回家一样.
+接下来的一个小时, 我感觉很好.
+我在电脑上播放了一款很好的策略游戏, 播放了一些很好的音乐,
+我开始感到恶心.
+我听说有些人因吸食阿片类药物而感到恶心, 但我自己从未有过,
+我认为如果我能吐我可能会觉得好了,然后躺下.
+这并没有发生.
+我无法让自己吐,所以我回到床上,从所到卧室的路上昏倒,
+我醒来时,我的伴侣在尖叫,我很困惑,
+我注意到我的嘴唇在镜子里是多么的蓝色, 我的呼吸是非常非常劳累.
+我只想睡觉, 但每次睡着, 呼吸都会慢慢慢慢慢,
+身体的四肢都很, 偶尔会抽几秒钟.
+持续了一个小时, 直到午夜,
+我曾经经历过恐慌发作, 我曾经说服自己,
+我的肺部不做我告诉他们要做的事情, 我的大脑和身体之间完全断了联系.
+我的肺部不做我告诉他们要做的事情, 我的大脑和身体之间完全断了联系.
+我真的认为这就是结束.
+我无法解释它是多么奇怪的感觉就像我快要死, 但完全和平与这在某种程度上因为我有多搞.
+我很幸运我的伴侣支持我度过这一切.
+我真的认为如果她没有在那里我不会意识到发生了什么,我会死了.
+我不打算假装我再也不会服用可代因, 因为我会,
+时间表: 112962
+发布时间:2019年7月7日
+代代因 (14):一般 (1),火车毁和旅行灾难 (7),过量服用 (29),健康问题 (27),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Floaty Bliss Followed By Respiratory Failure
+Codeine
+by
+PharmaBoy
+Citation:   PharmaBoy. &quot;Floaty Bliss Followed By Respiratory Failure: An Experience with Codeine (exp112962)&quot;.
+Erowid.org
+. Jul 7, 2019. erowid.org/exp/112962
+DOSE:
+T+ 0:00
+60 mg
+oral
+Codeine
+(pill / tablet)
+T+ 0:30
+60 mg
+oral
+Codeine
+(pill / tablet)
+T+ 1:30
+120 mg
+oral
+Codeine
+(pill / tablet)
+T+ 2:10
+60 mg
+oral
+Codeine
+(pill / tablet)
+BODY WEIGHT:
+160 lb
+I&#x27;ll start with the usual prelude; I am a fairly seasoned drug user having explored most major areas of recreational drugs. For the latter part of my teenage years and for all of my adult life I have been a stoner, this has been supplemented with different phases of MDMA, cocaine, benzos, ketamine and shrooms, but it is always weed that I come back to. During this time I have managed to successfully get through university with good grades, maintain an alright physical job in maintenence, and I am now undertaking a postgrad degree and have been scoring very high grades (turns out I get philosophy).
+Anyway, around a year ago my boss offered my some codeine phosphate at work when I was experiencing a migraine. Knowing its potential for recreational use I took the pills from her but kept them for a later date, this was my first proper codeine experience and at 120mg for a first dose I felt incredible. When my old boss retired she left behind a couple of hundred 30mg codeine/500mg paracetamol tablets which I managed to save from being thrown in the trash with the rest of her stuff. Over the spring of 2018 I slowly gobbled my way through these, I found the addictive potential to be very high, but with a limited supply I managed to ration the pills so that I wasn&#x27;t taking them every week, avoiding what I&#x27;ve heard to be a nasty withdrawal.
+I forgot about codeine until this winter when one of my friends offered me some
+I forgot about codeine until this winter when one of my friends offered me some
+, and then the familiar feeling of warmth and comfort was back. I was convinced that this was the drug that would finally help me with social anxiety and stress (I have been through this process with benzos so I should really have seen the danger signs coming). Once my friend&#x27;s supply ran dry I bit the bullet and bought my own pills, this time 60mg codeine phosphate pills.
+It was these pills that forced me into an overdose. I will detail the timeline of that night, as I was shocked at quite how late after I took them that the overdose set in.
+19.00: I am at the pub, rather than having a drink I decide to crack out the codeine and have one 60mg tab.
+19.30 I am starting to feel warm and comfortable so take another 60mg tablet, I leave my partner at the pub and return home to enjoy the relaxation whilst my friends and partner get drunk.
+20.30 By this point I am in a very familiar state of happiness but I decide to push it further, I thought I&#x27;d done enough research to find 240mg a safe dose
+I thought I&#x27;d done enough research to find 240mg a safe dose
+so I take another two pills.
+21.00 I am now feeling very blissed out, more so than normal, I play some piano and sing and I find the anxiety I usually have with my music has completely disappeared.
+21.10 My partner calls to let me know she&#x27;s coming home. She asks if I&#x27;d like to meet her outside the house to enjoy a walk through the city to end her night, so I say &quot;yes&quot; and take another 60mg tablet before leaving the house. This pushes my total codeine consumption to 300mg. During this time I have smoked one joint with about 0.25g of cannabis in it, some nice Stardawg.
+21.35 I am feeling fucking amazing. I&#x27;ve always found codeine to be warm, but this was the first time I understood what it was like to be &#x27;floating&#x27;. It felt like I glided home with my partner. For the next hour and a bit I felt great. I put on a good strategy game on the Pc, got some nice tunes going and set myself up for a nice slow night.
+23.00 Now I began to feel sick. Fine I thought, I&#x27;d heard about people feeling nauseous from opioids but I never had myself, so I assumed that this was just my codeine limit. I thought that if I could puke I&#x27;d probably feel okay again, and then have a lie down. This did not happen. I couldn&#x27;t get myself to puke so I walked back to my bed and passed out on the way from the toilet to the bedroom bruising my face badly as I fell. I woke up with my partner screaming and I was very confused but still very slow and calm. As I stood up I noticed how blue my lips were in the mirror and that my breathing was very very laboured.
+23.05 I got myself into bed and all I wanted to do was sleep, but every time I nodded off my breathing would get slower and slower so I wrapped a cold cloth around my head to stay awake and forced myself to concentrate on breathing. My limbs were all very twitchy and would periodically spasm for a few seconds. This continued for an hour until midnight at which point I no longer had to focus on breathing.
+I have experienced panic attacks before, and I have managed to convince myself that I had overdosed before but this was the real thing. My lungs were just not doing what I told them to do, there was a complete disconnect between my brain and my body.
+My lungs were just not doing what I told them to do, there was a complete disconnect between my brain and my body.
+It was fucking scary and I genuinely thought that this was the end. I can&#x27;t quite explain how bizarre it is to feel like I&#x27;m about to die, but to be completely at peace with this on some level because of how fucked up I was. In retrospect this is terrifying and I am lucky that my partner supported my through it.
+I honestly think if she hadn&#x27;t been there I would not have realised what was happening and I would be dead.
+I&#x27;m not going to pretend that I&#x27;ll never do codeine again, cause I will, but I&#x27;ve learnt a very valuable lesson in dosing, and i will never go over more than 200mg in the space of 6 hours.
+Exp Year: 2019
+ExpID: 112962
+Gender: Male
+Age at time of experience: 26
+Published: Jul 7, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Codeine (14) : General (1), Train Wrecks &amp; Trip Disasters (7), Overdose (29), Health Problems (27), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

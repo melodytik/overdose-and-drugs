@@ -1,0 +1,280 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 毒 - 毒</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/opiates.html'>← 鸦片类</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 毒 - 毒</h1>
+<div class='sub-title'>Heroin - Erowid Exp - &#x27;Dope F(r)iend&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Apr 2, 2006 · 途径：鼻腔 · <a href='https://erowid.org/experiences/exp.php?ID=39517' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>我记得我遇到了我的朋友乔什.
+我和我的一群朋友每天都在吸大麻, 另外,
+我是一个被坏的中产阶级郊区居民,
+不管怎样,我的朋友乔什...
+我偶尔会从这家伙那里买一些水培制冷剂,
+乔什有着一种可疑的声誉, 似乎在一些可疑的交易中失去了别人的钱.
+尽管如此, 他是一个很酷的人, 我们成为朋友.
+后来我偶然发现他正在养活一个健康的海洛因成,
+无论如何,当然我不得不尝试, 经过一些强烈的说服,
+我跳过工作的一天,去了他的房子,和雷半袋的苦味的狗,让我上帝为晚上的其余部分.
+我是上帝45分钟, 然后恶心开始,
+我们开始度过一个精彩的夜晚,
+我一直想象它是非常温和的; 灌输一种压倒性的满足感和一般的幸福感.
+,我完全错了!
+当然它确实会做这些事情, 但同时, 这种东西让你高.
+试图看起来像个直男, 虽然我吸了大量的药物 (正如我第一次吸的药物!)
+于是我回家, 立刻睡觉了.
+在夜晚使用海洛因后睡觉有一件事... 很棒!
+我那天晚上睡了6到8个小时,
+起床后,我感觉非常好, 除了,
+在接下来的两年半里,
+我偶尔会来埃罗维德, 嘲笑那些破坏人生的海洛因成经历,
+毕竟,我是一个天真,富裕的白人中产阶级的共和党郊区社会,
+...除了 (最终) 下一次我和乔什可以开车到城市,
+我希望人们在维持海洛因成的过程中做的事情只是陈词滥调,
+那些偷钱,抢劫以资助毒品的犯罪分子,
+但尽管我不愿意写下这些话,
+我从富有的父母那里偷钱, 卖掉所有有价值的东西,
+虽然没问题,只要我能和乔什在一起, 吸些该死的毒品,
+我对自己说,我不是上,我只是在试验 (这是400次),我可以随时停止.
+我支持这一点, 我能够从高中毕业并成功完成2年的大学 (高于平均水平的表现)
+他们一定知道我减肥了,我不再关心自己的外表, 在我的第一个课时,
+我唯一学到的东西是我能吸多少毒,
+这让我了解了教育制度, 但我不知道究竟是什么,
+我是高,男人.
+我应该知道事情不能像以前那样持续很长时间,
+乔什有一天从他的一个朋友的家里打电话给我.
+他和一个叫Jocelyn的女孩一起逃离了康复中心, 她有300美元,
+这真是太好了!
+我会在那里的人...
+于是我们开车到市区, 了240美元买了3包毒品 (每包10包),
+整天我都知道乔什在康复中心接受美沙治疗,
+他们租了一间酒店房间过夜, 所以我们回去休息, 享受高潮.
+我和乔什开车去他的朋友家 (距离这里大约20分钟路程).
+我一站起来, 就觉得自己很怪.
+我觉得很高兴, 但实际上是像正常的毒品十倍.
+我们地走到车里, 带着一捆毒品,
+约5分钟后, 我让乔什开车, 因为我完全醉了,
+五分钟后, 他也停下来,
+所以我们四处走来走去, 认为WTF已经结束了... 我们都是专业人士,
+我们吐了,抽了几支烟, 感觉有点好了,
+我们在7-11停下来, 买一些含咖啡因的饮料,
+狗! 这就是它.
+接下来的一个小时对我来说是模糊的, 我们开车回到我们休息的地方,
+我们找不到毒品, 并且真的很生气, 也有点害怕.
+很久以前我们最后一次喝过 (至少几个小时).
+我们放弃了,开车回酒店.
+我不知怎么说服乔斯琳给我一个包,
+我还在疯狂的高从小量的毒品我做了3-4小时前, 这应该是惊人的,
+在车上我的朋友乔什说我是他的最好朋友,男人.
+我们将永远是朋友,当我们在30多岁的时候,男人.
+我们拥抱,这是奇怪的,因为我从来没有做过这样的事情,
+我想解释这次高潮有什么不同.
+整个过程中, 我觉得自己正处于完全放弃的边缘,
+思考是极其困难的, 我的视力似乎不同,
+而恶心和吐是令人发指的.
+我一直有半弱的胃, 如果我做任何中等到大量的毒品,
+尽管如此,这件事让我整晚每隔15分钟就吐一次.
+怪人! 没有!
+我开车回家, 听着音乐的声音得很大 (这有助于你开车,
+我只要能看电影, 经常吐,
+我第二天早上醒来听到一个门.
+我醒来时, 仍然感觉自己从前一晚上了起来,
+我打开了门.
+这是一个警察,狗!
+我立刻怀疑和害怕,问他他想要什么.
+你是乔什的朋友吗?
+(,不,我正在思考.
+他昨晚做了一些疯狂的事情, 就像我离开后偷了一辆车,
+是的,我是他的朋友,为什么?
+他昨晚在[酒店名称]去世.
+(该死的是什么?)
+我们想问你一些问题, 并填写发生的事情的报告.
+所以我的最好的朋友死了.
+他的死亡与海洛因有关.
+我被审讯了两个小时, 必须提交一份报告,
+我只能带他去城市, 整晚都和他一起吸毒,
+他们只想要卖给他的混蛋.
+典型的
+这里是搞的事情.
+我不知道他为什么死了.
+我们已经做了多年了, 我们从来没有碰过针, 我们做了少于我们通常那天晚上 (尽管这是一些奇怪的毒品),
+如果有人读到这篇文章,
+我没有理由认为他会有任何麻烦.
+后来我记得他提到他在康复中服用美沙,
+另一方面,他今晚的吸毒量明显低于他过去的吸毒量,
+请有人解释一下.
+这就是我知道我已经完成了的地方.
+第二天,正如我最好的朋友的死亡, 我完成了我从他的女朋友两天前,
+两天后, 我又吸了同样的毒品.
+我无法控制自己.
+我知道如果我认识一个有毒的人, 我会买一些.
+我知道如果我现在有毒品, 我会上.
+这几乎是两年前, 我从那时起就没有碰过这种东西, 但这是一个斗争.
+这种渴望也很奇怪.
+这甚至不是日常的事情.
+我可以忍受三周的海洛因禁忌, 活得好像从来没有听说过.
+有一天,对毒品的渴望会让我发疯, 我需要100%的意志力,
+我希望我能戒除海洛因,
+我们会再次见面.
+和平
+其他:
+海洛因 (27):回顾 / 总结 (11), 艰难的经历 (5), 糟糕的旅行 (6), 火车事故和旅程灾难 (7), 和习惯 (10), 过量服用 (29), 旅行后的问题 (8), 多天的经历 (13), 二手报告 (42), 各种 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Dope F(r)iend
+Heroin
+by
+Marsupial
+Citation:   Marsupial. &quot;Dope F(r)iend: An Experience with Heroin (exp39517)&quot;.
+Erowid.org
+. Apr 2, 2006. erowid.org/exp/39517
+DOSE:
+insufflated
+Heroin
+(ground / crushed)
+BODY WEIGHT:
+150 lb
+I remember meeting my friend Josh.  At the time, I was an aspiring recreational drug user - my group of friends and I would smoke marijuana on a daily basis, and additionally pounce on the opportunity of doing anything else that came our way (mostly LSD, mushrooms, ketamine, cocaine, and E).  I was a spoiled, upper middle class suburbanite on a self destructive and introspective path of indulgence under the pretense of some vague and undefined spiritual enlightenment (this mostly from all the LSD!).
+Anyway, on to my friend Josh...  I would occasionally buy some hydroponic reefer from this guy, but only if my other contacts were exhausted at the moment.  You see, Josh had a kind of reputation for being shady; for conveniently seeming to lose peoples&#x27; money in supsicious deals gone awry.  That aside though, he was a cool guy, and we became friends.
+Sometime later, I happened to find out that he was nursing a healthy heroin addiction, which spoke volumes about his aformentioned reputation among my friends.  Anyway, of course I had to try it, and after some intense convincing, Josh said he&#x27;d hook me up.  I skipped work one day, went to his house, and railed half a bag of this bitter tasting shit that made me God for the rest of the night.  Well, I was god for about 45 minutes, then the nausea set in, and I demoted myself to demigod status.  After puking though, I felt just fine, and we proceeded to have a terrific night doing nothing in particular.
+A little something I noticed about the actual experience of heroin itself.  I had always imagined it to be very mellow; to instill an overwhelming sense of contentedness and general well-being.  Wow, I was totally wrong!  Of course it does do these things, but at the same time, this shit gets you HIGH.  Trying to appear straight while heavily doped up (as I most certainly was that first time!) can often be an exercise in futility (it can be hard to walk, hard to talk without slurring, hard to DRIVE).
+And so I went home and promptly went to sleep.  One thing about sleeping after a night of heroin use... its great!  I slept maybe  6 or 8 hours that night, yet it felt more like 20.  I awoke the next morning feeling absolutely terrific aside from vague nausea, and so it began.  For the next two and a half years I was a dopefiend in every sense of the word.  I would come to erowid occasionally, and laugh at the life-shattering heroin habituation experiences, thinking it would never happen to me.  I was, after all, a naive, well-to-do subject of the white upper middle class republican suburban society, with not a care in the world....
+...Except (eventually) when the next time me and Josh could drive to the city and get a few bags of dope to get high with was (probably 5 days out of every week).  I&#x27;d like to say that the things people do while maintaining a heroin addiction are just cliches, and don&#x27;t happen to &#x27;normal&#x27; people.  The people that stole money and robbed to fund their dope habits were just city dwelling criminals that didn&#x27;t really exist, or so I thought.  But as much as I hate to write these words, it happened to me.
+I&#x27;d steal money from my rich parents, I sold anything that I owned of value, and ripped off my previous pothead friends who suddenly seemed to be avoiding me.  That was fine though, as long as I could hook up with Josh and sniff some fucking dope, I was A-OK.
+During this entire time, I would lie to myself and say that I wasn&#x27;t addicted, that I was just experimenting (for the 400th time), and that I could stop anytime.  I supported this with the fact that I was able to graduate from highschool and successfully complete 2 years of college (with above-average performance) while doing all this, and nobody even knew.  They must have known I&#x27;d lost weight, that I didn&#x27;t care how I looked anymore, and during my first period class my teacher would observe me rushing unexcused out of class to the bathroom to puke because I was dopesick 90% of the time, yet they apprently couldn&#x27;t put 2 and 2 together.  The only thing I studied during this time was how much dope I could do and how to have the best time on it (this was easy to figure out.. just lie down).  This taught me something about the education system, yet I don&#x27;t know exactly what, and I didn&#x27;t care.  I was high, man.
+I should have known things couldn&#x27;t go on as they had for very long, and I think in some abstract manner I did, but what eventually happened was very sudden and unexpected.  Josh called me one day from one of his friends houses.  He had ditched rehab with some girl named Jocelyn, who had 300$ and wanted to get some dope.  Sweet!  I&#x27;ll be right there man...
+So we drove to the city, dropped 240$ on 3 bundles of dope (10 bags each), and started sniffing it up on the drive home.  Throughout the day I had learned that Josh was on methadone treatment in rehab, but I thought nothing of it.  They were renting a hotel room for the night, so we headed back there to relax and enjoy our highs.  Sometime that night, I had the brilliant idea that we should get some pot, so Josh and I headed to my car to head to one of his friends houses for it (about 20 minutes away).  As soon as I stood up, I felt REALLY wierd.  I had the dope feeling, but the actual high was like normal dope times ten.  We stumbled to the car, brought a bundle with us in case we wanted some more dope during the trip, and set off.
+After about 5 minutes I let Josh drive because I was completely wasted, and could barely talk let alone drive.  5 minutes later and he pulled over too so we could walk around; we were both in no position to be driving.  So we walked around, thinking wtf was up...  we were both professionals, neither of us had ever been to doped out to drive before.  We puked, had a couple cigs, felt somewhat better, and decided to keep going.  We stopped at a 7-11 to get some heavily caffeinated drinks to bring us a bit out of the decidedly wierd dope high, and when we got back to the car Josh was freaking out because he&#x27;d misplaced the bundle we had brought along.  Shit!
+The next hour or so is hazy to me, we drove back to where we took our breather, then back to where we first switched drivers, and repeated this circuit maybe 3 times.  We coudln&#x27;t find the dope, and were getting seriously pissed and also a bit scared.  This dope high was still almost overwhelmingly intense, and it had been a WHILE since we last even had any (a few hours at least).  We gave up and drove back to hotel.  I somehow convinced Jocelyn to hook me up with one bag for myself, and was getting ready to head home.  I was still insanely high from the small amount of dope I&#x27;d done 3-4 hours before, and this should have been alarming, but for some reason it wasn&#x27;t.
+At the car my friend Josh said I was his best friend, man.  We&#x27;re going to be friends forever man, when we&#x27;re in our 30&#x27;s and shit, man.  We hugged then, which was wierd because I&#x27;ve never done anything like that and actually wanted to, but it felt right at the moment and I was too fucked up to give it much thought at all.
+I&#x27;d like to explain how this high was different.  The entire time, I felt like I was on the verge of just dropping out completely, almost like I was in a dream, or watching myself doing the things I was doing from an outside perspective.  Thinking was extremely difficult, my vision seemed different, almost as if what I was seeing could fade to complete blackness without warning.  And the nausea and puking was outrageous.  I&#x27;ve always had a semi-weak stomach, and if I did any medium to large quantity of dope and couldn&#x27;t just lie down the whole time, I&#x27;d usually vomit.  This shit, however, had me puking every 15 minutes for the entire night.  Wierd!
+So I drove home with the music as loud as I could stand it (this helps you drive when you&#x27;re doped up, low or no music and you risk nodding off behind the wheel), and was afraid to go to sleep.  I stayed up as long as I could watching some movies and puking every so often, and I eventually passed out sometime that I don&#x27;t remember.
+I awoke the next morning to a doorbell.  I got up and still felt high from the night before, and my brain was still barely functional.  I open the door.. It&#x27;s a cop, shit!  I&#x27;m immediately suspicious and scared, and ask him wtf he wants.  Hi, are you a friend of Josh (xxxx)?  (Oh no, im thinking.  He did something crazy last night like steal a car after I left, and now I&#x27;m a suspect!)
+Yes, I&#x27;m a friend of his, why?
+He died last night at [name of hotel].
+(WHAT THE FUCK?)
+We&#x27;d like to ask you some questions and fill out a report of what happened.
+So my best friend was dead.  He death was &#x27;heroin related&#x27;.  I was interrogated for 2 hours and had to file a report, no charges against me.  All I did was drive him to the city and get high with him all night, I&#x27;m free to go.  They only want the bastard that sold it to him.  Typical...
+And here&#x27;s the fucked up thing.  I have no idea why he died.  We had been doing the shit for years, we never touched needles, we did LESS then we usually did that night (although it was some strange dope), and he winds up dead.  If this ever gets read by anyone, a response as to what might have happened would be greatly appreciated.  With the amount of dope that Josh did this night, I had absolutely no reason to think he&#x27;d be in any sort of trouble at all.  Later I remembered he mentioned he was on methadone in rehab, and thought there might be some kind of fatal interaction with this, but I dont understand how.  Again, he did significantly less dope this night then he was accustomed to, and he died.  Please, someone, explain this to me.
+Here&#x27;s where I knew I was done.  The next day, just as the death of my best friend was setting in, I finished the bag that I had got from his girl 2 days before, the night of his death.  The same shit that had killed my best friend and ruined his family&#x27;s life, I did more of the exact same dope just two days later.  And I couldn&#x27;t help myself.
+And I knew if I knew someone with some dope right now I&#x27;d buy some.
+And I know that if I had some dope at this very moment I&#x27;d be high on it.
+This was almost 2 years ago, and I haven&#x27;t touched the shit since then, but it is a struggle.  Its strange how the cravings come too.  It&#x27;s not even an everyday thing.  I&#x27;ll go 3 weeks without giving heroin a single though, just living my life as if I never heard of it.  Then one day, craving for the drug will hit me so hard that it almost drives me crazy, and it takes 100% of my willpower not to hop in my car and head to the city.
+I&#x27;m hoping that I can stay off heroin, for my own life and to honor my friend, Josh.  RIP man, we&#x27;ll meet again.
+Peace
+Exp Year: 2003
+ExpID: 39517
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 2, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Heroin (27) : Retrospective / Summary (11), Difficult Experiences (5), Bad Trips (6), Train Wrecks &amp; Trip Disasters (7), Addiction &amp; Habituation (10), Overdose (29), Post Trip Problems (8), Multi-Day Experience (13), Second Hand Report (42), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,237 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>图像后的时间</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/tma-2.html'>← TMA-2</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>图像后的时间</h1>
+<div class='sub-title'>TMA-2 - Erowid Exp - &#x27;Afterimages&#x27;</div>
+<div class='meta'>作者：pharmofile Citation · 日期：Jan 18, 2005 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=39877' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我在一个惰的星期六晚上清理时发现了剩余的两个囊, 我们决定试试.
+我没有费心去搜索有关它们的信息, 期待轻微的,短暂的效果.
+我们已经吃了一顿大,油的晚餐,
+现在我们要做什么呢?
+我们决定在等待时看一部电影.
+1:45 - 在看电影时,我注意到视野边缘有色斑点.
+电影正在投射在一个大屏幕上, 起初我觉得我看到的灰尘斑点就像电影院的电影.
+我开始关注它们时, 它们就不再出现了.
+我不确定我是否真的看到他们.
+电影结束,除了有色斑点,
+我认为TMA-2是&quot;无效&quot;,
+我们决定在放下投影屏幕后睡觉.
+投影机仍然打开,并显示电源状态计在屏幕上.
+我看着附近的电视, 看到同样的电源状态计.
+虽然只持续一瞬间, 但这是不可否认的.
+这张图像与正常的后续图像不同, 没有反色.
+我试图再次将图像&quot;投射&quot;到电视上,
+我很失望,就去睡觉了.
+我闭上眼睛, 看到几百种不同颜色的教堂窗.
+我在黑暗的房间里看着卧室门.
+它看起来像一个灰色的固体矩形.
+我看着, 垂直边缘开始摇摆,
+我看了几分钟, 没有其他事情发生,
+4点 - - 仍然无法入睡, 我试着再次研究门.
+奇怪的是,灰色的门矩形已经被一群红取代.
+它们像旧的阿塔里游戏一样像素化,
+我被迷住了.
+我从来没有见过除了在服用其他物质时出现波纹和增强的颜色以外的任何东西,
+我紧张地把Z唤醒,
+他有一些闭眼视觉, 但他们没有保持他的兴趣很长时间, 他睡着了.
+这里没有洞察力.
+如果我不注意自己在看什么, 就会陷入不思考的状态, 几分钟后就回来.
+晚上五点 - - 一直令我着迷, 直到我的毯子决定加入庆祝活动.
+图案中的浅色斑点形成了动画的人形.
+一个人反复腰站起来.
+两名手臂摔运动员 (右边的赢了).
+手摔者互相拍拍肩膀, 变成一座被雪覆盖的城堡.
+这座城堡融为一个东方房子, 两个坐着喝茶的人.
+虽然它们没有头,
+我很有趣,再次唤醒Z.
+他想知道这些图像是否可怕.
+他们不是,但我觉得他们可能是.
+我同意只要我不需要站起来拿.
+我开始怀疑自己做了什么.
+图像变得越来越真实和强烈,
+他走了,我闭上眼睛.
+窗的形象消失了, 取而代之的是一系列的子脸.
+, rhesus, . 它们是什么?
+他们的脸上的皮肤层脱落, 而他们的眼睛在痛苦中滚动,
+常常我会感到厌恶, 但很多分钟我不能停止看.
+这张CD打破了&quot;子脸&quot;的循环,
+我之前没有过过吗?
+六点钟 - - CD 已经结束了,
+耐心地站起来,走向换CD机, 但在路上他的身体突然向外弹出,
+他笑了笑,走了一圈,让我看看会发生什么.
+他的腿仍然是旋转的质量, 但他的上半部分回归到固体状态.
+他对我说话时, 一半的脸是黑色的,
+我的肚子很,有点恶心.
+我感觉到我的皮肤很热,
+6:30 - 我举起我的手,检查它.
+它已经不是我的了.
+我有一只手.
+它们的手指/脚动, 但我不确定我是否要求它们这样做.
+我看着这个时, 晚上早些时候的彩斑又回来了, 这次持续了几个小时.
+七点 - - 我身体疲不堪,
+我试着走路, 但我的腿不配合.
+我必须有意识地迈出每一步,
+通过窗户透的光线会引起恶心,
+8:00 - 地面上的衣服开始变成物体.
+一只手反复拳, 这看起来如此真实,
+这只手开始用手语对我说话,
+经过几次尝试, 手消失了,
+这不是可怕的, 但我很失望,
+过去半个小时我的左臂一直,
+这种感觉突然消失, 接着又出现麻木, 持续了半小时.
+十一点钟 - - 终于,我已经够了,睡觉了.
+现在,我们要做什么呢?
+在经历之后的两周里, 我经常看到随机的背景形成的图像.
+在投影屏幕上显示的静态变为骨手,云形成物体,地毯摇摆.
+在最初的两周之后,这种情况越来越少.
+美国
+TMA-2 (112):一般 (1),第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Afterimages
+TMA-2
+by
+pharmofile
+Citation:   pharmofile. &quot;Afterimages: An Experience with TMA-2 (exp39877)&quot;.
+Erowid.org
+. Jan 18, 2005. erowid.org/exp/39877
+DOSE:
+oral
+TMA-2
+(capsule)
+BODY WEIGHT:
+62 kg
+I was not expecting much. My boyfriend Z had acquired four TMA-2 capsules the previous year, and had tried a capsule out together with a mutual friend. His only comment afterwards was that the sunset had been particularly stunning, and I had not pressed for further details.
+I found the remaining two capsules while cleaning up on a lazy Saturday evening, and we decided to try them. I didn&#x27;t bother looking up information on them, expecting light, short-acting effects. We had already eaten a large, greasy dinner and it was nearly midnight.
+-------------------------------------------------
+0:00 - We decide to watch a movie while waiting.
+1:45 - While watching the movie, I notice colored specks at the edges of my field of vision. The movie is being projected onto a large screen, and at first I think I am seeing dust spots like those in a movie theater film. When I start paying more attention to them, they stop appearing. I&#x27;m not sure if I really see them.
+2:00 - The movie ends and, apart from the colored specks, neither one of us notices any effects. I mentally file TMA-2 away as &#x27;no effect&#x27;, at least at this dose. Z seems slightly annoyed, and we are both feeling tired, so we decide to go to sleep after I put the projection screen away. The projector is still on and displaying the power status meter on the screen. When I look at the TV nearby, I see the same power status meter there as well. It only lasts for a split second, but it is undeniable. Unlike normal afterimages, this image is not in reverse color. I try to &#x27;cast&#x27; the image onto the TV again, but it doesn&#x27;t work.
+Disappointed, I head off to bed. Closing my eyes, I see hundreds of variations of a church rose window, all intensely colored.
+3:00 - I look across the darkened room at the bedroom door. It appears as a solid rectangle of greyness. As I watch, the vertical edges began to waver, and then smudge, as if a giant finger is rubbing across a charcoal drawing. I watch for several minutes, but nothing else happens, so I continue watching closed-eye patterns.
+4:00 - Still unable to sleep, I try studying the door again. Amazingly, the grey door rectangle has been replaced by a set of marching red crabs. They are as pixelated as an old Atari game, and are crawling sideways in lock-step across the door. I am mesmerized. I have never seen anything other than ripply textures and enhanced colors when taking other substances, and unlike the image earlier in the evening, the marching crabs just kept going. I nervously nudge Z awake and tell him what is happening. He has some closed-eye visuals but they don&#x27;t hold his interest for long and he falls asleep.
+There is no insight to be had here. If I don&#x27;t pay attention to what I am watching, I drift off into an unthinking state, only to return a few minutes later.
+5:00 - The crabs continue to fascinate me until my blanket decides to join in the festivities. The light-colored blobs in the pattern form animated human shapes. A person repeatedly bending over and standing up. Two arm-wrestlers (the one on the right won). The arm-wrestlers pat each other on the shoulder and morph into a snow-covered castle. The castle melts into an oriental house with two seated tea-drinkers. They are headless, but continue pouring and drinking tea. I&#x27;m very entertained and wake Z up once more. He wants to know if the images are frightening. They aren&#x27;t, but I feel they could be. He suggests playing a favorite CD to keep things calm, and I agree as long as I don&#x27;t have to stand up to get it. I start to wonder what I have done to myself. The images are becoming more realistic and intense, and I realize I have no idea how long the effects will last.
+While he is gone, I close my eyes. The rose window image is gone, replaced with an array of monkey faces. Baboon, rhesus, macaque. The layers of skin on their faces peel away while their eyes roll in agony, and the cycle repeats. Ordinarily I would be repulsed, but for many minutes I can&#x27;t stop watching. The CD breaks the monkey face cycle, and I notice sounds in the familiar songs that I had not noticed before. Was I filtering it out before?
+6:00 - The CD is over and I still don&#x27;t want to move. Z patiently gets up and walks over to the CD changer, but on the way his body pops outward and explodes into millions of marble-sized pieces, which reform into a roughly human shape. He grins when I tell him, and walks around the room a bit so that I can see what happens. His legs remain a swirling mass, but his top half returns to a solid state. When he talks to me, one half of his face is pitch black and covered with neon blue symbols.
+My stomach feels bloated and I am slightly nauseous. Z notes that my skin is very hot to the touch, but I am shivering from cold.
+6:30 - I hold my hand up and examine it. It is no longer mine. I have a gecko hand. The fingers/toes twitch and move, but I&#x27;m not sure I&#x27;ve asked them to. While I am watching this, the colored specks from earlier in the evening return, and this time they continue for hours.
+7:00 - My body is exhausted but I am not willing to go to sleep yet. I try to walk around, but my legs will not cooperate. I have to consciously take each step, bracing myself against the wall. Light filtering through the window brings on a bout of nausea, and in the light the edges of objects vibrate.
+8:00 - The clothes on the floor begin to transform into objects. A hand repeatedly makes a fist, and it is so realistic looking that I jump. The hand begins talking to me in sign language, but I don&#x27;t understand it. After several attempts, the hand disappears and reappears holding a steak knife. It isn&#x27;t frightening, but I am disappointed that I am the source of such thoughts.
+My left arm has been tingling for the past half hour with a pins-and-needles sensation. This suddenly goes away and is replaced by numbness, which lasts for another half hour.
+11:00 - Finally, I&#x27;ve had enough and go to sleep.
+------------------------------------------------
+In the two weeks following this experience, I often saw images form in random backgrounds. Static displayed on the projection screen became skeletal hands, clouds formed into objects, and carpeting wiggled. After the first two weeks this occurred less and less frequently.
+Exp Year: 2003
+ExpID: 39877
+Gender: Female
+Age at time of experience: Not Given
+Published: Jan 18, 2005
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+TMA-2 (112) : General (1), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,204 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>甲-代和MDA - 埃洛伊德 扩散 - &quot;和一个小蓝色的药丸&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-promethazine.html'>← 异丙嗪(非那根)（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>甲-代和MDA - 埃洛伊德 扩散 - &quot;和一个小蓝色的药丸&quot;</h1>
+<div class='sub-title'>Promethazine-Codeine &amp; MDA - Erowid Exp - &#x27;Sizzurp and a Little Blue Pill&#x27;</div>
+<div class='meta'>作者：A-watt Citation · 日期：Jan 25, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=90482' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>酒和酒节
+我们在KatyTX的Ren-fest, 每个人都开始了白天的酒乒乓球和碗的湿,
+我们决定离开露营地前往博览会场.
+我把它和我的瘦身抗能量饮料混合在一起 (活性成分是黑素,花和其他草药提取物) 我和我的塑杯准备好好玩.
+我喝了我的神奇的混合物, 吸了一支紫色红酒 (红色100与的) 到入口大门, 2英里外.
+我注意到那个拿票的人说得很慢, 我视野中的颜色更亮.
+我是最后一个到达门口, 因为我走得很慢.
+朋友们告诉我,我走得太慢了,他们都把我留在了后面.
+午夜12点我在中间的ren-fair倾斜低于一个油箱在&quot;E&quot;.
+一切都是神奇的,我几乎站不起来.
+随机的人问我是否; 我回答说&#x27;球这很棒&#x27;和&#x27;是的...
+一切都...
+,是的,在某个时候,当我昏时,我喝了另外一两司的酒;
+晚上五点到八点.
+如果我知道他卖的东西有一半是什么,
+我知道什么是MDMA, 但他说我应该采取MDA, 因为我倾斜,
+我买了一颗蓝色的小药丸,
+我买了一颗蓝色的小药丸,
+他回答说:&quot;我在,现在没有问题了.
+如果我当时知道这有多烦人.
+我试图我的现在昏倒的朋友说药,没有人是服用,我打开它,和邻居一起出去.
+到了午夜我感觉到它, 我不知道是什么,
+没有真正的牙,只是轻微的,但我感觉很棒,
+我看着门的拉链, 便爆炸成碎片,
+我意识到睡眠并不是我未来的目标,
+我打开帐时, 就像那个音乐录像,
+鸟儿们在叫, 灯光在四处闪, 走路感觉很棒,
+我去火圈找一个废弃的火, 一个或两个人仍然像一个该死的鼓一样敲击,所以我采取了史诗般的尿,该死它一定是5分钟的小便.
+我回去露营地,冷却和吸烟直到每个人都昏倒.
+我终于昏倒了.
+接下来的一天我感觉很棒,
+我的朋友都死去,但我被击中了.
+我觉得瘦身使得身体负荷减弱, 但视觉效果让我接触到了迷幻药.
+萨斯和西德是我最喜欢的两个现在, 但只是因为大麻不是真正的药物.
+没有.
+我不会建议你吃超过2的舞会/鱼糖, 除非你知道你的东西,
+其他:
+发布时间:2018年1月25日
+人群 (24)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Sizzurp and a Little Blue Pill
+Promethazine-Codeine &amp; MDA
+by
+A-watt
+Citation:   A-watt. &quot;Sizzurp and a Little Blue Pill: An Experience with Promethazine-Codeine &amp; MDA (exp90482)&quot;.
+Erowid.org
+. Jan 25, 2018. erowid.org/exp/90482
+DOSE:
+repeated
+oral
+Alcohol - Beer/Wine
+repeated
+smoked
+Cannabis
+112 mg
+oral
+Pharms - Promethazine
+(liquid)
+60 mg
+oral
+Codeine
+(liquid)
+smoked
+Tobacco - Cigarettes
+oral
+Pharms - Promethazine
+oral
+Codeine
+1 tablet
+oral
+MDA
+BODY WEIGHT:
+130 lb
+MDA SIZZURP BEER and ren-fest
+We were at ren-fest in Katy TX, and everyone was starting the day off with beer pong and bowls of dank, so I played a few games until I got a mild buzz.
+It&#x27;s 11am and we all decide to leave the campsite and go to the fairgrounds. 11am I make my sizzurp roughly 3oz of some dark thick ass mud lean, some prescription purp, mixed it with my Lean anti-energy beverage (active ingredients melatonin, rose hips, and other herbal extracts) and me and my Styrofoam cup are ready for a good time. I drink my magical mix and smoke a purple red (red 100 with lean on it) up to the entrance gate, 2mi away.
+11:20am I notice the guy taking are tickets is talking very slow and the colors are brighter in my field of vision. I&#x27;m leaning pretty damn hard, I was the last one to the entrance, because I was walking slow. This is were it gets really fucking hard to remember, so no more concept of time. my friends told me I was shuffling around so slow that they all left me behind.
+12pm I&#x27;m in the midst of a ren-fair leanin lower than a gas tank on &#x27;E&#x27;. Everything is fucking magical and I can barely stand up. Random people keep coming up to me asking if I&#x27;m ; I reply with thing like &#x27;balls this is awesome&#x27; and &#x27;yeah... Everything&#x27;s... Great, just wonder-full 8D&#x27; I wound up watching some shows and marveling at Renaissance shit in shops and had an epic munch session with some roasted nuts then a chocolate dipped cheese cake. Oh yeah at some point when I blacked out I drank another oz or 2 with a sprite; come to think of it that&#x27;s when I blacked out.
+Dark like 5-8pm. Later we go to our campsite and HOT DAMN our neighbor is selling drugs, if I would have known what half of what he was selling was I would have left with no cash to say the least. I knew what MDMA was but he said I should take MDA instead because I was leaning and he said it was a &#x27;more chill roll&#x27;. So I buy a little blue pill and bombard my neighborly dealer with an array of questions about the substance
+I buy a little blue pill and bombard my neighborly dealer with an array of questions about the substance
+, and he replied &#x27;it&#x27;s fucking legit I&#x27;m tripping dude, no more questions for now&#x27;. If only I would have known how annoying that was back then. I try to bribe my now passed out friends with said pill, and none are takers, I pop it and go hang out with the neighbors.
+By midnight I feel it, I cant tell what but it&#x27;s there and it looks great, colors are over vibrant super chill scene at campsite. No real teeth chattering just mild shaking, but I felt fucking amazing, and went in my tent to sleep. Once my head hits the pillow I look over at my door zipper and it explodes into fractals, but  I still have a grasp on reality, or so I thought. I realized sleep was not in my near future and decided to go to the fire circle. When I opened the tent it was like that music video where jack black eats a bunch of shrooms and everything is like a cartoon. There are birds chirping, light is shooting everywhere, and walking feels great, like damn good.
+I go to the fire circle to find a deserted ember with one or two ppl still hitting like one fuckin drum, so I take an epic piss, fuck it must have bin a 5min urination. I go back to the campsite and chill and smoke until everyone passes out. I finally pass out.
+The next day I felt amazing, I felt awesome for like a week afterward. My friends were all dead to the world but I was down right smitten. I think the lean deadened the body load alot, but the visuals I got opened me up to psychedelics. Sass and Cid are my two favorites now, but only because weed isn&#x27;t a real drug. PS. I wouldn&#x27;t advise taking more than 2oz of prom/cod syrup unless you know your shit, which I did and I had a great time.
+Exp Year: 2010
+ExpID: 90482
+Gender: Male
+Age at time of experience: 18
+Published: Jan 25, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Promethazine (336), Codeine (14), MDA (34) : Combinations (3), Glowing Experiences (4), Festival / Lg. Crowd (24)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

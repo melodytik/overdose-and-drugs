@@ -1,0 +1,175 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>欧罗伊德的世界 - &quot;远远不够&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dom.html'>← DOM</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>欧罗伊德的世界 - &quot;远远不够&quot;</h1>
+<div class='sub-title'>DOM - Erowid Exp - &#x27;Fell Far Short&#x27;</div>
+<div class='meta'>作者：Scotto Citation · 日期：Dec 14, 2000 · 剂量：15 mg · <a href='https://erowid.org/experiences/exp.php?ID=4262' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我们对PIHKAL的DOM入口的研究让我们相信这可能是一个相当强烈的体验,
+我们听说过一个疯子通过肌肉内注射注射了大约7.5毫克, 描述了这种经历是非常激烈和非常困难的;
+遗憾的是,我的个人经历远远不及任何我想重复的事情.
+接下来的八到十个小时我基本上都感到无聊,
+听音乐很有趣,但我不得不问:听这首音乐是因为它已经有趣,还是因为药物刺激了我的乐趣?
+我最终得出的结论是:
+我没有特别失望,然而...
+我生活的新性逐渐消失, 我花了大部分时间思考我与毒品的关系, 以及工作相关的问题.
+我觉得这种药物本身并没有在心理层面上产生影响; 我对这些问题的探索并不是像酸这样的药物所能带来的有洞察力的闪光,
+我朋友服用了9毫克, 似乎比我有更强烈的体验.
+她报告说她很难进行对话, 在最初的两个小时内,
+她表示她感觉到大量的共感,
+身体上,她有一种严重的或紧张感, 几乎持续了整个经历, 她声称身体中的无法控制的闪并不是不舒服的,
+她提到药物让她回忆起童年时光, 那些回忆似乎只有在她服用迷幻药时才浮现出来, 我们讨论了这些回忆可能是真实的程度,
+我们同意在清醒后再考虑这些.
+她的动仍在迅速地进行. 她的动还在迅速地进行.
+她仍然相对强大,而我觉得我已经完全下来,但不是特别疲,要么.
+她也很喜欢看这些电影, 不会被毒品所分散注意力.
+为了让我们睡觉,我们开始使用各种药物.
+为了使自己昏昏欲睡,
+让她无法入睡, 让她因丧而流.
+这些身体副作用可能是她特有的; 她在其他物质,如酸和2CB有类似的.
+尽管如此, 值得注意的是,
+我很少想重复这种经历.
+没有任何经历让我感动到足以让身体经历那么多小时的.
+显然,我没有得到一个临界剂量, 但即使我做了, 我会谨慎的DOM将结束在类似的类别对我来说像2CT7一个有趣的和不寻常的美学体验,
+我今年做了大量的, 事实上, 我计划休息一年,
+很可能是DOM没有什么效果, 因为,总的来说,
+时间表: 4262
+DOM (20):健康问题 (27),一般 (1),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Fell Far Short
+DOM
+by
+Scotto
+Citation:   scotto. &quot;Fell Far Short: An Experience with DOM (exp4262)&quot;.
+Erowid.org
+. Dec 14, 2000. erowid.org/exp/4262
+DOSE:
+15 mg
+oral
+DOM
+(capsule)
+BODY WEIGHT:
+170 lb
+Our study of the DOM entry in PIHKAL led us to believe this had the potential to be a rather strong experience, and that&#x27;s what we were ready for, my companion and I, as we climbed out of bed on a Sunday morning and put capsules in our mouths around 9:20 a.m.  We had heard of one maniac who had administered about 7.5mg via an intramuscular injection and had described the experience as very intense and very difficult; one of the PIHKAL entries, something about how the experience opens up a window to some kind of darkness, was also provocative.
+Sadly, my personal experience fell far short of anything I&#x27;d care to repeat.  I vomited twice in the first two hours, and then spent the next 8-10 hours essentially bored, with only minimal visual distortion.  Listening to music was fun &amp; interesting, but I wrestled with the question: am I having fun listening to this music because it&#x27;s already fun &amp; interesting, or is the drug somehow stimulating my enjoyment? I concluded the latter, ultimately. I wasn&#x27;t particularly disappointed, however... I am reaching a place in my life where the novelty of one new drug after another is wearing off, and I did manage to spend most of the day pondering my relationship to drugs, and pondering issues related to work.  But I felt that the drug itself was not engaging on a psychological level; my exploration of these issues was not the insightful flash of content that I might get from something like acid, but was rather my mind occupying itself while my companion had her experience.
+My companion took 9mg and seemed to have a significantly stronger experience than I did.  She reported being very unable to make conversation &amp; very wrapped up in a wash of physical sensations for several hours, after the initial two hour period of coming on in which she too vomited at least twice.  She expressed that she felt a great amount of synaesthesia, and lots &amp; lots of visuals, including hallucinations.  Physically, she had a severe case of spasms or jitters which lasted almost the entire experience, an uncontrollable shimmering in the body that she claimed was not uncomfortable, but was simply her body&#x27;s way of handling the sensations.  Toward the mid point of the experience, perhaps eight hours in, she brought up the fact that the drug was bringing up childhood memories for her, memories that only seemed to come up in her mind when she was on psychedelics, &amp; we discussed to what level the memories might be actual, versus a reconstruction, or a blurring of multiple events; these were memories stretching back to when she was four years old, and we agreed to try to think about it later, when we were sober.
+As we got late into the night, it became apparent that neither of us would be able to sleep, and her jittering was still proceeding apace.  At this point, perhaps 8 or 9 in the evening, she was still going relatively strong, whereas I felt I had come down altogether, but was not particularly tired, either.  We watched a couple of movies, &amp; she was down enough to enjoy them without being distracted by the drug experience.  By midnight or so, we began employing various substances to try to get to sleep.  I wound up using benadryl, GHB, and valium in various amounts to make myself drowsy.  Unfortunately, my companion, who used GHB, valium, and numerous muscle massages from me, could not stop the jittering, which continued essentially all throughout the night, preventing her from sleep &amp; bringing her to tears with frustration.  These physical side effects may be specific to her; she has had similar jitters on other substances, such as acid and 2CB.  Nevertheless, it&#x27;s worth a word of caution, since so little has been reported about DOM it seems.
+I was left with little desire to repeat the experience.  My companion did not particularly report anything from her experience that seemed engaging enough for me to put my body through that many hours of tripping.  Obviously I didn&#x27;t get a threshold dose for me, but even if I did, I would be wary that DOM would wind up in a similar category for me as something like 2CT7 an interesting and unusual aesthetic experience, without anything psychologically or emotionally useful that would convince me I needed to repeat the experience.  Part of this analysis, though, needs to be contextualized: I have done an enormous amount of tripping this year, and am in fact planning a year off to give my brain a break.  It may well be that DOM had little effect because, overall, I am exhausted with psychedelia, and just need a rest.
+Exp Year: 2000
+ExpID: 4262
+Gender: Male
+Age at time of experience: Not Given
+Published: Dec 14, 2000
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOM (20) : Health Problems (27), General (1), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,534 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>DOET和氧化物 - 埃洛伊德的故事 - &quot;令人困惑的某种&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/nitrous-oxide.html'>← 一氧化二氮(笑气)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>DOET和氧化物 - 埃洛伊德的故事 - &quot;令人困惑的某种&quot;</h1>
+<div class='sub-title'>DOET &amp; Nitrous Oxide - Erowid Exp - &#x27;Perplexing Somethingness&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Jan 9, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=107296' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>任何认识我的人都会意识到, 我是迷幻安非他命的粉丝.
+首先是在2006年,
+我第一次获得100毫克药物时,
+导致这种经历,DOC仍然是我最喜欢的, 事实上它是我最喜欢的药物之一.
+最近我很幸运地掌握了DOX家族中一些非常罕见的物质, 包括DOPr,DOiP,DOF,最近的DOET.
+我已经读了很多年了.
+我发现2C-E是一种绝对特殊而强大的迷幻药,
+想象一下我的惊喜, 当我设法得到23毫克的神话物质到我的手!
+它以一种细粉末的形式出现, 很平凡, 均和白色,
+我把它放在23毫升的伏特加中,
+于是我决定试试第一剂.
+只有一个微弱的警报, 没有明显的效果.
+我花了一些时间在可用的报告中刷新自己 (没有太多,主要是PIHKAL条目), 我决定服用3mg的剂量.
+我知道这可能会进入光全剂量领域,
+我觉得3毫克不太可能是无法控制的,
+我当时的笔记从这里开始, 接着是记忆中的其余部分,
+在10/24/15中午12点
+- 摄入3毫克的DOET在酒精溶液.
+味道只有我使用的廉价伏特加.
+我之前检查过血压, 结果是127/58, 心率为每分钟60次.
+在星期六,我只能做30分钟的工作.
+我今天的潜在计划是,当我开始上来的时候,
+在12:44
+- 显然有一些光警报.
+现在我感觉到它会缓慢而温柔地出现.
+我刚刚完成了我的工作,现在我想走到附近的小径和徒步旅行.
+这是一个美丽的秋天天和大自然总是一个伟大的地方花一个来.
+我觉得我不应该只坐在家里看电脑.
+血压再次下降,现在为109/75以每分钟59的速度,
+- 似乎我的朋友想加入我的徒步旅行,所以我的计划已经转移到一个团体徒步旅行,
+我也刚刚发现有人正在推出ALD-52,这太疯狂了;
+我们生活在何等的时代!
+我也刚刚服用了0.6毫克多的DOET;
+现在我感觉很好, 胸部有一种温暖, 稳定的感觉,
+我开始感觉到我的四肢充满了愉快的能量, 我认为徒步旅行将是完美的.
+如果我着某个东西, 我的眼睛会慢慢失去焦点.
+我怀疑在徒步旅行结束后, 我会和我的朋友们回到他们的家,
+我会带一些纸和笔,以便我可以做笔记.
+- 血压读数为131/77和60bpm.
+这感觉比DOPR更刺激, 但我不觉得我在一个兴奋剂.
+实际上我喜欢它比DOPR更刺激.
+这让我的肠道像DOC一样动,
+我的朋友说他们30分钟后就要出发了,所以我有更多的时间来看看.
+也许我应该把厨房打扫一下.
+我只是感觉到一波波的冲洗.
+很难描述, 但它让我想起了DOC的感觉.
+确实与DOC感觉有相似之处,
+一点三十五分
+- 感觉越来越强烈在一个稳定的速度.
+虽然目前还没有什么特别的视觉效果,
+感觉已经发展到我需要做点什么 (与DOC一样).
+我刚刚清理了厨房, 现在是时候去徒步旅行.
+我已经收拾了我的东西, 给我的猫早点吃晚饭, 因为我不太可能今晚回家,
+(从徒步旅行时的纸张笔记中复制, 这是我今天剩下的唯一笔记)
+- 这已经变得更加有力.
+这种感觉让人想起DOC的感觉 (也就是说,强烈而有点,但不害怕)
+这种感觉让人想起DOC的感觉 (也就是说,强烈而有点,但不害怕)
+但几乎没有视觉输入.
+我迫不及待地等待我的朋友们来到这里开始徒步旅行 (他们在路上有点迷路).
+我需要引导这些能量.
+我感觉有点...我的手/当我试图保持他们仍然.
+没有问题给出方向或沟通.
+血压值为148/72,每分钟71次.
+确实高于基线 (大约为120/60和60bpm), 但没有什么令人担忧的.
+现在感觉应该更高.
+* * * * * * * * *
+在这篇文章之后, 我停止了笔记.
+我的朋友们终于来了,我们开始徒步旅行.
+他只是假定我会带着它, 没有打电话问我是否可以, 但我忘了 (因为我忘了带水, 这总是提醒我我想要我的背包).
+所以他选择赤脚徒步旅行.
+我建议他不要徒步旅行, 因为石和树叶覆盖可能会隐藏在森林地板上的利障碍,
+我很高兴这件事发生了, 虽然我为我的朋友感到难过,
+到了我们开始走路的时候,
+我发现它的实体存在非常强烈; 感觉既好又有点尖,
+但随着时间的推移, 情况发生了变化.
+我从来没有觉得身体受到威胁, 担心我的健康, 但这种感觉在能量方面有点威胁,
+感觉与DOC相似, 除了DOC我可以很容易地把能量集中到一个闪闪发光的高兴状态,
+徒步旅行有助于消除我的不适 (当我坐在那里等待我的朋友时,
+我也没有感到充满活力,
+只是没有感觉到任何额外的能量,我觉得很奇怪,因为它
+感觉到了
+肌肉中充满了能量, 伴随着我内心充满能量的感觉.
+我内心的能量并不是运动能量, 而是一种感觉, 电气般,
+我也开始注意到胃部的不适, 值得注意的是,
+尽管我感觉有点不舒服,
+虽然没有真正的视觉扭曲, 但一切都看起来美丽而引人注目的,
+在北卡罗来纳州的山区, 秋天正值, 颜色的增强很容易被注意到,
+我发现自己凝视着, 沉浸在红色,色,黄色,珊瑚和绿色的暴动中,
+我从来没有看过或问过朋友, 但我觉得我的瞳孔很大,
+尽管如此, 我也无法弄清楚药物对我的真正影响.
+这种感觉主要是身体的动作,
+我处于和平与冲突之中,
+我的思想似乎没有被推向思考和交往,
+我也没有任何灵性感觉.
+我没有被迫多说话,
+身体上我感觉有些东西很强烈.
+这似乎有某种类型的 entactogenic质量除了它没有精确感觉
+好的
+没有.
+我确实有时感觉很好, 但这一切都是不安和微弱的焦虑.
+随着我们越来越远, 无鞋的朋友开始慢慢走.
+由于这个原因,我们比原先计划的更早地转身,当我们开始下坡时,
+没有太大伤害, 但确实很痛苦,
+他已经停止说话,每一步都着脸, 但我们大概还有1个小时的时间才能恢复平静.
+我注意到我对他的感情非常强烈.
+任何有同情心的人都会为这种情况的朋友感到难过,
+我很忙于确保他没事.
+我几乎一直感觉到他的疼痛在我的脚,
+我真的很担心他, 我觉得我正在承担他的痛苦和精神状态.
+我从来没有想过问他是否有这样的感受.
+经过一段时间, 我意识到DOET可能增加了我的同情心.
+经过一段时间, 我意识到DOET可能增加了我的同情心.
+这很奇怪,因为与你的平均同情增强剂, 它通常表现为一种高兴,爱的方式,
+我没有感觉到任何增强的爱情或沟通的感觉, 我只是感觉到他的痛苦,
+我当时很难理解这种奇怪的效果, 但在不同的环境中也许可以有所应用.
+终于我们回到车里, 坐上了车, 当我们开上音乐, 坐下去旅行时, 一些紧张感消失了,
+我们决定去杂货店买一些食物,然后去市中心的小店,
+随着我们进入山谷,我们周围的人越来越多,我感到一种微弱的威胁感,
+我周围的人,做事,说话,表达自己的意愿...
+这让我感到脆弱, 无法坚持自己, 因为来自别人的矛盾情绪/能量投入,
+我很高兴能离开那里.
+停车时间大多是停车时间, 人们在十字路口停在红灯, 人们穿过街道, 音乐.
+这让我感到恐慌, 绝对是紧张和极度不舒服.
+我下车进去买一些气 (我们每个人一盒).
+购买气,与店员互动,有些奇怪, 但他们很酷,
+返回文明让我意识到我确实很有变化,
+为什么
+没有.
+几乎就像我没有,然而我是,无可否认.
+我只是无法弄清楚它对我的思想有什么影响,
+很快,我拿着气 (或更确切地说,在袋子里), 回到了外面, 我们起飞了.
+幸运的是有快速的回路从市中心和我的朋友的房子是相当接近,所以剩余的回程不是太糟糕虽然老实说只是在车里感到奇怪.
+我开始摆脱身在这样一群人中间的紧张感,
+我们坐在客厅里, 在十分钟内,
+我决定从三台充电器开始,
+我把两个打进了子里, 装上第三个,
+我的朋友放了一些音乐, 最后是杰伊-Z, 这很适合我.
+我坐下来深呼吸了几次, 尽可能地集中自己, 开始了.
+为了参考,时间是下午6点半左右,
+充满我的肺几乎尽可能多, 并用一点普通空气填充它们以避免恐慌的感觉窒息,
+我总是发现气很难尽量屏住呼吸, 因为我开始感觉到缺氧的严重,
+熟悉的低射程气声开始入, 我的存在被强烈的声和声所充满,
+试图保持10秒钟后,
+声的强度急剧增长, 我突破了这个值,
+音乐在发出声音时出现了故障,
+声成为一切.
+然后,那一刻发生了.
+我的眼睛开了.
+发生了一些深刻的事情.
+什么时候发生?
+什么时候它从一个强大的声转变为刚刚发生的事情,
+听到炉子上的东西的爆发声, 声音的颜色是最熟悉和最有意义的扭曲,
+我向左看, 听到一个声音,
+然后音乐开始回来, 我朋友的声音慢慢地传入我的耳朵.
+每一个声音都被不同的扭曲所染色, 随着现实重现,
+声音变成了一系列不可思议的快速串联,
+我是
+几乎
+这种声音模式所描述的基本感知水平.
+这些声音是我即将揭开存在的秘密的线索.
+意识逐渐接近, 直到声突然消失, 声音停止, 我只能试图记住我刚刚经历的细节.
+我记得它的本质,我想,我可以把它拿回来.
+我突然跳起来,用我的声音发出一些声音,听起来像
+不,我仍然可以
+获取
+这是&quot;
+没有.
+经历已经结束了.
+接下来我说的是
+&quot;圣洁的
+没有!
+&quot; 在
+我的朋友们笑了,然后我也笑了.
+这是我第一次用气到达那里...以前每次,我总是会有一种非常强烈而愉快的声,
+这是迄今为止我最完整的体验.
+我当然认为DOET帮助我达到这个目标, 但也感觉现在我明白如何更好地使用气,
+但我想我必须找出其中哪一个是真实的另一个时间.
+我很快就恢复正常了 - - 至少与气现实相比,
+,只是!
+我敢打,如果我再做一次,它将变得更清楚!
+我决定这样做,但我必须等待轮到我.
+我看着一个朋友,然后下一个充满了3个充电器并下沉.
+一位朋友回来时, 疯狂地笑着, 鞠躬, 仿佛对氧化的力量表示敬畏,
+想起我也在使用DOET.
+我觉得这次旅行的内容并没有有所改善,
+身体和心灵都变得轻松和愉快.
+我在交流和笑声方面也变得更加容易.
+感觉有点像气擦除了旅行的负面方面,
+我仍然有更多的体力,
+仍然没有可说的视觉效果.
+尽管如此,此时我真的很享受.
+我很渴望用以前的方式加载它.
+这一次没有紧张,只有兴奋.
+第二次击中使得它透到我的存在和听觉领域.
+然后第三次击中完全把我带走了.
+这是一个很棒的机会.
+问题导致答案, 导致另一个问题, 导致另一个答案,
+我意识到自己正在死亡.
+我感到恐慌的时刻,然后几乎立即让去没有困难;毕竟,每一个时刻的框架是如此迅速地移动到下一个,和下一个,和下一个,和每一个时刻,我是一个新的存在,所以在第二分之一任何附件Xorkoth被 rendered过时和迅速被遗忘.
+我知道我已经发现了一切的答案.
+但在那个无时无刻的瞬间之后, 我再次意识到外部的声音,
+听到一个声音慢慢地传到我的意识.
+我开眼睛是因为反应.
+我不是死去的吗?
+听到炉上的东西的爆发声, 声音的色彩是最熟悉和最有意义的扭曲,
+我向左看, 听到一个声音,
+让我感觉到一个令人难以置信的&quot;已见&quot;感觉,
+我回忆起那些声音的过程, 那些声音是我再一次忘记本质的不可思议事物的线索,
+这一次我决定对这个过程中的某个特定点做出反应, 那个我上次完全忘记的点,
+我在下一步的过程中发现了自己的无知,
+我觉得每当一个人使用气时, 就像宇宙试图理解自己并达到奇点一样,
+很难形容这个想法, 但它吹我的脑海很难在那时.
+这里有很多我不能用文字表达.
+我之前也曾想过使用酸盐.
+每次我回去, 我都会遇到相同的 Déja vu 声音/思想循环,
+每次我都向前一步.
+我们继续轮流使用气, 总共进行了6轮.
+每一次的经历对我来说都是一样的,
+我开始觉得我的肺部受苦了,第五次之后我有点昏迷,但我继续做第六次,
+在第六次经历中, 我也知道自己即将死去, 但这一次, 场景闪过一场可怕的致命车祸, 悲剧性的, 在雨中和夜晚, 完全孤单,
+我可以想象自己躺在地上, 撕裂和拆毁, 血液和胆汁散布在我周围,
+我感觉到这种经历的压倒感非常强烈, 让我绝望地跳起来,
+当我恢复了冷静时,我对朋友们说
+现在我已经完成了.
+而我也是.
+现在,我已经知道自己在哪里.
+另外,每一次经历都变得比上一次更脏, 我的身体告诉我停止使用气.
+我和朋友们听音乐,喝酒,吸大麻,
+酒精与DOET混合得很好 (这并不奇怪,
+它比DOPr混合得更好,因为它有一定的协同作用,
+我怀疑DOX的物理能量是让你喝更多的酒精并产生更高兴的效果.
+而DOET和DOC则是如此.
+尤其是在高阶段, 当我喜欢混合酒精时 (从来不是在DOX的高峰或高峰期间, 而是在高期间),
+我一直夜 - - 最终只有我和我的一个朋友在凌晨2点半左右.
+现在我喝醉了,这是因为我想要能够睡觉.
+我们想多待一会儿, 所以我们放了一些音乐,
+只是这次让我完全昏迷, 随着兴奋的消退,
+这就像,击中,开始感觉到声,和非常下一个时刻 (它感觉连续) 我出来说
+&quot;等一下,我刚刚做了这个吗?&quot;
+没有.
+我的朋友在气后开始感到恶心并上床睡觉.
+我又做了一次, 希望能得到更多的东西 - - 也因为酒精减少了判断能力,
+所以这是一个浪费.
+我得出的结论是, 气和酒精不是可以结合在一起的东西.
+我试着上床睡觉 (我在朋友家睡觉,
+但不管我怎么努力, 我也没有感到一点疲劳.
+像是我的头脑无法切换到睡眠模式或休息模式.
+有时身体能量会在我的四肢中表现出来, 在我试图入睡后,
+但在DOET的使用中, 我没有感觉到过多的能量让我想要移动.
+我可以舒服地躺在那里.
+但我的脑海总是旋转着,
+我发现我心里没有太多的想法.
+我甚至不记得有什么特别的想法,
+我开始在手机上观看&quot;家人&quot;系列, 吸引了我的注意力,
+我在这个过程中又喝了3杯酒, 认为我可以让自己昏倒,
+终于在凌晨7点左右,
+幸运的是我很舒服, 但当我躺在那里直到10点钟,
+他终于醒来了,我从房间里出来,看起来更糟糕的磨损.
+他问我如何睡觉,当我开始回答
+&quot;绝对不是&quot;
+我意识到我的大脑感觉相当混乱, 因为它出了.
+我肯定还能感受到DOET的能量,
+身体和心灵仍在对此做出反应.
+我和朋友聊了大约一个小时,
+我经常在句子中间失去思维,
+我们还抽了一碗大麻, 这有助于我在前一天晚上从睡眠不足,DOET,气和酒精中感觉不那么糟糕,
+到了11点,他去健身房炼,然后回家.
+尽管我能感觉到它持续存在,
+我回家一整天都在读书,看电视,努力做家务 (但没能),还试着睡觉.
+尽管我感到非常疲,但我整天都睡不着.
+我仍然保持了DOET的情感中立性, 除了因为它伴随着睡眠不足和感觉有点,
+在旅行中,它只是...
+我觉得情绪中立, 这不是一件好事或坏事.
+第二天我感觉很糟糕,就像我已经死亡,只有一半的生命.
+我躺了两个小时, 两次都睡不着.
+我最后一次试图睡觉是下午4点到6点,
+为了摆脱这种困境, 我回到了同一个朋友的家里,
+我和我的朋友一起玩了超级击败兄弟 (我从来没有玩过电子游戏,
+他那天也有一点丧, 但很快我们彼此都疯狂了,
+一旦我把它转过来,它就一直转过来.
+我意识到我不再感觉到 DOET 在我的身体的剩余能量,
+我很早就回家, 终于在午夜12点左右睡着了.
+我睡了9个小时,第二天醒来时感觉比较疲,
+* * * * * * * * *
+对于我的第一份 DOET 报告来说,
+我真的不确定该怎么看待它.
+像2C-E一样, 似乎有一种明确的情感中立性和客观性,
+我期待的是更经典的迷幻, 我不禁感到有点失望 经过这么多年的梦想
+虽然情况并不糟糕, 但总而言之, 情况相当不舒服.
+有一些积极的效果,很多中性效果,
+只有美斯卡林色彩的亮化,
+实际上我很难描述它是什么样子,或者它在做什么.
+似乎DOET,至少在这种剂量, 可能是一个非常不典型的迷幻药.
+这绝对是
+一些东西
+我很有变化, 尤其是在行为上.
+像其他DOX一样, 它与酒精和大麻混合得很好,
+像其他DOX一样, 它与酒精和大麻混合得很好,
+至于气... 这是整个事件的亮点.
+我从中得到的好处远远超过我在清醒的情况下做过的.
+气似乎也消除了旅程中不舒服的部分.
+尽管如此,从我所了解到的,大多数迷幻药对气有同样的作用,
+其后果是相当严重的.
+我觉得很疲, 就像我说的, 我完全无法睡觉很长一段时间,
+我开始感到高兴感, 它让我想起了DOC, 但一旦它开始发展,
+总的来说, 我对这次审判没有太大的印象.
+我也计划服用6-7毫克,
+我担心会有更多的负面影响.
+但它确实有点像我刚刚用了足够高的剂量来获得明确的效果,
+我肯定会再次尝试 (并回报),
+绝大多数我用过的迷幻药的奖励与不愉快度比这3毫克更高.
+如果这次旅行是惊人的, 但有相同的负面方面,
+只是这次旅程并没有任何令人惊叹的特点.
+我不认为有理由接受这项研究,
+我希望在更高的剂量水平上, 这会以更有趣的方式发展,
+已使用的证券
+发布时间:2016年1月9日
+DOET (135),氧化 (40):组合 (3),第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Perplexing Somethingness
+DOET &amp; Nitrous Oxide
+by
+Xorkoth
+Citation:   Xorkoth. &quot;Perplexing Somethingness: An Experience with DOET &amp; Nitrous Oxide (exp107296)&quot;.
+Erowid.org
+. Jan 9, 2016. erowid.org/exp/107296
+DOSE:
+T+ 6:30
+inhaled
+Nitrous Oxide
+(gas)
+T+ 0:00
+3 mg
+oral
+DOET
+(powder / crystals)
+BODY WEIGHT:
+160 lb
+As anyone who knows me has surely come to realize, I am a big fan of the psychedelic amphetamines.  It began with DOC, in 2006.  I managed to be in touch enough to get 100mg when it was briefly offered for the first time, and I fell in love.  Leading into this experience, DOC is still my favorite, in fact it&#x27;s one of my very favorite drugs of any kind.  Recently however I have had the good fortune to get my hands on a few very obscure/rare substances in the DOX family, including DOPr, DOiP, DOF, and most recently DOET.  I have been reading about DOET for many years.  I find 2C-E to be an absolutely special and powerful psychedelic, so the idea of the DOX version of 2C-E has long seemed appealing, exciting actually.  So imagine my surprise when I managed to get 23mg of the mythical substance into my hands!
+It arrived as a fine powder, pretty unremarkable looking, homogenized and white with a faint generic psychedelic phenethylamine odor.  I put it into 23mL of vodka after weighing it, which it dissolved into immediately and completely.  I had it in solution for a week or so when a Saturday arrived with no responsibilities, and I decided to try my first dose.  I had taken a tiny allergy test dose when I got it, 500ug, which had no discernible effect except a faint alert.  I spent some time refreshing myself on the available reports (not much, mostly just the PIHKAL entries), and I decided upon a dose of 3mg.  I knew this would probably get into light full dose territory but I don&#x27;t have much of this and I feel confident in my ability to handle psychedelics.  I felt that 3mg was unlikely to be unmanageable and would probably give me a good idea of what the effects of DOET are like.
+My notes I took at the time begin here, followed by a recollection of the rest of it from memory, written within a few days of the experience.
+12:00 noon on 10/24/15
+- Ingested 3mg of DOET in alcohol solution.  Taste was only of the cheap vodka I used.  I took my blood pressure reading just beforehand and got a reading of 127/58, with a heart rate of 60 beats per minute.  Settling in to do about 30 minutes of work (on a Saturday, ugh).  My potential plans for the day are to maybe take a hike when I start coming up, or maybe go work out, and definitely head over a little later to my friends&#x27; house to jam and hang out.
+12:44
+- Definitely feeling some light alerts.  So far I feel as if the come-up will be slow and gentle.  Just finished my work, and now I&#x27;m thinking of walking over to a nearby trail and hiking a bit.  It&#x27;s a beautiful Fall day and nature is always a great place to spend a come-up in.  It feels like I shouldn&#x27;t just be sitting in my house at my computer for this.  Took BP again, now it reads 109/75 with 59 bpm, and then right afterwards 123/75 and 60bpm.
+1:04
+- It seems my friends would like to join me on my hike, so my plans have shifted to a group hike and afterwards obtaining some nitrous for this evening.  I also just found out someone is making ALD-52 available which is just crazy; it&#x27;s been almost a myth for so long now, ever since Orange Sunshine and the controversy over whether it was really ALD-52 or LSD.  What a time we live in!  I also just took .6mg more of DOET; it simply felt right.  So far I feel very nice, there is a warm, stable feeling growing in my chest and I am in good humor.  I&#x27;m starting to feel a pleasant energy in my limbs and I think hiking will be perfect.  If I stare at something, my eyes have a tendency to slowly come unfocused.  After the hike I suspect I will be heading back with my friends to their place to hang out and play music.  I&#x27;ll bring some paper and a pen with me so I can take notes.
+1:12
+- BP reading: 131/77 and 60bpm.  This feels more stimulating than DOPr, but I don&#x27;t feel like I&#x27;m on a stimulant.  I actually like that it feels more stimulating than DOPr.  This is getting my bowels moving like DOC does, or like anything stimulating does.  My friends just said they were heading out in about 30 minutes, so I&#x27;ve got a little more time to poke around here.  Perhaps I should clean my kitchen up a bit.  I just felt a wave of effect wash over me.  Difficult to describe but it reminded me of DOC in its feeling.  There are similarities to the DOC feeling for sure, with (so far) significantly less peripheral effects.
+1:35
+- The feeling is becoming stronger at a consistent rate.  Nothing specifically visual yet, but things are taking on that intense look that happens on psychedelics.  The feeling has grown to the point where I feel like I need to be doing something (the same as with DOC).  I just cleaned my kitchen up, now it&#x27;s time to go towards that hike.  I&#x27;ve gathered up my things, fed my cats early dinner since it&#x27;s unlikely I&#x27;ll be back home tonight, and I&#x27;m preparing to walk on out of here.
+2:31
+(Copied from paper notes taken on the hike, the only note I bothered to take for the rest of the day)
+- This has become much more physically intense.  Come-up feelings are reminiscent of DOC&#x27;s come-up feelings (that is, intense and kind of jangly but not fearful)
+Come-up feelings are reminiscent of DOC&#x27;s come-up feelings (that is, intense and kind of jangly but not fearful)
+, but very little to no visual input.  I can&#x27;t wait for my friends to get here to start hiking (they got a bit lost on the way).  I need to channel this energy.  I&#x27;m feeling a bit twitchy... my hands are quivering/shaking when I try to hold them still.  No problems giving directions or communicating.  Blood pressure reading 148/72, 71 beats per minute.  So definitely raised over baseline (which is around 120/60 and 60bpm), but nothing alarming.  At the moment it feels like it should be higher.
+*  *  *  *
+After this entry I stopped taking notes.  My friends finally arrived and we set off to hike.  One of my friends had a feeling I&#x27;d bring my backpack, which had his shoes in it from our last hike, so he just assumed I&#x27;d bring it and never called me to ask if I could, but I forgot (because I forgot to bring water, it&#x27;s what always reminds me I want my backpack).  So, he elected to go on the hike barefoot.  He and I do a lot of barefoot hiking on rivers and even through the forest, but I recommended against it to him for this hike due to gravel and leaf cover hiding potentially sharp impediments on the forest floor and plenty of jagged rocks, and offered him my hiking boots or shoes and I would wear the other; however, he declined.  This would factor into my experience later so I&#x27;m glad it happened, although I felt bad for my friend because by the end he was suffering quite a bit.
+By the time we started walking, the DOET had set in much more completely.  I found that the physical presence of it was very strong; it felt both nice and somewhat edgy and uncomfortable at the same time.  Early on I had noted that there were less peripheral effects than DOC has, but as time went on that changed.  I never felt physically threatened in terms of being afraid for my health, but the sensation was slightly threatening in its energy, which consisted of a very strong coursing feeling of energy pulsing out from my solar plexus.  It felt similar to DOC except that with DOC I can easily focus that energy into a sparkly euphoria, whereas with DOET there was no euphoria to speak of, it was a very neutral feeling.  Hiking helped to dissipate my discomfort (when I was sitting there waiting for my friends it started to become uncomfortable and hectic feeling), but a faint edge of uneasiness remained with me until much later.  I didn&#x27;t feel energized either, in a stimulant sense, or even in a DOC sense.  I didn&#x27;t have a lack of energy by any means, I just didn&#x27;t feel any additional energy, which I found odd because it
+felt
+like I should have a load of physical energy in my muscles along with the feeling of energy that was so intense within me.  The energy within me that I refer to was not a movement energy, it was a feeling, kind of electric/buzzing yet somehow velvety too, that literally felt like I had plugged into some source that was pulsing its energy through me like an outlet.  I also began to notice a twinge of stomach discomfort, which is noteworthy since I hardly ever get that from psychedelics, and in particular with DOC and DOPr I don&#x27;t get it at all.
+Despite the tinge of discomfort I was experiencing, I was having a nice time as we hiked along, conversing and laughing.  I noticed a somewhat mescaline-like effect on my vision, where although there was no real visual distortion to speak of, everything looked beautiful and striking and colors were enhanced.  It was the middle of Fall in all its glory in the North Carolina mountains, so enhancement of colors was easily noted and well appreciated.  I found myself staring, transfixed on the riot of red and orange and yellow and coral and green, my eyes seeming to be trying to physically draw it all in.  I never looked or asked my friends about it, but I felt like my pupils were huge, larger than they usually are on psychedelics.  At the same time though, I couldn&#x27;t figure out what the drug was really doing to me.  The primary effect seemed to be the body trip, which was intense and both calm and edgy at the same time.  I was at peace but also in conflict, a true dichotomy.  My mind did not seem propelled to thought and association, unlike DOC, LSD, tryptamines, or many other things.  Neither did I feel any feelings of spirituality.  I was not compelled to talk much, I participated in conversation and enjoyed it but I felt relatively quiet.  Physically I was feeling things quite strongly.  It seemed like there was some sort of entactogenic quality to it except it didn&#x27;t precisely feel
+good
+.  I did feel good sometimes, but through it all was a vein of unrest and faint anxiety.
+As we progressed further and further, my shoe-less friend began to walk more slowly.  We turned around earlier than we had originally planned to because of this, and when we started going back downhill it became harder for him than it was going uphill, because he now had to step down with each step instead of up (and hence impact his feet to the ground with more force) so he had to use his quads and knees with every step to make sure he stepped softly.  At some point he gashed his big toe open, not too bad but definitely painful and in need of dressing when we got back.  It clearly became very challenging and painful for him to keep walking, he had stopped talking and was grimacing with each step, but we had probably about an hour to go to get back still.  I noticed that I was really feeling for him strongly.  Of course anyone with empathy would feel bad for their friend in this situation, but this was well beyond the way I would normally feel about it.  I became fairly preoccupied with making sure he was okay.  I kept almost feeling his pain in my feet, and it became a little harder for me to walk too because of the sensations.  It was actually pretty unpleasant for me on the way back because I was really concerned for him, and I felt like I was taking on his pain and mental state.  At one point I had the thought that maybe I was taking some of it from him to give him the strength to keep going, but I never thought to ask him if he felt that way.  After a while I realized that the DOET was probably increasing my level of empathy.
+After a while I realized that the DOET was probably increasing my level of empathy.
+It&#x27;s strange though because with your average empathy-enhancer, it&#x27;s usually manifesting in a euphoric, loving way, like with MDMA for example, or 2C-B.  I didn&#x27;t feel any increased feelings of love or communication or anything, I just literally was feeling his pain, and being a caring person, I worried for him.  It was a very strange effect that I found difficult to deal with at the time, but could perhaps have some applications in a different setting.
+Eventually we made it back to the car and got in, and some of the tension left me as we turned on some music and just sat and traveled, but I still had the same underlying tension going on that seemed to be a part of this experience.  We decided to go to the grocery store to get some food, and then downtown to a little shop where they sell nitrous.  As we got into the valley there were more and more people around us and I felt a faint feeling of threat which grew as we got closer in to town.  It was pretty much fine in the car, although I found the traffic to be a bit unnerving, but at the store I was sharply uncomfortable.  All those people all around me, doing things, talking, exerting their wills... I could feel it all acutely and it was disorienting and disconcerting; it made me feel vulnerable and like I couldn&#x27;t hold on to myself because of all of the conflicting emotional/energetic input from others, it was subsuming me.  I was glad to get out of there.  Then we went downtown and it was absolutely packed with tourists... the entire time was stop and go traffic (mostly stop), with people stopped in the middle of intersections at red lights, people walking across the street, music playing.  It was chaos, and it was making me feel almost a bit panicky, definitely jumpy and intensely uncomfortable.  Eventually we made it to the shop and I got out and went in to buy some nitrous (one box for each of us).  Buying the nitrous, interacting with the clerks, was a bit weird, but they were cool so it was a welcome reprieve from the situation outside.  Going back into civilization was making me realize that I was very altered indeed, but it was still maddeningly difficult to determine
+why
+.  It was almost like I wasn&#x27;t tripping, yet I was, undeniably.  I just couldn&#x27;t figure out what it was doing to my mind, but it was definitely something.
+Shortly, nitrous in hand (or rather, in bag), I went back outside and we took off.  Fortunately there&#x27;s a quick back way out of downtown and my friend&#x27;s house is pretty close, so the rest of the ride back wasn&#x27;t too bad though honestly just being in the car was feeling strange to me.  At long last we made it back to the house and I began to shake off the tension of being in such a clusterfuck of people and being very concerned for my friend.  We sat down in the living room and within ten minutes we collectively decided to crack into the nitrous (pun intended).  I decided to start off with three chargers and really go for it.  I cracked two into the dispenser, and loaded up the third so I could crack it in after the first hit when there would be enough room to hold it all without some shooting back out.  My friend put on some music, it ended up being Jay-Z which suited me fine.  Thus prepared, I sat down and breathed deeply a few times, centered myself as well as possible, and began.  For reference, it was about 6:30pm, so T+6:30 from when I dosed.
+I took the first hit slowly, feeling moderately nervous about it, filling my lungs almost as much as I could, and filling them out with a small bit of regular air to avoid the panic of feeling asphyxiated, or diminish it anyway.  I always find with nitrous that it&#x27;s a challenge to hold my breath as long as I want to because I start to feel the lack of oxygen acutely, and something about it being nitrous oxide instead of oxygen makes that feeling much stronger.  The familiar low-range nitrous buzz started creeping in, and my being was filled with the intense hum and ringing that characterizes the experience.  After an attempt to hold it for 10 seconds, I exhaled and took the next, and closed my eyes.  The buzz grew sharply in intensity and I crossed the threshold where suddenly it seems to quickly seep into many other levels of perception, and my hearing became dramatically altered.  The music was glitching when I exhaled again and took the third, long hit.  The buzz became everything.
+And then, the Moment happened.  My eyes shot open.  Something had just been happening, something profound.  When did it happen?  When did it change from a powerful humming buzz into whatever it is that just happened that had me coming back to consciousness on the tail of such a powerful and instantaneous series of events?  I looked around in a mix of awe and suspicion; I looked right, and heard the pop of something cooking on the stove colored with the most familiar and meaningful distortion of sound, like some sort of feedback.  I looked left and a voice carried a similar but different sound distortion.  And then the music started coming back, and my friend&#x27;s voice drifted slowly into my ear.  Every sound was colored by a different distortion, and as reality wound back into existence the sounds became an impossibly rapid staccato series that triggered in me a deep primordial remembrance.
+the sounds became an impossibly rapid staccato series that triggered in me a deep primordial remembrance.
+I was
+almost
+aware of a base level of perception that was described by this pattern of sounds.  The sounds were the clue by which I was about to unlock the secret to full understanding of existence.  My thoughts shot off at a million miles per second, realization after realization, closer and closer, until the buzz suddenly faded down and the sounds stopped, and I was left trying to remember the precise details of what I had just experienced.  I remember the gist, I thought, I can get it back.  I jumped up suddenly and made some sounds with my voice that sounded something like
+&#x27;No, I can still fucking
+GET
+this&#x27;
+.  Then I realized I wasn&#x27;t going to and that the experience was over.  The next thing I said was
+&#x27;Holy
+SHIT!
+&#x27;
+My friends laughed, and then so did I.  It was the first time I ever really got there with nitrous... every time before, I would always just have an insanely strong and pleasurable buzz that would wear off very fast and disappear, no thoughts or anything, except for one time on LSD and MDMA where I vaguely remember returning from some very alien place but nothing else about it.  This was by far the best and most complete nitrous experience I have had up to this point.  I certainly think the DOET aided in my experience getting there, but it also feels like now I understand how to do nitrous better and could get there without a psychedelic.  But I guess I&#x27;ll have to find out which of those is true some other time.
+Upon my rapid return to normality - comparatively speaking to nitrous reality anyway - I was left with a ringing sense of wonder.  Wow, just wow!  I bet that if I do that again, it&#x27;ll become more clear!  I resolved to do so, but I had to wait my turn.  I watched as one friend and then the next filled up 3 chargers and went under.  One friend came back laughing hysterically and bowing down as if in reverence to nitrous oxide&#x27;s power, which provoked hilarity in me as well.  I took a moment to take stock of my situation as I remembered I was also on DOET.  I didn&#x27;t feel that anything had developed in the trip content-wise, but I certainly did feel better physically.  All traces of my uneasiness from before had dissipated and my body and mind felt loose and good.  Also my sense of ease in communication and laughter was significantly higher.  It felt like nitrous had scrubbed out the negative aspects of the trip, and it stayed that way for the rest of the night.  I still had an increase in physical energy and I still felt the body high.  There were still no visuals to speak of.  However, at this point I was having a really nice time.
+After maybe 10 minutes it was my turn for the nitrous again, so eagerly I loaded it up in the same manner as before.  This time there was no nervousness, only excitement.  The buzz grew quickly and smoothly, and the second hit made it infuse my being and aural field.  Then the third hit took me away completely.  BAM!  An impossibly fast rush of thoughts, question leads to answer leads to another question leads to another answer, ad infinitum.  In a crystal clear moment, I realize I am dying.  I feel a moment of panic, then almost immediately let go without difficulty; after all, each moment frame is moving so rapidly to the next, and the next, and the next, and each moment I am a new being, so in a split second any attachments to Xorkoth were rendered obsolete and promptly forgotten.
+At this point I entered the thought stream completely and I knew that I had discovered the answer to everything.  But after that one timeless moment, I became aware of external sounds again, warped as they were.  A voice slowly drifted across my consciousness.  I opened my eyes out of reflex.  Wait, hadn&#x27;t I died?  I looked right, and heard the pop of something cooking on the stove colored with the most familiar and meaningful distortion of sound, like some sort of feedback.  I looked left and a voice carried a similar but different sound distortion.  An incredible feeling of déja vu overcame me and the Moment began to unwind and reality pulled itself back together.  I remembered the process of the sounds that were the clue to the incredible thing I had once again already forgotten the essence of, and it happened exactly the same this time, the same sequence of sounds, the same body movements, the same thought process.  Only this time I made the decision to react to a particular point of the process, the point at which it slipped all the way away from me the previous time, a different way, feeling as if I had learned from the last time.  It worked but my ignorance was revealed to me on the very next step, during which I failed to follow it because of some other aspect of myself, but I realized what had prevented it.
+I got the sense that every time a person does nitrous, it&#x27;s like a fresh attempt at the universe to understand itself and reach a singularity, and that every time we get one step closer, learn one more thing.  It&#x27;s difficult to describe this idea but it blew my mind pretty hard at the time.  There&#x27;s a lot more to it than I can put into words.  The feeling actually reminded me very much at times of salvia, which is something I have thought at previous times using nitrous too.  Each time I went back, I encountered this same exact déja vu sound/thought loop, always as I was beginning to reintegrate into the world.  And each time I got just one step farther.
+We continued taking turns at the nitrous for a total of 6 rounds.  Each experience was more of the same for me, mindblowing each time.  I started to feel like my lungs were suffering and I was a bit woozy after the fifth one, but I went ahead and did it a sixth time because the dispenser had gotten back around to me, and after all I always came out of it thinking what I had just experienced was the most incredible thing ever.  During the sixth experience I also reached the point where I knew that I was dying, but this time the scene flashed to a grisly fatal car accident, tragic, out in the rain and night, all alone, and lingered there for what seemed a long time.  I could see myself on the ground, torn and demolished, blood and bile spread around me as I feebly struggled to breathe.  I felt the crushing feeling of that experience so strongly that I leaped up in despair, and the nitrous dissipated in a way that was chaotic and did not provide me with any feelings of understanding, simply a feeling of a strange sort of melancholy loss and shame.  When I regained my composure I said to my friends
+&#x27;Well, I&#x27;m done with that for now.&#x27;
+And I was.  That final experience had left me feeling a little shaken so it seemed like a good place to stop.  Plus each experience was getting more muddy than the last and my body was telling me to stop doing nitrous.
+For the rest of the night, my friends and I listened to music and drank beers and smoked weed, basically a low-key weekend party.  I had a very good time, the alcohol mixed well with the DOET (not surprising as I find alcohol mixes quite well with all the DOXs I&#x27;ve tried).  It mixed better than it did with DOPr, in that there was some amount of synergy, but not as well as it does with DOC where it&#x27;s a beautiful synergy.  I suspect that the physical energy of the DOXs is what allows you to drink more alcohol and have it produce a more euphoric effect.  DOPr doesn&#x27;t seem to have much energy to it, while DOET and DOC do.  DOC, however, especially in the plateau stage when I like to mix alcohol (never during the come-up or peak for DOXs, but during the plateau), produces a strong, clean euphoria as well as the energy, so it makes sense to me it would mix better than with DOET, since DOET does not seem to produce any marked euphoria.  I stayed up quite late - eventually it was just me and one of my friends still up, at around 2:30am.  By this time I still felt the DOET quite strongly, except now I was drunk, which was desired because I wanted to be able to sleep. We wanted to stay up a little longer, so we put on some music and loaded up another round of nitrous, since we had a little left.
+I took 3 chargers just like the other times, only this time it made me utterly black out and just come to afterwards as the buzz was wearing off.  It was like, hit, start feel the buzz, and the very next moment (it felt continuous) I was coming out of it saying
+&#x27;wait, did I just do that?&#x27;
+.  My friend started feeling nauseous after the nitrous and went to bed.  I did one more, hoping I&#x27;d get something more - and also victim to the reduced ability to judge decisions from alcohol coupled with a romantic view of my earlier experiences - and the exact same thing happened.  So it was a waste.  The conclusion I&#x27;ve come to is that nitrous and alcohol aren&#x27;t things to combine.
+Well, around 3:30am, T+15:30, I tried going to bed (I was sleeping over at my friends&#x27; house where we had spent the entire evening and they had the guest room set up for me).  But try as I might, I could not get even the slightest bit tired.  It was just like my mind couldn&#x27;t switch into sleep mode or even rest mode.  With DOC sometimes the physical energy manifests in my limbs at around this timeframe after dropping, as I&#x27;m trying to sleep, and I have to move my legs around which makes me unable to sleep, but my mind is very comfortable and even drowsy with some residual euphoria.  But with DOET, I didn&#x27;t feel excess energy making me want to move.  I could lay there comfortably.  But my mind would just whirl, and honestly I was bored.  I found throughout this DOET experience that my mind didn&#x27;t have a lot of thoughts going on.  I don&#x27;t even recall thinking about anything in particular, it was just this internal energy that was happening that eliminated sleep from the realm of possibility.  After tossing and turning for a bit, bored with my flaccid mind, I started watching episodes of Family Guy on my phone, which occupied my attention and was actually quite fun and amusing.  I drank 3 more beers relatively quickly into this process, thinking I could knock myself out, but other than the alcohol feeling increasing, I had no luck with it, not one ounce more tired.  Eventually, around 7am (T+19:00), my phone died, so I laid down to try to sleep.  I got absolutely none; fortunately I was comfortable, but as I laid there until 10am when my friend got up, I was very bored and wished it would just be morning already.
+Finally he woke up, and I emerged from the room, looking worse for the wear.  He asked me how I slept and as I started to answer
+&#x27;Not at all&#x27;
+, I realized that my brain felt pretty scrambled, because it came out haltingly.  I definitely still felt the DOET energy though I didn&#x27;t feel like I was high on it anymore.  It was like it left its energetic imprint on me and my body and mind were still reacting to that.  My friend and I chatted with one-liners for about an hour, not very animated because of how semi-braindead I was at the time.  I was continually losing my train of thought mid-sentence and could rarely get past a single statement at a time.  We also smoked a bowl of marijuana, which helped me get me feeling a little less sketchy from lack of sleep, DOET, nitrous and alcohol the night before, but probably didn&#x27;t help my wooziness.  At 11am, he went to the gym to work out and went home.  I was sober at this point other than the weed, I felt shaky but I did not still feel like I was on DOET, even though I could feel its lingering presence.
+I got home and spent the day reading, watching TV, trying to get myself to do house work (unsuccessfully), and trying to sleep.  Despite the fact that I felt very tired, I still couldn&#x27;t sleep all day.  I still had that emotional neutrality of DOET except since it was coupled with lack of sleep and feeling kind of cracked out, it was much less pleasant the day after than it was during the trip.  During the trip it just was... I felt neutral emotionally, it wasn&#x27;t a good or a bad thing.  The next day though it felt bad, like I was flat-lined, only half alive inside.  I laid down for 2 hours twice, and couldn&#x27;t sleep a wink those times either.  The last time I tried to sleep was 4pm to 6pm, which was T+28:00 to T+30:00.  After I gave up on that attempt, I headed back over to the same friends&#x27; house because there was discussion of playing music and I thought that would help me get past this funk.  We didn&#x27;t end up playing music but I did play Super Smash Brothers with my friend (I never play video games but it seemed like the thing to do), and that actually helped me turn it around, along with my friend who is hilarious.  He was in a bit of a funk that day too, but soon we had each other in hysterics and had a variety of epic matches on the game that were really fun.  Once I turned it around, it stayed turned around.  I realized I no longer felt the remnant energy of DOET in my body and I was smiling and fully there.  So, pretty early, I headed home and finally fell asleep at about 12 midnight (T+36:00).  I slept for 9 hours and the next day I woke up feeling relatively drained but in good spirits.
+*  *  *  *
+So that about does it for my first DOET report.  I honestly am not sure what to make of it.  Like 2C-E, there seems to be a definite emotional neutrality and objectivity, but at least at 3mg, that&#x27;s where the similarities to 2C-E end.  I was expecting something more classically psychedelic, and I can&#x27;t help but feel a little let down after so many years of dreaming about the amphetamine analogue of 2C-E, which is one of my favorite substances.  It wasn&#x27;t terrible by any means, but it was rather uncomfortable all things considered.  There were a few positive effects, a lot of neutral effects, and a fair amount of negative effects.  There was next to no visual display, only a brightening of color a la mescaline that was definitely beautiful and appreciated.  Mostly, the headspace was not really what I normally find in a psychedelic headspace, in fact I am hard-pressed to really describe what it was like, or what it was doing in there.  It seems like DOET, at least at this dosage, might be a very atypical psychedelic.  It was definitely doing
+something
+, and that something was being done quite strongly to me, and I was quite altered, especially behaviorally.
+Like the other DOXs, it mixes fine with alcohol and weed, quite well actually.
+Like the other DOXs, it mixes fine with alcohol and weed, quite well actually.
+As for the nitrous... that was by far the highlight of the whole thing.  I was able to get so much more of out of it than the times I have done it while sober.  Also the nitrous seemed to clear up the uncomfortable parts of the trip.  However from what I have gathered, most psychedelics behave that way with nitrous, so even that isn&#x27;t a reason to use DOET again.  And the aftereffects were pretty severe, honestly.  I felt exhausted and as I said I was utterly unable to sleep a wink for a long time, far longer than any positive effects lasted, quite a lot longer even than with DOC, though the actual trip seemed of similar length or even a little shorter than DOC.  The initial impression of the trip when it started tickling my synapses was that I was starting to feel euphoric and it reminded me of DOC, but once it started developing it no longer reminded me much of DOC at all except in specific ways I made throughout this report.
+So overall I was not very impressed with this trial.  I do plan to take it at 6-7mg also, as PIHKAL says it seems best at that level.  I&#x27;m nervous to do it because of the negatives about this experience, and a fear that they will increase proportionally.  But it does feel a bit like I just dosed high enough to get a definite effect, but too low for the full nature of the drug to develop.  So, I definitely will be trying it again (and reporting back), but likely it will move a ways down my list.  The majority of psychedelics I&#x27;ve ever done have a much greater reward-to-unpleasantness ratio than this did at 3mg.  If the trip had been amazing but had the same negative aspects, I&#x27;d be raving about how great it is now... the discomfort was totally manageable and did not ruin the experience at all.  It&#x27;s just that the trip really didn&#x27;t have any amazing qualities to it.  Other than for experimentation&#x27;s sake and because I enjoy trying things are contributing reports, I see no reason to take this when DOC is vastly superior in every conceivable way.  I&#x27;m hoping that at the higher dosage level this develops more in an interesting way, because it seems a shame to write off something I have wanted to try and had high hopes about for so long.
+Exp Year: 2015
+ExpID: 107296
+Gender: Male
+Age at time of experience: 32
+Published: Jan 9, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOET (135), Nitrous Oxide (40) : Combinations (3), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

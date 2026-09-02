@@ -1,0 +1,189 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>杜洛丁 - 艾洛伊德 脱离 - 脱离</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/duloxetine.html'>← 度洛西汀</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>杜洛丁 - 艾洛伊德 脱离 - 脱离</h1>
+<div class='sub-title'>Duloxetine - Erowid Exp - &#x27;Detachment&#x27;</div>
+<div class='meta'>作者：Bree Citation · 日期：Sep 8, 2023 · 剂量：60 mg · <a href='https://erowid.org/experiences/exp.php?ID=115780' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我意识到我需要知道它是什么感觉,
+我决定最好和最简单的起点是家里的东西, 更具体地说 (我为此感到遗憾),
+我在几个月之内开始偷走和隐藏这些药物.
+很长一段时间, 我没有勇气去做任何事.
+这就是说,直到事件发生的那天晚上.
+我完全孤单,心情不佳, 处于自我毁灭性的愤怒和焦虑状态,
+这一次,我冲动地拿起我服用的60毫克杜洛胺药片,
+上腺素和其他在我的脑海中发生的事情, 麻木了愤怒和焦虑,
+我还不相信这是由于药物本身.
+我相信我拍摄的时间是晚上10点左右.
+在服用杜洛提因前15个小时,我早上 (大约上午7点) 服用了大约10mg的24小时Reactine (一种过敏药物,其活性/药物成分是塞蒂里辛化物).
+接下来的一个小时, 我做了功课, 发现一切似乎正常.
+虽然我睡得比平时更轻松, 但仍然没有注意到我的感受/行为有所改变.
+三个小时后,凌晨2点40分, 我醒来时感到有点恶心,
+发现我不会再睡觉一会儿, 因为我觉得很不安,很不安, 总的来说, 我只是在手机上玩了一会儿, 发现我的不舒服感越来越大; 我感到很不安,
+起床后去所, 希望能有所改善, 症状显著增加.
+我觉得自己很快就会吐.
+我的心率在某一时刻达到每分钟134跳, 超过我休息心率的两倍 (我有一只能追踪这种情况的手表).
+我可以说我的血压和体温都很高.
+我觉得自己从内心开始燃烧, 胃是其中的中心.
+我现在很害怕, 我可能会告诉我的父母关于这件事,
+我感到头, 动起来也很疼,
+我确实有比正常更快的想法, 像是危险想法的小闪光, 但总的来说我觉得我的思维过程比正常慢,
+几乎从一个想法滑到另一个想法,
+在床上躺在不同位置后, 不协调地从一个地方移动到另一个地方,
+由于整个房子的温度不同,
+我躺在沙发上着墙壁一会儿, 试图摆脱自己可怕的胃痛和灼热,
+我突然觉得自己很舒服,很疲,
+几分钟后, 我走回楼上, 走到自己的房间, 倒在床上睡着了.
+在这个时候, 应该是凌晨3点到4点之间.
+奇怪的是,我早上6点半左右醒来,
+尽管我在镜子里观察到一点动和扩张的瞳孔,我,根据我的父母,似乎比我很长一段时间更快乐和更热情.
+我感到非常紧张和过度说话,
+我开始上学, 发现自己变得更有社交性,
+似乎比我很长一段时间以来更快乐,更热情.
+我感到非常紧张和过度说话,
+我开始上学, 发现自己变得更有社交性,
+我觉得自己已经失去了平常的愤怒和动力,
+我只是根本不在乎,如果说实话,这有点清爽.
+我在一天中的大部分时间都在,
+情感/心理影响大多持续了两天左右,
+我患有焦虑症 (特别是强迫症), 发现这种药剂后的症状有点不同, 服用杜洛后第二天有点减轻, 但两天后基本恢复正常 (不幸的是).
+另一件事我确实注意到第二天我服用了它是有点模糊的记忆和难以回忆随机的东西,
+我也发现我无法停止思考这段经历.
+其他:
+发布时间:2023年9月8日
+杜洛西丁 (395):各种 (28),治疗意图或结果 (49),令人愉快的经历 (4),健康问题 (27),第一次使用 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Detachment
+Duloxetine
+by
+Bree
+Citation:   Bree. &quot;Detachment: An Experience with Duloxetine (exp115780)&quot;.
+Erowid.org
+. Sep 8, 2023. erowid.org/exp/115780
+DOSE:
+60 mg
+oral
+Duloxetine
+(pill / tablet)
+I had been becoming more and more interested in drugs of any and all kinds, and this curiosity surpassed the point of being satisfied by merely reading others’ experiences. I realized that I needed to know how it felt, to try everything. So, I decided the best and simplest place to start was with things at home, and more specifically (and I feel bad for this), my dad’s prescription drugs. These included duloxetine, oxycodone, and a bunch of other things: all of which I, over the course of a few months, began to steal and hide for myself. For a fair amount of time, however, I couldn&#x27;t muster up the courage to actually take anything. That is, until the night of the event.
+I was completely alone and wasn&#x27;t in the best mindset and was in some kind of self-destructive anger and anxiety thing, and prior experience with similar feelings often leads to me doing something impulsive. This time, the impulsive thing was picking up one of the 60mg duloxetine pills I had taken and swallowing it without a second thought. Immediately after I felt significantly better (albeit shaky), adrenaline and whatever else goes on in my mind at these times numbing the anger and anxiety since I sort of took it out on myself. I don&#x27;t believe this was due to the drug itself yet. I believe I took this around 10:00pm. I had taken some 10mg 24-hour Reactine (an allergy medication whose active/medicinal ingredient is Cetirizine Hydrochloride) the morning (around 7:00am) about 15 hours prior to taking the duloxetine. For the next hour or so, I did homework, and found that everything seemed to be normal throughout this. Around 12:00am, I fell asleep, perhaps with more ease than usual, but still didn&#x27;t notice any changes in how I was feeling/acting.
+Around three hours later, at 2:40am, I woke up, feeling slightly nauseous and a little disorientated, the latter of which I dismissed initially as being because I just woke up. After finding I wasn&#x27;t going to fall asleep again for a while since I felt oddly restless, uneasy, and just off in general, I mainly just fucked around on my phone for a little while, finding that my discomfort was increasing; I felt quite restless, a tad shaky, uncomfortably hot, increasingly more nauseous, and found my stomach was beginning to hurt. After getting up going to the bathroom, hoping to maybe feel a bit better, there seemed to be a drastic rise in symptoms.
+At this point, my stomach was cramping quite painfully, and I felt like I was going to throw up at any second. My small amount of shaking from earlier was debilitating now, as I was trembling uncontrollably all over, and my heart rate was, at one point, at 134bpm, more than double my resting heart rate (I have one of those watches that tracks that type of thing). I could tell my blood pressure was high along with my temperature. The worst of all, though, was probably the feeling that I was burning from the inside out, with the sort of epicentre of this being my stomach. I was panicking now, thinking that I might have to tell my parents about this and that I needed to go to the hospital because I was dying or something. I was dizzy and it hurt to move, but I had this sense that I needed to move and could not stay still. I did have thoughts that were quicker than normal, like small flashes of dangerous ideas, but generally it felt like my thinking process was slower than normal in terms of deciding what to do and figuring out what was going on. I felt sluggish and kind of confused, almost sliding from thought to thought without truly finishing thinking them.
+After laying in various positions on the floor and moving uncoordinatedly from place to place sluggishly and in my room for most likely 20-30 minutes. I stumbled down the stairs in an attempt to possibly cool myself down since the temperatures throughout my house differ. I laid down on the couch and stared at the wall for a while, shifting in an attempt to rid myself of the horrible stomach pain and burning and trying to calm myself down by breathing more slowly. Eventually, the pain just sort of dissipated, and I found myself suddenly quite comfortable and tired, slipping in and out of sleep. After a couple minutes, I walked back upstairs and to my room (with considerably better coordination), collapsed on my bed and fell asleep. It must have been between 3:00 and 4:00am at this point.
+Oddly enough, I woke up at 6:30am or so, more refreshed and happy than I had been in what is most likely years. Despite a bit of shakiness and dilated pupils which I observed in the mirror, I was, according to my parents, seeming much happier and more enthusiastic than I had been for a very long time. I was feeling quite jittery and overly talkative, and talked much quicker and more than usual. I then went on to attend school, and found myself more sociable and happy,
+according to my parents, seeming much happier and more enthusiastic than I had been for a very long time. I was feeling quite jittery and overly talkative, and talked much quicker and more than usual. I then went on to attend school, and found myself more sociable and happy,
+but it seemed as though I was missing my usual anger and ability to muster up the desire/drive to pay attention in school and do projects. I just simply did not care, which was kind of refreshing if I&#x27;m honest.
+My abnormal trembling lasted most of the day, with the dilated pupils wearing off around midday. The emotional/ psychological effects have mostly lasted two or so days following that night/ morning. I have an anxiety disorder (OCD in particular), and find that the symptoms of it, following this dose, have been a little different, decreased a little bit the day following when I took the duloxetine but are basically back to normal two days later (unfortunately). Another thing I did notice the day following when I took it was a bit of a foggy memory and difficulty recalling random things, a bit of what seemed like depersonalization/ detachment from who I am along with just a general oddness in how I felt. I also am finding that I can&#x27;t stop thinking about the experience.
+Exp Year: 2021
+ExpID: 115780
+Gender: Female
+Age at time of experience: 17
+Published: Sep 8, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Duloxetine (395) : Various (28), Therapeutic Intent or Outcome (49), Glowing Experiences (4), Health Problems (27), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

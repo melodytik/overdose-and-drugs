@@ -1,0 +1,332 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>五角形 - 形外观 - &#x27;明亮而清晰&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pentylone.html'>← Pentylone</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>五角形 - 形外观 - &#x27;明亮而清晰&#x27;</h1>
+<div class='sub-title'>Pentylone - Erowid Exp - &#x27;Light and Clear&#x27;</div>
+<div class='meta'>作者：Xorkoth From Bluelight Collection Citatio · 日期：Jan 15, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=112779' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>去年我订购了一些非常便宜的中国化学品,
+经过6个月的等待, 我决定改变订单.
+我最终得到了4-EMC和其他一些,加上一些3C-E和3C-P,
+我还剩下几块钱, 所以我决定买几克,
+我发现它令人惊的好和光滑.
+我写了三个试验的笔记,忘记了它们,今天才发现它们,
+第1审判 - - 4-18-17
+晚上6点 - 通过鼻子摄入10mg.
+粉末是块块的和浅浅的.
+它往往形成小球, 需要被打碎,
+像我想像中的粉砂糖一样.
+很快就开始发,
+这对我 (以及其他许多人) 来说是一种典型的刺激作用.
+没有太多的燃烧,一分钟有点尖,然后它消失了.
+感觉有信心,很好,说话.
+晚上6:20 - 吸入另一个10毫克鼻子.
+效果略有增加,但并没有太大不同.
+现在我感觉舒适刺激和轻微的高兴,
+晚上6点50分 - 用鼻子再摄入10毫克.
+现在我开始变得更.
+到目前为止没有负面影响,没有失落的感觉,没有过度刺激,没有不适.
+让我想起一个女巫, 但不那么高兴和紧张.
+让我想起一个女巫, 但不那么高兴和紧张.
+在几分钟内他宣称他真的喜欢.
+他一直感到绝对疲, 相当低, 但单一的线是让他感觉很棒, 他说它像他完全休息, 有一个好日子,
+晚上7点半 - 我们已经到达我的朋友乐队的房子.
+演练被取消了,所以我们只能出去玩,玩,玩音乐.
+我和3个朋友 (R加上他的两个乐队成员) 每人服用10毫克的.
+效果稍微增加, 仍然没有不适, 基本上是一样的, 但感觉有点强烈,
+我发现自己比平常开更多的笑话, 并且以一种更加活的方式走动,
+虽然我定期服用10毫克的药,
+虽然它和可乐很相似,
+我觉得这并没有完全不同, 但对我来说更像是超级咖啡因,
+这种药的好处在于它似乎没有大多数兴奋剂的不良影响,
+晚上继续以同样的方式, 非常愉快.
+我决定离开, 把R送到他的家, 回家.
+到了家, 我打破了酒, 睡前喝了几杯.
+没有协同效应或任何东西,
+上午3点55分 - - 另外一次10毫克的激增,有点强迫,不太糟糕,
+我完全清醒,喜欢打字,思考等等.
+没有任何不适.
+吃东西,食欲似乎完全不受影响.
+这是一种非常透明的兴奋剂, 实际上是我试过的兴奋剂中最透明的.
+类似于咖啡因, 但更有毒和高兴感.
+这也让我想起了可卡因,或黑 (更像黑),
+但有点同情,也很冷静.
+它们比黑更柔和,更轻柔,
+所有参与者都很满意,
+强迫再剂量是相当低的,它在那里,但它没有任何关于cathinones像4-EMC.
+我确实重新服用了几次, 但感觉不像魔鬼的重剂量.
+像许多兴奋剂一样,
+我发现自己真的很想保持清醒, 社交和发布在蓝光, 即使它是该死的晚,
+感觉非常沟通和社交.
+喜欢玩字的幽默.
+想知道有多少是我某种程度上喝醉和刺激的自我,
+我只是在逗乐自己吗?
+如果是,那很酷,我喜欢被逗乐.
+六点半 - - 我吃了一点埃蒂索拉姆,然后睡觉.
+我觉得如果没有它, 我就无法入睡,
+我心跳比平常更快,更,
+考虑到第二天我必须上班 (2小时后),
+班佐斯可以很有用.
+第二次试验 (第二天) - 4-19-17
+在前一天晚上醒来时,
+为了更有用的目的,
+为了科学!
+8) 没有
+咖啡因, 我能感觉到它, 但它只是我一天中通常会喝的一半.
+咖啡后仍然感到昏昏欲睡, 这可能是最初的想法导致&quot;做更多的.
+下午1点 - 吸入15毫克.
+很快, 昏昏欲睡的感觉就消失了,
+马上不得不大便,就像前一天一样.
+这并不奇怪.
+下午1点30分 - 吸入10毫克更多.
+没有外围刺激, 感觉很好, 我觉得有动力.
+我开始处理一些工作项目,一些我一直拖延的项目.
+我也有一些新想法.
+我的头脑感到敏.
+下午2点10分 - 吸入另一个10毫克.
+更多的相同,稍微更强.
+工作感觉更有趣,甚至更有趣.
+我会抽一支香烟,然后回来继续这个项目.
+似乎与咖啡因混合得很好, 没有过度刺激或焦虑.
+我的思维过程是清晰的, 不是赛车的想法,
+我希望在工作项目上工作,
+下午2点50分 - 吸入5毫克更多.
+我开始感觉有点过度刺激的第一次用这些东西.
+下午3点半 - - 服用了0.5毫克的埃蒂索拉姆来应对过度刺激.
+很遗憾,但它已经开始分散注意力了.
+确实比过多咖啡因更轻微, 而比焦虑感更令人不舒服.
+下午4:30 - 另一个10毫克.
+感觉很好, 完全没有崩的感觉, 事实上, 自从我昨天第一次尝试以来,
+晚上6点 - 我决定口服220毫克的4-EMC,
+我刚刚到达我女朋友的房子,
+晚上剩下的时间我感觉非常高兴,
+单独使用4-EMC确实会产生很多快乐感,
+220mg是一个固体但不是强大的剂量,如果你不重新剂量.
+整个晚上,4-EMC提供了一个非常愉快的背景,
+我和我的女朋友从她的家走到市中心,
+我觉得很有社交感,
+听到许多笑声和热情.
+我在晚上服用了更多的氨酸,
+我有更多的高兴状态, 但这组合的好处是它有一些多巴胺, 它有一些诺拉上腺素 (但不是太多),
+第3次审判 - 4-20-17 (第二天...)
+上午8点 - - 服用10毫克,然后再服用10毫克.
+醒来后的第一件事, 在我女朋友家里回家之前.
+显然这些东西有点强迫性.
+另一方面我每天早上都喝咖啡因,所以...
+上午8点20分 - 服用5毫克的.
+感觉清醒, 刺激程度低于咖啡因,
+上午8:45 - 服用220mg的4-EMC口服
+上午9点10分 - 服用7毫克的提隆
+感觉很好,有点紧张,但充满欣慰和沟通.
+而不是因为现在客户工作量很低而浪费一整天的时间.
+我现在感觉很好.
+给他提供了10毫克的氨酸.
+这组合真的是很好, 没有或不安.
+单独使用Pentylone也相当温和, 但当你使用它达到这么高时,
+我的笔记在这一点结束.
+足以说,我已经开始狂欢了.
+这是一个非常多样化的4EMC.
+总结
+是个有趣的兴奋剂.
+我阅读的评价大多是平的负面评价 (尽管有一份报告指出,
+我和朋友使用的方法是低剂量,吸入, 这可能与蒸发或高剂量大不相同,
+这似乎是咖啡因和可卡因之间的一半,
+它比咖啡因更令人高兴, 但类似于它是如何令人惊的透明, 而不会造成太多的外围副作用 (例如,我可以每天服用咖啡因, 除非我服用太多它感觉像它不需要太多, 如果有的话,
+难以排尿/获得/维持勃起,血管收缩等).
+我在几天后开始感到疲, 感觉心脏上有更多的负担.
+这感觉像是多巴胺作用, 轻微但真实的高兴感, 不像咖啡因,
+我得到了5克,并把其中的2个放弃.
+我最终完成了其余的工作,
+我没有错过它, 但我确实享受它,
+我没有错过它, 但我确实享受它,
+他觉得这是一种很好的可乐替代品, 作为一个在旅游或演出时使用可乐和其他兴奋剂来获得能量的人.
+他表示可乐肯定更好/更令人愉快,
+我猜他没有被吸引到足以实际上跟进,虽然.
+这几乎是免费的.
+整体而言,是一种很好的兴奋剂, 没有什么特别的,
+虽然它没有达到任何很高的高度,
+它能很好地唤醒我,给我能量,
+但我发现它对工作总体来说是积极的,
+如果再次提出,我不会犹.
+时间表: 112779
+发布时间:2019年1月15日
+五 (569):各种 (28),回顾 / 总结 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Light and Clear
+Pentylone
+by
+Xorkoth
+From
+Bluelight Collection
+Citation:   Xorkoth. &quot;Light and Clear: An Experience with Pentylone (exp112779)&quot;.
+Erowid.org
+. Jan 15, 2019. erowid.org/exp/112779
+DOSE:
+repeated
+insufflated
+Pentylone
+oral
+Etizolam
+oral
+4-Ethylmethcathinone
+oral
+Caffeine
+(daily)
+BODY WEIGHT:
+170 lb
+Last year I made an order for some insanely cheap Chinese chemicals, mostly mescaline deritivatives.  After 6 months of waiting for them to be synthed (it&#x27;s pretty shady to take someone&#x27;s money when you don&#x27;t in fact even have the substances synthed yet... but I guess you get what you pay for), I decided to change my order.  I ended up with 4-EMC and some others instead, plus some 3C-E and 3C-P, proscaline and escaline.  I had a few dollars left over so I decided on a few grams of pentylone, an uncommon cathinone derivitive.  I found it surprisingly nice and smooth.  I took notes on three trials, and forgot about them, and just found them today, so I thought I&#x27;d clean them up and share (over 1.5 years later).
+Trial #1 - 4-18-17
+6:00pm - Ingest 10mg nasally.  The powder is clumpy and shalky.  It tends to form into small balls which need to be broken up, and it sticks to whatever you crush it up with.  Kind of like what I would imagine it might be like to crush up powdered sugar.  Pretty immediate effects, I fart and feel I have to defacate (and I do).  This is a classic stimulant effect for me (and many others).  Not much burn, a bit sharp for a minute but then it fades.  Within perhaps a minute I began to feel a quickly building slight rush, feeling confident, nice, talkative.
+6:20pm - Ingested another 10mg nasally.  Slight increase in effects but not much different.  I left the house to pick up my good friend R after he dropped his car off at a shop, with the intention of sharing my new chemical toy and hanging out at his band&#x27;s practice, and jamming with them later on.  Currently I feel comfortably stimulated and slightly euphoric, but nothing too special.
+6:50pm - Ingest another 10mg nasally.  At this point I begin to get more talkative.  No negative effects thus far, no lossy feelings, no overstimulation, no discomfort.  Reminds me of hexen but less euphoric and less edgy.
+Reminds me of hexen but less euphoric and less edgy.
+R also does some, probably 20mg in a line, and within minutes he proclaims that he really likes pentylone.  He had been feeling absolutely exhausted and rather low, but the single line is making him feel great, he says it&#x27;s like he&#x27;s fully rested and having a good day, plus a little stimulation.
+7:30pm - We&#x27;ve arrived at my friend&#x27;s band house.  Turns out practice is cancelled so all we have to do is hang out, play some pool, play some music.  Me and 3 friends (R plus two of his bandmates) each take 10mg bumps.  Effects slightly increase, no discomfort still, basically the same but the feeling is a little stronger and I want to socialize a little more, which is good, because socializing is the only thing on the agenda.  I find myself cracking more jokes than usual, and moving around in a more animated fashion, but I still feel entirely comfortable, no anxious edge, no lossy feelings when it starts to dip.  However, I do take ~10mg bumps periodically, as do my friends, who all find it quite nice, but again, nothing too special.  R thinks it&#x27;s a lot like coke, but much milder.  I think it&#x27;s not entirely dissimilar but it feels more like superpowered caffeine to me, but with fewer side effects.  One thing that&#x27;s great about this is that it doesn&#x27;t seem to share the undesirable effects of most stimulants, namely, difficulty urinating and difficulty achieving erection.
+The night continues in the same manner and is very pleasant.  Eventually, around 3am, I decide to leave, and drop R off at his house, and go home.  Once I get home I crack a beer and end up having a few before bed.  It mixed nicely with the pentylone, no synergy or anything but nothing negative either.
+3:55am - Did another 10mg bump, kinda compulsive, not too bad, trying to really understand this chem.  I&#x27;m wide awake, enjoying typing, thinking, etc.  Having a good time with no discomfort.  About to eat food, appetite seems entirely unaffected.  This is really quite a transparent stimulant, in fact among the most transparent of any stimulant I&#x27;ve tried.  Similar to caffeine that way, but more druggy and euphoric.  It also reminds me of cocaine, sort of, or hexen (more like hexen), not as clean, not as empathogenic as good coke.  But slightly empathogenic, also quite calm.  Smoother and gentler than hexen by a lot, also significantly less euphoric.  All participants were pleased and wanted to redose several times.  Compulsion to redose is fairly low, it&#x27;s there, but it&#x27;s got nothing on cathinones like 4-EMC.  I did redose quite a few times, but it didn&#x27;t feel like fiendy redosing.  Like many stimulants, it increases my desire to smoke cigarettes.
+4:07am - I find myself really wanting to stay up and socialize and post on Bluelight, even though it&#x27;s damn late and I have to wake up at 8:30 to 9am to work.  Feeling very communicative and gregarious.
+4:25am - Making funny Bluelight posts, enjoying wordplay humor.  Wondering how much is my somewhat drunk and stimmed self, and how much is legitimately funny to others.  Am I just amusing myself?  If so, that&#x27;s cool, I like to be amused.
+6:30am - I take some etizolam and go to bed.  I felt like I wouldn&#x27;t have been able to sleep without it as I kept redosing and felt stimulated.  Comfortable, but my heart was beating noticeably faster and harder than usual and I was wide awake.  Given that I have to work the next day (in 2 hours), I figured I should at least get a little sleep.  Benzos can be so useful.
+Trial #2 (next day) - 4-19-17
+Woke up very groggy and very late from etizolam the night before (slept through many alarms, oops).  Decided to give this a try for a more utilitarian purpose.  For science! 8)
+12:45pm - Drank a small cup of coffee before deciding to do pentylone, probably 100mg of caffeine, I can feel it but it&#x27;s only half of what I would normally have in the day.  Still feeling drowsy after the coffee which is probably the initial thought that led to &quot;do more pentylone&quot;.
+1:00pm - Insufflated 15mg.  Very quickly the drowsiness has dissipated, I am feeling pretty good.  Immediately had to poop, like the day before.  No surprise there.
+1:30pm - Insufflated 10mg more.  No peripheral stimulation to speak of, nice feeling, I feel motivated.  I get to working on some stuff for work, extra projects I&#x27;ve been procrastinating on.  Got a few new ideas too.  My mind feels sharp.
+2:10pm - Insufflated another 10mg.  More of the same, slightly stronger.  Work feels a lot more interesting and even fun.  I am going to smoke a cigarette though, then come back in and keep working on this project.  Seems to mix well with caffeine, no overstimulation or anxiety noted.  My thought process is clear, not racing thoughts but a very utilitarian state of mind, my thoughts are moving quickly but calmly.  I have a desire to work on work projects which lately I have been ambivalent about.
+2:50pm - Insufflated 5mg more.  I begin to feel slightly overstimulated for the first time with this stuff.
+3:30pm - Took .5mg of etizolam to deal with the overstimulation.  It was too bad but was becoming distracting.  Certainly much less severe than too much caffeine and more of a discomfort than a feeling of anxiety.
+4:30pm - Another 10mg.  Feeling quite nice, no crashing sort of feelings at all, and indeed, I haven&#x27;t felt any sort of crash at any point since I first tried this yesterday.
+6:00pm - I decided to ingest 220mg of 4-EMC orally, for some euphoria.  I just arrived at my girlfriend&#x27;s house for a night of hanging out.
+For the rest of the night I felt VERY euphoric, extremely talkative and jovial.  4-EMC does produce a lot of euphoria on its own, but the combination of pentylone and 4-EMC was truly nice.  220mg is a solid but not strong dose, if you don&#x27;t redose.  Throughout the night, the 4-EMC provided a very pleasant backdrop after the initial rush ran out.  My girl and I walked from her house to downtown, where we ended up running into someone she knows from work but who I just met.  I felt very social and it was great fun.  There was much laughter and warmth.  I took a few more bumps of pentylone through the night just to keep it up.  I have had more euphoric states by far, but the nice thing about this combo was that it had some dopamine, it had some norepinephrine (but not too much at all), and it had serotonergic warmth, but there were very few side effects, and there was never a crash (4-EMC is one of the few cathinones that doesn&#x27;t crash out afterwards, or at least not much).
+Trial #3 - 4-20-17 (next day...)
+8:00am - Take 10mg bump, then another 10mg bump.  First thing upon waking, before going home from my girlfriend&#x27;s house.  Clearly this stuff is somewhat compulsive.  On the other hand I use caffeine every morning, so...
+8:20am - Take 5mg bump.  Feeling awake, less stimulation than caffeine but more of a high.
+8:45am - Take 220mg of 4-EMC orally
+9:10am - Take 7mg bump of pentylone
+Feeling pretty great, ever so slightly edgy but euphoric and communicative.  Bluelighting, then to focus on extra projects at work, rather than waste time all day due to low client workload right now.
+10:18am - I feel so great right now.  Did another 10mg line of pentylone.  The 4-EMC fills in all the gaps, this combo is truly nice, no antsiness or unease.  Pentylone on its own is also pretty gentle but there is definitely an element of feeling a strangely stimulated when you go this high with it, by itself.
+My notes ended at this point.  Suffice to say, I was starting to binge.  4-EMC is very moreish.
+Summary
+Well, what an interesting stimulant we have in pentylone.  I read mostly mediocre to negative reviews about it (though one report states it is the author&#x27;s favorite all-around stimulant due to utility and range of effects - that report suggested higher dosages are more rolly, but I did not try any high doses).  Granted, the way my friends and I were using it was with low doses, insufflated, which is probably way different from vaporizing it or doing high doses, but we all found it quite nice, and most notably, very gentle with few side effects.  It seems to be a halfway point between caffeine and cocaine, mostly (or hexen... the three share a lot of similarities).  It&#x27;s more euphoric than caffeine, but similar in how it&#x27;s surprisingly transparent without causing much in the way of peripheral side effects (for example, I can take caffeine daily, and unless I take too much it feels like it doesn&#x27;t take much, if anything, from me as a cost, and it doesn&#x27;t have any of the typical stimulant side effects such as nervousness, fiending, difficulty urinating/gaining/maintaining erection, vasoconstriction, etc).  Pentylone feels along these lines but harder, I started to feel drained after a few days and I could feel more of a load on my heart.  It feels like there is some dopaminergic action, and a light, but real, euphoria, unlike caffeine, which feels entirely adrenergic, which is the comparison I make to cocaine/hexen.
+I got like 5 grams, and gave 2 of them away.  I ended up doing the rest, generally a couple of times a week, over the course of months.  I didn&#x27;t miss it much when it was gone, but I did enjoy it while I had it.
+I didn&#x27;t miss it much when it was gone, but I did enjoy it while I had it.
+I considered getting more and my friend considered it too; he really liked it, he found it a great coke substitute, as a person who uses coke and other stimulants for energy when on the road/playing a lot of shows.  He said coke is definitely better/more enjoyable but pentylone is much, much cheaper, and perhaps more importantly, less fiendy/prone to causing him to misbehave.  I guess he wasn&#x27;t pulled to it enough to actually follow through either, though.  It was practically free with how much it cost.
+Overall, a nice stimulant, nothing special, but its lack of side effects makes it very unusual among the cathinones.  The positives to negatives ratio is very favorable, even though it does not reach any great heights.  It does a great job of waking me up and giving me energy, and it has a positive effect on mood.  It doesn&#x27;t produce any great sense of motivation like amphetamines or phenidates, but I found it overall positive for work simply because it made me feel content and energized.  If presented with it again, I would not hesitate to do it.
+Exp Year: 2017
+ExpID: 112779
+Gender: Male
+Age at time of experience: 33
+Published: Jan 15, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pentylone (569) : Various (28), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

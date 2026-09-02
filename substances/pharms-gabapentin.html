@@ -1,0 +1,115 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>加巴喷丁（药品）</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>加巴喷丁（药品）</h1>
+<div class='sub-title'>Pharms - Gabapentin</div>
+<div class='meta'>药理类别：抑制剂</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span></span><span class='mv'>4 · 强</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span></span><span class='mv'>5 · 极高</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li>神经痛缓解、抗焦虑、轻度镇静；</li></ul></div>
+</div>
+<div class='brief'><div class='sec risk'><span class='k'>【风险提示】</span> 本页 105 篇报告属 A 类处方药。近年滥用报告增加——它本身呼吸抑制风险较低，但<strong>与阿片类合用会显著放大阿片致死风险</strong>，是近年过量死亡中的重要协同因素。突然停药可致戒断（焦虑、失眠、疼痛反跳）与癫痫发作（癫痫患者尤甚）。肾功能不全需减量。</div>
+<div class='sec'><span class='k'>【作用特点】</span> 加巴喷丁，作用于电压门控钙通道 α2δ 亚基，用于癫痫、神经痛。口服 2–3 小时达峰，持续 6–8 小时。</div>
+<div class='sec'><span class='k'>【常见剂量与途径】</span> 口服胶囊/片，需逐步滴定（剂量跨度大）。</div>
+<div class='sec'><span class='k'>【他人报告中的体验（含负面）】</span> 神经痛缓解、抗焦虑、轻度镇静；高剂量出现眩晕、共济失调、眼球震颤。</div></div>
+<h2 class='block'>他人经历报告（162 篇）</h2>
+<div class='item'><h3><a href='../reports/99596.html'>甲巴丁 - 艾洛伊德扩散 - &quot;球&quot;...</a></h3><div class='meta'>May 27, 2021</div><div class='ov'>美国 我不经常服用这种药物, 我和两位医生谈过,他们基本上告诉我,当然可以随心所欲地服用, 这是一个... 我不敢打,我会小心使用这种药物. 昨晚我很无聊,没有什么事可做,所以我决定服用 gabapentin. 我先服用…</div></div>
+<div class='item'><h3><a href='../reports/99472.html'>甲,甲和阿尔普拉佐拉姆 - 艾洛伊德药物 - &quot;不是我的茶杯&quot;</a></h3><div class='meta'>Apr 22, 2013 · 剂量 5 mg</div><div class='ov'>如果有的话, 则是矛盾或模糊的. 首先,我会用强制性的历史进行序言. 我是一位前海洛因和甲基成者. 我目前正在服用甲, 逐渐减少5毫克. 我也服用一些安眠药,抗抑郁药和抗焦虑药. 我对大多数与毒品相关的领域都很熟悉, 虽…</div></div>
+<div class='item'><h3><a href='../reports/110335.html'>甲巴丁和大麻 - 毒性疾病 - &quot;恶心和吐&quot;</a></h3><div class='meta'>May 4, 2017 · 剂量 4 g</div><div class='ov'>我第二天醒来并没有服用任何 gabapentin, 经历了大约一半的一天所以现在已经14+小时自从最后一次 gabapentin剂量, 我没有采取任何第二天,</div></div>
+<div class='item'><h3><a href='../reports/87079.html'>甲巴丁 - 脑膜外 - &quot;完全出乎意料&quot;</a></h3><div class='meta'>Jan 11, 2017</div><div class='ov'>T+1小时 - 600mg 我是一个阿片类人. 我已经戒掉了阿片类药物8年了, 但却接受了心脏手术, 我发现自己处于阿片类药物戒断后急性戒断抑郁症+开放心脏抑郁症+自然倾向于抑郁. 在阅读后服用了1200毫克这种药物, …</div></div>
+<div class='item'><h3><a href='../reports/82586.html'>格劳辛和加巴丁 - 埃罗伊德 Exp - &#x27;我被误导了...&#x27;</a></h3><div class='meta'>Feb 2, 2016</div><div class='ov'>总而言之,从我的经验来看, 这种化合物与阿片类药物完全不相似.</div></div>
+<div class='item'><h3><a href='../reports/52975.html'>加巴丁 - 脑膜扩散 - &quot;干扰信号&quot;</a></h3><div class='meta'>May 10, 2006</div><div class='ov'>尽管如此,这次旅行让我很有趣. 我非常专注,非常快乐,充满活力. 我觉得这个世界无法触及我. 我和我的朋友们玩弄这些东西一段时间. 我个人有过一个非常糟糕的夜晚, 我服用了大约25个600毫克的药片. 在那个时候,我只能…</div></div>
+<div class='item'><h3><a href='../reports/115342.html'>迪瓦尔普雷克斯,LSD和加巴丁 - 艾洛伊德- 组合时有奇怪的副作用</a></h3><div class='meta'>May 23, 2021 · 剂量 250 mg</div><div class='ov'>药房 - 加巴丁 (183),LSD (2),药房 - Divalproex (275):公共空间 (博物馆,公园等) (53),困难的经验 (5),回顾 / 摘要 (11),组合 (3)</div></div>
+<div class='item'><h3><a href='../reports/113439.html'>甲巴丁和普雷加巴林 - 脑膜消毒 - &#x27;一种微弱的平静感&#x27;</a></h3><div class='meta'>Nov 9, 2020</div><div class='ov'>我在一个无穷无尽的世界里; 头在混凝土中,脑子燃烧着混乱. 我做了一些研究是否说药物可以增强一个人的生活经验;即提供一些缓解链条绑定. 虽然耐受性是迅速建立, 经验的超越性质, 提供GABAPENTIN是因此散. 为了获…</div></div>
+<div class='item'><h3><a href='../reports/87997.html'>甲巴丁 - 艾洛伊德 - &#x27;我觉得自己已经死了&#x27;</a></h3><div class='meta'>Mar 23, 2018</div><div class='ov'>试着不要过度 我发现600-1200是很有趣的, 但我在午间服用1800毫克,然后在5点服用1800毫克, 我觉得自己已经死了. 我有双重视觉,好像我喝醉了,很难保持平衡. 在凌晨3点左右, 感到有必要吐. 我也了起来,…</div></div>
+<div class='item'><h3><a href='../reports/19357.html'>甲巴丁 (Neurontin) - 艾洛伊德 Exp - &#x27;一些公共唱歌,可能感觉像尸&#x27;</a></h3><div class='meta'>Dec 2, 2002 · 剂量 800 mg</div><div class='ov'>尽管有轻微的镇静和社会增强. 然而, 800毫克的剂量会使社交效应达到我认为高于GHB的水平! 对于我来说最有效的药物是800毫克. 在睡前2 - 3小时;在醒来时服用400毫克;当天晚些时候再服用400毫克. 如果您在…</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 162 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

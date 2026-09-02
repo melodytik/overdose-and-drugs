@@ -1,0 +1,232 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>布鲁格曼西亚 - 埃罗伊德 Exp - &#x27;饥饿它和旋转的东西&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/brugmansia.html'>← 木本曼陀罗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>布鲁格曼西亚 - 埃罗伊德 Exp - &#x27;饥饿它和旋转的东西&#x27;</h1>
+<div class='sub-title'>Brugmansia - Erowid Exp - &#x27;Hungry It and the Spinning Thing&#x27;</div>
+<div class='meta'>作者：Dirty Citation · 日期：Jun 12, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=62768' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我早就听说过一种特殊的花朵,
+我知道我的祖母在她的院子里种了这些植物之一.
+几年前, 一个叫雷的朋友告诉我, 他一直把我祖母树上的花都摘下来,
+这是在5到6年前.
+最近,我的朋友N问我是否知道她在哪里可以买到,
+我完全忘记了她问我, 她搬到了很远的地方几周后.
+我记得N在问我关于花的问题.
+十六个美丽的天使号角全开.
+虽然树上没有任何种子, 我觉得很好, 因为我读过和听过的关于这种植物的故事,
+我和一位叫J的精神探险家计划在周末去做一些, 在网上进行了大量的研究之后,
+但J仍然怀疑,所以我告诉他我会在星期二晚上试一试,看看情况如何.
+无需说,没有发生任何事情.
+所以星期三晚上我增加了剂量,
+仍然没有.
+星期四晚上我忘了但星期五晚上是晚上.
+我没有工作到下午第二天, 我大约有15个小时直到我需要起来.
+我等到晚上八点左右,
+后来我抽了一碗草花混合物, 然后进去玩电子游戏,
+经过一个小时, 我仍然没有感觉到任何东西, 所以我决定去抽一支烟,
+这是一个错误.
+我立即站起来,我立即摔倒在书架上,
+整个身体似乎充满了果, 一切似乎离我很远,
+我爬出门,靠在上抽一支烟, 打电话给几个朋友, 告诉他们情况.
+我躺在床上, 看到影子移动, 昆虫爬过人行道.
+我还听到来自灌木的声音,
+我抽完烟,然后进去.
+这就是事情变得非常奇怪的时刻.
+我口中很干, 感觉到唾液变白了,
+喝了两瓶20司的酒后, 我没有感觉到任何缓解.
+我觉得不管我喝了多少酒, 这种感觉都不会消失,
+我试图进入电脑,
+我试着看电视, 但有人 (或某物) 在浴室里一直叫我的名字.
+我走进了浴室, 却没有人.
+我在淋浴室和衣柜里看了看, 甚至在水槽下面.
+晚上发生了很多这样的事情, 人们在拐角处转过来,
+我很惊地发现两位同事也在我的房间里.
+一个躺在我的床上, 包裹在我的床单试图睡觉,
+我试图与他们交谈,但我只能低声说话.
+让我指出一下,
+我只能抓住空气, 便把手指关在身边.
+很快就开始做其他人的&quot;想象式烟&quot;了.
+很多时候那天晚上我疯了大时间认为我只是掉了我的香烟在地板上当我去吸一口,并注意到它不是我的手指.
+我会花几分钟在地板上和床下寻找.
+但它从来没有存在过.
+旅行已经4个小时了,我开始渴了,这太荒谬了.
+我在镜子里看了很长一段时间, 在我注意到他的瞳孔有多大之前,
+他的眼睛几乎完全黑.
+晚上,每次我靠近镜子时, 我都会惊慌失措,
+我去冰箱里把水放进杯子里,
+所以我喝了更多的茶.
+我回到我的房间,站在角落里的同事已经不在了,我也不在我的房间里,我在工作,关门的时候,
+时间飞快了,大约是凌晨四点, 我还在工作,
+我从衣柜里拿出另一个备用毯子,
+我听到窗外有声音,然后去看看,
+我没有打算回到外面,所以我试着让他进来,
+他只是站在院子里,微笑着向我举起指.
+我很惊地发现,
+当我在院子里寻找他时,他无处可见.
+我朋友麦克在那个晚上和N一起搬到了很远的地方,所以他不可能真的在那里,
+六个小时的旅程我决定我不能再忍受了, 声音,脱水,影子和消失的人对我来说太多了,
+每个时钟都显示不同的时间.
+于是我地决定没有办法知道现在的时间, 我把它们全部拔掉,
+我对我的同事使用我最喜欢的毯子感到厌烦,
+没有人曾经在我的毯子下, 它只是堆叠的方式看起来像有人在它下.
+我把所有的灯光都灭了,躺在床上3个小时, 想着林,科罗拉多州和游泳池,
+后果
+第二天早上我醒来时, 眼睛还不能很好地集中,
+我不记得我做过这些事情, 却在地板上发现一盒空的披萨盒, 几乎一整包香烟散落在我的房间里,
+我把所有20司的绿茶瓶放在房间里随机的物品上,
+我眼睛的瞳孔仍然大,
+我觉得这次旅行最奇怪的是, 在整个晚上, 我从来没有感到孤独,
+我会和他们聊天,或者给他们看我发现的东西,比如柜下的子.
+布鲁格曼西亚是一棵可怕的植物.
+我从来没有打算再做一次.
+现在回想起来, 我可能在不知不觉中影响了这次旅行的进展,
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hungry It and the Spinning Thing
+Brugmansia
+by
+Dirty
+Citation:   Dirty. &quot;Hungry It and the Spinning Thing: An Experience with Brugmansia (exp62768)&quot;.
+Erowid.org
+. Jun 12, 2007. erowid.org/exp/62768
+DOSE:
+1 flower
+oral
+Brugmansia
+(fresh)
+1 bowl
+smoked
+Cannabis
+(plant material)
+1 flower
+smoked
+Brugmansia
+(fresh)
+BODY WEIGHT:
+175 lb
+For a long while now, I had heard about a special flower, known as the &#x27;angel&#x27;s trumpet&#x27; that was legal and grew all over the country. I knew that my grandmother grew one of these plants in her yard. A few years back, a friend named Ray told he kept taking all the flowers off of my grandmothers tree because he sold them to people and that it was possible to trip on them if you ate them. Now this was 5 or 6 years ago.
+Recently, my friend N asked me if I knew if where she could get some, because she had read about it online and wanted to try it. I completely forgot about her asking me, and she moved far away a few weeks later. Then, one night I was standing in my courtyard (I had moved in with grandmother to help around the house as she is getting old) and I remembered N asking me about the flowers. So I went around to the side of the house and bingo! sixteen beautiful Angel Trumpets in full bloom.
+After comparing them to pictures on the internet I determined them to be the real deal, though there were no seed pods on the tree anywhere, which was fine with me because of all the stories I&#x27;ve read an heard about this plant, the one involving seed digestion seem to be the worst.
+Me and a fellow psychonaut named J were planning on taking a few that weekend, and after some extensive study online, I felt it would be a good idea. But J was still skeptical so I told him I&#x27;d try a little bit on Tuesday night to see how it went. Needless to say, nothing happened. So Wednesday night I upped the dosage, trying to get a feel for how much we should take. Still nothing. Thursday night I forgot but Friday night was the night. I didn&#x27;t have to work till noon the next day, and I had roughly 15 hours until I needed to get up. So I waited until about 8 pm and ingested one flower, washing it down with green tea. I then proceeded to smoke one bowl of weed/flower mix and then went inside to play a video game until it kicked in.
+About an hour later, I still wasn&#x27;t feeling anything so I decided to go smoke a cigarette to boost the effects, I guess. Big mistake. As soon as I stood up I promptly fell against my bookcase knocking it everywhere. My entire body felt as if it was full of jell-o and everything seemed really far away from me, like I was shrinking. I then crawled outside and smoked a cigarette leaning against the fence and called a few friends to tell them how it was going. While I was laying down, I started seeing shadows move and bugs crawl across the walkway. I also heard noises coming from some of the bushes and I could hear the beat of insects wings as they flew around the garden. I finished my smoke and hauled ass inside. That’s when things got really weird.
+My mouth was so dry I could feel my saliva turning white so I went to kitchen to get some more tea. After chugging two 20 oz bottles of it, I felt no relief. I figured no matter how much I drank it wouldn&#x27;t go away and I&#x27;d have to live with it. So I tried to get on my computer but I could not get my eyes to focus on the screen. So I tried watching TV, but someone (or something) in the bathroom kept calling my name. So I got up and went into the bathroom but no one was there. I looked in the shower and the closet and even under the sink. This would happen many times during the night, people turning around corners and when I thought I had caught up with them they were gone.
+When I returned to my room, I was surprised to find two of my co-workers in my room. One was lying on my bed wrapped up in my sheets trying to sleep, and the other was standing the corner staring at me. I tried to talk to them but all I could do was whisper. Let me point out that movement was nearly impossible. When I tried to pick things up, I would close my fingers around them when I thought I was close enough but could only grab air. Soon after I started doing the &#x27;imaginary cigarette&#x27; thing others have experienced. Many many times that night I freaked out big time thinking I just dropped my cigarette on the floor when I went to take a drag of it and noticed it wasn&#x27;t in my fingers. I would then spend the next few minutes looking for it on floor and under the bed. But it never existed.
+About 4 hours into the trip I&#x27;m getting so thirsty it&#x27;s ridiculous. I took a long look in the mirror and whispered to my reflection for a while before noticing how huge his pupils were. His eyes were almost completely black. During the course of the night, every time I would by my mirror I would freak out thinking it was some killer or monster trying to sneak up on me. I went to the fridge to put water in cup from the water dispenser thing, but I guess it was broken because no water came out at all. So I drank more tea. When I went back to my room, my co-worker who was standing in the corner wasn&#x27;t there anymore, and I wasn&#x27;t in my room I was at work and it was closing time but my boss&#x27; boss showed up and said were working all night long. Time then sped up and it was around 4 in the morning and I was still working at my job, when I realized that it wasn&#x27;t real and I was just laying in my bed. My other co-worker who was under my blanket was still there, and I had taken out another of my spare blankets from closet to use for myself. I heard voices outside my window and went to take a look and saw my friend Mac out there by himself. I wasn&#x27;t about to go back out there though so I tried to tell him to come inside but again I could only whisper. He was jUst standing in the courtyard, smiling and giving me a thumbs up.
+I slid my door to the courtyard open and was surprised when instead of whispering, I yelled &#x27;MAC GET INSIDE&#x27; really loud without meaning to. When I looked around the courtyard for him he was no where to be found. What is trippy about that part is that my friend Mac moved far away with N 2 weeks before this night so there was no chance he was really there but I thought by some miracle he was there.
+6 hours into the trip I decided I couldn&#x27;t take it anymore, the voices, the dehydration, the shadows and disappearing people were too much for me so I popped about 6 Tylenol pm, some vitamins I had and some antibiotics I got for my wisdom tooth. I kept looking at all the clocks in my room (I have 4 for some reason) and every clock said a different time. So stupid me decides there is no possible way to know what time it actually is, and I unplug all of them and took the batteries out of the last one. I got sick of my co-worker using my favorite blanket so I kicked him off the bed with my foot only to see my crumpled up blanket fall to the floor by itself. No one had been under my blanket, it was jUst piled in a way that looked like there was someone under it. I turned all the lights out and laid in bed for another 3 hours thinking about the jungle and Colorado and swimming pools when I finally got to sleep.
+The aftermath
+The next morning I woke up and still couldn&#x27;t focus my eyes that well but I could see clearly enough to know that my room was fucked. I don&#x27;t remember doing any of this but I found an empty pizza box on the floor, almost an entire pack of cigarettes strewn all over my room, and writing on my hand that said &#x27;Hungry IT&#x27; accompanied by a swirly design. I had gone through my trash can and taken all the empty 20 oz bottle of green tea and set them on random items in my room such as my TV, my mirror, in the one of my pant&#x27;s pocket in my closet and I found one floating in the toilet. My pupils were still dilated, though not as bad as the night before. What I found to be most strange about the trip is that for almost the entire night I never felt alone, I felt like there were other people in the room with me even if I couldn&#x27;t see them. And I would talk to them or show them something I had found, such as a sock under my dresser.
+Brugmansia is one hell of a plant. It put a notch on my drug belt, and I never plan on doing it again. In retrospect, I might have affected the way the trip went without even meaning to, being as inexperienced as I am at mind-altering substances.
+Exp Year: 2007
+ExpID: 62768
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 12, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Brugmansia (84) : Small Group (2-9) (17), Entities / Beings (37), Difficult Experiences (5)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

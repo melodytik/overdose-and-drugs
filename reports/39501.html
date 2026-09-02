@@ -1,0 +1,206 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - - 热液体</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/hydromorphone.html'>← 氢吗啡酮</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - - 热液体</h1>
+<div class='sub-title'>Hydromorphone - Erowid Exp - &#x27;Warm Liquid Ooze&#x27;</div>
+<div class='meta'>作者：MrShankly Citation · 日期：Apr 17, 2007 · <a href='https://erowid.org/experiences/exp.php?ID=39501' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>我比这里的大部分报告作者都年轻.
+部分原因是缺乏易于获得的物质, 部分原因是我自己拒绝使用这些物质.
+我不是&quot;精神探险家&quot;或任何时尚的流行词,
+我也偶尔抽烟,很少喝酒.
+我目前不愿尝试许多精神药物,
+显然我更愿意在一个更好的整体精神状态.
+需要注意的是, 除了抑郁症, 我还患有强迫性自我伤害行为,
+一位家庭成员因癌症而被处方了一种新型止痛药.
+我对阿片产生的感觉知之甚少,
+什么药物止痛药能比吗啡更强大?
+我第一次使用它是我第一次看到它的那天晚上.
+房子里除了我和家人之外没有人, 他们睡得很好.
+没有必要早上起床, 没有比现在更好的时间.
+首先,在没有事先研究的情况下使用这项技术是非常不负责任的.
+幸运的是一切都顺利,
+我假设我需要比药剂多几倍的药物才能获得理想的效果; 因此我拿起4个非常小的红色2毫克的药丸.
+这一数量是不必要的,我相信,因为没有先前的使用,医疗剂量可能会很好.
+我在床上舒适的电视上,并迅速吞下了四个药丸一次用一口水.
+然后我把它从我的脑海中, 专注于晚节目, 让化学运行它的课程.
+吞下后大约40分钟, 我感觉到了它们的作用,
+我继续看电视大约40分钟左右 (T+1:20) 直到它烂的光线不再有任何目的让我获得娱乐.
+我关掉了灯,然后深入地躺在床上.
+感觉就像在外面雪地后, 走进一个温暖的浴.
+就好像我的胸部的中心是融化,让它温暖的液体透我的身体到我的四肢.
+没有必要说,我被传送.
+接下来的两个半小时我躺在背上, 大眼睛, 快乐地吟着 (虽然感觉是3倍长).
+我很惊我的脑海如何在药物产生的近睡眠状态中游荡.
+每当我从这种状态醒来时,
+我睡着了,第二天早上醒来很晚, 感觉有点昏昏欲睡,
+我从那时起就已经服用了无数次.
+有时我会连续使用4天,
+我甚至在一天使用两三次的时间.
+我用口服,口下或吸入,
+虽然我没有在剂量之间休息足够长的时间来判断是否能完全降低耐受度.
+由于我每隔一周只能得到有限的量,
+我有时总是很开心.
+尽管如此, 我每次服用药物之间都会等一两天.
+在这段时间里, 我通常会达到16-28毫克的水晶.
+由于耐受性, 我已经吸入了多达48毫克的鼻子.
+催化剂产生与片产生的效果相同.
+然而,它似乎对我产生了不同程度的效果,
+这包括可望和不可望的效果.
+我对这种药物所感受到的高兴感是巨大的. 很大程度上这可能是因为我觉得这种体验有趣,
+我还发现在使用HM时, 我有点头, 站着时很难保持完美的平衡.
+然而,我很少在使用药物时离开床,所以这不是问题.
+通常不是很大的问题, 尽管我发现有趣的是它只有在药物效应减弱时才显著.
+我觉得它对我造成的恶心是最糟糕的.
+我从来没有在服用药物时吐过,
+这可能与我的实质性使用有关,
+最后,镇静作用是非常微小的.
+药物效应过后, 我很难入睡.
+虽然没有深层次的愿景,没有脱离,也没有失去决策能力; 这可能是非常危险的.
+药丸很容易消耗,因此可以很容易地大量服用.
+它们的小体型也可能会欺骗一些人服用危险的量.
+不要让大小欺骗你,这些东西可以装一个拳头.
+另外,从这份报告中可以看出, 它们显然会让人上.
+我觉得这种药物所产生的好处超过了负面影响.
+让我能够克服巨大的写作障碍, 也让我学会了一些关于自己的宝贵知识,
+让你自己做出选择.
+其他:
+2007年4月17日发布
+水合体 (300) 单独 (16), 宿醉 / 几天后 (46), 回顾 / 总结 (11)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Warm Liquid Ooze
+Hydromorphone
+by
+MrShankly
+Citation:   MrShankly. &quot;Warm Liquid Ooze: An Experience with Hydromorphone (exp39501)&quot;.
+Erowid.org
+. Apr 17, 2007. erowid.org/exp/39501
+DOSE:
+repeated
+Hydromorphone
+BODY WEIGHT:
+130 lb
+Hydromorphone. a yellow speck of heaven. Paradise encapsuled in turquoise. Bliss in red and green.
+To begin with, a little background info. I&#x27;m young[er] (mid-teens currently) than most of the report authors here I&#x27;m sure. I have an extremely limited history with psychoactives, partially due to lack of easily available substances and partially due to my own refusal of them. To put it best: I am not a &#x27;psychonaut&#x27; or whatever buzzword is popular at any given time, but rather someone who hopes and plans to be well experienced later in life. I have experiences with hydromorphone (unable to tell how many times. quite a few), oxymorphone (10-15), codeine (10-15), dxm (2), cannabis (1). I also smoke tobacco occasionally, and drink alcohol very very seldomly. My current reluctance to try many psychoactive substances has to do in large part with my history with depression. I would obviously much rather be in a better overall state of mind. NOTE: along with my depression, I also have suffered from compulsive self-injurous behaviour, hinting at a rather adictive personality.
+It began when a family member had been prescribed a new pain killer for their cancer related discomfort. I had a shallow knowledge of the feeling opiates produce, so I was intriqued by this new little pill. After all, &#x27;morphone&#x27; must come from &#x27;morphine&#x27; and what pharmacutal pain killer is stronger than morphine to the uneducated mind? The very same night I first saw it, was the very first time I used it. No one was in the house except for myself and the family member and they were well asleep. With no need to be up early in the morning, there was no better time like the present.
+First of all, it was incredibly irresponsible of me to use this without any prior research. Luckily everything turned out fine, but I still feel ashamed for being reckless. I made the assumption that I would need a few times more of the medication than the medicinal dose to gain desirable affects; therefore I grabbed 4 of the extremely small red 2mg pills. This amount was unnecissary I&#x27;m sure, as with no prior use, the medical dose would probably have done quite fine.
+I got comfortable in bed with the tv on, and promptly swallowed done the four pills at once with one gulp of water. Then I pushed it from my mind, focused on the Late Show and let the chemical run it&#x27;s course. About 40 minutes after swallowing them, I felt their effects coming on, noticably in my vision slightly blurring. I continued watching television for about another 40 minutes or so (T + 1:20) until it&#x27;s radiant glow served no purpose for me to gain entertainment.
+I turned off the light and slid myself deep beneath the covers. The feeling was like that of stepping into a warm bath after being out in the snow. Warmth was poured all over me, but rather, from the inside; as if something in the centre of my chest was melting and letting it&#x27;s warm liquid ooze through my body into my extremeties. Needless to say, I was beaming. I laid there on my back wide eyed and moaning in pleasure for the next 2 and a half hours (though, it felt 3 x as long). I was amazed how my mind wandered in the near sleep states the drug produced. I was even more amazed at the surge of physical pleasure that went through me every time I woke from this state. As the effects tapered off and the itchiness appeared, I drifted off to sleep and awoke late the next morning, feeling a little groggy and knowing that I had just made a very good friend.
+Since then I have taken hydromorphone countless times. Sometimes I will go weeks without any use, and other times I&#x27;ll be using everyday for as many as 4 days straight. There was even a period of time where I was using it 2-3 times a day. I take it orally, sublingually or insuflated, only really depending on whichever I feel most like doing.
+Now I don&#x27;t get my desired results from any dose under 12mg, although I haven&#x27;t taken long enough breaks in between doses to be able to tell if I could get my tolerance all the way down. Most often, I will binge for a week or so, due to the fact that I can only get a limited amount every so often. It&#x27;s always a treat when I have some. Even so I wait a day or two between each dose. During this time I will usually reach doses of 16-28mg of hydromorphone. However I have consumed up to 48mg intranasally due to tolerance.
+Hydromorphone produces the same effects that one would expect from an opiate. However, it seems to produce different strenths of effects in me than it does in others. This includes both desirable and undesirable effects. The euphoria I experience from this drug is emmense. a large part of this probably has to do with how fun I find the experience as opposed to the drug&#x27;s effects directly. I also find that while on HM, I am slightly dizzy and find it difficult to stay perfectly balanced when standing. However, I very rarely get out from bed when using the drug so it&#x27;s not a problem. Itchiness is not usually a huge issue, although I interestingly find that it only becomes prominant as the drug&#x27;s effects are wearing off. The worst of it&#x27;s affects is the nausea it causes in me. I have never vomitted while actually on the drug, though it&#x27;s become somewhat of an unhappy ritual to throw up each and every morning after. This could have something to with my substancial use and therefor could possibly be symptoms of withdrawl. Finally, the sedation is very minimal. More often than not, I find it extremely difficult to sleep while on the drug and soon after it&#x27;s effects have worn off.
+In closing, I&#x27;d like to say to be careful. although there are no profound visions, no disaccosiation, and no loss of your ablity to make decisions; this can be very dangerous. The pills are easy to consume and therefor, can easily be taken in large amounts. Their small size may also fool some into taking dangerous amounts. Dont let size trick you, these things can pack a punch. Also, as I&#x27;m sure you can see from this report, they are obviously addictive.
+I feel that the good effects this drug produces outweigh the negative. The freedom of thought it gives has allowed me to overcome huge writing blocks and has given me the ability to learn some valuable things about myself and has let me relate better to others. Make your own choice.
+Exp Year: 2004
+ExpID: 39501
+Gender: Male
+Age at time of experience: Not Given
+Published: Apr 17, 2007
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Hydromorphone (300) : Alone (16), Hangover / Days After (46), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

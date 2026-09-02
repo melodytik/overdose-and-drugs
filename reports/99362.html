@@ -1,0 +1,346 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾罗维德的故事 - &quot;极其奇怪&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mipt.html'>← MIPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾罗维德的故事 - &quot;极其奇怪&quot;</h1>
+<div class='sub-title'>MiPT - Erowid Exp - &#x27;Utter Weirdness&#x27;</div>
+<div class='meta'>作者：Solipsis Citation · 日期：Feb 23, 2013 · <a href='https://erowid.org/experiences/exp.php?ID=99362' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>我决定尝试使用MiPT (N-甲基-N-异三胺).
+思考方式:
+我尝试过,LSD,梅斯卡林,DMT和许多合成的胺和胺,
+在过去的两年中,
+我开始觉得自己做得太多了,
+我也在生活中遇到了很多个人问题, 改变了我对心理药物治疗的想法,
+我没有服用任何药物.
+最近我对很多事情的兴趣有所复兴,
+我觉得药物包括迷幻药在我的生活中扮演的角色有所不同.
+没有那么集中,
+描述和报道的MiPT似乎是有限的, 但我能找到的信息建议我,
+我认为这对我的心理和身体都没有任何危害.
+我对它的期望是尝试一些新的东西会很好,
+我很高兴能够摆脱困难时期, 认真地处理生活.
+我没有想到会逃脱.
+我甚至尝试了很少的费尼布特和大约2毫克AM-2201口服橄油用于睡眠,
+尽管如此, 当我早上8点左右起床时,
+设置:
+虽然这不是他第一次使用它,
+他打算研究它的治疗潜力, 就像他最近对3-MeO-PCP所做的那样.
+我们共享一间楼层的公寓,
+他已经服用了药物, 因为他不确定我参加了什么时间.
+我们轻松地聊了聊, 我觉得总体上没有负担,
+我们同意每人做自己的早晨习惯,
+他会在我服用MiPT时重新服用,
+我检查了MiPT, 它肯定已经有一年多了,
+我相信我已经读过其他人也提到它的稳定性.
+上午八点五十分
+测试剂量为2毫克MiPT,可能更多的是为了看看是否有任何迹象表明它是另一种错误标记的药物,而不是为了检查神秘的过敏或敏感性.
+我吃了一些辛的奶油和一块面包,但不是很多.
+测试剂量后大约半小时, 我收到了警报.
+时间似乎与MiPT的出现和效果的短暂性相匹配, 但对警报的质量来说太温和,
+无论如何,如果我没有完全相信继续,
+是时候了.
+25mg的MiPT经过仔细计量后加入半杯水.
+立即散发出一种类似的气味,
+我知道毒品有时会被称作&quot;狗&quot;,
+我试图通过添加我在运动中使用的电解质来掩盖味道.
+这只是部分有效.
+味道让我想起了AMT,
+我很高兴发现味道没有留下来.
+我对探索这种化学物质的前景感到兴奋, 我和R热情地清理和整理我们的房间.
+没有什么比在这样的努力之前, 仪式性地把事情整理好.
+我在一个迷幻论坛上读到一个很好的提示, 它是对&quot;四季&quot;的解释,
+10:27 (T+0:27) 时间
+这种情况的效果正在逐渐显现.
+我躺在沙发上, 感到平静, 放松,
+我对自己的动机感到困惑.
+我几乎坚定地决定我不想做哪怕是最小的事情.
+无论如何,一个人在安眠时能感觉到的坚决.
+我觉得自己内心充满了光明.
+我注意到我的胸部充满了动的能量, 似乎想要开.
+几乎没有任何视觉效果, 也许甚至比当时大多数同理心的人更少,
+现在我想起了AMT的更整洁,更简洁的版本,
+我从AMT中得到的视觉或惚状态没有, 但后者很快就会改变.
+10:45 (T+0:45) 时间
+音乐的欣赏开始达到顶峰, 我无法描述为什么或如何但我确信它给我留下了比平时更大的印象.
+我写下来:
+&quot;我觉得这么深入,深入...
+由于没有感官扭曲而感到困惑
+在胸部区域有能量开口.
+这完全是奇怪的.
+(虽然没有胸部能量).
+现在身体激发.
+尸体上还没有完全干净.
+呼吸变得更加沉重.
+我只是注意到现在的颜色有所不同.
+在某种程度上,
+灯光轻轻地闪着空气中一种看不见的电感.
+这让我想起了5-MeO-MiPT,这完全有道理[,尽管视觉与DMT的差异,SAR类比仍然很合适.]&quot;
+11点 (T+1点)
+我感到非常困惑,甚至有些感觉让我感到丧.
+我感觉到肌肉紧张,
+我总是忘记我是否在呼吸, 这也是我经常遇到的DMT问题.
+我从来没有真正担心过,
+我告诉他:&quot;这就好像是我摄入了纯粹的怪异.
+我无法接受这种感觉, 除了完全陌生之外,
+他分享了他的感受,并解释了他对甲基沙胺的舒适感,对与胺相比没有副作用和功能改善感到高兴.
+我需要沉默一下,冥想,放手,与自己的感受互动,
+他非常支持和智慧,
+我接受了他的建议,
+我试着用心灵折叠 (一种适合倒,冥想等等的特殊类型的心灵折叠) 但这增加了我对有线偏执的感觉,
+虽然我尽力放松和放松, 但绝对一切都描绘了我,
+我解释说, 我觉得这并不是一种内在冲突, 而只是我对生活中的一切感觉良好,
+我们把冥想放在一边, 每个人都得到我的一个荒谬的漫画书 (由一个自称Gummbah的家伙),
+偶尔分享我们对某些作品的看法.
+电子IDM音乐的复杂和怀旧/忧郁, 却充满爱的氛围,
+虽然我需要一些时间来逐渐适应.
+有一些短暂的恶心波比任何其他效应.
+我吃了一根香来缓解胃痛或让我吐,
+吃完之后, 我立即后悔了自己的决定, 但当下一波恶心平息时,
+我试着弹钢琴看看我的技巧是否会受到影响.
+想着一个小东西突然落在我的头上 (显然是幻觉), 并且钢琴键在视觉上看起来非常突出.
+虽然我并没有看到动作.
+很难解释, 但它确实让我想起了4-HO-MiPT,
+我开始演奏的时候, 根本不想尝试一首现有歌曲,
+我花了一段时间才习惯这种经历, 但当我进入流动时,
+我觉得我的风格有所不同,
+在我们谈话时, R 告诉我他有时会有近乎末日的梦或幻觉的幻觉,
+很快之后, 我决定自己做一些绘画,
+我也试图让它们变得荒谬, 但那天我做的卡通并不是那么奇怪.
+像我的钢琴演奏一样, 绘画似乎也没有受到太大的影响,
+随着时间的推移, 我越来越想玩得开心,
+这就像禅宗般的和平与疯狂的幽默,
+和平是解决一个在笑话中提出的冲突, 或是一切事物的基本相对性,
+这对我来说真是有回应.
+我们基本上只是在开玩笑,
+十二点半?
+(T+2:30) 时间
+我还说我很久没有看过关于科学家的纪录片,
+对于R来说也是如此, 我们搬到了我的房间, 因为我有更大的屏幕.
+随着我们观看三部纪录片,
+我们继续玩地谈论那些不寻常的人.
+假装一个古怪的男人暗中是个恋童癖者,
+我们非常清楚这只是个玩笑,
+这感觉很好.
+我对这次旅行中期的效果感到宽慰, 并且觉得我们的一些活动比我习惯于使用迷幻药或共剂更微妙地清洁了我.
+我看着窗外,似乎一切给我印象比平时更有点.
+这一切看起来有点更明显和强调.
+但我必须指出,我得到的任何视觉效果都是微妙的.
+虽然自从高峰期以来, 效果一直在缓慢下降,
+我觉得自己沉浸在其中, 这使得它变得透明而难以辨认,
+我提到这种感觉已经变成一种冥想状态.
+我不知道代谢是否有任何影响,例如NiPT是否有其自身的效果 (如果它真的被制造出来的话).
+由于睡眠不足, 我变得非常疲,
+我觉得要出去散步, 但我太累了,
+能够打个小睡让我感到满足,
+我感到疲和痛苦. 现在,
+这种疼痛可能只是因为最近训练太多而引起的肌肉疼痛,
+我继续睡到深夜, 然后我起床做晚餐.
+没有值得注意的后果.
+最后的一句话:
+我怀疑我会再次服用这种物质.
+试过很有趣,但我相信我可以复制许多效应与其他化合物,
+我已经考虑了AM-2201在我的系统中留下的负面相互作用, 但我没有理由相信AM-2201在2小时内消失了,
+我不想劝阻任何人尝试这种化合物.
+如果负面影响不会减弱, 我考虑服用一个Xanax,
+很快之后, 不舒服不值得中止旅行.
+我从来没有超过过++, 怀疑我有兴趣了解+++.
+我很难说这对我来说是否值得.
+我倾向于过度关注我和朋友过的美好日子,
+让我们把它留在这里.
+感谢您的阅读!
+其他:
+专业课程 (251):一般 (1),第一次 (2),音乐讨论 (22),宿醉 / 几天后 (46),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Utter Weirdness
+MiPT
+by
+Solipsis
+Citation:   Solipsis. &quot;Utter Weirdness: An Experience with MiPT (exp99362)&quot;.
+Erowid.org
+. Feb 23, 2013. erowid.org/exp/99362
+DOSE:
+T+ 0:00
+2 mg
+oral
+MIPT
+(powder / crystals)
+T+ 1:10
+25 mg
+oral
+MIPT
+(powder / crystals)
+BODY WEIGHT:
+135 lb
+Earlier this week I decided to try MiPT (N-methyl-N-isopropyltryptamine).
+Mindset:
+My previous experience with drugs, especially psychedelics, is extensive. I have tried mushrooms, LSD, mescaline, DMT and many synthetic tryptamines and phenethylamines, plus a wide array of stimulants, dissociatives, sedatives, and most other common drugs and also a lot of pharmaceuticals, etc etc. However in the last 1½ - 2 years I tripped rarely for a few reasons. I had started to feel like I had overdone it, they did not seem to have to offer me as much anymore. I have also had a lot of personal problems in my life and changed my mind about using psychedelics therapeutically even though they continued to help me when I did take them.
+I am not on any medication.
+Recently my interest in a lot of things has been rejuvinated, including my interest in psychedelics. However I now feel more reserved about trying new compounds that may be harmful and feel like drugs including psychedelics have to play a different role in my life than they used to. Less centrally and more sensibly.
+Descriptions and reports of MiPT seem to be limited, but what information I could find suggested to me that it would be gentle maybe even up to the point of being uninteresting. It also did not seem likely to be harmful to me, psychologically or physically. My expectations of it were that it would be nice to try something new, that it would be good as a reintroduction to psychedelics since it would be mild, and that it could have potential as a meditative aid.
+My mood was positive, happy about getting out of a difficult time and working on my life more seriously. However I had been virtually unable to sleep the night prior and was not expecting to get away with it. I had even tried a very modest dose of phenibut and about 2 mg AM-2201 orally in olive oil for sleep but this had proven to act paradoxically even though I have had success with it in the recent past. Still I had no actual signs of sleep deprivation when I got out of bed around 8 a.m.
+Setting:
+The experience took place at home together with my housemate and best friend R, who took methoxetamine as a trial although it was not his very first time with it. He intended to investigate its therapeutic potential just like he had done with 3-MeO-PCP recently. We share a ground level appartment, each with our private quarters. When I started the day, we met in the kitchen and he had already dosed since he was not certain about me participating and at what time. We had a lighthearted chat and I felt generally unburdened and ready to join him in exploration. We agreed to each do our morning routines and meet up about 1-2 hours later. He would redose around the time I took the MiPT to try to align our comeups somewhat.
+I checked on the MiPT, it was certainly more than a year old and had not been stored with extra precautions against degradation yet it showed absolutely no sign of decomposition. I believe I have read about others mentioning its fair stability as well.
+The Experience (my description of MiPT&#x27;s effects):
+8:50 a.m.
+A tester dose of 2 mg MiPT was taken, probably more to see if there were any signs of it being a different mislabeled drug than to check for a mysterious allergy or sensitivity.
+I ate some spicy chicken cream soup with a piece of bread but not a lot.
+9:20
+About a half an hour after the tester dose I got an alert. The timing seemed to match the brevity of MiPT&#x27;s comeup and effects, but it was too mild to be sure of the quality of the alert to suggest anything else about the drug&#x27;s identity. In any case, if I had not been entirely confident about proceeding, I was now.
+10:00 (T+0:00)
+It was time. 25 mg of MiPT was carefully weighed out and added to half a glass of water. Immediately it gave off a skatole-like smell that can make tryptamines smell typically of manure. I know drugs are sometimes affectively referred to as &#x27;shit&#x27; but this was a little too ridiculous. I tried to mask the taste by adding dextrose with electrolytes that I use for sports. It was only partially effective. The taste reminded me of AMT and I shuddered after drinking the solution. I was relieved to find that the taste did not linger.
+10:10 (T+0:10)
+I felt excited about the prospect of exploring this chemical and both me and R cleaned and tidied our rooms with enthousiasm. There is nothing like ritualistically putting things in order before an endeavor such as this. Right around when I was finished I started playing &#x27;Vivaldi recomposed&#x27; by Max Richter, a nice tip I read on a psychedelics forum, it is an interpretation of The Four Seasons, which seemed quite appropriate to me regarding the cyclical nature of change and the period of transformation I seem to be in.
+10:27 (T+0:27)
+The effects are slowly but surely starting to manifest. I lied down on my couch and felt calm, relaxed and almost lethargic. My feelings of motivation seemed mixed up. Right up until that moment I felt motivated to do things in general but suddenly I almost resolutely decided I did not want to do even the tiniest thing. Well, as resolutely as one can feel while tranquilized anyway.
+At the same time I felt bright inside. It seemed more like an empathogen than a psychedelic to me at that point, and I noticed a fluttering energy in my chest manifesting which seemed to want to open up. There were virtually no visuals, maybe even less than from most empathogens right then, and this absence struck me as odd maybe more than the presence of visuals would.
+I was reminded of a more neat and modest version of AMT now, at least a part of the sensations did. There was none of the visuals or trance-like state I get from AMT, but the latter was soon to change.
+10:45 (T+0:45)
+Music appreciation was starting to peak, I could not describe why or how but I was just sure that it impressed me much more even than it normally would.
+I wrote down:
+&#x27;I feel so out of it, going deep... Confused about the deceiving absence of sensory distortion. Energetic opening in the chest area. This is wholly weird. (Not the chest energy though). Physically stimulated now. Not entirely clean on the body. Breathing more heavily.
+I just noticed colors are different now. They are more blue, green and cold in a way. And light is strobing gently with a sort of invisible sensation of crackling electricity in the air. This now reminds me of 5-MeO-MiPT which makes perfect sense[, SAR analogies fit despite the discrepancy in visuals with DMT.]&#x27;
+11:00 (T+1:00)
+I am absolutely weirded out, even overwhelmed by some of the sensations. I feel tension in my muscles and a tightness in my torso. I keep forgetting if I am breathing which is also a problem I often get with DMT. However with MiPT it was manageable and I was never truly worried, but it was still uncomfortable.
+When I walked into R&#x27;s room I told him: &#x27;It is exactly as if I ingested pure weirdness. I can&#x27;t work with this, the feeling is entirely non-descript apart from the utter strangeness&#x27;.
+He shared his feelings and explained his comfort with methoxetamine, delighted about the absence of side-effects and improved functionality compared to ketamine.
+Then R proposed that perhaps I just needed to calm a bit, meditate, let go and interact with my feelings to resolve them. He was being very supportive and wise which comforted me.
+I accepted his suggestion and we installed some meditation cushions. For a moment I tried on my mindfold (a particular type of mindfold appropriate for tripping, meditation and things alike) but this increased my feelings of wired paranoia so I left them off. For a while I did my best to just relax and let go but absolutely everything sketched me out and the state I was in seemed opposite to meditative.
+We talked a bit about this, I explained that it did not appear to me like there was an internal conflict manifesting itself, just that I felt fine and generally positive about the things in my life, but the MiPT was a disruptive albeit tolerable signal in this.
+We put meditation aside and each got one of my absurdist cartoon books (by a guy who calls himself Gummbah), and we put on unreleased works by Kettel for music. We lounged on the floor and laughed at the ridiculous and insane single-paned cartoons, occasionally sharing our thoughts on some picks. Somehow the complex and nostalgic/melancholic yet loving vibe of the electronic IDM music made sense for my trip, and so did the absurd humor. It expressed the weirdness in a more pleasant way, although it took some time to gradually adjust.
+There was some brief nausea that came in waves much more than any other effect did. I ate a banana to try and ease my queasy stomach or make me vomit and get it over with.
+Immediately after eating it I regretted my decision, but when the next wave of nausea subsided it went away not to return again.
+I tried playing the piano to see if my skill would be affected. When I switched on R&#x27;s digital piano at first I sat there giggling, thinking that something small dropped on my head out of the blue (obviously a hallucination) and that piano keys seemed very emphasized visually. For a moment I thought a piano key jumped at me even though it was not really like I saw movement. It is hard to explain but it definitely reminded me of 4-HO-MiPT which also seemed very random and confusing in some of its effects.
+When I started playing I really did not feel like trying an existing song so I tried free improvisation. It took me a while to get used to the experience but when I got into a flow I don&#x27;t really think that my abilities were affected much. Something seemed different about my style but I couldn&#x27;t begin to describe how.
+While we were talking R shared with me that he had sometimes had almost apocalyptic dreams or psychedelic visions in which an airplane crashed into his room. When not long after that I decided to do some drawing of my own, I used this as inspiration. Gummbah is a hero of mine and I have made a number of cartoons, I also try to make them absurdistic, but the one I made that day was not all that weird in my opinion. Like my piano play, drawing did not seem to be affected much either but there was something marginally different about it.
+As time went on, I felt more and more like having fun and R commented that for him both methoxetamine and 3-MeO-PCP had a lot of humor or hilarity. It was like Zen-like peace and frantic humor as two sides of a medal. Peace as resolution of a conflict posed in a joke or the fundamentally relative nature of everything that lets humor put things in perspective. This really resonated with me.
+We continued to basically just kid around and the world around had seemed to had melted away.
+12:30? (T+2:30)
+After I joked about &#x27;savant idiot minus the savant&#x27;, I mentioned that I had not seen a documentary on savants for a while and knew it to be a wonderful source of fascination. It was the same for R and we moved to my room since I have the bigger screen. As we watched 3 parts of documentary, the MiPT shifted more and more towards the background.
+We continued to playfully comment on the unusual people that were portrayed. I felt like judging them as a joke and pretending an excentric man to secretly be a pedophile, translating his utterings into pedo subtext. We were very aware that it was just jokes and that we are actually compassionate and understanding people. It just felt nice. I was relieved about the effects turning around halfway into the trip and felt like some of our activities were cathartic in a much more subtle way than I am used to with psychedelics or empathogens.
+When I looked out the window it seemed like everything impressed me a bit more than usual. It all looked slightly more pronounced and emphasized. But I must point out that any visual effect I got was subtle.
+14:00 (T+4:00)
+The effects had been dropping off very slowly ever since the peak but at this time I was definitely still feeling it. I felt immersed in it and that made it transparant and hard to spot, whereas the first part of the trip had been much more awkward and distinct. Near the end of the documentary watching I mentioned that the feeling had turned into a meditative state after all. I wonder if the metabolism is in any way involved, if perhaps NiPT has effects of its own for example (if that is actually produced).
+14:30-15:00 (T+4:30-5:00)
+Around this time I grew very tired from my lack of sleep and my energy and motivation collapsed. R felt like taking a walk outside but I was too weary and just not up to interaction with the outside world. It was fulfilling to be able to take a nap and I fell asleep without any delay. When my alarm went off to get me to the Zen meditation group R and myself are in, I felt drained and painful. The pain was probably just muscle soreness from training a lot recently, and phenibut also appears to exacerbate this for me. So I continued to sleep until late at night when I got up to fix myself some dinner.
+There were no after effects worth noting.
+Final words:
+I doubt I will be taking this substance again. It was interesting to have tried but I&#x27;m sure I can replicate a lot of the effects with other compounds that do not carry the negative potential. I have considered negative interaction from AM-2201 left in my system but I have little reason to believe that the AM-2201 disappeared in 2 hours time and also did not notice any qualities that reminded me of it. Then again I don&#x27;t necessarily want to dissuade anyone from trying this compound.
+About an hour into the experience I contemplated getting a xanax if the negative effects would not subside but I wanted to give it at least another hour before deciding so. Soon after that the discomfort was not worth aborting the trip for. I never got past a ++ and doubt I am interested in finding out about a +++. It is hard for me to say whether it was worth it to me. I am inclined to overfocus on the nice day I had with my friend later on rather than the useless weirdness before it.
+Let&#x27;s just leave it at that. Thank you for reading!
+Exp Year: 2013
+ExpID: 99362
+Gender: Male
+Age at time of experience: 27
+Published: Feb 23, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MIPT (251) : General (1), First Times (2), Music Discussion (22), Hangover / Days After (46), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

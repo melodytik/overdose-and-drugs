@@ -1,0 +1,614 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>浮动水箱和氧化 - 爱罗伊德的旅行 - &quot;深度的幸福&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/oxycodone.html'>← 羟考酮</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>浮动水箱和氧化 - 爱罗伊德的旅行 - &quot;深度的幸福&quot;</h1>
+<div class='sub-title'>Floatation Tank &amp; Oxycodone - Erowid Exp - &#x27;Deep Happiness&#x27;</div>
+<div class='meta'>作者：Anatoli Smorin Citation · 日期：Jan 20, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=112676' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>这份报告是七份报告的一部分.
+收藏包括一个回顾性和一般性的总结报告以及我与感官剥夺或浮动坦克经验的六个更详细的纪录
+没有.
+如果您愿意,请参阅
+总结报告
+其他经验报告的链接.
+我认为自己在吸毒领域很精通.
+之前的经验包括阿片类药物,兴奋剂和迷幻药.
+我使用的药物有很多包括新型的研究化学物质,
+为了尽可能准确地撰写这份报告, 我在隔离里写下了详细的笔记,
+我相信所有的时间都正确,
+对于氧化来说, 耐受性是没有问题的.
+我没有使用任何阿片类或片类物质超过八个月.
+我在经历前一周经常喝酒 (每天喝2-3杯).
+我最近也没有吸大麻,
+这次实验中使用的物质可靠地从药房获取.
+我在这次试验中使用的药丸是由Mallinckrodt制药公司生产的,
+自从我最后一次漂浮以来已经21天了.
+这是自从我开始正常的时间表以来, 感官剥夺经历之间最长的时间.
+让躺在背上的想法变得非常不吸引人.
+我很高兴能恢复练习,
+我也很期待能在一般情况下服用阿片类药物.
+为了确保我不会产生不必要的依赖,
+我有几种选择可供选择,
+我经常从这种类型的物质开始小,
+我希望避免昏睡或接近昏睡.
+我也不想有轻微的强度.
+我可能会在此经历后至少休息一个月, 才会服用任何阿片类药物,
+经历发生在星期五.
+我在家里工作了一天, 很有成效,
+总体来说我心情很好,
+我上半身因为昨天的炼有点疼.
+我早上8点左右吃了一份淡淡的果汁, 下午1点左右吃了一份烤肉和麦当劳奶酪.
+为了保证水分充足,
+浮动水箱:深深的幸福
+我用一把小刀把30毫克的药丸整齐地切开.
+我在胃中感到紧张,
+我相信我的剂量是安全的, 但我对恶心有点担心.
+我把一半的药片放在舌头上,然后吞下.
+我觉得重担从肩膀上松下, 知道没有更多关于剂量的争论.
+我的肚子很紧,有些慢慢转变的恶心感也存在.
+我认为这是由于我的神经和焦虑而不是所摄入的物质.
+我可以肯定地说我感觉到氧化的第一效应.
+胃部已经放松了,心灵也开始平静下来了.
+我开始有好心情:快乐和放松正在取代我感到的焦虑.
+我在舒尔金评级表上是±.
+快乐的自然感正在占据我的心情.
+我知道剂量会很好,甚至更好;
+这将是一次惊人的体验!
+我感到更加兴奋, 开始收集我需要的东西,
+狗已经吃了,我的钱包,外套和笔记本已经放在柜台上准备出发.
+我的前臂发出轻微的动.
+这种的感觉很美妙,
+我和我的伙伴凯伊是今天的司机, 我们将前往汽车,
+随着我们走路, 我感觉到协调和运动能力有所下降.
+我看上去并没有喝醉, 但我能感觉到我的脚步有些拙,
+我的情绪持续改善.
+我非常高兴!
+我在开车时和凯聊天, 想联系亲密的朋友和亲人,
+这种欲望仅限于我的内心圈子,
+现在,我渴望亲密的谈话, 但我不觉得特别开放或乐观.
+我感到怀旧和完全满足.
+身体上的影响正在加剧.
+我感觉到前臂中的轻微声正在加剧.
+我手臂上下都充满了热.
+我的肌肉没有显著的镇静, 但它们正在释放自然的紧张和放松.
+我在检查时与员工的互动是平静的.
+我试图保持简短, 因为我有一些显著的听觉效应.
+听起来像我在水下或戴耳塞.
+这让我有点意识到我的音量水平.
+我不知道我说的太大了还是不大了.
+我现在在漂浮室里脱衣.
+我通常会把衣服整齐地折叠起来, 把笔记本和手机摆好,
+今天我放弃了这个过程.
+衣服和物品在长上随意堆起来.
+由于精细运动能力下降,
+身体的声持续增强.
+我肩膀的口正在出令人愉快的温暖,
+我感觉效应的强度正在平原化.
+我发现自己希望事情会增加,
+我在进去时关闭了背后的油箱盖.
+让黑暗吞没我. 现在,
+我已经完全平静下来, 没有任何不适和恶心,
+通过压制我对经历的主要关注, 让我的身体在溶液中快乐地变暖, 我能够真正释放我的思想.
+开始时, 一种古老的幸福感冲过我.
+我感觉自己已经做到了.
+我已经完成了什么?
+我不确定;我不在乎.
+这种感觉是真实的,
+我对未知成就的骄傲进一步演变.
+我是一个特别真诚的快乐,
+这种感觉比我最近的其他快乐时刻更深刻.
+我在冬季假期为亲人买完美的礼物时,
+我今天在水箱里没有问题.
+没有任何不安感, 我发现自己漂流的时间比一般人少.
+我会慢慢地向水箱的墙壁漂移, 意识到这一点,
+我只是让我的身体轻轻触摸边缘, 我允许自己休息在这个位置, 保持与水箱接触的几分钟之前不情愿地施加所需的最小的能量推出侧面 (我从来没有做过的东西漂浮在任何其他物质或清醒).
+现在的我比现在更舒服.
+已经完全放松.
+肌肉松动, 但没有麻木.
+我还能感觉到我胸部的疼痛从昨天的炼.
+实际上,我对自己的身体的感觉可能比我在里的其他物质更清楚.
+我对自己的身体的感觉可能比我在里的其他物质更清楚.
+这主要是因为内在的快乐潮流从我的肩膀延伸到我的手指.
+这种快乐的节奏恰好; 不像快乐刺激剂那样过快, 也不过慢, 让人忽略和不感激.
+这感觉就像一个惰的冬季星期日早晨.
+无数的毯子,枕头, 和我的伴侣凯来拥抱和从一个完美舒适的位置到下一个.
+温暖,满意,不想去别的地方; 所有这些感觉都在这里,
+黑暗是平坦的,当我躺着我的眼睛.
+很少有静态或声.
+根据视野, 很难判断我的眼睛是打开还是关闭.
+我很清楚自己的眼;
+我不想睡着, 如果我在任何地方有更多的刺激我不认为我会接近实现,
+我玩自己, 强迫我的眼似乎很大的努力.
+感觉到令人难以置信的愉快的振动穿过我的身体.
+眼不由自主地倒下,
+最终的投降,让他们休息,绝对是幸福的.
+我躺在床边, 没有把手臂伸到头上.
+现在似乎没有什么区别, 我的前臂的高兴感更强烈,
+我意识到我的呼吸实际上是完美的.
+我一直保持着令人惊的&quot;进出均&quot;的节奏.
+没有无意的喘息, 没有浅浅的深呼吸.
+自从我躺下的时候, 我一直处于平静的节奏中.
+我对自己说,我真的不想让这次会议结束.
+我被一个缓慢的爬行已经发展在我的左眼.
+我几乎本能地了它, 但在我的脸上或眼睛里得到盐溶液之前,
+却发现自己的前臂和肚子轻轻地.
+随着我用手指追逐它,
+是愉快的, 没有强烈的足以烦但肯定满意的划开, 往往是.
+我现在比过去的时间稍微更清醒了...五分钟?
+一分钟?
+20分钟时间?
+我真的不确定我已经在会上多久了.
+我估计总共大约30分钟,
+现在我视野的某些部分不像其他部分那么黑.
+事实上,有些灰色区域显得更浅.
+我把注意力集中在其中一个点上, 似乎距离我的脸只有几英尺 (实际上是坦克盖的位置),
+我凝视着,我的注意力集中在灰色和黑色相遇的地方,
+没有任何挑,我突然看到另一个黑色的面孔,
+这是一个类似于&quot;鲁宾花瓶&quot;的幻想,
+我试图通过想象和集中精力,
+我能够在黑色背景上呈现出像照片般的闭眼影像,
+主题主要是房屋和一些山地景观.
+我试图控制图像, 假设不同的风格, 颜色方案, 和房屋的布局.
+我视野中的正方形片段是&quot;照片&quot;从左向右轻轻地移动.
+随着我在脑海中转移这些物品, 图像会改变, 但并非与我的方向完全相关.
+这些图像停留几秒钟, 然后要么改变或消失到完全黑暗.
+像一个开关被打开一样, 我的手臂和肩膀的高兴光几乎消失了.
+我突然能够保持我的眼睛开放与最小的努力.
+我希望这只是波浪间的低点,
+我已经从效果的高原下降,
+虽然快乐感已经减弱,
+虽然我可以很容易地开眼睛,
+我平静地凝视着空虚.
+我希望我能有办法给他更多的氧化,
+如果我没有在水箱里有明显的限制,
+想到自己在水箱外,
+我相信现在会议已经结束了.
+我开始积极地渴望音乐开始播放,
+这些想法远远不足以让我认真考虑提前退出,
+黑暗和安静不是不舒服或可怕, 而是有点无聊.
+我知道经历的高峰期已经过去了,
+除此之外,这可能会持续多久?
+我觉得我已经在水箱里至少一个小时十五分钟.
+我试着把思考剩余的时间放在一边, 专注于呼吸,
+我进入一种平静的状态, 在那里我监视着我的呼吸在我的身体里进出.
+没有任何我的努力.
+我突然跳了起来; 随着古典钢琴在强烈的音符中进入,我的双腿和双臂都震动了.
+我决定休息,享受最后几分钟的乐趣 (我的节目以五分钟的音乐休息结束).
+由于不想在清洁/循环过程开始时在水箱内, 我点亮灯, 开始通过打开水箱内灯出门.
+绿色的光线使我的脑海充满了无限的亮度和力量.
+我眼自动地紧闭.
+眼睛闭着, 看到一个美丽的景象:一个烂的绿色完全充满了我的视野.
+它们的黄色,绿色和白色以时钟针方向旋转, 形成一个球形.
+微小的圆形线形成更大的圆形,
+视觉效果的活力和存在令我惊,
+这是一个很棒的机会.
+亮光再次伤害了我的眼睛.
+我试着眼,让我的眼睛适应.
+现在的蓝色似乎比绿色更柔和,
+我再次闭上眼睛,
+现在的背景当然是美丽的蓝色,
+更多的角形,线性线条在一个令人眼花乱的纯白色缩放圆周,
+我能够坐下来享受这件事的时间,
+我知道我的时间即将到来,所以我打开油箱的盖子.
+房间的光使我更加盲目,
+我从来没有经历过如此难以适应浮动后的光线.
+我从来没有经历过如此难以适应浮动后的光线.
+我着眼睛走进淋浴室,
+盐溶液可以很容易地洗掉.
+我没有想太多.
+淋浴的温和和压力使一个已经平静的头脑安静下来.
+我注意到柄上的水滴闪闪发光, 比平时更明确.
+我在干燥时寻找其他视觉效果, 却找不到.
+时间+2点01分
+我会在浮动中心外面与Kai见面,我们回家.
+经历了以前的感官剥夺经历, 我经历了一种平静的,积极的情绪,
+我把这些后果称为&quot;浮后光&quot;.
+现在很难将其与阿片类药物持续作用区分开来.
+我的前臂仍然拥有轻微的热流.
+脉冲的强度大大降低.
+我在精神上很放松,
+我在回家的路上静静地思考,
+我们回家后不久,
+她和凯立即开始激烈的对话.
+我有点难以连接到对话.
+我觉得我存在的速度与他们不同,
+我开始在电脑上做一些平凡的任务,
+我打开了一杯淡酒[4.2%酒精含量],继续编辑和写作,
+我觉得有新活力, 睡觉也比服用氧化前少了.
+我的身体和精神状态几乎与我回家时的情况完全相同.
+对于我现在所经历的长期缓慢的趋势,
+我有一种几乎无法察觉的乐观态度,
+试图辨别出哪些感觉来自于浮动,哪些来自于阿片类药物, 就像确定葡萄酒之间的微妙口味变化一样困难.
+总的来说,我在舒尔金评分表上给自己加分.
+延伸后退向基线的步伐缓慢但稳定.
+我开始喝我的第二个轻酒 (4.2%酒精含量).
+清醒饮用后的味道既没有改善,也没有降低.
+我试着融入房间里发生的对话.
+我比以前更容易沟通, 交往中也似乎没有那么尬.
+我正在考虑重新服用额外的氧化, 或许还要摄入一剂二来结束我的夜晚.
+我只是为了快乐和放松.
+我打开了第三杯酒 (4.2%酒精含量), 拿出了剩下的一半的氧化药丸,
+我忘记我打开的酒,从冰箱里拿出另一个酒.
+只有当我再次坐下,
+我显然还在高, 但这主要是心理经验在这个点.
+我感到非常满意,并没有考虑任何后果.
+我们在Netflix上播放, 轻轻聊天,
+我开始感觉到第二次摄入氧化.
+快乐的声正在慢慢地回到我的前臂.
+我已经感觉到自己开始与凯伊和露西疏远.
+我很难在谈话中创造出回应.
+我不清楚哪些是不正常的,
+我感觉到刺是没有的,反之亦然,
+我发现自己有点平衡不良, 在短途行走时,
+尿尿没有困难.
+我可以感觉到内心的热度膨胀,
+压力和忧虑早已从我的脑海中消失,
+我把第二个意外打开的酒喝完了.
+我手臂内的没有变得更强烈, 我对再给药感到失望.
+我觉得我可能浪费了第二个15毫克.
+我知道我有更多我可以采取达到强度我渴望但我不想开始追逐高通过夜晚.
+我选择在没有添加任何其他阿片类药物的情况下,
+我不想在晚上开始追逐高.
+我选择在没有添加任何其他阿片类药物的情况下,
+现在,我又把注意力转移到我们正在观看的喜剧节目上.
+我对这个节目的笑声比我清醒时的笑声要多一点, 但这种效果绝不像我在其他物质 (比如大麻) 的影响下所经历的歇斯底里笑声那样强烈.
+我的耳朵感觉像他们需要从改变高度爆发.
+声音听起来很,低了一半八度.
+声量没有受到影响,但存在少量的耳.
+这种感觉早些时候发生,
+这一点与当时一样明显, 但这种高兴情绪并不成比例.
+我估计在这个时候我的重复剂量已经达到第一剂量的65%.
+我倒了一杯健康的黑皮诺酒.
+这不是一种优秀的葡萄酒品尝类型的消费.
+我第一次喝了一口就把一半的葡萄酒扔回去.
+玻璃的其余部分很快就会被抛光掉.
+我没有感觉到葡萄酒的直接影响, 通常会引起一些脸红和中毒.
+氧化吸收了酒精的作用, 但其自身的身体感觉并没有因酒精消耗而增加.
+凯伊要上床睡觉了, 让露西和我自己安排晚上的剩余时间.
+对于露西来说很不幸, 我已经接近第二剂量的高峰期.
+尬感和被移除的感觉又回来了.
+我沉入了一种惚的状态,
+另外11司的葡萄酒充满我的玻璃 [13%酒精].
+我很快就把它倒进我的肚子里.
+由于酒瓶已经空了,
+我真的很想.
+露西试图说服我这是一个好主意.
+我有点担心与阿片类药物混合过多的酒精,
+我记得冰箱里还有一些酒,
+听力开始恢复正常.
+我对氧化的消退没有太多的担忧.
+这次重复剂量确实没有达到我想要的真正的高兴感.
+我感觉到的最大影响是听觉的变化和社会上的尬,
+我终于在没有分析自己的反应之前开了一个有趣的笑话.
+没有第二次,第三次,第四次的思考.
+我和露西大声笑, 感觉好了很多.
+一种简单的&quot;不用担心&quot;态度又回来了.
+我现在正在进行愉快的对话.
+我对自己不太清楚,特别是对我的醉酒.
+露西也同意我说&quot;很抱歉,
+我打开了最后一瓶酒,
+虽然我有更深的醉酒的诱惑我已经知道它是明智的不是太多.
+我会在早上感觉更好, 身体风险也会减少.
+虽然我知道我的剂量很合理,但我知道我已经尽量减少了我的风险,
+虽然我知道我的剂量很合理,但我知道我已经尽量减少了我的风险,
+这一决定让我更加放松.
+决策总是让我感到压力, 考虑到今晚的社会表现不佳,
+我正在慢慢地睡着.
+随着人们越来越关注Netflix的节目,
+我偶尔会对露西说一些笑话,反之亦然.
+我在精神上非常放松, 愉快的声, 但没有什么激烈的.
+我在沙发上安排了一些枕头,
+我从来没有想过会有这样的活力,
+我觉得足以保持清醒,但我无法想象它会持续多久.
+我们正在观看的节目现在似乎不那么有趣了.
+眼很重,但没有点头.
+我决定刷牙,然后爬上床上.
+在与凯伊上床之前, 我在我的笔记本上记下最后一个时间.
+我的身体感到非常舒适.
+虽然高兴感早已消失,
+我在一个+以下,但在一个±以上.
+我没有感觉到酒精除了一点昏昏欲睡.
+任何其他效应似乎都被氧化所吞.
+我注意到自己在床上躺着很享受.
+我不关心睡觉,我不想任何特定或有组织的东西.
+我只能持续15到20分钟,
+这十五分钟在精神上和身体上都很愉快; 我只活在当下, 感觉到我的高, 没有担心在我的脑海里.
+T + [8:19 AM + 1] 时间
+我睡得很好.
+我不记得在整个夜里翻转或醒来.
+实际上我感觉非常好,
+我有正常的食欲, 没有发现浮体或氧化的任何持续作用.
+其他评论:
+总的来说,我喜欢感官剥夺和氧化的组合.
+尽管如此, 我通常喜欢在任何地方使用氧化,
+我觉得值得注意的是, 峰值,或者更具体地说是从峰值的离开,
+我也对视觉效果的存在感到非常惊.
+这是我第一次在使用阿片类药物时遇到这种情况.
+另一方面, 漂浮水箱里的黑暗是我在任何一次会议中所见过的最绝对的平淡,
+在整个1小时的会议中几乎没有发生基活性.
+很高兴再次学习我对这种物质的重新剂量.
+我仍然允许我对更高的渴望在某种程度上阻碍了我的逻辑思维,
+我不能肯定地说这辆车是否加剧了我经历的社会尬.
+虽然我在水池里有点偏离社会,
+我不仅仅是听众,而不是对话的领导者,
+我除了凯或其他亲密朋友之外, 已经有近十年没有在任何人的面前摄入类似的物质,
+结果,这种结合比生产力更有趣.
+我非常喜欢所提供的能力, 能够监测和欣赏物质带来的感觉.
+部分原因是氧化, 但我知道由于将这种物质与浮动体验相结合,
+我可能会在未来重复这种环境和实质的复合,
+在水箱里, 感觉没有比在水箱外更有治疗效果或愉快.
+时间表: 112676
+发布时间:2019年1月20日
+浮动水箱 (369),氧化 (176):各种 (28),发光体验 (4),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Deep Happiness
+Floatation Tank &amp; Oxycodone
+by
+Anatoli Smorin
+Citation:   Anatoli Smorin. &quot;Deep Happiness: An Experience with Floatation Tank &amp; Oxycodone (exp112676)&quot;.
+Erowid.org
+. Jan 20, 2019. erowid.org/exp/112676
+DOSE:
+T+ 0:00
+15 mg
+oral
+Oxycodone
+(pill / tablet)
+T+ 2:29
+12 oz
+oral
+Alcohol - Beer/Wine
+T+ 3:04
+12 oz
+oral
+Alcohol - Beer/Wine
+T+ 3:22
+15 mg
+oral
+Oxycodone
+(pill / tablet)
+T+ 3:22
+12 oz
+oral
+Alcohol - Beer/Wine
+T+ 3:49
+12 oz
+oral
+Alcohol - Beer/Wine
+T+ 4:27
+10 oz
+oral
+Alcohol - Beer/Wine
+T+ 4:59
+11 oz
+oral
+Alcohol - Beer/Wine
+T+ 5:26
+12 oz
+oral
+Alcohol - Beer/Wine
+BODY WEIGHT:
+182 lb
+This report is part of a collection of seven reports.  The collection consists of a summary report that is retrospective and generalized in nature as well as six more detailed chronicles of my experience with sensory deprivation, or floatation tanks
+.  If desired, please see
+the summary report
+, where one can find links to each of the other experience reports.
+A little background: I consider myself to be well versed in the realm of substance use. Previous experiences include opiates, stimulants and psychedelics. A fair amount of my substance usage history includes novel research chemicals often in less than common combinations.
+With the exception of the time spent in the isolation tank, I kept detailed written notes in combination with an audio recording device in order to write this report as accurately as possible.  I am confident that all timestamps are correct to within a + / - 60 seconds.
+Tolerance is a non-issue for the oxycodone.  I have not used any opioid or opiate substances for over eight months.  I have been drinking alcohol regularly for the week leading up to the experience (2-3 drinks per day).  I have not been smoking cannabis much lately either, it has been over five days since I last smoked.
+The substances used in this experience were sourced reliably from a pharmacy.  The pill I use in this experience is produced by Mallinckrodt Pharmaceuticals and is blue and round with a “break mark” on one side with a 30 imprinted one on side of the line and on the other side of the pill is imprinted with the letter M inside a square outline.
+It has been 21 days since my last float.  This is the longest I have gone between sensory deprivation experiences since I began a regular schedule.  I had a bad head cold that made the idea of lying on my back extremely unattractive.  I am excited to resume the practice since I’m feeling better this week.  I am also looking forward to taking an opioid in general.  This is a class of substances I chose to use relatively infrequently in order to ensure I do not develop an unwanted dependency.  I have several options available but opt for the oxycodone as I have more experience with this substance than the others and want to have the best chance as hitting the “sweet spot” for the float.
+I often start small with this class of substances and work my way up to a desired state level of effects.  This is not an option while in the float tank so I utilize notes about onset, duration, and dosage from past experiences as well as a reputable harm reduction website to help decide the timeline and dosage for this experience.  My goal was to avoid nodding out or being close to that point.  I also did not want a mild intensity.  Being that I will likely take at least a month off before taking any opioid or opiate after this experience, I want to really capitalize on the opportunity to experience sensory deprivation while significantly under the influence of this substance.
+The experience took place on a Friday.  I had a productive day working at home that I was able to wrap up early to run some errands.  I am in a good mood overall without any major external stress.  My upper body is slightly sore from a workout yesterday.  I had a light fruit-based smoothie for breakfast around 8:00 AM and some barbecue chicken with mac n’ cheese for lunch around 1:00 PM.  I have consciously drunk some extra water throughout the day to ensure I am well hydrated.
+Floatation Tank: Deep Happiness
+T + 00:00 [5:15 PM]
+I use a utility knife to split the 30 mg pill neatly along its break mark.  I have tension in my stomach and a rush of adrenaline coursing through me.  I am confident in the safety of my dosage but I have some slight concern about nausea.  I place the half pill onto my tongue and swallow.  The instant I am past the point of no return, I feel a weight lift off my shoulders knowing there is no more debate to be done regarding dosage.
+T + 00:07 [5:22 PM]
+My stomach is tight and some slow turning nauseous sensations are present.  I attribute this to my nerves and anxiousness rather than the ingested substance.
+T + 00:09 [5:24 PM]
+I can say with certainty I am feeling the first effects of the oxycodone.  My stomach is relaxing and my mind is calming down.  The beginnings of a good mood are developing: happiness and relaxation are replacing the anxiousness I was feeling.
+T + 00:14 [5:29 PM]
+I’m at a ± on the Shulgin Rating Scale.  A natural feeling of happiness is taking over my mood.  I know that the dosage will be fine, more than fine; likely perfect.  This is going to be an awesome experience!  I’m feeling more excited and begin to collect my things I need to head to the float session.
+T + 00:21 [5:36 PM]
+The dog has been fed and my wallet, coat, and notebook have been laid out on the counter ready for departure.  A light tingling is vibrating in my forearms.  This buzzing sensation is wonderful, like a warm euphoria is being generated in my bones and travelling out towards my skin.
+T + 00:23 [5:38 PM]
+My partner Kai is my designated driver today and we head to the car and begin the trip to the float shop.  As we walk, I feel a slight drop in coordination and motor skills.  I by no means look intoxicated, but I can feel some minor clumsiness in my steps and when capping my pen, I miss the tip on the first try.
+T + 00:33 [5:48 PM]
+My mood continues to improve.  I am so happy!  I have been chatty with Kai on the drive and have been thinking about contacting close friends and loved ones and how much I desire to spend time with these people.  This desire is limited to my inner circle, unlike MDMA or other stimulants where any human interaction would be welcomed.  Now, I desire the intimate conversations but I’m not feeling particularly outgoing or upbeat.  I’m feeling nostalgic and completely content.
+The physical effects are ramping up now.  The light buzzing I felt in my forearms is intensifying.  Warm euphoria pulses up and down my arms.  My muscles are not significantly sedated but they are shedding natural tension and relaxing.
+T + 00:39 [17:52 PM]
+The interaction with the employee as I checked in was uneventful.  I tried to keep it short as I am having some notable auditory effects.  Everything sounds muted, like I am underwater or have earplugs in.  This makes me a little conscious of my volume level.  I can’t tell if I’m talking too loudly or not.
+I am now in my float room and undressing.  I usually have a routine of neatly folding up my clothes and arranging my notebook and phone in order to make the intoxicated exit simple and avoid getting things wet.  Today I forego this process.  I can’t be bothered with the effort and my clothes and belongings end up in a haphazard pile on the bench.
+I put in my earplugs without too much difficulty from deteriorated fine motor skills.  The physical buzzing continues to increase in intensity. The sockets of my shoulders are pumping out pleasant warmth that flows out towards my upper back and down my arms.
+As I climb into the float tank I feel as though the intensity of the effects are settling into a plateau.  I find myself hoping things increase, especially since I am not experiencing any nausea.
+T + 00:44 [5:57 PM]
+I shut the tank lid behind me as I enter.
+As I slip into the salt water, I turn off the interior light of the tank and allow the darkness to consume me.  My stomach has completely settled and there is no discomfort and queasiness, even as my body bobs up and down slightly in this sensory void.  With my main concern about the experience squashed and my body happily warming up in the solution, I am able to really release my mind.
+Initially a sensation of good old-fashioned happiness washes over me.  I feel a sense of accomplishment.  What have I accomplished though?  I am not sure; I don’t care.  The feeling is real, and I’m enjoying it.
+My pride over the unknown accomplishment evolves a step further.  I’m a particularly genuine happy that seems unselfish.  It feels deeper than some of my other moments of happiness recently.  I feel the same way I do when I think of the perfect gift for a loved one during the winter holidays.
+I’m having no problem staying still in the tank today.  No restlessness is present and I find that I’m drifting around less than average.  When I do slowly drift towards one of the walls of the tank and become aware of it, I am less concerned than normal with resetting myself to the center.  I simply allow my body to lightly touch the edge and I allow myself to rest in this position, staying in contact with the tank for a few moments before reluctantly exert the minimal energy required to push off the side (something I have never done while floating on any other substance or sober).
+I couldn’t be much more comfortable than I am in this moment.  Complete relaxation has been achieved.  My muscles are loose but not sedated to the point of numbness.  I can still feel the soreness in my pectorals from yesterday’s workout.  In fact, I feel perhaps more aware of my body than I have on other substances in the tank.
+I feel perhaps more aware of my body than I have on other substances in the tank.
+The main reason for this is the internal tides of pleasure that continue to radiate from my shoulders and down to my fingers.  The pace of the pulsing euphoria is just right; not rushing too fast like a euphoric stimulant nor too slow, allowing it to go unnoticed and unappreciated.
+This feels a lot like a lazy Sunday morning during the wintertime.  With endless blankets, pillows, and my partner Kai to cuddle and shift from one perfectly comfortable position to the next.  The warmth, the contentment, the lack of desire to be anywhere else; all these feelings are here with me now in the darkness.
+The blackness is plain, as I lay with my eyes open.  There is very little static or buzzing.  It’s legitimately difficult to know if my eyes are open or closed based solely on the visual field.  I am very aware of my eyelids however; they continue to become heavier and heavier.  I don’t want to nod out, and if I was anywhere with more stimulation I don’t think I would be close to achieving that, but currently it is difficult to hold my eyes open for more than a few seconds at best.  I toy with myself, forcing my eyelids up with seemingly great effort.  I look into the blackness and feel the unbelievably pleasant vibrations travel through my upper body.  My eyelids crash down against my will as I fight to keep them open.  The final surrender, letting them rest closed, is absolutely blissful.
+I am laying with my arms at my sides rather than my normal position of having them extended over my head.  Typically, I find it easier to take deep breaths in the overhead position but today it seems to make no difference and the euphoric sensation in my forearms is notably stronger with my arms down.  I realize my breath has actually been impeccable.  More than any other float session in my life, I have kept an astonishingly even “in and out” pace.  There has been no unintentional holding of my breath, no shallow then compensating deep breaths.  I have been in a peaceful rhythm since the moment I laid down.
+I am thinking to myself that I really don’t want this session to end.  I am stirred from my calm by a slow crawling itch that has developed over my left eye.  I almost instinctively itch it but catch myself before I get the salt solution all over my face or in my eye.  I exert some mental will to not scratch my face and instead find myself itching my forearms and stomach lightly.  This instantly sets off a spreading itching sensation that moves around my torso and upper legs as I chase it around with my fingers.  The itch is pleasant, not intense enough to be annoying but certainly satisfying to scratch away, as itches tend to be.
+I am now slightly more alert than I was for the past . . . five minutes? One minute? Twenty minutes? I really am not sure how long I have been in the session.  I’m estimating perhaps thirty minutes in total but I would believe anything from fifteen to forty-five.
+There are now some sections of my visual field that are not as black as the rest.  In fact, there are a few notably lighter grey areas.  As I draw my focus onto one of these spots, which appears to be perhaps a few feet away from my face (past where the tank lid is in reality), it forms itself into a simplistic silhouette of a profiled male face.  I stare on and my focus settles on the line that is formed where the grey and black meet, forming the grey face.  Without provocation I am suddenly seeing another face made of the black whose profile is facing the other way, almost interlocking into the grey face.  This is a fantastic illusion similar in nature to “Rubin’s vase” that brings a smile to my face before it fades and melts back into inky blackness.
+With my eyes closed, I try to conjure some images via visualization and concentration.  I am able to bring about faint photo-like closed eyed visuals that sit as a square of color on the expected black background of closed eyes.  The subjects are mostly houses and some mountain landscapes.  I try to control the images, postulating different styles, color schemes, and layouts for the houses.  The rectangular piece of my visual field that is the “photos” drifts from left to right gently.  As I shift these items in my mind, the pictures change but not in exact relation to my directions.  These images linger for a few seconds and then either change or fade to total darkness.
+Like a switch has been flipped, the euphoric glow in my arms and shoulders all but disappears.  I am suddenly able to keep my eyes open with minimal effort.  I hope this is just the low point between waves of effects but I know in my heart and mind this is only a hope.  I have dropped off the plateau of effects and begun the march back towards baseline.
+While the euphoria has lessened, I feel a calmer sedative state take hold.  Although I can have my eyes open easily, I don’t care to move them around much.  I stare peacefully off into the nothingness.  I wish I had some way to administer more oxycodone right this instant, to bring back the sensations that are waning away.  If I had not been in the tank with obvious limitations, I likely would have done so at this point.  Inevitably this thought of being outside of the tank leads me to wonder how much longer remains in the session.
+I am sure now the session must almost be over.  I start to actively desire the music to begin playing that signals the end.  These thoughts are not nearly strong enough to make me seriously think about exiting early but they are the most I have experienced such thoughts besides my first ever float.  The darkness and quiet are not uncomfortable or frightening but rather a bit boring.  I know I am past the peak effects of the experience and feel ready to move on.  Besides, how much longer could this possibly last?  I feel like I have been in the tank for at least an hour and fifteen minutes at this point.  I try to put aside the thoughts about how long remains and replace them with concentration on my breathing and some absent-minded scratching of my arms and chest.
+I get into a peaceful state where I am monitoring my breath as it travels in and out of my body.  It remains at a steady tempo without any effort on my part.  I suddenly jump; both my legs and arms jolt as the classical piano enters on a strong note.  As much as I had been anticipating the end, now that it has arrived I decide to rest and enjoy the last few minutes (my session ends with a five minute grace period of music).
+Not wanting to be in the tank when the cleaning / circulating process begins I turn on the light and begin to exit by turning on the tanks interior light.  The green light shatters my mind with its seeming infinite brightness and power.  My eyelids squeeze shut in automatic reaction.  I am treated to a fantastic moment of closed eyed visuals: A brilliant lime green completely fills my vision.  Incredibly complex circular designs sear my mind’s eye as their yellows, greens, and white colors rotate clockwise and inward forming a spherical shape.  Lines of microscopic circles form larger circles all of which are spinning and dancing.  The vibrancy and presence of this visual effect startles me and as a reflex I open my eyes quickly.  BAM! Bright light once again hurts my eyes. I try to squint and allow my eyes time to adjust.  The light has changed to a blue hue now that seems softer and less invasive than the green.  I shut my eyes again and am once again transported to an immensely intricate circular array of patterns.  The background is of course now a beautiful azure that fades into a navy blue in the center.  More angular, linear lines in a dazzling pure white zoom around the circle, overlapping each other with perfection like a geometric Spirograph.  I am able to sit and enjoy this longer than the first surprise iteration.  I know my time is just about up so I open the lid of the tank.
+T + 01:45 [6:58 PM]
+The light of the room blinds me even more as I exit the tank.  I can’t recall ever having so much trouble adjusting to the light after a float session.
+I can’t recall ever having so much trouble adjusting to the light after a float session.
+With squinted eyes, I make my way into the shower where I turn the water temp nearly all the way up.
+The salt solution washes off without too much trouble.  I am standing without thinking much.  The soothing warmth and pressure of the shower stills an already still mind.  As I finally force myself to turn off the water, I notice the water droplets on the chrome handle are glistening and more defined than normal.  I search for any other visual effects as I dry off but find none.
+T + 2:01 [7:14 PM]
+I meet up with Kai outside the float center and we head for home.
+T + 2:23 [7:36 PM]
+Following previous sensory deprivation experiences I have experience a tranquil, positive mood accompanied by a light physical buzz.  I have come to refer to these after-effects as “post float glow”.  Today the afterglow is difficult to distinguish from the opioids lingering effects.  My forearms still possess a light flow of warmth.  The strength of the pulsing is greatly diminished.  I’m mentally relaxed, but I don’t feel as articulate as I normally am following sensory deprivation time.  I am quiet on the way home, reflecting a bit but without any particularly interesting thoughts.
+Shortly after we arrive home Lucy, a mutual friend of Kai and I’s comes over.  She and Kai immediately spark up an animated conversation.  I’m having some trouble connecting to the conversation.  I feel like I’m existing at a different pace than they are, mine being much slower.  I begin to do a bit of mundane tasks on my computer while listening but not joining into the conversation.
+T + 02:29 [7:42 PM]
+I open a light beer [4.2% ABV] and continue with some editing and writing while Kai and Lucy continue a flowing and upbeat conversation on the couch beside me.  I feel re-energized, less sleepy than I was before ingesting the oxycodone.
+T + 02:51 [8:04 PM]
+My physical and mental states feel nearly exactly the same as they did when I arrived home.  The initial departure from peak effects was shockingly drastic in comparison to this long slow taper I am experiencing now.  I have a barely perceptible upbeat attitude that I believe is a result of the float, rather than the oxycodone.  Trying to discern which feelings come from the float and which come from the opioid is as difficult as determining subtle palate changes between wines.  Overall I pace myself at a + on the Shulgin rating scale.
+T + 03:04 [8:17 PM]
+The extended retreat towards baseline marches on slowly but surely.  I start drinking my second light beer [4.2% ABV].  The taste is neither improved nor degraded from when I consume it sober.    I try and integrate into the conversation going on in the room.  I can relate easier than earlier and there seems to be less awkward pauses in my interactions.  I am debating re-dosing with additional oxycodone or perhaps ingesting a benzodiazepine to finish off my evening.  At this point, I don’t anticipate much productivity or growth from the experience – I’m just in it for the pleasure and relaxation.
+T + 03:22 [20:35 PM]
+I open my third beer [4.2% ABV] and retrieve the remaining half of the oxycodone pill, which I wash down with the first sip [15 mg].
+T + 03:33 [20:46 PM]
+I forget about the beer I had opened and retrieve another from the refrigerator.  It is not until I sit down once again that I realize what I have done.  I’m clearly still high but it’s mostly a mental experience at this point.  I feel extremely content and am not thinking about anything of consequence.  We have put on Netflix and are chatting lightly as we watch an episode we have all seen before.
+T + 03:41 [20:54 PM]
+Ahhh, I am starting to feel the second ingestion of the oxycodone.  The buzz of pleasure is slowly returning to my forearms.  I can already feel myself starting to alienate myself from Kai and Lucy.  My thought process is impaired and I find it difficult to create responses as we all talk.  I can’t put my finger on what is off, but it’s as though my social interpretation is off kilter.  I’m sensing sarcasm when there is none and vice versa; things are just awkward.
+T + 03:49 [9:02 PM]
+As I make my way to the bathroom, I note slight balance issues that cause me to stumble twice on the short walk.  There is no difficulty peeing.  I can feel warmth swelling inside me, particularly my chest and arms.  Stress and worry have long since been banished from my mind, but I now feel a new layer of happiness.  I finish off the second accidentally opened beer.
+T + 04:04 [9:17 PM]
+The tingling inside my forearms has not gotten any stronger and I’m disappointed in the re-dose.  I am feeling a little bummed out that I might have wasted the second 15 mg.  I know I have more that I could take to achieve the intensity I desire but I don’t want to start chasing a high through the night.  I elect to ride out whatever effects are left without adding any other opioids.
+I don’t want to start chasing a high through the night.  I elect to ride out whatever effects are left without adding any other opioids.
+With this decision made, I turn my attention back to the comedy show we are watching.
+T + 04:20 [9:33 PM]
+I’m laughing about the show a bit more than I would be sober, but by no means is this effect as strong as the hysterical giggle fits I have experienced under the influence of other substances such as cannabis.
+My ears feel like they need to pop from changing altitude.  Voices sound tinny and lowered half an octave.  Volume is unaffected but there is a small amount of tinnitus present.  This sensation happened earlier as I was approaching the peak of the initial dosage.  This is equally as noticeable as it was then, but the euphoria is not proportional.  I estimate that at this point my re-dose has achieved 65% of the intensity of the first dose.
+T + 04:27 [9:40 PM]
+I pour a healthy glass of pinot noir [10 ounces of 13% ABV].  This is not a fine wine tasting type consumption.  I throw back about half the wine in the first sip.  The rest of the glass is polished off quickly.  I do not feel any immediate effects from the wine, which normally would have produced some blushing and intoxication.  The oxycodone soaks up the alcohols effects but its own physical sensations are not increased from the alcohol consumption.
+T +04:38 [9:51 PM]
+Kai is heading to bed, leaving Lucy and I to our own devices for the rest of the evening.  Unfortunately for Lucy, I am nearing the peak of the second dosage.  The awkwardness and feeling of being removed is back in full force.  I sink into a bit of a trance as we watch another episode.
+T + 04:59 [10:12 PM]
+Another 11 ounces of wine refill my glass [13% ABV].  I quickly empty it into my belly.  With all the bottles of wine empty we debate running out to purchase more.  I really want to.  Lucy tries to convince me it is a good idea.  I’m a little concerned about mixing too much alcohol with the opioid and I am indecisive about the decision.  I remember we have a few beers still in the refrigerator and we decide to finish these before making a final choice on whether or not to leave the house.
+T + 05:26 [10:39 PM]
+As I open a beer [4.2% ABV], my hearing begins to fade back to normal.  I’m not too upset about the oxycodone fading.  The re-dose really didn’t achieve the true euphoria I wanted.  The effects I felt the most have been the auditory shift and the social awkwardness that seemed to derive from unusual hyper-awareness and over thinking of responses within conversation.  I finally crack a witty joke without analyzing my response before saying it.  The thought pops into my mind and I register it as clever and relay it to my mouth without a second, third, and fourth thought.  As Lucy and I laugh out loud I feel much better.
+T + 05:44 [10:57 PM]
+A simple “nothing to worry about” attitude has returned.  I’m in a pleasant flow of conversation now.  I’m less conscious of myself in general, my intoxication specifically.  Lucy agrees with me when I state “Sheesh sorry I’ve been a little out of it for a while now”.  I open my last beer [4.2% ABV] and cheers with Lucy.  Although I have the temptation for deeper inebriation I already know it is wiser not too.  I will feel better in the morning as well as less physical risk.  While I know my dosages are well within the realm of reasonable, my mind rests easier knowing I have minimized my risk by keeping my dosages moderate.
+While I know my dosages are well within the realm of reasonable, my mind rests easier knowing I have minimized my risk by keeping my dosages moderate.
+With this decision made, I relax even more.  Decisions stress me out in general, and given my poor social performance this evening I am proud to have made a decision, an unpopular one at that.
+T + 06:16 [11:29 PM]
+I’m slowly fading towards sleep.  Conversation has naturally faded as we pay increased attention to the Netflix show.  I occasionally blurt out a quip to Lucy and vice versa.  I’m very relaxed mentally, a pleasant buzz, but nothing intense.  I’ve arranged some pillows behind me on the couch to allow myself to lie back and kick my legs up.  The internal glowing and radiating euphoria that never really revitalized to the extent I wished are really fading now.  I feel pleasant enough to stay awake, but I can’t imagine it last much longer.
+T + 06:44 [11:57 PM]
+The show we are watching seems to be less entertaining now.  I’m getting heavy eyelids but no nodding.  I actively decide to brush my teeth and climb into bed.
+T + 06:56 [12:09 AM + 1]
+I jot a final timestamp into my notebook before climbing into bed with Kai.  My body feels very at ease.  Euphoria is of course long gone but there is a detectable buzz from the opioid.  I’m below a + but above a ±.  I’m not feeling the alcohol beyond a bit of drowsiness.  Any other effects seem to have been swallowed up by the oxycodone.
+I notice I am actively enjoying lying in bed.  I’m not concerned with falling asleep and I’m not thinking about anything particular or structured.  I only last between fifteen and twenty minutes before effortless sleep overtakes me.  These fifteen minutes are pleasant both mentally and physically; I live only in the moment, feeling my high without a worry in my mind.
+T + [8:19 AM + 1]
+Holy shit I slept like a rock.  I have no recollection of tossing and turning or waking up even once throughout the night.  I’m not groggy at all, in fact I feel pretty darn good as I fetch myself some water from the kitchen.  I have a normal appetite and can’t detect any lingering effects from the float or the oxycodone.
+Additional Comments:
+Overall, I enjoyed the combination of sensory deprivation and oxycodone.  That being said, I generally enjoy oxycodone just about anywhere and I had the expectation that this float would be low stress and pleasurable.  I found it noteworthy how distinct the peak, or more specifically the departure from the peak, was while in the tank.  I also was greatly surprised by the presence of visual effects.  This was the first time I have ever encountered that while using an opioid or opiate.  On the flip side, the plainness of the darkness in the float tank was perhaps the most absolute I have ever seen in any of my sessions, no matter if I was sober or using a substance.  There were almost no occurrences of phosphene activity in the entire hour session.
+It was good to re-learn my re-dosing lesson with this class of substances again.  I knew from previous experience that I either needed the second dosage to be larger than the first to achieve an equal or greater intensity of effects given my timeline.  I still allowed my desire for more of the high to cloud my logical thought process to an extent, but was able to reign in the fiend as the night progressed.
+I cannot say with certainty if the float potentiated the social awkwardness I experienced.  Generally, after a session in the tank, I am slightly removed socially but feel comfortable around people.  I am more of a listener than a conversation leader after floats, but I am not uncomfortable in the least.  It has been nearly a decade since I have ingested similar substances in the presence of anyone besides Kai or other very close friends so I don’t know if the social awkwardness is “normal” for me during the comedown stage of an opioid experience.
+In the end, this combination was more fun than it was productive.  I definitely enjoyed the ability offered by the tank to really monitor and appreciate the sensations brought on from the substance.  There was a nice reset/step back from day to day worries that was partially brought on from the oxycodone but I know was more significant as a result of combining the substance with the floatation experience.  I likely will repeat this composite of setting and substance in the future but I admit this substance is just as fun on the couch.  It did not feel significantly more therapeutic or enjoyable in a tank than it is for me outside of one.
+Exp Year: 2018
+ExpID: 112676
+Gender: Male
+Age at time of experience: 28
+Published: Jan 20, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Floatation Tank (369), Oxycodone (176) : Various (28), Glowing Experiences (4), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

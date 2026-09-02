@@ -1,0 +1,298 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- 埃罗维德的旅行 - &quot;地狱之旅&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/zz-psychedelics-2021-jh.html'>← zz Psychedelics - 2021 JH</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- 埃罗维德的旅行 - &quot;地狱之旅&quot;</h1>
+<div class='sub-title'>Mushrooms - Erowid Exp - &#x27;A Journey to Hell&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Mar 3, 2025 · <a href='https://erowid.org/experiences/exp.php?ID=90330' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>星期六早上, 我和朋友肖恩,杰森计划吃一些.
+我们在下午1点左右醒来,
+吃了一些食物在当地的五家伙, 我们走回我们的宿舍开始程序.
+晚上3点 我和朋友们都吃了自己的.
+我朋友肖恩和杰森每人吃了大约1.7克,
+吃了大约半个小时的后, 我开始感到极度头,
+我走了出去,立刻感觉好一点.
+身体非常强壮, 像我抽了一堆香烟一样.
+我在校园的路上吸了一根大麻,
+但在路上, 事情开始发生变化, 形象开始形成.
+我住的城市看起来像一个庞大的,的,拥挤的人群,奇怪的车辆和令人敬畏的建筑.
+我每天都会穿过这座城市去上课, 但在这一刻穿过这座城市,
+建筑物是美丽的,天空是惊人的.
+而汽车看起来就像来自太空的未来车辆.
+我在这个新世界里迷失了几次,
+4:30  我和朋友们到达目的地, 走上一座巨大的山, 走向公园的顶部.
+整个时间, 我们都在听我手机上的音乐,
+这使得情况变得非常愉快.
+我们到达了山顶, 从那里我们可以看到整个城市,
+我看着我的朋友们, 他们几乎都说着另一种语言.
+我们不得不不断地告诉自己我们在哪里,是什么日子,是谁,
+这座城市不再是城市了.
+我们处在一个美丽,广的环境中,
+一切都是新的.
+我们坐在这座山上很长一段时间,
+我感到欣喜, 看到一个没有吸食的人,
+然而,情况并非如此.
+经过一个小时的公园活动,
+我不得不跟随我的朋友整个旅程, 因为我不知道什么是什么了, 周围的建筑物,
+我们决定进入一正在举办艺术展览的建筑.
+这就是我的偏执开始的地方.
+我不禁觉得有人在看着我们,
+我不知道如何在普通社会中表现, 我不知道自己能做什么,不能做什么,
+我和朋友们讨论了好几个小时,
+我会随机发现我的朋友走到另一个地方或离开,
+我感到恐惧, 轻微的偏执, 认为我的朋友在阴谋,
+我觉得他们走在一起, 但我会独自一人,
+我感到孤独.
+我们开始步行回宿舍.
+我走在后面, 看着周围的美丽环境.
+我离开了他们, 走进校园里的一大楼,
+这是一座大的建筑,
+这就是我真正遇到地狱的地方.
+进入大楼后, 我开始在大厅里漫步,
+我确信有人试图让我进入这座大楼,
+我记得我走进建筑物的浴室, 坐下来试图抓住东西.
+我听到有人在浴室里说:&quot;还有谁在里面?&quot;
+你的朋友在哪里?
+我知道他在这里.
+我听到一个扎, 听起来像有人被窒息.
+我完全害怕坐在这个浴室摊位,并呼吁,但听到没有回报.
+我打开门走出浴室,
+我走下楼梯, 开始看到同样的东西, 一遍又一遍.
+我看到了关于日本的标志, 在建筑物周围看到日本人.
+我甚至发现自己是日本人,
+我还记得有几次看到一个全身黑衣的男人拿着一本书对我笑.
+他会以威胁的方式走向我, 但在最后一刻,
+我对现实完全失去了视觉和视觉.
+我记得我多次试图离开这座大楼,
+我记得当时我看到有三个家庭,
+我记得父母们在保护他们的孩子, 不让他们看我, 我一直在看自己,
+我感到非常困惑.
+开始是家庭,但后来我开始注意到,
+我试图乘坐公共汽车回到宿舍,
+我记得我乘坐一辆非常拥挤的巴士,
+在我的右边是一个男性与24包
+酒, 这种东西在校车上不常见.
+他身后有两个女孩谈论自己有了荒谬的注射量,大概25次左右.
+我觉得每个人都在着我,
+我记得我看着旁边的女孩, 看到她的短信,
+经过这一切, 等待公交车移动大约十分钟后, 我下了公交车, 回到了我以前的建筑.
+我记得在进入大楼后, 我环顾四周, 看到完全不自然的东西.
+工作和学习的人以极快的速度移动, 脚跳得非常快,
+人们着我,看着我很奇怪, 他们有很多,令人难以置信的丑的人,
+我开始听到建筑物中各种声音, 水的所, 管道的声, 声音都在说一些东西,
+我完全确信我已经进入了另一个领域, 我已经进入了疯狂,
+我记得我走在楼里, 现在完全没有它.
+周围的每一个人都在低声指着我.
+我完全认为我已经疯了,
+我完全相信自己被困在这个建筑里,
+我记得我坐在楼梯间, 感到很可怕,
+他们会说:&quot;你没事吗?&quot; &quot;你能站起来吗?&quot; &quot;你怎么了?&quot; 我试着告诉他们我没事,
+我开始认为我已经过量服用了另一种药物,
+我经历了最后的阶段,我已经疯了,我疯了.
+我试着告诉他们我没事,
+我开始认为我已经过量服用了另一种药物,
+我经历了最后的阶段,我已经疯了,我疯了.
+我记得我在一个大楼里散步, 里面有40人, 喊叫我的朋友,
+我当时正处于精神崩之中.
+我坐在房间里的一张桌子上,
+我躺在那里大约20分钟认为这是它.
+我只是要在这里消耗.
+我脱下了鞋子,衫,几乎脱下了子,
+我把钱包和所有的钱都扔在楼上.
+我打破了我的打火机,扔掉了我的香烟.
+我坐在一个边缘,只是看了看.
+我曾计划跳到房间中间的吊灯, 但有些东西阻碍了我,
+我甚至开始跑步跳跃,
+我不知道为什么.
+一个男人走到我下面,开始和我说话,我坐在上.
+我完全相信无论我怎么想, 他都会说,
+他打电话给警察, 他们最终上楼住了我.
+我回想起我身后看着一个正在拍照的女孩, 然后转身看着我下面的男人,
+我记得当我转身离开她时, 我看到自己手里拿着一部相机,
+无论如何,当警察也征服了我,我确信我可以控制他们和他们所说的.
+虽然我没有与警方进行反击, 但我完全不配合行动,
+我相信我也在控制警察,这非常奇怪.
+我记得自己想让他们停下来, 他们真的在楼梯上停下来.
+我从楼梯上摔下来, 因为他们放了我.
+我还记得他们问的词是&quot;大麻,,或者你在干什么?&quot;
+我相信我可以控制一切.
+我甚至在警察巡逻车里, 低头想象着这辆车越来越快,
+我还想象自己一遍又一遍地看到同样的汽车.
+他们把我带到医院,
+我还记得我认为我可以控制轮椅的方向.
+他们把我带到一个房间, 把我绑在床上,
+我看着房间里的所有人, 相信他们都是我家族的合并.
+我看到我的兄弟在一个医生,我的妹妹在另一个,
+我甚至注意到他的幽默感和我的幽默感相似.
+在这段艰难的经历中,
+完全相信这种疯狂会永远持续下去,
+在那一刻,医生和我在电话里谈话.
+我记得我听到的声音, 完全感到震惊,
+我记得我试着想她会说什么,
+我告诉她我真的很害怕发生了什么事, 我问她该怎么办,
+他告诉我一些令人放心的事情, 也让我平静下来.
+告诉他们我爱他们, 因为我真的只想恢复理智, 回到家人身边, 回到生活.
+我记得整个考验期间, 医生们都在嘲笑我,
+我试图睡觉, 认为这是我唯一的门户回到现实生活.
+由于无法入睡, 我慢慢地意识到,
+我相信我在那天看到和听到的一切,
+我对那一天的一切感到非常不安,
+这并不是梦.
+现在,这一切都发生在昨天,所以我还在等待听到后果但毫无疑问,
+其他:
+(39):一般 (1),艰难的经历 (5),火车毁和旅行灾难 (7),烂的经历 (4),家庭 (41),自然/户外 (23),公共空间 (博物馆,公园等) (53)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+A Journey to Hell
+Mushrooms
+by
+Ralph
+Citation:   Ralph. &quot;A Journey to Hell: An Experience with Mushrooms (exp90330)&quot;.
+Erowid.org
+. Mar 3, 2025. erowid.org/exp/90330
+DOSE:
+T+ 0:00
+3.5 g
+oral
+Mushrooms
+T+ 0:45
+joints/cigs
+smoked
+Cannabis
+(flowers)
+BODY WEIGHT:
+180 lb
+It was a Saturday morning, and my friends Sean, Jason and I planned on ingesting some mushrooms. We woke up around 1 that afternoon to get some food in our stomachs before we had any of the substance. After eating some food at a local Five Guys, we walked back up to our dorm to start the procedures.
+3:00 PM – My friends and I each eat our share of mushrooms. My friends Sean and Jason ate about 1.7g each to themselves while I made a peanut butter sandwich containing an eighth of mushrooms. After about half an hour on mushrooms, I began to get extremely lightheaded sitting inside and told my friends I needed to get some fresh air while they rolled the joints. I went outside and immediately felt a little better. However, the feeling I was experiencing was extreme light-headedness and a very strong body high as if I had smoked a bunch of cigarettes.
+3:45 – My friends meet me outside and smoke a joint of marijuana on the way down campus to get to a local park; our goal for the day. The walk to the field took about forty-five minutes but on the way things began to change, and images began to form. The city I lived in took the appearance of a vast, swelling, multitude of people, strange looking vehicles, and awe-striking buildings. Now, I walk through this city every day to get to class, but at this point walking through the city, I felt as if I were walking through it for the first time ever. The buildings were beautiful and the sky was amazing. Tree branches and such swirled into extravagant works of the earth’s art, and cars looked like futuristic vehicles from space. I became lost several times in this new world that I had just been birthed into.
+4:30 – My friends and I reached our destination, walking up a gigantic hill toward the top of the park. The entire time we are listening to music on my phone, which generated a very relaxed feeling. And made the situation very enjoyable. We reached the top of the hill where we could see the entire city in a sprawling, beautiful, mess of metropolitan skyscrapers that now looked like floating castles or paintings upon the portrait of the sky. I looked at my friends who were all speaking in almost another language. We kept having to tell ourselves where we were, what day it was and who we were because the environment was so rapidly changing. The city was not the city anymore. We were in a beautiful, sprawling environment that had never existed before today. Everything was new. We sat up on this hill for quite a long time blabbering about nothing but just enjoying this incredible feeling of freedom when my friend Eugene came up the hill. I felt ecstatic seeing someone that was not on shrooms and could successfully keep us grounded on Earth. However, this would not be the case.
+5:45 – After about an hour of being up in the park, we decided to move about the city and look at other things. I had to follow my friends the entire journey for I had no idea what was what anymore, the buildings all around me that I had come to know so well in my first year of college had changed, but looked utterly marvelous. We decided to enter a building that was having an art exhibit. This is where my paranoia began. Going into this building with the art exhibit, I could not help the feeling that someone was watching us, or we were doing something wrong. I did not know how to act in regular society anymore, I wasn’t entirely sure what I could and could not do or how loud I was talking or anything. My friends and I discussed for hours what we wanted to do but we never knew what we wanted to do. I would randomly catch my friends walking around to another place or leaving and became severely lost more than once at the exhibit. It was around this time that I felt afraid, a slight paranoia that my friends were plotting against me, that they weren’t really my friends. I felt as if they were walking together but I would be alone, looking around, lost in transition. I felt alone.
+6:30 – It was around this point that we began to walk back to our dorm. The three of them walked far ahead of me as I waded along in the back looking at the wondrous environment all around me. As we were walking back, I departed from the group and began walking into one of the buildings on my campus without looking nor even caring whether my friends saw. It’s a sprawling building of about 28 stories, and a myriad of hallways, classrooms, and staircases. This is where I would literally encounter hell.
+6:45 – Upon entering the building, I began wandering its halls and attempting to grasp reality but it was around this time that things began to change the most. I was convinced people were trying to get me in this building, and I was literally beginning a spiral into insanity. I remember walking into the bathroom at the building and sitting down to try and grasp things. It was at this point I heard someone else in the bathroom talking, and saying, “Who else is in here? Where are your friends? I know he’s here”. It was at this point I heard a struggle, and what sounded like someone being suffocated. I was utterly terrified sitting in this bathroom stall, and called out but heard no return. At this point, I opened the door and walked out of the bathroom, but didn’t see anyone else in the bathroom. I walked down the steps and began to see the same things over, and over, and over again. I saw signs upon signs about Japan, and I was seeing Japanese people everywhere around the building. I even had a revelation that I was Japanese and all my friends were somehow of Japanese descent. I also remember seeing a man several times dressed all in black with a book and snickering at me. I thought he was there to harm or something for at least twice, he would walk threateningly toward me but at the last minute walk by with a manic smile on his face. It was also around this time my visualizations and view of reality was completely lost.
+7:30 to 10:00 (Blur) – I recall I attempted several times to leave this building but I couldn’t. Things started getting weird I remember when I saw three families of people with very small children. I remember the parents were shielding their children from looking at me, and I looked at myself all these times trying to find what was making me look so strange. I was so confused. It started with the families but then I began to notice there were many, many people looking, pointing, and whispering to each other about me. It was at this point I left the building and attempted to get on a bus back to my dorm but the bus was filled with people talking nonsense. I recall getting on an extremely crowded bus with people yelling and talking. On my right was a male with a 24 pack of
+beer, something you don’t naturally see on a school bus. Behind him were two girls talking about having an absurd amount of shots, something like 25 or so. I felt as if everyone was also staring at me, and I was somehow different. I remember looking at the girl next to me and seeing her messages also about drinking an absurd amount of alcohol and she was somehow repulsed by me. After dealing with all this and waiting for the bus to move for about ten minutes, I got off the bus and went back inside the building I had been in before.
+Upon entering the building, I remember looking around and seeing completely unnatural things. People who were working and studying were moving at insanely rapid rates of speed, tapping their feet very quickly, and making horrible, inhumane twitching motions. People were glaring and looking at me strangely and their was a great many, incredibly ugly people, who were somehow handicapped. I began to hear voices and sounds all over the building of flushing toilets, pipes chattering, and voices all saying things like, “Oh he used to be so bright”, “Shame”, “Terrible story about him”, “Went missing”, “Yes, he‘s crazy now”, A grim story”. I became totally sure I had entered another realm, I had entered insanity, I was literally crazy.
+I remember walking around the building now completely out of it. I was jabbering every word that came into my thoughts, while everyone around me was whispering and pointing at me. I completely thought I had gone mad, and I was in hell. I fully believed I was trapped in this building and that I would be here forever. I remember sitting in a stairwell of the building feeling terrible when a group of Japanese people walked by me looking horrible startled. They said things such as, “Are you okay?” “Can you stand?” “What on earth happened to you?” I tried to tell them I was fine, and I could not figure out what it was about me that was so strange. I began to think that I literally had overdosed on another drug and this was death. I was going through the end stages, I had gone to insanity, I was crazy.
+I tried to tell them I was fine, and I could not figure out what it was about me that was so strange. I began to think that I literally had overdosed on another drug and this was death. I was going through the end stages, I had gone to insanity, I was crazy.
+I remember walking around this huge building with about 40 people in it, and yelling for my friends, my dad, my mom, my family. I was having a mental breakdown. It was around this point that I sat on a table in the room and laid down on it. I laid there for about 20 minutes thinking this was it. I was just going to waste away here. I took off my shoes, my shirt, almost took off my pants so I was stark naked but something resisted that and began walking up the stairs to the second floor. On the way up, I dumped my wallet in the stairs, along with all my money. I smashed my lighter, and threw my cigarettes.
+I sat upon a ledge and just looked over. I had planned to jump to the chandelier in the middle of the room but something held me back I remember. At one point, I even went on a running start to jump to but I stopped. I don&#x27;t know why. A man came below me and began to talk to me while I was sitting on the ledge. I was utterly positive that whatever I thought, he would say, that I was controlling what he would speak. He called the police, and they ended coming up the stairs and subduing me. I recall looking behind me at a girl taking a picture, then turning back to look down at the man below me and believing I was also that girl taking the picture. I remember as I turned away from her, I saw myself with a camera in my hand as well although it was not really there. Anyway, when the cops also subdued me, I was sure I could control them and what they spoke of as well. Although I didn’t physically fight back with the police, I was not at all cooperative in moving, and I ended up being thrown down a stairwell with which I got a pretty nice bruise on my shoulder.
+I believed I was also controlling the police and it was extremely strange. They picked me up and I remember thinking to myself for them to stop and they literally did right there on the steps. It was at this point I fell down the steps because they let go of me. I also remembering thinking of the words they were asking which were “marijuana, shrooms, or what the hell were you doing” to which they all spoke. I believed I was controlling everything. Even in the ride in the police cruiser, I put my head down and imagined the car going faster and faster and it would. I also imagined seeing the same cars over and over again. They brought me to the hospital where they tried to sit me down in a wheelchair but I insisted on walking. Well they shoved me down into the seat and I remember thinking I had control of where the wheelchair was going as well. They took me into a room where I was restrained on a gurney and hooked up to an IV. I looked around at all the people in the room and believed they were all fusions of my family. I saw my brother in one doctor, my sister in another, and me in the doctor overseeing me the most. I even noted his sense of humor as similar to mine. During this whole ordeal, I literally called my doctors by my families names. I was in extreme panic, and terror at this point, fully believing this insanity would last forever and I would never leave. It was at this point the doctor came in with my mom on the phone.
+I remembered hearing my mom’s voice, and completely feeling a sense of shock because I had anticipated no one to be on the line. I remembered trying to think of what she would say as if I were still in control but surprisingly she said different things. I told her I was really afraid of what was happening, and I asked her what to do and she told me to just sleep and let the doctors take care of me. I then asked if dad was there too which I didn’t think he would be but to my astonishment he was there as well, and he told me reassuring things and to calm down as well. I started crying really hard at this point and telling them I loved them so much because I literally just wanted to come back to sanity, come back to my family, come back to life. I remember during this whole ordeal, the doctors were laughing at me, and I thought it was still a dream. I tried to sleep and thought of it as my only gateway back to real life. However, over the next couple hours at the hospital, and my due to my inability to sleep, I slowly came to the horrible realization that everything that had happened had really happened. I was so sure all the things I saw and heard that day could never happen in real life. I was so disturbed from everything that day that I completely believed it had all been a dream. It hadn’t been a dream though.
+Now, this all happened yesterday, so I’m still waiting to hear of the consequences but no doubt, it was the most extreme, haunting, and terrifying experience of my entire life.
+Exp Year: 2010
+ExpID: 90330
+Gender: Male
+Age at time of experience: 18
+Published: Mar 3, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mushrooms (39) : General (1), Difficult Experiences (5), Train Wrecks &amp; Trip Disasters (7), Glowing Experiences (4), Families (41), Nature / Outdoors (23), Public Space (Museum, Park, etc) (53)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

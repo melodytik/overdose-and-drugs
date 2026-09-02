@@ -1,0 +1,112 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>α-PVP(火焰)</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>α-PVP(火焰)</h1>
+<div class='sub-title'>alpha-PVP</div>
+<div class='meta'>药理类别：综合 · 未指明</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属列管/非法物质，持有、使用、贩卖均可能触犯法律，且成瘾与急性风险高。Erowid 上收录 10 篇体验报告（本页已译部分）。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（10 篇）</h2>
+<div class='item'><h3><a href='../reports/104449.html'>一个-PVP - Erowid Exp - &#x27;魔鬼在水晶形式&#x27;</a></h3><div class='meta'>Apr 30, 2015</div><div class='ov'>alpha-PVP (585):不适用 (38),成和习惯性 (10),健康问题 (27),回顾 / 摘要 (11)</div></div>
+<div class='item'><h3><a href='../reports/107403.html'>在死亡之旅中的恐惧与厌恶</a></h3><div class='meta'>Nov 22, 2015</div><div class='ov'>我真的相信我收到了阿尔多斯·赫克斯利的最后一个美丽的旅程.</div></div>
+<div class='item'><h3><a href='../reports/108836.html'>一个不同联盟中最被忽视的药物</a></h3><div class='meta'>Jul 24, 2016</div><div class='ov'>这是我有幸服用过的最好的药物. 这种药物只适用于探犬等级的专业用户 (大多数人确实有不良反应). 需要一个强大的头脑作为一个边缘社会病患者, 我有心理优势. 这种药物是为我制造的. 作为一个边缘社会病患者, 我有心理上的…</div></div>
+<div class='item'><h3><a href='../reports/107599.html'>一个-PVP - 埃罗伊德 Exp - &#x27;冷水晶火&#x27;</a></h3><div class='meta'>Jan 10, 2016</div><div class='ov'>这份报告应对a-PVP的影响进行主观总结. 我发现蒸发或与烟草一起吸烟的持续时间要比吸入或口服更短. 我还想提一下,我没有使用天平. 第一次: 为了减轻我有时在其他兴奋剂中经历的偏执. 我碎了一颗大小像大米粒的晶体, 大…</div></div>
+<div class='item'><h3><a href='../reports/103367.html'>一个PVP - Erowid Exp - &#x27;太多的副作用&#x27;</a></h3><div class='meta'>Apr 30, 2015</div><div class='ov'>这对我的狗露西来说是第一次. 没有真正的比较, 因为她已经远离了麻醉,可卡因,毒等. 她只能使用快速和addys. 晶体有点模糊,然后分解成白色,稍微粘的粉状. 没有预料到这一部分, 因为它留下了一些粘性粘合剂类型的残留…</div></div>
+<div class='item'><h3><a href='../reports/99718.html'>一个完全被误解的化合物</a></h3><div class='meta'>Apr 1, 2013</div><div class='ov'>音乐讨论 (22),自然/户外活动 (23),回顾/总结 (11),一般 (1)</div></div>
+<div class='item'><h3><a href='../reports/109479.html'>爱罗维德</a></h3><div class='meta'></div><div class='ov'>爱罗维德 正在进行安全验证 本网站使用安全服务防护恶意自动程序. 在验证您不是自动程序期间,将显示此页面. 启用JavaScript和cookies继续使用 射线标识: 没有任何其他原因. 由 云闪耀 提供性能和安全服务…</div></div>
+<div class='item'><h3><a href='../reports/97846.html'>a-PVP - Erowid Exp - &quot;高心率XR&quot;</a></h3><div class='meta'>Nov 19, 2012</div><div class='ov'>a-PVP来自波兰,呈现为白色 (几乎棕色) 粉末. 我舌头上的一小部分化学物质证明是一种强烈的麻木剂, 两者都不愉快. 一个2mg线被注入. 十分钟后我的心跳开始加快, 我有更多的精力. 我很高兴看到这部电影, 并且很…</div></div>
+<div class='item'><h3><a href='../reports/107966.html'>&quot;大权力伴随着巨大责任&quot;</a></h3><div class='meta'>Feb 15, 2016</div><div class='ov'>我说尝试了, 因为我的香烟最终损失了90%以上的10毫克.</div></div>
+<div class='item'><h3><a href='../reports/105491.html'>a-PVP - Erowid Exp - &quot;高兴刺激剂不同ROA&quot;</a></h3><div class='meta'>Apr 30, 2015</div><div class='ov'>没有耐受性. 每天补充L-氨酸,阿尔金因,5-HTP,SAM-e. 警告: 我发现很多人喜欢蒸发PVP. 我发现烟雾有令人厌恶的气味, 蒸发后的第二天, 我喉有炎症. 请不要吸烟, 这会给你带来长期问题. 第一次经验: …</div></div>
+
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

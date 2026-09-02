@@ -1,0 +1,298 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>布丁 - 体外 - &quot;索克莱特提取&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bufotenin.html'>← 蟾毒色胺</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>布丁 - 体外 - &quot;索克莱特提取&quot;</h1>
+<div class='sub-title'>Bufotenin - Erowid Exp - &#x27;Soxhlet Extraction&#x27;</div>
+<div class='meta'>作者：Ron Citation · 日期：Sep 29, 2011 · 剂量：7 mg · <a href='https://erowid.org/experiences/exp.php?ID=67680' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我决定使用我的Soxlet提取器从Anadenantheracolubrina中提取布丁.
+我很想自己试一试.
+所以我进行了提取.
+我做了以下的事情:
+1) 在磨机咖啡机中100克的Anadenanthera colubrina豆.
+我将其设置为中等.
+2) 我在烤箱中烤了豆子1小时,
+他们闻起来很好.
+像烤花生和向日种子一样.
+3) 我进行了脱脂前的过程.
+我把一个棉花圆 (用于化品的类型) 放在一个制的玻璃提取指甲的底部.
+我把豆子倒进了手指甲.
+为了防止豆子在索克斯莱特提取过程中从手指甲中脱落,
+我把手指指针放进一个1000毫升的索克斯莱特抽取器中.
+我把600毫升的DCM加入到Soxhlet抽取器下面的沸瓶中.
+我使用流水来冷却Soxhlet抽取器上方的Allihn冷凝器.
+我把热板加热到540摄氏度, 并让Soxlet抽取器运行8小时.
+在那一点上,索克斯莱特室中的DCM完全清晰,表明DCM可溶性油和脂肪已被提取.
+豆中存在的水盐形式的布福在DCM中是不可溶的,因此不需要担心在脱脂过程中失去任何布福.
+在提取结束时DCM是色的.
+在运行过程中, 有时它停止吸水,
+我把10毫升的DCM加入到Soxhlet抽取器中,
+这将迫使一个吸管.
+我拆除了索克斯莱特的提取器, 并将DCM放在一边回收.
+5) 我把豆子上的DCM全部抽出来,然后把豆子在烤箱里干了好一小时,
+我洗了整个索克斯莱特的提取装置, 没有更多的DCM存在.
+我开始从豆子中提取布丁, 像以前一样把干豆子放回Soxhlet提取器,
+我使用流水作为冷却剂, 将热板调到540°C.
+我运行索克斯莱特提取器18小时.
+在运行过程中没有任何吸收问题.
+经过18个小时, 索克斯莱特室中的异醇仍然看起来轻黄色.
+我可能会运行更长时间, 但我认为所有的bufotenine已经提取到这一点.
+我从提取器中取出异醇并将其蒸到50毫升.
+我加入了100毫升的水.
+颜色是非常深的珀,几乎是黑色.
+我用DCM洗了7次,
+每次洗使用75毫升的DCM,并在分离漏斗中大力摇动100次,然后将DCM丢弃 (保存用于回收).
+很酷的是没有形成任何乳液.
+如果我没有早些时候做脱脂前的步骤,
+这些洗清除了不活跃的深珀色材料.
+8) 然后我开始了自由基化物提取步骤.
+我加入了75毫升的DCM,
+这种DCM的颜色是非常浅黄色.
+这层水的颜色是非常深的珀色.
+我检查了水层的pH值.
+这是一个2.8
+我添加了25毫升的氨.
+这使得水的pH值升至9.5.
+立即水层变得色, 杂自由基化物.
+我摇了100次的分离.
+这层DCM变成了珀色.
+化物进入了DCM.
+我拯救了DCM.
+我用75毫升的DCM提取了5次,直到DCM再次变得非常浅黄色,
+9) 我在分离漏斗中洗了4次DCM.
+用200毫升的水制成pH10的清洁氨每次洗,并在分离中30次.
+这水被丢弃了.
+10) 洗完DCM后, 我将大部分DCM蒸掉, 然后将其余部分在一个300F的烤箱中干燥1小时.
+我把干燥的提取物起来.
+这是一颗晶体和深珀棕色.
+很容易把它起来.
+提取物重量为2.9克.
+这就是2.9%的收益率.
+这不是很糟糕!
+11) 我拿了一小部分的提取物,
+测试显示它只含有布福.
+没有发现其他类化合物, 甚至没有任何DMT或5-MeO-DMT的痕迹.
+这只是bufotenine, 就像乔纳森奥特的结果, 和DEA最近的结果.
+我朋友上周也从阿纳迪南特拉科卢布里纳提取出了自己的提取物,
+他跟随乔纳森奥特的提取技术.
+我开始怀疑其中任何一种豆类是否含有DMT或5-MeO-DMT.
+但为什么所有的旧书都说这些豆子有布福,以及DMT和5-MeO-DMT?
+有没有一种特殊的豆类可以拥有所有这些?
+或是他们都只有布福?
+这些旧书是错误的吗?
+他们测试了错误的物种吗?
+这很有可能.
+最近的研究显示它们只含有布丁.
+或许以前的测试实际上是对虫进行的, 错误地被认为是虫?
+这对我来说是有道理的.
+这两种不同植物的豆子看起来确实很相似.
+我通过蒸发测试了10毫克的提取物.
+我吸入了尽可能多的东西.
+我把它放在肺里大约20秒.
+烟雾是有点恶劣.
+我已经无法呼吸了.
+有一个小的左边.
+我可能蒸发了10毫克中的7毫克.
+我不确定.
+我立刻开始感觉到一个轻微的刺痛感在我的后头.
+这种感觉在整个身体中蔓延,
+经过大约1分钟的时间, 我开始看到极强的视觉效果.
+周围的一切都在融化和旋转.
+经过大约3分钟的时间, 我感觉比以往任何时候都更高,
+这非常激烈.
+我不确定事件发生的确切时间.
+我试着写笔记,
+一切都充满活力.
+颜色在我的周围旋转.
+我看到各种抽象的形状,面孔,地点,
+我无法看到现实.
+开放眼睛的视觉是极其强烈的,比我以前经历过的任何东西都更强烈.
+视觉效果比现实更强大.
+我几乎看不到现实.
+五分钟后, 我开始听到各种声音和声音,
+这很棒.
+我看到的视觉主要是人.
+这些看起来并不平坦.
+他们看起来好像他们在我面前.
+像我可以伸出手来抓住他们.
+这不是典型的眼睛.
+但它们看起来并不真实.
+它们不断地变形和扭曲.
+这真是太棒了.
+经过一个小时, 效果开始减弱,
+这次下降非常愉快.
+我觉得自己处于世界之上.
+整个旅程中, 我感觉到了强烈的性欲刺激作用.
+这是一个非常激烈的经历.
+布福是非常强大的.
+它比DMT,5-MeO-DMT,LSD,和更强大.
+旅行期间我没有感觉到人们说布福会引起的任何副作用.
+显然你只会感觉到bufotenine的副作用, 如果你口服它,
+这种效果是独一无二的.
+旅行结束时, 感觉就像一样.
+但起和峰与其他的一切都不一样.
+视觉效果非常强烈,
+视觉效果有点像闪光灯, 非常酷.
+它们似乎在闪.
+每一次闪光,颜色都在变化,物体也在变形等等.
+视觉效果非常有节奏,
+我唯一不愉快的感觉是旅行开始前的刺痛.
+持续了大约40秒,
+旅行中我的触觉似乎变得更加敏.
+我发现触摸东西和移动我的身体是非常愉快的.
+我的所有感官都被激活了.
+我真的很享受这次旅行.
+这就像是穿越奇迹之地.
+我不得不说,我不建议那些未经验过迷幻药的人,
+对于那些不熟悉迷幻药的人来说,
+也需要一个非常准确的量表来测量剂量.
+我认为有些人会完全疯了从bufotenine如果他们采取了更多的他们可以处理.
+这就像是DMT乘以10.
+这就是强烈的.
+其他:</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Soxhlet Extraction
+Bufotenin
+by
+Ron
+Citation:   Ron. &quot;Soxhlet Extraction: An Experience with Bufotenin (exp67680)&quot;.
+Erowid.org
+. Sep 29, 2011. erowid.org/exp/67680
+DOSE:
+7 mg
+smoked
+Bufotenin
+(powder / crystals)
+BODY WEIGHT:
+250 lb
+I had recently upgraded my lab with a Soxhlet extractor. These things are GREAT! I decided to try extracting bufotenine from Anadenanthera colubrina using my Soxhlet extractor. After reading about Jonathan Ott’s freebase bufotenine experiences, I was dying to try it for myself. So I did an extraction. Here’s what I did:
+1) Ground 100 grams of Anadenanthera colubrina beans in a birr mill coffee grinder. I set it to medium.
+2) I roasted the beans in an oven for 1 hour at 300 F. They smelled wonderful. Sort of like roasted peanuts and sunflower seeds.
+3) I did a pre-defatting process. I placed a cotton round (the type used for makeup) in the bottom of a fritted glass extraction thimble. I poured the beans into the thimble. I added cotton balls to prevent the beans from coming out of the thimble during Soxhlet extraction. I loaded the thimble into a 1000 ml Soxhlet extractor. I added 600 ml of DCM to the boiling flask used below the Soxhlet extractor. I used running water to cool the Allihn condenser attached on top of the Soxhlet extractor. I turned the heat up to 540 C on the hotplate and let the Soxhlet extractor run for 8 hours. At that point the DCM in the Soxhlet chamber was completely clear, indicating all the DCM soluble oils and fats were extracted. The salt form of bufotenine present in the beans is not soluble in DCM, so there is no worry of losing any bufotenine during the defatting process. At the end of the extraction the DCM was orange. During the run, there were times it stopped siphoning and the DCM just dripped down the siphon tube endlessly. When that happened I added 10 ml of DCM to the Soxhlet extractor by pouring it down through a pressure whole in top of the Allihn condenser. This would force a siphon.
+4) I took apart the Soxhlet extractor and put aside the DCM for recycling.
+5) I drained all the DCM off the beans and thoroughly dried the beans in an oven for 1 hour at 300 F. I washed the entire Soxhlet extraction apparatus so that no more DCM was present.
+6) I began extracting bufotenine from the beans by placing the dried beans back into the Soxhlet extractor as before, only this time I used 600 ml of 91% isopropyl alcohol instead of DCM. As before, I used running water as the coolant in the condenser, and set the hotplate to 540 C. I ran the Soxhlet extractor for 18 hours. There were no siphoning problems at all during the run. After 18 hours, the isopropyl alcohol in the Soxhlet chamber still looked lightly yellow. I could probably have run it even longer, but I think all the bufotenine has been extracted at this point.
+7) I removed the isopropyl alcohol from the extractor and distilled it down to 50 ml. I added 100 ml of water. The color was very dark amber, nearly black. I washed it 7 times with DCM in a separatory funnel. Each wash used 75 ml of DCM and was shaken vigorously 100 times in a separatory funnel and then the DCM was discarded (saved to be recycled). What’s cool is that no emulsions ever formed. DCM is notorious for causing emulsions and would have if I didn’t do the pre-defatting step earlier. These washes removed inactive dark amber colored material.
+8) I then started the freebase alkaloid extraction step. I added 75 ml of DCM and shook it 100 times. The color of the DCM was very light yellow. The color of the aqueous layer was very dark amber. I checked the pH of the aqueous layer. It was 2.8. I added 25 ml of clear ammonia. This brought the pH up to 9.5. Immediately the aqueous layer became orange and cloudy with freebase alkaloids. I shook the separatory funnel 100 times. The DCM layer became a rich amber color. The alkaloids moved into the DCM. I saved the DCM. I extracted with 75 ml of DCM 5 more times until the DCM became very light yellow again indicating most of the alkaloids were extracted out of the aqueous layer.
+9) I washed the DCM 4 times in a separatory funnel. Each wash used with 200 ml of water made pH 10 with clear ammonia and was shook 30 times in a separatory funnel. The water was discarded.
+10) After washing the DCM, I distilled off most of the DCM and then dried the rest in an oven in a dish at 300 F for 1 hour. I scraped up the dried extract. It was crystalline and dark amber brown. It was very easy to scrape it up. The extract weighed 2.9 grams. That’s a 2.9 % yield. Not bad!
+11) I took a small portion of the extract and had my friend analyze it via gas chromatography. Tests showed it contained only bufotenine. No other alkaloids were found, not even a trace of DMT or even 5-MeO-DMT. It was just bufotenine, just like Jonathan Ott’s results, and the DEA’s recent results. Last week, my friend’s own extract from Anadenanthera colubrina also only contained bufotenine. He followed Jonathan Ott’s extraction tech exactly. So I’m starting to disbelieve that any of the beans have DMT or 5-MeO-DMT in them. But why do all the old books state these beans have bufotenine, as well as DMT and 5-MeO-DMT in them? Is there a special variety of these beans that has all of them? Or do they all only have bufotenine? Are these old books wrong? Did they test the wrong species? It’s possible. It seems that all the recent research shows they only have bufotenine. Maybe the older tests were actually done on Anadenanthera peregrina mistakenly thought to be Anadenanthera colubrina? Makes sense to me. The beans of these two different plants do look alike.
+I tested 10 mg of the extract by vaporizing it. I inhaled as much as I could. I held it in my lungs for about 20 seconds. The smoke was a little harsh. I couldn’t inhale any more. There was a little left. I maybe vaporized about 7 mg of the 10 mg. I’m not sure. Immediately I began feeling a slight prickling sensation in the back of my head. This spread throughout by body and became a pleasant tingling sensation. After about 1 minute I was having extremely intense visuals. Everything was melting and swirling around me. After about 3 minutes I was higher than I’d ever been in my life, and I’m very familiar with large doses of LSD, DMT, mushrooms, etc. This was extremely intense. I’m not sure of the exact time of the events. I tried taking notes but could no longer concentrate after 3 minutes. Everything was pulsating. Colors were spinning around me. I was seeing all sorts of abstract shapes, faces, places, all superimposed onto reality. I could not see reality the way it was.
+The open eye visuals were extremely intense, more intense than anything I’ve experienced before. The visuals were stronger than reality was. I could barely see reality with my eyes opened. After about 5 minutes, I began hearing all sorts of voices and sounds that weren’t there. It was awesome. I had visions of mostly people. These did not look flat. They looked like they were there in front of me. Like I could reach out and grab them. They weren’t your typical open eye visuals. But they didn’t look real. They were constantly morphing and twisting. It was totally awesome. After about 1 hour the effects started fading and I could concentrate a little more. The comedown was VERY PLEASANT. I felt on top of the world. All throughout the entire trip I felt very strong aphrodisiac effects.
+This was a very intense experience. Bufotenine is very powerful. It’s stronger than DMT, 5-MeO-DMT, LSD, mushrooms, and peyote. During the trip I didn’t feel any of the side effects people say you get from bufotenine. Apparently you only feel side effects from bufotenine if you take it orally, snort it, or inject it.
+The effects are unique. Towards the end of the trip it feels a little mushroom like. But the come up and peak are nothing like anything else there is. The visual effects are super intense and very electric. There’s a strobe like effect to the visuals with is really cool. Things look like they are flashing. With each flash, the colors were changing, objects were morphing, etc. The visuals were very rhythmic in nature, almost like they were dancing. The only unpleasant thing I felt was the prickling sensation right before the trip started. It lasted about 40 seconds and became a pleasant tingling sensation. My sense of touch seemed heightened during the trip. I found it very pleasant to touch thing and move my body around. All of my senses were revved up.
+All it all, I really enjoyed the trip. It was like a trip through wonderland.
+I must say that I don’t recommend that people inexperienced with psychedelics play around with freebase bufotenine. The intensity of the visuals and auditory hallucinations could be very frightening for those not familiar with psychedelics. Also, you need a very accurate scale to measure the dosage. I think some people would totally freak out from bufotenine if they took more than they could handle. Its like DMT times 10. It’s that intense.
+Exp Year: 2007
+ExpID: 67680
+Gender: Male
+Age at time of experience: Not Given
+Published: Sep 29, 2011
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Bufotenin (62) : Glowing Experiences (4), Preparation / Recipes (30), Unknown Context (20)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

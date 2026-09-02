@@ -1,0 +1,396 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>- - -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mdpt.html'>← MDPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>- - -</h1>
+<div class='sub-title'>MDPT - Erowid Exp - &#x27;Pretty Bland&#x27;</div>
+<div class='meta'>作者：fakenamedrugman Citation · 日期：Jul 10, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=112118' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>美国
+相当平淡的经历
+如果您只对物质效应感兴趣,请滚动到您看到时间,
+剩下的只是实验室老鼠 (moi) 的背景以及我在服用时的精神和身体状态.
+在做任何可能有害的事情之前, 我会做大量的研究.
+我在一个月后才完全相信我可能不会因为订购而被捕, 我订购的地方可能不会带着我的钱逃跑,
+但这种物质... 没有.
+至少没有什么实质性的.
+论坛上有一些帖子.
+部分人说它很可能具有刺激作用, 因为其三甲基胺成分与Wellbutrin有相似之处,
+但对讨论没有什么用处.
+这只是随机的互联网评论.
+无论如何,为什么我把1.13克的东西塞进我的股当没有任何可靠的信息存在?
+我在适度的认可和完全的矛盾之间摇摆不定.
+另外, 科学!
+我会把我的心态/环境/任何东西都写进来,
+随时可以跳过, 很可能是无聊的和太深入.
+我说过,那时我并不是很快乐.
+这对我来说不是一个不寻常的心理状态:在一个我不太关心的工作中,我看不到生活的目的,最近的历史中非常困难的分手,
+这意味着我对这种物质上, 因为只有一个上者会让一种物质给他们带来法律问题 (明显错误的假设), 作为一个上者,
+我不得不做出选择:要么失去执照 (可供生活的收入来源),
+我现在对生活有着非常&quot;接受或放弃&quot;的态度.
+那天的精神状态... 平均而言.
+我知道我有一套令人兴奋的新型精神扭曲化学物质,
+非常饥饿.
+试图慢慢地将我的卡路里量恢复到可持续的水平, 而我的身体却在叫我,
+我已经吃了1000卡路里,所以我暂时在等待.
+下面是关于饮食的具体信息.
+我从前一天的14:00左右起床,报告开始在中午左右.
+除非另有说明, 我会在手机上玩,
+身体健康,除了那些减肥的东西.
+在8周内从190磅的中低到155磅.
+超级愚蠢的,我知道.
+我每天吃的热量约为500卡, 其中80%~90%是蛋白质 (身体从脂肪分解中获得足够的营养, 但大脑需要蛋白质,
+我惊地没有其他负面影响除了疲劳,
+我只服用一种药物:韦尔巴特林,每天450毫克.
+是的, 结合降低的值与兴奋剂和饥饿饮食,
+但是,生活是一件无聊的事.
+现在,足够的漫长的背景,实质上!
+我买了1克 (并得到了1.13克) 甲基二氧化-N--丁甲.
+他们称之为MDPT.
+医生部分是显而易见的
+但是... ... tert可以做T我想...
+我没有得到该死的缩写.
+也许这完全是显而易见的, 我是一个愚蠢的瓜, 继续前进.
+这种物质以一个袋子的形式到达,
+我选择了插塞, 因为我有补给,
+完全溶于水,所以如果你想粉碎它和吸尘你的鼻子去它,应该吸收很好.
+虽然剂量可能不合理...
+第一个是过敏测试.
+我们将从这里开始计时.
+时间没有记录,所以不准确,但这并不重要,因为我会在下面详细介绍.
+开始=t+0000:过敏测试
+我用手指在袋子里面走, 取出一些粉状残留物,
++0030: 插头接近.
+没有过敏测试反应, 所有系统都失灵.
+我从袋子里挑选出最小的晶体,不太科学, (非常) 粗略估计50毫克,
+我没有忙,所以我没有先打碎它,所以它需要几分钟的旋转, 但完全溶解,
+抽出,插入,没有燃烧.
+我非常饥饿.
++0130: 插头接近.
+插电很快,几乎是瞬间发生的, 类似于吸气,
+我们再做一次.
+抽出,插入,没有燃烧.
++0230: 插头接近.
+好吧,还没有什么感觉,让我们加倍剂量,再打一次.
+抽出,插入,没有增加剂量的烧伤.
+开始玩&quot;边境国2&quot;
+让它分散你的注意力直到下一次更新.
++0330: 插头接近.
+没有.
+发生了什么事?
+这只是完全不活跃吗?
+插入另一个100mg剂量.
+现在我意识到我心情很好,而我之前是中立的.
+现在回想起来, 饥饿感也开始消失.
+可能是精神疾病, 或许这是临界剂量.
+任何人都可以猜测.
++0430:大约
+100mg口服使用
+看看时间了.
+我有很多事情要做.
+很快就把100毫克放进嘴里,然后在去洗的路上洗掉.
+这种情绪依然很好,
+没有其他可见的副作用.
++0500: 插头接近.
+穿上衣服,让自己看起来漂亮, 插入另一个100毫克, 然后去拿我的薪水.
+我可能比平时更少的社交焦虑.
+很难说.
+然后回家, 太热了, 无法开车去银行.
++0630: 插头接近.
+没有具体的效果可以说,我六个半小时在这个小实验
+没有具体的效果可以说,我六个半小时在这个小实验
+我把剩余的部分溶解出来, 抽出一半, 插上去.
+有点烧伤.
++0645:第一个 (固体) 效果
+情绪和清醒度显著提升,
+感觉有点热,心率有点高.
+开始监测血压和脉,血压起始值,脉80度以上 (正常为70度中至低).
+通过+0700到+0800:
+350mg + 更多的效果
+这里没有什么,我把其余的.
+在这个时候,我感觉相当体面.
+血压和脉均显著增加.
+血压大约在140/90 (正常的血压在100/60和120/80之间) 和脉低于100,
+音频是扭曲的
+很难描述, 但不同到我会觉得我听到的歌曲的录音不同, 如果我不知道我听的是一样的下载版本,
+它们的平衡会受到轻微的影响.
+尽管我已经了30个小时,
+没有紧张.
+身体负荷开始.
+虽然无法用语言表达,
+在+0900到+1000之间
+需要开始准备工作.
+所有上述影响的强度都持续增长.
+这就是峰值的开始,
+我的心已经感觉相当紧张.
+脉冲氧计显示心率异常, 耳听镜证实了这一点.
+血压保持在140以上/90以下.
+服用50毫克的美托普罗罗尔, 脉在一小时内恢复正常,
+我注意到我的平衡受到了影响,
+感觉非常温暖的人类.
+很高兴能去上班和与人相处, 很高兴有朋友和家人关心我,
+我不舒服地热,但不是如此.
+我穿上衣服,站着穿鞋,然后去上班.
++1100 年
+感觉很奇怪
+唯一的不同之处在于, 声音变得严重扭曲,
+我是一名异性恋男性, 据传,我的同事很喜欢我,
+我记得我发现阴茎和阴囊是多么不吸引人, 想知道我在想什么,
+一百二十点
+感觉到需要去所.
+站起来,被某件事分散注意力,回到电脑上.
++1215 年
+最后一个新效应是巨大的时间膨胀.
+一分钟感觉就像5到10分钟.
+我觉得夜晚已经过半了, 而我已经在那里工作了一个半小时.
++1330 年
+准备休息, 记得我从来没有去所.
+最好在时间上做.
+去使用所.
+很可能是因为我晚上下尿时没有注意到,
+由于它通常闻起来像狗, 化学气味可能是欢迎的.
+我注意到大部分的效果已经显著减弱或完全消失.
+有轻微的残留情绪提升和声音扭曲,但这就是它.
+我觉得安全地称之为旅程的开始和结束, 插入一些3-FPM让我回来,
++1430 通过 END
+所以没有投诉.
+这是否与MDPT所剩下的有任何协同作用?
+没有明显的.
+所以我们将称之为结束.
+现在回顾:
+我喜欢它吗?
+我的意思是是.
+这是一个非常积极的经历.
+不是绿色的,但不是红色的.
+我是否会再做一次?
+我认为.
+如果有人说:&quot;,我有这东西,它没有触及我,我绝对不会愚蠢到要做一整克,
+我不会再为它付钱了.
+我是否推它?
+没有.
+我的意思是...
+也许我的神经化学是不适合的,或者你只是需要做像一个半克真正开始滚动...
+我没有所谓的30美元的体验.
+也不是每个人都能获得各种药物来阻止心脏不稳定跳动, 这可能会立即死亡.
+这是一个从非 sinus 节律到心脏骤停的短途桥梁, 虽然这是一座桥梁, 进入非 sinus 区域时很少有人会穿过,
+除非有确的信息表明我的经历是异常的, 或者你喜欢绘制潜在的敌对领土,
+时间表: 112118
+发布时间:2018年7月10日
+MDPT (861):一个人 (16),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Pretty Bland
+MDPT
+by
+fakenamedrugman
+Citation:   fakenamedrugman. &quot;Pretty Bland: An Experience with MDPT (exp112118)&quot;.
+Erowid.org
+. Jul 10, 2018. erowid.org/exp/112118
+DOSE:
+T+ 0:00
+buccal
+MDPT
+(powder / crystals)
+T+ 0:30
+50 mg
+rectal
+MDPT
+(liquid)
+T+ 1:30
+50 mg
+rectal
+MDPT
+(liquid)
+T+ 2:30
+100 mg
+rectal
+MDPT
+(liquid)
+T+ 3:30
+100 mg
+rectal
+MDPT
+(liquid)
+T+ 4:30
+100 mg
+oral
+MDPT
+(powder / crystals)
+T+ 5:00
+100 mg
+rectal
+MDPT
+(liquid)
+T+ 6:30
+350 mg
+rectal
+MDPT
+(liquid)
+T+ 7:00
+350 mg
+rectal
+MDPT
+(liquid)
+T+ 14:00
+rectal
+3F-Phenmetrazine
+BODY WEIGHT:
+155 lb
+Pretty Bland Experience
+If solely interested in substance effects scroll til you see timestamps, for info on the substance itself look to the paragraph just before them. The rest is background on the lab rat (moi) and the state of my mind and body when taking it.
+Generally speaking before doing anything potentially harmful I do lots of research. Upon finding out that RCs were a thing, it took a month before I was decently convinced that I probably wouldn&#x27;t get arrested for ordering something, that the place I ordered from probably wouldn&#x27;t run off with my money, and that I could use Hexen with some degree of safety. But with this substance... nothing. Nothing substantive, at least. There are a smattering of forum posts. Some of which saying it&#x27;s likely stimulatory as the tert-butylcathinone part bears semblance to Wellbutrin but possibly with serotonin activity per the methylenedioxy ring à la MDMA, but the majority of the posts simply consist of people saying they think it might be garbage and refuse to try it. Valid opinion, but not really useful to the discussion, lads. That&#x27;s just any random internet review. Anyways, why the hell did I shove 1.13 grams of something up my ass when there exists no solid information on it whatsoever? Staying alive is something I flicker between moderate approval and complete ambivalence over. Also, SCIENCE!
+Since I touched on it already I&#x27;ll include my mentality/environment/whatever here for context on the experience. Feel free to skip, it&#x27;s probably boring and too in depth.
+As I said I wasn&#x27;t super happy at the time. That&#x27;s not an unusual state of mind for me: at a job I don&#x27;t really care for, I see no purpose in life, very difficult breakup in recent history, probation from a DUI, and most stressful of all, a licensing board breathing down my neck because, per their logic, the DUI (that had nothing to do with my work, mind) meant that I had a substance abuse issue (doing good so far) which meant that I am addicted to that substance because only an addict would let a substance cause them legal issues (demonstrably false assumption) and, as an addict, I was not safe to practice unless monitored (total non sequitur, also insulting to people with addiction issues). Therefore I had to make a choice: either lose my license (source of a livable wage) or agree to a draconian three fucking years of monitoring with mandatory twice a week AA, weekly therapy, and random piss tests throughout. I am just, so very &#x27;take it or leave it&#x27; with life right now.
+Mental state that day in particular... about average. I knew I had a package of exciting new mind warping chemicals coming in, so anticipation kept me awake after working the previous night. Ravenously hungry. Just finished a stimulant enabled semi-starvation diet, had been off stims for about a week, and was trying to slowly titrate my calories back up to sustainable levels while my body shrieked at me to wolf down everything in sight. I already had 1000 calories overnight, so I was holding off for the time being. Specifics on the diet below. I had been up since about 1400 the previous day, report starts at noon-ish. Unless otherwise specified I&#x27;m dicking around on my phone and watching YouTube throughout the experience. In good physical health other than that diet thang. I went from mid to low 190s down to 155 pounds in around 8 weeks. Super dumb, I know. I ate about 500 calories a day for that duration, 80-90% being protein (body gets enough nutrients from fat breakdown, but the brain needs proteins, and it&#x27;ll start breaking down muscle if it isn&#x27;t getting them) and took a very broad ranging multivitamin/nutritional supplement. I shockingly had no negative effects other than fatigue, and that was only when not stimmed up. I only take one medication: Wellbutrin, 450mg a day. Yeah, combining a lowered seizure threshold with stimulants and a starvation diet, not super smart. But again, life is blah. Now, enough rambling background, to the substance!
+So, I paid for 1 gram of (and received 1.13 grams of, cheers vendor) Methylenedioxy-N-tert-butylcathinone. MDPT they call it. So the MD part is obvious. But then uh... erm... tert can make the T I guess... and then P for....... I don&#x27;t get the fucking acronym. Maybe it&#x27;s totally obvious and I&#x27;m a blithering idiot, moving on. This substance arrived as a bag of small, clear crystals giving off that vague &#x27;chemical&#x27; odor. I chose plugging because I&#x27;ve got the supplies and the idea of rotting my septum away scares the absolute hell out of me. Completely water soluble so if you want to crush and vacuum it up your snoot go for it, should absorb fine. May not be reasonable for the dose though... First up is the allergy test. We&#x27;ll start the clock here. Times weren&#x27;t recorded so will be unexact, but it doesn&#x27;t matter all that much in regards to dose safety, as I&#x27;ll go into below.
+Start=t+0000: Allergy test
+I swiped my finger along the inside of the bag to get some of the powdery residue, rubbed it on my cheek.
++0030: Plug Approx. 50mg
+No reaction from the allergy test, all systems go. I select the smallest crystal from the bag, not very scientific, (very) rough estimation 50mg, and dissolve it in 3ml water. I wasn&#x27;t in a rush so I didn&#x27;t bother to crush it prior, so it took a few minutes of swirling, but dissolved completely, leaving the water clear. Draw, plug, no burn. I am incredibly hungry.
++0130: Plug Approx. 50mg
+Plugging works pretty quick, bordering on instantaneous, similar to snorting, so why am I not feeling a single thing? Let&#x27;s do a repeat. Draw, plug, no burn.
++0230: Plug Approx. 100mg
+Okay still feeling nothing, let&#x27;s double the dose and hit it again. Draw, plug, no burn from increased dose. Start playing Borderlands 2. Get distracted by it until next update.
++0330: Plug Approx. 100mg
+Nada. What the hell is happening!? Is this just completely nonactive? Plug another dose of 100mg. As I&#x27;m plugging and contemplating whether I wasted $30 (what a tragedy that would be) I realize that I am in a good mood where I was neutral earlier. Also in retrospect my hunger started to go away at this point. Could be psychosomatic, or perhaps this is the threshold dose. Anyone&#x27;s guess.
++0430: Approx. 100mg oral
+Notice the time. I&#x27;ve got shit to do. Popped about 100mg in my mouth real quick and washed them down on the way to the shower. Good mood continues, certainly nowhere near euphoria or anything. No other noted effects.
++0500: Plug Approx. 100mg
+Got dressed, made myself look pretty, plugged another 100mg, then went to pick up my paycheck. Maaaaaybe less socially anxious than I&#x27;d normally be. Hard to say. Then return home, too hot out to bother driving to the bank.
++0630: Plug Approx. 350mg
+No concrete effects to speak of, I&#x27;m six and a half hours in to this little experiment
+No concrete effects to speak of, I&#x27;m six and a half hours in to this little experiment
+, fuck this, dissolved the remaining amount, drew up half, plugged it. Slight burning.
++0645: First (Solid) Effects
+Notable elevation in mood and wakefulness, certainly above baseline happiness. Feeling a little hot and heart rate kicks up a bit. Begin monitoring blood pressure and pulse, BP baseline, pulse upper 80s (norm is mid to low 70s).
++0700 through +0800: Plug Approx. 350mg + More Effects
+Here goes nothing, I plug the rest. Feeling pretty decent at this point. BP and pulse both notably increased at this point. BP about 140/90 (normal varies a fair bit between 100/60 and 120/80) and pulse low 100s, nothing terribly spooky. Audio is distorted. Hard to describe, but different enough that I would&#x27;ve thought I was hearing a different recording of a song if I didn&#x27;t know that I was listening to the same downloaded version I&#x27;ve had forever. Balance is affected slightly. I&#x27;m wide awake at this point, despite being up about 30 hours. No jitteriness. Onset of body load. Can&#x27;t put it into words, a positive effect though.
++0900 through +1000
+Need to start getting ready for work. All aforementioned effects have continued to grow in intensity. This is the start of the peak, which lasted roughly 3 hours. My heart has been feeling pretty jumpy. Pulse oximeter reading heart rhythm as abnormal, stethoscope confirmed it. BP holding at upper 140s/lower 90s. Took 50mg metoprolol, pulse regained normal rhythm within the hour, pulse and BP normalized fully within two hours. Standing up from the couch I noticed my balance was affected to the point that walking straight required some concentration. Feeling very warm towards humanity. Happy to go to work and be around people, happy that I&#x27;ve got friends and family who care about me, etc. I am uncomfortably hot, but not concerningly so. I get dressed, take several tries to put my shoes on while standing, then off to work.
++1100
+Feeling weird. The only differences from before are that sounds are now heavily distorted and my thoughts have become looser, more tangential. I&#x27;m a straight male, and as my gay coworker, who is very into me according to all the gossips, said goodnight on his way out I began to ponder if maybe I could be in a relationship with a man. My mind wandered around in this area for a few minutes before remembering the whole &#x27;sex&#x27; thing and how very unappetizing I find the penis and scrotum and wondering what the hell I was just thinking about and moving on to a different topic.
++1200
+Feel the urge to go to the restroom. Get up to go, get distracted by something, returned to computer.
++1215
+Notice one last new effect, massive time dilation. 1 minute felt like 5-10. I felt like the night had to be close to halfway over, and I had been there an hour and a half of my eight hour shift.
++1330
+About to go on break, remembered I never went to the restroom. Better do it on the clock. Go and use the restroom. It was likely just aftermath of the plugging, as when I urinated later in the night I didn&#x27;t notice it, but the bathroom smelled like a public pool when I was done. As it usually smells like shit, a chemical smell was probably welcomed.
++1400
+On break, I&#x27;m noticing most of the effects have died down significantly or gone away completely. There is mild residual mood uplift and sound distortion but that&#x27;s it. I feel safe calling this the beginning of the end of the ride and plug some 3-FPM to bring me back up and head back to work.
++1430 through END
+3-FPM actually works, so no complaints there. Did it have any synergy with what was left of the MDPT? Not noticeably. So we&#x27;ll call this the end.
+Retrospective:
+Did I enjoy it? I mean yeah. It was a net positive experience. Not hugely in the green, but not red.
+Would I do it again? I suppose. Like if someone was like, &#x27;Hey I got this shit and it&#x27;s not touching me, and no way in hell am I stupid enough to do a whole gram of it no matter what your long winded ass report says, do you want it or should I flush it?&#x27; I&#x27;d take it. I wouldn&#x27;t ever pay for it again though.
+Do I recommend it? Eesh. I mean... not really... Maybe my neurochemistry isn&#x27;t a good fit for it, or you just need to do like a gram and a half to really get rolling... Maybe this, maybe that, but I didn&#x27;t have what I&#x27;d call a $30 experience. Also not everyone has access to various medications that can stop their heart from beating erratically, which can kill instantly. It&#x27;s a short bridge from non-sinus rhythm to sudden cardiac arrest, and while it&#x27;s a bridge not many people cross when they enter non-sinus territory, the longer you&#x27;re there the more chances there are for the neurons to fire at just the wrong time and send you across. Unless solid info comes out indicating my experience was abnormal, or you like to map out potentially hostile territory, I&#x27;d give it a miss.
+Exp Year: 2018
+ExpID: 112118
+Gender: Male
+Age at time of experience: 20
+Published: Jul 10, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MDPT (861) : Alone (16), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

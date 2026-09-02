@@ -1,0 +1,230 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>bk-MDEA (乙烯) - 埃洛伊德 开放 - &quot;好高坏下降&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bk-mdea.html'>← bk-MDEA</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>bk-MDEA (乙烯) - 埃洛伊德 开放 - &quot;好高坏下降&quot;</h1>
+<div class='sub-title'>bk-MDEA (Ethylone) - Erowid Exp - &#x27;Good High Bad Comedown&#x27;</div>
+<div class='meta'>作者：Furykehd Citation · 日期：Apr 30, 2016 · <a href='https://erowid.org/experiences/exp.php?ID=104007' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>比别人说的更好/好高坏下降
+我发现的十份报告中有七份报告说这是一场大失望,没有高兴感,只有轻微的高兴感,
+其他三个人说,这只是一个体面的, 离莫莉很远.
+我做了什么被卖为莫莉 (谁知道它实际上是什么) 更多的时间,我可以数,我记得其中一个时间几年前,
+很久没有做过莫莉,也许一个月.
+我记得这是一次非常激烈的体验, 时间飞逝,
+我讨厌这些.
+我和一个新人聊了聊, 当我在寻找任何可以让我高的东西时,
+我发现的评价很少, 主要是负面的,
+在530左右, 在10分钟内我得到了前滚动的安慰剂焦虑神经感觉,
+我有点偏执, 因为我和在车里去接朋友,
+到了他家时,气温已经接近610度,
+我开始经常眼,音乐听起来很好,
+在回家的路上,我的音乐越来越好, 我在645左右回家, 我在下车时差点摔倒,
+虽然我很瘦, 但身体状况不佳, 到了市中心, 大概10-15分钟后, 轮流已经显著下降 (可能是因为运动和炎热的天气),
+无论是音乐,谈话,与自己玩 (特别), 任何事情, 我觉得更难.
+谈话几乎让它回到顶峰, 回家的行程可能20分钟或一个小时完全杀了它.
+到了我在街上的时候, 我不想说话,笑,做任何事情.
+我感觉非常丧, 错过了滚动就像你错过一个女朋友你没有看到一个星期.
+这次降落发生在730左右.
+我回家, 立刻拿走了比第一次更多的东西,
+大约15分钟后, 谈话和快乐开始回来.
+我回家, 立刻拿走了比第一次更多的东西,
+大约15分钟后, 谈话和快乐开始回来.
+这种滚动更激烈,更有说服力.
+我们大部分时间都在步行,
+我回到家大约830之后,我坐在电视房间和我的朋友谈论真实的事情作为改变,我们出去了一会儿吸了一些股和谈话.
+现在是1017左右, 我不想多说话或走路, 我仍然感觉到它仍然,
+爸爸睡觉后, 我会把剩下的0.3克吃完.
+整体而言,效果与莫莉非常相似.
+时间感觉慢慢而不是快速,如果莫莉是一个上方 (它是对我来说,我觉得像跑步,跳舞,活跃的像在阿德拉尔), 乙烯是一个下降 (我不想移动快速或说话负载
+只是想以正常速度行走或坐下) 我今天第一次使用这种东西的时间大概是2小时 (令人失望),而这个还在10点21分.
+我觉得很累, 根本不想说话.
+虽然没有什么高兴感, 但第一剂药后的抑郁感还没有到来.
+我把其余的部分分开,留给自己一个小的时间,当它我只有很小的效果,我的说话回来了,我的心情有点高兴,没有高兴感旁边当我感到缓解尿
+我说话回来了,我的心情有点提升,没有高兴感旁边当我感到缓解尿尿
+经过一段时间的保持 (只是轻微的刺,直到我停止).
+谈到大约1然后开始感觉疲,在约110我感觉到从第一次落的抑郁只有更糟糕,现在是247和我不能睡觉.
+我最不喜欢这样的夜晚.
+像我使用的大部分毒品 (LSD,Molly,25i-nbome,[仅略微],阿德拉尔,可乐,
+我希望能够战胜抑郁症, 因为我已经清醒了, 所以这只是地狱,
+我头开始, 头痛非常严重,
+像莫莉一样, 我无法让我的头放松.
+我没有像我对莫莉那样快速思考.
+我几乎没有思考,我的头脑是空白的.
+我有一种&#x27;我希望我仍然被搞&#x27;的恐惧.
+我一直觉得很兴奋 (对不起这个细节,但我试图尽可能地解释这个物质几乎没有任何信息) 在我缓解这种冲动之后,我的心跳很快,
+尤其是当我的嘴巴干燥时, 自从我第一次开始服用药物以来.
+我觉得很饿, 只是想着口干的食物,
+我觉得我的思想仍然想醒来,幸福,和说话,
+几乎任何动作都会带来动力.
+我真的很想把袋子吃完,
+没有像可卡因或莫莉那样的戒断症状, 只是伤心.
+我现在正在清醒和睡觉.
+研究化学物质通常比它们相似的药物好一点,
+这就是高潮的情况,高潮很好.
+但这次的下降比莫莉的下降更痛苦,
+让我的脑海闭上后滚在莫莉是不可能的, 这就像一个9岁的孩子说不停在我的脑海里,
+我不太推这样做, 因为下降是地狱,
+我喜欢这些东西比莫莉, 因为我不做可怕的决定. 浪费我的钱, 和警察说话,
+我喜欢这样的东西, 我仍然可以理性地推理, 我可能有点拙, 我可以少一些感觉,
+我不认为我会像几年前对莫莉那样做这件事.
+我想要尝试用LSD或.
+最后, 黑素有助于消除之前存在的焦虑.
+[报告剂量:1克]
+其他:
+发布时间:2016年4月30日
+bk-MDEA (346): 单独 (16),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Good High Bad Comedown
+bk-MDEA (Ethylone)
+by
+Furykehd
+Citation:   Furykehd. &quot;Good High Bad Comedown: An Experience with bk-MDEA (Ethylone) (exp104007)&quot;.
+Erowid.org
+. Apr 30, 2016. erowid.org/exp/104007
+DOSE:
+T+ 0:00
+oral
+bk-MDEA
+(powder / crystals)
+T+ 2:00
+oral
+bk-MDEA
+(powder / crystals)
+BODY WEIGHT:
+136 lb
+Better Than Others Say / Good High Bad Comedown
+About 7 of the ten reports I&#x27;ve found on this stuff says it was a big disappointment, no euphoria, only slight head high, and not worth it at all. And the other three said that it was only decent, nowhere close to Molly.
+I&#x27;ve done what was sold as Molly ( who knows what any of it actually was) more time that I can count, and I remember one of those time a few years ago, I had some shit that tasted like brown sugar and I only remember the roll being different I can&#x27;t remember how.
+It&#x27;s been a while since I&#x27;ve done Molly, maybe a month. And I remember that it was super intense, and time flew by, hours felt like ten minutes. Which I hated.
+I talked to a new guy when I was fiending for anything to get high on, and I looked up the only stuff he had, ethylone. And the very few reviews I found were mainly negative, but I was fiending and it wasn&#x27;t too expensive, so I got in anyways.
+My hopes were very low for it up until I took some (I didn&#x27;t scale it, just crushed the crystals and eyeballed about a .2), at around 530, and within ten minutes I got the pre-roll placebo anxious nervous feel that I usually get with Molly, but a little more intense. I got a little paranoid cause I was in the car with my mom going to pick up a friend, and at this point I bought it was gonna be wicked powerful cause I took too much. By the time I got to his house it was almost 610 and I was rolling pretty hard.
+Started blinking a lot, music sounded great, I felt a little lighter and a lot happier. On the ride home my music steadily got better and better, and I got home around 645, and I almost fell getting out of the car, I felt light as a feather, and had to bite my tongue kind of hard to keep from laughing and cracking a big grin in front of my mom. We immediately left the house and road bikes to the beach about a mile and a half away, which is usually not to bad of a bike ride (I&#x27;m skinny but out of shape) when we got downtown probably 10-15 minutes later the roll had significantly decreased (probably due to the exercise and hot weather) and after sitting down, I talked easily and openly. For me focusing on anything whether it&#x27;s music, conversations, playing with my self (ESPECIALLY), anything, I feel it way harder. And the conversation brought it almost back to the peak, the ride home maybe 20 minutes or an hour killed it completely. By the time I was on my street, I didn&#x27;t wanna talk, laugh, do anything. I felt VERY depressed and missing the roll like you&#x27;d miss a girlfriend you haven&#x27;t seen for a week. This comedown happened at around 730.
+I got home, and immediately took more than I did the first time, not by much, maybe a .4. And about 15 minutes later the talking and happiness started to come back.
+I got home, and immediately took more than I did the first time, not by much, maybe a .4. And about 15 minutes later the talking and happiness started to come back.
+After kicking in steadily for 45 minutes or so, it was fully there.This roll was more intense, and more talkative. We walked for most of it and it wasn&#x27;t as bad as riding a bike. I got home around 830 after that, and I sat in the tv room and talked with my friend about real stuff for a change, we went outside for a while smoked some butts and talked more. It&#x27;s about 1017 now and I don&#x27;t feel like talking much or walking, I still definitely feel it still, just less intense.
+When my parents go to sleep I&#x27;m gonna finish or the around about .3 that&#x27;s left of the gram.
+On the whole, the effects were very similar to Molly. Everything felt the same besides that it wasn&#x27;t as intense at all, time felt slower and not fast, and if Molly is an upper ( which it is for me, I feel like running, dancing, being active like on adderall), ethylone was a downer (I didn&#x27;t wanna move to fast or talk to load, just wanted to walk normal speed or sit down) the duration of my first experience with this stuff today lasted maybe 2 hours (disappointing) and this one is still going a little at 10:21.
+At around 1015, the effects were still present a little, I felt tired, and didn&#x27;t want to talk at all. Not much if any euphoria, but the depressing feeling that I got after the first dose wasn&#x27;t there yet. I split the rest of it, leaving myself a little for another time, and when it kicked in I only got very minor effect, my talking went back up and my mood was uplifted a little, no euphoria beside when I felt the relief on urinating
+when it kicked in I only got very minor effect, my talking went back up and my mood was uplifted a little, no euphoria beside when I felt the relief on urinating
+after holding for a while (just slight tingles until I stopped). Talked until around 1 then started feeling tired again, at about 110 I felt the depression from the first comedown only way worse, it&#x27;s 247 right now and I can&#x27;t sleep. My least favorite part about nights like these.
+As with most drugs that I do (LSD, Molly, 25i-nbome, mushrooms [only slightly], adderall, coke, and rarely happens with dxm only if I drink a few energy drinks) I tried getting to sleep right as soon as I noticed the comedown. I was gonna hopefully beat the depression as I am already depressed sober, so this is just hell, and as usual trying to head it off didn&#x27;t work. My head started pounding with a brutal headache similar to 25i about 30 minutes before the full comedown. I went to bed and I started tossing and turning, and much like Molly I couldn&#x27;t get my head to relax. I&#x27;m not thinking fast like I do with Molly. I&#x27;m barely thinking at all, like my mind&#x27;s blank. I have that &#x27;I wish I was still fucked up&#x27; angst. And I keep getting aroused (sorry for that detail, but I&#x27;m trying to explain as much as I can seeing there&#x27;s almost no info on this substance) after I relieve that urge my heart&#x27;s racing and I feel like I&#x27;m gonna have a heart attack, and I&#x27;m sweating profusely. I have trouble eating on comedowns, especially when my mouth is dry, which it has been since I first started dosing. I&#x27;m sort of nauseous with hunger but the thought of chewing food with a dry mouth just convinces me not to eat.
+I feel like my mind is still wanting to be up, blissful, and talking, but my body just can&#x27;t. Aches, pains, motivation to do make almost any move. I&#x27;m really wanting to finish the bag, but I know it&#x27;d be a waste. Not signs of addicting-style withdrawal like with coke or Molly, just sad. I&#x27;m fiending being sober and asleep right now.
+Research chemicals are usually a little better than the drugs they&#x27;re similar to, but with a weird uncomfortableness. This was the case for the high, the high was lovely. But the comedown is much more achey, and a little less annoying than the comedown of Molly. Getting my mind to shut the fuck up after rolling on Molly is impossible, it&#x27;s like having a 9 year old kid talking nonstop in my head that you can&#x27;t stop.
+I don&#x27;t really recommend this too much because the comedown is hell, and it only really lasts for 2 hours (if I&#x27;m active) to 2:30-3 hours if I&#x27;m not (from my limited experience).
+I like this stuff more than Molly cause I&#x27;m not making HORRIBLE decisions. blowing my money, talking to cops, admitting I&#x27;m on the shit to people, and the Molly roll feels far too quick. I like how with this stuff, I can still reason with rationality, I may be a bit clumsier, I can take less and feel it, and gotta love that brown sugary taste too! :D
+For 75 a g, and the fact that it&#x27;s a research chemical (which seem worse and more dangerous than also bad and dangerous Molly) I don&#x27;t think I&#x27;ll be doing this as much as I did Molly a few years back. I want to try this with LSD or mushrooms.
+And on a last note, Melatonin helped get rid of most of the anxiety that was present a little before.
+[Reported Dose: &#x27;1 gram&#x27;]
+Exp Year: 2012
+ExpID: 104007
+Gender: Male
+Age at time of experience: 20
+Published: Apr 30, 2016
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+bk-MDEA (346) : Alone (16), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,260 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;一切都在适当的地方&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-ho-dipt.html'>← 4-HO-DiPT</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;一切都在适当的地方&quot;</h1>
+<div class='sub-title'>4-Ho-DiPT - Erowid Exp - &#x27;&#x27;Everything in Its Right Place&#x27;&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Mar 16, 2004 · 剂量：8.0 mg · <a href='https://erowid.org/experiences/exp.php?ID=31901' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>原本计划是用直肠溶液服用20毫克的伊普罗辛 (4-HO-DiPT),
+我用水溶解了其他药物 (通常少于5毫升).
+没有任何溶解.
+发现大部分水还没有溶解.
+现在我有大约20毫升的溶液, 底部有一些残留的伊普洛辛.
+我决定要喝一些 (20毫升对于直肠注射来说有点太多).
+我会说这让我口服了大约8毫克的药物.
+它的味道和伊普罗 (4-AcO-DiPT) 一样, 但不那么苦.
+其余部分 (约12mg) 装入注射器,并通过直肠注射.
+液压系统足以将未溶解的粉末输入注射器, 从那里输入我的系统.
+接着我洗净和消毒了注射器,
+淋浴持续了大约15分钟,
+这很有趣.
+我听到了外星人的声音.
+只有大麻能对我产生这种影响 (尽管它会带来更强烈的效果).
+在淋浴结束时 (T+00:15),我感到头,身体感觉很好 (与Iprocetyl相同).
+我感觉完全像我在Iprocetyl停滞,保存外星人的声音.
+然而,从这里开始, 事情变得完全不同.
+我看着镜子 (裸体) 和, 这是我第一次看到自己有性吸引力.
+我通常对自己的身体有负面看法,
+这确实增强了我的自信.
+之后我穿上一些衣服,
+这种药物对身体有很强的感觉, 比我服用的任何药物都更强烈.
+我在办公桌上有一本&quot;格雷的解剖学&quot;,
+非常适合这种药物!
+我正在迅速爬上.
+我觉得我应该躺下.
+在这个时候,有通常的Iprocetyl标记物/拖车/颜色增强.
+不同于Iprocetyl, 粒状的天花板是泡 (我不会使用&quot;波&quot;这个词, 因为&quot;泡&quot;更合适).
+听觉上确实存在某种敏感性.
+但不舒服的身体负荷迅速 (而且相当突然) 发展到几乎无法忍受的程度.
+我觉得如果我继续运动,
+有一个非常奇怪的振动... 感觉像一些老式摩托车发动机.
+它从太阳交叉体中辐射出来,
+这也是相当刺激的.
+我在身体上处于相当不舒服的状态,
+随后,我在4-AcO-DET上经历了一些事:震, 我讨厌它们.
+这可能是由于我称之为&quot;嗅觉子&quot;, 这基本上是某些胺对我的负面影响.
+我经历过这种药物,和4-AcO-DET,和5-MeO-DMT (我讨厌) 它实际上似乎是主效应.
+这也曾经发生在DPT中.
+这基本上是鼻子和耳朵之间的强烈脉, 延伸到喉,下巴和头部.
+另一半是胃肠道干扰.
+使用个人词汇使生活变得更容易.
+我认为这是一种可怕的药物.
+这种不舒服的状态持续到T+1小时,
+我当时在听音乐, 试图分散自己注意力.
+这里有一些抽象的CEV与音乐相伴,
+像我在使用4-AcO-DET时所经历的那样.
+现在它开始播放Radiohead的&quot;Everything in its Right Place&quot;.
+我最近才发现我喜欢Radiohead, 这是我第一次听到这首歌的变化.
+我对此感到非常惊.
+我感觉到音乐在我的身体.
+我是说这是最好的麻醉!
+音乐与我的身体传递的感觉相匹配.
+它们不像2C的漂亮振动,
+这感觉就像抽象的物体穿过身体,
+现在身体负荷正在迅速降低, 我在一个非常性感的+++.
+我继续听音乐, 思考生活中的当前问题,
+非常有治疗效果.
+现在我只能随着残留的恶心移动, 没有嗅觉.
+我拿起我的TiHKAL副本, 很难翻阅找到4-HO-DiPT的条目.
+我读了这篇文章, 意识到身体负荷实际上是这种药物的负面因素之一,
+我感觉越来越性感, 无法抵御自慰的诱惑.
+我发现着窗外的天空,云,草,树木,
+有时我觉得自己与世界有了交往.
+我也能认同&quot;鲁本式&quot;的色情主义,
+这更像是身体上的感觉, 也许是与母亲女神原型相连的感觉.
+我通常不觉得我的反应与P/TiHKAL书中提到的相同,
+两个视野似乎不断地分裂.
+我真的不能描述它更好.
+无论如何,高潮后不久, 我的身体决定反抗,
+我很高兴地说:&quot;我很高兴.
+运动非常奇怪.
+感觉好像我并没有真正移动,
+这也难以用言语表达.
+我很快意识到, 令我惊的是,
+我觉得自己根本不行路, 仿佛我的运动是我存在的常态.
+我也感觉到身边的一切.
+我感觉到树木在我里面.
+我也能暂时感受到其他人在自己的身体里是如何感觉的.
+我可以感觉到鸟儿和汽车和我的身体的草.
+我似乎已经在一个身体 ++++.
+这真是太棒了.
+我回家的时候,和父母一起吃饭.
+我开始下降, 很难与他们互动.
+我又去看了一眼镜子, 这一次我的身体告诉我有什么问题,
+到了第四个小时我几乎是基线, 但有一个高兴的,梦幻般的后光持续到我睡觉.
+的
+这是一个完全的惊喜.
+它与Iprocetyl完全不同 (而且比Iprocetyl更好).
+虽然有相似之处, 但差异更为显著.
+它也完全不同于DiPT.
+尽管如此,
+我会在未来研究混合Iprocin和DiPT.
+但除此之外,我会等到有个伴侣,
+这里最大的问题是人体负荷.
+否则, 这是一个明确的赢家.
+没有太多直接的洞察力或内省, 然而,
+这是第二次我经历过++++, 首先是我第三只眼睛在对大麻的特殊反应中打开.
+第一个++++打开了我的思想,
+让我修复它, 保存它, 因为它是生存的工具 艰难的现实 半灵世界,
+我相信我对身体的鲁态度会在经历之后更为谨慎.
+时间表: 31901
+4-HO-DiPT (281):一个人 (16),烂的经历 (4),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+&#x27;Everything in Its Right Place&#x27;
+4-Ho-DiPT
+by
+Jamshyd
+Citation:   Jamshyd. &quot;&#x27;Everything in Its Right Place&#x27;: An Experience with 4-Ho-DiPT (exp31901)&quot;.
+Erowid.org
+. Mar 16, 2004. erowid.org/exp/31901
+DOSE:
+8.0 mg
+oral
+4-HO-DiPT
+(liquid)
+12 mg
+rectal
+4-HO-DiPT
+(liquid)
+BODY WEIGHT:
+120 lb
+The original plan was to take 20 mg of Iprocin (4-HO-DiPT) rectally in a solution, the reason for the high dose being that I am a Tryptamine hardhead. So, I added my regular amount of water that I used to dissolve similar amounts of other drugs (usually less than 5 ml). None of it dissolved. So I added more water, and kept adding to find that most of it did not dissolve yet. So now I have about 20 ml of solution with some residual Iprocin at the bottom. I decided that I will drink some of it (20 ml is a bit too much for rectal administration). I would say this made me consume ~8 mg of the drug orally. It tasted like Iprocetyl (4-AcO-DiPT) but much less bitter. The rest (~12 mg) was loaded in a syringe, and administered rectally. Hydraulics where good enough to transport the undissolved powder into the syringe and from there to my system.
+I then washed and sterilized the syringe and went on to take a shower. The shower lasted about 15 minutes during which I got my first alert. Interesting. I am “hearing” alien noises. The only other drug that does this to me during the onset is cannabis (though the effect is much more intense with it). By the end of my shower (T+00:15), I am feeling light-headed and body feels nice (Identical to Iprocetyl).  Bt T+00:30 I was feeling exactly as if I had plateaued on Iprocetyl, save the alien noises. From here, however, things get radically different.
+I look in the mirror (naked) and, for the first time ever, I see myself as sexually attractive. I typically have a negative body image, but I never really worried about it. However now I was seeing myself as attractive, and it sure did boost my confidence. After that I put on some clothes and moved around the house. This drug felt very bodily – more so than any other I had taken. On my desk there is a copy of Gray’s Anatomy which I had been reading and on the cover is a labelled diagram of the human face musculature. Very fitting for this drug! I am climbing up quickly. Something tells me to go and lie down. By this time, there are the usual Iprocetyl tracers/trailers/colour enhancements. Unlike Iprocetyl though, the grainy ceiling was bubbling (I wouldn’t use the word “rippling” because “bubbling” is more appropriate). There is definitely some sort of auditory sensitization.
+Around the half-hour point, I was at a definite +++, but the uncomfortable body-load quickly (and rather suddenly) develops to a nearly unbearable degree. There are some significant GI disturbances, and I think that if I kept moving I would have thrown up. There is a very peculiar vibration… it feels like some old-model motorcycle engine. It radiates from the solar plexus, and so probably increases the nausea. It was rather stimulating as well. I was in a quite uncomfortable place physically, in spite the great tactile enhancement. And then came something I only experienced on 4-AcO-DET before: Jaw tremors – and I hate them.
+These where probably due to what I call “the Olfactory Hammer” – this is basically a negative effect that some Tryptamines have on me. I experienced it with this drug, and 4-AcO-DET, and with 5-MeO-DMT (which I hate) it actually seems to be the MAIN effect. It also happened once for a short time with DPT. This is basically a sense of heavy throbbing in the area between the nose and the ears, extending to the throat, jaws, and head. It makes up for half of the physical discomfort for these drugs, the other half being the GI disturbance. Using personal vocabulary makes life much easier :).
+So far, I was thinking this is a horrible drug. This uncomfortable state lasted till T+1 hr, where things got radically better.
+I was, around this time, listening to music to try and distract myself from the body load. There where some abstract CEVs that went along with the music, which sounded very “solid” and alive. At some points there was a “solar burst” effect like the ones I experienced with 4-AcO-DET. On my mp3 player there where many tracks by many different artists, and now it started playing “Everything in its Right Place” by Radiohead. Now I only have recently discovered that I like Radiohead, and this was the first time I ever hear that song in an altered state. I was completely blown away. I felt the music in my body. And I mean this was synaesthesia at its best! CEVs matched the music, which matched the solid sensations that ran through my body. These are not like the nice vibrations on the 2C’s that match the music. This felt like abstract physical “objects” running through the body – and it was orgasmic.
+And speaking of which, now that the body load is quickly subsiding, I am at a VERY erotic +++. I continue to listen to music, and think about current issues in my life, with the “Everything in its Right Place” theme permeating through it. Very therapeutic. At this time I could move with only residual nausea, and no Olfactory Hammer. I took my copy of TiHKAL and had a hard time flipping through to find the 4-HO-DiPT entry. I read it all over again and realized that a body load is in fact one of this drug’s negatives, I just never realized it before. I was feeling increasingly horny, and could not resist the temptation to masturbate. As I did  I found that looking out the window – the sky, clouds, grass, and trees, though barren, where actually EROTIC. It felt at times as if I where having intercourse with the world. I can also identify with the “Rubenesque” eroticism mentioned in the TiHKAL entry, even though I am gay. It is more of a bodily sensation, possibly one connecting to the mother-goddess archetype. As a note, I usually do not find my reactions to be the same as those mentioned in the P/TiHKAL books, but this one was almost dead on.
+Orgasm was intense, with CEVs of what seemed to be two horizons continuously splitting. I can’t really describe it better. Anyway, not too long after the orgasm, my body decided to rebel, and I was struck with Diarrhea, which ruined the mood while it lasted. However, I then decided to go for a walk, and I was extremely euphoric. Movement was very strange. It felt like I was not really moving, but somehow continuously changing position with everything around me. This, too, is also hard to put into words. I soon realized, to my surprise, that I too, was playing with an unexpected ++++ with this compound! I felt like I was not walking at all – as if my movement was a constant part of my existence. (no disorientation though). I also FELT everything around me IN MY BODY. I felt the trees inside me. I was also able to temporarily feel how others where feeling in their own bodies. I could feel the birds and the cars and the grass all in my body. I seem to have been in a physical ++++. It was truly amazing.
+When I returned home I had a meal with my parents. I was starting to come down, and had somewhat of a hard time interacting with them. I then went to take a last look in the mirror, this time my body was telling me what was wrong with it, and what needed fixing, and then I lay down and meditated on all that I have learned. By the 4th hour I was almost baseline but there was a euphoric, dreamy afterglow which lasted till I went to sleep.
+Wow. This was a total surprise. It is NOTHING like I expected it to be, and it was very different than (and superior to) Iprocetyl. There are similarities, but the differences are much more significant. It is also totally different from DiPT. However, I am still enchanted by DiPT. I would explore mixing Iprocin and DiPT in the future. However, other than that, I will wait till I have a partner to experience it again by itself.  The biggest problem here is the body load. Otherwise this one is a definite winner. Not a lot of direct insight or introspection, however there is this physical ++++ aspect and I know of no other drug which can do this. It is special because this is the second time I had ever experienced a ++++, the first being the opening of my 3rd eye during an idiosyncratic reaction to cannabis.
+The first ++++ opened up my mind, and now this one with Iprocin opened up my body, so to speak. It had inspired me to repair it, and preserve it, because it is the tool to survive the harsh reality of the Demiurge’s world, and something to keep in good shape in order to surrender to a loved one. I am sure my reckless attitude towards my physical body will be replaced by a more careful one after this experience.
+Exp Year: 2004
+ExpID: 31901
+Gender: Male
+Age at time of experience: Not Given
+Published: Mar 16, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-HO-DiPT (281) : Alone (16), Glowing Experiences (4), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

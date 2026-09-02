@@ -1,0 +1,295 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>搜索</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/floatation-tank.html'>← 漂浮舱</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>搜索</h1>
+<div class='sub-title'>Search</div>
+<div class='meta'>作者：other · 日期：November 18, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=116475' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>2017年11月18日
+2017年11月18日
+谢珊·马赫穆德
+我认为今天我成为第一个漂浮的孟加拉人.
+这是一个很棒的机会.
+实际上,这也是我回来论坛的部分原因.
+而且我错过了它.
+基本上它可以重置你的大脑.
+你会成为一个完全不同的人.
+你会成为一个全新的人.
+你会感觉到太阳光的温暖和光,
+你真的重生了, 开始用全新的眼睛看世界,
+我个人建议每个人尽早尝试一下,
+另外它也很便宜.
+我推迟的唯一原因是因为我想, , 这只是简单的放松像桑拿或水疗或热水浴或一些东西...
+没有.
+没有.
+没有.
+这完全不同.
+我离开这个论坛时,
+两天前我也曾经有过深刻的情感,财务和个人问题.
+我觉得自己搞了.
+广告
+漂浮会完全消除你的自我.
+我指的不是自负,而是我们追求和成就伟大事物的动机, 主要来自于追求恐惧,缺乏,缺乏自尊和&quot;不够好&quot;的感觉.
+这就导致了自我.
+我认为金州勇士队也尝试过.
+海军海突击队员这样做是为了加速学习外语.
+UFC的战士们都这样做.
+我认为如果有合适的机会, 我们的每一位球员都应该这么做.
+想象一下自己在做大麻.
+除了没有副作用.
+你会觉得自己沉醉了,
+有什么区别?
+这不像吸草.
+哈哈 这比100万倍更好.
+大麻可能会重置你的大脑,
+让你感觉自己穿着全新的衣服或皮肤.
+没有副作用.
+相信我,这和大麻没有什么相似.
+我认为这可能有点像服用青素.
+但是为什么要冒着幻觉,偏执和副作用的风险?
+广告
+这完全是安全的.
+这是一百分之百的自然.
+这绝对是令人放松的.
+现在是实际体验:
+最好的做法是不要有任何期望.
+恐惧或恐惧的透.
+不,水温和你的体温相同, 所以你感觉不到差异,
+我只是有部分目标.
+我和家人有严重的关系问题, 短暂的情感危机,
+卡内基在卡内基音乐厅唱道:&quot;从底部开始,
+无论如何,它没有注意任何这些.
+它立即解决了当前的真正问题.
+这是一种严重的急性痛.
+虽然我意识到尾骨疼痛, 我还是把它掩盖在地毯下.
+广告
+但我不得不面对这个问题.
+我的疼痛在1到12的尺度上接近1200.
+我知道我表现得如此粗暴和暴力 (尽管伪装和伪装在礼貌和礼仪的社会戏剧,
+我从来没有谈过这个问题.
+想象一下一只受伤的老虎,
+他所说或所做的每一件事都会让你产生一些负面的感觉.
+我对我的许多家人和朋友感到愤怒,
+有趣的是,一旦我的身体放松了,
+我不需要做
+任何事情
+没有.
+没有一件事.
+没有冥想的废话.
+没有咒语.
+没有积极的肯定.
+没有&quot;深思熟虑&quot;和知识化.
+我对父母的爱是无条件的.
+我从各个角度了解一切, 甚至从我自己的角度.
+我为什么会受伤.
+我父母的确如此.
+我们的生活为什么会因为社会条件和编程等等而变得糟糕?
+没有人应该受到指责.
+这根本不是关于.
+这不是关于玩责怪游戏.
+我不需要尝试彻底的宽恕或同情或善良.
+这只是感觉正确.
+在旅程中的某个时刻, 我感觉自己被提升到宇宙的海洋,
+后来我觉得要伸展身体, 想象自己像青一样水.
+我记得你在纪录片中看到的那些场景 (尤其是DMT场景), 一种动物变成另一种动物,
+我们都相互关联.
+广告
+后来,我的感官关闭了,我转向内心,我的思想想忙.
+所以我继续唱歌,轻声吟.
+我从来没有做过.
+我想要让它简短而甜美.
+我认为我一定会回来.
+我对父母的同情和无条件的爱,
+尾声
+虽然我感觉有所变化 (我也接受了刺激松果腺的光疗法),
+但当我走出工作室走上街道后, 我觉得每个人都好看,
+我曾想象到在2200年, 每个人都会拥有宇宙知识, 成为无所不知,
+虽然我还没有意识到,
+无论如何, 已经有17个小时了, 我觉得最重要的变化是:
+我没有错.
+广告
+我们,至少我,对这么少的东西有着如此强烈的痴迷... 这是我说的,对吧?
+或是错误的?
+或是在错误的环境中?
+或是错误的设置或正确的设置?
+这只是?
+这是道德上的吗?
+这是合法的吗?
+这是否符合道德?
+这是否足够直观?
+是不是强迫?
+这是否强烈的直觉?
+是否是直觉上的强迫?
+我们建立了一个自我破坏的负面反循环, 最终驱使我们,
+基本上是内心的批评者死了.
+我唯一的恐惧是它不会持续那么长时间.
+这也没关系.
+我总是可以回去重置我的大脑和生活.
+汽车的发动机和空气过器会变得脏和堵塞.
+这只是生活的本质.
+请帮自己一个忙,试试这个.
+你会成为一个全新的男人.
+广告
+分享以下内容:
+在 X 上共享 (打开新窗口)
+没有
+在Facebook上共享 (新窗口中打开)
+在Facebook上
+这样
+在加载...
+航行后
+← 时间
+所以你想重置你的大脑?
+留下一个评论
+取消回复
+在</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>My experience with sensory deprivation tank
+November 18, 2017
+November 18, 2017
+Zeeshan Mahmud
+I think today I have become the first Bangladeshi to float. LOL!
+In fact, it is because of this partially which made me return to the forum. Plus I missed it. Basically it resets and rewires your brain.
+You become a completely different person. You become a brand new person. You feel the warmth and glow of sunlight after it is over as if you just emerged from womb. You really become born again and start seeing the world in a brand new eyes with entirely new neural circuitry.
+I personally would recommend everyone to try this at least once in their life time if not as early as possible. Plus it is cheap. (Less than 50 bucks.) Only reason why I delayed it was because I thought ‘meh, blah, it is just plain ol’ relaxation like sauna or spa or jacuzzi or some thing…’
+No. No. No. It is completely different.
+I left the forum with lot of microaggression, passive rage, egoic issues. And yes, even two nights ago, I was having deep emotional, financial and personal issues. I kinda felt I really messed it up.
+Advertisement
+Well….flotation completely dissolves your ego. I don’t mean ego as in pride, but the fact that we are motivated to pursue and accomplish great things chiefly from a pursuit of fear, lack, lack of self-esteem and feeling of ‘not being good enough’. Ergo that results in ego.
+I think Golden State Warriors also tried it. Navy SEALs do it for accelerated learning of foreign language acquisition. UFC fighters do it. And f yeah, I think if given the right opportunity every one of our players should do it.
+Think of doing weed. Except no side effects. You feel sedated as if on pain killers or opiates.
+Difference?
+It is not like doing weed. LOL It is 100000000 x better. Marijuana might reset your brain but it wears off. This one for the most part will make you feel you are wearing a brand new cloth or skin.
+No side effects. Trust me it is nothing like cannabis. My assumption would be it may be a bit like taking psilocybin. But why risk the hallucinatory trips, paranoia and side effects?
+Advertisement
+It is completely safe. It is 100% natural. It is absolutely relaxing.
+Now for the actual experience:
+Best thing to do is not to go with any expectation. Contrary to my fear (?) or belief, it wasn’t supposed to be trapped in a dark room in cold water where phobia or fear percolates. No, the water temperature is same as your body temperature hence you feel no difference rather weightlessness in epsom salt and your body dissolves.
+I went in partially with goal in mind. I was having severe relationship problems with my family, brief emotional crisis and to attain photographic memory and be rich like Carnegie. Carnegie who you may recall sang in Carnegie Hall: “Started from the bottom now we here…”
+Anyhoo, it didn’t pay heed to any of that. It immediately addressed the real issue at hand. Which was severe and acute pain of my coccydonia (tailbone). I had three car accidents (not my fault, let the records indicate) and although I was aware of my tailbone pain, I kinda swept it under the rug.
+Advertisement
+But, I had to face it. My pain is near 1200 in a scale of 1 to 12. I knew that I was acting so rough and violent (albeit disguised and camouflaged in the courtesy and etiquette of social drama that we ALL are so good at and adept) stemmed partially from here. I never addressed this issue. Imagine a wounded tiger with a claw stuck in its feet. Everything he says or do will perpetuate some negative vibes.
+Other than that I was explicitly and severely mad at many of my family members and friends and blaming them for my life’s misery and trouble. Funny thing is once my body relaxed, all of it just…. dissolved. I didn’t have to do
+anything
+. Not a single thing. No meditation bullshit. No mantra. No positive affirmations. No ‘thinking it through’ and intellectualizing. All and that is all I felt was unconditional and complete love for my parents. I understood everything and everything from every perspective even from my own. Why I hurt. Why my parents. Why exactly is our life f—–ed up due to social conditioning and programming etcetera etcetrea. No one is to blame. It is simply not about that. It is not about playing a blame game.
+I didn’t have to try for radical forgiveness or compassion or kindness. It just felt right.
+At some time in my journey, I felt like I have been lifted to an ocean of universe high and far above the sky. Then I felt like stretching and I imagined myself to wade like a frog. I remembered those scenes you see in the documentary (especially DMT ones) where one animal becomes another, like a human to frog to salamander etc… so I “got the point” that it simply means we are ALL ONE. We are all connected.
+Advertisement
+At some later time, since my senses turned off and I turned inward, my mind wanted to be busy. So I kept singing and humming softly. Something I’d never do in a million years.
+I wanted to keep it short and sweet. And I thought I’d definitely return. The highlight was the compassion and unconditional love for my parents, who are like the most precious treasure in my life.
+Epilogue
+After I exited, although I felt change (I also did a light therapy that stimulates pineal gland) I was bursting with positivity and I thought it was just my self.
+But after I came out of the studio and walked in the street, I felt everyone was good looking and superman. Something I imagined would happen in 2200 where everyone would have cosmic knowledge and be omniscience and be the best version of themselves.
+Although I still didn’t realize, I felt that reality has changed. Anyway, it has been full 17 hours since and the most important change I feel is:
+I can do no wrong.
+Advertisement
+I mean we, I, at least, obsess so much over so little… is this what I am saying “right”? Or wrong? Or right in the wrong setting? Or wrong in the wrong setting or right setting? Is it just? Is it moral? Is it legal? Is it ethical? Is it intuitive enough? Is it forced? Is it forcefully intuitive? Is it intuitively forced….?
+I mean we set up a self-destructive negative feedback loop and pattern that ultimately drives us, and ergo, therefore the rest of humanity IN-S-A-N-E because everything we say, do or act can be imperceptibly and subconsciously felt by other.
+Basically the inner critic died.
+My only fear is it won’t last that long. And that is okay. I can always go back and reset my brain and life. I mean car engine and air filters get dirty and clogged. It is just he nature of life.
+Please do yourself a favor and try this.
+You will be a brand new man.
+Advertisement
+Share this:
+Share on X (Opens in new window)
+X
+Share on Facebook (Opens in new window)
+Facebook
+Like
+Loading...
+Post navigation
+←
+So you want to reset your brain?
+Leave a comment
+Cancel reply
+Δ</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

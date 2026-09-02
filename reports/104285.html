@@ -1,0 +1,430 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>没有什么特别的...直到我疯了</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/dob.html'>← DOB</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>没有什么特别的...直到我疯了</h1>
+<div class='sub-title'>DOB &amp; Various - Erowid Exp - &#x27;Nothing Special... Until I Got Insane&#x27;</div>
+<div class='meta'>作者：ivo Citation · 日期：Apr 21, 2017 · <a href='https://erowid.org/experiences/exp.php?ID=104285' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>(如果你只对旅行感兴趣,不关心我,跳到*)
+十五年前, 我已经上了四个月.
+这可能是我一生中最糟糕的药物试验.
+我意识到自己是个上者,
+互联网对我们有很大的帮助.
+尽管如此, 我始终保持着工作和社交生活.
+经常炼一直是我生活的一部分.
+我在学校时从来没有任何问题.
+除了那一次我上时, 吸毒从来没有对我的健康产生坏影响.
+但可能我最糟糕的药物是酒精.
+我还没有尝试其他药物.
+我没有指责它.
+显然是我当时喝了太多的错.
+但这让我感到惊的是,这种物质是如此被社会接受,
+我认为自己是一个有经验的用户.
+我已经多次尝试过LSD,2C-B,2i-NBOMe,Salvia,DMT,Speed,Ketamine,MDMA,Hash,Weed (当然),N2O,Shrooms,Canga,DXM,MXE (最后五种不太常见),Mescaline (一次),可卡因 (两次),Morphine,片 (两次一次),GHB (一次),2C-P (一次),Ayahu (一次),Mephedrone (一次...现在),5-MEO-Dipt (一次) 我可能忘记了一些东西.
+我不是喜欢片的人.
+莫非因给我的感觉是意想不到的令人惊叹.
+我喜欢毒品,因为我觉得它们很有趣.
+吗啡让我感觉非常好.
+这也是我停止使用MDMA的原因.
+我喜欢它们给我的敏性,动力和快速思考能力.
+写作或与朋友交谈时,
+避免上的秘在于, 在我的情况下,
+就像玛丽莲·曼森说的,如果你感觉丧,
+我对这个想法感到着迷, 一种物质,第三个代理, 可以完全改变你感知你和世界之间的方式.
+我总是记住,高只是一种幻觉 (除了那一次的速度).
+但另一方面,我也深信一切都是幻觉.
+唯一的区别在于, 清醒的我,
+我一直试图做一些新事物, 吸毒对我来说变得有点无聊.
+每一次我反复服用的物质, 就像我已经看过的电影.
+每一次我反复服用的物质, 就像我已经看过的电影.
+我做的是,在计划下一次体验时, 我准备了许多药物,
+例如将幻觉药的视觉,精神和创造性部分与胺的混沌,美丽无稽之谈结合起来 (这是我最喜欢的).
+我发现吸食和研究毒品占用了我太多的时间, 我本可以学习,阅读,学习一些东西,
+这次我有的是DOB,LSA,2C-B,25i-NBOMe,MDMA,胺,MXE,哈希加,DMT,美,速度和GHB.
+之前, 我尽可能地了解这些物质以及它们的组合.
+由于DOB,MXE,25i-NBOME和LSA是相当罕见的物质,
+读到有人因服用过多的DOB或25i-NBOMe而死亡,
+我也从来没有尝试过DOB和LSA,
+我已经结合了2C-B,25i-NBOMe和LSD没有任何危险 (尽管我不喜欢这次旅行.
+我只是迷失了, 解释我周围的世界作为一个不存在的故事和醒来意识到我刚刚经历的是纯粹的废话.
+我从来没有再一次同时使用这么强烈的药物.
+发现DOB与LSD有点相似, 让我觉得如果不过分, 结合它们是安全的.
+我把梅和斯皮德放在一边, 因为它们都是兴奋剂,
+我也放弃了GHB, 因为我读到如果服用过多的胺,
+所以我的计划是
+1. 服用1.5毫克的DOB,并享受它,直到我知道效果的本质
+2. 采用10种LSA种子
+3. 服用20毫克的2C- B
+4. 服用1mg的25i-NBOMe清洁剂
+或许是60毫克的MDMA (我不确定,因为我讨厌下降,特别是精神病药物)
+5. 一次服用50毫克胺
+6. 一次服用25毫克MXE
+7. 慢慢地服用50毫克的胺
+8. 慢慢地服用25毫克的MXE
+9. 吸食DMT和/或加哈希在最后
+像往常一样我没有坚持计划.
+制定计划是件好事, 但更重要的是要根据当前情况采取行动.
+我在23点左右拍摄了这部电影.
+我不会说出确切的时间.
+我没有打算写一篇科学期刊,
+因为我有两天时间做任何我想做的事,
+我知道需要一段时间才能感觉到 DOB, 所以我在旅行开始前对所有计划剂量进行了权衡,
+我还复制了每种药物的持续时间和剂量表, 并将其粘贴在一个新的文件上,
+我磨碎了LSA种子, 煮水做了茶.
+在我完成之后, 我开始准备哈希.
+我已经感觉到了一些东西.
+时间大概是1点左右.
+现在,我哥哥打电话给我, 因为他想告诉我一些东西.
+这是一个愚蠢的电视节目.
+我不记得名字,但它真的很有趣.
+我的兄弟是清醒的.
+他暂停了一会, 因为他认为他最近服用了太多的药物.
+否则他可能会加入我.
+另外,第二天他还要早起,
+我不想看电视,
+节目结束在2点左右.
+已经引起了人们的注意.
+视觉效果有点像LSD, 但内心的感觉更像是2C-B或25i-NBOMe.
+这远低于我的预期,所以我喝了LSA茶.
+我开始观看YouTube播放列表,
+时间过去了,我什么都没有感觉到.
+我正在考虑乘坐2C-B, 但为了确保安全,
+我找到了一个很不错的故事,
+他所经历的感受被如此精彩地描述,
+经过一段时间, 我开始感觉到它,
+由于出现的不同颜色,
+在等了一段时间之后,
+在这个时候,我决定选择25i-NBOMe.
+我不得不承认, 我真的很紧张, 因为我找不到关于25i-NBOMe和DOB组合的任何东西.
+如果是LSD, 我也不会怀疑它.
+无论如何,我认为任何事情都比保持平高.
+我把这块纸放进嘴里, 恶心的苦味蔓延到我的嘴.
+我忘记了这味道是多么强烈,
+我又一次陷入了偏执的想法.
+我经常检查心率, 动手动脚检查血管收缩问题.
+五分钟后, 视觉开始变得越来越强烈.
+5分钟远远超过正常.
+我已经习惯了等待一个小时才感觉到任何东西.
+在那里我真的很害怕,
+我不想失去旅行的控制.
+我会一直担心自己的健康.
+我从嘴里拿出纸条, 把它放在一张卫生纸上.
+我开始跳,跑步,喝水,伸展,
+现在我有了更强的视觉,我能感觉到音乐在我里面,但仍然...
+我决定吸入胺, 这次我真的希望它会让我大吃一惊.
+视觉开始变得不那么模糊,
+我吸了MXE, 因为我读过它可以加强胺的效果,
+混乱正是我想要的.
+我把它吸进去,感觉非常舒服.
+尽管如此,我还是不敢相信,
+我还剩下的MXE (25毫克) 和Ketamine (50毫克) 混合起来, 一次性地吸入.
+我现在的感受难以形容.
+我无法控制我的身体,只能观看,同时感觉一切都很好,我必须做点什么,音乐就在我里面.
+我在YouTube上播放了一个液体陷混音
+打开窗,开始跳舞.
+为了让我不觉得孤独, 我开始播放我和哥哥的舞蹈视频.
+我打开网络摄影机,继续跳舞.
+后来我开始痴迷于视频和相机.
+我打开了我与不同玩家一起跳舞的视频,
+我停止了拍摄自己,所以会出现新的视频,
+我打开了新视频, 并在其他视频旁边打开.
+然后我把它们重新排列在第二个电视屏幕上,
+然后我又停下来开始拍摄,
+每次播放完视频, 我都会重新播放.
+这听起来很简单,
+我甚至不知道自己在做什么,
+我想要用视频覆盖整个屏幕, 在视频中我可以看到屏幕被视频覆盖.
+我不知道我做了多长时间.
+或许5个小时左右.
+由于我在平板电脑上的应用程序,
+我不是习惯于在照片和视频中看到自己的那种人.
+每次我这样做, 我觉得, 那个人不是我.
+我没有立即接受自己,
+只是为了观察自己和自然反应.
+我对自己的反应的原因并不重要,
+我开始清醒起来.
+我听说我哥哥正在洗,所以他已经醒了.
+我告诉他我想给他看一些东西.
+他说他没有时间.
+他发现我在做什么, 并以史诗般的&quot;,该怎么办?&quot;
+看到他的反应,我真的很高兴.
+艺术的目的是创造出意想不到的东西.
+他说我是个瓜.
+我笑着告诉他他必须接受,
+他这样说,然后离开了.
+我知道我已经完成了我的&quot;艺术品&quot;,
+我觉得自己完全安全,
+虽然这是一种疯狂,但它是被允许的疯狂.
+如果我从来没有结束我正在做的事情,
+我决定把电脑放在电视屏幕前, 拍下几张照片, 以免忘记发生的事情,
+我开始关掉音乐,然后关闭视频,
+我真的很累,
+我从晚上十一点开始就没吃过什么, 现在已经是四点了,
+我确信这不可能,除非我抽了一些哈希.
+没有吃东西就会立刻入睡.
+我去厨房炸一些蛋.
+吃饭之前, 我先洗碗, 因为我想做好工作,
+我终于吃了点东西, 在电视上看了一些音乐录像.
+我对这一切看起来是假的感到失望.
+完成之后,我上楼.
+我还没有准备好睡觉.
+我说服自己,除非我吸了一些DMT,否则我不会感到满意.
+虽然我已经准备了一包40毫克的黄色DMT,100毫克的Changa和60毫克的白色DMT,
+我把哈希切成更小的碎片,
+我有点紧张, 因为我很久没有吸过DMT.
+我冥想了一会儿,感觉好了.
+我轻轻地抽烟, 因为我没想到能一次抽完整一碗.
+这让我感受到比我预想的更强烈.
+周围的一切都变成了漫画动画 (最近我读了很多漫画).
+这让我很困扰.
+我确信MXE和胺会影响旅行,
+我以为DMT会让我脱离MXE的后果.
+我记得保持冷静和呼吸.
+现在我已经吸烟了,
+我感觉到我已经湿了,我自己.
+我没有惊慌.
+这不是第一次发生在我使用DMT时.
+我检查并意识到, 这只是我的印象,
+象征的拼图移动和与我沟通 (我不知道我是唯一一个,
+我从来没有看到蛇道的光景.
+我在解释这些符号时, 思考得清晰快捷, 比如枪支,十字架,臭指,指等等.
+它告诉我我的担忧以及如何应对它们,我的目标以及如何实现它们,
+我清理我的房间,而下来的DMT.
+碗里还有东西.
+我已经有足够的DMT了,
+我吸了烟,  DMT 的旅程又开始了.
+我又一次错误地觉得自己已经了.
+代码又开始在我面前移动.
+它告诉我我应该睡觉.
+我也这么想,但在那天结束之前,
+我写信的时候,大部分信都不完整,
+我没有想到要读它.
+而且,我又一次感觉自己是个艺术家.
+我躺在床上,还在服用DMT, 慢慢地入睡, 大约15点.
+我在晚上十一点醒来时感觉非常好.
+四个小时后我又睡了.
+总结一下,整个旅程是相当令人失望的,
+我预计迷幻药和胺会更强烈.
+我可以让25i-NBOMe在我的嘴里消失,
+在那一刻,我觉得这太冒险了.
+我很遗憾接受了DOB, 但这也是我第一次尝试,
+关于LSA,也许我必须独自承受,所以我可以感觉到一些东西.
+这种DMT真的很棒.
+它不仅有趣,而且还帮助我改善日常生活.
+下一次,我想我会把2C-B和25i-NBOMe结合起来,
+和大麻可能会给整个体验带来更多的情感.
+或许下次我会在凯他胺之前服用它们.
+虽然MXE在某种程度上挽救了这次的经历, 但这不是我想要的,
+我也应该有一些卷起来的关节.
+在没有任何效果的时候,
+现在,我会尝试思考其他事情.
+其他:
+DOB (19):组合 (3),单独使用 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Nothing Special... Until I Got Insane
+DOB &amp; Various
+by
+ivo
+Citation:   ivo. &quot;Nothing Special... Until I Got Insane: An Experience with DOB &amp; Various (exp104285)&quot;.
+Erowid.org
+. Apr 21, 2017. erowid.org/exp/104285
+DOSE:
+T+ 0:00
+1.5 mg
+oral
+DOB
+(blotter / tab)
+T+ 3:00
+oral
+LSA
+(tea)
+T+ 0:00
+20 mg
+oral
+2C-B
+T+ 0:00
+50 mg
+insufflated
+Ketamine
+T+ 0:00
+25 mg
+insufflated
+Methoxetamine
+T+ 0:00
+50 mg
+insufflated
+Ketamine
+T+ 15:00
+smoked
+Tobacco
+T+ 15:00
+smoked
+Cannabis - Hash
+T+ 15:00
+smoked
+DMT
+BODY WEIGHT:
+80 kg
+(If you are only interested in the trip and don’t care about me, jump to the *)
+A year and a half ago, I was addicted to speed for 4 months. This was probably the lowest point in my lifetime when experimenting with drugs. After I realized, that I was an addict, I did everything to stop. The internet was of great help. Nevertheless, I always managed to keep my work and social life intact.
+Lately I’ve even managed to integrate meditation in my daily routine and regular workout has always been a part of my life. I never had any issues when I was at school. Excepting that time when I was addicted, taking drugs has never had a bad influence on my health. But probably the worst experiences I had on any drug were on alcohol. That was, before I had tried any other drug. I’m not blaming it. It was clearly my fault for drinking too much of it at that time. But it surprises me, that this substance is so accepted by society, while it’s one of the most dangerous.
+I guess I consider myself an experienced user. I’ve repeatedly tried LSD, 2C-B, 25i-NBOMe, Salvia, DMT, Speed, Ketamine, MDMA, Hash, Weed (of course), N2O, Shrooms, Changa, DXM, MXE (last five not so often), Mescaline (once), Cocaine (twice), Morphine, Opium (both once), GHB (once), 2C-P (once), Ayahuasca (once), Mephedrone (once… right now), 5-MEO-Dipt (once) and I’m probably forgetting something. I’m not the kind that likes opiates. The feelings that Morphine gave me were unexpectedly breathtaking. I like drugs, because I find them interesting. Morphine just made me feel really nice. This is the same reason why I stopped taking MDMA.
+Although stimulants just make me feel nice, too, I like the sharpness, motivation and fast-thinking ability they give me. I feel able to lose myself in a flow of interconnecting ideas while writing or talking with friends. The secret to not getting addicted is, in my case, only taking it for fun, never for work. Just like Marilyn Manson said, never take drugs if you are feeling down, only when your are feeling great!
+I’m fascinated with the idea, that a substance, a third agent, can totally change the way you perceive what’s between you and the world. I’ve always kept in mind, that a high is only an illusion (except that one damn time on speed). But then again, I’m really convinced that everything is an illusion as well. The only difference is, that being sober, I am living an illusion that has been evolutionary conditioned for my survival.
+After playing around with this and the other substance, and always trying to do something new, for me, taking drugs got a little bit boring. Every substance I repeatedly consumed, was like a movie I had already watched.
+Every substance I repeatedly consumed, was like a movie I had already watched.
+So what I did was, when planning the next experience, I prepared many drugs, so I could combine them, to achieve an unknown state of consciousness. For example taking the visuals and spiritual, creative part of psychedelics and combining them with the chaotic, beautiful nonsenseness of ketamine (this is one of my favorites).
+Noticing that consuming and investigating drugs was taking too much of my time, that I could have used studying, reading, learning something, doing sports, etc… I came to the conclusion that I was going to plan a final big trip.
+What I had available this time was DOB, LSA, 2C-B, 25i-NBOMe, MDMA, Ketamine, MXE, Hash Changa, DMT, Mephedrone, Speed and GHB. Before just taking everything, I informed myself the best I could about this substances and the combinations of each. Being DOB, MXE, 25i-NBOME and LSA are rather rare substances, it was impossible for me to make sure that it was safe combining them. Reading about people dropping dead when taking too much DOB or 25i-NBOMe made me worry a bit. I also had never tried DOB and LSA before, and MXE and GHB were still something new for me. However, I had already combined 2C-B, 25i-NBOMe and LSD without any dangers (although I didn&#x27;t like the trip. I just got lost, interpreting the world around me as an unexisting story and woke up realizing that what I had just experienced was pure bull-shit. Since that time, I never again combined such powerful substances all at once). Noticing that DOB was kind of similar to LSD, gave me the feeling that it would be safe to combine those, if I didn&#x27;t overdo it.
+I put the Mephedrone and Speed aside, because being both stimulants, I thought they would just act against all other drugs. I also put GHB aside, because I read that it could be fatal if taking too much Ketamine.
+So my plan was
+1. taking 1,5 mg blotter of DOB and enjoying it until I knew the essence of the effect
+2. taking 10 seeds of LSA
+3. taking 20 mg of 2C-B
+4. taking 1mg blotter of 25i-NBOMe
+(5.) Maybe taking 60 mg of MDMA (I wasn&#x27;t sure, because I hate the comedown, especially on psychedelics)
+5. taking 50 mg of Ketamine at once
+6. taking 25 mg of MXE at once
+7. taking 50 mg of Ketamine little by little
+8. taking 25 mg of MXE little by little
+9. smoking DMT and/or Changa with Hash at the very end
+As always I didn&#x27;t stick to the plan. It´s good to have a plan, but it’s more important to act responding to the current conditions.
+* I took the DOB around 23 o´clock. I won’t be able to name the exact time. I wasn’t aiming to write a scientific journal, but an experience from my point of view. Since I had two days to do whatever I wanted, time didn’t matter. I knew it would take a while until I felt the DOB, so I weighed all of the planned doses before the trip started, to make sure I would take that dose and not more or less. I also copied the duration and dosing charts of each drug and pasted it on a new document, so I could have an easier overview.
+I grinded the LSA seeds and boiled water to make a tea. After I was done, I started preparing the hash. I was already feeling something at this point. It was probably around 1 o’clock. At this moment, my brother called me, because there was something he wanted to show me.
+It was a stupid TV-show. I don’t remember the name, but it was really funny. My brother was sober. He was taking a pause, because he thought he was taking too much stuff lately. Otherwise he would have probably joined me. Moreover, he had to wake up early the next day, so he couldn’t even be my tripsitter.
+I didn’t wanted to watch TV, but I just couldn’t stop. The show ended around 2’clock.
+The DOB was already making itself noticed. The visuals were a little bit like LSD, but the feeling I had on the inside was rather like 2C-B or 25i-NBOMe. It was way below my expectations, so I drank the LSA-tea. I started watching a youtube playlist with trippy stuff that I had prepared days before. Time passed and passed and I didn’t feel anything.
+I was thinking about taking the 2C-B, but to make sure it was safe, I searched for a report, where someone had taken DOB and 2C-B. I found a really nice one, about a guy that called himself an artist. The feelings he experienced were described so wonderfully, that I got motivated and took the 2C-B.
+After a while I started feeling it, but again, it was waaaay below my expectations. My visual field was a little blurry because of the different colors appearing. After waiting a while and expecting it to come up, nothing happened. At this point I decided to take the 25i-NBOMe. I must admit, that I was really nervous, because I couldn’t find anything about a 25i-NBOMe and DOB combination. Would it have been LSD, I wouldn’t had even doubt about it. Anyway I thought that anything was better than staying in that mediocre high.
+I put the blotter in my mouth, and that disgusting bitter tasting spread out across my mouth. I had forgotten how strong this taste was, but I felt it even stronger than usual. Again, paranoiac thoughts invaded my head. I was constantly checking my heart rate and moving my hands and feet to check any vasoconstriction issue.
+After 5 minutes, the visuals started getting stronger and stronger. 5 minutes was far beyond normal. I was used to wait an hour before feeling anything. There I really got scared and thought that my life was more valuable than this trip. Furthermore, I didn’t want to lose control of the trip. Even if it was safe, I would have been worrying the whole time about my well-being. I took the blotter out of my mouth and put it on a piece of toilet paper. I started doing jumping jacks, running in the same place, drinking water and stretching, just to make sure that everything was alright with my circulatory system.
+Now I had stronger visuals, I could feel the music inside of me, but still… nothing new.
+I decided to snort the Ketamine and this time really expected it would blow my mind. Visuals started getting less blurry and more concrete, but… I was still getting bored.
+I snorted the MXE, because I had read that it could strengthen the effect from the Ketamine, although I had also read that it could get confusing. Confusion was exactly what I wanted. I snorted it and felt very comfortable. Still, I couldn’t believe it, I wasn’t satisfied.
+Desperately (the sun had already risen), I took the MXE (25 mg) and Ketamine (50 mg) I still had, mixed it up and snorted it all at once. I can’t even describe how I was feeling now. It was a K-holish sense, that I couldn’t control my body, but only watch, at the same time felt that everything was ok the way it was, that I had to do something and that the music was inside of me. I played a Liquid-Trap-Mix on Youtube
+, opened the curtains and started to dance.
+After a while, I got the idea to play some videos of my brother and me dancing, so I wouldn’t feel alone. I turned on the webcam and kept dancing. Then I started getting obsessed with the videos and the camera. I opened every video of me dancing I had (like 3) with different players, so I could watch them at the same time. I stopped filming myself, so a new video would appear, and kept filming again. I opened the new video and opened it at the side to the other videos. Then I rearranged them on a second TV-screen that I had connect with a HDMI-Cable. Then I again stopped and started filming, and opened this video. Every time a video had finished playing, I played it again. This may sound simple, but at the moment, it was really challenging. I didn’t even know what I was doing, but I felt that it was something big.
+After getting the whole screen covered with mini videos of little mes’ dancing, other mes’ just watching myself and others rearranging videos, I wanted to cover the whole screen with videos, where I could see the screen covered with videos in the video. I have no clue how long I did this. Maybe 5 hours or so. The mix I had played was repeating itself automatically, because of an application I have on my tablet. I’m not the kind of person that is used to see himself in pictures and videos. Every time I do, it seems to me, that that person is not me. So I don’t immediately accept myself the moment I see a picture of me. However in that phase of my experience, it was all about watching myself and my natural reactions. The cause of my reaction wasn’t important at all, but I got to know myself at most superficial level and enjoyed it.
+I started to sober up. I heard that my brother was taking a shower, so he was already awake. I told him I wanted to show him something. He said he had no time. I insisted and he came quickly to my room, where he found out about what I was doing and reacted with an epic “what the heck!?”. I was really happy after seeing his reaction. A purpose of art, is creating something that is unexpected. He said that I was an idiot. I laughed and told him that he had to accept, that what I had done was something cool. He said so and left.
+I knew that I was done with my “art-piece”, but like a writer that can’t finish his masterpiece, I didn’t dare to close all windows and stop filming. In that activity I felt totally safe and accepted by myself. Although it was insanity, it was allowed insanity. If I had never ended with whatever I was doing, It would have been insanity even for me. I decided to finish my work putting my computer in front of my TV-screen, so there would be a mirror-to-mirror effect and took some pictures, to not forget what had happened and to show it to friends (now that I think about it, I feel rather ashamed because of that).
+I started turning off the music, then closing the videos and then stopped recording. I was really tired and worn-out. I hadn’t eaten anything since 23 o’clock and it was already like 14 o’clock and wanted to get some sleep. I was sure that it wouldn’t be possible, unless I smoked some Hash. But if I smoked Hash, I would instantly fall asleep without eating. I went to the kitchen to fry some eggs. Before getting to eat, I washed the dishes, because I wanted to get things done, even though I felt like passing out. Then I finally got to eat something, watched some music videos on TV. I was very disappointed how artificial and fake everything looked.
+After I was done, I went upstairs. I wasn’t ready to go to sleep. I convinced myself, that I wouldn’t be satisfied, unless I would smoke some DMT. Although I had prepared one package of 40 mg of yellow DMT, 100 mg of Changa and 60 mg of white DMT, I decided only to smoke the white one with Hash. I cut the Hash in smaller pieces and made a bowl with little tobacco on the bottom, Hash in the middle and DMT on top. I got a little nervous, because I hadn’t smoked DMT for a long time. I meditated a little while and felt better. I smoked smoothly, because I wasn’t expecting to smoke the whole bowl at once. It hit me much harder than I had thought it would. At the very beginning everything in my room around me turned into some kind of manga animation (I had been reading a lot of manga lately). This troubled me. I was sure that the MXE and Ketamine were affecting the trip and hadn’t expected it to be this way. I thought the DMT would had taken me out of the MXE-after-effects. I remembered to keep calm and breath. Now that I had smoked, I could do nothing but observe.
+I felt how I had wet and shit myself. I didn’t panic. This was not the first time this had happened to me on DMT. I checked and realised that, again, it was only my impression and I was actually clean. In front of me a puzzle of symbols moved and communicated with me (I don’t know if I’m the only one, but this happens to me everyt ime. I never get lighty visuals with tunnels of snakes). I was thinking clearly and really quickly while interpreting the symbols, like guns, crosses, stinky fingers, thumbs-up and so on. It told me about my worries and how I should handle them, about my goals and how I can achieve them and how it would be best for me, to stay concentrated in the moment, to get where I want.
+I cleaned up my room while coming down of the DMT. There was still something in the bowl. I had had enough DMT, but I thought that what was left in the water pipe would be mainly Hash. I smoked and the DMT trip began once again. Once more, I felt mistakenly that I had shit and wet myself. The codes began to move in front of me again. It told me that I should go to sleep. I thought so, too, but before ending the day, I grabbed a pen and wrote down the most important ideas that I had acquired. Most of the letters were incomplete while I wrote them, but that didn’t matter. I wasn’t thinking about reading it anyway. Besides, once more I felt like an artist.
+I got on my bed, still on DMT and fell asleep slowly, around 15 o’clock. I woke up at 23 o’clock feeling incredibly well. 4 hours later I went to sleep again.
+In conclusion, the whole trip was rather disappointing, but not wasted. I expected the psychedelics and the Ketamine to hit harder. I could had let the 25i-NBOMe blotter inside my mouth, but I don’t regret this. At that moment it felt to risky. I rather regret taking the DOB, but then again, it was my first time trying it and it was on my checklist. About the LSA, maybe I have to take it alone, so I can feel something.
+The DMT really was something. Not only was it fun and interesting, moreover it helped me to fix my daily life.
+Next time, I think I will combine 2C-B and 25i-NBOMe and take enough Ketamine to end up in a K-Hole (for me 180 mg). The MDMA and GHB could add some more emotion to the whole experience. Maybe next time I’ll take them before the Ketamine. Although the MXE somehow saved this last experience, it was not what I was looking for, so I’ll probably leave it all out or just gonna take 25 mg with the Ketamine. I should have some rolled joints, too. When nothing seems to work, THC can boost a trip or at least make it interesting or cozy enough. For now, I’m going to try to think about other things.
+Exp Year: 2014
+ExpID: 104285
+Gender: Male
+Age at time of experience: 20
+Published: Apr 21, 2017
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DOB (19) : Combinations (3), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

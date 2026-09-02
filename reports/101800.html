@@ -1,0 +1,253 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2C-E - 埃罗伊德的故事 - 一个黑暗的喜剧</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-e.html'>← 2C-E</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>2C-E - 埃罗伊德的故事 - 一个黑暗的喜剧</h1>
+<div class='sub-title'>2C-E - Erowid Exp - &#x27;A Dark Comedy&#x27;</div>
+<div class='meta'>作者：Delsymfan Citation · 日期：Nov 16, 2013 · 剂量：16 mg · <a href='https://erowid.org/experiences/exp.php?ID=101800' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>迄今为止, 它为我提供了最强烈的迷幻体验.
+我会把它分解成几个不同的部分.
+一个.
+剂量
+: 一般来说,我发现2C-E的效果在16mg的剂量下是非常轻微的,这相当于大约0.2mg/kg.
+在16毫克以上,事情变得有趣.
+影响似乎以非线性方式扩大.
+剂量在20毫克以上变得更强大, 有非常强大的视觉效果.
+强烈建议使用准确的剂量方法.
+2. 在
+时间
+我通常在40分钟后感觉到效果,
+在T+1:20左右, 效应似乎会升, 并且在接下来的2小时内缓慢增加.
+接下来的40分钟将是一个高原, 接下来的一个小时是一个稳定的下降.
+在T+4时, 我会感觉更正常.
+通常在T+5:30我接近基线.
+这与剂量无关, 但较大的剂量会更快.
+3. 没有.
+身体上的影响
+所有的2C-E剂量似乎都具有或多或少的线性体载量.
+低于16mg的剂量通常很少引起不适,有些胃部不适但通常在1小时后消失.
+超过16毫克的剂量总是让我在1小时左右吐.
+这将是一次性的&quot;清洗&quot;, 之后不会再有腹痛.
+我总是无法静静地坐着.
+我会不断地伸展肌肉,移动腿部,背部等等.
+一切都感觉有些硬.
+没有痛苦,只是有点奇怪.
+拉伸可以让人感觉很好.
+4. 没有
+心理影响
+2C-E的奇特效果是使我在中低剂量时保持相对清醒的心理状态.
+我真的觉得自己很正常.
+低剂量通常会增加一种高兴感.
+16毫克是我经历中所有事物的切断点.
+我有一些愚蠢,有时又出乎意料的聪明和逻辑的想法.
+这感觉就像是大麻让我变得更聪明.
+在更高的剂量下, 事情变得完全不同.
+药物变得更加暗淡.
+思想更客观,更中立.
+情感似乎几乎从方程中脱离了.
+我听说2C-E在情感意义上被称为&quot;冷&quot;,
+让我在没有情绪过度负担的情况下思考一些严的主题.
+我发现我能够清楚地思考艰难的决策.
+我决定搬到另一个国家.
+2C-E让我看得很清楚, 没有其他影响.
+我本质上是一个实用客观的人, 这可能只是巧合.
+但病态和黑暗透到其他东西,
+由于感情被移除, 我从来没有被这些东西吓到.
+我只是观察.
+这也不是一片阴暗, 有一些有趣的时刻 (比如我和松树争论).
+五个
+视觉效果
+低剂量的视觉记录了大量物体的摇摆和呼吸.
+表面检查显示出波斯地毯风格的视觉图像.
+我可能会发现自己着墙壁或桌子一会儿.
+在较高的剂量下, 之前的效果会被放大.
+但事实上, 幻觉和物体的变形都发生了.
+尤其是在20毫克以上, 我看到了一些超常的东西.
+一切看起来就像是某种新的三维形式.
+譬如我的松树.
+树枝不再是无聊的针覆盖的木头.
+它们是眼, 进入我的窗户, 视里面, 和我讨论事情.
+顺便说一下,我的松树是个子.
+我们
+没有
+他确实有点点.
+其他自然事物往往具有个性.
+其他树木在暴风雨后起身走来走去,
+在20mg+剂量下, 幻觉也会出现.
+我看到死者的伤口从路上的中浮出.
+路上似乎是一个深, 书籍由人行道我站在那里.
+这一切都没有吓到我,
+结论
+2C-E是一种非常强大的幻觉剂,
+这不是最社交的药物, 但在较低的剂量,
+在舒适和熟悉的环境中使用更高剂量可能是最好的.
+我16毫克的数值即使有0.5毫克的差异也会证明是正确的 (16.5比15.5更强).
+尽管如此, 必须做好测量, 因为它不需要太多的错误把我放在我的股.
+早期的身体不适也会促使计划出行,
+另外,我可能看起来像一个社会病患, 缺乏情感.
+作为一个喜欢呆在家里玩的类型, 我喜欢这个.
+或是我只是想和朋友们一起出去玩,
+我希望再试一次.
+其他:
+2C-E (137):回顾 / 摘要 (11),自然 / 户外 (23),实体 / 生物 (37),其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+A Dark Comedy
+2C-E
+by
+Delsymfan
+Citation:   Delsymfan. &quot;A Dark Comedy: An Experience with 2C-E (exp101800)&quot;.
+Erowid.org
+. Nov 16, 2013. erowid.org/exp/101800
+DOSE:
+16 mg
+oral
+2C-E
+BODY WEIGHT:
+190 lb
+3 years after my last dose of 2C-E, I decided to share some of my collective experiences. For science&#x27;s sake, here&#x27;s the nitty gritty.
+Weight: Around 190-200lbs
+Dosages From 12mg up to 27mg
+Doses: Roughly 20 over the course of 3 years
+2C-E for me was a fascinating chemical and to date has provided me with the strongest psychedelic experiences I&#x27;ve ever had. I&#x27;m going to break this down into a few different sections.
+1.
+Dosage
+: Generally I found 2C-E&#x27;s effects to be very mild under the 16mg dose for my weight, which equates to roughly 0.2mg/kg. Above 16mg, things got interesting. Effects seemed to scale in a non-linear fashion. Dosage became much stronger above 20mg, with very powerful visual effects. An accurate dosage method is highly advised.
+2.
+Timing
+: I generally felt effects after 40 minutes, with a climb for the next 40 minutes. At about T+1:20 effects seemed to spike, and gently increase for the next 2 hours. The next 40 minutes would be a plateau, with the next hour being a steady decline. By T+4:00 I&#x27;d be feeling much more normal. Usually by T+5:30 I was near baseline. This didn&#x27;t change very much depending on dose, but larger doses hit a bit faster.
+3.
+Physical Effects
+: All dosages of 2C-E seemed to have a more or less linear bodyload. Doses under 16mg usually had very little discomfort, some stomach discomfort but that usually faded after 1 hour. Doses above 16mg always made me vomit around the 1 hour mark. This would be a one time only &#x27;purge&#x27; followed by no further tummy aches.
+I had a general inability to sit still. I would constantly be flexing muscles, moving my legs, wiggling my back, etc. Everything felt kind of stiff. Not painful at all, but just a bit odd. But oh how good does stretching feel.
+4.
+Mental effects
+: 2C-E has the odd effect of keeping me relatively sober mentally at low-mid doses. I honestly felt quite normal. There&#x27;s generally some increased euphoria at lower doses. Again 16mg was a real cutoff for everything in my experience. I had a mix of silly and sometimes surprisingly smart and logical thoughts. It felt almost like weed that made me smarter.
+At higher doses things become quite different. The drug became much darker. Thoughts were more objective, more neutral. Emotion seems virtually stripped away from the equation. I&#x27;ve heard 2C-E called &#x27;cold&#x27; in an emotional sense, and it&#x27;s not inaccurate. It has the potential to allow me to think about some serious subjects without emotional overload. I found I was able to think clearly about tough decisions. I actually made the decision to pack up and move to another country while on 2C-E. I had been thinking about it for a while, and 2C-E simply made me see everything very clearly without other influences.
+I&#x27;m a fairly pragmatic and objective person by nature, so this could just be a coincidence. But the morbidity and darkness pervaded other things, such as visuals. Since emotion is removed, I was never scared by these things. I simply observed. It&#x27;s not all doom and gloom either, there are funny moments (e.g. me arguing with a Pine Tree).
+5.
+Visual effects
+: Visuals at lower doses register a lot of swaying and breathing of objects. Surface inspection reveals the Persian carpet-style visuals everywhere I look. The fractals will never end and I could find yourself staring at a wall or a table for a while.
+At higher doses, the previous effects are amplified. But flat out hallucination and morphing of objects occurs. Especially above the 20mg mark I saw some far out stuff. Objects transform, and everything seems like it&#x27;s in some new form of 3D. My pine tree for example. The branches were no longer boring needle-covered pieces of wood. They were eyestalks/tentacles that would enter my window and peer inside to discuss things with me. My pine tree was kind of a dick by the way. We
+had
+uprooted and chopped up three of his neighbors, so he did have a point.
+Other natural things tend to take on personality. My other trees after a thunderstorm got up and walked around commenting on how great and refreshing it was, and asked each other typical Monday questions.
+Inanimate objects proved profound too, as hallucinations could appear out of basic patterns at 20mg+ doses. I&#x27;ve seen sores of the dead emerging from the bricks in the road. The street appeared as an abyss, bookended by sidewalks where I stood. Again, none of this terrified me, it&#x27;s simply awe-inspiring.
+Conclusion
+: 2C-E is a very potent hallucinogen that really opened my mind and eyes to other things. It&#x27;s not the most social drug, but at lower doses it is a delight to take with a group. Higher doses are probably best in comfortable and familiar settings. Effects from dosage are amazingly predicable for each person, my 16mg number would prove true even with a .5mg difference (16.5 was way stronger than 15.5). Still, good measuring must be done because it doesn&#x27;t take much of an error to put me on my ass. Physical discomfort early on also encourages planning this trip out, it&#x27;s not ideal for clubs or parties. Besides, I probably seemed like a sociopath with my lack of emotions.
+As the type who likes staying home and tripping, I loved this. Or if I just wanted to hang out with my friends with a little something extra. 2C-E is a great chemical I hope to try again.
+Exp Year: 2007
+ExpID: 101800
+Gender: Male
+Age at time of experience: 17
+Published: Nov 16, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-E (137) : Retrospective / Summary (11), Nature / Outdoors (23), Entities / Beings (37), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

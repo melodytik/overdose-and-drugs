@@ -1,0 +1,220 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>曼德拉 - 伊罗伊德 - &quot;错误的包裹&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mandrake.html'>← Mandrake</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>曼德拉 - 伊罗伊德 - &quot;错误的包裹&quot;</h1>
+<div class='sub-title'>Mandrake - Erowid Exp - &#x27;Mistaken Package&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Nov 28, 2003 · 途径：口服 · <a href='https://erowid.org/experiences/exp.php?ID=28747' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>这是一件很严重的事情,
+去年夏天我收到了一百克干燥的杏仁根,
+我又吃了一袋100克的粉状草,3次 (!) 我把杏仁当成草,
+这是一个巨大的错误!
+五个月后我开始回忆起这些细节.
+去年夏天对我来说是一个非常幻觉的夏天,
+经过一段时间的清醒后, 记忆慢慢浮出水面.
+首先我用6克茶,喝了,等待效果.
+由于我没有经验使用乙,
+首先是效果的出现,
+嘴巴干燥, 睡觉和恶心.
+我抽了一些圣草 (我打算用来增强圣草),
+我在公寓里跑来跑去, 以为自己就是一只准备起飞的!
+我准备跳出窗户,但幸运的是回到了我的理智.
+我家已不再是那个地方了, 在线性的自我和周围环境中,
+恶心逐渐消失.
+我出去散步,享受大自然,感觉很好.
+然后我睡了.
+我又做了一杯茶,这次是15克!
+这是一个难以记住的经历,
+我很渴望再次干燥以弗得拉 (?!),
+这可能是致命的!
+我开始感到恶心, 常见的副作用是口腔和喉干燥.
+我又把自己弄坏了!
+我认为我可能会死,但&#x27;别担心,这只是药&#x27;是我的反应.
+这可能是我们活着的原因.
+这就是我后来记得的部分:
+我认为这是回忆或是药物不是以弗得拉.
+我很确定,所以决定跟上.
+我记得我两年没见过的朋友曾经说过他去达图拉的旅行,
+他突然和我在一起了!
+我们聊了很长一段时间, 我不记得我们谈话的细节,
+我不知道有多少次或是否还有其他人.
+我担心如果我的地标生活在楼下听到我疯了.
+我在某个时候睡着了.
+到了早上,除了我的脏,一切都好了!
+由于我不记得上次喝的茶引起的妄想,
+这三次使用&quot;假以弗得拉&quot;的经验并不那么严重.
+在前两种药物中产生强烈的耐受性.
+这是一个相当和平的, 但我的身体不喜欢它, 午线被卡住.
+我试着冥想, 但感觉像在循环, 没有得到任何地方.
+之后,我的脏又疼了.
+没有什么可说的, 也许没有什么特别的事情发生,
+像这篇文章所描述的那样, 当回想起那一夜, 我感到无动于衷,
+我发现了把杏仁作为一种药物的错误.
+我很害怕,我可能会死!
+我已经确定了这些袋子里有什么,所以我想.
+是不是曼德拉戈拉的魔力让我错了三次?
+这一定是这样的东西,我总是小心魔草.
+但是三次吗?
+或是因为我的愚蠢?
+可能...
+我不知道是不是由杏仁或达图拉或布鲁格曼西亚或其他植物引起的,
+我听到声音 (精神分裂症?),我看到异象.
+我有一种叫做心理电视的东西,
+这些声音更像是我的想法, 而不是声音,
+我可以随心所欲地阻止他们, 但有时他们就像疯狂的恶魔,
+如果我非常仔细地听 (用内耳), 我会开始听到人们说话 (灵魂?
+有时我周围的声音好像我的脚步在说话.
+我是一个巫师吗?
+一个疯子?
+有些人可能会觉得我是个瓜,
+另外一个世界是我们自己的, 但我发现它们并不总是相辅相成.
+那些&quot;声音&quot;,例如,他们撒谎!
+我已经习惯了, 但它仍然令人困惑.
+一个人需要勇士的精神, 通过这一切,永远不要放弃!
+所以在尝试菜之前, 想一想.
+如果有,只服用小剂量.
+在你做完之后,再做一次就等一会儿.
+时间会告诉你更多的效果.
+它们不仅仅是一夜的欢乐之旅.
+其他:
+曼德拉 (33):一个人 (16), 里面有什么?
+(26), 列车残骸和旅程灾难 (7), 回顾 / 总结 (11)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Mistaken Package
+Mandrake
+by
+Unski
+Citation:   Unski. &quot;Mistaken Package: An Experience with Mandrake (exp28747)&quot;.
+Erowid.org
+. Nov 28, 2003. erowid.org/exp/28747
+DOSE:
+oral
+Mandrake
+(tea)
+BODY WEIGHT:
+63 kg
+Well, this was heavy shit as you might expect. Last summer I received 100g of dried mandragora root, powdered. I had another 100g bag of powdered ephedra and 3 (!) times I took mandrake as ephedra, making a mistake with the package! A huge mistake! The memories of these experiences are quite blurry, after five months I have started to recollect these details. Last summer was a very hallusinogenic one for me, taking datura, brugmansia, ayahuasca, salvia, syrian rue, brunfelsia and mandragora. After having some time sober, the memories slowly surface.
+At first I made tea with six grams, drank it and waited for effects. Since I had no experience on ephedra, had no idea about what to expect from it. The first effects came and it wasn´t nice. Mouth dry as hell, sleepy and nauseous. I smoked some salvia divinorum (I had intended to boost salvia with ephedra), and totally flipped out. I ran around my apartment thinking I was an eagle ready to take off! I was about to jump out the window but luckily came back to my senses. My home was not the same place anymore, something in the linear sense of my self and surroundings had changed dramatically. The nausea faded little by little. I went out to walk and enjoy nature and felt good. Then I went to sleep.
+I made another tea, this time with 15g! This is the experience hardest to remember, most of it has remained total blackout. I was eager to dry ephedra (?!) again, read that 15g would be a strong dose. With mandragora this may be a lethal one! After drinking the tea which tasted all but pleasant, I started to feel very nauseous with the usual side effect, dry mouth and throat. I did it to myself again! A thought occurred that I might die but &#x27;don´t worry, it´s only ephedra&#x27; was my response to it. This may be the reason for staying alive. This is the part I´ve remembered afterwards:
+The effects reminded so much of other tropane bearing plants (brugmansia, datura) that I thought this was a flashback or the stuff was´t ephedra. I was tripping for sure and decided to go with it. I remembered what my friend who I hadn´t seen for two years had said about his datura trip, it lasted for two days. Suddenly he was there with me! We talked for awhile, I can´t recall the details of our conversation but I remember finding myself mumbling insanities all alone like waking up from a dream. This happened again, I don´t know how many times or if there were some other peole too. I was worried if my landmark living downstairs heard me freaking out. I fell asleep at some point. In the morning everthing was ok except my kidneys, they hurt!
+Since I dind´t remember the delirium caused by my last tea I tried it again. This third experience with &#x27;false ephedra&#x27; was not so heavy. A strong tolerance had developed with the two previous. It was quite peaceful but my body didn´t like it, meridians got stucked. I tried to meditate but felt like going in circles without getting anywhere. The kidneys were painful afterwards, again. There´s not much to say about this one, perhaps nothing special happened or it´s just another blackout. Like this written account depicts, I felt indifferent and still do when looking back to that night.
+Shortly after the third dose of lunacy, I discovered the mistake of taking mandragora as ephedra. I was terrified, I could have died! I had made sure about what were in those bags, so I thought. Was it the magical power of mandragora that made me to mistake for three times? It must be something like that, I´m always careful with magic herbs. But three times?!! Or was it my stupidity? Perhaps...
+I don´t know if it´s caused by mandragora or datura or brugmansia or other plants I´ve taken but my daily life has changed dramatically. I hear voices (schitzophrenia?), I see visions. I have this thing I call mental television, like an inner eye. The voices are more like thoughts that are not mine than sounds, I see they come from another source though my feelings mold them. I can stop them at will, but sometimes they´re like raging demons and make me very uneasy. If I listen very hard (with my inner ear), I start to hear people talking (spirits?). Sometimes voices around me like my steps seem to talk. Am I a sorcerer? A madman? Some of you who know may think I´m an idiot, some others who don´t might be envious, don´t! There´s another world beside ours, but I´ve seen they don´t always go hand in hand. Those &#x27;voices&#x27; for example, they lie! I´m used to this, but it´s still confusing. One needs the spirit of a warrior to get by amids of all this, never give up! So before you try solanaceae, think twice. And if you do, do a small dosage. When you´ve done it, wait awhile before doing it again. Time will show you more about the effects. They´re not just one night joy ride.
+Exp Year: 2003
+ExpID: 28747
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 28, 2003
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mandrake (33) : Alone (16), What Was in That? (26), Train Wrecks &amp; Trip Disasters (7), Retrospective / Summary (11)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

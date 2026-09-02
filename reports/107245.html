@@ -1,0 +1,1118 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>在线书籍:PIHKAL - #122 MEM</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mem.html'>← MEM</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>在线书籍:PIHKAL - #122 MEM</h1>
+<div class='sub-title'>Erowid Online Books : &quot;PIHKAL&quot; - #122 MEM</div>
+<div class='meta'>作者：Substance Search About Experience Vaults · 日期：Feb 21, 2015 · <a href='https://erowid.org/experiences/exp.php?ID=107245' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>植物与药物指数
+植物
+化学品
+制药品
+草药
+聪明的人
+动物
+基本知识
+图片
+经验
+法律
+化学学
+药物检测
+健康问题
+精神与文化
+欧盟
+植物地库
+阿曼尼塔斯
+类植物
+大麻
+可卡
+青类
+葡萄
+烟草
+更多的
+化学品库
+安非他胺
+在 DXM
+美国GHB
+基他胺
+没有LSD
+美国
+酸盐
+更多的
+药品库
+阿尔普拉佐兰 (Xanax)
+布普罗 (韦尔布特林)
+亚兹帕姆 (瓦利)
+素 (普罗萨克)
+可 (维科丁)
+甲基化物 (里塔林)
+帕洛克西因 (Paxil)
+更多的
+草药库
+黄
+达米安娜
+狐手套
+青
+乳
+尼皇家
+大
+更多的
+诺托罗普药物库
+亚德拉菲尼尔
+美国
+黄
+黄
+氨酸
+皮拉塞坦
+三胺
+更多的
+动物
+类
+双色
+更多的
+基本的金库
+剂量
+影响
+常见问题
+历史
+俗话
+图像库
+植物
+化学品
+制药品
+草药
+聪明的人
+提交图片
+经验库
+新的报告
+根据物质
+搜索
+关于体验库
+提交经验
+法律金库
+根据物质
+联邦法律
+国家法律
+毒品政策与改革
+禁令链接
+化学库
+根据物质
+结构
+化学比较
+药物检测金库
+基本知识
+其他产品
+精神活性药物与健康
+吸毒问题
+统计
+体库
+属灵的使用和仪式
+迷幻文化
+医疗用途
+家庭与精神活动
+毒品幽默
+精神活性链接
+供应商
+非英语资源
+日历事件
+档案网站
+思想与精神指数
+精神传统
+宗教自由
+呼吸
+跳舞
+设备
+在梦里
+鼓声
+原体
+禁食
+武术
+冥想
+祷告
+发生汗水
+运动
+精神传统
+佛教
+基督教
+印度教
+伊斯兰
+巫师活动
+更多的
+金库
+卡尔玛
+爱心
+吉纳
+拉贾
+更多的
+自由与法律指数
+法律与立法
+法院与正义
+警方的互动
+政府
+选举
+公民权利
+活动
+精神活性药物法
+资产没收
+陪审团无效
+言论自由
+宗教自由
+隐私权
+文化与艺术指数
+有远见的艺术宝库
+字符库
+客人专
+燃烧的人
+活动日历
+图书馆索引
+埃罗伊德评论
+在线书籍
+参考文献
+定期刊物
+引用
+词汇表
+语词典
+书籍按标题排列
+书籍 作者
+书籍按主题排列
+在线书籍库
+皮哈尔
+甲
+舒尔金实验室书籍
+对于狂喜的E
+更多的
+关于埃罗伊德指数
+有什么新消息?
+常见问题
+资金和支持
+公告
+新闻通讯
+提交的内容
+志愿者
+站点统计
+隐私权
+联系方式
+支持埃罗伊德!
+成为会员
+礼物
+欧罗伊德新闻通讯
+欧罗伊德档案CD
+购物袋
+衫
+这件毛衣
+诗歌的磁铁
+具有远见的海报
+新书和二手书
+玻璃分子
+阿尔伯特·霍夫曼签名的布洛特艺术
+关于本文档
+报告一个错误/更正
+要求使用本文档
+联系方式
+图书馆
+在线书籍
+皮卡尔
+#122 MEM 在
+2,5-DIMETHOXY-4-ETHOXYAMPHETAMINE 其他
+三维分子结构
+合成:
+一个 83 g 波波纳尔 (也称为乙基素,
+或,或简单地说是3-乙氧-4-甲) 在500毫升的MeOH中
+用31.5gKOH颗粒 (85%物质) 的溶液处理
+在250毫升H2O中溶解.
+然后添加了71g的甲基化物,
+混合物在反流条件下保持3小时.
+所有都被添加
+通过添加25%的水,使其变得基本.
+没有.
+用5x200毫升CH2Cl2提取水相.
+这
+这些提取物和在真空下去除溶剂的结合给出了
+85.5 g的产品3-乙氧-4-甲氧甲的残留物,
+在52-53°C的mp.
+当这个产品从
+六氧化,它的mp是49-50°C.
+当反应运行时相同
+在相当无水环境中的反应物,含有甲醇KOH,
+主要产品是乙,3-乙氧-a,a,4-trimethoxytoluene
+这是一种白色闪闪发光的产品,
+六,并有一个mp的44-45°C.
+酸化将其转化为
+上面的正确的化物.
+增加足够的H2O在
+甲基化完全绕过了这种副产品.
+一个1.0的溶液
+这种化物和0.7g的malononitrile在20毫升的温暖绝对
+经过几滴三乙胺处理时,EtOH立即产生
+在几分钟内形成晶体.
+过和用EtOH洗,产生了明亮的黄色晶体
+3-乙氧-4-甲氧马尼烯,其mp值为141~142°C.
+在125.4g的3-乙氧-4-甲氧甲基中混合好
+处理了445毫升的乙酸与158克40%的酸 (在
+酸) 的速度,在冰冷下,内部
+温度不超过27°C.
+添加需要大约45分钟.
+然后将反应混合物灭在约3L的H2O中.
+在那个
+通过过去除的一些晶体的产生.
+这
+母亲的酒被拯救了.
+固体物质被称重,虽然还湿,
+70克,是原始的酸.
+一小部分被重新结晶.
+从环二次,提供一个参考样本
+3 - 乙氧4-甲基酸盐的mp为63-64°C.
+大部分的
+这种原始甲酸被溶于200毫升的缩中
+这给出了深紫色的溶液.
+这被用水灭了
+沉了一种色的色固体,它是水合的产物
+它的重量约为35克,在80-90°C的温度范围内化.
+这
+上述过的母液用Na2CO3中和,
+然后用3×100毫升Et2O提取.
+溶剂的去除给出了一个
+约80克的残留物是不纯的酸盐 (含有一些
+没有氧化的化).
+加入了500毫升10%的NaOH,
+在蒸汽浴中加热深色混合物数小时.
+之后
+在冷却过程中,用CH2Cl2清洗强基溶液,然后
+用200毫升Et2O处理,这使得一个重的半固体质量消失
+在任何一个阶段都基本上无法解决.
+这也是,
+粗化.
+在蒸发的Et2O阶段,
+第三个固体作物.
+这些实际上可以从
+OH/H2O,但mp总是保持广泛的.
+当受到
+在蒸条件下,H2O终于从蒸器中排出.
+水合物,产品是3 - 乙氧 - 4 - 甲氧作为透明的蒸
+在180~190°C的油度为0.8mm/Hg.
+这种产品,45.1g,给出了很好的NMR
+在稀释的CCl4中显示出一个OH波段在3620 cm-1
+支持 OH 组在芳香环上从
+邻近的氧气.
+在D2O中立即获得NMR频谱的努力
+形成了一个不溶解的水合物.
+这种可以作为起始
+用于MEM (见下文) 或EEM (见单独的配方) 的材料.
+在20毫升MeOH中溶解12.3g的3-乙氧-4-甲氧,
+在100毫升加热的MeOH中加入4.8克片状KOH溶液.
+在
+然后加入10.7克甲基化物,
+混合物在蒸汽浴中保持2小时.
+这就是当时
+在3个H2O体积中灭,用10%的NaOH制成强基,
+用3x100毫升的CH2Cl2提取
+从溶剂中去除溶剂
+在真空中合的提取物中,有9.4g的珀油,
+它们会自发结晶.
+1,4-二甲基-2-乙氧的mp
+在42-43.5°C,并且没有进一步的净化,在
+接下来的步骤.
+允许使用17.3g N-甲基甲和19.6g POCl3 的混合物
+置时间为0. 5小时,产生深色.
+对于这
+添加9.2g的1,4-二甲基-2-乙氧,并将混合物保持在
+在蒸汽浴室里了两小时.
+然后把它倒入碎冰中,
+机械,黑暗的油性阶段慢慢变得越来越
+它们是晶体的.
+这最终通过过去除,提供一个
+棕色的固体地毯显示了103.5-106.5°C的mp.
+所有的
+在75毫升沸的MeOH中溶解,在冷却时,沉积了细
+2,5-dimethoxy-4-ethoxybenzaldehyde的晶体,这些晶体是有色的
+在空气干燥到恒定的重量后,重量为8.5
+并且有108~109.5°C的mp.
+使用气体染色学进行了搜索
+对于其他两个理论上可能的位置证据
+但没有发现任何.
+这两种反应是
+没有任何噪音,
+异构体.
+对于再结晶的
+但母酒的污染被证明是
+是N-甲基甲基化物.
+一个0.3g的样本,以及0.3g
+在10毫升的热绝对EtOH中溶解,然后处理
+用一滴三乙烯胺.
+立即形成了一个
+黄色,然后在1分钟内沉积微黄色
+需要针头.
+通过过和空气干燥,
+2,5-dimethoxy-4-ethoxybenzalmalononitrile,其mp值为171至172°C.
+在 25 g 冰中溶解 7. 3 g 2,5-二甲-4-乙氧甲
+用3.6g乙和2.25g无水化合物处理
+在蒸汽浴中加热.
+两个小时后,
+清晰的溶液用同等量的H2O稀释,然后冷却
+一个冰桶.
+这里形成了一大堆子.
+通过过去除的晶体.
+的干重量
+甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基甲基
+在120~124°C之间.
+从MeOH重新结晶分析样本
+给出了128-129°C的mp.
+在门.
+(C13H17NO5) C,H. 这种气体是什么?
+在 400 mL 无水 Et2O 中,将 3.3 g LAH 缓慢反流悬浮
+在气氛下,添加了4.3g
+通过允许凝结的方法,使1- ((2,5-dimethoxy-4-ethoxy) -2-nitropropene
+滴入一个含有道的Soxhlet指甲装置
+酸,从而有效地添加一个温暖的和溶液
+在化物混合物中.
+增加了2小时.
+这种反流是
+保持5小时,然后将反应混合物冷却到0°C
+有一个外部的冰浴.
+过剩的化物被
+谨慎添加300毫升的1.5N H2SO4.
+当水性和Et2O
+最后层是清晰的,他们分开,和100克
+在水分中溶解了酸.
+水性NaOH
+然后添加到pH值高于9,然后用
+3×100毫升的CH2Cl2.
+溶剂从聚合的提取物中蒸发
+在100毫升无水液中溶解出来的几乎白色的油
+和无水HCl气体.
+没有存储一个
+2,5-二甲基-4-乙氧胺的白色结晶固体
+化物 (MEM) 的重量为3.1g,其mp值为171~172.5°C.
+在门.
+(C13H22ClNO3) C,H,N. 它们的度是:
+20 - 50毫克.
+10 - 14小时
+质量评论:
+我经历了一些身体
+但这不告诉我们要做的工作,
+而不是材料的特性?
+我取得的突破是
+这似乎是MEM的运作方式,
+能源和扩张,第二天的洞察力) 是最高的价值
+对于我来说是非常重要的.
+我得到了一种处理我
+影子部分.
+没有小礼物.
+我一个人做了这一切,结果
+它们是立即的.
+我非常感激.
+在120毫克的MDMA后1.5小时内服用20毫克的药物)
+没有明显的MDMA体验损失.
+我觉得没有那么
+需要交谈, 但与其他人的亲密关系是
+保持的.
+这种经验越来越深入,
+我祈祷,在下午的后半部分,
+没有停止.
+这种感觉一直持续到午夜,
+充满活力,充满欢乐.
+在过去的几年里,
+接下来的几天让我有了持久变化的感觉
+一个星期后,
+在120毫克的MDMA后2小时内,RI发现
+总是分散注意力.
+不,他们非常烦人.
+我可以
+但我真的很想独自一人.
+没有身体问题.
+感觉很好.
+我出现了一些颜色变化
+一些模式的运动.
+没有太多,但我没有探索它.
+很多.
+酒后的聚会确实非常愉快.
+这
+很高兴看到你.
+这块硬面包很好.
+这
+显然不是厌食症, 至少我克服了不管
+这可能是厌食症.
+我在30分钟内意识到这一点,
+从那里发展到一个几乎
++++ 其他
+在接下来的一个小时内.
+这里
+它们是视觉现象,
+显著增强亮度和暗度.
+首次出现的
+虽然下降时间大约是6小时,
+六个小时过去了.
+确实是一个缓慢的衰退.
+我知道昨天的经历
+这是一个非常疲而紧张的一天.
+我感觉到这个材料在
+这是我感觉最快的十分钟.
+登是快速的和第一个小时我倾向于一个内
+在一个独特的感官色彩的幻想.
+没有一个坚持不的
+它与一个好的奇怪的对比
+这种感觉的外表表达和清晰度,成功地来到
+在内向的第一小时之后,
+睡眠是很困难的,
+但第二天是平静和清晰的.
+很多能量,最好集中在活动中.
+清除
+想象,思考.
+虽然强烈,但却是宁静的.
+愉快的好感觉
+一些高兴感.
+我觉得需要继续前进.
+很难留下来
+仍然可以.
+(用70mg,分为两部分) R40毫克的效果是
+我从来没有得到
+远远超过一个加1.
+有一个性感的本质,触觉敏感
+也许不像与微妙
+2C-B 其他
+但它确实存在.
+在2小时
+增加30毫克增加了对身体的冲击力 (
+但在某种程度上,
+我
+已经被昨天破坏了.
+扩展和评论:
+这是一个非常有价值的,
+并且还有一种药物发挥了分水作用.
+这
+完成所有可能的三甲胺类药物 (TMA)
+只有两家公司能达到可靠性标准.
+有相当高的强度.
+这两种
+TMA-2和TMA-6是宝藏,两者在相似的剂量中都很活跃,
+这两种药物都提供甲基,
+其他事情.
+首先关注的是TMA-2,部分原因是
+部分原因是因为我有
+之前发现了它的活动.
+但整体而言,
+在TMA-2中,有不同的甲基组进行处理.
+没有
+一个在2位,一个在4位,一个在
+五个位置.
+似乎最明显的事情是让每一个
+它们的长度大于一颗碳.
+用一种以基替换一个甲基.
+并且一个
+逻辑命名模式可以遵循使用M的 methoxy,和E
+对于乙氧化物,从2到4到
+五个位置.
+首先要比较的是EMM,
+它们是MEM和MME.
+在这三种中,只有MEM是正确的
+在戏剧性和力量方面.
+但当这一点变得显而易见时,
+我已经完成了氧化可能 (EEM,EME和MEE)
+以及三氧同类物,EEE.
+随着人们发现
+这样一来,
+位置2和5显然不那么有趣, 所有的重点是
+这导致了许多4-替代
+许多人认为,
+个人有价值.
+我经常被问到,为什么要如此强调强度?
+为什么会这样?
+无论你服用多少化合物,只要有效水平
+是比它的毒性水平低得多?
+在某种意义上,
+非常有理由.
+没有指南说明任何药物的毒性水平.
+这些多种化合物可能真的存在于人体中.
+根本没有
+这种方法可以确定.
+只有少数已在动物体内研究.
+追求LD-50水平.
+它们大多类似于
+它们在小鼠中具有相对较低的毒性.
+在老鼠身上,毒性相对较高.
+但这种毒性似乎
+这可能与男性的强度无关.
+所以,如果一个可以推断
+它们对人类的危险大致相同 (从有毒的
+这样一来,用药剂量越低,安全性就越高.
+可能.
+在没有任何事实的情况下,
+这是一个操作假设.
+许多关于MEM效应的报道都与实验有关,
+在此之前不久服用了有效的MDMA剂量.
+已经有
+这一概念被许多研究人员所接受,
+通常在开发MDMA时看到的轻松和安静
+经验可以缓解一些身体不安的症状
+有时与其他迷幻药物一起使用.
+这可能部分是由于
+部分原因是由于人们对生活方式的减少,
+通常需要的剂量才能充分发挥作用.
+似乎有更多的
+使用这种组合的试验比许多其他迷幻药
+毒品.
+在后面
+主要指数
+前进
+回到图书馆
+回到书籍_在线
+回到皮卡尔
+经出版商和作者许可,由Erowid存档
+2015年2月21日修改</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Plants &amp; Drugs Index
+Plants
+Chemicals
+Pharmaceuticals
+Herbs
+Smarts
+Animals
+Basics
+Images
+Experiences
+Law
+Chemistry
+Drug Testing
+Health
+Spirit &amp; Culture
+Community
+Plants Vault
+Amanitas
+Cacti
+Cannabis
+Coca
+Psilocybin Mushrooms
+Salvia divinorum
+Tobacco
+More . . .
+Chemicals Vault
+Amphetamine
+DXM
+GHB
+Ketamine
+LSD
+MDMA
+Nitrous
+More . . .
+Pharmaceuticals Vault
+Alprazolam (Xanax)
+Bupropion (Wellbutrin)
+Diazepam (Valium)
+Fluoxetine (Prozac)
+Hydrocodone (Vicodin)
+Methylphenidate (Ritalin)
+Paroxetine (Paxil)
+More . . .
+Herbs Vault
+Calamus
+Damiana
+Foxglove
+Ginseng
+Milk Thistle
+Pennyroyal
+Valerian
+More . . .
+Nootropics Vault
+Adrafinil
+DMAE
+Ginkgo biloba
+Hydergine
+Melatonin
+Piracetam
+Tryptophan
+More . . .
+Animals Vault
+Bufo Toads
+Phyllomedusa bicolor
+More . . .
+Basics Vaults
+Dosage
+Effects
+FAQs
+History
+Slang
+Image Vaults
+Plants
+Chemicals
+Pharmaceuticals
+Herbs
+Smarts
+Submit Image
+Experience Vaults
+New Reports
+By Substance
+Search
+About Experience Vaults
+Submit Experience
+Law Vaults
+By Substance
+Federal Laws
+State Laws
+Drug Policy &amp; Reform
+Prohibition Links
+Chemistry Vaults
+By Substance
+Structures
+Chem-Compare
+Drug Testing Vaults
+Basics
+Products
+Psychoactives &amp; Health
+Addiction
+LD50s
+Statistics
+Entheogen Vaults
+Spiritual &amp; Ritual Use
+Psychedelic Culture
+Medicinal Use
+Families &amp; Psychoactives
+Drug Humor
+Psychoactive Links
+Vendors
+Non-English Resources
+Calendar Events
+Archived Sites
+Mind &amp; Spirit Index
+Spiritual Traditions
+Religious Freedom
+Breathing
+Dancing
+Devices
+Dreaming
+Drumming
+Entheogens
+Fasting
+Martial Arts
+Meditation
+Prayer
+Sweating
+Yoga
+Spiritual Traditions
+Buddhism
+Christianity
+Hinduism
+Islam
+Shamanism
+More . . .
+Yoga Vault
+Karma Yoga
+Bhakti Yoga
+Jnana Yoga
+Raja Yoga
+More . . .
+Freedom &amp; Law Index
+Law &amp; Legislative
+Courts &amp; Justice
+Police Interactions
+Government
+Elections
+Civil Rights
+Activism
+Psychoactives Law
+Asset Forfeiture
+Jury Nullification
+Freedom of Speech
+Freedom of Religion
+Right to Privacy
+Culture &amp; Arts Index
+Visionary Art Vaults
+Character Vaults
+Guest Columns
+Burning Man
+Event Calendar
+Library Index
+The Erowid Review
+Book List / Store
+Online Books
+References
+Periodicals
+Quotes
+Glossary
+Slang Dictionary
+Book List / Store
+Books By Title
+Books By Author
+Books By Subject
+Online Books Vault
+PiHKAL
+TiHKAL
+Shulgin Lab Books
+E for Ecstasy
+More . . .
+About Erowid Index
+What&#x27;s New
+Erowid FAQ
+Funding &amp; Support
+Copyrights
+Announcements
+Newsletter
+Submissions
+Volunteers
+Site Statistics
+Privacy
+Contact
+Content Disclaimer
+Support Erowid!
+Make a Donation
+Become a Member
+Be a Monthly Donor
+Donate with PayPal
+Gifts
+Erowid Newsletter
+Erowid Archive CD
+Shopping Bag
+T-shirts
+Sweatshirt
+Poetry Magnets
+Visionary Poster
+New &amp; Used Books
+Glass Molecules
+Albert Hofmann Signed Blotter Art
+About this Document
+Report an Error / Correction
+Request to Use this Document
+Contact
+LIBRARY
+books_online
+pihkal
+#122 MEM
+2,5-DIMETHOXY-4-ETHOXYAMPHETAMINE
+[
+3D .mol structure
+]
+SYNTHESIS:
+A solution of 83 g bourbonal (also called ethyl vanillin,
+or vanillal, or simply 3-ethoxy-4-hydroxybenzaldehyde) in 500 mL MeOH
+was treated with a solution of 31.5 g KOH pellets (85% material)
+dissolved in 250 mL H2O.  There was then added 71 g methyl iodide, and
+the mixture was held under reflux conditions for 3 h.  All was added
+to 3 volumes of H2O, and this was made basic with the addition of 25%
+NaOH.  The aqueous phase was extracted with 5x200 mL CH2Cl2.  The
+pooling of these extracts and removal of the solvent under vacuum gave
+a residue of 85.5 g of the product 3-ethoxy-4-methoxybenzaldehyde,
+with a mp of 52-53 °C.  When this product was recrystallized from
+hexane, its mp was 49-50 °C.  When the reaction was run with the same
+reactants in a reasonably anhydrous environment, with methanolic KOH,
+the major product was the acetal, 3-ethoxy-a,a,4-trimethoxytoluene.
+This was a white glistening product which crystallized readily from
+hexane, and had a mp of 44-45 °C.  Acid hydrolysis converted it to the
+correct aldehyde above.  The addition of sufficient H2O in the
+methylation completely circumvents this by-product.  A solution of 1.0
+g of this aldehyde and 0.7 g malononitrile in 20 mL warm absolute
+EtOH, when treated with a few drops of triethylamine, gave immediate
+yellow color followed, in a few min by the formation of crystals.
+Filtration, and washing with EtOH, gave bright yellow crystals of
+3-ethoxy-4-methoxybenzalmalononitrile with a mp of 141-142 °C.
+A well stirred solution of 125.4 g 3-ethoxy-4-methoxybenzaldehyde in
+445 mL acetic acid was treated with 158 g 40% peracetic acid (in
+acetic acid) at a rate at which, with ice cooling, the internal
+temperature did not exceed 27 °C.  The addition required about 45 min.
+The reaction mixture was then quenched in some 3 L H2O.  There was the
+generation of some crystals which were removed by filtration.  The
+mother liquor was saved.  The solid material weighed, while still wet,
+70 g and was crude formate ester.  A small quantity was recrystallized
+from cyclohexane twice, to provide a reference sample of
+3-ethoxy-4-methoxyphenyl formate with a mp of 63-64 °C.  The bulk of
+this crude formate ester was dissolved in 200 mL concentrated HCl
+which gave a deep purple solution.  This was quenched with water which
+precipitated a fluffy tan solid, which was hydrated phenolic product
+that weighed about 35 g, and melted in the 80-90 °C. range.  The
+mother liquors of the above filtration were neutralized with Na2CO3,
+then extracted with 3x100 ml Et2O.  Removal of the solvent gave a
+residue of about 80 g that was impure formate (containing some
+unoxidized aldehyde).  To this there was added 500 mL 10% NaOH, and
+the dark mixture heated on the steam bath for several h.  After
+cooling, the strongly basic solution was washed with CH2Cl2, and then
+treated with 200 mL Et2O, which knocked out a heavy semi-solid mass
+that was substantially insoluble in either phase.  This was, again,
+the crude hydrated phenol.  The Et2O phase, on evaporation, gave a
+third crop of solids.  These could actually be recrystallized from
+MeOH/H2O, but the mp always remained broad.  When subjected to
+distillation conditions, the H2O was finally driven out of the
+hydrate, and the product 3-ethoxy-4-methoxyphenol distilled as a clear
+oil at 180-190 °C at 0.8 mm/Hg.  This product, 45.1 g, gave a fine NMR
+spectrum, and in dilute CCl4 showed a single OH band at 3620 cm-1,
+supporting the freedom of the OH group on the aromatic ring from
+adjacent oxygen.  Efforts to obtain an NMR spectrum in D2O immediately
+formed an insoluble hydrate.  This phenol can serve as the starting
+material for either MEM (see below) or EEM (see separate recipe).
+To a solution of 12.3 g 3-ethoxy-4-methoxyphenol in 20 mL MeOH, there
+was added a solution of 4.8 g flaked KOH in 100 mL heated MeOH.  To
+this clear solution there was then added 10.7 g methyl iodide, and the
+mixture held at reflux on the steam bath for 2 h.  This was then
+quenched in 3 volumes H2O, made strongly basic with 10% NaOH, and
+extracted with 3x100 mL CH2Cl2.  Removal of the solvent from the
+pooled extracts under vacuum gave 9.4 g of an amber oil which
+spontaneously crystallized.  The mp of 1,4-dimethoxy-2-ethoxybenzene
+was 42-43.5 °C, and was used, with no further purification, in the
+following step.
+A mixture of 17.3 g N-methylformanilide and 19.6 g POCl3 was allowed
+to stand for 0.5 h, producing a deep claret color.  To this there was
+added 9.2 g 1,4-dimethoxy-2-ethoxybenzene, and the mixture was held on
+the steam bath for 2 h.  It was then poured into chipped ice and, with
+mechanical stirring, the dark oily phase slowly became increasingly
+crystalline.  This was finally removed by filtration, providing a
+brown solid mat which showed a mp of 103.5-106.5 °C.  All was
+dissolved in 75 mL boiling MeOH which, on cooling, deposited fine
+crystals of 2,5-dimethoxy-4-ethoxybenzaldehyde that were colored a
+light tan and which, after air drying to constant weight, weighed 8.5
+g and had a mp of 108-109.5 °C.  Search was made by gas chromatography
+for evidence of the other two theoretically possible positional
+isomers, but none could be found.  The NMR spectrum showed the two
+para-protons as clean singlets, with no noise suggesting other
+isomers.  There was a single peak by GC (for the recrystallized
+product) but the mother liquors showed a contamination that proved to
+be N-methylformanilide.  A 0.3 g sample, along with 0.3 g
+malononitrile, was dissolved in 10 mL warm absolute EtOH, and treated
+with a drop of triethylamine.  There was the immediate formation of a
+yellow color followed, in 1 min, by the deposition of fine yellow
+needles.  Filtering and air drying gave 0.25 g of
+2,5-dimethoxy-4-ethoxybenzalmalononitrile, with a mp of 171-172 °C.
+A solution of 7.3 g 2,5-dimethoxy-4-ethoxybenzaldehyde in 25 g glacial
+acetic acid was treated with 3.6 g nitroethane and 2.25 g anhydrous
+ammonium acetate, and heated on the steam bath.  After two h, the
+clear solution was diluted with an equal volume of H2O, and cooled in
+an ice bucket.  There was the formation of a heavy crop of orange
+crystals which were removed by filtration.  The dry weight of
+1-(2,5-dimethoxy-4-ethoxyphenyl)-2-nitropropene was 4.8 g and the mp
+was 120-124 °C.  Recrystallization of an analytical sample from MeOH
+gave a mp of 128-129 °C.  Anal. (C13H17NO5) C,H.
+To a gently refluxing suspension of 3.3 g LAH in 400 mL anhydrous Et2O
+under a He atmosphere, there was added 4.3 g
+1-(2,5-dimethoxy-4-ethoxy)-2-nitropropene by allowing the condensing
+Et2O to drip into a shunted Soxhlet thimble apparatus containing the
+nitrostyrene, thus effectively adding a warm saturated ether solution
+of it to the hydride mixture.  The addition took 2 h.  Refluxing was
+maintained for 5 h, and then the reaction mixture was cooled to 0 °C
+with an external ice bath.  The excess hydride was destroyed by the
+cautious addition of 300 mL of 1.5 N H2SO4.  When the aqueous and Et2O
+layers were finally clear, they were separated, and 100 g of potassium
+sodium tartrate was dissolved in the aqueous fraction.  Aqueous NaOH
+was then added until the pH was &gt;9, and this was then extracted with
+3x100 mL CH2Cl2.  Evaporation of the solvent from the pooled extracts
+produced an almost white oil that was dissolved in 100 mL anhydrous
+Et2O and saturated with anhydrous HCl gas.  There was deposited a
+white crystalline solid of 2,5-dimethoxy-4-ethoxyamphetamine
+hydrochloride (MEM) which weighed 3.1 g and had a mp of 171-172.5 °C.
+Anal. (C13H22ClNO3) C,H,N.
+DOSAGE:
+20 - 50 mg.
+DURATION:
+10 - 14 h.
+QUALITATIVE COMMENTS:
+(with 20 mg) I experienced some physical
+discomfort, but doesn&#x27;t that tell us about the work to be done, rather
+than the property of the material?  The breakthrough I had was the
+following day (and this seems to be the way MEM operates, i.e., first
+the energy and expansion, next day insight) was of the highest value
+and importance for me.  I was given a methodology for dealing with my
+shadow parts.  No small gift.  And I did it all alone and the results
+were immediate.  I am so grateful.
+(with 20 mg, at 1.5 h following 120 mg MDMA) The transition was very
+smooth, with no obvious loss of the MDMA experience.  I felt less of a
+need to talk, but the intimate closeness with the others was
+maintained.  The experience continues to grow more profound and
+euphoric and I prayed, in the latter part of the afternoon, that it
+wouldn&#x27;t stop.  It continued until midnight with marvelous feelings,
+good energy, and much hilarity.  And it abated very little over the
+next several days leaving me with the feeling of lasting change with
+important insights still coming to mind one week later.
+(with 25 mg, at 2 h following 120 mg MDMA) RI found that sounds in
+general were distracting.  No, they were out-and-out annoying.  I may
+have been in an introspective mood, but I really wanted to be alone.
+No body problems at all.  Felt good.  I developed some color changes
+and some pattern movement.  Not much, but then I didn&#x27;t explore it
+much.  The wine party afterwards was certainly most pleasant.  The
+soup was a great pleasure.  And that hard bread was good.  The
+material was clearly not anorexic, or at least I overcame whatever
+anorexia there might have been.
+(with 30 mg) I was aware of this in thirty minutes and it slowly
+developed from there to an almost
++++
+in the following hour.  There
+were visual phenomena, with some color enhancement and especially a
+considerable enhancement of brights and darks.  The first signs of
+decline were at about six hours, but there was something still working
+there after another six hours had passed.  A slow decline, certainly.
+(with 50 mg) I came into the experience knowing that yesterday had
+been a very fatiguing and tense day.  I felt this material within the
+first ten minutes which is the fastest that I have ever felt anything.
+The ascent was rapid and for the first hour I tended to an inward
+fantasying with a distinct sensual tinge.  There was a persistent
+queasiness that never left me, and it contrasted oddly with a good
+feeling of outward articulation and lucidity which succeeded in coming
+to the fore after the introverted first hour.  Sleep was difficult,
+but the next day was calm and clear.
+(with 50 mg) Lots of energy, best directed into activity.  Clear
+imaging, thinking.  Intense yet serene.  Good feeling of pleasantness
+and some euphoria.  I felt the need to keep moving.  Hard to stay
+still.
+(with 70 mg, in two parts) RThe effects of the 40 milligrams were
+muted by another drug experiment yesterday morning, and I never got
+much over a plus 1.  There is an erotic nature, tactile sensitivity
+perhaps not as delicate as with
+2C-B
+, but it is there.  At the 2 hour
+point, an additional 30 milligrams increased the body impact (a
+distinct tremor and sensitivity) but somehow not a lot more mental.  I
+have been compromised by yesterday.
+EXTENSIONS AND COMMENTARY:
+MEM was both a valuable and dramatic
+compound, as well as a drug that played a watershed role.  The
+completion of all the possible trimethoxyamphetamines (the TMA&#x27;s)
+showed that only two of them combined the values of dependability of
+positive psychedelic effects with a reasonably high potency.  Both
+TMA-2 and TMA-6 are treasures, both active in similar dosages, and
+both offer methoxyl groups that are begging to be replaced by other
+things.  The first focus was on TMA-2, partly because the needed
+synthetic chemistry was better known, and partly because I had
+discovered its activity earlier.  But there were three entirely
+different and distinct methoxyl groups to work on, in TMA-2.  There is
+one at the 2-position, one at the 4-position, and one at the
+5-position.  The most obvious thing to do, it seemed, was to make each
+of them one carbon longer.  Replace a methoxy with an ethoxy.  And a
+logical naming pattern could follow the use of M for methoxy, and E
+for ethoxy, in sequence right around the ring from the 2- to the 4- to
+the 5-positions.  The first group to be compared, then, would be EMM,
+MEM, and MME.  And of these three, it was only MEM that was right up
+there in drama and in potency.  But, by the time that became apparent,
+I had already completed the diethoxy possibilities (EEM, EME, and MEE)
+as well as the triethoxy homologue, EEE.  With the discovery that the
+4-position was the magic leverage point, and that the homologues at
+positions 2- and 5- were clearly less interesting, all emphasis was
+directed at this target, and this has led to the many 4-substituted
+families that are now known to be highly potent and felt by many to be
+personally valuable.
+Why put such emphasis on potency, I am frequently asked? Why should it
+matter how much of a compound you take, as long as the effective level
+is much lower than its toxic level?  Well, in a sense, that is the
+very reason.  There are no guides as to what the toxic levels of any
+of these many compounds might really be in man.  There is simply no
+way of determining this.  Only a few have been explored in animals in
+the pursuit of an LD-50 level.  Most of them are similar to
+one-another, in that they are, in mice, of relatively low toxicity
+and, in rat, of relatively high toxicity.  But this toxicity appears
+not to be related to potency in man.  So, if one might extrapolate
+that they are of more or less the same risk to man (from the toxic
+point of view) then the lower the dosage, the greater the safety.
+Maybe.  In the absence of anything factual, it makes a reasonable
+operating hypothesis.
+Many of the reports of MEM effects have been with experiments in which
+an effective dose of MDMA had been taken shortly earlier.  There has
+developed a concept, embraced by a number of researchers, that the
+ease and quietness usually seen with the development of the MDMA
+experience can mitigate some of the physically disturbing symptoms
+sometimes seen with other psychedelics.  This may be partly due to a
+familiar entry into a altered place, and partly due to a lessening of
+dosage usually required for full effects.  MEM seems to have had more
+trials using this combination than many of the other psychedelic
+drugs.
+[
+Back
+]
+[
+Main Index
+]
+[
+Forward
+]
+[
+back to library
+]   [
+back to books_online
+]   [
+back to pihkal
+]
+Archived by Erowid with permission of Publisher and Author
+Modified - Feb 21, 2015
+Design © 1995-2025 Erowid.org. Content © respective copyright holders.</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

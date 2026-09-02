@@ -1,0 +1,515 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;我从来没有过这样的一天&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/piperazines.html'>← Piperazines</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;我从来没有过这样的一天&quot;</h1>
+<div class='sub-title'>Benzylpiperazine - Erowid Exp - &#x27;I&#x27;ve Never Had a Day Like This&#x27;</div>
+<div class='meta'>作者：kjh Citation · 日期：Jun 19, 2002 · <a href='https://erowid.org/experiences/exp.php?ID=10355' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>我的朋友介绍了我BZP.
+他表示他想写一篇关于自己积极经验的报道,
+然而,我觉得有某种道德责任.
+目前关于Erowid的报道质量相当差.
+只有两人可以独自探索BZP.
+我读到这些经验, 那些使用者将BZP与大麻,GHB,TMFPP,
+我决定从一开始就会记录我的旅程并上传,
+像Erowid这样的网站以减少危害的理由捍卫他们大量的与毒品有关的百科全书,
+我没有包括一个摘要, 因为有太多的细节可以选择,
+这首歌开始:
+下午12:45分: 称量出100毫克BZP HCl并溶解在未知数量的果汁中.
+这种化学物质留下了不愉快的后味,
+我有点紧张,这是我第一次,但我认为它会很好.
+晚上12点52分:我的胃有点紧,
+虽然我正在打字, 疼痛越来越大, 我想知道我是否应该吃点东西.
+下午1点:感觉红了,有点兴奋.
+我能把自己的情绪与药物分开吗?
+这就是为什么毒品报告很糟糕的原因.
+下午1点07分:轻微的头痛开始.
+下午1点21分:感觉有点昏迷.
+我知道我的血糖很低, 随着BZP的代谢增加,
+我发现自己感觉很高:&quot;我的意识像是在我的脑海里收集的, 而不是在我的身体里散布.
+我感觉有点冷, 想知道自己的体温是否上升,
+我穿了一件法兰衫.
+运动的兴奋程度有所增加.
+下午1:36:当我跟着音乐唱歌时,
+我希望自己能保持更好的身体状况.
+下午1:41:突然而意想不到的想法, 我发现我可以通过把薄薄的书放在底下来减轻振动来减少旋盘的反.
+让我欢呼!
+虽然我感觉到像&#x27;悬挂的对话&#x27;这样的歌曲的深深的情感, 但它们并没有削弱我的整体情绪.
+下午1:49:准备出门, 仍处于无可挑的心情.
+1:52下午:接近+1H, 我对未来的发展感到兴奋.
+我比平时更有个性,
+下午2点50分:大约2小时,
+我喜欢这种药物.
+除了我的腿, 奇怪地, 感觉同时作为
+如果他们已经过度和过低的努力:底线是,他们想移动!
+我正在考虑增加剂量.
+走路可能很危险,但很有趣.
+现在是抽烟的时候了.
+我很好奇,所以在出门前检查我的瞳孔.
+扩张的
+我意识到我比平时更努力, 所以我买了一些酒.
+&quot;凶猛的果&quot;.我第一次喝这样的东西.
+事实上,这并不坏.
+我继续前往商场, 我在那里呆了一段时间,
+但那个人建议我去Safeway附近的某个地方.
+我对每一个遇到的人都非常礼貌和友好:我从未服用过的任何药物都没有如此社交.
+整个过程中, 我对所有无关紧要的事情都无意识:着我的人,尬的销售人员,
+我玩玩具和玩具 (又称闪亮的电子产品),
+我买了西蒙和加芬克尔的&quot;沉默之声&quot;,然后回家.
+旅行比平常快, 香烟是一种享受.
+我认为我会提升,但我不能决定多少...
+这是一百毫克吗?
+一百五十?
+两百个?
+三百个?
+在我写这篇文章时, 时间是下午4点20分,
+下午4点38分:用150毫克BZP溶于果汁进行减剂.
+现在是+3:45H.
+预计第二次BZP剂量将在1.5小时内完全上升, 时间将是+5:15H,
+感觉有轻微的胃,就像第一剂一样.
+只有在胃中注入了原始化学物质,
+在此期间,继续音乐.
+下午4点44分:写出这份报告的介绍.
+我发现一个明显的语力障碍.
+我通常很擅长用言语, 但现在言语不那么容易,
+我不认为这与回忆有关, 因为我能够很好地回忆起我走路的细节.
+我在打字时也经历过失言症,
+我还记得我经常记得很糟糕.
+因此我没有足够的信息来判断BZP是否对语言或记忆中心有影响.
+我在旅行中常常感觉有点冷,
+我在回家后脱掉了, 现在我真的有点热,
+这告诉我我的体温已经改变.
+(我脚的血液循环很差.
+它们通常是冷的,当我的其他部分是温暖的.
+晚上5点10分:我认为第一剂BZP正在下降.
+我开始感觉有点疲和虚弱,
+尽管如此, 情绪提升仍在继续,
+房子是黑暗而空的, 低音在整个房子里发出回响.
+当我得到皮,他们开始在我的头和运行
+在我的身体上火.
+皮似乎更喜欢右侧而不是左侧.
+这意味着什么?
+这一天已经过去了吗?
+谁在乎呢?
+晚上5点15分:我意识到我并没有想象的那么糟糕.
+我注意到我的思维过程不如往常.
+对于第二次, 我认为我可能不应该重定量如此高.
+但我没有恐惧感或即将到来的命运.
+我决定有信心.
+实际上,我已经被它所灌输.
+我起身飞上楼梯, 意识到我下楼可能是错误的.
+我开始跳舞,我正好在节奏.
+晚上5点21分: 差点下楼, 我意识到我找不到猫.
+我不能决定我是否生气, 或快乐有一个任务.
+我很快就发现我发现他 (在普通的视线) 和一波的缓解撞击我.
+我沉思按摩-by-bass:它的力量是雷在我的房间.
+我在跑步,跳舞和扭曲,就像疯了一样.
+也许我应该给我父亲作为减肥补充剂.
+这让我
+尽管如此,
+我觉得我的膝盖也在抱怨, 但感觉太麻醉了.
+我会在早上后悔吗?
+明天我有一个朋友的告别派对.
+我带着这些东西.
+在车库里, 声音是低沉的,
+这里很暗,很小,很冷.
+这是我最喜欢的地方.
+这让我想起刚刚过去的萨姆海恩:古凯尔特人的节日,
+我被迫放弃这个想法, 当&quot;燃烧的六月&quot;把我从椅子上起来,
+大多数人都不喜欢周围.
+这就是为什么我没有一个严的关系.
+我不认识任何一个我能忍受如此多的人.
+事实上,我最近确实遇到了一个符合这个要求的人, 但她很快就要搬家了.
+她非常有吸引力的朋友是女同性恋.
+在爱情中没有运气.
+我注意到这已经变得更像是日记, 而不是旅行报告.
+我不知道我是否应该在提交之前削减它.
+我不想这样做.
+互联网的插曲:
+我已经出汗了.
+我一直在跳舞像一个该死的混蛋
+十一月一日
+你不会相信这一秒
+下午5点45分:从初始剂量到现在已经+5H.
+我不确定我是否从第一剂量下降,从第二剂量上升,
+我唯一确定的是我很开心.
+音乐的强度接近感官过载.
+下午5点50分:家人回家了.
+我在乎吗?
+没有.
+我的家庭关系现在比以往任何时候都更正常.
+缓慢的歌曲会让我感到困惑.
+除了在音乐和歌词中表现出更高的情感含量,
+我意识到&quot;熟悉生育蔑视&quot;的格言对我来说尤其真实.
+我对待人们的态度越差,
+我也意识到我比写作更喜欢编辑.
+调整文字和视觉呈现是非常有趣的.
+我没有写&quot;IRC插曲&quot;当我最初粘贴这些行,
+晚上6:00:我更有反应.
+我更有自信.
+我是一个更诚实的人.
+我说的是我的意思.
+我喜欢它.
+我喜欢这种药物.
+下午6点10分:腿,腿,腿,你感觉有多棒?
+&quot;非常非常棒&quot;, 这是礼貌的回应.
+谢谢你们,孩子们.
+这将是所有.
+这应该是像麻醉一样?
+没有.
+在电视上被妖魔化的药物?
+让你强迫清理浴室的药物?
+? 没有.
+这是什么?
+我怎么可能会相信这种宣传呢?
+对于&quot;好的毒品&quot;和&quot;可卡因/速度/海洛因&quot;的&quot;受过教育的吸毒者&quot;二分法是荒谬的.
+互联网的插曲:
+任何感觉良好的事情都是好的.
+个人哲学的变化?
+我不是一个享乐主义者.
+也许我发现,感觉好/感觉不好之间的界限比我想象的更奇怪.
+想指出,除了最初的胃部不舒服外, 我没有经历过任何负面的身体副作用.
+我估计我的脉和心率都升高了,
+哈哈哈
+我只是擦了肚子, 感觉很奇怪,
+这显然是不可能的.
+我对触觉有一种感情.
+另一个想法是,如果我停顿一会儿, 一个热球就会在我的胸部中部,
+我深深地吸入, 呼吸会消散, 呼气就像在游泳时想吸气一样.
+我听说过关于&quot;心脏脉能量&quot;与BZP相关的说法, 听起来很类似,
+晚上6点20分:感觉很晚了.
+现在我记得为什么.
+现在是冬天,太阳已经落下.
+我不喜欢冬天.
+缺乏阳光让我感到丧.
+我在办公室里坐了好几个小时.
+自从第一剂药物注射以来, 已经有+5:30小时了.
+下午6:40:继续升.
+我不认为我的胃是快乐的.
+我会想到, &#x27;,我的胃想告诉我一些东西&#x27;, 但它会消失,
+它是不是饿了?
+我拒绝给它更多的食物.
+沉默是一种侮辱.
+我把&quot;白胡&quot;放进去, 立刻发现我感觉到的细节比平常更多.
+另一方面,如果我不注意,
+我从来没有过这样的一天.
+我意识到温是我新个人哲学的基础,
+而是整体歌曲的声音,以及它们让你感觉到什么.
+我曾与两个朋友一起喝过酸, 晚上大部分时间都在听Ween: 一个评论说它是&#x27;音乐让你面对&#x27;我完全同意.
+第一个剂量+6H,第二剂量+2H.
+我真的觉得再剂量没有像初始剂量那样增加.
+或许宽容会迅速发展?
+这不可能.
+我知道人们已经在BZP上了比这更长时间.
+也许是因为剂量定时, 我一直保持高,
+晚上7点05分:记得那些皮的故事吗?
+我忘了提一下他们已经来回了几个小时, 在随机的孤立点.
+接下来是另一只手臂的前臂,然后是我的子.
+奇怪而有趣.
+我正在放松, 服BZP时的被动感与积极感不同.
+我觉得自己被在椅子上, 好像重力是正常的十倍,
+我从大麻的脑电波训练实验中看到了这一点:这是一种等待发生的内啡因冲击,
+越长时间的抗拒,越好.
+晚上7点半:我开始难以清晰地思考.
+我发现如果我想表达或做某事, 我必须先在脑海中重复几次.
+晚上7点57分:忘了把这个放在上面.
+朋友介绍我BZP说他的嘴&quot;感觉像在酸.经历过这,我现在可以同意.
+我不太确定这种感觉是什么.
+一种非常非常缓慢的味道消逝:没有一种味道真正消逝,
+另一个消息是, 我再次经历不明原因的模糊不舒服.
+我认为第二剂量刚刚达到峰值,
+没有问题,为了记录.
+摩擦脚是非常棒的感觉.
+这很好,因为我的脚很冷.
+触摸的高兴感?
+我触摸自己就会发皮.
+我想知道我的体温是多少.
+我需要一个玩具.
+我在商场找了一块霍伯曼球,
+晚上八点十五分:
+闭嘴,你的胃.
+或许下次可以服用德拉胺?
+互联网的插曲:
+我甚至不知道我如何沟通, 我是如此脱节
+晚上8:40:我坐了多久?
+这种药物让我无缘无故地从椅子上站起来.
+谈论我的家人是有趣的.
+没有座椅的支, 我觉得平衡感受受损; 在娱乐中, 我害怕随时摔倒.
+我走路有点不稳定,手, 酒杯还没到嘴里, 我便开始把酒杯倒下,
+他们没有注意到这些, 因为药物对社会的影响仍然很强.
+晚上8:55:情况正在平静下来.
+我不确定, 因为我以前也错过了,
+一切都很安静.
+没有声音.
+这是一个...
+我正在想如何度过剩下的夜晚.
+我知道大家睡觉后我会想出去, 但我不确定再给药是否是一个好主意.
+我的身体和大脑可能需要休息.
+这次购物之旅似乎很遥远,
+随着音乐的伴奏, 我感到恶心和疲, 好像我已经没有力量了.
+互联网的插曲:
+我目前:比风高50%
+虽然我很遗憾地承认这并不是仅仅由BZP造成的问题.
+我想知道我的血压可能会加重.
+我也感受到前臂肌肉紧张.
+我的胃又一次感到恶心.
+这是最严重的身体副作用, 而且很容易控制.
+它们在我打完这篇文章时已经消退了.
+晚上9:32:它从我的股开始.
+没有,我了它.
+现在我正在大力地着每一寸皮肤,
+这真是太棒了.
+我现在愿意给你一个按摩.
+晚上9点54分:我非常想抽一支烟,
+这让我有点丧.
+另外,我完全喜欢那些 70 年代混音的古老音乐.
+这几乎让你想说&#x27;你和你的现代生产技术该死吧!&#x27;
+晚上10点:我的喉非常乾燥.
+我一直去厨房喝水, 但在10分钟内我又渴了.
+我不是口渴,我的喉只是干燥.
+我不知道该怎么看待它.
+晚上10点10分:刚刚去所.
+我在所站着, 肚子在求我跪下.
+我拒绝了,因为我知道这不必要.
+这种药物最大的缺点是恶心.
+下次一定要服用一些德拉胺.
+我朋友告诉我BZP是一种&quot;厌食症&quot;,
+但在第一剂量开始时我吃的饭没有问题.
+也许随着时间的推移,
+吞也不是一件好事.
+我觉得食道狭窄了, 但我不知道为什么.
+药物仍然很强. +9:20H自第一剂, +5:30H自第二剂.
+我突然觉得很基本, 虽然有些身体效应有所延续; 我认为它们将在接下来的一个小时内慢慢消失.
+迄今为止, 这场倒闭并没有太令人不快.
+我现在想服用一些泰伦醇来缓解明天早上的任何持续性疼痛,
+没有阿司匹林?
+没有这个胃!
+没有ibuprofen,自然.
+,好吧.
+晚上10点33分:我的平衡仍然有点失衡.
+接近基线, 我能够与恶心建立联系:
+德拉玛胺肯定会对此有帮助.
+(我讨厌&#x27;恶心&#x27;这个词)
+晚上10:45:我的下巴紧紧着.
+我已经被警告了,但我不知道我能做些什么.
+我从来没有过这样的一天.
+结束时间:+10:00H.
+其他:
+BZP (101):一般 (1),第一次 (2),单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>I&#x27;ve Never Had a Day Like This
+Benzylpiperazine
+by
+kjh
+Citation:   kjh. &quot;I&#x27;ve Never Had a Day Like This: An Experience with Benzylpiperazine (exp10355)&quot;.
+Erowid.org
+. Jun 19, 2002. erowid.org/exp/10355
+DOSE:
+T+ 0:00
+100 mg
+oral
+BZP
+(powder / crystals)
+T+ 3:45
+150 mg
+oral
+BZP
+(powder / crystals)
+BODY WEIGHT:
+115 lb
+My friend introduced me to BZP.
+He said he contemplated writing up a report of his own positive experiences, but he didn&#x27;t want BZP&#x27;s popularity to increase, thus inevitably rendering it illegal.
+I feel some sort of moral responsibility, however. The reports currently on Erowid are of rather poor quality. Only two of them explore BZP by itself. When I read of these experiences where users mix BZP with pot, GHB, TMFPP, and anything else they can get their hands on, and seemingly inevitably become sick, I can only wonder what they expected.
+I decided when I began that I would keep a record of my trip and upload it, whether good, bad, or indifferent. Sites like Erowid defend their copious drug-related encyclopedias with the justification of harm-reduction, and it would be sad if we as users were unable to contribute to that cause out of fear.
+I haven&#x27;t included a summary because there are too many details to pick from, and I shrink from deciding for others which are important and which are not.
+It begins:
+12:45pm: Weighed out 100mg BZP HCl and dissolved in an unknown quantity of juice. The chemical left an unpleasant aftertaste which was easily remedied with a couple pretzels. I&#x27;m a little nervous, this being my first time, but I think it&#x27;s going to go well.
+12:52pm: My stomach&#x27;s a little tight, but whether this is due to the chemical or the fact that I haven&#x27;t eaten since last night, I don&#x27;t know. As I&#x27;m typing this, though, the pain is increasing, and I&#x27;m wondering if I ought to eat something.
+1:00pm: Feeling flushed, a little excited. Can I separate my own emotions from the drug? This is why drug reports suck.
+1:07pm: Slight headache brewing.
+1:21pm: Feeling a little woozy. I recognize that my blood sugar is low, and with the expected metabolic increase from BZP, I finally give in and eat something. While moving around and munching a bit, I notice that I am feeling, well, &#x27;high&#x27;: my consciousness feels like it is collected in my head instead of being distributed throughout my body.
+1:26pm: I feel a little cold and wonder if my body temperature has gone up, but I don&#x27;t care nearly enough to check. I put on a flannel shirt. Movement euphoria has increased somewhat.
+1:36pm: My jaw feels strange as I sing along to the music, as if it were being stretched too far. My bad lungs limit how much I can exert myself and I wish I were in better shape.
+1:41pm: In a sudden and unexpected brainstorm, I figured out I could cut feedback from my turntable by placing thin books under it to dampen the vibrations. Yay me! I feel happy and untroubled; though I feel the deep emotion in songs like &#x27;The Dangling Conversation,&#x27; they do not weaken my overall mood.
+1:49pm: Getting ready to go out, still in an impeccable mood.
+1:52pm: Approaching +1H, I&#x27;m excited about what&#x27;s still to come. I&#x27;m much more personable than usual as I speak to my dad before stepping out.
+2:50pm: About +2H and back from lunch, feeling fantastic. I love this drug. Motion euphoria hasn&#x27;t increased much, except in my legs, which tingle strangely, feeling simultaneously as
+if they&#x27;ve been over- and underexerted: the bottom line is, they want to move! I&#x27;m contemplating a booster dose. My head is in the clouds, making walking strange and perhaps perilous, but fun. Mood is up, up, up, and it&#x27;s time for a cigarette. Curiosity compels me to check my pupils on the way out. Dilated.
+4:15pm: A brief narrative of my walk: Went to the corner store to get cigarettes. I realized I was exerting myself more than normal, so I picked up some Gatorade. &#x27;FIERCE Berry.&#x27; My first time drinking such stuff. It wasn&#x27;t bad, actually. I continued on to the mall, where I hung out for some time, checking out stuff. GNC had no empty gelcaps, but the man helpfully  suggested I try some place next to Safeway. Safeway is quite a few miles away, so I kept to the mall, bumming from store to store, checking out music, games, electronics, etc. I felt very personable and I was very polite and cordial to everyone I met: no drug I&#x27;ve ever taken has been so socially-enabling. The whole time, I was unconscious of everything that didn&#x27;t matter: staring people, awkward salesmen, minor aches in my feet and calves due to all the walking. I played with toys and mantoys (aka shiny electronics) as I once did when I was young, not caring about the glaring store reps. Eventually, I bought Simon and Garfunkel &#x27;Sound of Silence&#x27; and headed home. The trip went faster than normal, and cigarettes are a delight to smoke. I think I&#x27;m going to boost, but I can&#x27;t decide how much... 100mg? 150? 200?
+300? As I write this, at 4:20pm, it is +3:30H.
+4:38pm: Redosed with 150mg BZP dissolved in juice. It is currently +3:45H. In 1.5 hours, when  the second BZP dose is expected to come up fully, it will be +5:15H, and I don&#x27;t expect the first dose to last much longer than six hours, so I have no worries. Feeling slight stomach upset, just like first dose. I guess this is only to be expected when raw chemicals are introduced to the stomach. Meanwhile, on with the music.
+4:44pm: Wrote out the introduction to this report. While doing so, I noticed a marked aphasia. I&#x27;m usually quite good with words, but they aren&#x27;t coming as readily now, despite the fact that ideas flow as well as ever, and common social interaction (as noted) is not impaired, but enhanced. I do not believe this is related to memory recall, either, since I was able to recall most details of my walk quite well. Then again, I did experience aphasia while typing that out as well, and forgot to mention it. Then AGAIN, my memory is often rather poor. So I don&#x27;t really have enough information to conclude whether or not BZP has an effect on language or memory centers.
+5:02pm: I&#x27;ve often felt a little cold during the trip, and my flannel shirt remedied that easily. I took it off after getting home, and now I&#x27;m actually a little hot, and my feet are cold. This tells me that my body temperature has changed. (I have poor circulation in my feet. They are often cold when the rest of me is warm.)
+5:10pm: I think the first dose of BZP is actually coming down. I&#x27;m starting to feel a little draggy and weak, and I&#x27;m positive it isn&#x27;t my blood sugar. Mood enhancement is still going, though, as is the &#x27;high&#x27; feeling. I put on BT &#x27;ESCM.&#x27; The house is dark and empty and the bass reverberates throughout. When I get goosebumps, they start at my head and run like a
+tingling fire over my body. (I think I have hairs I didn&#x27;t know I had.) The goosebumps seem to prefer the right side to the left. What does that mean? Has the day passed? Who cares?
+5:15pm: I realize I&#x27;m not as bad as I think I am. I notice that my thought process is less linear than normal. For the second time, the thought occurs to me that I maybe shouldn&#x27;t have redosed so high. But I have no sense of fear or impending doom. I decide to have faith. Or rather, I am imbued with it. I get up and fly up the stairs, noting that perhaps I was wrong about coming down. I start dancing and I&#x27;m right on the beat.
+5:21pm: Nearing falling down the stairs, I realize I can&#x27;t find the cat. I can&#x27;t decide whether I&#x27;m upset, or happy to have a mission. I find out quickly when I find him (in plain sight) and a wave of relief crashes over me. I ponder massage-by-bass: its power is thundering in the room above mine. I&#x27;m running and dancing and twisting like crazy. Maybe I ought to give this to my dad as a weight-loss supplement. It takes a lot out of my
+cigarette-seared lungs, though. I think my knees are complaining, too, but the feeling is too anesthetized. Will I be sorry in the morning? There&#x27;s a going-away party for a friend of mine tomorrow. I&#x27;m bringing this shit.
+5:30pm: In the garage, the in-between world, the sound is muted and far away. It&#x27;s dim and small and cold. It&#x27;s my favorite place. It reminds me of Samhain, which just passed: the ancient Celtic holiday that is outside of time, part neither of the new year nor the old, and for that matter, part neither of the world of the dead nor the living. I&#x27;m forced to abandon the thought when &#x27;Flaming June&#x27; picks me up out of my chair and drives me to dance.
+5:35pm: Most people aren&#x27;t very fun to be around. That&#x27;s why I&#x27;m not in a serious relationship. I don&#x27;t know anybody who I could stand to be around so much. Actually, I did meet someone who fit the bill recently, but she&#x27;s moving soon. Her very attractive friend is a lesbian. No luck in love. I notice this is becoming more of a journal entry than a trip report. I wonder if I should pare it down before submitting it. I don&#x27;t want to.
+IRC interlude:
+01/11/02 17:35:38
+god i&#x27;m sweaty.
+01/11/02 17:36:27
+i&#x27;ve been dancing like a god damn motherfucker
+01/11/02 17:36:30
+you would not believe it for a second
+5:45pm: It&#x27;s +5H from the initial dose now. I&#x27;m not sure whether I&#x27;m coming down from my first dose, coming up from my second, going strong on both, or what. All I know for sure is that I&#x27;m having a blast. The intensity of the music is coming close to sensory overload.
+5:50pm: Family is home. Do I care? Nope. My family relationships are so ridiculously more functional right now than they&#x27;ve ever been. Slow songs take a lot out of me. In addition to their higher emotional content in music and lyric, they give me a vague sense of tension, as if its slowness were unnatural. I realize that the aphorism &#x27;familiarity breeds contempt&#x27; is particularly true with me. The longer I know people, the worse I tend to treat them... with some exceptions. I also realize I like editing a lot more than writing. Tweaking words and visual presentation is so much fun. I didn&#x27;t write &#x27;IRC interlude&#x27; when I originally pasted those lines, but it seems more amusing to me with the simple break from the prose above.
+6:00pm: I&#x27;m more responsive. I&#x27;m more assertive. I&#x27;m more honest. I say what I mean. I&#x27;m loving it. I&#x27;m loving this drug.
+6:10pm: Legs, legs, legs, how awesome do you feel? &#x27;Pretty fucking awesome,&#x27; is the courteous response. Thank you, boys. That&#x27;ll be all. This is supposed to be like meth? Meth? The drug demonized on TV? The drug that makes you obsessive-compulsively clean your bathroom? Huh? What? How could I have possibly bought that propaganda when I rejected it about acid and pot and everything else under the sun? The &#x27;educated stoner&#x27; dichotomy of &#x27;good drugs&#x27; and &#x27;cocaine/speed/heroin&#x27; is ridiculous.
+IRC interlude:
+01/11/02 18:11:36
+anything that feels good is good.
+A change in personal philosophy? I&#x27;m not a hedonist. Maybe I&#x27;m figuring out that line between feels good/feels bad is stranger than I thought.
+6:15pm: I&#x27;d like to note for the record that I&#x27;ve experienced no negative physical side effects, except for the initial stomach upset on dosing. I estimate that my pulse and heart rate are elevated, because that would only make sense, but I can&#x27;t double-check this, and it isn&#x27;t affecting me subjectively. Hmm. I just rubbed my stomach and it felt odd, as if my stomach were filled with a solid mass. Clearly this can&#x27;t be. Some sort of affection to my sense of touch. Another thought, if I remain motionless for a while, a ball of heat begins to grow in my chest, in the center, behind the concave area and the bottom of the breastplate.
+As I breathe deeply in, it dissipates, and exhaling feels like coming up for air while swimming. I&#x27;ve heard talk about &#x27;heart chakra energy&#x27; in relation to BZP that sounded similar to this, but I don&#x27;t know anything about it.
+6:20pm: It feels very, very late. Ah, now I remember why. It&#x27;s winter and the sun is down. I don&#x27;t like winter. Lack of sun depresses me. You can imagine how I feel about my job: I sit in an office for hours on end. It&#x27;s now about +5:30H since dose number one.
+6:40pm: Continuing to soar. I don&#x27;t think my stomach is happy. Every now and then, &#x27;hey, my stomach is trying to tell me something&#x27; will occur to me, but it goes away before I can even ponder what the message might be. Is it hungry? I refuse to feed it further. Silence is offensive. I put in Ween &#x27;White Pepper.&#x27; Right away, I discover I&#x27;m picking up on more details than usual. On the other hand, the mix does tend to coalesce into a senseless mess if I don&#x27;t pay attention to it.
+I&#x27;ve never had a day quite like this.
+I realize that Ween is the basis of my new personal philosophy in a way I can&#x27;t explain. It isn&#x27;t so much the content of the lyrics (although it somewhat is) as much as the way the overall songs sound, and how they make you feel. I once dropped acid with two friends of mine and spent much of the night listening to Ween: one remarked it was &#x27;music to set your face to&#x27; and I completely agree.
+It&#x27;s coming up on +6H for dose one and past +2H for dose two. I don&#x27;t really feel like the redose has come up as much as the initial dose had by +2H. Maybe tolerance develops rapidly?
+That can&#x27;t be. I know people have gone on BZP binges longer than this. Then again, maybe because of the dose timing, I stayed up the whole time instead of going down and coming up again.
+7:05pm: Remember the goosebumps? I forgot to mention that they&#x27;ve been coming and going for hours now, in random isolated spots. One second it&#x27;ll be my elbow, then the forearm of the other arm, then my neck. Odd and interesting. I&#x27;m relaxing, and the feeling of passiveness on BZP is much different from the feeling of activeness. I feel glued to my chair, as if gravity were ten times normal, as if something were pressing down on me. But I recognize this from brainwave-entraining experiments with marijuana: it&#x27;s an endorphin rush waiting to happen, encouraging me to get up and move around. It gets better the longer you resist it.
+7:30pm: I&#x27;m starting to have a hard time thinking straight. Like when stoned, I find that if I want to express or do something, I have to repeat it in my head several times first.
+7:57pm: Forgot to put this down earlier. The friend who introduced me to BZP said that his mouth &#x27;felt like it did on acid.&#x27; Having experienced this, I can now concur. I&#x27;m not quite sure what that feeling is. Sort of a very, very slow fade of flavors: none ever really GOES AWAY, just fades into a vague jumble, individual elements undetectable by our senses.
+In other news, I am again experiencing vague discomfort of unknown cause. I think dose two has just peaked, at almost +3:30H. No problems yet, for the record.
+Foot rubbing feels fantastic. Which is good, because my feet are cold. Touch euphoria? I get goosebumps when I touch myself. I wonder what my body temperature is. I need a toy. I looked for a Hoberman sphere at the mall, but so sad, there were none.
+8:15pm: Queasy. Shut up, stomach. Maybe take a dramamine tab next time?
+IRC interlude:
+01/11/02 20:16:23
+i don&#x27;t know how i&#x27;m even communicating, i&#x27;m so out of touch
+8:40pm: How long have I been sitting? The drug urges me out of my chair for no particular reason. Talking to my family is interesting. Without the supportive chair beneath me, my sense of balance feels impaired; in amusement, I fear falling over at any moment. Similarly, my motor functions have been blunted; my walk is slightly unsteady, my hands shake, and I start tipping a glass before it reaches my mouth, dribbling a good deal on my shirt. They notice none of these things because the socializing effects of the drug are still going strong.
+8:55pm: Things are calming down. I can&#x27;t be sure, as I&#x27;ve been wrong before, but I think that the second dose peaked and is slowly walking the downhill side. Everything&#x27;s quiet. Quiet.
+...ssh...
+I&#x27;m thinking of how to spend the rest of the night. I know I&#x27;ll want to go out after everyone&#x27;s gone to bed, but I&#x27;m not sure if dosing AGAIN is a good idea. My body and brain probably need a break. The mall trip seems far away, as if it were yesterday, or a thousand years ago.
+Singing along to music makes me feel sick and weary, as if I don&#x27;t have the strength for it anymore.
+IRC interlude:
+01/11/02 21:13:51
+i am currently: 50% higher than a kite
+9:26pm: The cold sweatiness of my feet is starting to bother me, though I ruefully acknowledge it is not a problem caused solely by the BZP. I wonder if my probably-heightened blood pressure is aggravating it. I&#x27;m also experiencing muscle tension in my forearms. And my stomach is once again queasy. At somewhere in the neighborhood of +8:30H since the first dose, this is the absolute worst the physical side effects have been, and they are very manageable. They already subsided by the time I finished typing this.
+9:32pm: It started with my ass.
+Absently, I itched it. Now I&#x27;m vigorously scratching every square inch of skin I can get my nails on. It&#x27;s glorious. What I wouldn&#x27;t give for a massage right now.
+9:54pm: I want a cigarette very badly, but I can&#x27;t have one for several hours. This is bringing me down somewhat. Also, I&#x27;m totally digging rough, old music mixed in the 70s. It almost makes you want to say &#x27;fuck you and your modern production techniques!&#x27; And then it occurs to you how dumb that is. Thank god for used record stores.
+10:00pm: My throat is painfully parched. I keep going to the kitchen and drinking water, but I&#x27;m always parched again within 10 minutes. I&#x27;m not THIRSTY, my throat is just dry. I don&#x27;t know what to make of it.
+10:10pm: Just went to the bathroom. While standing at the toilet, my stomach was begging me to kneel down. I resisted, because I know it isn&#x27;t necessary. The queasiness is definitely  the biggest downside to this drug. Definitely going to take some dramamine next time. My friend told me BZP is an &#x27;anorexic,&#x27; meaning that it not only stunted the appetite, but made food feel unappealing and I can DEFINITELY agree with that right now. But the meal I took while dose one was coming up went without a problem. Perhaps it gets worse with time.
+Swallowing is not pleasant, either. It&#x27;s difficult and causes pain: I think my esophagus is constricted, but I have no idea why. The drug is still going strong. +9:20H since the first dose, +5:30H since the second.
+10:25pm: I suddenly feel very baseline, although some physical effects are lingering on somewhat; I think they will fade slowly away over the next hour or so. The comedown so far has not been too unpleasant. I want to take some Tylenol now to ward off any lingering aches and pains tomorrow morning, but I don&#x27;t know anything about the metabolism of BZP, and I don&#x27;t feel like going to the hospital for acetaminophen poisoning. Aspirin? Not with this stomach!
+No ibuprofen, naturally. Oh well.
+10:33pm: My balance is still a little off. Closer to baseline, I&#x27;m able to make a connection with the queasiness: probably there is a vestibular influence. Dramamine will definitely help with that. (I hate the word &#x27;nausea.&#x27;)
+10:45pm: My jaw is clenching like crazy. I was warned about this but I don&#x27;t know what, if anything, I can do about it.
+I&#x27;ve never had a day quite like this.
+End time: +10:00H.
+Exp Year: 2001
+ExpID: 10355
+Gender: Male
+Age at time of experience: Not Given
+Published: Jun 19, 2002
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+BZP (101) : General (1), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

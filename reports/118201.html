@@ -1,0 +1,370 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;只有剂量才能制造毒药, 我有证据&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-fluoromethylphenidate.html'>← 4-Fluoromethylphenidate</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;只有剂量才能制造毒药, 我有证据&quot;</h1>
+<div class='sub-title'>4-Fluoromethylphenidate - Erowid Exp - &#x27;Only the Dose Makes the Poison, I Have a Proof&#x27;</div>
+<div class='meta'>作者：Paulus de Coubertin Citation · 日期：Oct 10, 2024 · <a href='https://erowid.org/experiences/exp.php?ID=118201' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>这是我第一次使用4F-MPH.
+我每天服用20毫克西塔洛普拉姆,
+两天前我第一次抽了大麻, 这就是为什么我的脑海有点模糊.
+动机:研究一种我新鲜的药物, 查看有关药物的好评,
+我在公园的偏远地区, 排成30毫克的线, 吸入.
+这种粉是白灰色的,有药味.
+由于小量, 我没有在喉感觉到.
+预计30分钟内进入, 这意味着我有时间去购物.
+我注意到一个微小的效果.
+我很平静,我的烦躁已经消失,然而,没有类似于安非他命或cathinones的效果.
+我希望把它描述为一种无otropic药物,
+我决定将30毫克与M-150能量饮料混合,
+粉末在短时间的后没有沉积物溶解.
+我喝了一杯,然后回家.
+时间+1点
+我在火车上坐着, 感到一种强烈的感觉, 让我有点焦虑,
+我认为第一剂只在现在起作用, 这意味着我犯了一个错误在忙采取第二个如此迅速.
+虽然对风很强, 我却没有感到疲劳.
+为了顺利驾驶, 我需要把全部注意力集中在驾驶上.
+这里是我的家.
+现在,我可以和别人交谈,也很乐意谈论购物.
+我注意到没有强迫性的渴望不断地聊天.
+和平的感觉没有离开我.
+变得紧张, 我咬咬嘴唇, 汗水增加.
+我喝咖啡,用智能手表测试脉.
+现在是每分钟100-120次.
+我觉得学习第二种语言的动力,
+感觉像我在一个高原, 进入的不适已经消失了, 但能给我留下深刻印象的效果还没有来.
+没有高兴感, 刺激有2/5的分数.
+我很高兴能够在没有任何干扰的情况下花一个小时学习.
+朋友们邀请我出去散步,
+通常我服用兴奋剂时, 不能保持平静,
+但现在不是,心情非常平衡和公正,有愉快的疲劳在我的身体和惰的感觉接管我
+情绪非常平衡和公正,我的身体有一种愉快的疲劳,一种惰的感觉占据了我
+没有.
+我打算克服它并照顾我的工作.
+我完成了一个月来一直挂在任务清单上的单调工作.
+现在,重复相同的行动是相当愉快的.
+我觉得自己很空虚,很生气.
+我需要让自己再次忙碌,否则这些感情不会消失.
+我觉得需要再服用.
+时间+4点
+我再喝20毫克
+我没有坐不动一分钟,清洁,准备晚餐,等等.
+随着每次新剂量,不安和的增加.
+嘴巴非常干燥,所以我喝了很多水.
+我每隔10分钟就想尿一次.
+虽然心情已经很好, 但我的心跳却很快,
+我很久没有感到饥饿,
+没有欲望, 我强迫自己吃一些米饭; 它的味道不寻常, 这让我明白我的味觉已经改变了.
+我决定用鼻腔注射20毫克.
+我写了一张明信片给朋友,
+我很动, 似乎我很久以前就用了足够的量.
+我注意到音乐没有带来任何乐趣.
+吸气让我不断想重复剂量一旦峰值效果开始消失.
+让它变得有点可怕和令人惊叹.
+在游乐场的过山车上也会有类似的经历.
+脉是每分钟120次.
+我需要一个能限制我的护士.
+我再用另一根線,大約15毫克.
+大约在这个时间,第一剂应该消失.
+我只要专注于任务 (比如, 我洗了个热水淋浴,
+我不想停下来,
+节日的感觉是如此甜美, 我为自己像一个孩子一样生气.
+我还写了几句小话, 但我不写下来,
+这是最后一个,因为现在是睡觉的时候了.
+我知道明天我会继续.
+我和我的伴侣发生性关系.
+勃起没有问题, 虽然阴茎看起来很小,
+我感觉很感激,并给予温柔, 这不是典型的我.
+没有任何射精困难.
+睡觉时间.
+现在我才注意到我的心跳有多快.
+脉大约在90度, 但血压如此强烈,
+我不害怕,我不羞愧,我平静地接受自己,
+由于神经系统疲而无法进行深度反思.
+我注意到肌肉的紧张,
+通过选择一个舒适的位置, 我设法陷入绝对空虚的催眠.
+我没有睡觉, 但我的大脑没有产生任何想法或图像.
+膀使我摆脱这种状态,
+那些歌曲的歌词在我的脑海中沉浸,
+这种催眠和觉醒的情况重复了好几次, 直到最后...
+压力下降, 心脏停止跳动,
+我已经睡不着了,在30分钟内我需要帮助我的邻居.
+刺激的后果仍在体内, 肌肉因而疼.
+我的脑海里有雾,心灵里有点悲伤.
+我服用20毫克的西塔洛普拉姆,
+是的,我会再做一次.
+我承认我不能停止.
+但我会尽量负责任, 只服用建议的10毫克口服.
+我再次注意到恶心和消化系统的刺激, 就像昨天旅行开始时一样.
+现在的效果已经变得更加温和, 没有或,
+我又一次注意到,当这种效果开始减弱时, 我会感到烦躁不满,
+我不想独自与无聊, 虽然它通常不打扰我.
+我再喝10毫克.
+已经晚了,时间过得很快, 想再一次再一次服用的欲望折磨着我
+想要一次又一次地重新服用的欲望折磨着我
+没有.
+这并没有带来任何&quot;高&quot;, 只是过度刺激.
+大脑会因为这种愚蠢的习惯而感到困惑,
+我嗅到了两行10-15毫克.
+现在是时候再强壮起来了, 所以我把剩下的粉末稀释在玻璃瓶里,
+我的马拉松结束了.
+我手,心跳,, 但我很冷静,
+仔细地写下来,没有停止.
+按照海明威的指示, 我打算在清醒的情况下编辑.
+结论:
+治疗剂量高达10毫克的小剂量给了我一个几乎没有人注意到的刺激,
+没有一种高兴感.
+口服剂量高于10mg的药物在1小时升高,1小时稳定,2小时下降,以及2小时后产生效果.
+在吸入时, 效果在40分钟后出现,
+与口服药物相比,这种药物摄入的重复摄入的愿望显著更高.
+由于我没有天平, 我用眼睛测量了粉末, 在9个小时内我吸入并喝了大量的物质,
+虽然我的血压比正常高得多,
+如果我没有什么东西可以集中注意力,
+我的肌肉一直.
+引起轻微的高兴和恐惧 (过山车的感觉).
+增加剂量并没有显著增加休效应,而只是加剧了负面效应.
+我选择了这种药物进行研究, 因为原来的瑞塔林药物经过了大量的研究, 相对安全,
+我知道我会有更多的机会.
+现在这种物质被埋在地下,
+时间表: 118201
+发布时间:2024年10月10日
+4-甲 (728):单独 (16),第一次 (2),一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Only the Dose Makes the Poison, I Have a Proof
+4-Fluoromethylphenidate
+by
+Paulus de Coubertin
+Citation:   Paulus de Coubertin. &quot;Only the Dose Makes the Poison, I Have a Proof: An Experience with 4-Fluoromethylphenidate (exp118201)&quot;.
+Erowid.org
+. Oct 10, 2024. erowid.org/exp/118201
+DOSE:
+T+ 0:00
+1 line
+insufflated
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 0:45
+30 mg
+oral
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 2:00
+oral
+Coffee
+T+ 4:00
+20 mg
+oral
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 5:45
+20 mg
+insufflated
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 6:50
+1 line
+insufflated
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 8:40
+insufflated
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 20:00
+10 mg
+oral
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 24:00
+10 mg
+oral
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 28:00
+122 lines
+insufflated
+4-Fluoromethylphenidate
+(powder / crystals)
+T+ 0:00
+20 mg
+oral
+Pharms - Citalopram
+(daily)
+BODY WEIGHT:
+60 kg
+This is my first experience of using this 4F-MPH. I take 20 mg of citalopram daily, but on the day of the report, I skipped the dose. Day before I smoked weed for the first time in two weeks, which is why it was a slight fog in my head.
+Motivation: research a drug that is new to me, check the positive reviews about it, learn about the benefits and harm that it can bring.
+T+ 0:00
+Good mood and a little excited about the upcoming trip, being in a remote area in the park, I make a line about 30 mg and inhale. The powder is white-gray color and smells like medicine. Thanks to the small amount, I don&#x27;t feel it in the throat. Entry is expected within 30 minutes, which means I have some time for shopping.
+T+ 0:30
+Leaving the store, I notice a slight effect. I&#x27;m calm, my irritability has disappeared, however, nothing similar to the effects of amphetamines or cathinones. I would like to describe it as nootropic, which rather disappoints me.
+T+ 0:45
+I decide to take it orally by mixing 30 mg with the M-150 energy drink. The powder has dissolved without sediment, after a short shaking. I have a drink and then go home.
+T+ 1:00
+This is the effect, sitting calmly on the train I feel an intense sense that makes me a little anxious and slightly nauseous. I think the first dose only took effect now, which means I made a mistake in rushing to take the second so quickly.
+T+ 1:20
+While I’m riding my bike, I notice that I don’t feel tired, although the headwind is quite strong. I am extremely relaxed, a little buzzed, to drive smoothly I need to concentrate all my attention on the ride.
+T+ 1:40
+Here I am at home. My social skills have improved, and I am happy to talk about my shopping. I notice that there is no obsessive desire to chat incessantly. The feeling of peace does not leave me. The jaw becomes jittery, I bite and lick my lips, sweating increases.
+T+ 2:00
+I drink coffee and measure pulse on the smartwatch. Now it&#x27;s about 100-120 bpm. Feel the motivation to learn a second language, I go to bed and focus on my phone.
+T+ 3:00
+Feel like I’m on a plateau, the discomfort from entering has gone away, but the effect which can impress me has still not come. There is no euphoria, and stimulation has a score 2/5. But my concentration really improved, and it was easy to spend an hour studying without being distracted. Friends invite me to go for a walk, and unexpectedly for myself, I refuse. Usually when I&#x27;m on stimulants I can&#x27;t just stay calm, I like to go anywhere instead of sitting still. But not now, the mood is very even and impartial, there is a pleasant tiredness in my body and a feeling of laziness takes over me
+the mood is very even and impartial, there is a pleasant tiredness in my body and a feeling of laziness takes over me
+. I plan to overcome it and take care of my work.
+T+ 3:45
+I finished the monotonous work that had been hanging on the task list for about a month. Now, repeating the same actions was quite pleasant. Once the task was completed, I felt empty and irritable. I need to keep myself busy again, or these feelings won&#x27;t go away. I feel the urge to redose.
+T+ 4:00
+I drink another 20 mg
+T+ 5:45
+I don’t sit idle for a minute, cleaning, preparing dinner, etc. With each new dosage, restlessness and tremors increase. Mouth very dry, so I drink a lot of water. My bladder is restless, and as result I want to pee every 10 minutes.
+Head is clear when I catch a focus, the mood is already very good, but my heart is racing and pounding in the chest. I haven’t felt hungry for a long time, although I’ve already skipped meals several times. Without desire, I force myself to eat some rice; its taste unusual, which makes me understand that my taste sensations have changed.
+I decide to take 20 mg intranasally.
+T+ 6:50
+I wrote a postcard to friends and almost burst into tears from sentimentality and love for them. I am very twitchy, and it seems that I have long gone too far with an adequate amount. Noticed that music doesn&#x27;t bring any pleasure.
+The snorting makes me constantly want to repeat the dose once the peak effect starts to fade off. At the same time, the peak feels like a strong adrenaline rush, which makes it a little scary and breathtaking. Something similar can be experienced on rollercoasters in amusement parks. Pulse is 120 bpm. It seems I can&#x27;t stop on my own, and I need a trip sitter who could limit me. I take another line, about 15 mg.
+T+ 8:00
+Around this time, the first dose should wear off. As long as I concentrate on the task (for example, I took a warm shower, with a very thorough body scrubbing), the effects become unnoticeable, but as soon as I get bored, psychosis sets in. I don’t want to stop, although I’m mentally and physically exhausted. The feeling of the holiday is so sweet that I’m angry for myself like a child.
+T+ 8:40
+I take a few more small lines, but don’t write them down because feel ashamed of my behavior. These were the last ones because it&#x27;s time to go to bed. I know that tomorrow I will continue.
+T+ 9:30
+Having sex with my partner. There are no problems with erection, although the penis looked very small, which often happens with stimulants. The sex was great, I felt grateful and gave tenderness, which is not typical for me. There were no difficulties with ejaculation.
+Bedtime. Lowering my head onto the pillow, I relax and only now notice how hard my heart is beating. The pulse is about 90, but the blood pressure is so strong that the head bounces on the pillow from the pulsating vein. I’m not scared, I’m not ashamed, I peacefully accept myself as I am, even giggle a little at how stupid I sometimes am, bringing myself to such a state. Deep reflection is not possible, since the nervous system is exhausted. I notice tension in the muscles that can no longer be suppressed by willpower. By choosing a comfortable position, I manage to plunge into absolutely empty hypnagogia. I&#x27;m not sleeping, but my brain isn&#x27;t generating any thoughts or images at all. The bladder pulls me out of this state and forces to empty myself. And again I don’t sleep, the words from the songs obsessively get stuck in my head and are repeated in a circle, preventing me from relaxing.
+The situation with hypnagogia and awakening is repeated several times, until finally...
+T+ 14:30
+...the pressure drops, my heart stops beating like a barrel in techno music, I fall asleep sweetly and see colorful, interesting and pornographic dreams which happens to me very, very rarely.
+T+ 17:30
+My sleep is over, in 30 minutes I need to help my neighbors. The aftereffects of stimulation are still in the body, the muscles ache from the spasms. There is fog in my head, and a slight sadness in the soul. I take 20 mg citalopram and start my day.
+T+ 20:00
+Yes, I&#x27;ll do it again. I admit that I can&#x27;t stop. But I will try to be responsible and only take the recommended 10 mg orally. Having taken it on an empty stomach, I again notice nausea and irritation of the digestive system, just like yesterday at the beginning of the trip. Today the effects are much softer, no tremors or bruxism, just a good mood and motivation.
+T+ 24:00
+Once again, I notice irritability and dissatisfaction when the effect begins to subside, and I am not busy with anything. I don’t want to be alone with boredom, although it usually doesn’t bother me.
+I drink another 10 mg.
+T+ 28:00
+It’s already evening, time runs quickly, the desire to redose again and again torments me
+the desire to redose again and again torments me
+. This does not bring any “high”, only overstimulating. The brain gets confused by this silly habit and wants to do it again. I sniff two lines of 10-15 mg.
+There&#x27;s still a huge amount of powder in my zip-lock bag, but it&#x27;s time to be strong again, so I dilute everything that&#x27;s left in a glass bottle and pour it into my garden under the wildflowers (we&#x27;ll see what effect it has on the plant). My marathon is over. My hands are shaking, my heart is pounding and tingling, but I am calm and sit down to write this text. Writing it carefully and without stopping. As Hemingway instructed, I plan to edit it sober.
+Conclusion:
+Small “therapeutic” doses of up to 10 mg gave me a barely noticeable stimulating, mood stabilizing and helped me concentrate. There was no euphoria.
+Doses above 10 mg orally had a 1 hour uplift, 1 hour plateau, 2 hour decline, and 2 hours after effects.
+When inhaled, the effect showed up after 40 minutes, but ended an hour faster. The desire to repeat with this intake was significantly higher than with oral usage. Due to the fact that I did not have a scale and I measured the powder by eye, within 9 hours I snorted and drank a very large amount of the substance, which led me to an obvious overdose. In this state, I could still concentrate on a task such as cleaning or spa treatment, but my blood pressure was much higher than normal. If I didn&#x27;t have an object to concentrate on, I started to feel dizzy, confused, forgetful and lost. My muscles spasmed all the time. At the peak of the intake, there was a surge of adrenaline, which caused both mild euphoria and fear (the feeling of a roller coaster). Increasing the dosage did not lead to a significant increase in recreational effects, but only intensified the negative ones.
+I chose this substance for research because the original Ritalin is well documented, relatively safe, compatible with my antidepressant, and its RC version, judging by the reviews, helps many people with their  ADHD problems. However, my willpower was not enough to resist abusing it. Now the substance is buried in the ground, and my plans do not include purchasing another batch.
+Exp Year: 2024
+ExpID: 118201
+Gender: Male
+Age at time of experience: 27
+Published: Oct 10, 2024
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+4-Fluoromethylphenidate (728) : Alone (16), First Times (2), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

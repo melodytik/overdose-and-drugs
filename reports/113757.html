@@ -1,0 +1,319 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的&quot;舞蹈之王&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/4-ho-met.html'>← 4-HO-MET</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的&quot;舞蹈之王&quot;</h1>
+<div class='sub-title'>4-HO-MET, Methamphetamine &amp; Phenibut - Erowid Exp - &#x27;Lord of the Dance&#x27;</div>
+<div class='meta'>作者：RR Citation · 日期：Nov 16, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=113757' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我决定尝试这种组合, 因为我一直在寻找一种可以在狂欢场合使用的药物组合,
+我一直在寻找一种可以在狂欢节中使用的药物组合,
+之前, 我4天前服用了MDA+MDMA,
+维生素D,多种维生素和鱼油, 自从第二天的麻醉后,
+我也曾经患上某种病毒, 在此之前的一周,
+所以这可能是这次经历的原因.
+我服用2g的芬尼布特,
+我在一小时前吃了饭.
+时间+1点--晚上8点
+我洗了个,开始穿上我的服装.
+我肯定开始感觉到洗时的效果, 减少了焦虑.
+时间+2点--晚上9点
+我把15毫克的甲基胺加在凝囊中,
+我被告知这是&quot;冰&quot; - - 德克斯特罗-美甲胺,
+我服用10毫克的4-HO-MET (一半20毫克的小丸子, 圆形和紫色来自在线供应商 - 我已经采取这些很多次之前,
+我坐上车开车去参加活动.
+[Erowid的注意事项:
+驾驶时喝醉,倒,或极度缺乏睡眠是危险和不负责任的, 因为它危害了其他人.
+不要这样做!
+我到达活动地点并停车.
+我有点担心甲会增强4-HO-MET的迷幻效果, 尤其是视觉效果,
+我感觉到4HO-MET的典型不舒服的后果:对我来说, 感觉像我必须排便,
+我在排队等待, 外面很冷.
+我肯定感觉到了甲基胺的作用.
+我一直在周围走 (一个大型的&quot;博物馆&quot;有几个阶段) 让我的轴承.
+我还没有穿上我的&quot;舞鞋&quot;; 我还有些紧张,
+我在一个典型的狂欢场所,
+我决定在哪个舞台上有最好的舞蹈音乐,
+我肯定会看到一些闭眼的视觉效果, 以及增加的色彩亮度和和,
+我确实感受到典型的4-HO-MET头部空间和团结/温暖的感觉.
+在这种剂量下, 麻并没有特别令人高兴,
+在这种剂量下, 麻并没有特别令人高兴,
+时间+下午4点~11点
+我停下来喝水.
+我决定服用另一半的4-HO-MET药片,10毫克.
+我没有感觉到非常明显的迷幻效应, 我希望更多,
+我一直在跳舞.
+我很出汗, 但也很冷/会场的某些地方有粉丝,
+这场狂欢会结束,
+衣柜检查不太有组织, 还有很长的队伍.
+我和一些人聊天,
+接着我回到车里开车去夜总会的派对后.
+我到达夜总会,排队等待,进去.
+我很兴奋, 终于跳舞了整整一段时间,
+虽然我没有特别的口渴或饥饿或疲劳.
+我只是想照顾好自己.
+虽然我经常出汗, 但场地却很冷.
+我是一个很好的舞者通常和相当自信, 但在这组合,
+人们总是来找我跳舞,或者赞美我的服装,女孩们总是跟我说话.
+我很高兴能见到他们.
+我没有像在吸毒时那样长时间与人交谈的习惯, 也没有太多的同情心.
+我通常会把那些试图和我交谈或长时间交谈的人视为打断.
+很多人注意到我一直在跳舞, 我相信很容易被人注意到,
+我终于遇到了一个我认识的人, 我们一起跳舞.
+她是一位出色的舞者,
+我对人们的笑容是无限的,
+我必须认知地努力记住微笑,
+我经常口香糖.
+我没有特别的性欲在任何时候.
+我发现甲基和都能强烈增强我的性欲,而MDMA肯定会增强性欲,
+迪杰的表演结束了,俱乐部关闭了.
+我原本打算留下来和人们聊天,
+我说再见我刚刚和那个女孩跳舞,
+我不想等待, 所以我离开了.
+我开车回家.
+我回到了家.
+我终于发短信给之前的女孩, 然后跳进淋浴, 因为, 我是出汗.
+我还没有感到很累.
+我觉得4-HO-MET的效果在这个时候增加了;也许是甲基干扰.
+我会在淋浴中哭一会儿.
+我不确定是不是因为我感到孤独, 因为我独自一人去参加了这个活动, 几乎没有和任何人说话,
+我在今天之前意识到我对这个女孩有感情,
+我只是觉得自己是个白痴, 我害怕把自己放在那里.
+不知道这些意识/思想是不是是甲基下降的产物, 或许是4-HO-MET的内省,
+我决定看一部电影, 因为我还清醒.
+这女孩没有回信.
+时间+上午9点至4点
+她回信说她确实想约会.
+听到这些话,我感到非常高兴.
+我终于开始感到很昏昏欲睡,
+我睡到下午3点左右.
+虽然我意识到我很饿,
+我订购一些食物, 强迫自己吃, 但只得到一半.
+我终于觉得甲基胺的作用已经完全消失了.
+我现在已经饿了,可以吃早些时候的剩余饭.
+** 结论 **
+我感觉到的不同之处是:
+- 减少社交的愿望
+-更多的渴望跳舞
+- 更多的信心
+- - 没有同情心
+- 减少感情和提高社交能力
+- - 增加性欲的减少
+- 减少口渴,饥饿或疲劳的感觉
+- 闭眼视觉和更多的色彩增强
+- 没有那么高兴.
+- - 音乐的欣赏程度大致相同, 尽管我在物理意义上&quot;感觉&quot;音乐更少
+我不确定我是否会再做这种组合, 因为甲基使我保持很长一段时间,
+甲基使我长时间没有睡觉, 比我预期的要长.
+没有.
+我还不喜欢不能吃,甚至不得不强迫饮用水.
+我并没有觉得需要再服用,
+我总是谨慎地对刺激药物进行再剂量, 因为这往往会变成过度饮食. (尤其是麻) 也许我进入这种状态减少了我感受到的快乐,
+我认为如果我再做一次, 我会考虑增加更多的4-HO-MET.
+我觉得毒品剂量是正确的.
+也许我会增加到20毫克.
+时间表:
+发布时间:2019年11月16日
+睡眠剥夺 (140),4-HO-MET (436),甲基 (37): 俱乐部/酒吧 (25),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Support Erowid Center with a
+$50 Donation
+And get a blacklight-inked &quot;Erologo&quot; tee
+Lord of the Dance
+4-HO-MET, Methamphetamine &amp; Phenibut
+by
+RR
+Citation:   RR. &quot;Lord of the Dance: An Experience with 4-HO-MET, Methamphetamine &amp; Phenibut (exp113757)&quot;.
+Erowid.org
+. Nov 16, 2019. erowid.org/exp/113757
+DOSE:
+T+ 0:00
+Vitamins / Supplements
+T+ 0:00
+2 g
+oral
+Smarts - Phenibut
+T+ 2:00
+15 mg
+oral
+Methamphetamine
+(capsule)
+T+ 2:00
+10 mg
+oral
+4-HO-MET
+(pill / tablet)
+T+ 4:00
+10 mg
+oral
+4-HO-MET
+(pill / tablet)
+BODY WEIGHT:
+180 lb
+I decided to experiment with this combination because I&#x27;ve been trying to find a combination of substances to take at a rave setting that is similar to MDMA, but can be taken more often.
+I&#x27;ve been trying to find a combination of substances to take at a rave setting that is similar to MDMA, but can be taken more often.
+I am very experienced with psychedelics and MDMA, not much experience with meth, but do have a lot of experience with regular amphetamines.
+Previous to this, I had rolled 4 days ago on MDA + MDMA, which I then followed up with a 2-day meth binge, although it was 3 days without sleep due to residual stimulation. I had been supplementing with 5-HTP, Mucuna Pruriens, N-Acetyl Cysteine, Vitamin D, Multivitamin, and Fish Oil since the second day of the meth binge, after my last dose. I had also been sick, with some kind of virus, for the week prior and leading up to this, although I finally started to feel normal again, though with excess mucus on the day of this experience. So that may have played a part in this experience.
+T + 0:00 -- 7:00 PM
+I take 2g of phenibut, to allow time for it to kick in before heading to the event. I had eaten 1 hour prior.
+T + 1:00 -- 8:00 PM
+I take a shower and start putting on my costume. (it&#x27;s halloween)
+I definitely begin to feel the effects of the phenibut in the shower; lessened anxiety.
+T + 2:00 -- 9:00 PM
+I weigh out 15mg of methamphetamine into a gel capsule and take it. I was told this was &quot;ice&quot;--dextro-methamphetamine, as opposed to the racemic form. I take 10mg of 4-HO-MET (half of a 20mg tablet, small, circular and purple sourced from an online vendor--I have taken these many times before and believe it to be 4-HO-MET). I get in my car and start driving to the event.
+[Erowid Note: 
+Driving while intoxicated, tripping, or extremely sleep deprived is dangerous and irresponsible because it endangers other people.
+Don&#x27;t do it!
+]
+T + 2:30 -- 9:30 PM
+I arrive at the event and park. During the drive over, I have a bit of anxiety about the meth potentiating the psychedelic effects of the 4-HO-MET, especially visuals, especially while I am driving. I feel the typical uncomfortable come up effects of the 4-HO-MET: for me, feeling like I have to poop, and a little bit of introspection/confusion. I wait in line, and it&#x27;s quite cold outside.
+T + 3:00 -- 10:00 PM
+I definitely feel the effects of the methamphetamine at this point. I&#x27;ve been walking around the venue (a large &quot;museum&quot; with several stages) to get my bearings. I don&#x27;t quite have my &quot;dancing shoes&quot; on yet; I&#x27;m still a little nervous, and the shoes I&#x27;m wearing are also new and their bottoms don&#x27;t have much traction yet since they are clean. I take in the sites of a typical rave and have a few quick encounters with people. I decide on the one of the stages as having the best music for dancing and go there to dance. I&#x27;m definitely experiencing some closed eye visuals, as well as increased color brightness and saturation with my eyes open. I do feel the typical 4-HO-MET headspace and feelings of unity/warmth. At this dose, the meth isn&#x27;t particularly euphoric, but it is highly stimulating.
+At this dose, the meth isn&#x27;t particularly euphoric, but it is highly stimulating.
+T + 4:00 -- 11:00 PM
+I stop for a water break. I decide to take the other half of the 4-HO-MET pill, 10mg. I&#x27;m not feeling very pronounced psychedelic effects, and I was hoping for more, as it tends to be a conversation/sociability enhancer.
+T + 5:00 -- 12:00 AM
+I dance for the entire time. I am quite sweaty, but it is also cold/there are fans in parts of the venue, so I&#x27;m able to cool off easily.
+The rave at this venue ends, but there is an afterparty. The coat check is not very organized, and there&#x27;s a huge line. I talk with some people as I move up the line to get my coat. Once I get my coat, I walk back to my car and drive over to the afterparty, which is at a nightclub.
+T + 5:30 - 8:00 -- 12:30 AM - 3:00 AM
+I get to the nightclub, wait in line, get in. I am quite stimulated, and I wind up dancing for literally the entire time, only stopping to drink two bottles of water once. Though I don&#x27;t feel particularly thirsty or hungry or tired. I just want to take proper care of myself. I get really sweaty, but the venue is well-cooled. I&#x27;m a good dancer normally and pretty confident, but on this combination, I was killing it on the dance floor. People keep coming up to me to dance, or compliment me on my outfit, girls keep talking to me. However, I did not feel particularly social. I didn&#x27;t feel the usual wanting to talk to people for extended periods like I do on MDMA, nor do I feel much empathy. I would say I generally viewed people trying to talk to me or have long conversations as an interruption. Several people note that I have been dancing literally the entire time; and I&#x27;m sure it was easy to notice because I&#x27;m wearing a very noticeable outfit. I finally run into someone I know, and we dance together. She&#x27;s an exceptional dancer, but I definitely hold my own. I am all smiles with people; but it&#x27;s not the forced smiling of MDMA. I have to make a cognitive effort to remember to smile, or my face is one of determination. I chew a lot of gum. I&#x27;m not particularly horny at any point. I find both methamphetamine and phenibut to strongly enhance my libido; and MDMA definitely enhances it, but I don&#x27;t feel any strong desires this time.
+T + 8:00 -- 3:00 AM
+The DJ&#x27;s set ends and the club closes. I was going to stay around trying to talk to people, but I decide to just head home. I say goodbye to the girl I was dancing with earlier, and I actually get the impression that she wants to go home with me. However, she has a lot of other friends around, and I don&#x27;t really want to wait around, so I wind up leaving. I drive home.
+T + 8:30 -- 3:30 AM
+I arrive home. I wind up texting the girl from before, and then hopping in the shower, because wow, I am sweaty. I still don&#x27;t feel very tired. I feel as if the effects of the 4-HO-MET have increased at this point; perhaps the meth was interfering. I wind up crying for a bit in the shower. I&#x27;m not sure if it was because I&#x27;m feeling lonely, as I went to the event totally alone, hardly talked to anyone, and I totally just texted the girl from before basically asking her out, and now I&#x27;m feeling embarassed about it. I realized before today that I have feelings for this girl, and I did get the impression she has feelings for me. I guess I just felt like I was an idiot, and I&#x27;m scared to put myself out there. Not sure if these realizations/thoughts were a product of the meth comedown or perhaps introspection from 4-HO-MET or a combination of both. I dry off and decide to watch a movie, as I&#x27;m still very awake. The girl hasn&#x27;t texted back.
+T + 9:00 -- 4:00 AM
+The girl texts back, and says she does want to go on a date. I can&#x27;t tell you how happy I was to hear that.
+T + 11:00 -- 6:00 AM
+I am finally starting to feel pretty drowsy and I drift off to sleep. I fall asleep until around 3PM.
+T + 18:00 -- 3:00 PM
+I wake up, and still don&#x27;t feel very hungry, although I realize that I am. I order some food and force myself to eat it, but only get halfway through.
+T + 21:00 -- 6:00 PM
+I finally feel as if the effects of the methamphetamine have completely worn off. I am hungry enough now to eat the rest of the meal from earlier.
+** CONCLUSION **
+In comparison to MDMA, I felt the following:
+-Less desire to socialize
+-More desire to dance
+-More confidence
+-Less empathy
+-Less affection and sociability enhancement
+-Less libido enhancement
+-Less feelings of thirst, hunger, or tiredness
+-Closed eye visuals and more color enhancement
+-Less euphoria
+-Roughly equal amount of music appreciation, although I &quot;felt&quot; the music less, in the physical sense
+I&#x27;m not sure I would do this combination again, as the methamphetamine kept me up for a long time, much longer than desired
+the methamphetamine kept me up for a long time, much longer than desired
+. I also did not enjoy not being able to eat, and having to even force down water. I didn&#x27;t feel a huge desire to redose, but it also wasn&#x27;t a very big dose of meth. I&#x27;m always wary of redosing stimulants, as that tends to turn into a binge. (especially meth) Perhaps my state going into this reduced the euphoria I felt, or I still had a meth tolerance.
+I think if I did this again, I would consider adding more 4-HO-MET to the mix. I think the meth dose was just right. Maybe I&#x27;d go up to 20mg.
+Exp Year: 2019
+ExpID: 113757
+Gender: Male
+Age at time of experience: 29
+Published: Nov 16, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Sleep Deprivation (140), 4-HO-MET (436), Methamphetamine (37) : Club / Bar (25), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

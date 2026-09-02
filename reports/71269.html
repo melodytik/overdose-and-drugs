@@ -1,0 +1,177 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>种茶 - 艾洛伊德 - &quot;一种过敏反应&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/poppies-opium.html'>← 罂粟(鸦片)</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>种茶 - 艾洛伊德 - &quot;一种过敏反应&quot;</h1>
+<div class='sub-title'>Poppy Seed Tea - Erowid Exp - &#x27;An Allergic Reaction&#x27;</div>
+<div class='meta'>作者：HuFlungPoo Citation · 日期：Jul 13, 2010 · 剂量：125 g · <a href='https://erowid.org/experiences/exp.php?ID=71269' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>首先,关于我吸毒的情况:我每天吸大麻,过去3年来一直吸.
+我过去曾经尝试过氧化和水性,
+有几次.
+最近, 我在睡前一小时左右服用4-6种通用二胺或二胺酸药,
+这是我第一次,也是最后一次喝茶.
+场景:加拿大维多利亚节长周末.
+我是看着我叔叔的房子, 拥有自己的房子.
+周末我没有任何计划或责任, 想为晚上一点茶.
+准备方法:在当地大货店购买了500克种子.
+我知道这是种子没有被洗过的好兆头, 因此还应该包含一些吗啡/可代因.
+种子被入一个2升的瓶子, 加入一大片汁,
+混合物定期动,并让它坐一个小时.
+然后将种子过,然后在冰箱里冷却几个小时,形成4杯不透明的黄色棕色液体.
+经验:我从晚上8点开始喝这种有味道的酒.
+由于我对阿片类药物没有耐受性, 这是我第一次喝茶,
+到了晚上9点, 我喝了大约1杯.
+除了轻微的恶心, 我还没有感觉到任何可注意的效果.
+约在这个时候, 我接到了来自租房者的电话,
+接到电话时, 鼻子开始, 皮肤开始发.
+到了电话结束时 (T+1:15), 已经增加到不舒服的水平,
+我在镜子里看了自己,发现我的皮肤很红,有点斑.
+我很快就出现了覆盖全身的疹.
+我知道有些人会因为阿片类药物而感到,
+幸运的是,我手头有贝纳德里尔,
+在30分钟 (T+1:45) 之内,的程度降低到可以忍受的水平,并且蜂巢开始消失.
+我睡觉时仍然有疹 (T+4:00),但我能够忽略它们,最终睡着了.
+到了早上 (T+12:00), 过敏症状已经消失,
+只有不愉快的过敏症状.
+谢天谢地我只喝了4杯茶中的1杯,
+我不想吓人们, 我完全赞成尝试新药,
+这并不是一个新的问题.
+尝试新药时要慢慢开始,
+其他:
+-  (43): 准备/食谱 (30), 卫生问题 (27), 单独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>An Allergic Reaction
+Poppy Seed Tea
+by
+HuFlungPoo
+Citation:   HuFlungPoo. &quot;An Allergic Reaction: An Experience with Poppy Seed Tea (exp71269)&quot;.
+Erowid.org
+. Jul 13, 2010. erowid.org/exp/71269
+DOSE:
+125 g
+oral
+Poppies - Opium
+(tea)
+BODY WEIGHT:
+170 lb
+First off, a bit about my drug usage:  I’m a daily pot-smoker and have been for the past 3 years.  I’ve dabbled with oxycodone and hydromorphone a bit in the past with no ill effects.  Mushrooms a few times.  Lately, I’ve been taking 4-6 generic diphenhydramine or dimenhydrinate pills an hour or so before bedtime, maybe a bit too frequently, which I find produces a pleasant light-sedation that, especially when combined with pot, helps me get to sleep.  This was my first and definitely last time with poppy seed tea.
+Set and setting:  Victoria Day long weekend in Canada.  I was house-sitting for my uncle and had the house to myself.   I had no plans or responsibilities for the weekend and figured I’d brew up some poppy-seed tea for the evening.
+Preparation:  500 grams of poppy seeds were purchased at the local Bulk Barn.  There were bits of poppy-pod mixed in with the seeds which I knew was a good sign the seeds hadn’t been washed and therefore should still contain some morphine/codeine.   The seeds were funnelled into a 2 litre pop bottle, a generous squeeze of lemon juice was added and the whole thing toped up with boiling water.  The mixture was shaken periodically and allowed to sit for an hour.  The seeds were then strained and the resulting 4 cups of opaque yellow-brown liquid was cooled in the refrigerator for several hours.
+Experience:  I started drinking the foul-tasting brew at 8:00 pm.  Since I had no opiate tolerance and this was my first time with poppy-seed tea, I chose to titrate my dosage to be safe; a precaution I’m glad I took.  By 9:00 pm (T+1:00), I had drunk approximately 1 cup of the brew.  By this time I hadn’t really felt any effects to note, aside from a mild nausea.
+Its around this time, I got a phone call from the ‘rents which lasted 15 minutes or so.  During the course of the phone call my nose began to run and my skin became itchy.  By the end of the call (T+1:15), the itchiness had increased to an uncomfortable level and my nose became completely stuffed up.   I checked myself in the mirror and found my skin was quite red and blotchy.  I shortly thereafter developed hives which covered my entire body.  I knew of the itchiness some people get from opiates and that it is caused by histamines, but clearly this was not typical.
+Luckily, I had Benadryl on hand and took 4 pills which I chewed to speed up absorption.  Within 30 minutes (T+1:45), the itchiness had subsided to a more tolerable level and the hives began to go away.  I still had hives when I went to bed (T+4:00) though, but was able to ignore them and get to sleep eventually.  By morning (T+12:00), the allergy symptoms were gone and I was back to normal.
+Throughout this experience I did not experience any of the contentment or euphoria associated with opiates, only the unpleasant allergy symptoms.   Thank goodness I only drank 1 of the 4 cups of tea I produced, otherwise the allergic reaction would surely have been too much to handle.
+My intention is not to scare people, I’m all for trying new drugs, but there is a lesson to be learnt here.  And it’s not a new one.  Start off slow when trying new drugs, namely poppy-tea, you never know how your body might react and can never be too safe.
+Exp Year: 2008
+ExpID: 71269
+Gender: Male
+Age at time of experience: Not Given
+Published: Jul 13, 2010
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Poppies - Opium (43) : Preparation / Recipes (30), Health Problems (27), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,209 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;美丽的视觉难以出现&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/al-lad.html'>← AL-LAD</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;美丽的视觉难以出现&quot;</h1>
+<div class='sub-title'>AL-LAD - Erowid Exp - &#x27;Beautiful Visuals Difficult Comeup&#x27;</div>
+<div class='meta'>作者：PsychPNW Citation · 日期：Sep 20, 2021 · 剂量：150 ug · <a href='https://erowid.org/experiences/exp.php?ID=115727' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>只是对大麻有经验, 但一直对迷幻药感兴趣,
+我对第一次旅行感到非常紧张和焦虑,
+设置是我的房子和后院.
+0:00 摄入一个150mcg的AL-LAD小片子.
+在15分钟后, 吞下了账单.
+一个小时后, 仍然觉得完全清醒.
+现在,我已经开始了.
+在此之后,出现的速度非常快.
+身体负荷是非常不舒服的刺激.
+旅行保姆建议我们去散步,我同意.
+我觉得自己在街上漂浮,
+我开始感到极度焦虑.
+时间和空间的扭曲从这里开始, 我很难判断距离,
+图像从这里开始, 似乎是彩虹油污在我的整个视野.
+我无法使用手机, 因为文字不断移动和膨胀.
+我的护士建议我们去后院.
+为了避免分心, 我把手表脱下来,
+T+ 2:25 - - 现在非常高峰.
+我的旅行保姆带我去花园.
+干燥的草原对我来说看起来很不祥,
+我很难走路, 因为身体形和深度感知完全崩.
+我指向一个树下有树的阴凉区域, 他带我去那里,
+我闭上眼睛时, 我看到我以前所看到的东西的简短图像,
+它们以螺旋形状呈现, 特别是叶展开.
+旅行护理人员带我进行一段短暂的冥想, 他们要求我想象我和地球以及地球上的所有生命之间的屏障正在解体,
+这就是我的旅程从困难变成积极的时刻,
+虽然不是很多人认为阿尔拉德的清醒思维, 但还是积极的,
+我在后院躺下, 享受闭眼的视觉.
+随着我继续和旅行护理员聊天, 我对我们正在谈论的任何事物有着强烈的闭眼视觉.
+我可以看到古代人类在飞机上漫步, 沿途收集的图像.
+的碎形也常常存在.
+眼睛有时会开, 我会看到令人难以置信的强烈蓝色或明亮绿色, 充满我的视野,
+我会说我有时会看到三级的闭眼视觉.
+一个半小时后, 仍然在后院.
+现在我已经开眼睛了, 不再被视觉所压倒,
+我注意到我有强烈的后影像-每当我的旅行护理员移动,
+彩虹螺旋形状仍在所有地方.
+看着树木在风中摇摆, 让人惊叹的美丽,
+我看着她在后面起鲜红的火花, 我几乎无法相信.
+另一次,我看到一只蜂鸟 (真的一只,不是幻觉) 在我的车库上空.
+我看着, 蓝天照着我眼中的血管, 血管似乎充满了小蜂鸟.
+然后,突然间,蜂鸟似乎分裂并向各个方向辐射,
+我确信我看到的是鸟未来可能走的路径.
+一旦它朝一个方向飞行, 所有虚幻的蜂鸟就消失了.
+5:30开始下降.
+变得更加清醒.
+身体的形状不佳 (我的手臂和腿感觉太长了) 仍然存在,
+我们回到里面播放另一部自然纪录片.
+在这里,只要一会儿,视觉完全停止 - - 在花了这么多时间倒之后,突然被扔回正常的感知是如此严峻.
+它们会在几秒钟后重现, 但不那么强烈,
+身体的负荷仍然存在, 我紧张的和我的手臂和腿感到非常不舒服,
+我觉得有点焦虑和脆弱, 但我说再见我的旅行保姆,
+总的来说,效果非常积极. 复苏的原因更多是因为我对第一次倒的焦虑,
+我不得不说我不喜欢身体负荷和它是多么令人不舒服的刺激和多长时间, 但除此之外,
+时间表: 115727
+发布时间:2021年9月20日
+导游/保姆 (39),第一次 (2),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Beautiful Visuals Difficult Comeup
+AL-LAD
+by
+PsychPNW
+Citation:   PsychPNW. &quot;Beautiful Visuals Difficult Comeup: An Experience with AL-LAD (exp115727)&quot;.
+Erowid.org
+. Sep 20, 2021. erowid.org/exp/115727
+DOSE:
+150 ug
+sublingual
+AL-LAD
+(blotter / tab)
+BODY WEIGHT:
+135 lb
+Only have experience with weed, but have always been interested in psychedelics and decided to try AL-LAD first because it was supposed to be a slightly gentler, more visual version of LSD. Was feeling very nervous and anxious about my first trip, but had an experienced trip sitter with me, and had done a lot of research beforehand. Setting was my house and backyard.
+T+ 0:00 - Ingested one 150mcg AL-LAD tab sublingually.
+T+ 0:15 - After fifteen minutes, swallowed the tab.
+T+ 1:00 - After an hour, still feeling completely sober.
+T+ 1:20 - First alert, a slight feeling of warmth and lightness in my arms.
+T+ 1:40 - Come up progressed very fast after this. Body load was very uncomfortably stimulating. Trip sitter suggests we go for a walk and I agree. Feel like I&#x27;m floating down the street in an interesting way.
+T+ 1:55 - Turned around and came back from the walk because I began feeling extremely anxious. Time and space distortions begin here- I&#x27;m having a lot of trouble judging distances, and time feels like it&#x27;s moving extremely slowly.
+T+ 2:10 - Visuals begin here, appeared to be a rainbow oil slick over my whole field of view. Objects appear distorted- I&#x27;m not able to use my phone because the words keep shifting and bulging around. I&#x27;m on the verge of having a panic attack at this point, and my trip sitter suggests we go out to the backyard. I take off my watch here to avoid distractions so all times from this point onward are an estimation.
+T+ 2:25 - Very much peaking now. My trip sitter takes me out to the garden. I&#x27;m low key trying not to panic at this point, and the dried grass looks very sinister to me- like dead birds, skeletons, beaks poking up, etc. I have a hard time walking because of the body dysmorphia and total collapse of my depth perception. My trip sitter asks where my favorite spot in the garden is and I point to a shady area underneath a tree surrounded by ferns, and he takes me there and has me close my eyes. When I close my eyes, I see a brief image of whatever I had been looking at before, which then quickly distorts and breaks apart into a beautiful fractal landscape that fills my whole field of view. The fractals take the form of spirals, and specifically, fern fronds unfolding.
+T+ 2:45 - My trip sitter leads me on a short guided meditation where they ask me to imagine the barrier between myself and the earth and all the life on it dissolving, and I feel it- it feels like I sink into the earth, and for a moment, I have a feeling that I&#x27;ve become one with the planet and the cycle of nature. Here is where my trip turned from difficult to positive- from this point on, my mood is high and remains there for the rest of the trip. Very much not the clearheaded mindset that a lot of people report from al-lad, but still a positive one, and still oriented enough to know what&#x27;s real and what isn&#x27;t.
+T+ 3:30 - For the better part of an hour, I lie in the back yard and enjoy the closed eye visuals. As I continue chatting with my trip sitter, I have intense closed-eye visuals about whatever we&#x27;re talking about. At one point we discussed the stoned ape hypothesis, and I could visually see images of ancient humans wandering the planes and picking mushrooms the found along the way. The fern fractals were also ever-present. Every now and then my eyes would crack open a little bit, and I&#x27;d get a shot of incredible intense blue or brilliant green that would fill my whole field of vision, turning the fractals all sorts of beautiful colors. I&#x27;d say I got to about level 3 closed eye visuals at times.
+T+ 5:00 - An hour and a half later, still peaking, still in the back yard. At this point I&#x27;ve now opened my eyes and am no longer overwhelmed by the visuals now that I am in a positive headspace. I notice that I have intense after images- whenever my trip sitter moves, I see trails of discrete after images of them, which fade a moment later. The rainbow spiral geometry is still present over everything. Watching the trees sway in the wind is astonishingly beautiful- it looks like a spiral kaleidoscope, everything swirling and flowing, almost like water. At one point my dog comes running through the back yard, and I actually perceive her kicking up bright red sparks in her wake, which I almost couldn&#x27;t believe. At another time, I saw a hummingbird (a real one, not a hallucination) hovering over my garage. As I watched, I could see the blood vessels in my eye against the blue sky, and my blood vessels appeared to be filled with tiny hummingbirds. Then, suddenly, the hummingbird appeared to split and radiate in all directions- it was like it was shooting out hummingbirds in a 3d sphere. I was sure that what I was seeing was all the possible future paths the hummingbird could take. As soon as it darted in one direction, all the illusory hummingbirds disappeared.
+T+ 5:30 - Starting to come down now. Becoming much more lucid. Body dysmorphia (my arms and legs feel way too long) is still present, as are the visuals, but I&#x27;m much more clearheaded now. We head back inside and put on another nature documentary.
+T+ 5:45 - Here, for just a moment, the visuals stop entirely- being suddenly thrown back into normal perception is so stark after spending so much time tripping. They come back after a few seconds, but less intense, and slowly fade over the next 30 minutes.
+T+ 7:00 - At this point, all the visual effects have gone. However, the body load is still there- I&#x27;m tensing my jaw hard and my arms and legs feel very uncomfortable, exactly like I&#x27;ve had too much caffeine. I&#x27;m feeling a little anxious and vulnerable still, but I say goodbye to my trip sitter because I&#x27;m more or less sober mentally.
+T+ 12:00 - The intervening five hours are me being totally sober and contemplating the trip, but the body load stuck around until fully the 12 hour mark, making me completely unable to sleep.
+Overall, very positive effect. the comeup was due more to my anxiety about tripping for the first time and the extremely stimulating effects more than anything else. Gotta say I did not like the body load and how uncomfortably stimulating it was and how long it stuck around for, but aside from that, it was a very positive experience I thought about for days afterwards.
+Exp Year: 2021
+ExpID: 115727
+Gender: Male
+Age at time of experience: 27
+Published: Sep 20, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+AL-LAD (603) : Guides / Sitters (39), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

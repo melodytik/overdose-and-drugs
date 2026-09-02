@@ -1,0 +1,271 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>激素 - 埃洛伊德 探索 - 银河系探索</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/zz-psychedelics-2021-jh.html'>← zz Psychedelics - 2021 JH</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>激素 - 埃洛伊德 探索 - 银河系探索</h1>
+<div class='sub-title'>LSD - Erowid Exp - &#x27;Galaxy Quest&#x27;</div>
+<div class='meta'>作者：Baz Citation · 日期：May 3, 2025 · <a href='https://erowid.org/experiences/exp.php?ID=96732' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我在一个小城市的学校上学, 我一直在试图让我的手在幻觉的整个时间在大学.
+我有一个目标:毕业前的旅行.
+不幸的是,这显然不会发生.
+两天前毕业典礼 (我的练习仪式的前一天) 一个朋友 (如果我记得正确的话,
+她购买了两张漫画, 结果我们有五个人,
+由于一些安排冲突, 我们都在晚上10点左右收费了.
+我们有M,W,K,B和我自己.
+除了我和B, 其他人都曾经尝试过某种类型的迷幻药物.
+我不太了解M, 但他是W和K的好朋友,
+我太兴奋了,没有担心.
+在11:30左右,我和K决定服用第二剂.
+尽管人们可能会预料到, 这是一个很好的决定.
+几分钟后,另一个朋友D出现,
+这是在毕业典礼前两天, 所以校园已经很.
+校园里只有高年级学生和他们的客人, 没有派对,
+我们六个人决定去探索.
+我注意到我感受到一种强烈的高兴和自满感.
+这样一来,M就会产生一瓶在黑暗中发光的气泡.
+不幸的是,它们和普通气泡一样有效.
+我开始注意到树木有多特别绿色, 院子里排成一排的椅子有多吸引人,
+我们在校园里设置了一个暗影照相机,
+到了摄影机前, 我感受到一种不可思议的幸福感.
+坦率地说,我想知道这种LSD是否会产生视觉效果,
+我有一个伟大的时间.
+我们进入黑暗的摄像头, 有人打破了灯棒.
+我们发现我们可以用里面的东西涂上墙壁.
+这很漂亮,但我仍然想知道这是否是最好的.
+记住那些在黑暗中发光的气泡
+我们注意到瓶子是有辐射的色.
+在黑暗中,它就像一颗小星.
+我们急切地让摄像机照明, 确保一切是无毒的,
+我一把杯子拿到手中,
+我可以在手中的液体中看到像碎形状的线条, 我意识到我在液体中看到的实际上是无限的.
+我凝视着烂的色无限.
+它们变成有机和合成生命的小片.
+我觉得整个宇宙都在我的手中.
+在相机的另一面,M用手指向墙壁挥动,
+每个人都成为杰克逊·波洛克.
+墙壁的油漆非常细致, 在几分钟内, 我完全失去了位置和时间的感觉.
+我站在空虚的空间里, 凝视着我们在墙上喘息的宇宙.
+我从来没有感觉到过最平静,最完整,最令人惊叹的事情.
+我意识到我正在经历一场非常激烈的自我死亡,
+尽管如此,
+我完全放心,
+在这个时候,我失去了时间的感觉.
+我站在黑暗的摄像头里看起来像几个小时, 在墙上画星星.
+让我们一起看看我们手中的星系.
+水是非常肥的, 所以每当我们试图保持它, 液体移动和移动和整个天体呼吸和生命形成.
+最终我们跑了
+我们都需要彻底的洗手.
+我们在校园里水洗手.
+她把我们带到校园的另一边, 我们从灌木走到水边.
+只有水的声音, 我们都很快就被它所吸引了.
+让我们在黑暗中看到, 我感受到一阵惊叹,
+我是最后一个倾斜下来洗的人之一.
+其他人都在小山上,距离我15英尺远.
+我把双手浸入河里, 几乎有了一种宗教体验.
+作为一个崇拜大自然的人,
+我觉得我是在某个水神祭坛,
+我觉得我已经在地哭了.
+我觉得周围的夜晚,水的声,宇宙的光在低垂的树枝上闪,
+现在我正在地哭泣.
+我觉得周围的夜晚,水的声,宇宙的光在低垂的树枝上闪,
+我有一部分人想消失在这个时刻里, 但我回到了山上,
+我躺在草地山上, 我们休息了几分钟,
+我们注意到星星是多么明亮, 地面是多么潮湿和不舒服.
+校园里有一座高层楼, 有着巨大的阿达隆达克椅子,
+我们到达了大楼, 几个人分开去所,
+现在每个人都失去对方.
+我们都会在某个时刻重新结合在一起,
+我回去找她, 没有人知道她在哪里.
+这是一个巨大的混凝土建筑,所以我把它几次.
+她无处可见, 在对建筑物进行了更长的探索之后, 我们决定她只是回到宿舍.
+我们正朝那个方向行驶, 我们在她从校园的一个花园回来时碰到她.
+尽管这件事令人担忧,
+我们回到了宿舍, 意识到大约是凌晨两点.
+我们三个人已经服用了两片药 (D,K和我自己) 躺在地板上,
+我觉得我知道他们俩的感受和经历, 这让我兴奋.
+我们花了很长一段时间,
+一切都闪亮而完美.
+让人印象深刻的是, 他完全被它所吸引.
+有人把一些音乐.
+最终每个人都开始在我认为是凌晨4点, 和W告诉我们她想睡觉,所以我们离开她和M在那里和宿舍跳.
+所以M,D和我去听一些音乐,吃一些美味的瓜卡莫利.
+我完全没有意识到我饿了, 尽管前一天的午餐时间是最后一次吃饭.
+现在已经开始亮了, 我还太高, 无法入睡,
+我在出门时遇到了B, 她告诉我她要在屋顶上观看日出.
+尽管我不适合五月天气,
+我们坐了20分钟左右,然后她就上床睡觉,我回去和M和D睡觉.
+我知道自己已经清醒到可以开车回家,
+时间是7:30.
+人们开始在校园里出现.
+我在一个半小时内要参加毕业典礼.
+我睡了一小时,醒来时感觉很舒服.
+由于无法解释的冲动, 我走到校园进行排练,
+我意识到我周围的一切似乎更加和.
+我注意到阳光的闪光或我周围空气的鲜.
+我很快就会因为不舒服而失去高潮.
+尽管如此, 离开排练后, 一切似乎更突出.
+我早餐的麦片更好吃.
+我觉得自己在漂浮.
+我记得我读过一个旅游报道,
+我突然完全理解了这一点.
+我对今晚的表现感到非常高兴.
+离开校园仅仅四个小时后,
+为了帮助我搬家,
+这将是我生命中最紧张的时刻之一, 最重要的是,
+我是一个残骸.
+我终于了一小时.
+尽管如此, 我觉得我的世界已经彻底改变了.
+运输很好,我们会再试一次.
+其他:
+LSD (2):各种 (28),治疗意图或结果 (49),关系 (44),音乐讨论 (22),自然/户外 (23),家庭 (41),烂的经历 (4),困难的经历 (5),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Follow
+@Erowid
+on Instagram!
+Galaxy Quest
+LSD
+by
+Baz
+Citation:   Baz. &quot;Galaxy Quest: An Experience with LSD (exp96732)&quot;.
+Erowid.org
+. May 3, 2025. erowid.org/exp/96732
+DOSE:
+T+ 0:00
+1 hit
+LSD
+(blotter / tab)
+T+ 1:30
+1 hit
+LSD
+(blotter / tab)
+I go to a school in a small city, and I&#x27;ve been trying to get my hands on psychedelics for my entire time at college. I have a goal: trip before graduating. Unfortunately, this was obviously not going to happen. Two days before graduation (the night before my practice ceremony) a friend (experienced with psychedelics, but not lsd, if I recall correctly) calls me at 3 pm and tells me she&#x27;s on her way to a connection. She buys two strips and we end up with a group of five people, including myself, interested. Due to some scheduling conflicts, we all took a tab at around 10:00 PM. For reference, we have M, W, K, B and myself. All except myself and B have done some sort of psychedelic. I don&#x27;t know M very well, but he&#x27;s a good friend of W and K, and my intense excitement and anticipation totally wiped out any concerns I might have had about tripping with someone I didn&#x27;t know. I was too excited to be worried.
+At about 11:30, myself and K decide to take a second dose. That famous &#x27;I don&#x27;t think it&#x27;s working&#x27; mindset kicked in, and, despite what one may expect, it was a great decision. A few minutes later, another friend, D, shows up, and she takes a dose.
+This is two days before graduation, so the campus is pretty dead. Only seniors and their guests are on campus, there are no parties, and absolutely nobody is walking around at night. So, becoming rather antsy, the six of us decide to go explore. As we&#x27;re leaving the dorm, D takes a second dose and I notice that I&#x27;m feeling an intense sense of euphoria and complacency.
+M produces a bottle of glow-in-the-dark bubbles. Unfortunately, they work about as well as normal bubbles. As I start to notice how particularly green the trees are, and how appealing the chairs all lined up for graduation on the quad are, we leave the porch and go for a walk. We have a camera obscura on campus, which essentially amounts a very dark room in one of our gardens. By the time we get to the camera, I&#x27;m experiencing incredibly bliss. Frankly, I&#x27;m wondering if this LSD will produce visuals, and I&#x27;m rationally aware of my disappointment, but that doesn&#x27;t matter at all. I&#x27;m having a great time. We get into the camera obscura and somebody breaks out glowsticks. Some of them have broken, so we discover that we can paint the walls with the stuff inside. It&#x27;s pretty, but I&#x27;m still wondering if this was as good as it got.
+Remembering the glow-in-the-dark bubbles
+M pulls them out and we notice that the bottle is an irradiated orange color. In the dark, it&#x27;s like a little star. We frantically get some light in the camera to make sure everything is non-toxic, and M starts doling out the soapy glowing liquid. My mind pretty much stops as soon as it&#x27;s in my cupped hands. I can see fractal-like lines in the liquid in my hands, and I realize that there is literally no end to what I can see in the liquid. I&#x27;m staring into glowing orange infinity. The fractals become little slices of organic and synthetic life. I feel like an entire universe is being held in my hands. Across the camera, M flicks his fingers at the wall and there are suddenly stars all around us. Everyone becomes Jackson Pollock. We paint the walls so thoroughly that, for a few minutes, I lose all sense of location and time. I&#x27;m standing in empty space, staring at the cosmoses that we&#x27;re panting on the wall. It was one of the most peaceful, complete, and breath-taking things I have ever felt. I realize I&#x27;m experiencing a pretty intense bout of ego-death, which was something I was concerned about when reading about Lucy. It feels completely natural, however. I am totally at ease with everything that is happening in and around me.
+I lose sense of time at this point. I&#x27;m standing in the camera obscura for what seems like hours, painting stars on the wall. D, K and I eventually just huddle around each other and watch the galaxies in our hands. The water is incredibly soapy, so whenever we try to hold it, the liquid shifts and moves and entire celestial bodies breathe and form life.
+Eventually we run out
+and we could all use a thorough handwashing. B tells us to follow her to the creek, so we traipse across campus to wash our hands in the running water.  She takes us to a point almost entirely across campus, and we step down through the undergrowth to the water&#x27;s edge. Everything is silent except for the sound of water, and we all quickly become enraptured. M splashes some of the rest of the glowing concoction around so we can see in the pitch-blackness and I experience such a rush of awe at the sight and sounds of what what was happening around me. The water is moving slowly, and M dumps the rest out into the water so we can see the water&#x27;s edge, and I&#x27;m one of the last people to lean down to wash off.
+Everyone else at this point is up a little hill, a good fifteen feet away from me. As I dip my hands into the creek, I&#x27;m having an almost religious experience. As someone who practices nature-worship, this moment was one of the most profound and meaningful of my life. I feel like I&#x27;m at some water god&#x27;s altar; like I&#x27;m stepping into some holy realm. I think I&#x27;m quietly crying at this point. I feel totally embraced and comforted by the night around me, by the sound of the water, by the glow of the universes splashed onto low-hanging tree branches.
+I&#x27;m quietly crying at this point. I feel totally embraced and comforted by the night around me, by the sound of the water, by the glow of the universes splashed onto low-hanging tree branches.
+Some part of me wants to disappear into this moment, but I head back up the hill and let D and K wash their hands.
+Overcome by my own emotion, I lay down next to B on the grassy hill and we wind down for a few minutes while everyone else finishes cleaning themselves. We notice how bright the stars are, and how wet and uncomfotable the ground is. There&#x27;s a sky deck on one of the buildings on campus with big adarondak chairs, so we decide to head there next. We get to the building and a couple of us split up to go to the bathroom before heading up to the roof. Unfortunately at this point, everyone seems to lose everyone else. We all wind up back together at one point with the sole exception of B. W is anxious that we&#x27;ve lost her, so I go back into the building to look for her. It&#x27;s a huge concrete building, so I canvas it a couple times. She&#x27;s nowhere to be found, and after an even longer exploration of the building, we decide that she just went back to the dorm. As we were headed that way, we pretty much run into her on her way back from one of the gardens on campus. Despite the worrisome nature of this incident, I felt totally calm and generally unconcerned the whole time.
+We head back to the dorm and realize it&#x27;s about 2 AM. Three of us who had taken two tabs (D, K and myself) lie down on the floor and engage in some mind meld that is almost indescribable. I feel like I know what both of them are feeling and experiencing and it thrills me. We spend a long time simply laughing at everything and nothing. Everything is shining and perfect. B picks Fight Club off of the bookshelf and impressively is totally absorbed by it. Someone puts on some music. Eventually everyone starts winding down at what I think was 4 AM, and W tells us that she wants to go to sleep, so we leave her and M there and dorm-hop. B departs at this point to relax in her own room, so M, D and I go listen to some music and eat some tasty, tasty guacamole. I had been completely unaware of my hunger despite having last eaten at lunch time the previous day.
+It&#x27;s starting to get light out, and I&#x27;m still way too high to go to sleep, too aware of my own muscles and breathing. I use the restroom and run into B on the way out, who tells me she&#x27;s going to watch the sun rise on the roof. Despite being unnaturally chilly for May, I join her, and come down while watching the sun come up. We sit there for 20 minutes or so before she heads to bed and I go back to doze with M and D. Realizing that I&#x27;m sober enough to drive back to my apartment, I check my phone as I&#x27;m leaving. 7:30. People are starting to show up on campus. I have graduation rehearsal in an hour and a half.  I sleep for one hour, and wake up feeling pretty well-rested. Seized by the inexplicable urge to walk to campus for rehearsal I do just that.
+For the hour or so, I realize that everything around me seems a little more saturated. I notice the sparkle of sunlight or the particular crispness of air around me. Unfortunately, I was being ravaged by direct sunlight through my rehearsal, so my high is pretty quickly killed by my discomfort. Even so, after leaving rehearsal, everything seems more salient. My brunch oatmeal is tastier. I feel like I&#x27;m floating. I recall a trip report that I read about someone taking half a tab in the morning with their morning coffee and simply being more interested in the world around him. I suddenly understand this completely. I simply could not have been more pleased with the night.
+Only four hours after leaving campus, I was packing up my apartment so I could move out. My entire family including my very young and very energetic brother was there to help me move. It would have been one of the most stressful moments of my life to begin with, and to top it off, I was obviously still under the effects of a brand new substance. I was a wreck. I ended up sobbing for about an hour.
+Despite that, I feel like my world has been completely revolutionized. A++ excellent shipping, would try again.
+Exp Year: 2012
+ExpID: 96732
+Gender: Female
+Age at time of experience: 22
+Published: May 3, 2025
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+LSD (2) : Various (28), Therapeutic Intent or Outcome (49), Relationships (44), Music Discussion (22), Nature / Outdoors (23), Families (41), Glowing Experiences (4), Difficult Experiences (5), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

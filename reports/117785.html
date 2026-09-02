@@ -1,0 +1,194 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>在黑暗的房间里&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-ho-pcp.html'>← 3-HO-PCP</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>在黑暗的房间里&quot;</h1>
+<div class='sub-title'>3-HO-PCP - Erowid Exp - &#x27;Pure Terror in a Room of Darkness&#x27;</div>
+<div class='meta'>作者：artackni Citation · 日期：Jan 8, 2024 · <a href='https://erowid.org/experiences/exp.php?ID=117785' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>解离剂</span></h2>
+<div class='body'>[Erowid的注意事项:
+两个相同体积的粉末样本 (即使是相同的化学物质) 不一定重量相同.
+因此,眼球测量是一种不准确且可能危险的测量方法,特别是对于非常少量的活性物质.
+看看
+这篇文章是关于测量剂量的重要性
+没有.
+我已经服用了3ho- pcp大约6次, 4次通过鼻子和2次通过口服,这是一个随机的晚上大约2个月前 (Nov.
+我和我的朋友们决定服用这种药物.
+我们总共有5人倒,还有2人清醒,并且处于封闭环境中,所以我们决定服用更高剂量 (每个人都想要服用约12mg).
+由于我们都没有一个很大的容忍在这一点.
+我们都很快就开始了 (我需要15分钟才能注意到第一种效应).
+我很难忘记自己在哪里, 但在回忆起自己在哪里后不久,
+在这个时候, 我几乎每隔几分钟都着地面或墙壁, 当站起来时, 我几乎看起来像一个尸, 没有协调, 速度很慢.
+这就是一切开始走向南方的时候, 一个朋友走到我身边, 问我能不能再多喝一些,
+我在这个时候甚至不知道什么是现实, 也不知道如何说话/正确走路点了点头,
+我很难把我的袋子拿出来, 但不知怎么的, 我做到了,
+但是由于我无法确切地知道这是由于3ho-pcp如此强大而我什么也看不到,
+我把它分成两半,他拿了一半,出于某种原因,我决定拿剩下的,回到剩下的.
+我必须从朋友们告诉我的情况开始报道.
+我唯一记得的是,我不在之前的位置,我在另一个维度,房间似乎没有大小,
+人们的声音听起来不像人说话, 而是机器人声音,
+据我所知, 我只能坐下, 大眼睛, 望着虚无,
+我突然开始, 仿佛我正在死去 (看起来好像有人用电击击中了我) 持续了大约30分钟.
+我突然开始发, 仿佛我正在死去 (看起来好像有人用电击击中了我) 持续了大约30分钟.
+随机开始站立, 开始到处吐,
+他们决定把我的手绑起来, 让我坐下,
+我记得我的衣服里充满了吐和来自我的可怕的恶臭.
+我似乎大部分时间都睡着了,
+时间和现实没有意义.
+我觉得我会永远处于这种状态, 这是上帝对我一生所犯的罪恶的惩罚.
+我闭上眼睛,试图睡觉,
+我闭上眼睛, 看到一个实体告诉我这将是我的惩罚,
+时间+15点左右, 我醒来后5分钟内仍然感到相当昏昏欲睡,
+我最后一次使用这种物质是拿起袋子,
+时间表: 117785
+发布时间:2024年1月8日
+3-HO-PCP (838):过量服用 (29),困难经历 (5),小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Pure Terror in a Room of Darkness
+3-HO-PCP
+by
+artackni
+Citation:   artackni. &quot;Pure Terror in a Room of Darkness: An Experience with 3-HO-PCP (exp117785)&quot;.
+Erowid.org
+. Jan 8, 2024. erowid.org/exp/117785
+DOSE:
+T+ 0:00
+12 mg
+insufflated
+3-HO-PCP
+(liquid)
+T+ 0:45
+1 line
+insufflated
+3-HO-PCP
+(powder / crystals)
+BODY WEIGHT:
+55 kg
+[Erowid Note: 
+Two samples of powder (even of the same chemical) with equivalent volumes won&#x27;t necessarily weigh the same. For this reason, eyeballing is an inaccurate and potentially dangerous method of measuring, particularly for substances that are active in very small amounts.
+See
+this article on The Importance of Measured Doses
+.]
+I had taken 3-ho-pcp about 6 times at this point, 4 times nasally and 2 times orally, it was a random evening about 2 months ago (Nov. 2023) and I was out with my friends when we decided to take this substance. We had a total of 5 people tripping and 2 people sober and were in a closed setting, so we decided to take a higher dose (wanted to take about 12 mg each).
+T + 0:00 So I weight out 60 mg of 3-ho-pcp and dissolved it into a nasal spray for everyone to take 5 hits and have ingested 12 mg. Since none of us had a big tolerance at this point. We all started to come on quite fast (about 15 minutes for me to notice the first effects).
+T+ 0:30 I was feeling it hard, forgetting where I was once in a while, but shortly after remembering where I was which built quite some anxiety in me as I knew the peak was yet to come. At this point, I pretty much was staring at the ground or a wall for several minutes at a time and, when standing up, almost looking like a zombie, having no coordination and moving at a very low speed.
+T + 0:45 This is where it all began to go south as one friend came up to me and asked me if he could have some more as he didn&#x27;t really feel anything. Me at this point not even knowing what reality is, nor how to speak / properly walk nodded my head, went to the bathroom with him and prepared another line of 3-ho-pcp. I had double visions and tracers so much I barely was able to get my baggy out, but I somehow was able to do it and laid a line for him. But as I wasn&#x27;t really able to know how much it was due to 3-ho-pcp being this potent and me not seeing anything, the line was about 7 cm long, so he said I should split it in half. I split it in half, he took the half and for some reason I decided to take the rest and go back to the rest.
+T + 1:00 At this point my memory begins to fade, and I&#x27;ll have to start reporting from what I&#x27;ve been told from my friends. The only thing I remember is that I wasn&#x27;t where I was before, I was in another dimension, the room didn&#x27;t appear to have size and was everything I knew, it was infinitely big but infinitely small at the same time. Also, the people talking didn&#x27;t sound like people talking but rather just robotic sounds which made 0 sense to me. So from what I&#x27;ve been told, I just sat down with my eyes opened as wide as I could looking into nothingness while not even making a sound, looking at anyone or moving if someone was talking to me.
+T + 1:30 At this point I suddenly started to shake as if I was dying (looking like as if someone tased me) for around 30 minutes.
+I suddenly started to shake as if I was dying (looking like as if someone tased me) for around 30 minutes.
+After these 30 mins I randomly started standing, starting to puke everywhere, running against a wall and fighting everyone that tried to stop me from doing this. Until they decided to tie my hands up and sit me down so I couldn&#x27;t do any more harm to them / myself.
+T + 4:15 This is the point where my memories slowly came back, I remember my clothes being full of puke with an awfully disgusting smell coming from me. I apparently slept most of the time, so when I woke up I instantly got asked how I am, to which I couldn&#x27;t answer but rather talked gibberish. Time and reality had no sense.
+to me, I felt like I would be in this state forever and this was my punishment from god for all the sins I had committed in my life. I closed my eyes, trying to sleep while hoping to die to bring this to an end. I closed my eyes and there was an entity telling me that this will be my punishment, repeating over and over, that I will never die, and this endless suffering won&#x27;t end over and over.
+T + 15:00 About when I woke up I still felt quite drowsy for the next 5 minutes, but I realized that I was back, and it finally ended. The last thing I did with this substance was taking the bag and flushing it down the toilet to not have anything like this happen ever again.
+Exp Year: 2023
+ExpID: 117785
+Gender: Male
+Age at time of experience: 17
+Published: Jan 8, 2024
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3-HO-PCP (838) : Overdose (29), Difficult Experiences (5), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

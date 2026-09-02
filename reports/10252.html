@@ -1,0 +1,163 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>GHV和GVL - 埃洛伊德的经验 - &quot;GHV和GHB的比较&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/ghv.html'>← GHV</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>GHV和GVL - 埃洛伊德的经验 - &quot;GHV和GHB的比较&quot;</h1>
+<div class='sub-title'>GHV &amp; GVL - Erowid Exp - &#x27;GHV &amp; GHB Compared&#x27;</div>
+<div class='meta'>作者：Renwick Citation · 日期：Oct 28, 2001 · <a href='https://erowid.org/experiences/exp.php?ID=10252' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>我平均每周使用2至3次GBL, 而我需要更高剂量的GHV/GVL可能是与GHB/GBL相互耐受性的证据.
+我从来没有建议任何人一次服用10克以上的GHV.
+有时你能把自己带回以前的位置,
+作为一个附加说明,
+我建议将GVL混合在某种果汁中, 因为直接喝它是一种相当不愉快的体验,
+根据剂量,GHV/ GVL的效果持续约3 - 4小时,比GBL/ GHB长约一个小时.
+GHV/GVL的作用与二类药物 (Valium,Xanax等) 的效果相比,更类似于GHB或GBL.
+像类药物GHV和GVL一样具有强烈的肌肉松特性.
+虽然我认识的其他尝试过GHV/GVL的人都没有使用过类药物的经验.
+我发现GHV/GVL的肌肉松特性在减轻我紧张性头痛的症状方面非常有帮助,
+作为一种睡眠辅助剂, GHV/GVL对我来说绝对比 GHB/GBL更有效,
+GVL/GHV的抗焦虑性质与GBL/GHB的抗焦虑性质大致相同.
+我从来没有尝试过任何剂量的GHV/GVL产生GHB/GBL产生的高兴/中毒/醉酒状态,
+在公共场合表现得更容易,
+GHV/GVL似乎比聚会和社交更有效放松.
+其他我注意到的GHV/GVL的副作用包括手/脚冷,血压降低,脉下降.
+结合在一起的GHV/GVL比单独的更有趣.
+GVL和GHV与大麻很好地结合在一起,
+我还注意到GVL/GHV有趣的效果, 它可以用来增强GHB/GBL经验的效果.
+我不确定为什么会这样, 某种程度上我认为它不应该起作用, 因为我听说GHV对GHB/GBL的受体有15%的亲和力,
+也可以缓解更有远见的药物的下降.
+总的来说, GHV/GVL 是适合与朋友坐在一起聊天或在家放松,看电影或读书的药物.
+但它有个很好的体验性&quot;味道&quot;,
+如果您期待一种与GHB完全相同的药物,
+像往常一样, 您的行程可能很长所以不要去探索任何新的化合物没有保姆的存在,
+其他:
+GHV (213), GVL (214):各种 (28),回顾 / 总结 (11),组合 (3)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>GHV &amp; GHB Compared
+GHV &amp; GVL
+by
+Renwick
+Citation:   Renwick. &quot;GHV &amp; GHB Compared: An Experience with GHV &amp; GVL (exp10252)&quot;.
+Erowid.org
+. Oct 28, 2001. erowid.org/exp/10252
+BODY WEIGHT:
+165 lb
+I have tried both GHV (4-methyl-GHB) and GVL (4-pentolide), which was sold under the brand name Tranquil-G, on a number of occasions this report will be a summation of those experiences.  I am including both substances in the report since their effects are basically the same as GVL converts into GHV in the body. Although I believe the conversion from GVL into GHV works the same way as the conversion of GBL into GHB, so the people that experience a significant difference in effect between GBL and GHB may also experience GVL as being different from GHV. For myself, however, this is not the case and I find them to be similar compounds. The only difference that I notice is it takes about 10 minutes for GHv effects to begin versus 15-30 minutes to feel the GVL.
+The dosage for either compound seems to range between 3 and 8 grams with 4 being the average dose that most of my acquaintances feel is effective. My personal dose seems to be higher at around 7 grams. I use GBL on average about 2-3 times per week, and the fact that I need a higher dose of GHV/GVL may be evidence of some cross tolerance with GHB/GBL. At a dosage of 12 grams I experienced nausea and dizziness and would never suggest that anyone take over 10 grams of GHV at once. Booster doses seem to work sporadically, sometimes you are able to bring yourself back up to the place you were before other times it seems to have no effect. As a side note GVL is the worst tasting substance I have ever tried and is almost nausea inducing by taste alone. I suggest mixing GVL into some kind of juice because drinking it straight is a fairly unpleasant experience, although I still haven&#x27;t found any drink that even comes close to masking the taste. Depending on dosage the effects of GHV/GVL last about 3 - 4 hours, which is about an hour longer than GBL/GHB.
+The effects of GHV/GVL bear more similarity to benzodiazepines (Valium, Xanax, etc.) than either GHB or GBL. Like the benzodiazepines GHV and GVL have strong muscle relaxant properties. My personal experience with these compounds is that GHV/GVL is actually a much stronger muscle relaxant than any of the benzodiazepines although none of the other people I know that have tried GHV/GVL have any experience with benzodiazepines. I have found that the muscle relaxant properties of GHV/GVL are very helpful in reducing the symptoms of my tension headaches, even more so than GBL is, which was the reason why I started taking GBL in the first place.
+As a sleep-aid GHV/GVL is definitely much more effective for me than GHB/GBL although it doesn&#x27;t seem to have as much of the &#x27;knock-out&#x27; effect of GHB/GBL at higher doses.  The anti-anxiety properties of GVL/GHV are about equal to those of GBL/GHB.  The euphoric/intoxicated/drunk state that GHB/GBL produces is not produced by GHV/GVL at any dose I have ever tried and coordination also seems to be less effected. To me it seems much easier to function in public situations where you need people to believe you are sober than GBL /GHB. GHV/GVL seem to be more effective for relaxing than they are for partying and socializing. Other effects I have noticed from GHV/GVL include cold hands/feet, lowered blood pressure, and a decrease in pulse.
+In combination GHV/GVL are much more interesting than they are by themselves. GVL and GHV combine nicely with marijuana by blocking the paranoia it can cause and increasing its relaxing effects. I have also noticed an interesting effect with GVL/GHV, it can be taken to boost the effects of a waning GHB/GBL experience. I am not sure why this is and some part of me says it shouldn&#x27;t work, as I have heard that GHV has about 15% more receptor site affinity of GHB/GBL and that the GHV/GVL should just overpower the GBL/GHB, but it works my associates and I. GHV/GHL can also be nice to relax the comedown of the more visionary drugs.
+Overall, I&#x27;d say that GHV/GVL are good drugs for sitting around talking with friends or relaxing at home and watching a movie or reading a book. There is nothing to crazy to be found in this drug, but it has a nice experiential &#x27;Flavor&#x27;, that is all it&#x27;s own. If you are expecting a drug that is exactly like GHB look elsewhere, if you just want a few hours to rest and enjoy life this may be just what you are looking for. As always, your mileage may very so don&#x27;t go exploring with any new compound without a sitter present and start with a low dose.
+Exp Year: 2001
+ExpID: 10252
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 28, 2001
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+GHV (213), GVL (214) : Various (28), Retrospective / Summary (11), Combinations (3)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

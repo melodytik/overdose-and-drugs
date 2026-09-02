@@ -1,0 +1,202 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>达图拉 - 埃罗维德 探险 - &quot;潘多拉的盒子&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/datura.html'>← 曼陀罗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>达图拉 - 埃罗维德 探险 - &quot;潘多拉的盒子&quot;</h1>
+<div class='sub-title'>Datura - Erowid Exp - &#x27;A Pandora&#x27;s Box&#x27;</div>
+<div class='meta'>作者：jroc Citation · 日期：Aug 4, 2013 · 剂量：100 seeds · <a href='https://erowid.org/experiences/exp.php?ID=70154' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>十一年前, 当我十六岁的时候,
+我每周抽几次大麻, 偶尔尝试, 代代因, 麻醉药, 和酸当它来了.
+我第一次尝试吉姆森草的时候,
+我相信我能承受强烈的效果, 据说是无数的效果,
+果实含有种子自然分成四分之一.
+我吃了大约25-30个种子,
+我记得与LSD不同的是,
+我认为,只拿25分钱, 偏执是温和的.
+身体, 轻微的幻觉.
+墙壁可能会&quot;波动&quot;一点,或者小&quot;物体&quot;会爬过平坦的空间.
+但总有一种轻微的感觉,
+这种感觉对我来说是轻微的.
+我没有完全满意这次旅行的水平, 我听取了一个朋友的建议,
+我吃了半个, 所有所说的效果都是一样的,
+我确实注意到听觉幻觉的增加.
+我知道的声音 (或至少我相信它们是真实的) 经常会改变音调和音高, 就像在LSD中一样,
+这增加了吉姆森大麻的普遍偏执,
+只是一种稍微奇怪的,令人毛骨然的感觉, 在旅行的大部分时间里一直存在,
+一旦我把一个完整的子 (容易100种子), 所有的注都结束了.
+尽管我很熟悉强力旅行, 但这将是我理智的战斗.
+我在星期五晚上9点左右服用了全剂量.
+我开始注意到一个愉快的轻便之旅.
+在我的眼前, 一棵在朋友院子前的树长出了新的树枝,
+我回家睡觉后, 感觉好像有个好体验,
+药物在这个剂量似乎让我睡觉, 虽然我知道其他三人服用四分之一, 觉得足够累睡觉,
+我认为我醒来的时候大约在早上,因为我认为我记得它是明亮的外面,但我甚至不能说这很准确.
+当我醒来时,我得很厉害.
+我的运动能力完全受损了, 因为我几乎站不起来或走路,
+我会在内心着我看到的和想到的每一件事,
+这听起来像一个疯子的喊, 因为这句话毫无意义, 迅速说出来,
+我也开始经历一种幻觉性经历,
+整个旅程我都处在&quot;意识&quot;的世界里, 看到和听到扭曲的东西,
+但后来,我经常陷入昏迷状态,
+我会在那里停留几分钟, 根据其他清醒的人可以帮助我大致计算.
+我从我的&quot;潜意识&quot;状态中走出来, 无论我在潜意识中保持什么 (我知道我最近一直在思考的事情) 都变成了现实,
+只有当我回到了意识之旅时才意识到潜意识的梦想并非真实.
+我很快意识到即使在这种状态下, 如果我过于惊慌失措,
+我一直在&quot;翻转&quot;这些状态的&quot;&quot;好16小时 (大约.
+我醒来的时候是早上8点,
+我听到一个小男孩被困在通风口的低声.
+他整个晚上都跟我说话.
+我还认为我有心灵感知能力, 我记得听到一位医生在心里说他不喜欢我,
+我也读到了继父的思想.
+我得到了一个导管 (请相信我,即使在最强的药物
+伤心
+并且让他们喝木炭.
+我相信我被警告不要好好战, 否则我会被带到精神病房 (虽然这也可能是听觉幻觉).
+总的来说,这是一个非常可怕的经历,
+我估计它发生大约每5-30分钟, 在非常不均的间隔,
+我不能说我推吉姆森给任何人.
+我有一个朋友表现得像我做了当我拿了一个,他只拿了四分之一.
+我还有一位朋友从他的厨房地板上收集了一整群裸体的毛皮球.
+它的力量是如此不可预测,
+我强烈建议绝不尝试任何剂量的这种药物.
+其他:
+2013年8月4日发布
+时间 (15):回顾 / 总结 (11), 艰难经历 (5), 过量服用 (29), 其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+A Pandora&#x27;s Box
+Datura
+by
+jroc
+Citation:   jroc. &quot;A Pandora&#x27;s Box: An Experience with Datura (exp70154)&quot;.
+Erowid.org
+. Aug 4, 2013. erowid.org/exp/70154
+DOSE:
+100 seeds
+oral
+Datura
+BODY WEIGHT:
+170 lb
+Eleven years ago, when I was sixteen, I was really into drugs. I was smoking pot several times a week, occasionally trying blow, codeine, MDMA, and acid when it came around. By the time I first tried Jimson weed I had already went on a good 20 or so LSD trips. So when Jimson weed was offered to me, I felt confident that I could handle its strong effects, which were said to be a myriad of effects, lasting for 12-16 hrs.
+The first few times I took Jimson weed, I only took a ¼ “pod” - the fruit containing the seeds are naturally separated into quarters. I ate the roughly 25-30 seeds, and had a good, if slightly weird trip. I remember that unlike LSD, Jimson produced a paranoia seemingly by design. I suppose that by taking only a quarter, the paranoia was mild. I had sloppy motor skills as if I were drunk, a body trip, and mild hallucinations. A wall might “wave” a little bit, or little “things” would crawl across flat spaces. But there was always a mild feeling that an ominous force or being was somewhat close. Again this feeling was mild at the quarter pod dose for me.
+After taking a quarter pod dose 2 or 3 times, and having not been completely satisfied with this level of trip, I took the recommendation of a friend to upped my dose. I ate a half pod, and all the said effects were the same, just with greater intensity. At this dose I did notice an increase in auditory hallucinations. Sounds that I knew (or at least felt confident were real) often changed tone and pitch, much like on LSD, but I also heard very odd things that I knew not to be real, mostly people speaking to me whom I knew were nowhere near me. This added a little to the general paranoia that accompanies a Jimson weed trip in my experience and in the stories of others who have taken it. However, as with the quarter dose, this was pretty manageable, just a slightly odd, eerie feeling that persisted through much of the trip which at this dose lasted about 10hrs for me, with maybe a few more hours of bad vision, and a very slight body trip as it worked itself out.
+Once I took a full pod (easily 100 seeds), all bets were off. Even though I was pretty well versed in strong trips, this was to be a fight for my sanity. I took the full pod dose about 9pm on a Friday night. By around 10:30 or so I started to notice a pleasant, light trip. A tree out front of my friend’s yard was growing new branches and sprouting and gyrating before my eyes. A good body trip with light hallucinations lasted for somewhere around 30-60 mins, when I went home and went to sleep. The drug at this dose seems to put me to sleep although I know of three others who took a quarter and felt tired enough to go to sleep, and woke up tripping. I believe I woke up sometime around morning, as I think I remember it being light outside, but I cannot even say this with much accuracy. When I woke up I was tripping very hard. My motor skills were completely damaged, as I could barely stand or walk,and my mind was making fast-paced free association with everything. I would mumble to myself everything that I saw and thought as my mind raced faster than it ever had, faster than my mind could make sense of the ideas it produced. It sounds like the rantings of a madman, as the sentences make no sense, are rapidly said, and have seemingly no fluidity of thought. I also started to experience a hallucinogenic experience I have only been under while on Jimson. Throughout my trip I would be in the “conscious” world, seeing and hearing distorted things, and many things that weren’t there at all. But then, very frequently, I would go catatonic, into a waking dream where whatever happened seemed so real that I could not tell it from reality. I would stay there briefly for maybe a few minutes from what others who were sober were able to help me roughly calculate. As I came from my “subconscious” state, where whatever I held in my subconscious (things I knew I had been pondering recently) were made in to vivid reality, I came back into a conscious trip where I suddenly realized that I was just in a dream state. The frightening thing is that I only realized that the subconscious dream was not real when I came back to my conscious trip (which is still intense). I soon realized even in this state that if I ever got too freaked out, when another subconscious trip hit, the fears held in my subconscious would become my reality. I kept “flipping” in and out of these states of tripping for a good 16 hrs (approx. 8 am when I woke - roughly midnight when I was released from the hospital, nearly sober).
+When I was in the hospital (my mom found me around 5pm and immediately took me) I heard the whispers of a little boy trapped in a vent. He talked to me throughout the night. I also thought I had telepathy, and can remember hearing one of the doctors saying in his mind that he didn’t like me and wanted to beat me. I also read my stepfather’s mind. I was given a catheter (please believe me, even on the strongest drugs this
+hurts
+), and made to drink charcoal. I believe that I was warned not to be combative, lest I be taken to the psyche ward (though this too could have been a auditory hallucination).
+All in all it was a very frightening experience, as I began to dread the subconscious trip that was always around the corner. I estimate that it occurred roughly every 5-30 minutes, at very uneven intervals, naturally, based on what I have seen and heard. I can’t say that I recommend Jimson to anyone. I had a friend act like I did when I took one pod, and he only took a quarter. I have also had a friend who took a whole pod who was naked collecting lint balls off his kitchen floor. It is so unpredictable in its strength from pod to pod, plant to plant, and of course, user to user. I would seriously recommend never trying this drug in any dosage.
+Exp Year: 1997
+ExpID: 70154
+Gender: Male
+Age at time of experience: Not Given
+Published: Aug 4, 2013
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Datura (15) : Retrospective / Summary (11), Difficult Experiences (5), Overdose (29), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

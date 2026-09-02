@@ -1,0 +1,238 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>现在,你知道什么吗?</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/bk-mbdb.html'>← bk-MBDB</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>现在,你知道什么吗?</h1>
+<div class='sub-title'>bk-MBDB - Erowid Exp - &#x27;Well What Do You Know About That?&#x27;</div>
+<div class='meta'>作者：Moe · 日期：Feb 29, 2012 · <a href='https://erowid.org/experiences/exp.php?ID=91069' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>八点吃160毫克的布提隆在一个几乎空腹.
+已经在大麻上了.
+8:15可能一些增加的能量,一个温和但非常干净的刺激,或者也许安慰剂
+8:25仍然没有很多
+8:35刺激增加,轻微的高兴似乎正在建立.
+八点四十分抽了一碗大麻, 这似乎是带来它.
+现在,这感觉像一个相当高的石头.
+诚实地说,这并不像我预期的那么强烈, 具体来说,
+虽然刺激非常清洁, 没有任何迹象表明有显著的血清素或甲醇胺释放.
+至少不是在这个剂量.
+8:50 强度增加...
+我现在可以看到,这药的&quot;&quot;方面, 这也是一个非常&quot;沉重&quot;的刺激...
+我说这更接近于甲基/可卡而不是Mdma/甲基, 但这当然不意味着这是一件坏事,
+9:05 仍在相同的水平, 但心率似乎正在增加, 虽然没有什么令人担忧的.
+尽管如此,它还远远不如4mmc.
+我开始发,所以我穿上了额外的衣服,现在我感觉很热,所以打开风扇.
+这是一个很好的平衡.
+拉伸很长一段时间, 打哈欠,
+我最后一次检查后, 兴奋的状态变成了在房间里漫步, 抽烟,
+像往常一样,迷失在自己的脑海中很有趣.
+现在的情况与15分钟前一样.
+虽然有时还在走路, 但已经不那么多了.
+我只能说这是一种良性但强烈的兴奋剂.
+我希望在这个特别的夜晚,
+而且没有真正的降低, 因为血清素从来没有真正发挥作用.
+准备重新注射, 因为我觉得已经到了那个时候了.
+9:45 刚重新服用 125 毫克
+我看了几分钟的拖车公园男孩, 然后感觉很热和出汗我决定出去吸另一个碗.
+为了你,我很乐意跳过,但总之,这是一次非常严,非常&quot;清醒&quot;的体验,
+这种药物非常适合内省工作.
+外面是60度,闪电和雨和雷声, 但与我的身体是多么热感觉很棒.
+很好的一段时间.
+现在回到里面,我要去抽烟.
+10:55一直在一个非常好的连续水平,因为我一直在吸烟这个... 我还没有完成碗,但我有点想象一旦我做了这高将开始回来...
+醒的高兴情绪持续不减.
+如果他们想要一块真正坚实的卷子, 我可以理解为什么人们不喜欢这个,
+还在慢慢地抽烟, 露营车公园的男孩是美妙的
+11:40你知道它仍然很难说如果我下来了很多,我仍然非常高.
+很热,所以我把风扇放得全力以赴, 口香糖,
+尽管如此,情况仍然良好.
+这真是个好时光.
+我完全忘记了这份报告 (这似乎总是在最后发生).
+我终于自慰了, 并且它对我来说和好兴奋剂一样好 (令人惊叹!),
+在最后一个条目之后, 我放弃了报告.
+我从头脑中开始涌现出来的清晰而珍贵的意识流逐渐消退.
+除此之外,下来是非常渐进的事情,非常温和,吃食物是可能的,没有恶心或头痛,没有过度刺激或不舒服,没有恶魔或moreish感觉.
+但正如前面提到的, 就像任何好的兴奋剂一样, 整场比赛的第二半场要么是自慰,
+我觉得很高, 考虑到我能够快速地入睡, 直到8个小时后才醒来,
+最后的一句话:
+虽然我对这种经验的期望很低 (但仍然抱有很高的希望),
+我在某种程度上同意这一点, 然而我经常看到人们更进一步,
+我觉得丁和甲基或甲基的劣势,
+但如果我们把这些化学物质单独考虑,它们可以是非常愉快,非常有益的物质 (或不,取决于个人品味和大脑化学).
+肯定没有任何东西能让你表达对全人类无条件的爱, 就像我在使用MDMA时能表达的那样.
+提供了非常清晰的思想和一些非常精确的想法,
+我在其他地方写的东西中仍然有相关性和真实性.
+我个人喜欢这种化学物质.
+我不是最喜欢的, 但我可以肯定看到这种化学物质有其时间和地点.
+如果您不喜欢重度刺激剂,
+对于我来说,这种化学物质的长度 (绝对不是很长,但比4-mmc或bk-mdma更长),刺激的乐趣,心态的价值,体验的强度,
+其他:
+bk-MBDB (348) : 烂的经历 (4), 第一次 (2), 孤独 (16)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+Well What Do You Know About That?
+bk-MBDB
+by
+Moe.ron
+Citation:   Moe.ron. &quot;Well What Do You Know About That?: An Experience with bk-MBDB (exp91069)&quot;.
+Erowid.org
+. Feb 29, 2012. erowid.org/exp/91069
+DOSE:
+T+ 0:00
+160 mg
+oral
+bk-MBDB
+(powder / crystals)
+T+ 1:20
+1 bowl
+smoked
+Cannabis
+T+ 1:45
+125 mg
+oral
+bk-MBDB
+(powder / crystals)
+T+ 2:35
+1 bowl
+smoked
+Cannabis
+T+ 2:55
+1 bowl
+smoked
+Cannabis
+BODY WEIGHT:
+145 lb
+8:00 eat 160 mg of butylone on a mostly empty stomach. Already high on marijuana.
+8:15 perhaps some increase in energy, a mild but very clean stimulation, or perhaps placebo
+8:25 still not much
+8:35 stimulation increasing, mild euphoria seems to be building.
+8:40 smoking a bowl of marijuana and this seems to be bring it on. As it is, this feels like quite a stoning high. To be honest not as strong as I was expecting, specifically, ive read this a very “tweaky” chem but it doesnt appear to be especially so. Very clean stimulation though, nothing indicates significant serotonin or catecholamines release. Not particularly “rushy” either, at least not at this dose.
+8:50 Gaining intensity... I can see it now, the “rushy” aspect of this drug and this is also a very “heavy” stimulation... heart, for now, is fine though.
+8:55 feeling fucking fantastic... id say this is closer to meth/coke then mdma/methylone but of course this does not make this a bad thing, but I could see how you would be disappointed if you were looking for a good empathogen/entactogen experience.
+9:05 still at about to the same level but heart rate seems to be increasing, nothing worrying though. Still not anywhere near as bad as it gets on 4-mmc. Was getting the shakes so I put on extra layer of clothes, now im feeling hot so ill turn on the fan. Its a good equilibrium. Stretching a lot and kinda half yawning while I do so but mostly its moaning in pleasure.
+9:20 well after my last check up my high evolved into one of pacing around the room smoking a bowl getting lost in my mind imaging the future, grand thoughts that will surely seem naive tomorrow. As always its fun though getting lost in the mind.
+9:35 things are still much as they were 15 minutes ago. Still pacing from time to time but not as much. Really all I can say that this is a wonderfully benign but strong stimulant. Real generic, which is what I was hoping for on this particular night. Plus theres been no real drop off, cause serotonin never really came into play. Getting ready to redose though, cause it does feel to be about that time.
+9:45 just redosed 125 mg
+10:35 well after I dosed I watched a few more minutes of Trailer Park Boys, then feeling hot and sweaty I decided to go smoke another bowl outside. I did so and got quite lost in my mind, thought about a lot of overly personal and embarrassing things Ill happily skip for your sake, but over all it was a very serious, very “sober” almost is the word for how clean this stimulation is, but it does feel great. Definitely not loved up or anything like that, but this drug is perfect for introspective work. Outside it was 60 degrees, lightening and raining and thunder but compared to how hot my body was it felt great. Had a very decent time. Now back inside im going to smoke a bong.
+10:55 been at a very nice continuous level as ive been smoking this bong... im still not through with the bowl but I kinda imagine once im done this high will start pealing back.. maybe not though well see
+11:15 wonderfully introverted state of sober euphoria continues and unabated. I can see why people wouldn’t like this if they were wanting a really solid roll, but in terms of positive yet sober introspective thought this takes the cake. Still smoking this bong slowly lol trailer park boys is wonderful
+11:40 you know its still hard to tell if ive come down much, im still very much high. Pretty hot so I have the fan on full blast, chewing gum for the gurning. Still going nicely though. Good fucking times.
+12:35 sorry, I got quite distracted and completely forgot about this report (which always seems to happen by the end).. Ended up masturbating, and it was about as good as it always is for me on good stimulants (amazing!).. coming down but still nicely stimulated.
+Well after the last entry I abandoned the report. After that the very clear, very cherished stream of stimulated conscious that had been pouring from my mind since the roll started receded. Besides that, the come down was a very gradual thing, very gentle, eating food was possible, no nausea or head aches, not over stimulated or uncomfortable, no fiending or moreish feelings. But like mentioned earlier, as with any good stimulant, really the entire 2nd half of the roll was either wanking, or biding my time in between wankings. Was up till about 3:30 (t7:30) and still felt quite high considering I was able to fall asleep quickly and soundly until 8 hours or so later, upon which I woke up feeling great.
+Final Thoughts:
+Although I came into the experience with quite low expectations (but with high hopes nonetheless), I was presently surprised by this chemical. The general low-down on butylone seems to be that it certainly isn&#x27;t on the same level as methylone or mephedrone, and to an extent I agree with that, however I will often see people go a step farther and insinuate its not even worth doing. I feel like butylone is inferior to methylone or meph in the same way that methylone or meph is inferior to mdma. But if we take each of these chemicals on there own, they can be very pleasant, very rewarding substances (or not, depending on personal tastes and brain chemistry’s). For instance there is really no goosed up feelings of universal love, certainly theres nothing in butylone to make you express unconditional love for all of man kind as I so genuinely can on MDMA. However what Butylone offers, which MDMA does not is a very clear mind and some very precise thoughts to go along with the some what forced positive mind set and euphoric energy. Certainly the thoughts thunk on butylone are not nearly as hollow sounding as those on mdma. even days later as I look back on them I still find relevance and truth in what I managed to write down elsewhere.
+So personally, I like this chemical. Not a favorite, but I can definitely see that this chemical has its time and place. I&#x27;d avoid if you are one to not like heavy stimulants with little serotonin reward. For me though, the length of this chemical (not long by any means but longer then 4-mmc or bk-mdma), the pleasure of the stimulation, the value of the mind set, the intensity of the experience, and the lowish dose have earned butylone a place in my heart.
+Exp Year: 2011
+ExpID: 91069
+Gender: Male
+Age at time of experience: Not Given
+Published: Feb 29, 2012
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+bk-MBDB (348) : Glowing Experiences (4), First Times (2), Alone (16)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

@@ -1,0 +1,851 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>伊尼皮,汗水小屋</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/sweating.html'>← 出汗</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>伊尼皮,汗水小屋</h1>
+<div class='sub-title'>Erowid Sweat Lodge Vault : Inipi, the Sweat Lodge</div>
+<div class='meta'>作者：Substance Search About Experience Vaults · 日期：Nov 11, 2003 · <a href='https://erowid.org/experiences/exp.php?ID=28355' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>植物与药物指数
+植物
+化学品
+制药品
+草药
+聪明的人
+动物
+基本知识
+图片
+经验
+法律
+化学学
+药物检测
+健康问题
+精神与文化
+欧盟
+植物地库
+阿曼尼塔斯
+类植物
+大麻
+可卡
+青类
+葡萄
+烟草
+更多的
+化学品库
+安非他胺
+在 DXM
+美国GHB
+基他胺
+没有LSD
+美国
+酸盐
+更多的
+药品库
+阿尔普拉佐兰 (Xanax)
+布普罗 (韦尔布特林)
+亚兹帕姆 (瓦利)
+素 (普罗萨克)
+可 (维科丁)
+甲基化物 (里塔林)
+帕洛克西因 (Paxil)
+更多的
+草药库
+黄
+达米安娜
+狐手套
+青
+乳
+尼皇家
+大
+更多的
+诺托罗普药物库
+亚德拉菲尼尔
+美国
+黄
+黄
+氨酸
+皮拉塞坦
+三胺
+更多的
+动物
+类
+双色
+更多的
+基本的金库
+剂量
+影响
+常见问题
+历史
+俗话
+图像库
+植物
+化学品
+制药品
+草药
+聪明的人
+提交图片
+经验库
+新的报告
+根据物质
+搜索
+关于体验库
+提交经验
+法律金库
+根据物质
+联邦法律
+国家法律
+毒品政策与改革
+禁令链接
+化学库
+根据物质
+结构
+化学比较
+药物检测金库
+基本知识
+其他产品
+精神活性药物与健康
+吸毒问题
+统计
+体库
+属灵的使用和仪式
+迷幻文化
+医疗用途
+家庭与精神活动
+毒品幽默
+精神活性链接
+供应商
+非英语资源
+日历事件
+档案网站
+思想与精神指数
+精神传统
+宗教自由
+呼吸
+跳舞
+设备
+在梦里
+鼓声
+原体
+禁食
+武术
+冥想
+祷告
+发生汗水
+运动
+精神传统
+佛教
+基督教
+印度教
+伊斯兰
+巫师活动
+更多的
+金库
+卡尔玛
+爱心
+吉纳
+拉贾
+更多的
+自由与法律指数
+法律与立法
+法院与正义
+警方的互动
+政府
+选举
+公民权利
+活动
+精神活性药物法
+资产没收
+陪审团无效
+言论自由
+宗教自由
+隐私权
+文化与艺术指数
+有远见的艺术宝库
+字符库
+客人专
+燃烧的人
+活动日历
+图书馆索引
+埃罗伊德评论
+在线书籍
+参考文献
+定期刊物
+引用
+词汇表
+语词典
+书籍按标题排列
+书籍 作者
+书籍按主题排列
+在线书籍库
+皮哈尔
+甲
+舒尔金实验室书籍
+对于狂喜的E
+更多的
+关于埃罗伊德指数
+有什么新消息?
+常见问题
+资金和支持
+公告
+新闻通讯
+提交的内容
+志愿者
+站点统计
+隐私权
+联系方式
+支持埃罗伊德!
+成为会员
+礼物
+欧罗伊德新闻通讯
+欧罗伊德档案CD
+购物袋
+衫
+这件毛衣
+诗歌的磁铁
+具有远见的海报
+新书和二手书
+玻璃分子
+阿尔伯特·霍夫曼签名的布洛特艺术
+关于本文档
+报告一个错误/更正
+要求使用本文档
+联系方式
+精神
+发生汗水
+伊尼皮,汗水小屋
+拉科塔人九个月的仪式
+由 托尼
+2003年9月
+持续时间:每四周三周间隔4到5小时,连续9个月.
+背景和意图
+我来到这个小屋的时候, 我已经建立了自己的自然精神.
+我在20岁时发现自己对宇宙有某种联系, 我读了很多书,
+经过大量的禅佛教,印度教,以及许多活着或已死的族人的著作 (黑,约翰·火鹿,埃德·麦加), 我开始进行步行冥想,
+我的目标是与周围的世界建立直接联系, 感觉自己是世界的一部分, 而不是随机在某个时间点落下来的外来碎片.
+我下一个目标是与我的非理性一面和平共处, 这一面已经变得强大,不可预测,
+我无法控制自己的部分表现为零星全年失眠和强度季节性抑郁.
+为了克服失眠, 我不得不承认和结交我的月球性,
+我一直把月亮看作是我的第一位导游,我的第一位老师.
+我试图通过观察大自然和季节的变化来学习更多.
+我开始意识到我认为自己独自一人的地方,
+我周围的树木,,都和我一样活着,
+我一遍又一遍地在树林中漫步, 观察季节, 意识到我对&quot;很长一段时间&quot;的概念只是对这个世界的眼,
+我仍然无法克服一个问题:每年秋天的季节性抑郁症.
+我无法接受每年死亡的情况,
+几年过去了, 我到达了一个自我学习的高峰.
+我一直陷入相同的习惯, 不能进步.
+由于我读到的最多,感觉最亲密的传说是拉科塔苏族,
+我当时住在俄勒冈州波特兰, 幸运地遇到了一位50多岁的好马民族 (Oyate Shunka Wakan) 朋友,
+传统的意思是不仅是来自拉科塔苏族的神话中的仪式和神话,
+虽然在小屋里用英语进行了一些祈祷和意图表达,
+我从来没有做过任何汗水浴室,
+当我告诉&quot;好马国&quot;时, 他笑了笑, 一会儿侧面看着我, 说:&quot;你知道, 这里变得很热. &quot;他周末开了一个更为友好的,不那么传统的旅馆,
+我在周末工作12个小时,
+另一个选择是传统的汗水小屋,
+他看起来像是要冒着风险, 让我加入3个月的汗水,
+第一个汗水
+在他的土地上举行.
+我记得那个秋天 (九月下旬到十二月初), 在那个小屋里总共有35个人.
+这是一所混合式的小屋, 男人与女人的比例大致相同.
+人们开始聚集在火的周围, 火已经燃烧了几个小时,
+在我们到达时, 50到60颗火山石已经在软木中停留了2个小时,
+在火坑里,他们发出红色的光.
+人们穿上宽松的包裹,或游泳, 拿起毛巾, 聚集在火的周围.
+仪式大约在6点开始.
+在那个9月的第一个晚上, 天气还很温暖,
+之前有人提醒我脱掉戒指和耳环.
+不仅是金属的坏主意, 但一个是抛弃所有的装饰 - 进入小屋裸体的实用性将允许.
+我记得我当时想:&quot;我真的要这么做吗?&quot;
+拉科塔人的所有仪式都伴随着歌曲.
+人们一旦聚集, 他们开始唱出与管道装载一起的祈祷歌.
+在人们唱歌的同时,小屋的领袖会举起一根烟草 (实际上是红柳树皮) 并召唤宇宙力量之一 (四个方向,上方的宇宙,下面的地球) 进入和体现烟草.
+然后将其放入管道, 调用下一个部队.
+我试图像一个不好的合唱团学生一样&quot;假装-直到-你-做-它&quot;.
+我知道这首歌的意思, 但很难跟上.
+在管道被装满后, 人们排成一列, 随着另一首歌,
+我发现自己在赤裸裸的膝盖上爬进一个温暖,湿的洞穴,
+它实际上是一个方形圆形的帐, 由厚厚的,曲的柳树枝组成, 用许多坚固的棉线捆绑在一起,
+整个结构可能是5英尺高的最高点和大约10英尺直径.
+里面有蒸汽的味道,还有香柏树和我周围的人类.
+里面有35人, 每个人都被挤成两个同心圆, 双腿交叉, 膝盖拉起来.
+我应该坐在后面, 让别人坐在内环, 因为这更接近石头.
+然后石头从火坑里带来了,并带入小屋使用角.
+它们的尺寸从蜜露瓜到大型足球, 每个都发出热红的光.
+第一个轮由传统的14块岩石开始,
+我仍然可以看到我前面闪耀的岩石,
+我们处于黑暗之中,
+尽管距离我5英尺远, 我还是能感觉到石头在我的脸上散发热量.
+善马国家以祈祷开启了这个季节, 并在岩石上扔了香香的香柏树.
+每一颗小小的香柏树在撞击时都红,
+然后鼓声响起,我们开始出汗.
+石头上一滴水就会爆炸成蒸汽.
+我可以听到35多人唱歌的声音.
+我在一个完全黑暗的环境中.
+我试图专注于呼吸, 而不是试图假装唱歌.
+周围的空气变得越来越热, 每次吸入超热蒸汽,
+这让我想起我试图喝茶太快.
+我的身体开始反抗.
+肺部会停止吸气, 我也无法深呼吸.
+我试着慢慢地呼吸,
+我试着快速地呼吸.
+没有任何效果:我仍然没有得到足够的氧气.
+我信任的自主过程开始失败.
+首先是我的四肢,脚和手开始麻木.
+我知道我可以喊出一个安全词, 他们会停止,
+我告诉自己我宁愿坚持下去, 不愿用我的恐惧和不适来打断他们的仪式.
+我已经同意冒这个风险,
+&quot;我会倒下来&quot;
+麻木感爬上我的手臂和腿.
+无论我多么努力,我都无法得到足够的空气.
+我记得我大声说:&quot;我要摔倒了&quot;.
+我来到旅馆与秋季的过程和平; 树上枯的叶子,
+我感觉自己的意识快速地消失, 昏倒在地上,失去控制,面对自己的死亡恐惧.
+我周围的人为我出了空间,
+他们很聪明,知道空气在地面上3英尺低处要冷得多.
+我很高兴看到他们.
+他们只能听到我呼吸,
+仪式发生在我身边.
+由于缺乏氧气, 我的身体和心灵被带走,
+我从来没有如此清楚地意识到自己与这个世界紧密相连.
+我又开始呼吸, 感觉生命回到了我身边.
+我感觉到我的皮四肢充满了血,
+我感觉自己被我内心的生命力量所吸引回来--我的肺部,我的心跳,我的自主神经系统.
+我躺在那里,活着,在黑暗中, 听到我周围的其他人唱歌,
+终于,就在比赛结束时,
+我觉得自己已经克服了自己的恐惧,
+然后又把17块石头带进来, 然后又把它关上.
+在第二轮, 我专注于尽可能多的唱歌.
+很幸运的是, 拉科塔族的许多歌曲中,
+所以,即使我不知道所有的歌词, 至少我可以一起唱歌, 而不会让其他歌手感到困惑.
+我发现,这是保持在汗水小屋中充足氧气的秘.
+在唱歌的时候,你快速吸入一口气, 充满肺部, 然后在5-6秒的时间里,
+这种延长的呼气使喉足够冷却, 以免下一次呼吸引起窒息反应.
+唱出膜也可以帮助人进一步扩展呼气,使音符更有共.
+我能坐直地完成第二轮的歌唱.
+这是四轮祈祷中最长的一轮.
+唱完几首歌后, 我们逐个绕着圆圈走来, 每个人都说出了自己的想法--为新赛季祈祷,
+您可以想象, 旅馆里有35人,
+每次有人完成祈祷, 善马国会在岩石上再一点水,
+没有任何想法或犹.
+我说我来这里是为了与秋季的过程和物质的季节性死亡和解, 摆脱我的悲伤, 学会以不同的方式体验生活的这一方面.
+我记得好马国承认我的祈祷简单的&quot;!&quot; 这是传统的呼叫和响应在旅馆.
+但他在黑暗中说话的方式--尊重和对我自己设定的重大任务的敬畏--让我感到非常受欢迎.
+我曾经期望被视为某种绿角,
+祈祷结束时, 我们都枯了.
+为了接近地面的凉爽空气,
+几乎可以感觉到新氧气冲进来.
+随着新的红色岩石被带进来, 我们恢复了一些力量 - - 这次大约有21颗.
+第三轮是最短的,但也是最热和最激烈的轮.
+我们开始大声唱歌, 好马国不断地在石头上水.
+虽然我很努力地把我的思想和精力集中在歌唱上,
+感觉就像一个沸水的浴在我的头上倒立,
+随着歌曲的热度和能量流过我身上, 我再也不能分辨神经是处理热还是冷,
+我只能听到我们的声音,鼓声,高兴的感觉, 需要把热空气吸引进来,
+这就是我们庆祝的呼喊 - - 我们欢乐的生存的呼喊.
+在第三轮之后, 管子被带进了小屋.
+每个人都抽了一次深.
+只是为了让你知道, 红柳树皮 (拉科塔语中的kinick kinick) 没有精神活性.
+它的力量完全在于它的象征性属性.
+死亡 (西方/秋季),沉默 (北方/冬季),出生 (东方/春季),生命 (南方/夏季),上方的宇宙,下方的地球母亲,
+每个人都喝了一口水.
+只有小口水可以喝, 而不是几口.
+在喝一口水时,
+&quot;水是一种药物
+水是神圣的
+水就是生命.
+吸入和呼出象征着整个宇宙的烟雾, 我现在品尝了小口水,
+我可以感觉到我的身体水在我的汗.
+我能感觉到它慢慢地从每一个孔隙中流出.
+我的头发和泳装都被它浸泡了.
+我想起我的整个身体是多么的透的膜 - - 水,食物和能量被灌输,选,并转化为生命.
+我感谢宇宙赐予我水, 也感谢我如此亲密地与之织在一起.
+我们开始唱歌, 让所有宇宙力量回家.
+感谢他们和我们一起来到小屋, 并释放他们回到宇宙.
+我们歌唱我们的困难和我们的快乐.
+之后,当一切结束时,我们一起喊出拉科塔人版本的&quot;阿门&quot; - - 几乎所有神圣演讲都会结束的普遍格言&quot;Ho Mitakuye Oyasin&quot; - - 意思是&quot;我们都是亲戚&quot;.
+虽然我完全忘记了时间,后来我发现已经过去了4个多小时.
+许多人只是躺在湿的草地上,享受凉爽的空气.
+其他人聚集在火旁.
+实际上有几个人拿出水管, 用冷水自己.
+我只是坐在草地上,试图收集自己.
+尽管晚上10点左右, 我们总是到好马国家里去吃饭,
+旅馆成员带来了许多美味的自制菜,
+只是活着就感觉到一种快乐.
+我们把盘子和杯子都装满了,
+有时,好马国会会提出一个问题让每个人都回答,
+听到人们说话, 我最后的恐惧和怀疑,
+这里是真实的人, 坦率地讲述他们的经历.
+他们不需要教导我什么,也不需要说服我跟随任何老师或大师.
+虽然好马国家总是尊重作为领袖的小屋,他仍然是一个人,并显示自己是作为有缺陷的,幽默,和不尊重我们中的任何一个.
+在这个圈子里,人们谈论他们的生活,他们的恐惧,他们的希望和斗争.
+虽然我们确实表现出同情和关心对方,
+我们来这里不是为了解决彼此的问题, 而是为了提供一个关心的环境, 让每个人都能以他们需要的方式探索神圣,
+他让所有人握手,闭上眼睛,说一句祈祷.
+通过最后一个Ho Mitakuye Oyasin我们打破了圈子,结束了晚上.
+我们走到自己的车里,开车回家.
+学到的经验
+我在赛季剩余时间里, 每月三周都会去参加这些运动会.
+随着秋天变得越来越冷,
+我们站在那里, 笑着, 穿着泳衣和毛巾, 胸部热到蒸汽,
+我从来没有因暴露在这样的环境中而生病,
+记住在这些衣服下面, 我有一个活着的,呼吸的身体, 已经习惯于一个非常狭窄的舒适区的温度, 记住这个身体存在于一个波动的环境中,
+我也很惊地发现,只要付出一点努力, 我可以训练自己去承受这些波动,
+我还记得赤脚站在冰冷的草地上,
+我不需要被保护,我可以站在那里,感觉被它拥抱.
+随着秋天的到来, 树上的叶子变成了棕色, 从树上掉下来, 我开始重新构思我对基本事物的思考方式,
+在过去,这些事情总是意味着悲伤和丧 - - 我对一个绿色世界死亡的悲伤.
+现在我发现我正在接受旅馆的教训, 并将其作为比喻应用于我生活的更大方面.
+医药轮的四个方向象征着不断的创造过程,
+拉科塔人的世界观中, 这些神话力量在各个层面不断地发挥作用.
+生生死沉默的舞蹈可以在恒星的缓慢诞生和死亡中看到, 或在我们周围的季节中,
+拉科塔人有一句语:&quot;每一次呼吸都是一个诞生,每一次呼吸都是一个死亡.
+随着我学会将自己和周围的世界视为一场恒定的宇宙舞蹈,
+我开始想到不断下降的雨水, 地球在饮用水--充满山脉河流的水, 让它们在春夏再次涌入海洋-- 滋养生命.
+我开始将棕色的叶子地毯视为丰富的食物盛宴,
+冬季
+两个星期后又开始一个新的季节.
+我觉得自己已经走了很长一段路,
+下一个赛季的团队甚至更大,约有42人,所以旅馆越来越拥挤.
+我很想知道我们都会如何在我们那个小木的结构里住.
+我们发现我们共同的体温会温暖小屋, 我们缩在一起, 意识到身体的能量.
+我发现这些新人正经历着我在第一季所经历的许多事情 -- 不适,发现,自我怀疑 -- 我看到自己和团队帮助他们.
+现在我已经度过了秋天, 发现自己与物体的死亡有了更多的和平,
+我知道没有生命也是舞蹈的神圣部分,
+我开始了解我的身体有很多不同的舒适度, 以适应每次需要多少氧气.
+我会快速地吸入大量气息, 并使用腹膜长时间地使其发出,
+我心跳非常快, 为了送充氧的血液.
+但当一个人不唱歌时, 旅馆里还有很多地方--当一个人只是坐在黑暗和炎热中, 专心或冥想,
+冬天, 我学会了如何有意识地减慢身体的速度,
+这需要一定程度的静止, 我需要忘记我坐在黑暗中, 放下一切,专注于其他事情.
+当我放弃恐惧,不舒服和自我怀疑时, 我的身体不再紧肌肉来保护我,
+我可以找到内心的宁静,一个清晰的空虚.
+在这些时候, 我会让呼吸引导我向下,
+虽然我知道我的呼吸速度正在减慢,
+呼吸的速度越来越慢, 让自己充满生命,
+我会感觉到生命慢慢地从我体内流出,
+我会沉默地坐下来.
+我发现在静寂的某个地方, 有一个舒适的地点,
+我内心的生命力自然会需要氧气, 下一次的吸入会自然而然地使我重新充满生命.
+但我学到的重要教训是, 在呼气的死亡和新的吸气的诞生之间, 我也有一种静止 - - 没有思想,没有思想,没有运动的点 - - 只要我关闭声, 听它,
+几个星期过去了.
+我开始更早地去汗水宿舍,
+我坐在寒冷黑暗的冬天, 用自己的双手将太阳储存的木材能量转化为热量和火焰,
+我发现我已经成为了旅馆中受人尊敬的歌手之一.
+我有强烈,清晰的声音, 也很清楚歌词的含义,
+虽然我是团队中最年轻的人之一,但我发现我慢慢赢得同龄人的尊重.
+我也发现我不再把旅馆当作&quot;一个考验&quot;.
+我发现我内心有很多地方能与这个过程共舞, 也能在那儿存在,
+我并不是对经历的痛苦和不舒服变得不敏感或&quot;坚强&quot; - - 只是我发现我可以到达一个不再重要的地方.
+我可以把它们当作传入的信号,
+冬天的寒冷开始消退, 首先绿色的尖端生长的东西开始从地上出来.
+那个春天对我来说是一个奇迹, 因为那时我已经意识到我内心的生命力,
+现在我看到同样的力量在我的周围, 充满地球的生命,
+我决定继续, 加入另一个时间.
+这次的群体甚至更大--我想我们有50多个.
+我们都笑了笑, 开玩笑说鱼.
+随着天气变暖, 我们不再需要在进入小屋之前围着火, 保持温暖, 我们会排成一行,
+六个月来每半周都出汗, 我开始觉得自己像个老手.
+我很熟悉小屋的仪式, 一首歌很自然地融入了另一个.
+随着春天变得越来越温暖, 我对周围的一切生活感到高兴,
+在很多方面,
+我感觉自己处于创意的峰, 随时都在学习和发现新事物.
+我觉得我在许多层面上找到联系和亲密感, 我一直想要但一直缺乏 - - 与宇宙,季节,周围的世界.
+我甚至发现自己是同龄人中受人尊敬的成员,
+新出现的不满
+但这创造了我完全没有准备的动态.
+我深入了解这个新的世界观, 发现我对日常生活的不满越来越大.
+在高速公路上开车,做我的工作,生活在一个大城市 - - 这些现在对我来说变得陌生,
+我花了很长一段时间才意识到我内心的渴望是逃离日常生活--以某种方式转移到Lakota Sioux的世界, 不仅仅是象征性的,
+我为自己发现了一个新世界, 但它与我生活的常规共识现实世界相距太远,
+我唯一的选择似乎是完全放弃这份工作.
+不幸的是 (或许幸运的是) 这种选择是完全不现实的.
+除了我完全缺乏像Lakota Sioux那样靠土地生活的技能之外, 我也没有办法加入任何一个Lakota Sioux的团体,
+在很大程度上, 可以说我想要生活的文化和世界,
+我在这个困境中扎了好几个月.
+我是否逃离了现实, 活在自己的梦想泡中?
+我是否试图在森林中生活, 只有每周的汗水宿舍是我的同龄人?
+我是否应该放弃我发现的这个世界并重新加入我周围的共识?
+这一切似乎都不真实.
+结论
+我选择了另一种选择.
+我选择离开旅馆, 保持教训和世界观旅馆教我自己的.
+因为我无法将拉科塔世界与我的世界整合起来, 我会寻求并创造出另一个世界观,
+我花了很长一段时间才意识到, 创造这个世界的过程只有在我离开汗水小屋, 不再依赖这个特殊的象征性世界,
+我向好马国解释了这一切,
+在春季的最后一天,我们离开后的小屋和结束最后一个说话的圈子,我走到他身边,并向他提供礼物感谢.
+我已经为他一个方形的珠子工作,红色背景上的白马.
+我把这些珠子包裹在一块石头上,
+我花了好几个小时手工制作这些东西.
+通过这个非常传统的礼物, 我对他说:谢谢你让我进入这个世界, 我学到了很多,
+据我所知,我的礼物还在他的书架上.
+霍米塔库耶·奥亚辛
+回到了精神
+回到出汗
+为Erowid创建 - 2003年11月11日
+修改时间:2015年2月3日
+在公开复制Erowid信息之前需要许可.</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Plants &amp; Drugs Index
+Plants
+Chemicals
+Pharmaceuticals
+Herbs
+Smarts
+Animals
+Basics
+Images
+Experiences
+Law
+Chemistry
+Drug Testing
+Health
+Spirit &amp; Culture
+Community
+Plants Vault
+Amanitas
+Cacti
+Cannabis
+Coca
+Psilocybin Mushrooms
+Salvia divinorum
+Tobacco
+More . . .
+Chemicals Vault
+Amphetamine
+DXM
+GHB
+Ketamine
+LSD
+MDMA
+Nitrous
+More . . .
+Pharmaceuticals Vault
+Alprazolam (Xanax)
+Bupropion (Wellbutrin)
+Diazepam (Valium)
+Fluoxetine (Prozac)
+Hydrocodone (Vicodin)
+Methylphenidate (Ritalin)
+Paroxetine (Paxil)
+More . . .
+Herbs Vault
+Calamus
+Damiana
+Foxglove
+Ginseng
+Milk Thistle
+Pennyroyal
+Valerian
+More . . .
+Nootropics Vault
+Adrafinil
+DMAE
+Ginkgo biloba
+Hydergine
+Melatonin
+Piracetam
+Tryptophan
+More . . .
+Animals Vault
+Bufo Toads
+Phyllomedusa bicolor
+More . . .
+Basics Vaults
+Dosage
+Effects
+FAQs
+History
+Slang
+Image Vaults
+Plants
+Chemicals
+Pharmaceuticals
+Herbs
+Smarts
+Submit Image
+Experience Vaults
+New Reports
+By Substance
+Search
+About Experience Vaults
+Submit Experience
+Law Vaults
+By Substance
+Federal Laws
+State Laws
+Drug Policy &amp; Reform
+Prohibition Links
+Chemistry Vaults
+By Substance
+Structures
+Chem-Compare
+Drug Testing Vaults
+Basics
+Products
+Psychoactives &amp; Health
+Addiction
+LD50s
+Statistics
+Entheogen Vaults
+Spiritual &amp; Ritual Use
+Psychedelic Culture
+Medicinal Use
+Families &amp; Psychoactives
+Drug Humor
+Psychoactive Links
+Vendors
+Non-English Resources
+Calendar Events
+Archived Sites
+Mind &amp; Spirit Index
+Spiritual Traditions
+Religious Freedom
+Breathing
+Dancing
+Devices
+Dreaming
+Drumming
+Entheogens
+Fasting
+Martial Arts
+Meditation
+Prayer
+Sweating
+Yoga
+Spiritual Traditions
+Buddhism
+Christianity
+Hinduism
+Islam
+Shamanism
+More . . .
+Yoga Vault
+Karma Yoga
+Bhakti Yoga
+Jnana Yoga
+Raja Yoga
+More . . .
+Freedom &amp; Law Index
+Law &amp; Legislative
+Courts &amp; Justice
+Police Interactions
+Government
+Elections
+Civil Rights
+Activism
+Psychoactives Law
+Asset Forfeiture
+Jury Nullification
+Freedom of Speech
+Freedom of Religion
+Right to Privacy
+Culture &amp; Arts Index
+Visionary Art Vaults
+Character Vaults
+Guest Columns
+Burning Man
+Event Calendar
+Library Index
+The Erowid Review
+Book List / Store
+Online Books
+References
+Periodicals
+Quotes
+Glossary
+Slang Dictionary
+Book List / Store
+Books By Title
+Books By Author
+Books By Subject
+Online Books Vault
+PiHKAL
+TiHKAL
+Shulgin Lab Books
+E for Ecstasy
+More . . .
+About Erowid Index
+What&#x27;s New
+Erowid FAQ
+Funding &amp; Support
+Copyrights
+Announcements
+Newsletter
+Submissions
+Volunteers
+Site Statistics
+Privacy
+Contact
+Content Disclaimer
+Support Erowid!
+Make a Donation
+Become a Member
+Be a Monthly Donor
+Donate with PayPal
+Gifts
+Erowid Newsletter
+Erowid Archive CD
+Shopping Bag
+T-shirts
+Sweatshirt
+Poetry Magnets
+Visionary Poster
+New &amp; Used Books
+Glass Molecules
+Albert Hofmann Signed Blotter Art
+About this Document
+Report an Error / Correction
+Request to Use this Document
+Contact
+SPIRIT
+sweating
+Inipi, the Sweat Lodge
+Nine Months of Lakota Ceremony
+by Tony
+Sep 2003
+Body weight: 188 lbs (+/- 10 lbs)
+Dosage: substantial amounts of steamed, heated oxygen  (inhaled)
+Duration: 4-5 hour intervals, three weeks out of four, for nine months in a row.
+Background and intention
+I came to the sweatlodge at a time when I had constructed my own nature-based spirituality. Having grown up without any religious upbringing, and having discovered my affinity for some sort of connection with the universe at the fairly late age of 20, I had read a lot, and studied on my own. Having digested much Zen Buddhism, Hinduism, and a lot of writings by various living and dead Sioux (Black Elk, John Fire Lame Deer, Ed McGaa), I started doing walking meditation and trying to use nature and the seasons as my existential &quot;teachers&quot;, so to speak.
+My goals were to establish a direct link to the world around me -- to feel like I was an interwoven part of it, rather than just a foreign piece of jetsam, randomly plonked down at some spot in time. My next goal was to make peace with my irrational side, which had grown strong and unpredictable -- and was giving me some unpleasant wake-up calls. My inability to control aspects of myself manifested as sporadic year-round insomnia and strong seasonal depression. In order to get over the insomnia, I had to acknowledge and make friends with my lunar, shifting nature, to learn its rhythms and know that there are things within me that move without me.
+I&#x27;ve always thought of the moon as my first guide -- my first teacher. I sought to learn more from observing nature, and the turns of the seasons. On my walks, I began to realize that where I thought I was alone, I was constantly surrounded by life. The trees, mosses, ferns around me were all as alive as me, breathing the same air, drinking the same water. I wandered one path in the woods over and over, watching the seasons -- realizing that my conception of &quot;a long time&quot; was only a blink to this world, and yet learning that every moment could be savored and marveled at.
+There was still one thing I couldn&#x27;t overcome: my seasonal depression, every fall. Something about me just couldn&#x27;t make peace with the yearly dying of things, couldn&#x27;t let go. Years passed and I came to a point where my self-learning reached a plateau. I was stuck in the same routines and I couldn&#x27;t progress. Since the mythology I had read the most about and felt the greatest connection with was Lakota Sioux, I tried to seek out some group practices in that direction so I might learn further.
+I was living in Portland, OR at the time, and I was fortunate enough to chance upon a fellow in his 50s named Good Horse Nation, (Oyate Shunka Wakan) who had been raised on a reservation in Dakota, and still did traditional sweat lodges. By traditional, I mean that not only were the rituals and myths from Lakota Sioux mythology, but all the songs sung inside were in the Lakota tongue. There were some prayers and statements of intent made within the lodge in English, but basically, I had to learn a whole new language to participate.
+At the time, I had never done *any* kind of sweat lodge -- aside from Russian style steam baths. When I told this to Good Horse Nation, he kind of laughed and looked at me sideways for a second and said, &quot;You know, it gets pretty *hot* in there.&quot; There was a more user-friendly, less traditional lodge that he was running on weekends, for people who just wanted to try it, or people who just wanted a nice cleansing every once in a while. Unfortunately, these were on Saturdays, and I worked a 12-hour shift on the weekends, so there was no way I could do it. My other option was the more traditional sweat lodge, set up for people who are there to do meditative practice or learning -- with a 3 month commitment. He looked like he was taking a chance on some flaky new age kid, but he let me join the 3-month sweat with no prior experience.
+The first sweat
+The sweats were held outdoors, on his land. That first fall (late September through early December) I remember there were about 35 people total in that lodge. It was a co-ed lodge, and the ratio of men to women was about equal. It started with people arriving and gathering around the fire, which had been going for hours, heating the stones. By the time we arrived, the 50-60 volcanic stones had been sitting in softwood for 2 hours, and then hardwood for another hour. You could see them inside the fire pit, glowing red. People changed into loose wraps, or swim trunks, grabbed a towel, and gathered around the fire. The ritual began around 6 o&#x27;clock. On that first September night, it was still warm, but it was strange being out barefoot on the grass in the evening, with only swim trunks and towel. Right before I came out, someone reminded me to take off my ring and earring. Not only were metals a bad idea, but one was to shed all decoration -- to enter the lodge as naked as practicality would allow. I remembered thinking -- &quot;Am I really going to do this?&quot;
+All Lakota rituals are accompanied by songs. Once people gathered, they began to sing the invocation song that comes with the loading of the pipe. While the people were singing, the leader of the lodge would hold aloft a pinch of tobacco (red willow bark actually) and call forth one of the universal forces (the Four Directions, the Universe above, the Earth below) to enter and manifest within that tobacco. It was then placed into the pipe and the next force was called. Having been given only a cursory introduction to the songs, I tried to &quot;fake-it-till-ya-make-it&quot; like a bad choir student. I knew what the songs meant, but it was difficult to follow along. After the pipe was loaded, the people lined up single file, and -- with another song -- made a winding path into the lodge. At the mouth of the lodge, I found myself down on my bare knees, crawling into what felt like a warm, wet cave with cedar shavings on the floor. It was actually a squarish-round tent made of thick, bent willow branches, tied together with lots of sturdy cotton string, and covered with many thick blankets and tarps. The whole structure was probably 5 feet high at its tallest point and about 10 feet in diameter. Inside it smelled of steam, and cedar and the humans around me.
+With 35 people on the inside, everyone was packed in in two concentric circles, cross-legged with our knees pulled up. Someone kindly suggested that, it being my first sweat, I should sit towards the back and let someone else sit in the inner ring, since this was closer to the stones. Then the stones were brought in from the fire pit on a pitchfork, and brought inside the lodge using antlers. They ranged in size from honey-dew melons to large footballs, and each glowed red hot. The first round started with a traditional 14 rocks, which were arranged in a particular pattern, so as to form the base of an eventually larger pile. When the door flap was closed, I could still see the rocks glowing in front of me, but I couldn&#x27;t see the roof of the lodge. We were in complete darkness, packed in like sardines. Even at 5 feet away, I could feel the stones radiate heat on my face. Good Horse Nation opened the season with a prayer, and threw aromatic cedar over the rocks. Each tiny bit of cedar winked red as it hit, like a hundred stars flaring and going out. And then the drums sounded and we began the sweat.
+As soon as water was poured on the rocks, it exploded violently into steam. I could hear the sound of it even over 35 people singing at the tops of their lungs. The water also took any remaining light from the rocks, leaving me in total darkness. Afraid, lost in the dark, and not knowing the words, I tried to focus on just breathing rather than making an attempt to fake singing. The air around me got hotter and hotter, and my throat began to tighten up in pain every time it inhaled another gulp of superheated steam. It reminded me of trying to drink tea too quickly. My body began to rebel. When my throat sent out the pain signal, my lungs would stop inhaling, and I couldn&#x27;t get in a full breath. I tried slowing my breathing down, drawing out the inhale as long as possible. I tried taking rapid shallow breaths. Nothing was working: I still wasn&#x27;t getting enough oxygen. My trusted autonomic processes began to fail.
+My extremities started going numb first- my feet and hands. I knew that there was a safe-word I could cry out, and they would stop, to lift the flap and roll me out. But this was my first time in the lodge, and my very first round, and I told myself I&#x27;d rather ride this out than interrupt their ritual with my fear and discomfort. I had agreed to the risk and I would take it.
+&quot;I&#x27;m going to fall over&quot;
+The numbness crept up my arms and legs. No matter how I tried, I couldn&#x27;t get enough air. At some point, I realized that I was about to lose muscular control of my legs and torso, and I remember saying, &quot;I&#x27;m going to fall over&quot; out loud. I had come to the lodge to make peace with the process of fall; with the leaves dying on the trees, with everything around me turning towards decay. And here I was -- my own body slipping away from me, rapidly feeling my consciousness fading towards a faint, falling over into the ground, losing control, facing my own fear of death. The people around me made room for me, and let me fall over. They were smart and knew that the air was much cooler those 3 feet down at ground level. They touched my head and quietly encouraged me to hang in there. As long as they could hear me breathing, they let me lie there and didn&#x27;t disturb me. The ritual went on around me.
+Having my body and my mind taken away from me like that by lack of oxygen was an amazing experience. At no other time in my life was I so keenly aware that I was intimately interwoven with this world. And then -- as I lay there, numb and half-conscious -- I began to breathe again and felt life returning to me. I felt my rubbery limbs fill with blood, and felt my senses awaken. I felt myself dragged back to life by the life force within me -- my heaving lungs, my beating heart, my autonomic nervous system. I lay there, alive, in the dark, listening to the others singing around me and feeling my being pulsate with life. Finally, just as the round was ending, I gathered enough strength to sit back up and poke my head into the steamy air above. I felt as though I had survived my own fears, and passed some internal rite of passage.
+The flap was opened, about 17 more stones were brought in, and then the flap was closed again. On the second round, I focused on singing as much as I could. Fortunately for me, many Lakota songs have long extended notes where one vowel is held and repeated to a certain rhythm. So, even if I didn&#x27;t know all the words, I could at least sing along without throwing off the other singers. This, I found, was the secret to staying oxygenated in the sweat lodge. When you are singing, you take in a quick breath that fills your lungs and then let it out over the course of about 5-6 seconds. This extended exhale allows the throat to cool down enough so that the next breath won&#x27;t cause a choke reflex. Also, singing from the diaphragm will help one to extend the exhale even further, and to give the notes more resonance.
+Once I figured out the singing/breathing trick, I was able to sit upright through all the singing of the second round. This was the prayer round, the longest of the four. After singing several songs, we went around the circle one by one and everyone put something forth -- a prayer for the new season, a statement of personal intent, or perhaps just their current pains and troubles, which they had brought here to overcome. As you can imagine, with 35 people in the lodge this took quite a long time. Every time someone finished their prayer, Good Horse Nation would throw another bit of water on the rocks to raise those prayers upwards, and the lodge got hotter and hotter.
+When my turn came, my reasons for coming to the lodge just came out of me without any thought or hesitation. The sheer mental and physical effort of enduring the heat and keeping my body oxygenated had stripped me of all self-consciousness, all pretense, all thoughts of &quot;Gosh, am I going to sound silly?&quot; I said that I had come here to make peace with the process of fall, with the seasonal dying of things, to let go of my sadness and learn to experience this aspect of life in a different way. I remember Good Horse Nation acknowledged my prayer with a simple &quot;O-ho!&quot; which was a customary call-and-response in the lodge. But the way he said it in the dark -- respectfully and with reverence for the major task I had set myself -- made me feel very welcomed. I had expected to be treated as some sort of green-horn, and here I felt genuine respect.
+By the end of the prayer round, we were all wilted and drained. Many had dropped down to a one-elbow reclining position in order to try to get to the cooler air near the ground. When the flap was lifted, one could almost taste the new oxygen as it rushed in. We regained some of our strength as new red rocks were brought in- about 21 of them this time. The third round was the shortest, but also the hottest and most intense round. Once the flap was closed, we began singing at the top of our lungs and Good Horse Nation kept throwing water on the stones again and again. I strained to focus all my thought and energy on the singing, but I could still feel the hot air burning my forehead and eyelids. It felt like a bathtub of boiling water had somehow been levitated upside-down over my head and was slowly being lowered over my face. With the heat and all the energy of the singing coursing through me, I could no longer tell if my nerves were processing hot or cold, pleasure or pain. I was riding that very edge of consciousness where all I knew was the sound of our voices, the beat of the drum, the feeling of elation, and the need to draw the hot air inside me so that I might do it all again. It was our yell of celebration -- our cry of joyous survival.
+After the third round, the pipe was brought into the lodge. After it was lit, it was passed from person to person and everyone took a single deep draw. Just so you know, the red willow bark (kinick kinick in Lakota) had no psychoactive properties. Its power lay completely in its symbolic attributes. Here inside this pipe were all the forces of the universe -- Death (West/Fall), Silence (North/Winter), Birth (East/Spring), Life (South/Summer), the Universe above, the Earth Mother below -- all of these had entered the tobacco, and now I was drawing their essence into me and through me. After the pipe was passed around, a single gourd ewer was brought in and everyone took a little sip of water. The water was ceremonial and one was only supposed to take a little sip -- not several giant gulps. There was a little prayer one was supposed to focus on while taking one&#x27;s sip,
+&quot;Water is medicine
+Water is sacred
+Water is life.&quot;
+Having just inhaled and exhaled the smoke which symbolized the whole Universe, I now tasted the tiny sip of water, and felt it pouring down my throat and into me. I could feel my body&#x27;s water all over me as sweat. I could feel it slowly coursing out of every pore. My hair and my swimsuit were drenched in it. I though of how much of a permeable membrane my whole body was -- a funnel through which water, food, and energy are poured and sifted, and transformed into life. I thanked the Universe for the water, and for the pleasure of being so intimately tied and woven to it.
+The flap was closed for the fourth and final time and we began singing the songs to send all the universal forces home. To thank them for coming with us into the lodge, and releasing them back into the universe. We sang of our hardships and our joys. And then, when it was all over, we all yelled together the Lakota version of &quot;Amen&quot;- the universal saying which ends almost any sacred speech &quot;Ho Mitakuye Oyasin&quot;- meaning &quot;We Are All Related.&quot; With this, the flap was thrown open and people crawled back out of the lodge and made their way into the dark and stars of that September evening. Though I had completely lost track of time, I later found out that more than 4 hours had passed. Outside the lodge, many people simply sprawled out on the moist grass, savoring the cool air. Others gathered and stood around the fire. One or two people actually got out the hose, and were dousing themselves with cold water. I just sat on the grass and tried to collect myself.
+Afterwards, even though it was about 10pm in the evening, we would always go into Good Horse Nation&#x27;s house to have a pot-luck and debrief the experience. The lodge members had brought many tasty home-made dishes, and -- of course -- all food and drink tasted better after what we&#x27;d just survived. It felt like a joy simply to be alive. When we&#x27;d filled our plates and cups, we sat in a circle in a large room, and passed a talking stick around. At times, Good Horse Nation would put a question forward for everyone to answer, and other times, it was just a chance for everyone to talk about what they&#x27;d experienced in the lodge. As I heard people talking, my last fears and suspicions that I&#x27;d joined some sort of tooty-fruity New Age cult began to wane. Here were real people talking about their experiences in a very open way. They had no need to indoctrinate me into anything, nor to convince me that I should follow any kind of teacher or guru. Though Good Horse Nation was always respected as the leader of the lodge, he was still also a man, and showed himself to be as fallible, humorous, and irreverent as any of us.
+In the circle, people talked about their lives, their fears, their hopes and struggles. Though we certainly showed compassion and concern for each other, it was generally acknowledged that a person&#x27;s work was their own. We were not here to solve each other&#x27;s problems, but to provide the caring environment where everyone could explore the sacred in the ways they needed to, so they could find their own solutions and create their own change. When the talking stick had come full circle back to Good Horse Nation, he had everyone join hands and close their eyes, and said one prayer. With one last Ho Mitakuye Oyasin we broke the circle and ended the evening. Everyone was tired and giddy, and we made our way to our cars, and drove home.
+Lessons learned
+I continued going to these sweats three weeks out of every month for the rest of the season. As fall turned colder, we would huddle closer to the fire as we stood around and waited to enter the lodge. Standing there, laughing and shivering, in our swimtrunks and towels, we heated our chests to steaming, while cold icy rain licked our backs and calves. I never got ill from exposing myself to the elements like this, not even in the Winter, when we walked barefoot over a thin cover of snow. It was a real wake-up call to remember that, below these clothes, I had a living, breathing body that had grown used to a very narrow comfort zone of temperatures -- to remember that that body existed in a universe of fluctuating conditions that had nothing to do with my creature comforts. It was also surprising to know that, with a little effort, I could train myself to withstand these fluctuations and live with them -- even dance with them. I remember standing barefoot on cold frosted grass, looking up at a full moon behind some high altitude frozen clouds and feeling this complete stillness. I didn&#x27;t need to be protected from this harsh, natural world, I could just stand there and feel embraced by it.
+As fall went by and the leaves turned brown and fell from the trees, I began to reconceptualize the usual ways I thought about very basic things -- like rain, or gray skies, or the color of a brown carpet of wet leaves on grass. In the past, these things had always meant doom and gloom -- my sadness of a green world dying. But now I found that I was taking the lessons of the lodge and applying them as metaphors to larger aspects of my life. Within the world of Lakota symbolism, the Four Directions of the medicine wheel symbolized the continuing process of creation, by which everything came into being, lived, died, returned to silence, and return to birth again as something new. These large universal processes were not some far-away abstraction -- in the Lakota worldview, these mythological forces were constantly playing out on all levels. The dance of birth-life-death-silence-birth could be seen in the slow births and deaths of stars, or in the yearly seasons around us -- or even in something as mundane as our breath. There is a Lakota saying that &quot;Every breath in is a birth -- every breath out a death.&quot;
+As I learned to see myself and the world around me as aspects of this constant universal dance, I started to think of fall as the Earth&#x27;s natural process of exhaling. I began to think of the constant, pouring rains as the Earth drinking -- loading up its mountain streams with water so that they could pour down to the oceans again in Spring and Summer -- feeding life wherever they went. I began to see the brown carpet of leaves as a rich feast of food, which needed to lie silent through the cold of Winter, so that it could be used as building blocks for new life in the Spring.
+Winter season
+That first season in the sweat lodge ended in early December, and a new one began two weeks later. I felt like I had come a long way, and wanted to keep going. The next season&#x27;s group was even bigger -- around 42 people -- so it was getting more and more crowded in the lodge. As we stood around the fire in the dark, with the cold wind and rain blowing on us, I wondered how we would all fit inside our little pole-and-tarp structure. And yet when we crawled in, we found that our own collective body heat would warm the lodge, and we huddled closer together, aware of our bodies&#x27; energy. Afterwards in the talking circles after the sweat, I found that these new people were going through many of the same things I&#x27;d been through my first season -- the discomfort, the discovery, the self-doubt -- and saw myself and the group help them along.
+Now that I had passed through Fall and found myself more at peace with the dying of things, my goals for this new season were to explore the symbolism of Winter -- silence, emptiness, the Void. I learned that the absence of life is also a sacred part of the dance and realized that I could locate those forces within me and draw on them. Because breathwork is really at the center of sweatlodge practice, I began to learn that my body had many different comfort levels for how much oxygen I needed at any one time. When I was singing at the top of my lungs, I would take large quick inhaling breaths and let them out over long periods of time using my diaphragm to add energy and volume. At these times, my body may have been relaxed but I was working hard, and my heart was beating fairly strongly to pump the oxygenated blood through me. But there were many parts of the lodge when one is not singing -- when one is simply sitting in the dark and the heat, concentrating or meditating, and these required a very different kind of breath.
+Over the Winter, I learned how to consciously slow my body down, drawing oxygen into me as slowly as possible. This required a certain level of stillness -- I needed to forget that I was sitting in hot, close-packed darkness -- to leave that all behind and focus on something else. When I let the fear and discomfort and self-doubt go, my body would no longer clench my muscles to protect me and I could relax and use much less oxygen to stay alive. My thoughts no longer raced with constant messages of discomfort and I could find a stillness, a clear void within. At these times, I would let my breath guide me downward to deeper and deeper relaxation. Though I knew I was slowing my breathing down, I would never feel that it was forced or that I was starved for oxygen. It just felt very natural to inhale more and more slowly, to feel myself fill up with life. Then, when I was full, I would feel that life slowly drain out of me in an exhale, further and further, until my lungs were complete free of air. There -- at the very bottom of the exhale -- I would sit in silence. I found that there was a comfort point somewhere down there in the stillness where my body could sit airless and not need to inhale. Now naturally, the life forces within me would demand oxygen, and the next inhale would come -- naturally, gradually -- to fill me with life again. But the important lesson for me was that between the death of the exhale and the birth of a new inhale, I also had a stillness within me -- a point of no-thought, no-mind, no-movement -- that could be touched if I simply turned off the chatter and listened for it.
+The weeks went on. I began showing up earlier to the sweatlodges, so that I could help build the fire. I sat in the cold and dark of winter, and with my own hands converted stored wooden energy of the sun into heat and flame and transfered it to the rocks which would give it back to us. I found that I was becoming one of the respected singers in the lodge. I had a strong, clear voice and a good understanding of the meaning of the words that I sang, and so I sang with emotion and feeling. Though I was one of the youngest people in the group, I found that I was slowly earning the respect of my peers. I also found that I no longer thought of the lodge as &quot;an ordeal&quot;. Though the lodge certainly pushed one to the edge of one&#x27;s strength and comfort level, I had found that there were places within me that danced with this process and could exist out there at the limit of how much oxygen I needed to sit upright, or how much strength I needed to continue singing at the top of my voice in blistering heat. It&#x27;s not that I grew insensitive or &quot;tough&quot; to the pain and discomfort of the ordeal - it&#x27;s just that I found that I could reach a place where these things no longer mattered. I could accept them as incoming signals and move past that to something else.
+The cold of Winter began to fade and the first green tips of growing things began to poke out of the ground. That Spring was a marvel for me, because by then I had grown so aware of the life force within me, drawing in air to keep me alive. And now I saw that same force everywhere around me, filling the earth with life, exploding before my eyes everywhere I went. That season in the Lodge ended in March, and I decided to continue and join another time. This time the group was even larger -- I think we had somewhere over 50. We all laughed about it and made jokes about sardines. With the weather getting warmer, we no longer had to huddle around the fire to keep warm before we entered the lodge, and we would line up with a bounce in our step, and sit inside the lodge packed knee-cap to knee-cap, smiling at our group&#x27;s closeness.
+By now -- with six months of semi-weekly sweats under my belt -- I had started to feel like an old hand. The ritual of the lodge became very familiar to me, and one song would blend very naturally into another. As Spring turned warmer and warmer, I reveled in joy at all the life around me, and marveled at my new found connection to the universal forces outside me and within me. In many ways, those were some of the best months of my life. I felt like I was at the peak of my creativity, I was learning and discovering new things all the time. I felt like I had found connection and intimacy on many levels which I had wanted for so long but had been lacking -- with the universe, the seasons, the world around me. I even found myself a respected member of a group of peers -- something that had been very rare at that time in my life.
+Emerging dissatisfaction
+But this created a dynamic I was totally unprepared for. As I delved deeper into this new worldview -- I found I was increasingly dissatisfied with the rest of my day to day life. Driving on highways, working my job, living in a large city -- these now became foreign to me, and chaffed against me. It took me a long time to realize that a desire had awoken in me to escape this day to day life of mine -- to somehow move over and live in the Lakota Sioux universe, not just in a symbolic way, but on a day to day level. I had discovered a new world for myself, but at this point it was so far away from the regular consensus reality world I still had to live in that I had no way to integrate the two. My only choice seemed to be to drop out of this work-a-day life altogether. Unfortunately (or perhaps fortunately) this option was completely unrealistic. Aside from the fact that I completely lacked the skills of living off the land in a Lakota Sioux fashion, I also had no way of joining any group of Lakota Sioux because they would most likely never accept me. To a large degree, it could be said that the culture and world I wanted to live in simply no longer existed within my time.
+I struggled with this dilemma for months. Do I escape consensus reality and live in my own bubble of dream? Do I try for some sort of living out in the woods on my own situation, with my weekly sweat lodge contact as my only peer group? Do I give up on this world I&#x27;ve discovered and re-join the consensus reality around me? None of these seemed realistic.
+Conclusion
+In the end, I chose a different option. I chose to leave the lodge, and maintain the lessons and worldview which the lodge had taught me on my own. Because I could not integrate the Lakota world with my the rest of my world, I would seek to find and create another worldview where my need for connection to the universe and my work-a-day life were more integrated. It took me a long time to realize that the process of me creating this world could only begin if I left the sweat lodge and stopped relying on that particular symbolic world as a place I could go to escape my work-a-day existence.
+I explained all this to Good Horse Nation and I believe he understood my reasons and my motivation. On the day of the last sweat of that Spring season, after we had left the lodge and finished the last talking circle, I came up to him and offered him a present of thanks. I had made him a square piece of bead-work, a white horse on a red background. I had wrapped these beads around a rock, and placed these in a small basket made of twined pine needles. It had taken me many hours to make all of these things by hand. Through this very traditional gift I was saying to him: thank you for allowing me into this world -- I have learned so much, but now it is time for me to leave this world, and to do the difficult work of creating my own. To the best of my knowledge, my gift still sits on his shelf.
+Ho Mitakuye Oyasin
+[
+back to spirit
+]   [
+back to sweating
+]
+Created for Erowid - Nov 11, 2003
+Modified - Feb 3, 2015
+Content &amp; design © 1995-2025 Erowid.org. Permission required before publicly reproducing Erowid info.</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

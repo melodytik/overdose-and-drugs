@@ -1,0 +1,383 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>像在充满爱的温暖海洋中游泳</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mmda.html'>← MMDA</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>像在充满爱的温暖海洋中游泳</h1>
+<div class='sub-title'>MMDA - Erowid Exp - &#x27;Like Swimming in a Warm Ocean Full of Love&#x27;</div>
+<div class='meta'>作者：Huichol artists in Mexico · 日期：Sep 30, 2023 · 剂量：180 mg · <a href='https://erowid.org/experiences/exp.php?ID=117164' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我在网上阅读一些稀有的旅行报告和舒尔金的报告后,
+这种轻松的高兴情绪与强烈的&quot;心智电影&quot; CEV 听起来令人难以置信.
+我从来没有想过在纽约美丽的3月阳光明的一天,
+我不会详细介绍我的来源,
+我打算在下午和我的伴侣C一起出去, 在当地公园里度过效果的持续时间,
+我有点紧张, 因为 MDMA 的出现有时会让人感到压倒.
+在我们离开公寓之前, 我决定吃点东西.
+我吃了一个三明治,
+后来我的一个朋友说, 服用药物前半小时吃饭, 产量减缓, 强度下降.
+我没有想到胃酸会减少盐的吸收.
+我建议在口服之前至少吃2-3小时,
+吃了半个小时后, 我服用了180毫克的MMDA.
+时间是下午3点45分,气温高达50度.
+我们带着毯子前往公园.
+我现在要引用并包括我当天所做的笔记,
+00:00 - 在下午3点45分左右摄入了~180毫克MMDA.
+阳光高达50度.
+00:30 - 没有明显的活动.
+胃部有点,可能只是神经.
+在阳光下坐在公园里,美丽的一天.
+感到兴奋!
+1:00 - 没有明显的效果.
+感觉心情好,身体轻松一些.
+没有视觉或精神变化.
+放松一下
+1:15 - - 身体的第一次感觉.
+镇静和满足和和平.
+没有焦虑.
+肢体上的轻度.
+到目前为止,
+1:30 - 感觉到身体像MDMA一样.
+有点头.
+很难集中眼睛,慢慢地闭上.
+轻度的快乐 (平静,身体感到放松和和平).
+感觉相当疲.
+目前还没有真正的视觉扭曲.
+2:00 - 身体轻松,轻度片类的高兴感类似于克拉,全身放松,明显缺乏焦虑或担忧.
+微弱的幻灯片效果, 但没有扭曲,
+非常安静和放松.
+没有闭眼视觉.
+在经历的这个时候, 我在给我的一个朋友发短信,
+他开玩笑地责备我, 建议我重新服用80毫克.
+我感觉到了足够的效果, 认为这是一个伟大的想法,
+2:15 - - 身体和精神上真的开始感到高兴,
+没有焦虑.
+感觉非常和平和满足只是.
+我觉得我是在吸食阿片类药物.
+感觉非常缓慢和疲, 但令人难以置信的高兴.
+身体还轻, 眼睛很难开.
+2:40 - 回家再服用80毫克,可能是因为吃得太快而轻微.
+感觉很好,温暖的高兴.
+很难保持开放的眼睛.
+现在我已经无法记录自己的笔记了.
+接下来是近三小时的强烈,镇静的身体快乐 (轻度和&quot;暖&quot;的感觉) 和最生动,现实的CEV我有过经历.
+在服用补充剂后,经验的强度呈指数级增加.
+我发现自己被全身的轻感所吸引.
+我能感觉到我的眼睛每隔几秒钟就会向上滚动,
+后来我的同事告诉我,我的体温相当高.
+触觉和性欲明显增加.
+我们曾经有过性生活,
+我没有达到高潮, 但我非常兴奋, 所有的身体感觉都很棒.
+但与MDMA不同的是,
+很难描述,但我会说这是一个更&quot;一般&quot;的心的开放.
+虽然MDMA让人觉得自己与他人有着开的关系,
+对于我来说, 这是一个更&quot;内在&quot;的体验,
+人们称之为&quot;心灵电影&quot;或清醒的清醒梦.
+我预计会有这样的情况,
+虽然我的眼睛闭着, 但我可以看到整个时间.
+图像,图案,人,地方都在我脑海中出现了极其清晰.
+首先,我的意识流决定了我会看到什么,
+虽然我确信效果不那么强烈.
+能够&quot;擦掉&quot;东西,或专注于其他图像似乎是真实的.
+细节是令人难以置信的
+如果我想象自己走在街上, 我可以看一堵墙,
+这些是我从未经历过的最强烈的幻觉.
+这与人们在梦中所经历的情况非常相似.
+尽管一切看起来真实, 我却清醒地意识到我的经历.
+世界似乎有些正常, 虽然我仍然可以看到我脑海中的东西与我实际看到的东西一起.
+我将在下面发表我的同事写下我口头描述我看到的意识流.
+我会在她最初写的内容上添加一些笔记;这些笔记将以星号**包围,以区分我阐述的思想.
+&quot;思想让我脑海中的影像成为最重要的.
+随机的图像,我认识的人像你这样的面孔.
+想起&quot;英雄联盟&quot;, 感觉就像我真的在玩.
+我几乎每天都在玩一个流行的在线游戏.
+摄像机的视角是对称的,
+我可以从这个角度看比赛,
+似乎我是一台漂浮的摄像机,
+随机的事情.
+一个男孩和一个老人在公共汽车上.
+卡通的故事.
+一个足球场.
+看到下面有文字的图片就像看着Instagram的消息一样.
+我觉得我可以向上和向下滚动**
+感觉很好,宁静,轻松的身体,高兴.
+皮肤感觉很好,触摸感觉很好.
+现在我可以闭上眼睛, 感觉自己不在这里.
+似乎没有什么比追溯回忆更好. **我有着明显的感觉,这些图像或场景都不是来自我的实际记忆,
+它们通常出现在你的脑海中, 但更多的是真实感觉.
+像梦幻般的感觉, 如此美好,如此美好.
+这绝对是类似于MDMA的感觉; 打开你的心.
+这种染性...
+我很兴奋. 我很兴奋. 我很兴奋.
+我看到一只小毛的狗在桌子上灌一杯水.
+奇怪的东西,比如果装载圈在你的视觉的中间.
+为什么人们不这样做呢?
+我看到一个小孩从一个约约比赛喝卡布奇诺然后吐到另一个玻璃杯.
+我记得这是指我目睹的场景中的照明.
+似乎日间时间和太阳的角度都在变化,
+这种效果增加了许多美丽和戏剧性.**
+想到走在索霍街道上, 我可以看到路过的人,垃圾桶上的垃圾,交通,车辆毁,时代广场的灯光,到处的明亮灯光.
+派对,大规模的狂欢.
+我着你,还有人在跳舞.
+看起来像音乐家IceT在白色睡衣和奇怪的帽子里抽烟.
+雪覆盖了一切. 我记得,我描述的&quot;雪&quot;就像电视上的静电覆盖了我所看到的东西.
+想起我以前在学校做过的涂和论文.
+音乐和音乐符号我已经工作. **我没有演奏音乐或阅读乐谱很长一段时间,我对这个感到惊**
+我可以看到我的奶奶. **我可以看到和和我的祖父母说话,我有点情绪化在这里,感觉轻微的遗憾的刺我希望我现在可以与他们讨论.
+我在M和K的公寓里与他们交谈.
+我妹妹抱着一个新生儿. **我妹妹没有孩子,只是想指出这一点**
+我想象它是什么ibogaine是像,但不那么强烈,但你觉得你可以接口和与记忆或人互动. **我试图描述能够操纵图像的感觉,就好像他们是在触摸屏,我已经在上面描述**
+最好的类型的迷幻体验.
+我可以闭上眼睛看到.
+我告诉她我可以看到我们所处的房间和所有的细节,即使我的眼睛闭着.
+我还可以在不同的光照下看到它.**
+看到我们在床上闭着眼睛, 让人难以置信.
+感觉好像几个小时都没有开眼睛, 也好像没有闭上眼睛.
+让你的思想流浪就像梦.
+我可以看到像&quot;纽约客&quot;这样的漫画中的图像.
+丹尼斯穿过一片100英尺高的森林.
+我有一个异象, 他立在树林中.
+我不知道这是从哪里来的.**
+他们都拿出了扫和扫石.
+想回到我的自行车上. 在某个时候, 我告诉C我想再次骑自行车,
+最近我感到遗憾,因为我没有像以前那样骑马.**
+语和一些奇怪的东西.
+联盟的首页屏幕上有4个冠军标语,其中的冠军面孔被重新剪裁并变成了另一个冠军,如Teemo,Rammus,这两个冠军来自游戏的混合面孔.
+我看到你在手里拿着彩色的珠子, 向钢琴家挥手.
+站在一个黑暗的走廊和一个棒形状正在运行在灯开关和一个棒形状美人鱼来了,切他两半,
+我不想让它结束. 她引用了我的话,
+他们应该给盲人这种药物.
+很久没有开眼睛, 却能看到许多细节,
+就像一个操作界面,你可以像...
+像在温暖的浮动浴里, 电影屏幕在你上面漂浮,
+让人感觉更好, 声音更好, 性感更强烈.
+其他来自C的观察:
+眼睛往后转动,动,闭上,好像你正在入睡.
+生性
+热情的
+很多吟
+语气不好或惰
+身体非常温暖&quot;
+我相信这是显而易见的,
+这是一部激烈,个性化,充满爱心,可视化,有趣,令人高兴的作品.
+我感觉好像我的整个思想,身体和灵魂都在完美的和中,
+这不是我想要在社交场合做的事情.
+似乎更适合于冥想或治疗场合.
+我认为用这种物质做一些治愈工作会非常有效.
+缺点是缓慢的上升 (可能是由于事先进食) 和第二天的下降.
+我觉得自己有点不适,有点烦躁,
+这种感觉一整天都会波而来, 有时就像醉酒后的恶作剧一样,
+在经历后的第二天, 一个良好的睡眠, 充足的水,
+我会毫不犹地再次服用这种化合物,
+这是一些和平,幸福和美丽的图像.
+就像漂浮在充满爱的温暖海洋中.
+已使用的证券
+发布时间:2023年9月30日
+公共空间 (博物馆,公园等) (53)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Stunning Huichol Yarn Art
+Donate $250
+and get a beautiful Huichol yarn
+painting, hand made by Huichol artists in Mexico.
+A fabulous gift! (8, 12 &amp; 24 inch pieces available.)
+Like Swimming in a Warm Ocean Full of Love
+MMDA
+by
+Crabby
+Citation:   Crabby. &quot;Like Swimming in a Warm Ocean Full of Love: An Experience with MMDA (exp117164)&quot;.
+Erowid.org
+. Sep 30, 2023. erowid.org/exp/117164
+DOSE:
+180 mg
+oral
+MMDA
+(capsule)
+BODY WEIGHT:
+180 lb
+I was very interested in trying MMDA after reading a few of the scarce trip reports online and Shulgin&#x27;s reports. Easygoing euphoria with intense &quot;mind movie&quot; CEVs sounded incredible. However, I never expected the experience I had on the beautiful sunny March day in NYC when I was finally able to taste this incredible substance myself.
+I won&#x27;t go into my sourcing, but what I was able to take was pure MMDA HCL. My intended plan was to go out in the afternoon with my partner C and spend the duration of the effects in a local park while she looked after me as a sober trip sitter. I was a little nervous since the come up of MDMA can sometimes be a little overwhelming. Before we left our apartment, I decided to eat something. I had a sandwich with chicken, avocado, bacon, lettuce, and tomato. This turned out to be a mistake as one of my friends later suggested that I experienced a much slower come up and decreased intensity from eating about half an hour before dosing. I wasn&#x27;t thinking about stomach acid decreasing the absorption of salt. I was recommended to eat no less than 2-3 hours before dosing orally, and I would suggest this to anyone trying this substance in the future.
+After eating and hanging out for about half an hour, I took 180mg of MMDA in a gelcap. The time was 3:45pm and the temperature was in the mid 50s. We then headed to the park with a blanket.
+I will now refer to, and include, my notes taken on the day, and will include notes taken by my partner during the peak of the experience.
+00:00 - Ingested ~180mg MMDA around 3:45 pm. Sunny ~50f.
+00:30 - No noticeable activity yet. Slight butterflies in the stomach feeling, probably just nerves. Sitting in the park in the sunshine, gorgeous day. Feeling excited!
+1:00 - No noticeable effects. Feel in a good mood, body feels slightly lighter. No visual or mental changes. Relaxed.
+1:15 - First noticeable body feeling. Sedative and contented and peaceful. No anxiety. Lightness in limbs. Very mild so far.
+1:30 - Feel a body rush similar to MDMA. A little lightheaded. Hard to focus eyes, keep closing slowly. Mild euphoria (peaceful, body feels relaxed and at peace). Feeling quite tired. No real visual distortion yet.
+2:00 - Lightness of body, mild opiate-like euphoria similar to kratom with full body relaxation and noticeably lack of anxiety or worry. Slight &quot;slideshow&quot; visual effect, but no distortions, similar to what happens visually when stoned on Marijuana. Very tranquil and relaxed. No closed eye visuals.
+**At this point during the experience, I was messaging one of my friends who was shocked I was having such a mild experience. After I told him I had eaten beforehand, he jokingly chided me and suggested I redose 80mg. I was feeling the effects enough to think that was a great idea, and my God, he was absolutely correct.**
+2:15 - Really starting to feel physically and mentally euphoric like my body is wrapped in a warm blanket. No anxiety. Feeling very at peace and content to just be. Feel like I&#x27;m nodding out on opiates. Feel very slow and tired, but incredible euphoria. Body still feels light, hard to keep eyes open.
+2:40 - Headed back home and re-dosed 80mg, mildness probably due to eating too soon before taking initially. Feeling nice and warmly euphoric. Hard to keep eyes open.
+After this point, I became unable to record my own notes. What followed was almost three hours of intense, sedative body euphoria (lightness and “warm blanket” feeling) and the most vivid, realistic CEVs I’ve ever experienced. The intensity of the experience increased exponentially after taking the supplemental dose. I found myself enrapt in a full light body euphoria. I could feel my eyes rolling upwards every few seconds similarly to an intense MDMA experience. My partner later told me my body temperature was fairly high. Tactile sensation and sexual desire were noticeably increased. At one point, we had sex and it was intensely pleasurable. I was not able to reach climax, but I was extremely turned on and all physical sensations felt amazing.
+The entactogenic qualities were there, but in a slightly different way than MDMA. It’s hard to describe, but I would say it was a more “general” kind of opening of the heart. MDMA gives the sense of openness as it relates to other people, MMDA felt more like I was opening to myself and the universe in general. For me, it was a much more “internal” experience, as if you turned the effects of MDMA inwards.
+The really astounding and unique aspect of the experience is what people have referred to as “mind movies&#x27;&#x27; or waking lucid dreams. I was expecting this, but I was wholly unprepared for what actually occurred. For about an hour and a half during the peak of the experience my eyes were closed, but I could see the entire time. Images, patterns, people, places all came to my mind’s eye in extreme clarity. At first, my flow of consciousness dictated what I would see, but I eventually could conjure and interface with images and scenes. The effect was similar to what I’ve read in some Ibogaine experiences, although I’m sure less intense. The ability to “swipe” things away, or focus on other images seemed so real. The details were incredible. If I imagined walking down a street I could look at a brick wall and see every pore and blemish on every individual brick. These were the most intense hallucinations I’ve ever experienced with any substance to date. It was extremely similar to what one experiences during dreams. Everything felt and looked so real, but I was lucid and conscious of what the experience actually was. When I would open my eyes briefly the world seemed somewhat normal, although I could still see the things in my mind in tandem with what I was actually seeing. Below I’ll post what my partner jotted down as I verbally described what I was seeing as a stream of consciousness. I’ll add some notes to what she originally wrote; these notations will be enclosed in asterisks ** in order to differentiate my expounded thoughts.
+&quot;Thoughts bring images to the forefront of my mind’s eye.
+Random images, faces of people I know like you **this is referring to my partner C** or unknown people.
+Thinking about League of Legends, feels like I’m actually playing.
+Feel like I can zoom and pan camera angle. **League of Legends is a popular online video game I play almost every day. The camera perspective is isometric, top down. I could see the game from this angle and others. It seemed like I was a floating camera able to hover and zoom around the map**
+Random stuff.
+A boy and an old man on a bus.
+Cartoons.
+A soccer field.
+Instagram post. **Seeing images with text underneath like looking at an Instagram feed. I felt as if I could scroll up and down**
+Feels so good, tranquil, light body, euphoric.
+Skin feels so good, touching feels good.
+All this feels like I am able to close my eyes and feel like I’m not here.
+Nothing seems to be like a retracing of a memory. **I had a distinct feeling like none of these images or scenes were from my actual memory, but may have been influenced by memories.**
+Stuff that appears in your mind&#x27;s eye normally but a lot more, and more real feeling.
+Like a dream feeling and so nice so nice. *moaaaan* ;) **This is her being cheeky referring to my moaning in ecstasy**
+Definitely a similar MDMA feeling; opening up your heart.
+The entactogenic…ness.
+Goddamn having sex was fucking nuts, it was so fucking good, I was so turned on.
+I see a little fuzzy dog on a table filling a glass of water.
+Weird things like the apple loading circle in the middle of your vision.
+Why is this drug not… Why are people not doing this?
+I see a kid from a yo-yo contest drinking a cappuccino then spitting into another glass.
+Lights shift like daylight then blue or yellow. **I remember this is referring to the lighting in the scenes I was witnessing. It was as if the time of day and angle of the sun was changing, creating casts of blue, orange, and yellow across the scenes. This effect added a lot of beauty and drama.**
+Thinking about walking the streets of Soho, I can see people walking by and all the trash on the trash cans and traffic cones, cars crashing, lights in Times Square, bright lights everywhere.
+Parties, massive rave.
+My arm around you and someone else dancing.
+Looks like Ice T the music dude smoking in a white pajama outfit and a weird hat.
+News segments from CNN or something and snow covering everything. **From what I recall, the “snow” I am describing was like a tv static overlaid on what I was seeing**
+Thinking of doodles and papers I used to work on in school.
+Music and music notation I’ve worked on. **I haven’t played music or read sheet music in a very long time, I was surprised by this one**
+I can see my meemaw. **I could see and speak with my grandparents, I was getting somewhat emotional here and felt slight twinges of regret about what I wish I could discuss with them now.**
+I’m in M and K’s **This is my sister and her boyfriend** apartment talking to them. My sister is holding a newborn baby. **My sister doesn’t have a kid, just wanted to note this**
+I imagine it’s what ibogaine is like but way less intense, but you feel like you can interface and interact with memories or people. **I was trying to describe the sensation of being able to manipulate images as if they were on a touchscreen, as I’ve described above**
+Best kind of psychedelic experience.
+Can see with my eyes closed.
+And picture the lights on the ceiling and tapestry the room with the lamp on. **I was telling her I could see the room we were in and all the details, even with my eyes closed. I was also able to see it in different light settings.**
+See us on the bed with my eyes closed, it’s mind boggling. **I could see us from a third person perspective.**
+Feel like I haven’t opened my eyes in hours and also like I haven’t closed them.
+Letting your mind wander is dreamlike.
+I can see images as if they are cartoons in something like the New Yorker.
+Dennis walking through a forest 100 ft tall. **For context, this was Dennis Reynolds from the show It’s Always Sunny in Philadelphia. I had a vision of him towering about the trees in a forest. No idea where this came from.**
+They all took out brooms and sweeping rocks. **I don’t remember this image.**
+Want to get back on my bike **At some point I was telling C that I wanted to start riding my bike again, I believe I was feeling openness about some of my insecurities. Lately I have been feeling regret that I haven’t been riding like I used to.**
+Memes and weird things.
+The home screen of League, there are 4 banners with champions **characters from League of Legends are referred to as champions** faces on them are re-cut and morphed into another champion like a Teemo, Rammus **two champions from the game** face hybrid.
+I see you **referring to C** with colorful beads in your hand and you’re waving your arm to a piano player.
+Standing in a dark corridor and a stick figure is running on the light switch and a stick figure mermaid came up and sliced him in half and there is blood everywhere.
+“I don’t want it to end” **She’s quoting me here, the experience was so intensely wonderful**
+They should give this drug to blind people.
+Haven’t opened my eyes for long and you can see so many things in detail almost indistinguishable from reality.
+Like an operating interface where you can just like….
+Like being in the warm floating tub with a movie screen floating above you that you can control all you want, no bad feelings. Incredible, not overwhelming, fun, relaxing, everything feels better, sounds better, sexual feelings are so intense.
+Miscellaneous observations from C:
+Eyes rolling back a lot and fluttering and shutting as if you are drifting into sleep
+Lethargic
+Horny
+Lots of moaning
+Slurred/ lazy speech
+Body was very warm&quot;
+As I’m sure is obvious, I had a completely positive experience with MMDA. It was intense, personal, loving, visual, interesting, and euphoric. It felt as if my whole mind, body, and soul were in perfect unison and happy to just exist; the total dissipation of anxious patterns of thought. This isn’t something that I would want to do in a social situation. Seems more suited to meditative or therapeutic situations. I imagine doing some healing work with this substance would be extremely efficient. The downsides were the slow come up (probably due to eating beforehand) and a comedown the day after. I woke up around 8am and just felt a little off and somewhat irritable, similar to an MDMA comedown. This feeling came in waves throughout the day and at times felt similar to an alcohol hangover with feelings of unease, anxiety, and slight nausea. A good night’s sleep, lots of water, and good food took care of that by the second day after the experience. I would not hesitate to take this compound again, and am especially interested in using it in a more directed therapeutic way. It was hours of peace, bliss, and beautiful imagery. Like floating in a warm ocean full of love.
+Exp Year: 2023
+ExpID: 117164
+Gender: Male
+Age at time of experience: 31
+Published: Sep 30, 2023
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MMDA (593) : First Times (2), Glowing Experiences (4), Public Space (Museum, Park, etc) (53)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

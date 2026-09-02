@@ -1,0 +1,475 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>德特 - 埃罗伊德探险 - &quot;三次无效的尝试&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/det.html'>← DET</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>德特 - 埃罗伊德探险 - &quot;三次无效的尝试&quot;</h1>
+<div class='sub-title'>DET - Erowid Exp - &#x27;Three Fruitless Attempts&#x27;</div>
+<div class='meta'>作者：Psychestim From Reddit Collection Citatio · 日期：Feb 4, 2022 · <a href='https://erowid.org/experiences/exp.php?ID=116052' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>在口服
+美国
+时间+127:02
+在口服
+4-HO-MET 的使用
+在口服
+咖啡
+(每天)
+如果您想跳过以下三篇旅游报告, 直接得出结论, 请向下滚动.
+背景信息:
+- 性别:男性
+- 年龄: 24
+- 重量: 77 公斤
+- 设置: 在家
+我和家人度过节日, 和朋友们一起玩得很开心.
+我已经戒除了迷幻药了一个多月.
+经过实验室测试, 证实是预期的物质.
+UHPLC-MS还检测到未指定的数量DMT和其他两个未知的合成副产品.
+我仍然认为服用DET (+其他药物) 的风险相对较低, 因为DMT在没有MAOi的情况下不会口服活跃,
+盐是白的粉末当我第一次得到它但它很快氧化到色.
+我注意到舒尔金实际上提到DET的HCl盐是相当不稳定的,所以这是一个...无论如何, 粉现在看起来类似于其他胺盐, 和DMT自由基.
+我也从朋友那里得到的DPT HCl, 仍然是白色的,
+我的朋友已经尝试了DET并没有报告任何不良影响所以我认为50mg (PO) 是一个安全的地方开始.
+他还说, 无手套处理自由基的材料,
+我之前只有两次尝试DMT (蒸发),
+在给药前5小时我吃了早餐.
+我做了一些家庭炼之后,所以我的胃几乎是空的当我采取DET.
+除了早上一杯卡布奇诺和每天补充维生素D3之外,
+DET (68-88mg (总量),口服/蒸发 // 第一个试验 (03/ 01/ 22):
+现在我的胃已经工作了, 我感觉囊已经分解了.
+我已经一段时间没有吃东西了,所以这并不奇怪.
+我几乎没有注意到身体的变化,
+我觉得自己非常放松,
+目前发生的情况相对较少.
+完全没有视觉效应, 除了类似于西的镇静, 我也没有体质效应.
+我的头脑完全清晰, 我的思维过程不受影响.
+然而,我确实感觉很好.
+这种物质到目前为止非常友好和愉快.
+我没有感觉到50毫克的身体副作用, 但说实话,
+味道让我想起了很多DMT,也许因为它里面有很少的量?
+可能不是.
+取决于强度如何增加我可能会尝试吸烟一些DET HCl在麻醉烟斗后.
+网上没有关于DET HCl沸点的数据, 我通过这种方式吸食DMT自由基只有中等的成功, 但由于甲基和DET HCl的点大约在170°C,
+我仍然处于一种良性且几乎可以忽略的胺高.
+在我脑海里一直荡着.
+我不知道再注射是否有任何作用, 但作为预防措施,
+我的头脑很平静, 头部空间让我想起了很多低剂量的DMT.
+作为一个胺爱好者, 我不得不说, 偶尔服用胺是令人振奋的,
+没有恶心,没有体重,没有温度调节失调,
+音乐似乎没有改变, 但我确实觉得听起来很愉快.
+经过20分钟的冥想之后, 我将尝试另一种药物.
+我已经把20毫克的HCl盐放进一个油烧炉中,
+味道非常类似于DMT的自由基.
+恶心,但我已经尝到了更糟糕的.
+心率迅速增加.
+我舌头上有一种奇怪的味道,
+整个房间的气味现在是这样的.
+目前还没有明显的效果.
+心率迅速增加.
+我舌头上有一种奇怪的味道,
+整个房间的气味现在是这样的.
+目前还没有明显的效果.
+我在部和头部出现了一种轻微的内在温暖和令人愉快的刺痛感.
+可能是安慰剂?
+我在外观视觉上有一些视觉偏差, 但仍然很小.
+我闭上眼睛,什么都没有发生.
+我不认为我得到了很多的20毫克.
+我试图吸食盐是没有成功的.
+或是油烧器的沸点太高, 或是我不能正确地吸烟.
+无论如何, 明天我会试着抽烟,
+如果不是,那么我仍然有自由基作为我的最后手段.
+我现在的小迷正在慢慢结束.
+这种衰退是非常舒缓和高兴的, 感觉类似于DMT衰退,
+我感觉到满意和完整的感觉.
+现在,我的室友为我们做了晚餐.
+我们一起吃饭,看电视.
+基本上是回到基线.
+我现在的情绪仍然很好,
+第二天:
+我在8点10分醒来, 经过7小时的间歇性睡眠.
+我和我的室友昨天晚上看了卡通片,
+我们在晚上9点50分 (05:38分) 和晚上10点20分 (06点08分) 两次服用50毫克的药物,并在上午00点30分 (08点18分) 睡觉.
+这是一个有趣的夜晚,但没有什么可以写回家.
+基他胺似乎没有受到我之前的DET的影响.
+我现在有点疲, 但是一杯咖啡可以解决.
+我不能真正专注于我的任务,
+我认为这更多是由于胺和不舒服的睡眠, 而不是DET.
+我还跑了一小步, 结果很好.
+背景信息:
+- -//- (见上文)
+- 容忍:不确定,也许有点.
+不同于大多数其他迷幻药物, 基本胺通常不会立即产生耐受性,
+我每天早上喝一杯咖啡,每天补充维生素D3,
+更多关于我当天所做的事情的信息,请参阅上面的*第二天*部分.
+DET (45mg (总量),蒸发) // 第二次试验 (04/01/22):
+我用纸成一个小匙, 取出20毫克的化盐,
+我把我的小构造物放回桌子上,进行指导冥想.
+这是我第一次使用纸吸烟, 效果相当好.
+烟迅速融化成一个色的水池,
+我没有得到所有的蒸汽,因为它是非常不愉快的吸入,
+我又有了那种古怪的,状的薄荷味道, 它粘在我的嘴唇上.
+感觉有毒, 我不愿意尝试这种方法.
+我身体放松了, 嘴里的奇怪味道慢慢消失了.
+房友刚刚来到我的房间, 要求我关上门,
+虽然片的效果明显高于管,
+一个熟悉这项技术的人肯定会比我更成功.
+德的作用时间肯定比蒸发的DMT更长.
+没有视觉效应,甚至没有轻微的视觉障碍.
+我现在将重出25毫克并给它另一个注射.
+烟雾比以前更令人讨厌.
+我需要咳.
+影响正在再次增加.
+这种反应似乎不像DMT那样强烈.
+这似乎更渐进,尽管这可能是由于缺乏视觉效应和不同剂量的原因.
+我喉有个令人讨厌的块,
+很难分类这些影响, 因为它们非常微妙.
+我认为我会为下一次蒸发尝试使用DET来体验它的全部效果.
+我处于一个舒适的平原阶段.
+尽管如此, DET 仍在工作,
+我注意到一些轻微的敏度增强和我在一个缓慢和和平的头部空间.
+我只是惊DET与DMT和DPT相比有多温和.
+我很想看看它在更高的剂量下是什么样子,
+我可能会在接下来的几天里再试一次, 但最有可能是用更高的口服剂量.
+效果正在消退.
+我整个房间的气味像一个刚刚打开的鞋盒,
+我不觉得宽容会阻碍这种体验.
+我认为这种物质与其他迷幻药物相比是非常温和的,
+我现在觉得清醒了.
+我的头脑是清晰的,我有一个漂亮的光,就像昨天一样.
+我从以前的试剂体验中知道, 降低 (或在这种情况下, 已经清醒) 的少量酒精协同作用非常好,
+酒精本身也会让我变得更开心.
+我很口, 总体来说我很幸福.
+我也曾经使用过psilocybin, metocin和吸烟的DMT+酒精, 得到类似的结果.
+在下列日后:
+钟在凌晨8点叫醒了我.
+我有点头和疲.
+在情感上我感觉很好.
+上帝,那个可怕的气味到处都有.
+如果您打算吸烟,请注意这一点.
+我的家具,我的衣服,一切都闻起来像烧毁的DET.
+我还能闻到我房间里的DET气味...
+背景信息:
+- -//- (见上文)
+我在早上 (11点) 服用了一克芬尼布HCl,
+我的女朋友也做了同样的事情,
+她决定不服用DET, 但仍然想旅行所以我给了她一剂4-HO-MET她已经熟悉.
+我们都在注射前3小时进行全身炼.
+之后我们吃了一顿简单的沙拉,蔬菜,哈鲁米和几片核桃面包.
+我们冥想了大约20-30分钟,
+DET (125mg (总量),口服) // 第三次试验 (08/ 01/ 22):
+时间是晚上8点, 我吞下了一颗含有90毫克DET HCl的囊.
+我的女朋友摄入了20毫克的4-HO-MET烟酸.
+我女朋友已经注意到第一个感官变化,
+我感觉到我的思维模式发生了小变化.
+这种石头般的DET让我想起了,
+没有太多发生了, 考虑采取更多.
+我又吞下了35毫克, 总量达到125毫克,
+我们正在YouTube上观看汉斯·齐默的现场音乐会.
+音乐听起来绝对很棒,
+我的女朋友正在享受自己很多,但我很无聊的效果.
+只是没有太多发生,再次.
+没有增加效应.
+我现在可以轻松开车,
+我真的没有什么可说的.
+我和女朋友都注射了8毫克4-HO-MET,
+这绝对是好笑的.
+我有更强的体力,更强的视觉和更大的高兴度从8毫克4-HO-MET (IN) 比从125毫克DET
+我有更强的体力,更强的视觉和更大的高兴度从8毫克4-HO-MET (IN) 比从125毫克DET
+所以宽容不是问题.
+经过三小时的微小, 我还在享受,
+第二天:
+我早上10点半醒来, 睡得很好,
+上帝保佑我们的四合一!
+如此微小的数量,我笑了我的蛋坚固的两个小时.
+我不知道我能否对DET说同样的话.
+结论:
+我从哪里开始?
+对于DET对我影响如此微弱的原因有几种可能,
+不幸的是, 测试设施没有量化DET和其他物质,
+另一种可能性是每个人对DET的代谢方式不同.
+例如,一些人似乎从口服DPT中获得了良好的效果,而另一些人则没有.
+我认为这可能也适用于DET,
+我注意到的效果是非常好的.
+口服时约2 - 4小时,蒸发时约1 - 3小时.
+它提供与其他胺类药物相似的温暖和身体舒适.
+这种体验完全没有任何视觉效果.
+头部空间让我想起了低剂量的DMT, 降落+后发光也很像DMT,
+我会再尝试蒸发, 但我会在通风良好的房间里吸烟,
+我仍然有嗅觉幻觉/幻觉的气味三天后,
+如果你想将其蒸发, 但你太惰,
+根据我的经验, 这样做并不成功,
+我可能不会再尝试我的DET HCl,
+我仍然很好奇能否在某个时候吸烟.
+谢谢您的阅读,
+心理评价
+已使用的证券
+发布时间:2022年2月4日</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Three Fruitless Attempts
+DET
+by
+Psychestim
+From
+Reddit Collection
+Citation:   Psychestim. &quot;Three Fruitless Attempts: An Experience with DET (exp116052)&quot;.
+Erowid.org
+. Feb 4, 2022. erowid.org/exp/116052
+DOSE:
+T+ 0:00
+50 mg
+oral
+DET
+(capsule)
+T+ 1:15
+18 mg
+oral
+DET
+(powder / crystals)
+T+ 2:45
+20 mg
+vaporized
+DET
+(powder / crystals)
+T+ 5:38
+1 line
+insufflated
+Ketamine
+(powder / crystals)
+T+ 6:08
+1 line
+insufflated
+Ketamine
+(powder / crystals)
+T+ 23:50
+20 mg
+vaporized
+DET
+(powder / crystals)
+T+ 24:01
+25 mg
+vaporized
+DET
+(powder / crystals)
+T+ 29:50
+660 ml
+oral
+Alcohol - Beer/Wine
+T+ 114:48
+1 g
+oral
+Smarts - Phenibut
+T+ 124:12
+90 mg
+oral
+DET
+(capsule)
+T+ 125:32
+35 mg
+oral
+DET
+T+ 127:02
+8 mg
+oral
+4-HO-MET
+T+ 0:00
+oral
+Coffee
+(daily)
+BODY WEIGHT:
+77 lb
+If you want to skip the three following trip-reports and come straight to the conclusion, scroll all the way down.
+Background information:
+- gender: male
+- age: 24
+- weight: 77 kg
+- setting: at home
+- set: feeling good, spent the holidays with the family and had a lot of fun with my friends.
+- tolerance: none, I abstained from psychedelics for a little over a month.
+The DET HCl was made by a friend of mine, lab-tested and verified to be the expected substance. UHPLC-MS also detected unspecified amounts of DMT and two other unknown synthesis byproducts. I still figured the risk of taking the DET (+ the others) was relatively low, as DMT is not orally active without an MAOi, and the two unknowns also share an indole pharmacophore.
+The HCl salt was an off-white powder when I first got it but it quickly oxidized to a beige color. Upon reading its TiHKAL entry again I noticed that Shulgin actually mentioned that the HCl salt of DET is rather unstable, so that‘s a bummer… Anyway, the powder now looks similar to other tryptamine fumarate salts, and DMT freebase. The DPT HCl, which I also got from my friend, remained white and shows no sign of oxidation. My friend has already tried the DET and has not reported on any ill effects so I figured 50mg (p.o.) was a safe place to start. He also said that handling the freebase material without gloves apparently led to unexpected sensory changes a few times, which I found interesting.
+On a side-note, I have only tried DMT (vaporized) two times before that, so I‘m somewhat unexperienced with base tryptamines.
+I had breakfast 5 hours prior to dosing. I did a little home workout after that, so my stomach was pretty much empty when I took the DET. No other substances were consumed this day, except for a cappuccino in the morning and my daily vitamin D3 supplement.
+DET (68-88mg (in total), oral/vaporized // 1st trial (03/01/22)):
+T:00:00: 50mg capsule swallowed, at 04:12 PM.
+T:00:07: My stomach is working, I feel the capsule decomposing already. I haven&#x27;t eaten for quite a while, so that‘s not too surprising.
+T:00:48: I hardly notice any physical changes, but mentally a pleasant, familiar warmth washes over me. I feel deeply relaxed, the workout I did earlier must have paid off.
+T:01:05: Relatively little is happening so far. There is a complete absence of visual effects, besides a psilocybin-like sedation I experience no somatic effects either. My mind is absolutely clear and my thought processes are unimpaired. I do, however, feel very good. This substance has been very friendly and pleasant so far. I feel no physical side effects at 50mg, but to be fair, I don’t feel much of anything at all.
+T:01:15: I weigh out another 18mg chunk and swallow it. The taste reminds me a lot of DMT, maybe because there is a tiny amount in it? Probably not.
+Depending on how the intensity increases I might try smoking some DET HCl in a meth pipe later. There is no data on the boiling point of DET HCl online and I have had only moderate success with smoking DMT freebase via this route, but since methamphetamine HCl and DET HCl have a similar melting point of about 170℃, I figured I might have a little more luck here.
+T:02:10: I am still in a very benign and almost ignorable tryptamine high. Until now, the substance has been quietly roaming in the back of my head. I don&#x27;t know if the redose did anything, but as a precaution I&#x27;m still going to wait a bit longer before loading up the pipe.
+My mind is at ease, the headspace reminds me a great deal of low-dosed DMT. As a phenethylamine lover, I have to say that it is refreshing to do tryptamines every once in a while, especially since I found most of the ones I’ve tried much more tolerable, physically. No nausea, no bodyload, no temperature dysregulation, or any other annoying side-effects!
+I‘m currently listening to some Pink Floyd and the music seems to be unaltered, but I do find it very enjoyable to listen to.
+T:02:44: After a nice, 20 minute meditation, I will now give an alternative route of administration a chance. I have placed 20mg of the HCl salt in an oil burner and will try to vaporize it.
+T:02:46: The taste is very similar to DMT freebase. Disgusting, but I‘ve tasted worse.
+T:02:47: Heart rate has increased rapidly. I have a weird taste on my tongue, like a mix of menthol and burnt plastic. The whole room smells like this now. No noticeable effects as of yet.
+T:02:47: Heart rate has increased rapidly. I have a weird taste on my tongue, like a mix of menthol and burnt plastic. The whole room smells like this now. No noticeable effects as of yet.
+T:02:52: Still no noticeable effects.
+T:03:02: A slight internal warmth and a pleasant tingling sensation in my neck and head (re)emerged. Possibly placebo? Some visual drifting is noticeable in my peripheral vision, but still very minor. With my eyes closed, nothing is happening. I don&#x27;t think I got much out of those 20mg.
+T:03:10: My attempt to smoke the salt was not successful. The boiling point of DET HCl is either too high for the oil burner, or I somehow failed to smoke it properly. Either way, I will try smoking some off foil tomorrow, maybe I‘ll get a better result. If not, then I still have freebasing as my last resort.
+T:04:00: My little daze is slowly coming to an end. The comedown is very soothing and euphoric, feels similar to a DMT comedown, although more drawn-out. A feeling of contentment and completeness has come over me.
+In the meantime, my roommate has cooked us dinner. He joins me in my room, we eat together, and watch some TV.
+T:04:32: Basically back to baseline. My mood is still uplifted and my emotions are amplified.
+The day after:
+T:15:58: I woke up at 08:10 AM, after ~7 hours of intermittent sleep. My roommate and I spent yesterdays evening with watching cartoons and doing a bit of racemic ketamine. We both had two 50mg lines at 09:50 PM (T:05:38) and 10:20 PM (T:06:08) and went to sleep at 00:30 AM (T:08:18). It was a fun night, but nothing to write home about. The ketamine seemed to be unaffected by the DET I had earlier. I feel a bit tired now, but nothing a cup of coffee can‘t fix.
+T:17:00-xx: Studying was more difficult than usual. I couldn’t really stay focussed on my tasks and constantly switched my attention to something else. I attribute that more to the ketamine and the unrestful sleep though, rather the DET. I also went for a short run, which worked out just fine.
+———————————————————————
+Background infos:
+- -//- (see above)
+- tolerance: unsure, maybe a little. Base tryptamines usually don’t build up tolerance immediately, unlike most of the other psychedelics, and DET is probably no exception to this.
+As always, I had a cup of coffee in the morning, my daily vitamin D3 supplement, and a tablet of Ginkgo + Ginseng extract. For further information on what I did during the day, check the *The Day After* section above.
+DET (45mg (in total), vaporized) // 2nd trial (04/01/22)):
+T:-00:20: I form a little spoon out of aluminum foil, weigh out 20mg of the hydrochloride salt and sprinkle it on top. I put my little construct back down on the table and do a guided meditation.
+T:00:00: It’s 05:02 PM, this was my first time smoking a substance using aluminum foil and it worked out decently well, I guess. The DET quickly melted into an orange puddle and smoke started to build up immediately. I did not get all the vapor in, as it was very unpleasant to inhale, but I definitely feel something building up now. There’s that weird, rubbery menthol taste again, it sticks to my mouth and lips. Feels toxic, I’m not keen on trying this method more often.
+T:00:03: Yesterday&#x27;s warmth and contentment come over me again. My body is relaxed and slowly the funny taste in my mouth disappears. My roommate just came over to my room and asked me to close the door because the stench of the burnt DET is so strong.
+T:00:09: The aluminum foil is definitely more effective than the meth pipe, however I still think I wasted a bunch of material. A person who is familiar with this technique will certainly have more success with this than me.
+T:00:11: DET’s duration of action is definitely longer than that of vaporized DMT. No visual effects, not even slight visual disturbances. I will now weigh out 25mg and give it another shot.
+T:00:20: Smoke is even more unpleasant than before. I have to cough. Effects are increasing again. The come-up doesn’t seem to be as rampant and intense as the one from DMT. It’s seems more gradual, although this might be attributed to the lack of visual effects and the different dosage. I have an annoying lump in my throat and the taste of burnt plastic lingers in my mouth. The effects are very hard to classify because they are so subtle. I think I will freebase the DET for my next vaporization attempt to experience its full effects.
+T:00:38: I am in a comfortable plateau stage. The DET is working, however, similar to yesterday, it is doing its thing in the background. I notice some slight acuity enhancement and I’m in a slow and peaceful headspace. There is absolutely nothing wrong with this experience, I am just surprised by how mild the DET is in comparison to something like DMT and DPT (supposedly). I’m very curious to see what it’s like at a higher dose and if it changes character. Since my first two experiences with it turned out to be so light, I&#x27;ll probably give it another go in the next few days, but most likely with a higher, oral dose.
+T:01:06: Effects are wearing off. My whole room smells like a shoebox that has been freshly opened, but much more pungent.
+T:01:28: The effects have died down drastically. I don&#x27;t feel like tolerance got in the way of this experience. I think this substance is just very gentle in comparison to other psychedelics, but lets wait for further trials.
+T:02:13: I feel sober now. My mind is clear and I have a nice after-glow, just like yesterday.
+T:06:00: I knew from previous tryptamine experiences that small amounts of alcohol on the comedown (or in this case, already sober) synergized very well, so I drank two 0.33l beers (6% alc.). As expected, it was euphoric and made me very cheerful, moreso than alcohol would on its own. I was very talkative and had an overall strong sense of well-being. I’ve had similar results with psilocybin, metocin, and smoked DMT + alcohol.
+T:07:30: Went to bed at around 00:30 AM.
+The day(s) after:
+T:14:58: Alarm woke me up at 08:00 AM. I’m a bit fuzzy-headed and tired. Emotionally I feel pretty good.
+T:22:00: God, that awful smell is still everywhere. Please be aware of this, if you plan on smoking this stuff. My furniture, my clothes, everything reeks of burnt DET.
+T:48:00: I can still smell the DET in my room…
+———————————————————————
+Background infos:
+- -//- (see above)
+I took one gram of phenibut HCl in the morning (11:00 AM), alongside a cup of coffee and my vitamin D3 supplement. My girlfriend did the same, except for the vitamin D3. She decides against taking DET, but still wanted to trip so I gave her a dose of 4-HO-MET with which she‘s already familiar with.
+We both did a full body workout three hours prior to dosing. Afterwards we had a light meal consisting of salad, vegetables, halloumi and a few slices of walnut bread. We meditated for around 20-30 minutes and made ourselves a ginseng, ginger, chili tea.
+DET (125mg (in total), oral) // 3rd trial (08/01/22)):
+T:00:00: It‘s exactly 08:00 PM, I swallow a capsule containing 90mg DET HCl. My girlfriend ingests 20mg 4-HO-MET fumarate.
+T:00:20: My girlfriend already notices first sensory changes, I do not.
+T:00:50: Lots of yawning. I sense a small shift in my thought patterns. That stoney body-high of DET sets in, reminds me of psilocybin mushrooms although much lighter.
+T:01:10: Not much is going on, thinking about taking more.
+T:01:20: I swallow another 35mg, totalling up to 125mg, but I don‘t know how much tolerance comes into play.
+T:01:25: Gf insufflates an additional 7mg of 4-HO-MET.
+T:02:00: We‘re watching a live-concert of Hans Zimmer on YouTube. The music sounds absolutely fantastic although unaltered. My girlfriend is enjoying herself a lot, but I‘m a bored by the effects. There‘s just not much going on, again.
+T:02:25: No increase of effects. I could easily drive right now, probably even sleep if I tried to. Going to eat an orange and stop taking notes now, I really don‘t have much to say.
+T:02:50: Girlfriend and I both insufflate 8mg 4-HO-MET, but I’m not expecting much.
+T:05:20: This is absolutely hilarious. I have a stronger bodyload, stronger visuals and much greater euphoria from 8mg 4-HO-MET (IN) than from the 125mg DET
+I have a stronger bodyload, stronger visuals and much greater euphoria from 8mg 4-HO-MET (IN) than from the 125mg DET
+, so tolerance isn’t the issue. Three hours after that tiny bump and I’m still having a blast, 4-HO-MET is just fantastic!
+The day after:
+T:14:30: Woke up at 10:30 AM, slept pretty well, maybe because of the phenibut I had yesterday. God bless 4-HO-MET! Such a miniscule amount and I laughed my balls off for a solid two hours. What a great compound, don’t know if I can say the same about DET.
+———————————————————————
+Conclusion:
+Hm, where do I begin. There’s a few possibilities why the DET had such little effect on me but the one that comes to mind first is, of course, purity. Unfortunately, the testing facility did not quantify the DET and the other substances, so it’s entirely possible that I consumed a bunch of inactive crap and too little DET. Another possibility would be that DET gets metabolized differently from person to person. For example, some people seem to get good effects from oral DPT, while others don’t. I think it‘s possible this applies to DET as well, or I am just more tolerant to its effects than others.
+The effects that I did notice, however, were pretty nice. The duration of action is about 2-4 hours for peroral and 1-3 hours for vaporization. It offers a similar warmth to other tryptamines and is physically comfortable. It‘s rather sedating and the experience is entirely absent of any visual effects. The headspace reminds me of a low-dose of DMT, and the comedown + after-glow are also very DMT-esque, just way lighter in all aspects. Peroral wasn‘t really an effective ROA for me, so I would give vaporization another go, BUT I would use the freebase and smoke it in a well-ventilated room where I don‘t have to sleep, because that smell sticks around for a long time. I still had olfactory hallucinations/delusions of that smell three days later, where it just randomly hit me out of nowhere.
+Anyway, if you somehow get ahold of DET HCl, you want to vaporoze it, and you‘re too lazy to freebase it first, you have to find an alternative vaporization device than the oil-burner. In my experience it doesn‘t really work, but maybe I just did it wrong.
+I will probably not try my DET HCl again, but I would give a different batch a chance in the future if it were to present itself. I’m still very curious about smoking the freebase at some point.
+Thanks for reading,
+Psychestim
+Exp Year: 2022
+ExpID: 116052
+Gender: Male
+Age at time of experience: 24
+Published: Feb 4, 2022
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+DET (16) : Various (28), Multi-Day Experience (13), Combinations (3), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

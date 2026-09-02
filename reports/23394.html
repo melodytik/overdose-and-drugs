@@ -1,0 +1,216 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>艾洛伊德的使用 - &quot;好主意/坏主意&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/butalbital.html'>← Butalbital</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>艾洛伊德的使用 - &quot;好主意/坏主意&quot;</h1>
+<div class='sub-title'>Butalbital, Caffeine, Codeine &amp; Aspirin - Erowid Exp - &#x27;Good Idea/Bad Idea&#x27;</div>
+<div class='meta'>作者：artist Vibrata · 日期：Jun 28, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=23394' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>作为一个多年来使用过的可代因药物,
+起初,我有一份15毫克的处方,
+我开始沉迷,在课堂上把它们扔回学校, 总体上我喜欢它们带来的平静放松的感觉.
+我意识到自己是个上, 停止经常服用,
+当15毫克的剂量停止工作时, 我能够让我的医生开出30毫克的药物.
+(菲奥里纳尔) 它们很有趣, 确实给我带来很大的打击, 因为我对药物没有初始耐受性,
+我一下子只能服用一粒药, 效果很好,
+有一天晚上,我感到无聊.
+我整天都睡着了,感觉还挺好.
+我看到了我的可代因瓶,
+我打开一个药丸,然后扔掉它.
+我知道我不能把它全部吸进去.
+(我以前曾吸过毒品, 但从来没有吸过毒品)
+我用牙签在桌子上分离了一些小的粉末,
+我倾斜了一下, 吸了一小堆.
+它已经燃烧了.
+我没有咳,也没有打喷, 只是感觉像鼻子上有点水.
+大约5分钟后, 我感觉放松了.
+我认为&#x27;,这真的很好...
+我认为由于它没有经过我的肝脏, 而是直接进入我的血液,
+感觉还很好, 我下身, 吃了一堆小东西.
+我觉得有趣,我想做更多.
+我等待着它开始起作用.
+像高中时的激烈经历一样, 我的身体真的很糟糕,
+我试着走路,我有点像在.
+我还独自一人在我的房间里,时间是晚上十点半.
+我最初的剂量大约是10.15左右.
+愚蠢地, 虽然这是我从来没有吃过的最糟糕的东西 (我已经喝了一段时间了,
+这个人做到了.
+我不再感到如此放松和温和.
+我只是不再有感觉了.
+我和一些人聊天, 无法打字.
+房间有点扭曲了.
+我开始想知道到底发生了什么事,
+我开始感到恐慌,我的心跳如同一样.
+我不知道自己想哭还是想自杀.
+很像我吸了太多大麻, 经历了一次糟糕的旅行,
+我设法让自己平静下来, 但每隔几分钟,
+我不知道我吃了多少.
+这不是很多,不超过1/4的药丸.
+半个小时, 我不停地感到恐慌,
+我感觉到自己很冷,
+我不知道发生了什么事, 发誓再也不会吸.
+我之前曾多次服用过这种药,
+整体情况在一段时间内仍有轻微的扭曲.
+我几乎看到了新的视角.
+形状变得不同,但颜色保持不变.
+这不像幻觉剂,更像是醉酒.
+皮肤开始, 就像我服用代代因时通常会一样.
+晚上11点半,除了和,大部分都停止了.
+我从来没有做过这样的事.
+我已经得到了严重的身体像我喝醉了,但我从来没有疯了.
+我没有服用其他药物, 我确实早些时候在晚上6点半左右服用了泰伦醇,
+我不知道为什么发生了除了我吸了它
+没有.
+在它平息后, 我想要吸更多.
+我发誓我再也不会这样做.
+发布时间:2018年6月28日</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Ltd Ed &#x27;Solve et Elucido&#x27; Art Giclee
+This reverberating psychedelic giclee print is a gift for a
+$500 donation to Erowid. 12&quot; x 12&quot;, stretched on canvas, the
+image wraps around the sides of the 1&quot; thick piece. Signed
+by artist Vibrata, and Erowid founders Earth &amp; Fire.
+Good Idea/Bad Idea
+Butalbital, Caffeine, Codeine &amp; Aspirin
+by
+CodeineTrip
+Citation:   CodeineTrip. &quot;Good Idea/Bad Idea: An Experience with Butalbital, Caffeine, Codeine &amp; Aspirin (exp23394)&quot;.
+Erowid.org
+. Jun 28, 2018. erowid.org/exp/23394
+DOSE:
+T+ 0:00
+oral
+Acetaminophen
+T+ 3:30
+insufflated
+Butalbital
+T+ 3:30
+insufflated
+Codeine
+T+ 3:30
+insufflated
+Caffeine
+T+ 3:30
+insufflated
+Aspirin
+BODY WEIGHT:
+135 lb
+As a codeine user for years, I had some fun with it. Originally, I had a 15mg prescription for migraine headaches. I became addicted, tossed them back at school during classes and generally loved the mellowed-out relaxed feeling I got off them. I realized I was addicted and stopped taking them so often, but still enjoyed them once in a while as a way to get messed.
+When a 15mg dose stopped working, I was able to get my doctor to prescribe a 30mg one. (Fiorinal) They were fun, really hit me hard as I have no initial tolerance for drugs, it usually takes a while and they were, to me, a double dose. I had only ever taken one pill at a time and they did the trick well, I got really relaxed and usually ended up falling asleep peacefully.
+One night, I got bored. I had spent the day asleep and felt pretty ok. I saw my bottle of codeine and decided to try snorting it, see if it would be any different. I broke open a pill and dumped it out. It seemed like so much powder to me I knew I couldn&#x27;t snort it all. (I have done drugs before but have never snorted anything in my life). I used a toothpick to seperate some small mounds of powder on my desk, maybe 1/4 to 1/5 of the pill in total. I leaned over and snorted a small pile. It burned. I didn&#x27;t cough, didn&#x27;t sneeze, just felt like I had some water up my nose. About 5 minutes later, I got a relaxed feeling. I thought &#x27;Hey, that worked really nicely... Better than a whole pill.&#x27; I figured since it didn&#x27;t go through my liver and such first, and instead went straight into my bloodstream that it was more effective.
+Feeling pretty ok still, I leaned over and took in another small pile. It no longer burned in my nose, I found it kind of fun and I wanted to do more. I waited for that to kick in. It came over me like a wave, it was almost like some of the more intense experiences I had in high school, my body was really fucked up like I was drunk and I was just stuck on one thought. I tried walking, I kind of went zig-zag like. I was still alone in my room and the time was 10.30 pm. My initial dose had been around 10.15 or so.
+Stupidly, although it was the most fucked I had ever gotten off the shit (It had been a while since I&#x27;d taken it so maybe that did it) I snorted some more. That one did it. I stopped feeling so relaxed and mellow. I just stopped feeling. I was chatting to some people, couldn&#x27;t type. The room got a little distorted. I started wondering what the hell was going on and I stumbled into the bathroom. I started freaking out and my heart was going off like a jackhammer. I didn&#x27;t know if I wanted to cry or kill myself. It was much like when I had smoked too much weed and had a bad trip, couldn&#x27;t escape and wanted to die. I managed to calm myself down but every few minutes I&#x27;d start panicking and I thought my heart was going to explode. I don&#x27;t know how much I took. It wasn&#x27;t very much at all, not more than 1/4 of a pill. For half an hour, I kept freaking out periodically, but gradually it got less and less. I got very cold and felt like I was coming down off it. I wondered what the fuck had happened and vowed never to snort it again. Of all the times I had taken it before, I never had this happen to me. Everything was still slightly distorted for a while. It was almost like I was seeing things in a new light. Shapes became different but colors remained the same. It&#x27;s not like a hallucinogen, more like being drunk. My skin started to itch all over like it does normally when I take codeine. My 11.30pm, most of it had stopped except for the itching and some chills.
+Of all the times I&#x27;ve taken it, nothing like this has ever happened. I have gotten severe body fucks like I was drunk, but I never freaked out. I&#x27;m not on any other pills, I did take a tylenol earlier around 6.30 pm, but I&#x27;ve had many Tylenol-2&#x27;s before so I don&#x27;t think it had anything to do with it. I don&#x27;t know why it happened except for the fact that I snorted it
+. Right after it subsided, I wanted to snort more. I swore I wouldn&#x27;t do that again.
+Exp Year: 2003
+ExpID: 23394
+Gender: Female
+Age at time of experience: Not Given
+Published: Jun 28, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Butalbital (576), Codeine (14) : Difficult Experiences (5), Combinations (3), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

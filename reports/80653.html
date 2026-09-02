@@ -1,0 +1,194 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>皮克隆 - 艾洛伊德 - &quot;结核病和约会强奸&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-zopiclone.html'>← 佐匹克隆（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>皮克隆 - 艾洛伊德 - &quot;结核病和约会强奸&quot;</h1>
+<div class='sub-title'>Zopiclone - Erowid Exp - &#x27;Tuberculosis and Date Rape&#x27;</div>
+<div class='meta'>作者：Anonymous Citation · 日期：Aug 14, 2021 · 剂量：22,5 mg · <a href='https://erowid.org/experiences/exp.php?ID=80653' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抑制剂</span></h2>
+<div class='body'>我的男朋友17岁,体重也只有140磅.
+我在服用Zopiclone之前肚子很, 我的男朋友只吃了一点点.
+在整个经历中, 他和我独自一人在他的卧室里, 晚上黑暗, 灯点亮, 有一些乐观的音乐 (一些达夫特朋克, 我相信).
+我在一个月前被诊断出患有潜伏形式的结核病,
+我已经开始服用三个月的抗生素 - - 品牌为Rifater,
+我每天服用2片.
+我在互联网上读到这款Rifater可以加快人体对佐皮克隆和的新陈代谢,
+服用Rifater意味着没有酒精 (3至12个月 - - 穷人12个月!)
+让它在我的脑海中看起来更安全.
+经验:在45分钟的时间里, 我和男朋友服用了22.5毫克的佐皮克隆,
+每个药片每片为3. 75mg,并来自标记为Zopiclone的&quot;正确&quot;包装,里面有说明书,所有药片仍在片中.
+我一开始犹不决要服用大剂量药物, 但随着每片药物的服用, 我的神经迅速消散, 变成了兴奋, 在服用最后两片药以补充22.5毫克药后的15分钟内, 我感觉到了第一种效果 -
+我的男朋友也说有同样的味道.
+味道开始从吞下第一个药片,并在一段时间后升到持续的坏味道.
+我一直想喝酒或吃东西来摆脱它.
+半小时后我觉得自己很奇怪.
+我知道自己想说什么, 但结果出错了.
+举例来说,我把打火机内的液体称为&#x27;饮料&#x27;, 而不是我想使用的词 - - &#x27;打火机燃料&#x27;!
+我很高兴能感觉到某种东西,
+我希望什么都不会发生,或只是觉得昏昏欲睡,然后走开,
+我觉得自己想说话很多,
+他建议我们躺在床上放松一下, 因为我们希望用 zopiclone 让我们感觉安静, 睡觉,
+这就是我的乐趣停止了.
+我在此之后几乎没有感觉到任何东西, 我将把这归咎于Rifater, 因为虽然我没有感到嗜睡,
+我们之前都讨论过这件事, 并且同意我们中的一个应该有机会在另一个睡觉时开始性生活,
+虽然我躺在他身上, 他睡着了, 在他的怀里, 我设法站起来,
+虽然他翻了两次, 我把他翻到他的背上,
+整个过程花了我大约一个小时, 主要是因为我非常小心不要叫醒他,
+我男朋友直到15分钟后才醒来.
+他不知不觉地说一些话 (&#x27;我们有性关系吗?
+我们是!&#x27;) 然后又睡着了.
+这发生了几次.
+我可以说服他回去睡觉, 告诉他他只是在做梦.
+我问过他,他对此没有任何记忆.
+结果他完全醒来了, 我们在完全醒着的时候就做爱了.
+在此期间,他也在卧室里散步, 非常困惑, 站不起来,
+他告诉我,我们在做爱时有人在看着我们,
+他不记得很多&quot;醒着&quot;的性行为, 但确实记得部分, 包括这些幻觉/偏执,
+我男朋友的身体效果似乎已经完全消退 (运动能力等都很好),
+他清楚地记得, 所以Zopiclone在此时似乎没有任何作用.
+虽然我没有恶心,但第二天我头痛和&#x27;&#x27;感觉很大,
+我的男朋友没有报告这种感觉,
+我会说在服用结核病药时服用佐皮克隆是浪费时间的, 因为我只能得到坏的部分 - - 味道不好和宿醉 - - 如果能再服用,
+我也很容易把我的男朋友操纵到任何我想要的位置 - - 这和不完整的记忆让我觉得我永远不会服用Zopiclone没有我信任的人,
+其他:
+发布时间:2021年8月14日
+药物 - 佐皮克隆 (272): 宿醉 / 几天后 (46), 关系 (44), 第一次 (2), 小组 (2-9) (17)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Tuberculosis and Date Rape
+Zopiclone
+by
+Anonymous
+Citation:   Anonymous. &quot;Tuberculosis and Date Rape: An Experience with Zopiclone (exp80653)&quot;.
+Erowid.org
+. Aug 14, 2021. erowid.org/exp/80653
+DOSE:
+22,5 mg
+oral
+Pharms - Zopiclone
+(pill / tablet)
+BODY WEIGHT:
+140 lb
+PERSONAL INFO: I am an 18 year old female who weighs 140lbs. My boyfriend is 17 years old and also weighs 140lbs. Neither of us are experienced in taking prescription medication - the only substances we have taken are cannabis and alcohol. I had a full stomach before taking the Zopiclone, my boyfriend had eaten only a little. During the entire experience he and I were alone in his bedroom, in the evening dark with a candle lit and some upbeat music playing (some Daft Punk, I believe).
+I was diagnosed with the latent form of tuberculosis, which has no symptoms and is non-infectious, a month ago. I am 1 month into taking a 3 month course of antibiotics - branded as Rifater, which is made up of 120 mg rifampicin, 50 mg isoniazid and 300 mg pyrazinamide per tablet. I take 2 tablets daily. I had read up on the internet that this Rifater speeds up the body&#x27;s metabolism of zopiclone and also benzos, but couldn&#x27;t find anything specific about dosages and no experiences on Erowid, so I hope this will be useful to anyone else unfortunate enough to contract TB. Taking Rifater means NO ALCOHOL (for 3 to 12 months - poor souls on for 12 months!) at risk of severe liver damage, so looking for any way to alter my state of mind, Zopiclone seemed like a good enough idea. If anything, getting it &#x27;out of my system&#x27; faster than normal made it seem safer in my mind.
+THE EXPERIENCE: Over a period of around 45 minutes my boyfriend and I took 22.5mg of Zopiclone, this was about 7pm. Each tablet was 3.75mg each and was out of a &#x27;proper&#x27; packet marked as Zopiclone with the informational leaflet inside, and all the tablets were still in the foil tab.
+I was hesitant for us to take what I felt to be a large dose at first, but my nerves quickly dissipated and turned into excitement as we took each tablet, and within 15 minutes of taking the last 2 to make up the 22.5mg I felt the first effect - I had steadily developed a very bad, bitter taste in the back of my mouth, which lasted until I eventually fell asleep. My boyfriend reported the same taste. The taste started from swallowing the first tablet, and rose to a constant bad taste after some time. Personally I found it very bothersome and I constantly wanted to drink or eat to get rid of it.
+30 mins in I felt &#x27;odd&#x27;. I knew what I wanted to say inside my head, but it came out somehow wrong. I referred to the liquid inside a lighter as &#x27;the drink&#x27;, for example, rather than the word I wanted to use - &#x27;lighter fuel&#x27;! This was not an intense effect, but I was excited and happy to be feeling something at all and felt it to be pretty funny. I expected nothing to happen or to just feel drowsy and drift off, but instead I felt chatty and my speech couldn&#x27;t &#x27;catch up&#x27; with or &#x27;match&#x27; what I intended to say. I felt like I wanted to talk a lot, but couldn&#x27;t communicate my thoughts. My boyfriend said that he thought the zopiclone was starting to work on him, and he suggested that we should lie down on the bed to relax, since we expected zopiclone to make us feel sedated, sleepy, and wanted to enjoy that feeling.
+This is where my fun stopped. I pretty much felt nothing after this point, which I will put down to the Rifater, because while I didn&#x27;t feel sleepy, my boyfriend fell into a very deep sleep within a few minutes of lying down.
+Please note that we had both discussed doing this before and were in agreement that one of us should have the opportunity to initiate sex while the other was sleeping, it would be fine. Now even though I was lying on top of him while he slept, in his arms, I managed to get up, then undress him and stimulate him enough to put a condom on him, all without waking him up. Even though he rolled over, twice, I rolled him onto his back without him waking up. This whole process took me about an hour, mainly because I was being very careful not to wake him, although I am sure nothing would have woken him up at this point, since when his mother knocked on the door and told him to turn the music down, he fell right back to sleep again after replying with &#x27;ok&#x27;, in the time it took for me to actually get up and turn it off he was snoring again.
+During the asleep-sex, my boyfriend did not wake up until about 15 minutes into it. When he did, he confusedly said some things (&#x27;Are we having sex? We are!&#x27;) then fell back to sleep. This happened a few times. Even when he did seem to wake up and be quite alert, he didn&#x27;t realize what I was doing with him, and I could convince him to fall back to sleep by telling him he was just dreaming. I have asked and he has no memory of this.
+Eventually, though, after another 15 minutes, he woke up completely and we had sex together with him fully awake. During this, and afterwards too walking around his bedroom, he was very badly disorientated and couldn&#x27;t stand without holding onto something, and a lot of what he was saying made little sense. He said to me that there were people watching us while we were having sex, he said there were people in the room numerous times. Questioning him after, he doesn&#x27;t remember a lot of the &#x27;awake&#x27; sex, but does remember parts, including these hallucinations/paranoia, although he did not indicate to me that he was scared of the &#x27;people&#x27; when they were there.
+By around 11pm the physical effects of the zopiclone seemed to have worn off entirely from my boyfriend (motor skills etc. were fine) since we went downstairs, made some food, and came back to bed before falling asleep, without him falling over, and conversing normally. Additionally when I asked him if he could remember doing this, he could clearly, so indeed the Zopiclone did not seem to be doing anything at this point.
+The next day I was left with a moderate headache and a &#x27;hangover&#x27; feeling, which was identical to an alcohol hangover, although I did not feel nauseous. My boyfriend reported no such feeling, but did feel sad for a while.
+I&#x27;d say taking Zopiclone while on TB medication was a waste of time since I only got the bad parts - a bad taste and a hangover - and would take a higher dose if I could do it again. It was also very easy to manipulate my boyfriend into whatever position I wanted - this and the patchy memory makes me feel I would never take Zopiclone without someone I trust with me, because there would be potential to be abused and for me to not even remember.
+Exp Year: 2009
+ExpID: 80653
+Gender: Female
+Age at time of experience: Not Given
+Published: Aug 14, 2021
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Zopiclone (272) : Hangover / Days After (46), Relationships (44), First Times (2), Small Group (2-9) (17)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

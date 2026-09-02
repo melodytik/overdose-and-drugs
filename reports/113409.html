@@ -1,0 +1,314 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>3F-甲 - 脑膜扩散 - &quot;三次试验&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3f-phenmetrazine.html'>← 3F-Phenmetrazine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>3F-甲 - 脑膜扩散 - &quot;三次试验&quot;</h1>
+<div class='sub-title'>3F-Phenmetrazine - Erowid Exp - &#x27;Three Trials&#x27;</div>
+<div class='meta'>作者：ThePoobaman Citation · 日期：Aug 5, 2019 · <a href='https://erowid.org/experiences/exp.php?ID=113409' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>使用3-FPM的三次试验
+我在办公室工作,
+由于我患有多动症,
+我对兴奋剂感兴趣, 因为几年前我被处方为甲基化物,
+我知道我必须尝试.
+我对各种药物有很多经验,
+这里是我迄今为止的经验.
+药物的描述:一克百合白粉,稍微块.
+标记为3-甲 HCL.
+过敏测试:
+我第一次收到包裹时, 放了两毫克的药在舌下,
+第一个审判 (星期一):
+(T+0:00) 现在是早上9点.
+在星期一.
+我选择了较轻的剂量, 吞下一个含有约21毫克3-FPM的囊, 用珠宝秤计量,
+我有另外一个20毫克的囊,以防这种剂量太低 (我怀疑会是).
+(T+0:11) 我可能已经感觉到了一些东西.
+这可能只是紧张的预期, 但我的牙是和我的胃感到气味.
+经过一场绝对可怜的肠道排便,
+我不再感到疲倦, 感觉有点清醒.
+(T+0:52) 感觉有明显的提高.
+完成大量的工作.
+我注意到的一个 (缺乏) 副作用是没有抑制食欲
+我注意到的是没有食欲抑制
+对于我来说是很好的, 因为我是一个瘦的家伙,
+事实上,我已经饿了.
+我只吃早餐的谷物和有人在微波炉的东西绝对美味的气味.
+(T+2:10) 仍然相当有成效.
+这种东西对ADHD很好.
+(T+3:20) 刚才我注意到我没有咖啡因除了我上班时的第一杯茶.
+我通常会在一天的前半喝很多咖啡和茶.
+没有想到,直到现在.
+(T+4:08) 吃了一顿丰盛的午餐后, 我感到有点疲.
+现在是茶的时候了.
+感觉有点疲, 也许在沟的下降, 我吸入额外的6毫克.
+虽然不太痛, 但足以让我眉, 扎着保持冷静.
+(T+5:25) 有点干燥/麻木的嘴.
+轻微的肌肉紧张.
+在生产力/刺激方面,
+(T+6:03) 仍然刺激但有点恶心.
+虽然没有更多的肌肉问题.
+我离开工作时仍然感觉有点&quot;兴奋&quot;,
+我回家的时候, 没有任何不愉快的感觉.
+常常存在于兴奋剂的偏移中,
+实际上,我仍然在晚上轻微刺激.
+我有点困难睡觉, 但这对我来说是正常的.
+第二次审判 (星期二):
+为了这次试验,我想看看是否可以避免再给药.
+这种化合物最初吸引我的特点之一是它所谓的持续时间长 (长达8小时).
+虽然在8小时之后, 身体肯定会受到轻微刺激, 但在此之前, 生产力和专注力会减弱.
+为了延长药物使用时间, 我在早上11点吃饭后服用.
+由于已经熟悉基本知识,
+(T+0:00) 我吞下了这个囊.
+我决心今天不用再服用.
+(T+0:45) 通常, 吃之前采取一些会延长来,
+这很奇怪.
+我突然受到一波能量冲击.
+我做了一杯茶,然后开始工作.
+(T+3:30) 感觉又累了, 但奇怪的是,
+这是多么奇怪.
+头痛开始,我意识到我已经好几个小时没有喝水了.
+我喝了一点,十分钟后就感觉好了.
+可能已经过了山峰.
+(T+5:00) 开始下降.
+我在工作中没有任何事可做,所以我只是离开了.
+我回家去健身房, 进行一项异常有效的炼.
+那天晚上睡觉没有麻烦, 事实上我比平时早睡了.
+第三次审判 (星期三):
+只是为了看看吸入本身有多好, 我吸入大约7毫克,
+(T+0:55) 肌肉.
+虽然非常有成效.
+(T+0:90) 仍然感到相当清醒和相对富有成效.
+(T+3:00) 距离,有点累.
+它的效果正在消失.
+我还需要7毫克,
+我在一天的剩余时间里工作, 回家时感到很累,
+我做一个小的,也许是5毫克,然后去健身房.
+那天晚上我更难睡觉了.
+我觉得周四早上有点疲和烦躁, 但没有比我应该更疲和烦躁,
+星期四的时间很慢,但没关系.
+摘要:
+这种化合物对ADHD和生产力有好处.
+它具有典型的胺类刺激作用,
+这种情绪的低迷和高兴程度都很低.
+根据我有限的经验, 这是一种理想的焦点刺激剂,
+我估计精神刺激的持续时间大约是四个小时如果吸入和六个小时如果口服.
+身体刺激的持续时间比这还要长.
+有效的 (非娱乐性) 剂量, 在我对兴奋剂的最小耐受性, 是20-30毫克口服和5-10毫克注入.
+主要令人烦的副作用是肌肉紧张, 可能可以通过酸等补充剂来消除.
+肌肉紧张似乎更糟糕的吸入.
+肌肉紧张似乎更糟糕的吸入.
+其他副作用包括头痛,恶心和增加肠道运动.
+这些相对温和的与其他兴奋剂相比.
+我不会每天服用这种药物,
+另一种不应该每天服用的原因是,
+晚些时候使用 (基本上是午餐后的任何时间) 似乎会导致睡眠困难,每天重复使用会使睡眠困难变得更严重.
+周四 (今天) 是一个受欢迎的休息,
+保持安全.
+已使用的证券
+发布时间:2019年8月5日
+3F-美 (678): 工作场所 (51), 提高工作效率 (50), 回顾 / 摘要 (11), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Three Trials
+3F-Phenmetrazine
+by
+ThePoobaman
+Citation:   ThePoobaman. &quot;Three Trials: An Experience with 3F-Phenmetrazine (exp113409)&quot;.
+Erowid.org
+. Aug 5, 2019. erowid.org/exp/113409
+DOSE:
+T+ 0:00
+21 mg
+oral
+3F-Phenmetrazine
+(capsule)
+T+ 0:00
+1 cup
+oral
+Tea
+T+ 4:08
+1 cup
+oral
+Tea
+T+ 4:56
+6 mg
+insufflated
+3F-Phenmetrazine
+(powder / crystals)
+T+ 24:00
+20 mg
+oral
+3F-Phenmetrazine
+(capsule)
+T+ 25:00
+1 cup
+oral
+Tea
+T+ 48:00
+7 mg
+insufflated
+3F-Phenmetrazine
+(powder / crystals)
+T+ 51:25
+7 mg
+insufflated
+3F-Phenmetrazine
+(powder / crystals)
+BODY WEIGHT:
+185 lb
+Three Trials With 3-FPM
+I work an office job which involves a lot of writing under tight deadlines. Often, my ADHD makes meeting those deadlines quite difficult. I&#x27;ve been interested in stimulants since being prescribed methylphenidate some years ago, and I&#x27;d read about 3-FPM before acquiring some from a reputable lab supply outlet. I knew I had to try it. I have a lot of experience with drugs of all sorts, and have tried many stimulants for both recreation (overrated) and productivity. Here are my experiences so far.
+Description of substance: one gram of lily white powder, slightly clumpy. Labelled 3-fluorophenmetrazine HCL.
+Allergy test:
+I put about two milligrams under my tongue when I first received the package, and nothing happened.
+First trial (Monday):
+(T+0:00) It&#x27;s 9:00 a.m. Monday. I opt for a dose on the lighter side and swallow a capsule containing ~21 mg of 3-FPM, weighed out using a jewelry scale, and wash it down with tea. I have another capsule with an additional 20 mg in it in case this is too low a dose (I doubt it will be).
+(T+0:11) I may be feeling something already. It could just be nervous anticipation, but my teeth are grinding and my stomach feels gassy.
+(T+0:30) After an absolutely miserable bowel movement, my stomach feels better. No longer tired, and feel a bit more alert.
+(T+0:52) Feel noticeably more productive. Getting plenty of work done. One (lack of) side effect I am noticing is that there is no appetite suppression
+I am noticing is that there is no appetite suppression
+, which for me is good since I&#x27;m a skinny guy who&#x27;s trying to build muscle. In fact, I&#x27;m quite hungry. I only had cereal for breakfast and someone is microwaving something absolutely delicious smelling.
+(T+2:10) Still quite productive. This stuff is good for ADHD.
+(T+3:20) I just noticed I&#x27;ve had no caffeine besides the initial cup of tea when I got to work. This is highly unusual for me - I usually spend the first half of my day drinking lots of coffee and tea. The thought hadn&#x27;t even crossed my mind until now.
+(T+4:08) After eating a big lunch, I feel a bit tired. Now it&#x27;s time for some tea.
+(T+4:56) Feeling a little more tired, perhaps on the precipice of the comedown, I insufflate an additional 6 mg. It burns, not horribly, but enough that I am wincing and struggling to maintain composure.
+(T+5:25) A bit of a dry/numb mouth. Mild muscle tension. Jittery but back to where I was a few hours ago in terms of productivity/stimulation.
+(T+6:03) Still stimulated but a bit nauseous. No more muscle problems, though.
+(T+8:15) I leave work still feeling rather &quot;up,&quot; but a bit drained.
+I come home and suffer no dysphoric comedown. The anhedonia often present in the offset of stimulants is basically nonexistent. In fact, I remain mildly stimulated into the evening. I have slight trouble sleeping but this is ordinary for me.
+Second trial (Tuesday):
+For this trial, I wanted to see if I could avoid re-dosing. One of the qualities of this compound that initially attracted me to it was its purportedly lengthy duration (up to 8 hours). While there is certainly mild physical stimulation at the 8 hour mark, the productivity and focus wears off well before then. To extend the duration of the compound and make last it until the end of the day, I took it after eating (rice, beans and sausage) at 11:00 a.m. I kept less detailed notes this time, since I was already familiar with the basics.
+(T+0:00) I swallow the capsule. I am determined to not have to redose today.
+(T+0:45) Usually, eating before taking something will prolong the come up, but I don&#x27;t feel anything at all. This is strange.
+(T+1:00) I am suddenly hit by a wave of energy. I make a cup of tea and get to work.
+(T+3:30) Feeling tired again, but strangely still quite productive. How bizarre. A headache is coming on and I realize I haven&#x27;t had any water in hours. I drink a little bit and feel better in about ten minutes. Probably past the peak.
+(T+5:00) Beginning to come down. I have absolutely nothing to do at work, so I just leave.
+(T+7:00) I come home and go to the gym, having an unusually effective workout.
+No trouble sleeping that night, in fact I made it to bed earlier than usual.
+Third trial (Wednesday):
+Just to see how well insufflation works on its own, I insufflate around 7 mg and feel noticeably stimulated after about 15 minutes.
+(T+0:55) Muscle cramps. Very productive though.
+(T+0:90) Still feeling quite alert and relatively productive.
+(T+3:00) Spacing off, a bit tired. It&#x27;s wearing off.
+(T+3:25) Take some more, about 7mg, and I&#x27;m back where I was.
+I finish out the rest of the day and feel very tired upon coming home, but not dysphoric or sad. I do a small bump, perhaps 5 mg, and go to the gym.
+That night I have more trouble sleeping. I feel a little tired and irritable Thursday morning, but no more tired and irritable than I ought to given how underslept I am. Thursday passes slowly, but it&#x27;s okay.
+Summary:
+This compound is useful for ADHD and productivity. It has typical amphetamine-like stimulant effects without many of the side effects. It has minimal comedown and minimal euphoria. It is the ideal stimulant for focus, in my limited experience, and one of the best I have tried for this purpose.
+I would estimate the duration of mental stimulation to be around four hours if insufflated and six hours if taken orally. Physically stimulation lasts a good few hours longer than that. An effective (non-recreational) dose, with my minimal tolerance to stimulants, is 20-30 mg orally and 5-10 mg insufflated.
+The main bothersome side effect, muscle tension, could probably be eliminated with a magnesium supplement such as magnesium citrate. Muscle tension appears to be worse with insufflation.
+Muscle tension appears to be worse with insufflation.
+Other side effects I noticed were headache, nausea and increased intestinal motility. These are relatively mild compared to other stimulants.
+I will not be taking this every day since it is poorly researched, but it seems to be a supremely productive and functional substance. Another reason not to take it every day is, as I realize now, it seems to have some cumulative effects. Using it later in the day (basically any time past lunch) appears to cause sleeping difficulties, which get worse with repeated daily use. Thursday (today) was a welcome break, and while I&#x27;m less productive, I feel physically better and ready for a good night&#x27;s sleep.
+Stay safe.
+Exp Year: 2019
+ExpID: 113409
+Gender: Male
+Age at time of experience: 22
+Published: Aug 5, 2019
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3F-Phenmetrazine (678) : Workplace (51), Performance Enhancement (50), Retrospective / Summary (11), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

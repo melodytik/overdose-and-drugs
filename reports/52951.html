@@ -1,0 +1,213 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>曼德拉 - 艾洛伊德植物 - &#x27;不坏&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mandrake.html'>← Mandrake</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>曼德拉 - 艾洛伊德植物 - &#x27;不坏&#x27;</h1>
+<div class='sub-title'>Mandrake - Erowid Exp - &#x27;Not Bad&#x27;</div>
+<div class='meta'>作者：High Canadien Citation · 日期：Oct 24, 2006 · <a href='https://erowid.org/experiences/exp.php?ID=52951' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>抗胆碱能类</span></h2>
+<div class='body'>[Erowid警告: Mandrake植物的所有部分都含有胺和胺,
+(自从我年轻时就一直有兴趣研究不同药物的效果和特点.) 因此,在我的房间里用了大约一周的时间后,有一天晚上,我渴望尝试它.
+我独自一人,因为我没有什么事要做,而且很晚,我想我会尝试一下.
+首先我把杏仁根的果实放进茶袋里,
+我把它加热后, 喝了整个杯子,
+没有什么,只是嘴里有一种奇怪的味道.
+我感觉有点不同, 但没有什么明显的.
+我注意到街灯和天空看起来有点 (非常小) 不一样.
+吃完饭后看了电视
+感觉非常小.
+几乎没有什么
+我想要试试, 只是把杏仁根放进一个没有茶袋或糖或叶片的杯子里.
+我将一杯非常强烈的热水和杏仁混合, 让它.
+第二剂:
+0:00:感觉热的饮料
+0:15:开始感觉轻微的高兴,所以我躺下.
+我看着我的房间的灯光, 似乎越看越亮越暗.
+这种反复的行为.
+听到音乐, 我开始感到充满活力和高兴.
+几分钟后,我站起来,开始跟着音乐移动.
+我正在跟着音乐跳舞, 度过美好的时光.
+虽然现在是凌晨两点,
+我还注意到当我闭上眼睛时, 我可以生动地看到灯光和闪光,
+我也有一种极其生动的想象力.
+我开始唱音乐.
+时间一点:我又了一杯花茶,
+热水倒在我身上, 但我太分心,
+我还想闭上眼睛继续听音乐.
+1.15:现在我真的感觉到了音乐.
+我在唱&quot;大门&quot;的CD, 感觉自己就像吉姆·莫里森.
+感觉就像在音乐会上唱歌一样.
+我已经闭上眼睛20分钟了,
+我继续唱歌,直到我的朋友回家敲门,
+我走到门口告诉他们我一直在做什么.
+1:40:当他们回到自己的房间,
+我感觉到我的身体, 我的歌声与音乐完美配合.
+我喜欢它.
+两个小时.
+我关掉音乐, 看到CD播放器的灯似乎在移动,
+这真是太酷了!
+我看了两分钟,然后睡觉了.
+第二天早上我醒来时嘴里有个不好的味道.
+我看着时钟,看到下午1点.
+让我陷入一种幸福和幻想的幻觉状态, 然后让我陷入深沉的睡眠.
+总的来说很好, 我肯定会再试一次.
+曼德拉 (33):一个人 (16),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Erowid Canvas Tote/Shopping Bag
+This reusable &quot;Ecobag&quot; is made of 100% recycled mid-weight
+(10 oz) cotton canvas, printed with the Erowid logo.
+Donate now
+and receive yours!
+Not Bad
+Mandrake
+by
+High Canadien
+Citation:   High Canadien. &quot;Not Bad: An Experience with Mandrake (exp52951)&quot;.
+Erowid.org
+. Oct 24, 2006. erowid.org/exp/52951
+DOSE:
+T+ 0:00
+oral
+Mandrake
+(tea)
+T+ 0:00
+oral
+Lobelia spp.
+(tea)
+T+ 0:45
+oral
+Mandrake
+(tea)
+BODY WEIGHT:
+158 lb
+[Erowid Warning: All parts of the Mandrake plant contain hyoscyamine and scopolamine and can easily cause death by respiratory paralysis.]
+I ordered mandrake root from an online herb and spice store about a month ago due to the fact that I read in a text book that mandrake root had small halucinagetic effects. (Since I was young I have always had an interest in reseaching the effects and characteristics of different drugs.) So one night after having it in my room for about a week I desided to try it. I was alone and since I had nothing to do and it was late I figured I would give it a try. First I put the peices of mandrake root into a tea bag with some lobilia which is another herb, and some sugar. After heating it up I drank the whole glass then quickly made another one with the same amount of substance.
+0.00: Nothing yet just have a weird taste in my mouth
+0.15: I feel slightly different but nothing that is really noticeable.
+0:30: Went to get something to eat from the local store. When I went outside I noticed that the street lights and sky seemed a little (very little) different.
+0.45: After eating I watched tv. Felt very little. Almost nothing
+After an hour of taking the first two doses I desided to try just putting the mandrake root in a glass with no tea bag or sugar or lobelia. I mix a very potent glass of hot water and mandrake and let it brew.
+Second dose:
+0.00: Feel hot from the drink
+0:15: Starting to feel mild euphoria so I lay down.
+0:30: I am watching my light in my room which seems to be getting brighter and darker as I look at it. Its sort of going in repetitions.
+0:35: I put on some Doors and listen to the music, I start to feel energetic and euphoric. A couple of minutes later I stand up and start moving to the music.
+0.45: I am dancing to the music and I am having a great time. It is 2.00 o-clock in the morning yet I have lots of energy. I also notice that when I close my eyes I can vividly see lights and sparkles, you know those things you see when you squint really hard. I also have an extreamly vivid imagination. I start to sing the music.
+1:00: I make a second glass of the mandrake tea and drink it down fast. Some of the hot water spills on me but I am too distracted to really feel it. I also want to keep my eyes closed and continued to listen to the music.
+1.15: Now I am really feeling the music. I am singing with the Doors CD and I am actually feeling like I am Jim Morrison. I do all the movements and lyrics and really feel like I am singing in a concert. My eyes have been closed for more then 20 min now and I can picture the theater.
+1:30 I continue to sing until my friends come home and knock on my door, opening my eyes and bringing me back to my room. I go to the door and tell them what I have been doing.
+1:40: When they go back to their room I put the music back on and finish the CD. When the last song comes on “The End” I am so into it I can feel my body tingling and my singing is going perfectly in tune with the music. I love it.
+2.00. I turn off the music and come to see the my CD player light seems to be moving, its growing bigger and smaller as I move my head back and forth. This is so cool I cant belive it. I watch this for about two min and go to bed.
+The next morning I woke up with a bad taste in my mouth. I look at the clock and see it 1.00 in the afternoon. 30-50 grams Mandrake put me in a delusional state of happiness and illusions, and then put me in a deep deep sleep. Overall it was good and I would definatly try it again.
+Exp Year: 2006
+ExpID: 52951
+Gender: Male
+Age at time of experience: Not Given
+Published: Oct 24, 2006
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Mandrake (33) : Alone (16), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

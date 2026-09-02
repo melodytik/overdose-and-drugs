@@ -1,0 +1,239 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2C-D - Erowid Exp - &quot;智能药物试验&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/2c-d.html'>← 2C-D</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>2C-D - Erowid Exp - &quot;智能药物试验&quot;</h1>
+<div class='sub-title'>2C-D - Erowid Exp - &#x27;Smart Drug Trials&#x27;</div>
+<div class='meta'>作者：raybeez Citation · 日期：May 18, 2004 · 剂量：15 mg · <a href='https://erowid.org/experiences/exp.php?ID=33689' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>我对这种药物没有太大的期望, 但我想在不同剂量下进行测试,
+如果它能提高认知能力, 我会试着用它来学习本月末的考试.
+在准确度为0.1mg的尺度上称重100mg的化合物,并溶解在20mL非变质的95%乙醇中,从而得到5mg/mL的溶液.
+第一个试验:
+在我在学校的研究实验室里, 服用了一毫升的2C-D溶液.
+我对这种剂量没有太大的期待,
+剂量是在轻量级早餐后2小时服用的.
+摄入后大约45分钟出现了一些明显的效应.
+我发现有点难以集中注意力,
+我感觉有点困惑和焦虑大约一个小时,
+经过一个半到两个小时的空虚感, 我又恢复正常了.
+第二个试验:
+在上一次1mL剂量后大约6小时内摄入3mL (15mg).
+胃完全空了.
+在15到20分钟内, 我开始感觉有点醉了, 一个小时后,2C-D的效果已经明显了.
+我和一群朋友坐在一起, 其中一个也服用了和我一样的剂量.
+很难理解和跟踪对话.
+我没有问题传达我的想法, 但我发现其他人的对话极为混乱.
+我注意到我对时间的感觉有极端的扭曲.
+谈话似乎持续了20或30分钟, 但看着时钟, 我发现只有1或2分钟过去了.
+视觉上有轻微的扭曲.
+我常常会注意到外视的闪, 但一旦我专注于它们,
+显然我正处于一种轻微幻觉的边缘.
+电视上的图像在加速或减速之间不断交替.
+几分钟后, 我感到恶心,
+我遇到了我工作的教授, 开始跟他谈论最近的一系列实验.
+我觉得自己是在自动驾驶, 脑部某个部位在说话,
+我教授开始设计一个新的实验.
+我点了点头,仿佛我理解, 但再次, 极度难以记录和理解他试图说什么.
+我不得不去请他重复一遍 (幸好他很分心, 甚至忘了前一天跟我说话).
+身体感觉也有一定程度的愉快.
+我发现自己经常笑或不当,
+我也似乎有很高程度的&#x27;精神不安&#x27;;我脑海中的想法从一个主题跳到另一个主题.
+影响会逐波发生.
+每一波波, 影响, 混乱, 身体感觉等等,
+接下来的波浪将会有比上一波波波更高的峰值.
+现在已经有两小时的时间了,
+虽然很有趣,但它似乎只是把我的思想混起来,
+我在下午参加了一个分子生物学研讨会,
+我发现我的注意力完全集中在投影屏上的文字上.
+我很难专注于教师的声音,但在投影机屏幕上呈现的图形和文字似乎在我的脑海中燃烧着.
+通常,我觉得这个研讨会的内容非常困难.
+我需要做非常详细的笔记, 然后我通常会对所讨论的主题进行详细的背景阅读,
+我发现自己对所呈现的视觉材料非常了解.
+我没有做任何笔记, 能够理解一切,
+在讲座结束时, (t=3小时) 效果开始减弱,到t=3.5或t=4小时,我完全清醒,没有明显的后果 (除了轻微的头痛,我认为是因为没有吃了10小时).
+总的来说, 我看到了这种药物的潜力,
+我很难集中注意力, 很难理解对话.
+我决定稍后再试一次.
+第三个试验:
+在我最后一次试验后的一周内摄入了3毫升 (15毫克) 的2C-D.
+肚子完全空了,我独自一人在我的公寓里.
+我试图阅读一篇发表在学术科学期刊上的论文,
+为了让事情变得更糟,
+我决定试试2C-D, 看看我是否能更好地理解这篇论文,
+经验,发病时间,持续时间和感觉与之前的试验相同,
+药物后大约一个小时,
+我很惊地发现,我只花了20分钟就能阅读和理解这篇论文的大部分内容了.
+我拿出笔记本电脑, 开始在纸上写笔记,
+我试图回到报纸数次剩余的时间我感觉到药物的作用,但发现集中不可能.
+药物消耗后, 我再次发现我有轻微的头痛.
+我还记得前一天晚上我对这篇文章的&quot;见解&quot;, 经过大约一个小时的重读和查阅文章中的一些参考文献,
+结论:
+总体而言,2C-D的高是轻,愉快,
+除了轻微的头痛之外,
+我可以想象自己再次使用这种药物.
+在智能药物方面, 我发现2C-D有潜力.
+通过视觉信息, 像是文字或图片, 处理,记忆和理解这些信息.
+我发现它在其他方面也会对认知造成损害.
+我很难和别人交流想法.
+我发现自己不记得很多对我说的话.
+另外,它严重影响了我专注于事物的能力.
+这种药物让我精神变得快,
+总之, 我绝对不会使用这种物质来为4月底的考试做任何认真的学习.
+我发现对我来说, 唯一真正的好处是找到理解和记住新旧视觉刺激的方法,
+我需要学习的信息量为我最后的考试需要能力集中在一个时间几个小时.
+我会再次使用这种药物作为娱乐, 也许是为了克服我理解事物的临时障碍,
+时间表: 33689
+2C-D (103):一般 (1),其他 (28)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Smart Drug Trials
+2C-D
+by
+raybeez
+Citation:   raybeez. &quot;Smart Drug Trials: An Experience with 2C-D (exp33689)&quot;.
+Erowid.org
+. May 18, 2004. erowid.org/exp/33689
+DOSE:
+15 mg
+oral
+2C-D
+(liquid)
+A moderately large supply of 2C-D HCl was obtained yesterday. The crystals were white and fluffy, and were found to be soluble in distilled water, 75% ethanol, and 95% ethanol.
+I am a full time university student in the sciences, and decided to try this compound for its reported &#x27;smart drug&#x27; potential. I didn&#x27;t really have any great expectations for this drug, but figured I would test it out over a range of doses and try to characterize its effects as best as possible. If it turned out to be successful at increasing cognitive ability, I would try using it for studying for some of my final exams at the end of the month.
+100mg of the compound was weighed out on a scale accurate to 0.1mg, and dissolved in 20mL of non-denatured, 95% ethanol, resulting in a 5mg/mL solution.
+Trial 1:
+1mL (5mg) of the 2C-D solution was taken orally, at my research lab at school. I didn&#x27;t expect much from this dosage; it was more just to confirm that I wasn&#x27;t going to have an anaphylactic reaction to it. Dose was taken 2 hours following a light breakfast.
+Some apparent effects emerged around 45min after ingestion. I found it was a little difficult to concentrate, and I felt a touch lightheaded. I felt a little spaced out and anxious for about an hour, following which I felt fine again. No real mental alterations were noticed, and within an hour and half to two hours of feeling spacey, I was back to normal again.
+Trial 2:
+3mL (15mg) ingested about 6 hours following the previous 1mL dose. Stomach completely empty.
+Within 15 to 20 minutes, I began feeling slightly intoxicated, and by one hour the effects of the 2C-D were definitely noticeable.
+I was sitting with a group of friends, one of which who had also taken the same dosage as myself. Conversations were extremely difficult to understand and follow. I had no problem relaying my thoughts, but I found other peoples conversations extremely confusing. I noticed extreme distortions in my sense of time. Conversations would seem to go on for 20 or 30 minutes, but looking at the clock, I would find that only 1 or 2 minutes had gone by.
+Slight visual distortions were apparent. I would frequently notice shimmering disturbances in my peripheral vision, but as soon as I focused on them, they would disappear. It definitely seemed like I was on the verge of breaking into mild hallucinations. At one point I tried watching a television set that was present in the room, and the images on the TV kept alternating between being sped up or slowed down. After a few minutes, it made me feel kind of nauseous, so I got up and went somewhere else.
+I ran into a professor whom I work for, and started talking to him about a recent set of experiments. I felt as though I was speaking on autopilot, as though one part of my brain was doing the talking, but the conscious part of my brain was off in some other place. My professor then proceeded to outline a new experiment to try. I nodded as though I understood, but again, had an extremely difficult time registering and comprehending what he was trying to say. The next day, I found that I could only recall fragments of what he had said, and had to go and ask him to repeat himself (luckily, he’s very absentminded, and forgot even talking to me the day before).
+A moderate degree of pleasurable body sensations was present as well. I found my self often laughing or giggling inappropriately, and just felt all in all stupid. I also seemed to have a high degree of &#x27;mental restlessness&#x27;; thoughts in my head were jumping around from topic to topic.
+The effects would come in waves. With each wave, the effects, confusion, body sensations, etc., would build until a peak, then would gradually diminish leaving me feeling almost normal. Then the next wave would come, with a slightly higher peak then the last.
+It had been two hours since ingestion, and so far found 2C-D to be lacking as a &#x27;smart drug&#x27;. Although fun, it seemed to just be scrambling my thoughts, and making it very difficult to understand spoken conversation. I made my way off to an afternoon seminar in molecular biology, and figured I was in for more of the same.
+As the lights dimmed in the lecture hall, and the instructor&#x27;s PowerPoint presentation began, I found my concentration to be extremely focused on the written words on the projection screen. The instructor&#x27;s voice was hard to focus on, but the figures and text being presented on the projector screen seemed to burn themselves into my head.
+Normally, I find the content in this seminar course very difficult. I need to take extremely detailed notes, which I then typically follow up with detailed background reading on the topic being covered before I can fully understand the material. On 2C-D however, I found myself extremely attuned to the visual material being presented. I took no notes, and was able to comprehend everything, which really surprised me.
+Near the end of the lecture, (t=3hrs) the effects began to fade, and by t=3.5 or t=4 hours, I was completely sober with no apparent after effects (except for a mild headache which I attribute to not having eaten for 10 hours). Overall, I saw some potential with this drug in being able to enhance my ability to comprehend and understand written words. At times however it was extremely difficult to focus, and I found conversation hard to understand. I decided that I would try repeating this dosage again at a later date.
+Trial 3:
+3mL (15mg) of 2C-D ingested one week following my last trial. Stomach completely empty, and I’m alone in my apartment.
+I had been trying to read a paper published in an academic science journal for the past three hours, and was having a very difficult time understanding the content of it. To make things worse, I had to give a short talk on the paper in less than two days. I decided to try taking the 2C-D to see if I would have any more luck trying to understand the paper, and perhaps starting to put together my presentation.
+The experience, time of onset, duration and sensations were identical to the previous trial, so I won’t bother discussing them. About an hour after I had taken the drug, I tried to tackle the paper again. To my amazement, I was able to read and comprehend a good majority of the paper after spending only twenty minutes on it. I pulled out my laptop and started taking jotting down notes on the paper, but within ten or fifteen minutes, my concentration broke, and I went off to do something else. I tried returning to the paper numerous times the remainder of the time I felt the effects of the drug, but found concentration impossible. Of note, I again found I had a mild headache after the drug wore of.
+The next day though, I still remembered my “insights” into the article from the night before, and with about an hour of re-reading and looking into a few of the articles references, I felt confident enough to make my presentation right then and there.
+Conclusions:
+Overall, the high from the 2C-D is light, enjoyable, and not too hard on the psyche or body. Comedown and after-effects were non-existent for me, with the exception of a mild headache. This drug is fun to use recreationally, and I can see myself using it again for such purposes.
+In terms of being a smart drug, I found some potential for 2C-D. The primary ways that it seemed to improve me mentally were my abilities to process, remember, and understand visual information such as text or pictures. I found that in other ways however that it was very cognitively impairing. My conversational ability was horrible while high, and I had a very hard time communicating thoughts to others. It was also very difficult to process conversation, and I found myself not remembering lots of what had been said to me. In addition, it seriously impaired my ability to concentrate on things. The drug gave me mental speediness that resulted in really noticeable ADD.
+In conclusion, I definitely won’t be using this substance for any of my serious studying for my final exams at the end of April. I found that for me, the only real benefit was finding ways to understand and remember new and old visual stimuli, including written text. The volume of information that I need to learn for my final exams requires the ability to focus for hours at a time. I would use this drug again both recreationally, and perhaps to get across temporary roadblocks in my understanding of things, but not as a study aid.
+Exp Year: 2004
+ExpID: 33689
+Gender: Male
+Age at time of experience: Not Given
+Published: May 18, 2004
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+2C-D (103) : General (1), Various (28)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

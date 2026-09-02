@@ -1,0 +1,319 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>阿勒夫-2 - 埃罗伊德 Exp - &quot;连续性假设&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/phenethylamines-other.html'>← Phenethylamines - Other</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>阿勒夫-2 - 埃罗伊德 Exp - &quot;连续性假设&quot;</h1>
+<div class='sub-title'>Aleph-2 - Erowid Exp - &#x27;The Continuum Hypothesis&#x27;</div>
+<div class='meta'>作者：77k Citation · 日期：May 26, 2002 · <a href='https://erowid.org/experiences/exp.php?ID=14854' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>致幻剂</span></h2>
+<div class='body'>这5月,我又遇到了另一种极其罕见的迷幻药物.
+这是一个关于
+亚莱夫二号
+这种药物是2C-T-2的安非他命类型.
+在PIHKAL中,医生指出,在他的经验中,阿勒夫化合物具有非常不可预测的剂量/反应曲线.
+不同的人服用相同的剂量可能会产生显著不同的效果,同一个人不同时服用相同的剂量也会产生显著不同的效果.
+2C-T化合物似乎也以这种方式表现,但在较小的程度上 (2C-T-7似乎是一个主要的例子).
+此外,阿勒夫的迷幻效应是个混合袋.
+因此使用它们似乎是个挑战, 也许这就是为什么它们没有受到太多关注的原因.
+我和两个朋友 (R和P) 在5月11日下午12点40分给阿勒夫2注射了一次.
+我和P服用了6毫克,R服用了7毫克.
+我在40分钟前吃了一小碗啦啦队员.
+通过500 MHz的NMR测试,该材料 (HCl盐) 的质量被确定为&gt;98%.
+粉末的气味很恶臭 - - 硫的结合是显而易见的.
+但在水中溶解, 它几乎没有味道.
+我在最初的几个小时里做了笔记,
+经过15分钟的时间,
+经过30年左右, 我注意到皮肤有&quot;模糊&quot;的感觉, 皮肤稍微变得不敏感.
+很快之后, 我注意到感知变化可能已经开始.
+我开始感觉有点刺激, 正如我所期望的, 因为Alef-2是一种安非他林.
+我的胃也有些敏感.
+我在视线的角落里偶尔会看到振动.
+皮肤变得更加敏感.
+服用后一个小时, 氨成分显而易见.
+我觉得眼睛有点震动, 肚子也更加烦.
+四分钟后,我吐了.
+这不是太不愉快.
+移动的东西会留下痕迹.
+我心情很好,我把这归因于安非他命.
+几分钟过去了, 几乎所有东西都能看到视觉效果,
+我觉得我的视力有所改变,
+这似乎更多的是感知而不是感官.
+闭眼的视觉是抽象的, 没有很明亮.
+我在浴室里着干燥的气息.
+我接受一个治疗性酒.
+在器祭坛上拜了一两次.
+情况似乎并没有发生太大的变化.
+阅读电脑屏幕是很困难的,
+屏幕上的字母边缘几乎没有颜色边缘,
+只是似乎更难集中注意力,
+我一直认为这是视觉的重要组成部分.
+站在一个40英尺长的房间里,
+走过房间, 房间微妙但确实扭曲过去我.
+这种视觉包装似乎特别适用于Aleph-2.
+我眼睛告诉我我在倒, 但有时很难确定为什么.
+皮卡尔的定性评论之一是:&quot;视觉幻觉的惊人统一只能在某事的细节中看到&quot;.我理解这个评论,但我无法解释它.
+在几秒钟的注意力之后,可见表面的扭曲和扭曲变得更加明显.
+但似乎几乎没有任何颜色.
+没有颜色增强,没有真正的颜色边缘,
+我吃了一片披萨.
+我感觉一般好一些.
+在t+2:30, 情况似乎稳定.
+我们听着粉红乐队的&quot;愿你在这里&quot;.
+亚勒夫2是一种非常迷幻的药物,
+在视觉和听觉上, 增强似乎轻微.
+许多其他药物会在音乐的内容和声音与我的思想之间建立联系, 但与Aleph-2相比,
+我觉得这些歌曲并没有给我讲故事.
+我发现自己在高度思考西德·巴雷特和他的乐队关系, 他们是如何爱他,
+我可以思考和感受每首歌中的情感.
+音乐是我听过的最美丽的音乐, 不是因为技巧或工艺,
+很显然阿莱夫-2是一种强大的迷幻药.
+这只是头脑的旅行, 而不是感官的旅行.
+经过与P和R的谈话, 我们意识到我们有着截然不同的经历.
+他们说,对于他们来说,视觉更为明显.
+但对我来说这不是一个很好的描述.
+似乎整体上更强烈的旅行.
+我们决定去散步.
+只是到一个我们可以坐下来看看港口的地方.
+一旦我们坐下来很容易沉浸在我们面前的场景多分钟一次.
+站在海墙边,R和P想知道从地面到水面的距离有多远.
+我们花了好半个小时想出解决这个问题的方法, 从简单的 (数梯子的阶梯) 到更复杂的 (把石头扔下几次,
+我指出牛顿已经在17世纪的某个时候方便地解决了这些积分.
+我们就猜测的准确性进行了长时间的辩论...
+我说他忘记了常数因子... 这最终导致P坚持他可以计算月球的质量在50%以内
+我向他打500美元, 他不能达到三级.
+他拒绝了.
+在t+4:20左右, 情况似乎有所减弱, 但很难说, 因为为了衡量效应的强度,
+我决定离开休息室,回家.
+我回来的时候, 情况肯定已经变得更弱了.
+经过15分钟的时间,
+他表示外面的情况突然变得很奇怪,
+他感到不舒服.
+只有几分钟他变得非常激动.
+他脱掉了大部分的衣服,
+精神上,他正走向一个不愉快的地方.
+他无法很好地解释发生了什么, 但似乎不是身体问题,
+我测试了他的脉,是96.
+我们从厨房走到一个他可以躺在沙发上的地方.
+我似乎是他需要坚持的物理现实.
+他说他有&quot;恐惧&quot;.
+经过20分钟的时间, 我和P成功地让他吃了一些食物和水,
+我还没有机会与他详细谈谈他的感受.
+他当时完全无法解释发生了什么事.
+但它似乎可以自行解决.
+旅程的每一件事都变得非常激烈, 消耗, 几乎令人压倒.
+我们三次旅行的差异是非常明显的.
+我在下降的路上,感觉到一种愉快的迷幻光,P还在相当强烈地,而R刚刚从永无之地回来.
+确实存在剂量/反应曲线的变化!
+舒尔金说的又是对的.
+已经过去了大约六个小时.
+晚上9点或10点左右, 我们决定步行半小时到朋友家,
+在离开之前, 我服用了400毫克的布洛芬,
+这次行走非常愉快 (天气仍然很好).
+我们在那里度过了几个小时,
+似乎没有被他与恐惧的前面的接触所打扰.
+我给了它另外400毫克的布洛芬.
+几乎没有任何效果,所以我抽了一些大麻.
+没有运气,所以我拿出大炮,用1000毫克的乙氨基和24毫克的可代因,
+接下来的两个小时里, 药物与头痛进行了激烈的, 痛苦的战斗,
+我终于决定是时候步行回家了.
+我会说Aleph-2已经消失在THC-codeine-ethanol背景噪音中在t+14h左右
+我在派对上度过的时间非常有趣, 除了头痛,
+在回家后,我睡了不久.
+我在床上度过了很多时间.
+除了简单的疲劳,我感觉很好.
+毫无疑问,我会在某个时候再次参加阿莱夫-2,
+我觉得有很多事情我不理解.
+对于我来说,这似乎是一个思考的人的旅行.
+但毫无疑问,阿勒夫2是一种需要谨慎使用的药物.
+在这次旅行中,R的反应完全不可预测.
+对于给定的剂量, 您可能会得到比您预期的更多 (或更少) 的药物.
+没有其他人在身边就不应该服用.
+我对Aleph-2与我尝试过的其他幻觉药有多么不同,
+另一次,
+舒尔金已经在一个以前没有标记的感知门上贴上了标志.
+我只能想象下一个门后面会是什么.
+时间表: 14854
+乙胺 - 其他 (257):各种 (28),音乐讨论 (22),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Is it important to you that the world have accurate information about drugs?
+Please donate
+to support Erowid Center&#x27;s vision!
+The Continuum Hypothesis
+Aleph-2
+by
+77k
+Citation:   77k. &quot;The Continuum Hypothesis: An Experience with Aleph-2 (exp14854)&quot;.
+Erowid.org
+. May 26, 2002. erowid.org/exp/14854
+DOSE:
+T+ 0:00
+6.0 mg
+oral
+Phenethylamines - Other
+(powder / crystals)
+T+ 1:30
+1 hit
+smoked
+Cannabis
+T+ 6:00
+400 mg
+oral
+Pharms - Ibuprofen
+T+ 7:00
+400 mg
+oral
+Pharms - Ibuprofen
+T+ 8:00
+1000 mg
+oral
+Pharms - Ibuprofen
+T+ 8:00
+24 mg
+oral
+Codeine
+T+ 8:00
+1 shot
+oral
+Alcohol - Hard
+BODY WEIGHT:
+145 lb
+This May another obscenely rare psychedelic and I crossed paths.  This is a story about
+Aleph-2
+, the amphetamine analogue of 2C-T-2.
+In PIHKAL, the Doctor notes that, in his experience, the Aleph compounds have very unpredictable dose/response curves.  The same dose taken by different people can have markedly different effects, and the same dose taken by the same person on different occasions can too.  The 2C-T compounds also seem to behave this way, but to a lesser extent (2C-T-7 seems to be a prime example).  In addition, the psychedelic effects of the Alephs are a mixed bag.  So it seems that they are a challenge to use, and this is probably why they have not received much attention.
+On May 11, 12:40 pm, two friends (&#x27;R&#x27; and &#x27;P&#x27;) and I gave Aleph-2 a shot.  P and I took six milligrams, R took seven.  I had eaten a small bowl of cheerios about 40 minutes earlier.  The quality of the material (the HCl salt) was determined to be &gt;98% by 500 MHz NMR.  The powder smelled foul - the mercaptan-style sulfur bond was obvious.  But dissolved in water, it was nearly tasteless.
+I took notes for the first few hours, which I&#x27;ll summarize.
+After about 15 minutes there were the first indistinct hints of something happening.  After 30 or so I noticed a &#x27;fuzzy&#x27; skin sensation, a slight desensitization.  Shortly after that I noticed that perceptual changes might be starting.  After 40, I began to feel a little stimulated, as I expected, since Aleph-2 is an amphetamine.  My stomach was also a little sensitive.  I saw vibrations from time to time in the corners of my vision.  The skin desensitization had intensified.
+One hour after dosing, the amphetamine component was obvious.  My vision seemed to vibrate a little, and my stomach was more irritated.  Four minutes later, I puked.  This was not too unpleasant.
+t+1:10, moving things leave trails.  My mood is good; I attribute this to the amphetamine.  A few minutes pass, and visuals are visible over most everything, but there doesn&#x27;t seem to be much detail to them.  I feel like my vision is altered, but it is not overt.  It seems to be more perceptual than sensory.
+t+1:20, an unexpected second bout of vomiting.  Closed eye visuals are abstract and not very bright.
+Twenty minutes later I am back in the bathroom, dry heaving.  I take a therapeutic bong hit.  R and P have also worshipped at the porcelain altar a couple of times.  Things do not seem to be changing as much.  It&#x27;s difficult to read a computer screen, but not for the usual psychedelic reasons.  There is almost no color fringing around edges of letters on the screen, which is something I see on most other drugs.  It just seems harder to focus - harder to see.
+But there seem to be larger-scale perspective distortions, something which I&#x27;ve always thought of as a major component of mushroom visuals.  Standing in a 40 foot long room, the opposite end seems very far away.  Walking across the room, the room subtly but surely distorts past me.  This visual package seems particularly unique to Aleph-2.  My eyes tell me that I am tripping, but it is sometimes hard to identify why.  One of PIHKAL&#x27;s qualitative comments is, &#x27;An amazing unification of visual hallucination seen only in the very fine detail of something.&#x27; I understand this comment, but I&#x27;m at a loss to explain it.
+t+2:10, twisting and warping of visible surfaces is more obvious, after a few seconds of attention. But again, there seems to be almost no color at all.  No color enhancement, no real color fringes, only briefly or in passing.
+I eat a slice of pizza.  I feel generally better.  At t+2:30, things seem stable.
+We listen to Pink Floyd, &#x27;Wish You Were Here&#x27;.  Aleph-2 is very psychedelic, but only in the sense that it allows free-association like other psychedelics.  Visually and aurally, enhancement seemed mild.  Many other drugs create connections between the content and sound of the music and my thoughts, but instead with Aleph-2 the sensation of the sound was only minimally altered, while my thoughts were primed by the lyrics and tone of the music and felt more free to go off on their own.  I didn&#x27;t feel like the songs were telling me stories.  I found myself thinking at a high level about Syd Barrett and his relationship to the band, how they loved him and the loss they felt when he went insane.  I was able to think about and perceive the emotions each song contained.  The music was some of the most beautiful I&#x27;ve ever heard, not because of skill or craftsmanship, but because of honesty.
+At this point it was clear that I was at a +++ level, and it was also clear that Aleph-2 was a powerful psychedelic by any measure.  It was a head trip, not a sensory trip.  It was about t+3:20, and after talking a bit with P and R we realized that we were having notably different experiences.  They said that, for them, visuals were more obvious.  P quite logically said the drug felt like 2C-T-2 on speed, but to me this was not a good description.  R, who had taken a milligram more, seemed to be having an overall stronger trip.
+We decided to go for a walk.  We wound up going not very far at all, just over to a place where we could sit down and look across the harbor.  We did not feel inclined to walk much, and once we&#x27;d sat down it was easy to soak up the scene in front of us for many minutes at a time.
+Standing at the edge of the seawall, R and P wondered how far down it was from the ground to the surface of the water.  We spent a good half hour figuring out numerous ways of solving this problem, from simple (counting rungs in a ladder) to more complex (dropping a stone several times and measuring how long it took to hit the water).  P complained that he couldn&#x27;t do double integrals while tripping, but I pointed out that Newton had already conveniently solved those integrals sometime in the 17th century.  We got into a lengthy debate about the precision and accuracy of our guesses... P said he could get arbitrary precision with an infinite number of stopwatch measurements, but I said he&#x27;d forgotten about constant factors... this eventually led to P insisting that he could calculate the mass of the moon to within 50% using only a digital watch, by observing the tides.  I offered to bet him $500 he couldn&#x27;t get it to within three orders of magnitude.  He declined.
+At about t+4:20 things seemed to be weakening ever so slightly, but it was hard to say because in order to gauge the strength of the effects, I had to think about how I was thinking, I couldn&#x27;t just consult my eyes.  We walked a little further, and I decided to leave R and P and head home.  At about t+5:20, or 6 pm, I got back and things were definitely weaker.  P and R returned about 15 minutes later.
+R, who is a seasoned tripper, said that things had suddenly gotten very weird outside and he wanted to come back.  He was uncomfortable.  Within just a few minutes he became very agitated.  He took off most of his clothes because he just couldn&#x27;t get comfortable.  Mentally, he was headed somewhere unpleasant.  He couldn&#x27;t explain very well what was going on, but it didn&#x27;t seem to be a physical problem, only a mental/sensory one.  I took his pulse, it was 96.  We got out of the kitchen to a place where he could lay on a sofa.
+R grabbed my hand; I seemed to be a link to physical reality that he needed to hold on to.  He said he had &#x27;the fear&#x27;.  After about 20 minutes, during which P and I managed to get him to eat a little food and water, he started to calm down a little.  I haven&#x27;t yet had a chance to talk to him in detail about what he felt.  At the time, he could not explain well at all what was going on.  But it seemed to resolve itself.  R did say that there were intense visuals, and that everything about the trip had become very intense, consuming, almost overwhelming.
+At this point the differences in our three trips were starkly obvious.  I was well on my way down and feeling a pleasant psychedelic glow, P was still tripping reasonably hard, and R was just returning from never-never-land.  Variations in the dose/response curve, indeed! Shulgin was, not surprisingly, right again.
+About six hours had passed.  We made some stuff to eat and lounged around for a while, then at around 9 or 10 we decided to walk about half an hour to a friend&#x27;s house where there was a small party going on.  Before leaving I took 400 mg of ibuprofen to deal with a headache.  The walk was very nice (the weather was still great).  We spent several hours there, mostly relaxing in a private room with good friends.  R felt fully sane and seemed unfazed by his earlier brush with the Fear.
+While there the headache worsened and I gave it another 400 mg of ibuprofen.  That did almost nothing, so I smoked some pot.  No luck, so I got out the big guns and hit it with 1000 mg of acetaminophen and 24 mg of codeine, and topped it off with some Jim Beam.  Over the next two hours the drugs fought a pitched, bitter battle against the headache, which the headache thankfully lost.
+At sometime after 4 am, or about 15 hours after taking the Aleph-2, I finally decided that it was time to walk back home.  I would say that the Aleph-2 had faded into the THC-codeine-ethanol background noise at around t+14h.  The time I spent at the party was a lot of fun, and aside from the headache, the long Aleph-2 comedown was social, unobtrusive and left me in a nice mood.  Upon getting home I fell asleep after not too long.
+I was quite sleepy the following day and spent a lot of it in bed.  Besides simple fatigue, I felt fine.
+There is no question that I will do Aleph-2 again sometime, but I don&#x27;t know when will be the right time.  I feel like there is a lot I don&#x27;t understand about it.  To me, it seems to be a thinking person&#x27;s trip.  But without question Aleph-2 is a drug that requires care and prudence in its use.  R&#x27;s reaction, so far into the trip, was totally unpredictable.  It&#x27;s obvious from variation in our overall responses to it that, for a given dose, you may get a lot more (or less) than you bargained for.  It should not be taken without having someone else around.
+I am impressed by how different Aleph-2 is from the many other psychedelics I&#x27;ve tried.  Once again Dr. Shulgin has put a sign on a previously unmarked door of perception.  I can only imagine what&#x27;ll be behind the next door I find.
+Exp Year: 2002
+ExpID: 14854
+Gender: Male
+Age at time of experience: Not Given
+Published: May 26, 2002
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Phenethylamines - Other (257) : Various (28), Music Discussion (22), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

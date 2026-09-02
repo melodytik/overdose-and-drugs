@@ -1,0 +1,110 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>DOPR</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>DOPR</h1>
+<div class='sub-title'>DOPR</div>
+<div class='meta'>药理类别：综合 · 未指明</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>2 · 轻度</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li class='fx-none'>（暂无）</li></ul></div>
+</div>
+<div class='brief'><div class='sec'><div class='k'>综述</div>属列管/非法物质，持有、使用、贩卖均可能触犯法律，且成瘾与急性风险高。Erowid 上收录 8 篇体验报告（本页已译部分）。报告中出现的剂量：5 mg。报告类型分布：First Times(7)、General(1)。详细主观体验请展开下方已译报告查看。</div></div>
+<h2 class='block'>他人经历报告（8 篇）</h2>
+<div class='item'><h3><a href='../reports/106861.html'>DOPr - Erowid Exp - &quot;第一次低剂量试验和观察&quot;</a></h3><div class='meta'>Oct 9, 2015</div><div class='ov'>第一个DOPR审判 通过Xorkoth 我最近成功地收到了大量的粉末形式的DOPr, 今天早上我突然决定去做测试/低剂量. 我计划下周末给他4毫克. 我今天的心情很好,我和女朋友度过了一个美好的夜晚, 我每天都在做我热衷…</div></div>
+<div class='item'><h3><a href='../reports/115555.html'>标志性地产 - 埃罗维德 - 迷宫</a></h3><div class='meta'>Jul 28, 2021 · 剂量 5 mg</div><div class='ov'>背景:我长大的房子,附近的各个地方. 序言:这是另一个罕见的DOx化合物, 这种新型病毒在历史上从未真正起飞,而且一直是罕见的. DOx化合物是2C-x家族的安非他胺版本,这意味着甲基被放置在乙烯链的α-碳上,给出了 (…</div></div>
+<div class='item'><h3><a href='../reports/115040.html'>- &quot;舒适的麻木&quot;</a></h3><div class='meta'>Jan 5, 2021</div><div class='ov'>首次使用 - 服2.5毫克口服 - 舒适无声 警告: 过长的旅行报告如下. 我把它全部包括在内, 而不是削减它, 谁知道什么是重要的? 设置: 我今天早上6点20分醒来时心情很好. 我在前一天炼和徒步旅行, 我的朋友一直…</div></div>
+<div class='item'><h3><a href='../reports/113626.html'>欧罗伊德&quot;美好梦&quot;</a></h3><div class='meta'>Oct 22, 2019</div><div class='ov'>以下是我与国防部的第一次经历的报告. 这是一个相当长的阅读, 因为这种化合物提供的经验也是非常长的. 对于那些不感兴趣于所有个人见解和细节的人, 希望这对任何有机会尝试这种化学物质的人来说, 一些背景: 一个跨维的光存在…</div></div>
+<div class='item'><h3><a href='../reports/105317.html'>欧罗伊德旅行 - 一个令人兴奋和惊叹的体验</a></h3><div class='meta'>Jul 22, 2015</div><div class='ov'>虽然我不会建议这种物质适用于初学者.</div></div>
+<div class='item'><h3><a href='../reports/115937.html'>澳门银河娱乐场和大麻 - 埃罗维德出口 - &#x27;长途旅行值得长时间的等待&#x27;</a></h3><div class='meta'>Dec 13, 2021 · 剂量 5 mg</div><div class='ov'>总的来说,我对它非常满意,</div></div>
+<div class='item'><h3><a href='../reports/113541.html'>欧罗伊德&quot;黑暗的女主人&quot;</a></h3><div class='meta'>Sep 7, 2019</div><div class='ov'>过去的一年里, 我深深地爱上了迷幻药物, 在过去的几个月里, 我已经成功地掌握了一些稀有品和传奇的迷幻药. 没有太多思考之后, 我选择了DOPr作为我的 (迷幻) 夏季的开端. 由于DOC是我目前唯一有经验的其他类型的迷…</div></div>
+<div class='item'><h3><a href='../reports/113746.html'>欧罗伊德的故事 - ,小姐莫莉.</a></h3><div class='meta'>Dec 3, 2019</div><div class='ov'>好的小姐莫莉...一个故事的DOPR 2019年10月26日与朋友口服的6.6毫克DOPr 通过Xorkoth 我如何开始编织这个伟大的故事? 我会尽可能多地回顾细节,并做出尽可能多的观察. 我把我的笔记留在了我倒的房子…</div></div>
+
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

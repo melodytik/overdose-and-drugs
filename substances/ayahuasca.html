@@ -1,0 +1,115 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>死藤水</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../index.html'>← 返回分类首页</a></div>
+<h1 style='font-size:24px;margin:6px 0 2px'>死藤水</h1>
+<div class='sub-title'>Ayahuasca</div>
+<div class='meta'>药理类别：致幻剂</div>
+<div class='fxbar'><div class='t'>作用与危害强度（依据报告综述评定，强度≠安全性：作用越强越难自控，危害越高身体损伤风险越大）</div><div class='meter'><span class='ml'>生理作用</span><span class='mbs'><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb on h3'></span><span class='mb'></span></span><span class='mv'>4 · 强</span></div><div class='meter'><span class='ml'>心理作用</span><span class='mbs'><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span><span class='mb on c3'></span></span><span class='mv'>5 · 极强</span></div><div class='meter'><span class='ml'>生理危害</span><span class='mbs'><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb on h5'></span><span class='mb'></span><span class='mb'></span></span><span class='mv'>3 · 中</span></div></div><div class='fx'>
+<div class='fx-col fx-phy'><div class='fx-h'>生理效应<span class='fx-sub'>报告中的身体反应</span></div><ul><li>强烈视觉几何图案、情绪释放（常伴剧烈呕吐「purge」）、内省与「与更大整体连接」感、时间感消失。</li></ul></div>
+<div class='fx-col fx-psy'><div class='fx-h'>心理效应<span class='fx-sub'>报告中的主观体验</span></div><ul><li>强烈视觉几何图案、情绪释放（常伴剧烈呕吐「purge」）、内省与「与更大整体连接」感、时间感消失。</li></ul></div>
+</div>
+<div class='brief'><div class='sec risk'><span class='k'>【风险提示】</span> 本页 98 篇报告属 C 类（含 DMT，属列管物质）。核心风险来自 <strong>MAOI 的药物相互作用</strong>：与 SSRI/SNRI、多数抗抑郁药、拟交感药、部分食物（含酪胺）同用可致<strong>高血压危象或血清素综合征（可致命）</strong>。另有严重呕吐腹泻、血压心率波动。有心血管病、精神病史者风险极高。在旅游式仪式中由无经验者主持是事故高发场景。</div>
+<div class='sec'><span class='k'>【作用特点】</span> 死藤水，由含 DMT 的植物（如九节属）与含 MAOI 的卡皮木（Banisteriopsis caapi）藤蔓共煮而成——<strong>MAOI 抑制单胺氧化酶，使 DMT 口服起效</strong>（单服 DMT 会被迅速分解）。口服 30–60 分钟起效，持续 4–6 小时。</div>
+<div class='sec'><span class='k'>【常见剂量与途径】</span> 口服煮制液，仪式用量由主持者掌握。</div>
+<div class='sec'><span class='k'>【他人报告中的体验（含负面）】</span> 强烈视觉几何图案、情绪释放（常伴剧烈呕吐「purge」）、内省与「与更大整体连接」感、时间感消失。</div></div>
+<h2 class='block'>他人经历报告（121 篇）</h2>
+<div class='item'><h3><a href='../reports/6520.html'>亚亚瓦斯卡 (B. caapi &amp; P. viridis) - 埃罗伊德 - &quot;光&quot;</a></h3><div class='meta'>Apr 28, 2001</div><div class='ov'>叶子最后一次洗,然后将其结合到减少中.</div></div>
+<div class='item'><h3><a href='../reports/104030.html'>艾哈瓦斯卡,烟草,桑纳加和坎博 - 埃罗维德展览 - &quot;与卡西纳瓦巫师的两个仪式&quot;</a></h3><div class='meta'>Apr 17, 2017</div><div class='ov'>卡西纳瓦巫师的经历 我最近很幸运地参加了两次阿雅华斯卡仪式, 亚马逊卡辛纳瓦部落的精神领袖. 我很好的朋友主持了这次活动, 她已经在亚马逊的许多巫师手中用亚雅华斯卡治疗了14年, 她自己也是一位经验丰富的巫师和治疗师. …</div></div>
+<div class='item'><h3><a href='../reports/80528.html'>华斯卡组合 (叙利亚路和M. tenuiflora) 和大麻 - 埃罗维德Exp - &quot;林时刻,黑暗永恒&quot;</a></h3><div class='meta'>Jul 15, 2010</div><div class='ov'>所以我想要旅行,航行,飞行,不管你怎么称呼. 我是一名21岁的大学生. 酸和是过去的东西, 当我听说DMT酒. 我研究和阅读, 然后研究一些我总是这样做只是为了确保. 我找到了一个卖我需要的食材的网站, 我试过这两次我不…</div></div>
+<div class='item'><h3><a href='../reports/25212.html'>艾亚瓦斯卡 (B. caapi &amp; P. viridis) 和萨尔维亚神 (5倍提取物) - 埃洛伊德 Exp - &quot;音乐消化了我&quot;</a></h3><div class='meta'>Jul 13, 2003</div><div class='ov'>晚上11点 - - 那最后一个小时我想是我的高峰期,我喜欢每一秒钟. 我一走进门就开始下降.</div></div>
+<div class='item'><h3><a href='../reports/105945.html'>华斯卡组合 (B. caapi &amp; P. viridis) - 埃洛伊德 Exp - &quot;非常困难但非常值得&quot;</a></h3><div class='meta'>Oct 25, 2020</div><div class='ov'>美国 第一次使用阿雅瓦斯卡 背景:在复活节星期日前的满月期间, 我们带来了一个八个人的大帐作为我们的仪式室. 帐的顶部是开放的,四面都有窗户, 我们都带来了独立的吊床躺在经历. 我们还带着一个桶来清洗. 我很紧张, 因为…</div></div>
+<div class='item'><h3><a href='../reports/95729.html'>艾哈瓦斯卡 - 埃罗伊德药物 - &quot;死亡与重生&quot;</a></h3><div class='meta'>Mar 12, 2020 · 剂量 1.25 shots</div><div class='ov'>我从来没有吃过任何肉类,奶制品,咖啡,茶,巧克力,过度辛的食物,大,蛋,微波食品,药物,也没有任何真正含糖或的东西. 我没有做过性行为或自慰超过一周. 我自下午3点起就没吃过任何东西, 这与昨天相比,相对较快, 我觉得那…</div></div>
+<div class='item'><h3><a href='../reports/95848.html'>亚亚瓦斯卡 (B. caapi &amp; P. viridis) 和 - 埃罗维德 - &quot;海日&quot;</a></h3><div class='meta'>May 27, 2013</div><div class='ov'>总结 之前的经验 剂量信息 意图 背景信息 经验 在反思中 摘要: 我在海上混合了大麻,吸食和吸烟的, 我有一天很难忘:我失去了钱包,在灌木里排便,在潮高的湖中游泳, 总而言之,这是我一生中最美好的经历之一, 之前的经验…</div></div>
+<div class='item'><h3><a href='../reports/77118.html'>抗生素是否禁用?</a></h3><div class='meta'>Feb 23, 2009</div><div class='ov'>我强烈建议使用抗生素的人小心服用亚华斯卡,</div></div>
+<div class='item'><h3><a href='../reports/40012.html'>华斯卡酒 (叙利亚路和M. tenuiflora) - 埃罗伊德Exp - &quot;精神网络和心理噪音&quot;</a></h3><div class='meta'>Mar 29, 2005 · 剂量 12.7 g</div><div class='ov'>制备方法: 我跟随了米莫斯奎罗的食谱, 我在星期日准备了它, 我把容器放在一个水中, 我把酒倒在一个小里, 如果在里面停留一小时, 这一次它太苦了,但可饮量的量很小 (可能是2/3杯). 我总是用手指尝试, 一天的摄入量…</div></div>
+<div class='item'><h3><a href='../reports/1059.html'>艾亚瓦斯卡和 - 埃罗维德特产 - &quot;沙罗马瓦斯卡&quot;</a></h3><div class='meta'>Apr 6, 2001</div><div class='ov'>我很高兴接受了这个邀请, 因为当时我已经用做了很多工作, 在西雅图外的一个精神中心举行, 参与者在周五和周六晚上喝阿雅华斯卡. 星期五是个不错的体验, 尽管有更多的机会, 我确实感觉到了几个小时的效果, 看到美丽的图案,…</div></div>
+<div class='note'>（本页展示前 10 篇 · 共 121 篇经历报告）</div>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

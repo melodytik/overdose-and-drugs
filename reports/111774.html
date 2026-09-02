@@ -1,0 +1,740 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>胺 - 艾洛伊德 -</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/3-fluoroamphetamine.html'>← 3-Fluoroamphetamine</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>胺 - 艾洛伊德 -</h1>
+<div class='sub-title'>3-Fluoroamphetamine - Erowid Exp - &#x27;3-FA: Hip Hip Hooray&#x27;</div>
+<div class='meta'>作者：Anatoli Smorin Citation · 日期：Apr 8, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=111774' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>兴奋剂</span></h2>
+<div class='body'>在口腔
+乙胺
+没有.
+在口腔
+没有.
+在T+ 13:46
+语言下
+乙胺
+没有.
+在T+ 13:46
+语言下
+没有.
+只有184磅
+这一之前的经验涉及54 mg的3 -FA注入剂量,作为2 -FMA初始剂量的增强剂.
+这是我第一次尝试用这种物质口服.
+我很有兴趣找到我的值 - 光效应剂量范围, 可以作为学习/工作辅助.
+我曾经成功地使用2-FMA来实现这个&quot;办公室性能提升器&quot;,
+这种粉末是非常细的,几乎纯白色.
+虽然它有强烈的氨基气味,
+粉末很容易聚集在一起.
+我最后一次使用兴奋剂是9天前使用4-FA.
+我昨天晚上9点左右服用了4毫克的埃蒂索拉姆, 今天早上7点半醒来时,
+我通常的酒后的精神状态会在上午10点半或11点恢复到原来的水平.
+虽然这可能使我从基线的3FA偏离稍微难以准确地确定,
+[T+00:00] 上午9:45
+通过由一层组织制成的降落, 摄入23毫克的3-FA.
+[T + 00:16] 剥掉香的皮肤.
+[T + 00:17]吃香的时间.
+[T + 00:35] 上午10点20分
+我觉得自己有点清醒了, 没有任何精神或身体的&quot;高潮&quot;,
+[T+00:43] 上午10点28分
+我决定尝试少量30毫克的SAVIA大麻, 看看能否启动3FA.
+如果大麻没有预期的效果,
+[T + 00:49] 上午10点34分
+麻的效果很好,
+我在周一的工作量很重,
+我认为这是因为3FA的兴奋,
+我喜欢这种意外的结合.
+工作收件箱里有很多新问题等着我,
+[T + 01:05] 上午10点50分
+我只是在舒尔金评分表上只有+
+我主要是经历心理效应,
+我在自然和合乎逻辑的停止点间切换任务,
+虽然我比使用另一种更常用的2-FMA更清楚我已经摄入了某种化学物质.
+虽然存在这种物质,
+[T + 01:29] 上午11点14分
+时间似乎过得很快.
+我已经做了相当多,但我觉得我半小时前服用了化合物.
+我对自己所做的每一件事都有很强的积极感.
+工作,家庭短信和未来计划都充满乐观主题.
+我只是感觉很好!
+这完全不同于我可能从某种药物中得到的极端&quot;爱一切&quot;的感觉.
+这更像是一个人走出学年的最后一班, 标志着夏季假期的开始时,
+[T + 01:36] 上午11点21分
+剩余的子感觉似乎被刺激物完全洗过来.
+我仍然很放松和无忧无虑,
+虽然&quot;放松&quot;和&quot;无忧&quot;在纸上看起来完全相同,
+对于我来说, 的&quot;放松&quot;更像是麻木,倒和愚蠢的感觉.
+通过本佐, 放松是一种无忧无虑的感觉, 完全的&quot;我不用担心&quot;态度.
+这种情绪促使我寻找简单的解决方案来解决我心中的任何问题.
+[T + 01:43] 上午11点28分
+只是好奇这会持续多久.
+这感觉比阿德拉尔清洁得多,
+我觉得自己很高兴,
+这感觉比阿德拉尔清洁得多,
+我觉得自己很高兴,
+对于我来说, 这更像是&quot;在家工作&quot;而不是在办公室工作.
+如果在工作中等待回复, 我可能会感到不耐烦,
+我也偶尔会有性想法.
+虽然对于一种高兴兴奋剂来说并不罕见, 鉴于我选择的低剂量,
+[T + 02:03] 11:48 上午
+我注意到有轻微的下巴紧, 不是硬,
+[T + 02:16] 上午12点01分
+目前的食欲抑制是最小的.
+我现在饿了,选择一个希腊酸奶.
+我也很高兴发现没有动摇或身体不安.
+我曾经经历过各种不安的表现.
+这可能是极端的,像在房间里快速步行,或是温和的,像我的腿跳起来跳下.
+目前我没有这些从3-FA.
+我注意到所有效应的强度都在稍微退缩.
+我肯定还在吸毒, 但这可能是下降的开始.
+[T + 02:37] 下午12点22分
+绝对会出现影响的减弱.
+我现在的水平仍然很有用,
+我正在列出要做的事情和任务, 但我不确定我会在没有再给药的情况下完成所有事情.
+我打算今天去健身房, 所以我决定很快去,
+[T +02:53] 下午12:38
+我在去健身房的路上检查心率.
+我得到一个正常的结果是60 BPM.
+完成30分钟的自行车心脏训练, 我会进行第二次心率测试,
+由于运动的持续时间和强度,
+[T+05:03]下午1点50分
+刚刚完成了我的炼.
+我没有注意到3FA对我的身体能力有任何影响.
+没有额外的力量或任何力量的损失.
+我觉得大部分的效应已经消失了.
+我还没有达到正确的基线, 仍然在经历一些刺激,
+提高注意力?
+增加动力?
+没有比平常更分散注意力?
+这些问题的答案是&quot;也许很难&quot;.
+[T+05:21] 下午2点08分
+我现在有心情上网或只是在沙发上吃蔬菜.
+我还有一些工作任务要完成,
+我准备下一个剂量.
+[T+05:37]下午2点24分
+我注入29毫克的3-FA.
+我能感觉到粉末聚集在一起, 在鼻腔后面形成堵塞.
+这是一种尖的刺痛,
+滴水有个新鲜的,几乎是薄荷味,
+没有麻木,灼热或刺激, 只有前面提到的味道.
+总体而言,3-FA是一种很容易吸入的化学物质.
+我选择了这种方式来对抗今晚不可避免的失眠, 并试图找出这种物质稍微强烈的剂量会感觉如何.
+我在工作中还有两个&quot;必须完成&quot;的任务,
+我希望把这两件事都打掉, 接下来要么深入研究另一件事,
+[T+05:44]下午2点31分
+我觉得我已经有点兴奋了.
+我鼻腔是干净的, 但一些关于3-FA的物理一致性使得它是一个斗争把粉末所有的方式回到我的鼻子,
+[T+05:54]下午2点41分
+虽然我的疲/惰情绪已经消失, 但没有其他明显的效果从重新增加剂量已经表现出来.
+我不熟悉这种物质的剂量, 经常与兴奋剂 (高兴和非高兴) 我发现我需要重新剂量高于原始剂量, 如果我希望增加效果 [而不是简单地扩展].
+我决定谨慎使用这种药物,重新注射与原始剂量相似,但使用吸入ROA.
+我会等待一个小时左右然后再讨论再给药.
+[T 06:10] 下午2:56
+我心里开始变得不耐烦.
+我想要更多的效果,我现在想要它们.
+我觉得我的头脑清晰, 有能力做出明智的决定.
+我没有感到焦虑或恶毒.
+我试着再次灌水, 但这并没有提供任何缓解.
+也许吸气并不是这种物质最好的ROA尽管在这样做时没有痛苦.
+我很高兴地发现我的一个工作任务不再需要,
+我不想开始一个大项目.
+[T+06:37]下午3点23分
+我刚刚完成了一次精彩的鼓舞演习, 我远离创意,
+鼓声没有像正常的练习会一样长.
+我几乎无法专注于一项任务;我开始做的事情都让我感到无聊.
+我几乎无法专注于一项任务;我开始做的事情都让我感到无聊.
+我无法决定是否要电视作为背景噪音或音乐或沉默.
+我不确定该怎么做.
+我有写作要编辑, 这是我的目标在重复剂量期间工作,
+我会深入写作, 看看会怎样.
+[T+06:44]下午三点半
+,时间飞过,我觉得这只是一个小时前的早晨.
+我有一种高兴感, 当我闭上眼睛时,
+我感觉到我的前臂中部充满着热烈的能量.
+如果我开始一项任务或深思熟虑,
+我希望能得到更多,
+[T + 06:55] 下午3点41分
+我通过未使用的鼻孔注入68毫克.
+这种嗅觉非常痛苦, 让我的眼睛流,
+尽管在我注入水之前已经有滴水.
+[T + 06:57] 下午3点43分
+鼻孔的空气流动很平稳, 但另一根鼻孔似乎正在清除.
+根据这种剂量如何, 我可能会坚持口服或其他非吸气ROA在未来.
+尤其是考虑到我对兴奋剂引起的失眠的个人敏感性.
+我已经预计需要使用子来睡觉,
+[T + 07:02] 下午3点48分
+,是的!
+我们正在行动!
+我的能量水平正在上升,上升,远离.
+我不认为这种化学物质能像2FMA那样作为一种学习辅助.
+让我想重新服用并开始有点乐趣.
+我肯定不想在办公室里出现这种情况.
+我心情非常平静,
+我看看我的伴侣Kai和她的妹妹正在接受化疗,
+我现在仍然很有成效,
+工作中的大型编码项目?
+没有.
+明天再见一些2-FMA.
+现在, 我更喜欢编辑一些文字和听音乐.
+我发现自己喜欢各种各样的音乐类型.
+[T + 07:16] 下午四点零二分
+我可以感觉到空气穿过我的子,手臂和腿上的头发.
+现在没有窗户开放, 但我的皮肤处于高度警状态,
+这种感觉并不过于高兴,
+这比服用100毫克阿德拉尔更令人愉快.
+能量是平静的, 我觉得自己是一个自然的,
+这种化学物质有一些性特征, 欲望在我的脑海中比清醒时更频繁.
+性成分比MDMA,6-APB或4-FA在相似剂量较少强烈.
+[T + 07:35] 下午四点二十一分
+我准备了125毫克的草原大麻,
+呼气时, 皮感会立即加剧.
+这种感觉真是太棒了.
+我现在已经超过了+, 接近++, 但还没有到达.
+现在,我已经不再惰和无聊了.
+我现在完全满足于沙发上.
+我当然可以看到这是一个有趣的社交物质,
+[T + 07:51] 下午4点37分
+冰的水味道很棒,我意识到我有棉花嘴自从我吸烟.
+除了口渴之外,我完全没有食欲.
+我正在通过网络聊天与一些人交谈.
+我没有做太多,
+[T + 07:57] 下午4点43分
+波般的效果, 顶部很漂亮, 但山谷让我感到失望.
+我预计这种剂量会有所增加.
+[T + 08:36] 下午5点22分
+我敢猜我现在正处于体验的高峰,
+尽管同情比清醒更容易获得.
+我有更多的信心与同情心的感受一起去.
+我觉得自己很开放,可以自由地说出自己的想法,
+我能把自己的想法表达得很好,
+身体上我感觉非常好.
+我从每一个四肢的中心向外辐射到我令人难以置信的敏感皮肤表面.
+我的皮肤感觉到空气流动,温度和触觉的能力是天文学上的.
+即使我现在正处于这种高潮之中,
+我外表是正常的.
+我不是说话太快, 紧跟着连接的思维, 也不是四处走动或动摇.
+[T + 08:20] 下午6点16分
+我刚刚和我的狗吉一起散步回来.
+现在的效果已经有所减弱.
+很明显我已经离开了令人难以置信的峰.
+我只经历过这种现象,即刻意识到某种物质的峰值结束的确切时刻.
+我确实想重新服用,回到那个绝对的高峰,
+我确实想重新服用,回到那个绝对的高峰,
+如果我再吃更多, 我今晚要么睡得很晚,
+知道我明天可以在家工作, 没有特别繁忙的日程安排,
+[T+08:55]下午6点51分
+我准备并注入178毫克的鼻孔我今天早些时候用于初始注入,
+虽然我的鼻孔仍然感觉堵塞.
+我立即跟随粉末与水嗅出相同的鼻孔.
+[T+09:01] 下午6:57
+我可以告诉再剂量将是一个喷气式背包到我的现状.
+现在我的身体几乎无法承受阳光的阳光.
+我深呼吸, 每一次的呼吸都让我感觉到最令人震惊的快乐.
+我坐着,靠在后面, 几乎躺着, 我的头和肩膀支在一个大枕头上.
+除了试图把我的思想包裹在这种忙,飞翔,快速的感觉之外, 我没有任何愿望去做任何事情,
+我感觉非常好,非常快.
+[T+09:05] 下午7点02分
+超现实感正在罩着我的存在和感知.
+工作,朋友,以及任何不在我眼前的空间的东西,
+那些&quot;非&quot;现在&quot;的话题,
+现在才是最重要的.
+[T+10:08]晚上8点05分
+我被音乐带到一个神奇的头脑空间,
+我认为我目前的情况在舒尔金评分表上是++.
+[T+10:34]晚上8点31分
+我蒸发了104毫克的印加大麻.
+像预期的那样,每次我被击中时, 一种新的快乐冲击就会冲过我.
+[T+10:51]晚上8点48分
+我打字速度变得慢了,
+视野中似乎有&quot;洞&quot;或&quot;点&quot;失焦.
+我还注意到我键盘上的键在每个键的三边都有一个闪闪发光的白色光环.
+我在一个幸福的状态,
+我认为键盘周围的闪是3FA和大麻的混合引起的,
+无处不在,无处不在,无处不在, 背后有的紫色云.
+等什么?
+啊,我的眼睛已经关闭在我的幸福状态我没有意识到.
+虽然我觉得自己处于平静与中心状态,
+[T + 11:15] 晚上9点02分
+我蒸发了175毫克的印加大麻.
+我对额外的加重大麻的过程有点不耐烦.
+我知道这对写这份报告有所帮助,
+每次我吸入,然后呼出烟雾, 我会感觉到一个短暂的[五到十秒]的冲动, 感觉很棒.
+我花了几分钟和爱抚和拥抱与吉.
+她已经在沙发的尽头午睡了大部分时间.
+我觉得与她有额外的联系, 在这些耳朵拉和腹部摩擦的时刻.
+我仍然在舒尔金评分表上+++的效果强度,
+我可能不像一小时前那样&quot;快速&quot;和明显的高兴.
+我认为我开始长期下降到基线.
+知道这种逐渐衰退可能会持续多久,
+[T+11:49] 晚上10:36
+现在我确实处于衰退的阶段,
+虽然我仍然很激动, 似乎还要睡几年, 身体充满着挥舞着的快乐:
+降落通常不是我最喜欢的经验部分, 尤其是刺激剂.
+现在我已经接受了这样一个事实,
+我在沙发上舒适地坐着,
+我没有任何过剩的体力迫使我走路,扭动指或拍拍脚.
+这让我想起了我经常在低到中剂量MDA时所经历的几乎镇静刺激.
+[T+12:14] 下午10点52分
+我没有打算很快睡觉, 但由于昨晚的尾端的etizolam与我的3FA体验的开始混合得很好,
+我用舌下注射4毫克的埃蒂索拉姆, 放在两个抹剂上 (每一个2毫克).
+[T + 12:32] 晚上11:10
+我蒸发了148毫克的印尼大麻.
+现在我已经有了整晚的焦虑.
+实际上,我根本没有感觉到大麻.
+[T+12:54]晚上11:32
+我仍然只是感觉到3-FA的效果正在下降, 稳定但非常缓慢.
+如果不是因为醇, 我估计明天早些时候才会达到基线.
+我很惊地发现埃蒂索拉姆还没有起作用, 通常我发现效果比这更快.
+[T + 13:04] 晚上11:42
+我用口服方式注射2毫克的埃蒂佐拉姆和250毫克的克洛纳佐拉姆 (这两种物质都被放置在抹纸上).
+我觉得味觉很正常, 克洛纳佐拉姆的化学味道似乎和以前一样.
+[T+13:21] 下午11:59
+一些镇静剂现在开始很好.
+我的身体已经感觉到令人难以置信的时间, 但现在它真的开始融化.
+对于3FA高的遗留怀旧是完全废除.
+[T+13:46]下午12点24分
+这种新添加的克洛纳佐拉姆和埃蒂佐拉姆的协同效应非常令人愉快.
+我感到惊的是我有多么的丧.
+我的精神状态开始与身体的浮动和镇静状态相匹配.
+我在笔记中假设我吸的最后一支大麻增强了3FA的感觉,
+我有Netflix,但我不太在意关注这个节目.
+我希望把它关掉,把它换成音乐.
+但这需要站起来.
+我在沙发上感到满意和舒适,
+[T+13:40] 下午12点28分
+我终于有了力量关掉电视, 放一些放松的音乐.
+我没有注意到任何倒或其他协调问题.
+我填满了一瓶水, 收集一些枕头, 调低灯光, 准备真正安顿在沙发上.
+[T + 13:46] 下午12:34
+我再添加2毫克的埃蒂佐拉姆和125毫克的克隆阿佐拉姆,
+我还蒸发了204毫克的印加大麻.
+我可以告诉我的记忆从这个点在明天早上会有点模糊.
+我会记下一些额外的笔记,并使用语音录音机进行剩余的体验.
+我和沙发是一体.
+我已经缩成一个球,在一个天堂的舒适状态.
+我不再思考, 只看着过去几分钟出现的彩色闭眼视觉.
+视觉效果与音乐相伴, 但设计简单.
+它们令人惊地保持不变.
+我看着一系列旋转的圆柱体,
+所有的球都是相同的淡粉红色,而圆柱体则是类似的浅蓝色变化.
+每个形状似乎都响应着不同的音乐音调.
+我知道我可以移动到床上睡觉迅速而轻松地.
+我不想这样做,我想继续享受产卵.
+我现在的环境之外的所有忧虑和想法都消失了;它们完全消失了,
+我从一个令人难以置信的舒适位置转移到另一种更舒适的位置,
+[T+14:27] 上午1点15分+1分
+我醒来了
+我感到困惑,我认为这是前一天晚上,我正在睡觉.
+我完全不记得睡着了, 我有这种奇怪的感觉,
+我觉得好像我从无处中醒来.
+我眼睛需要更多的时间来集中注意力,
+[T+14:35] 上午1点23分+1分
+我从第二次点头醒来.
+我感觉有点出汗和过热.
+我去尿尿, 再加冰水.
+这冷的液体消解了我的口渴,
+我仍然保持相对正常的平衡和粗体运动能力.
+[T+15:31] 上午2点19分+1分
+我写下我在身体上的感觉是多么令人难以置信和放松,
+我脑海中的空间是过去的情感记忆和对未来的积极思想的混合物.
+这些纸币充满了字体错误和大写错误.
+[T + 19:57] 上午6点45分 +1
+我的钟开始响起.
+放弃了,我很舒服.
+我设置了一个新的警报, 导航我的手机是困难的.
+[T+20:57]上午7:45+1点
+我的钟开始响起.
+放弃了,我很舒服.
+我决定把这种情况当作一个带.
+开始登录以尽快开始一天.
+个人笔记本电脑还能听到我昏倒时播放的音乐.
+奇怪的是,在我刷牙的时候, 我已经不想再睡了.
+我真的觉得我无法入睡.
+我带Gee出去洗, 这通常不是我在短暂的夜晚后最喜欢的任务.
+几乎没有风.
+世界似乎像一个超现实的奇迹之地, 因为我们是唯一的人.
+寒冷的空气具有振兴的力量.
+我笑得很开放,
+我们走得比一般的早晨要远得多.
+[T + 21:52] 上午8:40 +1
+我发现有点难以专注于我的工作.
+我还能感觉到两种醇,
+现在我有更多的事情要做,
+能感觉到底层的能量, 也能感觉到生产力.
+我做一些简单的重复任务, 但我不能强迫自己去做更复杂的事情.
+我仍然觉得自己与现实生活有点疏远.
+尽管它不太适合工作, 但3FA和两种二胺尾酒的&quot;&quot;确实令人愉快.
+幸运的是,今天的工作很慢,
+[T+26:46]下午1点34分+1分
+我不是特别饥饿, 但食物现在开始再次吸引.
+我认为自己已经完全恢复到原来的状态.
+总结一些评论:
+3-FA在工作环境中不太适合作为性能提升剂.
+虽然它确实有我在这种物质中寻找的一些效果 (增加能量和动力),
+身体上感觉很好, 甚至让我想要做更多.
+我也没有发现这种化学物质会引起任何额外的愿望来完成工作任务,
+对于我来说,2-FMA是一个更好的学习/工作辅助工具.
+尽管如此,3-FA并不是极度迷幻的, 也不是我遇到过的最快乐的兴奋剂.
+对于我来说, 4-FA 对于我来说比 3-FA 更像是&quot;滚球&quot;,
+虽然3-FA似乎不是一种刺激剂, 但它确实有一些可爱的特性.
+这比4-FA或MDMA更顺,更少的冲击.
+我认为低到中等剂量会在社交场合非常有用,
+我在经历期间或经历后没有任何负面影响.
+我心率在整个体验中保持舒适,
+在经历后的两天里, 我没有经历过任何无情感或精神问题.
+我确实注意到第二天[时间停止后]我有点空虚.
+我很难记住一些事情.
+这包括回忆经历后发生的事情以及经历前发生的事情.
+记住我是否已经在那天晚上给狗吃了,记住我在昨天的训练之后正在轮流训练.
+这种记忆模糊几乎肯定是埃蒂佐拉姆和克洛纳佐拉姆的结果, 而不是3-FA.
+这种物质与二胺混合得很好,
+我认为下次我会在3FA峰值之后服用更长时间的醇.
+我怀疑这将导致一个非常愉快的下降.
+大麻也与3-FA配合得非常好,
+现在这就是所有的人.
+时间表: 111774
+3-胺 (680): 单独使用 (16), 发光体验 (4), 一般 (1)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Hand-Crafted Glass Molecules!
+Donate $150+
+and get an art glass molecule.
+(Pick caffeine, DMT, dopamine, ethanol, harmine, MDMA,
+mescaline, serotonin, tryptamine, nitrous, THC, or psilocybin)
+3-FA: Hip Hip Hooray
+3-Fluoroamphetamine
+by
+Anatoli Smorin
+Citation:   Anatoli Smorin. &quot;3-FA: Hip Hip Hooray: An Experience with 3-Fluoroamphetamine (exp111774)&quot;.
+Erowid.org
+. Apr 8, 2018. erowid.org/exp/111774
+DOSE:
+T+ 0:00
+23 mg
+oral
+3-Fluoroamphetamine
+(powder / crystals)
+T+ 0:43
+30 mg
+vaporized
+Cannabis
+T+ 5:37
+29 mg
+insufflated
+3-Fluoroamphetamine
+(powder / crystals)
+T+ 6:55
+68 mg
+insufflated
+3-Fluoroamphetamine
+(powder / crystals)
+T+ 7:35
+125 mg
+vaporized
+Cannabis
+T+ 8:55
+178 mg
+insufflated
+3-Fluoroamphetamine
+(powder / crystals)
+T+ 10:34
+104 mg
+vaporized
+Cannabis
+T+ 11:15
+175 mg
+vaporized
+Cannabis
+T+ 12:14
+4 mg
+buccal
+Etizolam
+(blotter / tab)
+T+ 12:32
+148 mg
+vaporized
+Cannabis
+T+ 13:04
+2 mg
+buccal
+Etizolam
+(blotter / tab)
+T+ 13:04
+250 ug
+buccal
+Clonazolam
+(blotter / tab)
+T+ 13:46
+2 mg
+sublingual
+Etizolam
+(blotter / tab)
+T+ 13:46
+125 ug
+sublingual
+Clonazolam
+(blotter / tab)
+BODY WEIGHT:
+184 lb
+I have had only one experience prior to this with 3-FA.   This previous experience involved a 54 mg insufflated dosage of 3-FA used as a booster on a 2-FMA initial dosage.  This is my first attempt at oral administration with the substance.  I am interesting in finding my threshold - light effects dosage range that could be applied as a study / work aid.  In the past, I have used 2-FMA very successfully to fulfill this “office performance enhancer”, but I am curious how 3-FA might work for this purpose.
+The powder is a very fine and nearly pure white.  It has a strong amine smell [I think less noticeable than 2-FMA] but it still smells a bit like new tires.  The powder clumps together easily.
+My last stimulant use was nine days ago with 4-FA.  I don’t believe there is any tolerance in play for today’s experience.  I did take 4mg of etizolam yesterday at about 9:00 PM and could still feel the trailing effects when I woke up this morning at 7:30 AM.  My typical etizolam “hangovers” dwindle to baseline by 10:30 or 11:00 AM.  Although it might make my departure from baseline on the 3-FA slightly more difficult to pinpoint exactly, I am confident the leftover benzo effects did not affect the stimulant in a significant way.
+[T + 00:00] 9:45 AM
+I weigh out and ingest 23mg of 3-FA via parachute crafted from a single ply of tissue.
+[T + 00:16] Peel banana.
+[T + 00:17] Eat Banana.
+[T + 00:35] 10:20 AM
+I am feeling slightly more alert, without any ‘high’ to speak of in mind or body, I do feel more awake than I might normally be.
+[T + 00:43] 10:28 AM
+Still not much going on: I decide to try a small amount 30 mg vaporized of sativa dominant cannabis to see if I can kick-start the 3-FA.  If the cannabis does not have the desired effects I will re-dose again in 15 minutes.
+[T + 00:49] 10:34 AM
+Cannabis did the trick; the pleasant left over benzo fuzziness has been tuned up with the 3-FA.  I am feeling very relaxed mentally as I take on a heavy Monday workload.  There is a hybrid euphoria of stimulation from the 3-FA and a “don’t worry be happy” mind set which I attribute to the etizolam.  I am rather enjoying this unintended combination.
+Several new issues are waiting for me in my work inbox, but instead of my normal stress and frustration, I react with an “oh well, lets get these things fixed!”.
+[T + 01:05] 10:50 AM
+I am just barely a + on the Shulgin Rating Scale.  I am experiencing mostly mental effects such as faster thoughts and an increased ability to multi task.  I switch articulately between tasks at natural and logical stopping points; I am not bouncing around to the point of becoming unproductive.
+The substance feels mentally clean although I am more aware that I have ingested a chemical than I am with my other, more often used 2-FMA.  While the presence of the substance exists, there is no body high or euphoria yet.
+[T + 01:29] 11:14 AM
+Time seems to be passing very quickly.  I have gotten a fair amount done but I feel like I took the compound half an hour ago.
+I have a strong sense of positivity regarding everything I am doing.  Working, texting family and plans for the future all glow with optimistic themes.  I just feel good!  This is nothing like the extreme ‘loving everything’ feeling that I might get from a substance such as MDMA.  This is more like the great mood one experiences when walking out of the last class of the school year marking the beginning of summer vacation.
+[T + 01:36] 11:21 AM
+The leftover benzo sensations seem to be washed over completely by the stimulant.  I am still pretty relaxed and carefree, but this seems to be coming from the 3-FA now.  While the words “relaxed” and “carefree” appear identical on paper whether describing benzos or stimulants, they are distinctly different in that nature and style that I am experiencing them in.  The ‘relaxation’ of a benzo for me is more of a numb, stumbling and dopey set of sensations.  With this stimulant the relaxation is now more of a buzzy, euphoric and uplifted set of feelings.  ‘Carefree’ via benzo is a lack of consideration for anything, a complete “fuck my worries” attitude.  Carefree with 3-FA is an ultra positive and elated mood that pushes me to find succinct solutions to any thoughts on my mind.
+[T + 01:43] 11:28 AM
+I guess that I am nearing the peak of the effects, and simply curious as to how long this will last.  This feels far cleaner and less fidgety than Adderall.  I feel smooth and elevated rather than tweaky and jittery.
+This feels far cleaner and less fidgety than Adderall.  I feel smooth and elevated rather than tweaky and jittery.
+For me this is more of a ‘work from home‘ substance than one to be on at the office.  I could see myself getting impatient if waiting for a response at work, where as at home I can switch to a non work task and continue the productivity.  I also have intermittent sexual thoughts.  While not unusual for a euphoric stimulant I am surprised to experience them given the low dosage I have chosen.
+[T + 02:03] 11:48 AM
+I note slight jaw clenching, not hard grinding, but I am intermittently holding my teeth tightly together unnecessarily.
+[T + 02:16] 12:01 AM
+Appetite suppression is minimal thus far.  I am hungry now and select a greek yogurt to munch on.  I am also pleased to find no fidgeting or physical restlessness.  With stimulants, particularly with less euphoric stimulants, I have experienced various manifestations of restlessness.  This could be as extreme as rapid pacing around a room or as mellow as bouncing my leg up and down.  Currently I have none of these from the 3-FA.
+I notice that the intensity of all effects are retracting slightly.  I am most definitely still under the influence, but this may be the beginning of the comedown.
+[T + 02:37] 12:22 PM
+Absolutely experiencing a decrease in effects.  The level I am at is still very useful as I am still more alert and motivated, but less so than an hour ago.  I am making lists for errands to get done and tasks to do, but I’m not sure I’ll follow through on everything without a re-dose.
+I plan on going to the gym today, so I decided to do that soon, leaving me able to re-dose after cardio / heavy physical activity.
+[T +02:53] 12:38 PM
+I take a heart rate reading on my walk to the gym.  I get a normal result of 60 BPM.
+As I complete 30 minutes of biking cardio I take a second heart rate reading that results at 114 BPM.  This is normal for me [while sober] given the duration and intensity of the exercise.
+[T + 05:03] 1:50 PM
+Just completed my workout.  I did not notice the 3 FA having any affect on my physical abilities.  No extra strength nor any loss of strength.
+I feel the majority of the effects have dwindled away now.  I am not at a proper baseline, still experiencing some stimulation as mild as it may be.  Increased focus? Increased motivation? Less distracted than normal?  The answers to all of these questions are “maybe barely”.
+[T + 05:21] 2:08 PM
+The positive and uplifting effects are gone – I’m now in the mood to throw on Netflix or just veg on the couch.  Unfortunately ‘couch-potato’ mode is not yet an option as I still have some work assignments to get done in addition to a few non-work related tasks.  I set up my scale and prepare my next dosage.
+[T + 05:37] 2:24 PM
+I insufflate 29 mg of 3-FA.  I can feel the powder clump together forming a blockage at the back of my nasal cavity.  There is a sharp sting that dissipates rapidly and is gone after 10 seconds.  There is a fresh, almost minty taste to the drip that fades into an amine chemical flavor aftertaste.  There is no numbing, burning or irritation, only the fore mentioned taste.  Overall 3-FA is a very easy chemical to insufflate.
+I chose this route of administration to fight the inevitable insomnia tonight and to try and find out what a slightly more intense dosage of this substance might feel like.
+I have two more “must do” tasks at work, then another major under taking.  My goal is to knock out the two then either dig in to the other, or switch to fun productive (non work) items on my to-do list.
+[T + 05:44] 2:31 PM
+I seem to feel a little pick me up already.
+My nasal cavity is clear but something about the 3-FA’s physical consistency makes it a struggle to get the powder all the way back up my nose, even with water insufflation following the substance ingestion.
+[T + 05:54] 2:41 PM
+My tired / lazy mood has disappeared, but no other noticeable effects from the re-up dosage have manifested yet.
+I am not well versed in dosing this substance, often with stimulants (euphoric and non-euphoric) I find I need to re-dose at higher than the original dosage if I am looking to increase effects [instead of simply extend].  I decided to be cautious with this, re-dosing similar to original dose but going with the insufflation ROA.  I will wait an hour or so then debate another re-dose.
+[T 06:10] 2:56 PM
+Impatience creeps into my mind.  I want more effects, and I want them now.  I feel mentally clear, with the ability to make educated decisions.  I am not feeling antsy or fiendish.
+My nose is still stuffy so I try water insufflation again, but this offers no relief.  Maybe insufflation is not the best ROA for this substance despite the lack of pain  experienced while doing so.
+I am happily surprised that one of my work tasks is no longer required and the other was quick and easy.  I have NO desire to start a big project though.
+[ T + 06:37] 3:23 PM
+I just finished a nice drumming session – I stayed away from creative stuff and was very happy to drill rudiments building physical strength and muscle memory. The drumming did not last as long as a normal practice session.  I am almost having trouble staying focused on a single task; I get bored with everything I start to do.
+I am almost having trouble staying focused on a single task; I get bored with everything I start to do.
+I can’t decide if I want TV on as background noise or music or silence.  I am not sure what exactly to do.  I have some writing to edit, which was my goal to work on during the re-dose, but it doesn’t sound appealing in the least.  I will dive into the writing and see how it goes.
+[T + 06:44] 3:30 PM
+Whoa, time is flying by, I feel like it was morning just an hour or so ago.   I have some euphoria that is most obvious when I close my eyes.  The euphoria manifests itself as an infallibly positive mood and a slow pulsing of glowing energy emanating from the center of my forearms.  If I begin a task or deep thought, this euphoria disappears.  I was hoping for a bit more and think I will re-dose my re-dose.
+[T + 06:55] 3:41 PM
+I insufflate 68 mg though my unused nostril.  This sniff is pretty darn painful making my eyes tear up, but again, within 10 seconds the pain drops away.  This nostril also feels clogged although a drip is present even prior to my water insufflation.
+[T + 06:57] 3:43 PM
+Still feels clogged – I can’t feel smooth airflow in the recently used nostril, but the other seems to be clearing up.  Depending on how this dosage does, I may stick to oral or other non-insufflation ROA’s in the future.  I only chose insufflation for the anti-insomnia rationale, especially considering my personal sensitivity to insomnia induced by stimulants.  I already anticipate requiring benzos to sleep or if this is enjoyable enough, perhaps re-dosing and going all night.
+[T + 07:02] 3:48 PM
+OH YA! We are moving now!  My energy level is going up, up, and away. I don’t think this chemical works as a study aid as nicely as 2 FMA.  It has just a little too much euphoria to drive me to want to re-dose and start having some fun.  I certainly would not want to be like this at the office.
+My mood is absolutely serene, I feel very positive.  Additionally I recognize an increase in empathy; I check in on my partner Kai and her sister who is going through chemotherapy currently – Kai is visiting her this week.
+I am still being productive right now, but only on “fun items”.  The big coding project at work? Ya – No.  See you tomorrow on some 2-FMA.  For now, I’m much happier editing some writing and listening to music.  Music enhancement is significant and I find myself in the mood for whatever genre comes on from the diverse playlist.
+[T + 07:16] 4:02 PM
+I can feel the air across the hair on my neck, arms and legs.  There are no windows open right now, but my skin is on high alert and is registering a notable breeze.
+The sensations are not overly euphoric; this doesn’t feel like a roll.  It is much more pleasurable than taking 100 mg of Adderall.  The energy is calm and I feel like a natural and enhanced version of myself.
+The chemical has some sexual characteristics, with desire drifting into my mind more often than when sober.  The sexual component is less intense than MDMA, 6-APB or 4-FA at similar dosages.
+[T + 07:35] 4:21 PM
+I prepare 125 mg of a sativa dominant cannabis that I promptly vaporize. Upon exhaling, I get an immediate increase of intensity in the goose bump sensations.  Taking deep breaths feels amazing.  I’m at more than a + now, getting closer to ++, but not there quite yet. The laziness and boredom from earlier are gone.  I’m perfectly content on the couch now.  I can certainly see this being a fun social substance, but I’m not unhappy to be alone.
+[T + 07:51] 4:37 PM
+Iced lemon water tastes amazing, I realize I have had cottonmouth since I smoked.  Beyond the heavy thirst I have no appetite at all. I’m listening to music and talking to a few people via an online chat.  I am not doing much, and couldn’t be enjoying myself more.
+[T + 07:57] 4:43 PM
+Effects seem to come in waves, the peaks of which are nice but the valleys leave me underwhelmed.  I expected a bit more from this dosage.
+[T + 08:36] 5:22 PM
+I would venture a guess that I am at the peak of the experience now, or darn close to it.  I’m still not in a euphoric mental state, although empathy is far easier to attain than it is sober.  I have more confidence to go along with the empathetic feelings.  I feel open and able to speak my mind freely without my normal worrying about not saying the right thing.  I am articulating my thoughts well and feel as though I am talking from my heart.
+Physically I feel nothing short of incredible.  I’m literally radiating from the center of each limb outwards to the surface of my unbelievably sensitive skin.  My skin’s ability to feel airflow, temperature and touch is astronomically heightened.
+The 3-FA is enjoyably smooth even at this full blown “high” that I have now find myself in the middle of.  My outward appearance is one of normality.  I am not speaking too quickly, following tangent thought strings, nor pacing around or fidgeting.
+[T + 08:20] 6:16 PM
+I have just returned inside from a walk with my dog Gee.  The effects are lessening ever so slightly now.  In the snap of an instant it is obvious that I have left the unbelievably glorious peak.  I have only experienced this phenomenon of instantaneously becoming aware of the exact moment the peak has ended on one other substance [4-FA].
+I do have a desire to re-dose, to get back to that absolute peak, but I don’t feel particularly fiendish.
+I do have a desire to re-dose, to get back to that absolute peak, but I don’t feel particularly fiendish.
+I can tell if I ingest more I will either be up late tonight or be taking some benzodiazepines to assist with sleep, perhaps both.  Knowing that I can work at home tomorrow and do not have a particularly busy schedule, I decide to get a taste of 3-FA at a heavier recreational dosage.
+[T + 08:55] 6:51 PM
+I prepare and insufflate 178 mg into the nostril I used for the initial insufflation earlier today as it feels the most clear.  There is almost no pain at all this time although my nostril still feels clogged.  I immediately follow the powder with water sniffed up the same nostril.
+[T + 09:01] 6:57 PM
+I can tell the re-dose is going to be a jetpack to my current condition.  Already my body can barely contain the radiating internal sunbeams of positivity.  I take multiple deep breaths, each one feeling like the most earth shatteringly pleasurable thing I have ever felt.  I sit and lean back so that I am nearly supine, my head and shoulders propped up on a large pillow.  I have zero desire to do anything except try and wrap my mind around this rushing, flying, fast pace sensation that is somehow also sedating my body and simplifying my thoughts.  I am feeling very fucking good, very fucking quickly.
+[T + 09:05] 7:02 PM
+A sense of surreality is creeping over my existence and perception.  Work, friends, and anything not in my immediate present space seems distant and far, hard to truly connect to.  These “non–now” topics are clouded if I try to bring them into my mind but I don’t put much effort into it as I don’t care to think about them.  Right now is what is important.
+[T + 10:08] 8:05 PM
+I’ve been carried away, with the assistance of music, into a magical headspace that consists of a glowing positive attitude, the best mood one can imagine, and pure sparkling happiness.  I place my current condition at a +++ on the Shulgin Rating Scale.
+[T + 10:34] 8:31 PM
+I vaporize 104 mg of indica dominant cannabis.  As expected, a fresh rush of pleasure washes over me with each hit I take.
+[T + 10:51] 8:48 PM
+My typing is becoming slower and my vision just doesn’t seem to work quite like it normally does.  I can focus on less than normal – there seem to be “holes” or spots of my visual field that are out of focus.  I also note that the keys on my keyboard have a shining white aura on three sides of every key.  I am in such a blissful state that I am not put off or worried by the focusing problem.  The shimmering around the keys I theorize is an exaggeration, induced by the combination of 3-FA and cannabis, of the normal shine from the oil my fingers have left on the keys.
+[T + 11:04) 8:51 PM
+Small squares flash rapidly, dazzling white and brilliant blue, everywhere, all over, everywhere and majestic purple swirling clouds behind them. Wait what? Ahh, my eyes have fallen shut in my blissful state without my realizing it.  As peaceful and centered as I feel, my closed eyed visuals are oppositionally sharp, rapid and spastic.
+[T + 11:15] 9:02 PM
+I vaporize 175 mg of indica dominant cannabis.  I am a little impatient with the extra process of weighing out the ground cannabis.  I know it will be useful for writing this report, but I just want it in my system as quickly as possible so I can bump up these effects again!  Each time I inhale and then exhale the smoke, I am treated to a short [five to ten seconds] rush that feels glorious.
+I take a few minutes and pet and cuddle with Gee.  She has been napping at the end of the couch for most of the day.  Her fur feels softer and smoother than normal and I feel an extra connection to her during these moments of ear pulling and tummy rubbing.
+I am still riding along at a +++ on the Shulgin Rating Scale of effects intensity, but I can feel my body and mind begin to tire.  I might be less “speedy” and overtly euphoric than I was an hour ago.  I think I’m starting the long decline towards baseline.  Knowing how long this gradual decline might be, I retrieve some etizolam to have nearby.
+[T + 11:49] 10:36 PM
+I am certifiably on the decline now; I feel a twinge of disappointment with this realization.  Although I am still heavily stimulated, seemingly years away from sleep, with a body full of waving pleasure: now that I have taken the first steps off the summit of Everest, everything seems a bit underwhelming.
+The comedown is typically not my favorite portion of an experience, particularly of a stimulant.  3-FA is proving pretty manageable now that I have come to terms with the fact that I am not going to extend the evening with more of the substance.  Even more so than during the peak of the experience, I feel very content sitting in a comfortable spot on the couch.  I do not have any excess physical energy forcing me to walk around, twiddle my thumbs or tap my feet.  This very much so reminds me of the almost sedating stimulation that I often experience with low to medium dosages of MDA.
+[T + 12:14] 10:52 PM
+I have no intent of sleeping soon, but since the tail end of last night’s etizolam blended so nicely with the commencement of my 3-FA experience, I decide to start mixing in some benzos earlier than I might normally when preparing to end an evening.  I sublingually administer 4 mg of etizolam that is laid on two blotters [2 mg each].
+[T + 12:32] 11:10 PM
+I vaporize 148mg of indica dominant cannabis.  There is less of that rush that I have been experiencing all night.  In fact, I don’t really feel the cannabis much at all.
+[T + 12:54] 11:32 PM
+I still just feel a decline in effects of the 3-FA, steadily but very slowly.  I estimate I would not reach baseline until well into tomorrow if not for the benzos.  I’m surprised to feel no effect from the etizolam yet, typically I find the effects kick in faster than this.
+[T + 13:04] 11:42 PM
+I administer 2 mg of etizolam and 250 ug of clonazolam via a buccal administration method [both substances have been laid on blotters].  My sense of taste seems to be about normal as the clonazolam’s chemical flavor seems the same as it always does.
+[T + 13:21] 11:59 PM
+Some sedation is coming on nicely now.  My body has felt incredible for hours on end, but now it’s really starting to melt.  The remnant nostalgia for the 3-FA high is abolished completely.
+[T + 13:46] 12:24 PM
+The synergized effects of the 3-FA and the newly added clonazolam and etizolam are extremely enjoyable.  I’m surprised how “benzed out” I feel.  Thoughts have slowed down significantly: my mental state is beginning to match the floaty and sedated condition of my body.  I hypothesize in my notes that the last cannabis I smoked boosted the 3-FA sensations and in doing so “hid” the come-up of the benzos, allowing their effects to be very much so present as the cannabis tapered off.
+I have Netflix on, but I don’t care to pay much attention to the show.  I want to turn it off and replace it with music . . . But that involves getting up.  I’m so content and comfortable on the couch that I procrastinate completing the simple task.
+[T + 13:40] 12:28 PM
+I finally rally the energy to turn off the television and put on some relaxing music.  While on my feet I don’t notice any stumbling or other coordination problems.  I fill a water bottle, gather a few pillows and dim the lights in preparation of really settling into my spot the couch.
+[T + 13:46] 12:34 PM
+I add another 2 mg of etizolam and 125 ug of clonazolam, sublingually this time.  I also vaporize 204 mg of indica dominant cannabis.  I can tell my memory from this point forwards will be a little hazy in the morning.  I make sure to jot down some extra notes and employ a voice recorder for the remainder of the experience.  [I was indeed correct, there were some notes that I didn’t recall writing when I reviewed them the following day.]
+I am one with the couch.  I have curled up into a ball, in a heavenly state of comfort.  I am no longer thinking, just watching the colorful closed eyed visuals that have appeared in the past few minutes.  The visuals move to the music but are simple in design.  They are surprisingly unchanging.   I watch a spinning series of cylinders, each with a ball at its top and bottom rotating slowly, like a carousel.  All the balls are the same dull pink color while the cylinders are similar variations of a light blue.  All the shapes shrink and grow, not in tandem but rather each shape seemingly responds to a different tone of the music.
+I know I could move to bed and fall asleep swiftly and effortlessly.  I have no desire to do so, I want to continue to enjoy laying.  All worries and thoughts of life outside my current environment have melted away; they are completely gone, removed from reality, not accessible to my brain.
+A dopey smile curls across my face as I shift from one unbelievably comfortable position to the next somehow even more comfortable position on the couch amongst pillows, blankets, and Gee.
+[T + 14:27] 1:15 AM + 1
+I wake up.  I’m confused, I think it is the night before it actually is and I’m in the middle of sleeping.  I can’t recall falling asleep at all and I have this strange sensation that I was awake for a period of time that I also don’t remember prior to nodding off.  I felt as if I woke up out of nothingness.  My eyes take some extra time to focus, but I remember when it is and what is happening within a few seconds.
+[T + 14:35] 1:23 AM + 1
+I wake up from my second nod.  I feel a little sweaty and overheated.  I go to pee and refill my water, adding some ice this time.  The cold liquid quenches my thirst and eases the cottonmouth that I didn’t realize I had.  I still maintain relatively normal balance and gross motor skills.
+[T + 15:31] 2:19 AM + 1
+I make a note about how incredible and relaxed I feel physically, as well as how I feel incredibly positive.  My mental space is a mix of sentimental memories of the past and positive thoughts about the future.  The notes are riddled with typos and capitalization errors.
+[T + 19:57] 6:45 AM +1
+My alarm is going off.  Fuck that, I’m absurdly comfortable.  I set a new alarm and navigating my phone is difficult.
+[T + 20:57] 7:45 AM + 1
+My alarm is going off. Fuck that, I’m absurdly comfortable.  Knowing that I have to get up for work, I decide to treat the situation like a Band-Aid.  With a groan of displeasure I jump to my feet, grab my work computer and start the login process to start my day as swiftly as I can.  The personal laptop is still open to the music I had playing when I passed out.  Surprisingly, by the time I have brushed my teeth I no longer am dying to go back to sleep.  I actually feel like I wouldn’t be able to fall asleep.
+I take Gee outside to go to the bathroom: typically not my favorite task after a short night.  It is lightly snowing with almost no wind.  The world seems like a surreal wonderland, as we are the only people around.  The cold air has a rejuvenating power.  I grin openly and pick up the pace.  We end up walking much farther than the average morning.
+[T + 21:52] 8:40 AM +1
+I find it a little hard to focus on my work.  I am still feeling the two benzos and I believe some 3-FA as well.  There is more going on than the lovely empty headspace and body buzz that are typical for my benzodiazepine afterglow.  An underlying energy is detectable as well as a sense of determination to be productive.
+I do some of the simple and repetitive tasks on my to-do list, but I can’t force myself to take on anything more complex.  I still feel a little removed from real-life.  The ‘hangover’ from the 3-FA and the two-part benzodiazepine cocktail is really enjoyable even though it is not particularly well suited to working.  Luckily today is a slow day on the work front, and I am able to enjoy the waning glow of effects.
+[T + 26:46] 1:34 PM + 1
+I am not particularly hungry, but food is now becoming appealing again.  I consider myself back at baseline completely now.
+A few comments in summary:
+3-FA was not particularly well suited as a performance enhancer in a work environment.  It certainly has some of the effects I look for in this type of substance [boost in energy and motivation], but it was just slightly too enjoyable.  It felt physically good to the point that I found myself wanting to do more.  I also did not find that the chemical induced any extra desire to complete work tasks, it seems much more suited for a productive day around the house [cleaning or chores].  For me 2-FMA is a vastly superior option for a study / work aid.  That being said, the 3-FA was not massively psychedelic nor was it the most euphoric stimulant I have come across.  Its relative 4-FA is more of a “roll” for me than the 3-FA, with more effects on tactile sensation and empathy.  So while 3-FA did not seem to be at either extreme of the stimulant spectrum, it did have some loveable qualities.  It was smoother and less pushy than 4-FA or MDMA.  I think in low to medium sized dosages it would be a very useful and enjoyable in social situations due to its pleasurable, but very controllable, effects.
+I did not experience any issues in terms of negative effects during or after the experience.  My heart rate stayed comfortable throughout the experience and I had no other discomfort or pain in any other manner.  I did not experience any anhedonia or mental problems in the two days following the experience.  I did notice that the following day [after the timestamps stopped] I was a little spacey.  I had a hard time remembering things.  This included recalling things that occurred after the experience as well as events that occurred just before the experience.  Examples of these respectively: remembering if I had already fed the dog that night, and remembering what rotating workout I am on after yesterday’s session.  The memory cloudiness is almost certainly a result of the etizolam and clonazolam rather than the 3-FA.
+The substance seemed to mix nicely with benzodiazepines, more so than other stimulants, which can seem to fight, rather than synergize with each other.   I think I will take a longer lasting benzo [rather than etizolam] soon after the peak of 3-FA the next time.  I suspect that will induce a very enjoyable comedown.  Cannabis also paired very nicely with the 3-FA, providing instant increases of effects and helped boost the overall intensity also.
+That’s all for now folks.
+Exp Year: 2018
+ExpID: 111774
+Gender: Male
+Age at time of experience: 27
+Published: Apr 8, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+3-Fluoroamphetamine (680) : Alone (16), Glowing Experiences (4), General (1)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

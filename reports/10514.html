@@ -1,0 +1,276 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>&quot;第一次与Mbi Dibi相遇&quot;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/mbdb.html'>← MBDB</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>&quot;第一次与Mbi Dibi相遇&quot;</h1>
+<div class='sub-title'>MBDB - Erowid Exp - &#x27;First Encounter with Mbi Dibi&#x27;</div>
+<div class='meta'>作者：Murple Citation · 日期：Nov 13, 2001 · <a href='https://erowid.org/experiences/exp.php?ID=10514' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>综合 · 未指明</span></h2>
+<div class='body'>序曲
+我终于有机会去拜访一个鲜为人知的非洲神明姆比迪比的圣地.
+我有很多经验与MDMA家族的原体,
+这种药物总是让我很好奇,
+晚上11:30
+180毫克的MBDB下一个口!
+晚上十一点五十分
+有点吗?
+也许是这样...
+现在肯定感觉温暖, 类似但不相同的MDMA来.
+我的胃有点不快, 但我怀疑这是因为我吃了牛排吃晚饭...
+这种药似乎比我预期的更快地起作用,
+感觉相当温暖, 我的脉已经增加了一点.
+这种感觉仍然与MDMA相当相似,
+具体是什么,我还不能说.
+感觉到的温暖更多地来自我的皮肤而不是内在,
+也许比MDMA的温暖更温暖一些.
+在过去的几分钟里, 我感到很轻微的恶心,
+吐绝对不是一个问题.
+热潮似乎正在平衡.
+有一些轻微的阴影.
+闭上眼睛躺下会感觉很好.
+这场热潮肯定已经平稳,甚至可能有所减弱.
+尼斯塔格姆症非常强烈,
+我喜欢MDMA的,所以这是件好事.
+虽然老实说, 我并没有像许多人说的,
+现在我有强烈的欲望躺下闭上眼睛.
+这不是派对的东西,这是肯定的... 除非你的想法是一个派对是卷起在角落里某个地方与你的眼睛闭上.
+我不认为我可以睡觉在这个东西, 但它确实有一个非常强大的镇静品质,
+我之前也曾经用过类似的药物,
+温暖是相当强烈的.
+有时我确实会动机自己起来打开门.
+外面的天气低于零度,
+这种东西比MDMA更能引起温暖的感觉,
+像我之前提到的那样,
+它似乎也不会引起MDMA有时会引起的大量出汗.
+在上午1:15
+它们的效果肯定会慢慢减弱.
+这是一个非常昏昏欲睡的MDMA类型的体验.
+缩起来,闭上眼睛,只是想想.
+瞳孔非常扩大.
+我仍然有很大的阴影.
+尽管如此,温暖正在消失.
+冰箱里有一些咖啡,我想我很快就会喝下去.
+上午1点半
+现在是卡瓦的时间,我想...
+这是一种奇怪的药物.
+这很像MDMA, 但没有能量刺激作用.
+我确实觉得我在旅途中有了一些重要的见解,
+这是一种更加平静的感觉.
+我认为在MBDB上更难有不好的旅行比在MDMA.
+时间2点15分
+远远低于MBDB.
+仍然有一些相当糟糕的紧和磨削.
+虽然卡瓦很好地照顾着它.
+仍然有一些轻微的阴影, 和颜色看起来比正常更生动.
+对于一种旨在消除MDMA&quot;幻觉&quot;特性的药物来说, 它似乎比MDMA产生更多的视觉现象.
+矛盾的是,我喝了卡瓦之后感觉更有活力.
+我不再想缩起来闭上眼睛.
+喝卡瓦实际上能让你有更多的能量!
+感觉相当舒适的虽然.
+我非常喜欢自己的位置.
+影响大大降低.
+仍然增加色彩意识, 仍然是一个很好的MBDB+kava身体声...
+有点昏昏欲睡,但我怀疑我能睡觉.
+在上午4点
+基本上很低... 尽可能没有睡眠我认为.
+结论
+接下来的一天, 我经历了一些非常明显的宿醉效应.
+这让我很惊, 因为MDMA类药物几乎从来没有给我带来任何负面后果 (当他们这样做时,
+通常, 麻醉类药物让我感觉非常积极快乐的光几天.
+没有MBDB!
+首先,我有一天整天头痛很烦人.
+根据疼痛的位置和类型,
+如果我再做MBDB, 我需要采取预防措施防止或减少紧效应.
+第二,我整天都感到疲,无聊,.
+这完全不同于我从MDMA中得到的疲但愉快的后光.
+这很糟糕.
+最后,最不寻常的是我经历了一些胃部问题.
+我有一些轻微的腹以及一天中大部分时间的轻微恶心.
+我从来没有从MDMA中经历过这样的经历, 也没有听说过有人因为这种药物而第二天恶心.
+这让我怀疑是否有其他的原因, 不仅仅是宿醉, 也许我得了胃流感或其他疾病,
+晚些时候, 由于头痛和胃部问题,
+我得到了一些果和茶, 这清除了头痛和胃部问题相当快速.
+他们没有回来, 这可能排除胃流感的理论.
+总而言之, 我发现MBDB的经验很愉快.
+我也发现它是有洞察力的, 但不像MDMA那么多...
+另一个10-20毫克可能会让这对我来说更有价值的药物.
+如果我这次经历的情况是常见的,
+这次旅行并没有足够的回报来弥补这种宿醉.
+由于我经历的可能是异常反应或某种偶然的病毒, 如果有机会,
+我可能会服用更高的剂量,
+现在,我认为陪审团仍然在MBDB的价值.
+我确实在第二天得了流感, 我经历的一些后果很可能与我差点生病有关.
+时间表: 10514
+MBDB (190):一个人 (16),旅行后的问题 (8),第一次 (2)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Spiral Erowid Zip Hoodie
+This black mid-weight zip hoodie (80/20) has front pockets,
+an Erowid logo on front chest, and a spiral design on back.
+Donate
+and receive yours!
+First Encounter with Mbi Dibi
+MBDB
+by
+Murple
+Citation:   Murple. &quot;First Encounter with Mbi Dibi: An Experience with MBDB (exp10514)&quot;.
+Erowid.org
+. Nov 13, 2001. erowid.org/exp/10514
+DOSE:
+T+ 0:00
+180 mg
+oral
+MBDB
+(powder / crystals)
+T+ 2:00
+Kava
+BODY WEIGHT:
+170 lb
+Prelude
+The opportunity finally presented itself for me to pay a visit to the shrine of the little known African deity Mbi Dibi. I&#x27;ve had plenty of experience with the MDMA family of entheogens, but I&#x27;d never knowingly taken MBDB. This is one that&#x27;s always intrigued me, as it supposedly has neither hallucinogenic nor dopaminergic qualities.
+11:30PM
+180mg of MBDB down the hatch!
+11:50PM
+A little bit of a tingle? Maybe so...
+12:00AM
+Definitely feeling warm now, similar to but not identical to the MDMA come-up. My stomach is mildly unhappy, but I suspect this is due to the steak I ate for dinner... no different than I&#x27;d expect from taking MDMA after a heavy meal. This stuff seems to be kicking in faster than I&#x27;d expect from MDMA, but it&#x27;s not dramatically different otherwise.
+12:08AM
+Feeling quite warm, and my pulse has increased quite a bit. This still feels quite similar to MDMA, but it&#x27;s definitely got a different character. What exactly that is, I can&#x27;t say yet. The warmth feels more on my skin than internal, but its still generally the same sort of warmth as from MDMA. Maybe a little bit warmer than the MDMA warmth.
+12:20AM
+There&#x27;s been a very mild nausea for the past couple minutes, but no worse than I&#x27;ve gotten from MDMA on occasion. Vomiting definitely isn&#x27;t a concern. The warm rush seems to be leveling out. There&#x27;s some mild nystagmus. Feels good to close my eyes and lay back.
+12:35AM
+The rush has definitely leveled out, maybe even toned down a little. The nystagmus is very strong, like from a large MDMA dose. I like the fluttervision of MDMA, so this is a good thing. Some pretty bad jaw clench, worse than I get from MDMA (though in fairness, I don&#x27;t get the bad jaw clench that many people report from MDMA).
+The urge to lie back and close my eyes is very strong. This is not party stuff, that&#x27;s for sure... unless your idea of a party is to curl up in a corner somewhere with your eyes closed. I don&#x27;t think I could sleep on this stuff, but it does have a very powerful sedating quality, almost narcotic. I&#x27;ve had this same sort of effect before from pills which were alleged to be MDEA, but not quite to this extent!
+The warmth is quite strong. At times I do motivate myself to get up and go open the door. It&#x27;s a little above freezing outside, and the blast of cold air feels refreshing. This stuff causes much more of a warm feeling than MDMA, which is good now... but I have the feeling that taking MBDB on a hot summer day might be uncomfortable. As I mentioned before, the warmth feels to be more on my skin surface than the internal warmth from MDMA. It also doesn&#x27;t seem to cause the sometimes profuse sweating MDMA does.
+1:15AM
+The effects are definitely decreasing slowly. This is a very drowsy MDMA-type experience. Its very comfortable, almost irresistably so, to curl up, close my eyes, and just think. Pupils are very dilated. I&#x27;m still getting a good deal of nystagmus. The warmth is fading though. I&#x27;ve got some kava I made earlier in the fridge that I think I&#x27;ll drink soon.
+1:30AM
+Time for that kava I think...
+This is an odd drug. It&#x27;s very much like MDMA, but without the energetic stimulant effect. It&#x27;s introspective &amp; contemplative feeling (and I do feel I had some significant insights on the trip), though again not in the same manner as MDMA. It&#x27;s much calmer feeling. I think it would be even harder to have a bad trip on MBDB than on MDMA.
+2:15AM
+Quite far down from the MBDB.
+Still have some pretty bad jaw clenching &amp; grinding. The kava is taking care of that nicely though. There&#x27;s still some mild nystagmus, and colors all look much more vivid than normal. For a drug designed to eliminate the &#x27;hallucinogenic&#x27; qualities of MDMA, it seems to produce more visual phenomena than MDMA.
+Paradoxically, I&#x27;m feeling much more energetic now that I&#x27;ve drank kava. I don&#x27;t feel the urge to curl up and close my eyes anymore. It says much about the sedating qualities of MBDB that drinking kava actually gives you more energy! Feels quite comfortable though. I like where I am very much.
+3:30AM
+Effects dramatically lower. Still increased color awareness, still a nice MBDB+kava body buzz... still some jaw trouble. A little drowsy, but I doubt I could sleep.
+4:00AM
+Pretty much down... as much as possible without sleep I think.
+Conclusion
+The next day, I experienced some very significant hangover effects. This took me by surprise, as MDMA type drugs almost never give me any negative aftereffects (and when they do, they&#x27;re clearly attributable to insufficient sleep afterwards). Usually, MDMA type drugs leave me feeling a very positive happy glow for several days. Not MBDB!
+First, I had a quite annoying headache for most of the day. From the location and type of pain, this was obviously due to the severe jaw clenching I had. If I do MBDB again, I will need to take precautions to prevent or minimize the jaw clenching effect.
+Second, I had a drained, dull, chewed-up feeling all day. This was nothing like the tired but pleasant afterglow I get from MDMA. It sucked.
+Last, and most unusual, I experienced some stomach effects. I had some mild diarrhea as well as recurring waves of mild nausea for most of the day. I&#x27;ve certainly never experienced this from MDMA nor heard of people having next-day nausea from such drugs. This makes me wonder if perhaps there was more at play than just a hangover... perhaps I managed to get a stomach flu or something, and that this was responsible for some of what I thought was a hangover.
+By late evening, I was tired enough of the headache and the stomach problems to resort to some opiates. I obtained some poppy pods and made a tea, and this cleared up the headache and stomach problems fairly quickly. They didn&#x27;t return, which probably rules out the stomach flu theory.
+In summary, I found the MBDB experience to be enjoyable. I also found it to be insightful, but not nearly so much as MDMA... but then I don&#x27;t think I took a big enough dose to get the full effects. Another 10-20mg would probably make this a much more rewarding drug for me. The next day effects pose a problem though... if what I experienced this time is the norm, it would probably prevent me from using MBDB again. The trip was not rewarding enough to compensate for that kind of hangover. However, due to the possibility that what I experienced was an abnormal reaction or a coincidental virus of some kind, I would give MBDB another try if the opportunity presented itself. I&#x27;d probably take a slightly higher dose, maybe 200mg. For now, I think the jury is still out on MBDB&#x27;s value.
+PostScript: I did, in fact, come down with a flu the next day and some of the after effects I experienced were very probably related to just being on the brink of getting sick.
+Exp Year: 2001
+ExpID: 10514
+Gender: Male
+Age at time of experience: Not Given
+Published: Nov 13, 2001
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+MBDB (190) : Alone (16), Post Trip Problems (8), First Times (2)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>

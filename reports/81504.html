@@ -1,0 +1,213 @@
+<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>药 - 抗生素 - &#x27;好好玩,只要注意剂量&#x27;</title><style>
+:root{--bg:#fafafa;--card:#ffffff;--fg:#212529;--dim:#6c757d;--line:#e9ecef;
+--brand:#1a5276;--brand-bg:#eaf2f8;--dark:#2c3e50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',Roboto,sans-serif;
+line-height:1.8;font-size:15px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px 80px}
+.site-head{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;
+flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.site-head h1{font-size:24px;margin:0;font-weight:700}
+.site-head .tag{color:var(--dim);font-size:13px}
+.site-head .tag small{display:block;margin-top:2px}
+nav.cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;position:sticky;top:0;
+background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);z-index:10}
+nav.cats a{border:1px solid var(--line);background:#fff;border-radius:6px;
+padding:5px 12px;font-size:13px;color:var(--fg)}
+nav.cats a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:7px;
+background:#fff;font-size:14px;outline:none;min-width:220px}
+.toolbar input:focus{border-color:var(--brand)}
+.toolbar .cnt{color:var(--dim);font-size:12.5px;margin-left:auto}
+section.cat{margin:26px 0}
+section.cat>h2{font-size:20px;margin:0 0 4px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+section.cat>.cdesc{color:var(--dim);font-size:13px;margin:0 0 12px;padding-left:14px}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.subcard{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px}
+.subcard h3{margin:0 0 2px;font-size:15.5px;font-weight:600}
+.subcard h3 a{color:var(--fg)}
+.subcard h3 a:hover{color:var(--brand)}
+.subcard .en{color:var(--dim);font-size:12px;font-style:italic;
+font-family:Georgia,'Times New Roman',serif}
+.subcard .n{color:var(--dim);font-size:12px;margin-top:5px}
+.catbadge{display:inline-block;background:var(--brand-bg);color:var(--brand);
+border-radius:4px;padding:1px 8px;font-size:11px;font-weight:600;margin-left:6px}
+.brief{margin:12px 0;font-size:13.5px;line-height:1.85}
+.brief .sec{margin:8px 0}
+.brief .k{font-weight:700;color:var(--dark)}
+.brief .risk{background:#fdf3f2;border-left:3px solid #c0392b;padding:7px 12px;
+border-radius:0 6px 6px 0}
+.brief .risk .k{color:#c0392b}
+.ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
+padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
+/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
+.meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.meter .ml{font-size:12px;color:var(--dim);width:58px}
+.meter .mbs{display:inline-flex;gap:3px}
+.mb{width:17px;height:10px;border:1px solid var(--line);border-radius:2px;background:#fff}
+.mb.on.h3{background:var(--brand);border-color:var(--brand)}
+.mb.on.c3{background:#6d4c9f;border-color:#6d4c9f}
+.mb.on.h5{background:#c0392b;border-color:#c0392b}
+.meter .mv{font-size:12.5px;color:var(--fg);font-weight:600}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+@media(max-width:640px){.fx{grid-template-columns:1fr}}
+.fx-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.fx-h{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:6px}
+.fx-phy .fx-h{border-bottom:2px solid var(--brand);padding-bottom:4px}
+.fx-psy .fx-h{border-bottom:2px solid #6d4c9f;padding-bottom:4px}
+.fx-sub{display:block;font-weight:400;color:var(--dim);font-size:11px;margin-top:1px}
+.fx ul{margin:0;padding-left:18px}
+.fx li{font-size:12.5px;margin:5px 0;line-height:1.7;color:#37474f}
+.fx li strong{color:var(--dark)}
+.fx .fx-none{color:var(--dim)}
+.fxbar{background:var(--brand-bg);border:1px solid var(--line);border-radius:8px;
+padding:10px 14px;margin:10px 0}
+.fxbar .t{font-size:12px;color:var(--dim);margin-bottom:2px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:12px 15px;margin:10px 0}
+.item h3{margin:0 0 2px;font-size:15px}
+.meta{color:var(--dim);font-size:12.5px;margin:5px 0 2px}
+.body{white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--line);
+border-radius:8px;padding:14px 18px;margin:12px 0}
+.readnote{background:#f8f9fa;border:1px solid var(--line);border-left:4px solid var(--dim);
+border-radius:6px;padding:9px 14px;margin:12px 0;font-size:12.5px;color:#495057}
+.crumb{font-size:12.5px;color:var(--dim);margin:16px 0 4px}
+.crumb a{color:var(--dim)}
+.crumb a:hover{color:var(--brand)}
+.sub-title{color:var(--dim);font-size:13px;font-style:italic;margin:2px 0 4px}
+.colophon{margin-top:44px;padding-top:12px;border-top:1px solid var(--line);
+text-align:center;color:var(--dim);font-size:12px;line-height:1.9}
+details{margin:10px 0}
+details>summary{cursor:pointer;color:var(--brand);font-size:13px;padding:6px 0}
+h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
+border-left:4px solid var(--brand);padding-left:10px}
+.note{color:var(--dim);font-size:12.5px;margin:5px 0}
+</style></head><body><div class='wrap'><div class='crumb'><a href='../substances/pharms-tramadol.html'>← 曲马多（药品）</a> · <a href='../index.html'>返回分类首页</a></div>
+<h1 style='font-size:21px;margin:6px 0 2px'>药 - 抗生素 - &#x27;好好玩,只要注意剂量&#x27;</h1>
+<div class='sub-title'>Tramadol - Erowid Exp - &#x27;Good and Fun, Just Watch the Dosage&#x27;</div>
+<div class='meta'>作者：Squatty Citation · 日期：Jun 16, 2018 · <a href='https://erowid.org/experiences/exp.php?ID=81504' target='_blank'>Erowid 原文 ↗</a></div>
+<div class='readnote'>本页为他人自述经历之机器翻译存档，仅供了解真实后果，不构成任何使用建议。如遇紧急情况，请拨打 120。</div>
+<h2 class='block'>中文译文 <span class='catbadge'>阿片类</span></h2>
+<div class='body'>[Erowid的注意事项:
+报告中描述的剂量可能危及生命.
+服用的剂量超过了大剂量,可能会对健康造成严重风险或导致不良,极端的效应.
+已知这种剂量会导致住院和/或死亡.
+有时报告的极高剂量是错误而不是实际使用的剂量.
+[Erowid的注意事项:
+由于阿片类药物使用可能导致显著的耐受性 (需要更高的剂量来产生相同的效果),因此首次使用者使用的剂量明显小于常用者使用的剂量.
+根据别人服用的剂量来选择自己的剂量可能是极其危险的.
+自2009年初以来, 我一直处方大量阿片类止痛药,
+目前我正在按照处方服用氧化和特拉马多尔.
+我忽略了自己的疼痛, 为了节省几天的药量,
+开始我用氧化做这件事, 用特拉马多尔作为一种高效的助推剂,
+我服用的第一个真正的休用量是500毫克,
+这让我感觉绝对精彩 - - 快乐,能量增加,幸福感,
+唯一真正的副作用是我感到过度恶心.
+几小时后, 我发现自己在吐, 然后恶心消失了,
+我说服我的医生给我开一片200毫克的慢释放型特拉马多尔药,
+打破3到4份, 再一次服用,
+由于特拉马多尔没有任何限制,
+我每月使用7到9盒Zydol,
+我喜欢喝一堆特拉马多尔药, 去酒吧喝一口可乐 (因为酒精和特拉马多尔通常会让我立刻恶作剧),
+我从晚上七点到凌晨四点五分钟都在.
+这一剂量成为我每天的常用剂量.
+我意识到副作用已经开始变得更糟.
+我完全脱离现实, 像是自动驾驶, 完全无法控制自己,
+我很紧张,很快就失去了气,心跳很快,有时会让我担心我正在损害我的器官,尿液缩非常严重,以至于需要10分钟才能尿尿,便秘几天之后,记忆丧失如此严重,以至于我偶尔会在谈话中消失,忘记我在说什么,要说什么,或者另一个人说了什么,睡眠困难
+我只能睡2到4个小时, 再到16到24个小时后才会睡觉 (除非我在睡觉前服用诺特利普提林,
+我决定我已经清醒了, 我还没有足够受到特拉马多尔的影响.
+今天我服用了2000毫克的特拉马多尔,
+这是我有史以来最糟糕的药物体验.
+我第一次注意到心率是每分钟160-180次左右,
+我感觉如此紧张,我不能喝一杯水,
+我心情变得紧张焦虑, 快乐几乎完全消失了.
+由于我那天没有吃任何东西,
+我觉得很热, 汗水流, 需要把风扇全速开启 (当时是冬天, 房间的温度大约是5摄氏度),
+无论我喝多少水, 我都无法排尿,
+我呼吸很快,不节奏, 觉醒得无法在床上静坐, 更不用说睡觉了.
+我感受到的脱离现实是如此强烈, 我不知道我是否醒着,
+我不得不忍受服用过量药物的后果,
+即使在正常的处方剂量 (200毫克缓释剂早上,200毫克缓释剂晚上) 中,
+我下次服用药物的休剂量是大约一周后,
+我打算带着我的手枪到当地枪支俱乐部开几枪.
+我服用了1000毫克 (5片齐多尔药片,分成片) 并去做一些射击.
+我突然被迫向其他射手开枪,
+仿佛我脑海里有另一个人格, 试图指挥我的行为.
+我意识到我一定是患有某种精神病,
+我把手枪卸载,尽快回家,
+我在那个时候的想法让我很害怕,
+这是在2009年6月左右.
+我现在正试图戒掉特拉马多尔和氧化, 因为我发现它们现在效果不那么好,
+我每周服用一次的&quot;休&quot;剂量通常不超过800毫克,
+我发现我最喜欢的药物是阿片类药物, 作为一种合成阿片类药物,
+不幸的是,这种药物不适合持续长时间使用,
+我认为自己很幸运, 唯一的副作用没有包括器官损伤或死亡.
+已使用的证券
+发布时间:2018年6月16日
+药品 - 马多尔 (149):一般 (1),回顾 / 总结 (11),困难经历 (5),成和习惯性 (10),医疗用途 (47),过量服用 (29),宿醉 / 几天后 (46),不适用 (38)</div>
+<details><summary>展开英文原文</summary>
+<div class='body'>Donate BTC or other Cryptocurrency
+Your donation supports practical, accurate info about psychoactive
+plants &amp; drugs. Contribute a bit today!
+Good and Fun, Just Watch the Dosage
+Tramadol
+by
+Squatty
+Citation:   Squatty. &quot;Good and Fun, Just Watch the Dosage: An Experience with Tramadol (exp81504)&quot;.
+Erowid.org
+. Jun 16, 2018. erowid.org/exp/81504
+DOSE:
+repeated
+oral
+Pharms - Tramadol
+(pill / tablet)
+repeated
+oral
+Oxycodone
+(pill / tablet)
+BODY WEIGHT:
+70 kg
+[Erowid Note: 
+The doses described in this report are potentially life threatening. The amount taken is beyond a heavy dose and could pose serious health risks or result in unwanted, extreme effects. Doses such as this have been known to cause hospitalizations and/or deaths. Sometimes extremely high doses reported are errors rather than actual doses used.]
+[Erowid Note: 
+Because opiate use can lead to significant tolerance (requiring higher doses for the same effects), the dose used by a first time user is significantly smaller than that used by a regular user. It can be extremely dangerous to choose ones dose on the basis of the amount taken by someone else. Overdoses of opiates can be fatal.]
+Since the beginning of 2009, I&#x27;ve been prescribed an ever-increasing slew of opiate-based painkillers for chronic back and chest pain. Currently I&#x27;m taking oxycodone and tramadol as prescribed. Initially after finding out that oxycodone and tramadol were more fun to use recreationally than to take as prescribed, I ignored my pain in order to save up several days worth of the pills of which to take in one hit. Initially I was doing this with the oxycodone, and using the tramadol as a bit of a high booster, however as the oxycodone became less effective, and my doses became higher and more frequent, I started taking larger and larger amounts of the tramadol.
+The first true recreational dose of Tramadol I took was 500mg, which was 1/2 of a box of 50mg instant-release pills. This made me feel absolutely fantastic - eurphoria, increased energy levels, a feeling of well-being, and just general all-round good feeling. The only real side-effect was that I felt excessively nauseous. After a couple of hours, I found myself vomiting and then the nausea went away, never to return for that day.
+After taking tramadol in this way, it slowly became less effective, and I was able to talk my doctor into prescribing me 200mg slow-release tramadol pills, from the brand name Zydol. Breaking 3-4 of these up and taking them at once again gave me the great feeling I was so used to getting from Tramadol. As tramadol is not restricted, I was able to get a new prescription each time I ran out without much trouble at all. I was going through about 7-9 boxes of the Zydol per month, and 3 boxes of 50mg instant release.
+I used to love taking a whole heap of tramadol pills and going to the pub and just sitting there, sipping on a coke (as alcohol and tramadol generally give me an instant-hangover) and just watching everyone dance, drink, and have a good time. These nights I would take up to 1500mg of Tramadol, and would be buzzing from around 7pm til 4-5am in the morning. This amount became my regular dose, from day to day.
+It was at these doses that I realised the side effects had started getting worse. I would detach entirely from reality, like I was on autopilot, with no control over myself at all, like I was watching myself through my own eyes. I was jittery, lost my temper very quickly, had a racing heart-rate that sometimes made me worried I was damaging my organs, urine retention so bad that it took up to 10 minutes to take a piss, constipation for days afterwards, memory loss so bad that I occasionally would blank out in a conversation and forget what I was saying, what to say, or what the other person had said, trouble sleeping, in that I would only sleep 2-4 hours and then not be able to sleep again until 16-24 hours later (unless I took Nortriptyline before sleep, of which would then make me sleep for 16-20 hours, totally wasting nearly an entire day), but these were not yet the worst things I had experienced...
+One day after taking 1500mg at about 2pm, I decided that I was sobering up and that I wasn&#x27;t under the influence of tramadol enough yet. This day i took an extra 2000mg of tramadol on top of the initial 1500. This is possibly the worst drug experience I have ever had. The first thing I noticed was a heart rate around 160-180 beats per minute, my blood pressure must have been soaring. I felt so jittery I couldn&#x27;t take a drink of water without spilling half the glass over myself. My thoughts became erratic and incomprehensible, my mood became tense and anxious, and the euphoria almost entirely disapated. On this dose, I vomited about 6 times, mostly bile as I had not ate anything that day. My skin was cold yet I felt so hot and I was sweating so badly that I needed to turn the fan on full speed (this was in the middle of winter, where it was around 5 degrees celcius in the room at the time), my concentration was so low I couldn&#x27;t follow a conversation to a friend over the net for more than a few seconds before I forgot entirely what I was talking about. No matter how much water I drank, I could not urinate, and I could not get my dry mouth lubricated. My breathing was quick and unrhythmic, and I was so awake that I couldn&#x27;t have even laid still in bed, let alone sleep. The detachment from reality that I experienced was so intense, that I had no idea if I was awake, or dreaming, and in the following days, It took me a long time to convince myself that it had infact happened.
+Because the tramadol is so long-lasting, I had to put up with the effects of having taken a massive overdose for around 14 hours, which was possibly the worst 14 hours in my life. In the following days I could still feel the effects of the tramadol, even when on a normal prescribed dosage (200mg slow-release morning, and 200mg slow-release at night).
+The next time I took a recreational dose of the drug again was about a week later, after I&#x27;d felt that I had calmed down enough from the previous dose. It was on a saturday morning, and I had planned to take my pistol to the local gun club to fire off a few rounds. I took 1000mg (5 zydol pills, broken up) and went to do a little shooting. At the range, when I had my loaded pistol in my hand, I was suddenly urged to pull the pistol on some of the other shooters, and pull the trigger just to see what would happen. It was like there was another personality in my head, trying to dictate my actions. I realised that I must have been suffering from a sort of psychosis caused by the large amounts of tramadol that I had been taking. I unloaded my pistol, and went home as soon as I possibly could, as I did not want to hurt anyone. The thoughts I was having at the time were quite frightening to me, and I didn&#x27;t touch tramadol for about 2 weeks afterwards. This was around June in 2009.
+As of writing this in October 2009, I am currently trying to wean myself off tramadol and oxycodone, as I find they&#x27;re doing less good these days, and I have temporarily switched from opiates to cannabis. My &#x27;recreational&#x27; doses of tramadol when I take it for such, about once a week, is usually no more than about 800mg, which I find gives me a nice happy buzz without any dangerous side effects.
+Of the drugs I&#x27;ve used for recreation (cannabis, ecstacy, LSD, oxycodone, tramadol, alcohol, nicotine, codeine, morphine, some others I probably don&#x27;t remember), I find that Opiates are my favourite, and tramadol being a synthetic codeine-based opiate is quite a nice drug to have fun on. Unfortunately, this drug is not good for constant prolonged use, or for using above 500-1000mg which is about when the pros stop outweighing the cons. Safe responsible drug use is one thing that I will more than likely take better heed of next time I&#x27;m trying a new substance, as I count myself lucky that the only side-effects I experienced didn&#x27;t include organ damage or death.
+Exp Year: 2009
+ExpID: 81504
+Gender: Male
+Age at time of experience: 21
+Published: Jun 16, 2018
+Views:
+Not Supported
+[
+View PDF (to print)
+] [
+View LaTeX (for geeks)
+]
+[
+Swap Dark/Light
+]
+Pharms - Tramadol (149) : General (1), Retrospective / Summary (11), Difficult Experiences (5), Addiction &amp; Habituation (10), Medical Use (47), Overdose (29), Hangover / Days After (46), Not Applicable (38)
+COPYRIGHTS: All reports copyright Erowid.
+No AI Training use allowed without written permission.
+TERMS OF USE: By accessing this page, you agree not to download, analyze, distill, reuse, digest, or feed into any AI-type system  the report data without first contacting Erowid Center and receiving written permission.
+Experience Reports are the writings and opinions of the authors who submit them. 
+Some of the activities described are dangerous and/or illegal and none are recommended by Erowid Center.
+Erowid Experience Vault
+© 1995-2024 Erowid</div></details>
+<div class='colophon'>物质效果分类参考 · 数据来源 Erowid Experience Vaults （本地机器翻译）· 分类为编辑整理，仅供参考 · 以现行法规为准</div></div><script></script></body></html>
