@@ -1,4 +1,4 @@
-## 数据抓取与翻译：X(Twitter)[@OoOooo0518](https://x.com/OoOooo0518) | Telegram：[免费提供药物咨询哦~](t.me/melodytik)
+## 数据抓取与翻译：X(Twitter)[@OoOooo0518](https://x.com/OoOooo0518) | Telegram:[免费提供药物咨询哦~](t.me/melodytik)
 
 ## 物质效果分类参考
 
