@@ -1,4 +1,6 @@
-# 物质效果分类参考
+## 数据抓取与翻译：X(Twitter)[@OoOooo0518](https://x.com/OoOooo0518) | Telegram：[免费提供药物咨询哦~](t.me/melodytik)
+
+## 物质效果分类参考
 
 一个面向中文用户的药物/精神活性物质**体验报告博物馆**式参考站。数据来自
 [Erowid Experience Vaults](https://erowid.org/experiences/)（体验报告库），
@@ -22,8 +24,8 @@ push-to-github/
 ├── index.html            # 首页（分类导航 + 搜索 + 880 张物质卡）
 ├── substances/           # 880 个物质页
 ├── reports/              # 5200+ 篇报告页
-├── 404.html              # 404 页面（自动跳回首页）
-├── .nojekyll             # 关闭 Jekyll，避免下划线目录被忽略
+├── 404.html              # 404 页面
+├── .nojekyll             # 关闭 Jekyll
 └── README.md
 ```
 
