@@ -13,7 +13,6 @@ flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
 .site-head h1{font-size:24px;margin:0;font-weight:700}
 .site-head .tag{color:var(--dim);font-size:13px}
 .site-head .tag small{display:block;margin-top:2px}
-/* 站长角标：头像 + 名字 + X 图标（悬停 X 放大，整块点击跳推特） */
 .owner{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
 background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px 5px 6px;
 box-shadow:0 1px 4px rgba(20,40,60,.07);transition:border-color .15s ease,box-shadow .15s ease}
@@ -22,6 +21,12 @@ box-shadow:0 1px 4px rgba(20,40,60,.07);transition:border-color .15s ease,box-sh
 .owner .oname{font-size:12.5px;font-weight:600;color:var(--dark)}
 .owner .xicon{width:17px;height:17px;border-radius:50%;transition:transform .15s ease}
 .owner:hover .xicon{transform:scale(1.25)}
+.owner-note{margin:14px 0 2px;text-align:center;font-size:15px;font-weight:700;
+line-height:1.7;color:#c0392b;letter-spacing:.4px;
+background:linear-gradient(90deg,#fff6f6,#ffe9e9,#fff6f6);
+border:1px solid #f3c9c9;border-radius:10px;padding:10px 14px;
+box-shadow:0 2px 8px rgba(192,57,43,.10)}
+.owner-note .hl{color:#e67e22}
 .filterbar{position:sticky;top:0;background:var(--bg);z-index:10;
 padding:10px 0 8px;border-bottom:1px solid var(--line)}
 .filterbar .frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -73,7 +78,6 @@ border-radius:0 6px 6px 0}
 .brief .risk .k{color:#c0392b}
 .ov{font-size:13px;color:#37474f;background:var(--brand-bg);border-left:3px solid var(--brand);
 padding:6px 11px;border-radius:0 6px 6px 0;margin:8px 0}
-/* 生理作用/心理作用/生理危害 三量表 + 效应分栏 */
 .meter{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
 .meter .ml{font-size:12px;color:var(--dim);width:58px}
 .meter .mbs{display:inline-flex;gap:3px}
@@ -116,6 +120,7 @@ h2.block{font-size:17px;margin:24px 0 8px;color:var(--dark);
 border-left:4px solid var(--brand);padding-left:10px}
 .note{color:var(--dim);font-size:12.5px;margin:5px 0}
 </style></head><body><div class='wrap'><div class='site-head'><h1>物质效果分类参考</h1><div class='tag'>按药理作用与主观效应谱分类 · 小字：数据来源 Erowid Experience Vaults（机器翻译）</div><a class='owner' href='https://x.com/OoOooo0518' target='_blank' rel='noopener' title='X（推特）：@OoOooo0518'><img class='ava' src='assets/avatar.jpg' alt='站长头像'><span class='oname'>OoOooo0518</span><img class='xicon' src='assets/x-logo.webp' alt='X'></a></div>
+<div class='owner-note'>右上角推特联系我出售云药愈美片28r/盒<span class='hl'>(满10包邮|量大更有优惠!)</span>同时免费提供药物咨询哦~</div>
 <div class='filterbar'>
 <nav class='frow' id='fCats'><span class='ftag'>药理分类</span>
 <button type='button' class='fbtn' style='--c:#8e44ad' data-cat='致幻剂'>致幻剂<span class='num'>195</span></button>
@@ -173,12 +178,10 @@ border-left:4px solid var(--brand);padding-left:10px}
       secs=document.querySelectorAll('section.cat'),
       flat=document.getElementById('sortedAll');
   var selCat='', selLvl='', selSort='', selDir='';
-  // 全局排序容器：选中排序依据时，所有可见卡片平铺进该容器并按量表全局排序
   var cardArr=Array.prototype.slice.call(cards),
       cardIdx=new Map();
   cardArr.forEach(function(e,i){ cardIdx.set(e,i); });
 
-  // 记录每个分类 grid 的原始卡片顺序，便于取消排序时还原
   var grids=[];
   secs.forEach(function(sec){
     var g=sec.querySelector('.catgrid');
@@ -210,15 +213,14 @@ border-left:4px solid var(--brand);padding-left:10px}
       e.style.display=ok?'':'none';
       if(ok)n++;
     });
-    // 排序：选定量表时跨全部分类做【全局排序】，否则还原到分类区块
     if(selSort){
-      flat.innerHTML='';            // 先清空，避免重复追加
+      flat.innerHTML='';
       flat.style.display='';
       var all=cardArr.filter(function(e){return e.style.display!=='none';});
       all.sort(function(a,b){
         var d=meterVal(a)-meterVal(b);
         if(d!==0) return selDir==='desc'? -d : d;
-        return cardIdx.get(a)-cardIdx.get(b); // 同分保持原文档顺序
+        return cardIdx.get(a)-cardIdx.get(b);
       });
       all.forEach(function(k){ flat.appendChild(k); });
     } else {
@@ -261,7 +263,6 @@ border-left:4px solid var(--brand);padding-left:10px}
     selLvl=toggle(rowLvl,b,'lvl',selLvl);
     flt();
   });
-  // 同一行内：data-sort（排序依据）与 data-dir（排序方向）分组切换
   function activate(group,btn,key,cur){
     if(cur===btn.dataset[key]){ btn.classList.remove('on'); return ''; }
     group.forEach(function(b){ b.classList.remove('on'); });
